@@ -33,7 +33,7 @@ void main() {
     parserTestHarness(
       input: const ParserTestHarnessInput.fromString(input: "100"),
       parser: const SimpleConstParser()
-          .build(start: const SimpleConstParser().CONST),
+          .build(start: const SimpleConstParser().lexicalConst),
       result: const SwidiConst.fromSwidiConstNumber(
           swidiConstNumber: SwidiConstNumber(
         value: "100",

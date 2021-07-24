@@ -3,5 +3,5 @@ import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iStringContentDqLex
 abstract class IConstStringLexer<T> implements IStringContentDqLexer<T> {
   const IConstStringLexer();
 
-  T lexConstString();
+  T constString();
 }

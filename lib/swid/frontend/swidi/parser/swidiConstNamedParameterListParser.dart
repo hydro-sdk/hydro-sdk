@@ -19,7 +19,7 @@ mixin SwidiConstNamedParameterListParser
         SwidiConstParser
     implements IConstNamedParameterListLexer {
   Parser<List<SwidiConstNamedParameterList>> constNamedParameterList() =>
-      super.lexConstNamedParameterList().map(
+      super.constNamedParameterList().map(
             (x) => [
               SwidiConstNamedParameterList(
                 parameters: collectTokens<SwidiConstNamedParameter>(x),

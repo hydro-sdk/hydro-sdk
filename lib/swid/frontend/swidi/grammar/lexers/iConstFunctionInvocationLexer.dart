@@ -5,5 +5,5 @@ abstract class IConstFunctionInvocationLexer<T>
     implements IIdentifierLexer<T>, IConstParameterListLexer<T> {
   const IConstFunctionInvocationLexer();
 
-  T lexConstFunctionInvocation();
+  T constFunctionInvocation();
 }

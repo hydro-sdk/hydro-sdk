@@ -5,5 +5,5 @@ abstract class IIdentifierPartLexer<T>
     implements IIdentifierStartLexer<T>, IDigitLexer<T> {
   const IIdentifierPartLexer();
 
-  T lexIdentifierPart();
+  T identifierPart();
 }

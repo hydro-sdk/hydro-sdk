@@ -32,10 +32,10 @@ class SwidiGrammarDefinition extends GrammarDefinition
   Parser topLevelDefinition() => ref0(classDefinition);
 
   Parser classDefinition() =>
-      ref0(lexAbstract).optional() &
-      ref0(lexClass) &
+      ref0(lexicalAbstract).optional() &
+      ref0(lexicalClass) &
       ref0(libraryScopePrefix).optional() &
-      ref0(lexIdentifier) &
+      ref0(identifier) &
       ref1(token, "{") &
       ref0(functionDeclaration).star() &
       ref1(token, "}");

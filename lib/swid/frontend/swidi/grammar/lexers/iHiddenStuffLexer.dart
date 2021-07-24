@@ -9,5 +9,5 @@ abstract class IHiddenStuffLexer<T>
         IMultiLineCommentLexer<T> {
   const IHiddenStuffLexer();
 
-  T lexHiddenStuff();
+  T hiddenStuff();
 }

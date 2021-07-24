@@ -29,61 +29,59 @@ mixin SwidiConstGrammarDefinition
         IConstPositionalParameterListLexer,
         IConstStringLexer {
   @override
-  Parser lexConst() =>
-      ref0(lexConstNumber) |
-      ref0(lexConstString) |
-      ref0(lexConstFunctionInvocation);
+  Parser lexicalConst() =>
+      ref0(constNumber) | ref0(constString) | ref0(constFunctionInvocation);
 
   @override
-  Parser lexConstNumber() => (ref0(lexNumber));
+  Parser constNumber() => (ref0(number));
 
   @override
-  Parser lexConstString() =>
-      char('@') & char('"') & ref0(lexStringContentDq).star() & char('"');
+  Parser constString() =>
+      char('@') & char('"') & ref0(stringContentDq).star() & char('"');
 
   @override
-  Parser lexConstNamedParameter() =>
-      ref0(lexIdentifier) & ref1(token, ':') & ref0(lexConst);
+  Parser constNamedParameter() =>
+      ref0(identifier) & ref1(token, ':') & ref0(lexicalConst);
 
   @override
-  Parser lexConstPositionalParameterList() => (ref0(
-        lexConst,
+  Parser constPositionalParameterList() => (ref0(
+        lexicalConst,
       ) &
       (ref1(
                 token,
                 ",",
               ) &
               ref0(
-                lexConst,
+                lexicalConst,
               ))
           .star());
 
   @override
-  Parser lexConstNamedParameterList() => (ref0(
-        lexConstNamedParameter,
+  Parser constNamedParameterList() => (ref0(
+        constNamedParameter,
       ) &
       (ref1(
                 token,
                 ",",
               ) &
               ref0(
-                lexConstNamedParameter,
+                constNamedParameter,
               ))
           .star());
 
   @override
-  Parser lexConstParameterList() =>
-      (ref0(lexConstPositionalParameterList) &
+  Parser constParameterList() =>
+      (ref0(constPositionalParameterList) &
           ref1(token, ",") &
-          ref0(lexConstNamedParameterList)) |
-      (ref0(lexConstPositionalParameterList)) |
-      (ref0(lexConstNamedParameterList));
+          ref0(constNamedParameterList)) |
+      (ref0(constPositionalParameterList)) |
+      (ref0(constNamedParameterList));
 
   @override
-  Parser lexConstFunctionInvocation() =>
-      ref0(lexIdentifier) &
+  Parser constFunctionInvocation() =>
+      ref0(identifier) &
       ref1(token, "(") &
-      ref0(lexConstParameterList) &
+      ref0(constParameterList) &
       ref1(token, ",").optional() &
       ref1(token, ")");
 }

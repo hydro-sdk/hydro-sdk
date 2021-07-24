@@ -3,5 +3,5 @@ import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iHiddenStuffLexer.d
 abstract class IHiddenLexer<T> implements IHiddenStuffLexer<T> {
   const IHiddenLexer();
 
-  T lexHidden();
+  T hidden();
 }

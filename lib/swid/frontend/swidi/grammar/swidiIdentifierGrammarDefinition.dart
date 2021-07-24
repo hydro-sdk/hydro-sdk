@@ -8,5 +8,5 @@ mixin SwidiIdentifierGrammarDefinition
     on GrammarDefinition, SwidiLexicalTokensGrammarDefinition
     implements IIdentifierLexer {
   @override
-  Parser lexIdentifier() => ref1(token, ref0(lexLexicalIdentifier));
+  Parser identifier() => ref1(token, ref0(lexicalIdentifier));
 }

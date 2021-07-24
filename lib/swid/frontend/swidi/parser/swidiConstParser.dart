@@ -15,7 +15,8 @@ mixin SwidiConstParser
         SwidiConstNumberParser,
         SwidiConstStringParser
     implements IConstLexer {
-  Parser<SwidiConst> CONST() => super.lexConst().map((x) {
+  @override
+  Parser<SwidiConst> lexicalConst() => super.lexicalConst().map((x) {
         if (x is SwidiConstNumber) {
           return SwidiConst.fromSwidiConstNumber(
             swidiConstNumber: x,

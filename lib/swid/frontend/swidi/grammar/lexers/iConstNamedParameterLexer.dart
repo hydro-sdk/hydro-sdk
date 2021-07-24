@@ -5,5 +5,5 @@ abstract class IConstNamedParameterLexer<T>
     implements IIdentifierLexer<T>, IConstLexer<T> {
   const IConstNamedParameterLexer();
 
-  T lexConstNamedParameter();
+  T constNamedParameter();
 }

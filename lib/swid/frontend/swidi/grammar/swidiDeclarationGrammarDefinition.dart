@@ -15,13 +15,13 @@ mixin SwidiDeclarationGrammarDefinition
         SwidiConstGrammarDefinition {
   Parser returnType() => ref0(type);
 
-  Parser simpleDeclaration() => (ref0(type) & ref0(lexIdentifier));
+  Parser simpleDeclaration() => (ref0(type) & ref0(identifier));
 
   Parser declarationWithDefaultConstValue() =>
-      ref0(simpleDeclaration) & ref1(token, "=") & ref0(lexConst);
+      ref0(simpleDeclaration) & ref1(token, "=") & ref0(lexicalConst);
 
   Parser qualified() =>
-      ref0(lexIdentifier) & (ref1(token, ".") & ref0(lexIdentifier)).star();
+      ref0(identifier) & (ref1(token, ".") & ref0(identifier)).star();
 
   Parser type() =>
       ref0(libraryScopePrefix).optional() &
@@ -41,7 +41,7 @@ mixin SwidiDeclarationGrammarDefinition
 
   Parser libraryScopePrefix() =>
       char('"') &
-      ref0(lexStringContentDq).star() &
+      ref0(stringContentDq).star() &
       char('"') &
       ref1(token, ":") &
       ref1(token, ":");
@@ -52,7 +52,7 @@ mixin SwidiDeclarationGrammarDefinition
   Parser typeList() => ref0(type) & (ref1(token, ",") & ref0(type)).star();
 
   Parser typeFormal() =>
-      ref0(lexIdentifier) & (ref1(token, "extends") & ref0(type)).optional();
+      ref0(identifier) & (ref1(token, "extends") & ref0(type)).optional();
 
   Parser typeFormalList() =>
       ref0(typeFormal) & (ref1(token, ",") & ref0(typeFormal)).star();

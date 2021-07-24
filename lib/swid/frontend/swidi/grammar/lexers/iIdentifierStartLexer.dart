@@ -4,5 +4,5 @@ abstract class IIdentifierStartLexer<T>
     implements IIdentifierStartNoDollarLexer<T> {
   const IIdentifierStartLexer();
 
-  T lexIdentifierStart();
+  T identifierStart();
 }

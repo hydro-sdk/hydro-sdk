@@ -18,29 +18,27 @@ mixin SwidiWhitespaceGrammarDefinition on GrammarDefinition
         IMultiLineCommentLexer,
         INewlineLexer {
   @override
-  Parser lexHidden() => ref0(lexHiddenStuff).plus();
+  Parser hidden() => ref0(hiddenStuff).plus();
 
   @override
-  Parser lexHiddenStuff() =>
-      ref0(lexWhitespace) |
-      ref0(lexSingleLineComment) |
-      ref0(lexMultiLineComment);
+  Parser hiddenStuff() =>
+      ref0(lexicalWhitespace) |
+      ref0(singleLineComment) |
+      ref0(multiLineComment);
 
   @override
-  Parser lexWhitespace() => whitespace();
+  Parser lexicalWhitespace() => whitespace();
 
   @override
-  Parser lexSingleLineComment() =>
-      string('//') &
-      ref0(lexNewline).neg().star() &
-      ref0(lexNewline).optional();
+  Parser singleLineComment() =>
+      string('//') & ref0(newline).neg().star() & ref0(newline).optional();
 
   @override
-  Parser lexMultiLineComment() =>
+  Parser multiLineComment() =>
       string('/*') &
-      (ref0(lexMultiLineComment) | string('*/').neg()).star() &
+      (ref0(multiLineComment) | string('*/').neg()).star() &
       string('*/');
 
   @override
-  Parser lexNewline() => pattern('\n\r');
+  Parser newline() => pattern('\n\r');
 }

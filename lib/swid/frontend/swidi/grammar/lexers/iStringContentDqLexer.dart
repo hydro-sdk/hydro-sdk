@@ -1,5 +1,5 @@
 abstract class IStringContentDqLexer<T> {
   const IStringContentDqLexer();
 
-  T lexStringContentDq();
+  T stringContentDq();
 }

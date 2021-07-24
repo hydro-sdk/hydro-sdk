@@ -25,7 +25,7 @@ mixin SwidiConstFunctionInvocationParser
         SwidiConstParser
     implements IConstFunctionInvocationLexer {
   Parser<SwidiConstFunctionInvocation> constFunctionInvocation() =>
-      super.lexConstFunctionInvocation().map(
+      super.constFunctionInvocation().map(
             (x) => (({
               required List<SwidiConstParameterList> parameterList,
             }) =>

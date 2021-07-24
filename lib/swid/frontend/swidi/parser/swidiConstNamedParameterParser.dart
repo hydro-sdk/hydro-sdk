@@ -12,7 +12,7 @@ mixin SwidiConstNamedParameterParser
     on SwidiConstGrammarDefinition, SwidiConstParser
     implements IConstNamedParameterLexer {
   Parser<SwidiConstNamedParameter> constNamedParameter() =>
-      super.lexConstNamedParameter().map(
+      super.constNamedParameter().map(
             (x) => SwidiConstNamedParameter(
               name: List.from(x).whereType<Token?>().first?.input ?? "",
               value: (({

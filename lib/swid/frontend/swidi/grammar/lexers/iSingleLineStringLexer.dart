@@ -5,5 +5,5 @@ abstract class ISingleLineStringLexer<T>
     implements IStringContentDqLexer<T>, IStringContentSqLexer<T> {
   const ISingleLineStringLexer();
 
-  T lexSingleLineString();
+  T singleLineString();
 }

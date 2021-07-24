@@ -5,5 +5,5 @@ abstract class ILexicalIdentifierLexer<T>
     implements IIdentifierStartLexer<T>, IIdentifierPartLexer<T> {
   const ILexicalIdentifierLexer();
 
-  T lexLexicalIdentifier();
+  T lexicalIdentifier();
 }

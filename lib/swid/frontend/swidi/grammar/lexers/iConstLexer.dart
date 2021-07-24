@@ -5,5 +5,5 @@ abstract class IConstLexer<T>
     implements IConstNumberLexer<T>, IConstStringLexer<T> {
   const IConstLexer();
 
-  T lexConst();
+  T lexicalConst();
 }

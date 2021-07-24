@@ -7,5 +7,5 @@ abstract class IConstParameterListLexer<T>
         IConstNamedParameterListLexer<T> {
   const IConstParameterListLexer();
 
-  T lexConstParameterList();
+  T constParameterList();
 }

@@ -7,7 +7,7 @@ import 'package:hydro_sdk/swid/frontend/swidi/parser/util/collectTokens.dart';
 
 mixin SwidiConstNumberParser on SwidiConstGrammarDefinition
     implements IConstNumberLexer {
-  Parser<SwidiConstNumber> constNumber() => super.lexConstNumber().map((x) {
+  Parser<SwidiConstNumber> constNumber() => super.constNumber().map((x) {
         var tokens = collectTokens<String>(x);
 
         return SwidiConstNumber(

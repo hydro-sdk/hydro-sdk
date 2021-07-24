@@ -5,5 +5,5 @@ abstract class IStringLexer<T>
     implements IMultiLineStringLexer<T>, ISingleLineStringLexer<T> {
   const IStringLexer();
 
-  T lexString();
+  T lexicalString();
 }

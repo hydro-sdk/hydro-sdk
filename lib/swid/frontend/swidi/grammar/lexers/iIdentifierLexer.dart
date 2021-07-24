@@ -3,5 +3,5 @@ import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iLexicalIdentifierL
 abstract class IIdentifierLexer<T> implements ILexicalIdentifierLexer<T> {
   const IIdentifierLexer();
 
-  T lexIdentifier();
+  T identifier();
 }

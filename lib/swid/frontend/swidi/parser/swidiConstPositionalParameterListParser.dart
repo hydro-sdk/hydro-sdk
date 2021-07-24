@@ -18,7 +18,7 @@ mixin SwidiConstPositionalParameterListParser
     implements IConstPositionalParameterListLexer {
   Parser<List<SwidiConstPositionalParameterList>>
       constPositionalParameterList() =>
-          super.lexConstPositionalParameterList().map(
+          super.constPositionalParameterList().map(
                 (x) => [
                   SwidiConstPositionalParameterList(
                     parameters: collectTokens<SwidiConst>(x),

@@ -54,89 +54,88 @@ mixin SwidiLexicalTokensGrammarDefinition
         ISingleLineStringLexer,
         IHashbangLexer {
   @override
-  Parser lexAbstract() => ref1(token, "abstract");
+  Parser lexicalAbstract() => ref1(token, "abstract");
 
   @override
-  Parser lexVoid() => ref1(token, "void");
+  Parser lexicalVoid() => ref1(token, "void");
 
   @override
-  Parser lexClass() => ref1(token, "class");
+  Parser lexicalClass() => ref1(token, "class");
 
   @override
-  Parser lexLexicalIdentifier() =>
-      ref0(lexIdentifierStart) & ref0(lexIdentifierPart).star();
+  Parser lexicalIdentifier() =>
+      ref0(identifierStart) & ref0(identifierPart).star();
 
   @override
-  Parser lexHexNumber() =>
-      string('0x') & ref0(lexHexDigit).plus() |
-      string('0X') & ref0(lexHexDigit).plus();
+  Parser hexNumber() =>
+      string('0x') & ref0(hexDigit).plus() |
+      string('0X') & ref0(hexDigit).plus();
 
   @override
-  Parser lexNumber() =>
-      ref0(lexDigit).plus() &
-          ref0(lexNumberOptFractionalPart) &
-          ref0(lexExponent).optional() &
-          ref0(lexNumberOptIllegalEnd) |
+  Parser number() =>
+      ref0(digit).plus() &
+          ref0(numberOptFractionalPart) &
+          ref0(exponent).optional() &
+          ref0(numberOptIllegalEnd) |
       char('.') &
-          ref0(lexDigit).plus() &
-          ref0(lexExponent).optional() &
-          ref0(lexNumberOptIllegalEnd);
+          ref0(digit).plus() &
+          ref0(exponent).optional() &
+          ref0(numberOptIllegalEnd);
 
   @override
-  Parser lexNumberOptFractionalPart() =>
-      char('.') & ref0(lexDigit).plus() | epsilon();
+  Parser numberOptFractionalPart() =>
+      char('.') & ref0(digit).plus() | epsilon();
 
   @override
-  Parser lexNumberOptIllegalEnd() => epsilon();
+  Parser numberOptIllegalEnd() => epsilon();
 
   @override
-  Parser lexHexDigit() => pattern('0-9a-fA-F');
+  Parser hexDigit() => pattern('0-9a-fA-F');
 
   @override
-  Parser lexIdentifierStart() => ref0(lexIdentifierStartNoDollar) | char('\$');
+  Parser identifierStart() => ref0(identifierStartNoDollar) | char('\$');
 
   @override
-  Parser lexIdentifierStartNoDollar() => ref0(lexLetter) | char('_');
+  Parser identifierStartNoDollar() => ref0(letter) | char('_');
 
   @override
-  Parser lexIdentifierPart() => ref0(lexIdentifierStart) | ref0(lexDigit);
+  Parser identifierPart() => ref0(identifierStart) | ref0(digit);
 
   @override
-  Parser lexLetter() => letter();
+  Parser lexicalLetter() => letter();
 
   @override
-  Parser lexDigit() => digit();
+  Parser lexicalDigit() => digit();
 
   @override
-  Parser lexExponent() =>
-      pattern('eE') & pattern('+-').optional() & ref0(lexDigit).plus();
+  Parser exponent() =>
+      pattern('eE') & pattern('+-').optional() & ref0(digit).plus();
 
   @override
-  Parser lexString() =>
-      char('@').optional() & ref0(lexMultiLineString) |
-      ref0(lexSingleLineString);
+  Parser lexicalString() =>
+      char('@').optional() & ref0(multiLineString) | ref0(singleLineString);
 
   @override
-  Parser lexMultiLineString() =>
+  Parser multiLineString() =>
       string('"""') & any().starLazy(string('"""')) & string('"""') |
       string("'''") & any().starLazy(string("'''")) & string("'''");
 
   @override
-  Parser lexSingleLineString() =>
-      char('"') & ref0(lexStringContentDq).star() & char('"') |
-      char("'") & ref0(lexStringContentSq).star() & char("'") |
+  Parser singleLineString() =>
+      char('"') & ref0(stringContentDq).star() & char('"') |
+      char("'") & ref0(stringContentSq).star() & char("'") |
       string('@"') & pattern('^"\n\r').star() & char('"') |
       string("@'") & pattern("^'\n\r").star() & char("'");
 
   @override
-  Parser lexStringContentDq() =>
+  Parser stringContentDq() =>
       pattern('^\\"\n\r') | char('\\') & pattern('\n\r');
 
   @override
-  Parser lexStringContentSq() =>
+  Parser stringContentSq() =>
       pattern("^\\'\n\r") | char('\\') & pattern('\n\r');
 
   @override
-  Parser lexHashbang() =>
-      string('#!') & pattern('^\n\r').star() & ref0(lexNewline).optional();
+  Parser hashbang() =>
+      string('#!') & pattern('^\n\r').star() & ref0(newline).optional();
 }
