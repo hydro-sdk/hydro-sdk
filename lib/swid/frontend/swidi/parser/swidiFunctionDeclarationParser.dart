@@ -1,3 +1,5 @@
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iFunctionDeclarationLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/parsers/iFunctionDeclarationParser.dart';
 import 'package:petitparser/petitparser.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/constantPrimitives.dart';
@@ -21,7 +23,11 @@ mixin SwidiFunctionDeclarationParser
         SwidiTypeFormalListParser,
         SwidiTypeFormalListDeclarationParser,
         SwidiSimpleDeclarationParser,
-        SwidiFunctionDeclarationParameterListParser {
+        SwidiFunctionDeclarationParameterListParser
+    implements
+        IFunctionDeclarationLexer,
+        IFunctionDeclarationParser<Parser<SwidiFunctionDeclaration>> {
+  @override
   Parser<SwidiFunctionDeclaration> functionDeclaration() =>
       super.functionDeclaration().map((x) {
         return SwidiFunctionDeclaration(

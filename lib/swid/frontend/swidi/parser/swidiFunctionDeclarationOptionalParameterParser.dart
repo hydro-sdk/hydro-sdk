@@ -1,3 +1,5 @@
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iFunctionDeclarationOptionalParameterLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/parsers/iFunctionDeclarationOptionalParameterParser.dart';
 import 'package:petitparser/petitparser.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiDeclaration.dart';
@@ -6,7 +8,14 @@ import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiGrammarDefinition.dar
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiSimpleDeclarationParser.dart';
 
 mixin SwidiFunctionDeclarationOptionalParameterParser
-    on SwidiGrammarDefinition, SwidiSimpleDeclarationParser {
+    on
+        SwidiGrammarDefinition,
+        SwidiSimpleDeclarationParser
+    implements
+        IFunctionDeclarationOptionalParameterLexer,
+        IFunctionDeclarationOptionalParameterParser<
+            Parser<SwidiOptionalParameter?>> {
+  @override
   Parser<SwidiOptionalParameter?> functionDeclarationOptionalParameter() =>
       super.functionDeclarationOptionalParameter().map((x) {
         if (x is SwidiDeclaration) {

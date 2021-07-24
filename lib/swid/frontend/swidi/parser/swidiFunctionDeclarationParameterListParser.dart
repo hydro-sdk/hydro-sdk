@@ -1,3 +1,5 @@
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iFunctionDeclarationParameterListLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/parsers/iFunctionDeclarationParameterListParser.dart';
 import 'package:petitparser/petitparser.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiNamedParameter.dart';
@@ -17,7 +19,12 @@ mixin SwidiFunctionDeclarationParameterListParser
         SwidiSimpleDeclarationParser,
         SwidiFunctionDeclarationOptionalParameterParser,
         SwidiFunctionDeclarationPositionalParameterParser,
-        SwidiFunctionDeclarationNamedParameterParser {
+        SwidiFunctionDeclarationNamedParameterParser
+    implements
+        IFunctionDeclarationParameterListLexer,
+        IFunctionDeclarationParameterListParser<
+            Parser<List<SwidiPositionalOrOptionalOrNamedParameter>>> {
+  @override
   Parser<List<SwidiPositionalOrOptionalOrNamedParameter>>
       functionDeclarationParameterList() =>
           super.functionDeclarationParameterList().map((x) {
