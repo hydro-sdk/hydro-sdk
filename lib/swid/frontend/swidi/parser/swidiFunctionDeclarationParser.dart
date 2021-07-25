@@ -1,3 +1,12 @@
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iFunctionDeclarationNamedParameterLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iFunctionDeclarationOptionalParameterLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iFunctionDeclarationParameterListLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iFunctionDeclarationPositionalParameterLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iTypeFormalListLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/parsers/iFunctionDeclarationNamedParameterParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/parsers/iFunctionDeclarationOptionalParameterParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/parsers/iFunctionDeclarationParameterListParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/parsers/iFunctionDeclarationPositionalParameterParser.dart';
 import 'package:petitparser/petitparser.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/constantPrimitives.dart';
@@ -26,11 +35,24 @@ mixin SwidiFunctionDeclarationParser
         SwidiFunctionDeclarationParameterListParser
     implements
         IFunctionDeclarationLexer,
-        IFunctionDeclarationParser<Parser<SwidiFunctionDeclaration>> {
+        IFunctionDeclarationNamedParameterLexer,
+        IFunctionDeclarationOptionalParameterLexer,
+        IFunctionDeclarationParameterListLexer,
+        IFunctionDeclarationPositionalParameterLexer,
+        ITypeFormalListLexer,
+        IFunctionDeclarationParser<Parser<SwidiFunctionDeclaration>>,
+        IFunctionDeclarationNamedParameterParser<Parser<SwidiNamedParameter?>>,
+        IFunctionDeclarationOptionalParameterParser<
+            Parser<SwidiOptionalParameter?>>,
+        IFunctionDeclarationParameterListParser<
+            Parser<List<SwidiPositionalOrOptionalOrNamedParameter>>>,
+        IFunctionDeclarationPositionalParameterParser<
+            Parser<SwidiPositionalParameter?>> {
   @override
-  Parser<SwidiFunctionDeclaration> functionDeclaration() =>
-      super.functionDeclaration().map((x) {
-        return SwidiFunctionDeclaration(
+  Parser<SwidiFunctionDeclaration> functionDeclaration() => super
+      .functionDeclaration()
+      .map(
+        (x) => SwidiFunctionDeclaration(
           name: x[1].input,
           returnType: collectTokens<SwidiInterface>(x).first,
           optionalParameters: [
@@ -71,6 +93,6 @@ mixin SwidiFunctionDeclarationParser
               typeFormals: collectTokens<SwidiTypeFormalList>(x),
             )),
           ],
-        );
-      });
+        ),
+      );
 }

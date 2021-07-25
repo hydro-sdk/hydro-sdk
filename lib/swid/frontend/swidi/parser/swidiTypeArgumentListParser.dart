@@ -1,3 +1,5 @@
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iTypeListLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/parsers/iTypeListParser.dart';
 import 'package:petitparser/petitparser.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiInterface.dart';
@@ -12,7 +14,9 @@ mixin SwidiTypeArgumentListParser
     on SwidiDeclarationGrammarDefinition, SwidiTypeListParser
     implements
         ITypeArgumentsLexer,
-        ITypeArgumentListParser<Parser<SwidiTypeArgumentList>> {
+        ITypeListLexer,
+        ITypeArgumentListParser<Parser<SwidiTypeArgumentList>>,
+        ITypeListParser<Parser<List<SwidiInterface>>> {
   @override
   Parser<SwidiTypeArgumentList> typeArguments() =>
       super.typeArguments().map((x) {

@@ -9,11 +9,9 @@ import 'package:hydro_sdk/swid/frontend/swidi/parser/util/collectTokens.dart';
 mixin SwidiConstNumberParser on SwidiConstGrammarDefinition
     implements IConstNumberLexer, IConstNumberParser<Parser<SwidiConstNumber>> {
   @override
-  Parser<SwidiConstNumber> constNumber() => super.constNumber().map((x) {
-        var tokens = collectTokens<String>(x);
-
-        return SwidiConstNumber(
-          value: tokens.join(),
-        );
-      });
+  Parser<SwidiConstNumber> constNumber() => super.constNumber().map(
+        (x) => SwidiConstNumber(
+          value: collectTokens<String>(x).join(),
+        ),
+      );
 }

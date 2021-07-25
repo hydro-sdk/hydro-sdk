@@ -1,3 +1,5 @@
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iTypeFormalListLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/parsers/iTypeFormalListParser.dart';
 import 'package:petitparser/petitparser.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiTypeFormal.dart';
@@ -12,7 +14,9 @@ mixin SwidiTypeFormalListDeclarationParser
     on SwidiDeclarationGrammarDefinition, SwidiTypeFormalListParser
     implements
         ITypeFormalListDeclarationLexer,
-        ITypeFormalListDeclarationParser<Parser<SwidiTypeFormalList>> {
+        ITypeFormalListLexer,
+        ITypeFormalListDeclarationParser<Parser<SwidiTypeFormalList>>,
+        ITypeFormalListParser<Parser<List<SwidiTypeFormal>>> {
   @override
   Parser<SwidiTypeFormalList> typeFormalListDeclaration() =>
       super.typeFormalListDeclaration().map((x) {
