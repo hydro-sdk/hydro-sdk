@@ -21,9 +21,9 @@ class SimpleTypeFormalListParser extends SwidiGrammarDefinition
     with
         SwidiLibraryScopePrefixParser,
         SwidiReferenceDeclarationPrefixParser,
+        SwidiTypeParser,
         SwidiTypeListParser,
         SwidiTypeArgumentListParser,
-        SwidiTypeParser,
         SwidiTypeFormalParser,
         SwidiTypeFormalListParser,
         SwidiTypeFormalListDeclarationParser {

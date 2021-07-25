@@ -27,9 +27,9 @@ class SimpleDeclarationParser extends SwidiGrammarDefinition
     with
         SwidiLibraryScopePrefixParser,
         SwidiReferenceDeclarationPrefixParser,
+        SwidiTypeParser,
         SwidiTypeListParser,
         SwidiTypeArgumentListParser,
-        SwidiTypeParser,
         SwidiConstNumberParser,
         SwidiConstStringParser,
         SwidiConstParser,

@@ -7,11 +7,9 @@ import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iTypeListLexer.dart
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiDeclarationGrammarDefinition.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/parsers/iTypeArgumentListParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/parsers/iTypeListParser.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiTypeListParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/util/collectTokens.dart';
 
-mixin SwidiTypeArgumentListParser
-    on SwidiDeclarationGrammarDefinition, SwidiTypeListParser
+mixin SwidiTypeArgumentListParser on SwidiDeclarationGrammarDefinition
     implements
         ITypeArgumentsLexer,
         ITypeListLexer,
