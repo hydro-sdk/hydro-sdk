@@ -29,6 +29,7 @@ mixin SwidiTypeParser
         IReferenceDeclarationPrefixParser<
             Parser<SwidiReferenceDeclarationPrefix>>,
         ITypeArgumentListParser<Parser<SwidiTypeArgumentList>> {
+  @override
   Parser<SwidiInterface> type() => super.type().map((x) {
         final tokenList = collectTokens<Token>(x);
         String? token;
