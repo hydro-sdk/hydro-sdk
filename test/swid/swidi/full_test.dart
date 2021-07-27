@@ -51,6 +51,7 @@ void main() {
               typeFormals: [],
               name: "foo",
               returnType: SwidiInterface(
+                annotations: [],
                 typeArguments: [],
                 name: "void",
                 libraryScopePrefix: SwidiLibraryScopePrefix.empty,
@@ -64,6 +65,7 @@ void main() {
                     declaration: SwidiDeclaration(
                         name: "bar",
                         type: SwidiInterface(
+                          annotations: [],
                           typeArguments: [],
                           name: "int",
                           libraryScopePrefix:
@@ -78,6 +80,7 @@ void main() {
                     declaration: SwidiDeclaration(
                         name: "baz",
                         type: SwidiInterface(
+                          annotations: [],
                           typeArguments: [],
                           name: "int",
                           libraryScopePrefix:
@@ -90,6 +93,7 @@ void main() {
                   declaration: SwidiDeclaration(
                     name: "qux",
                     type: SwidiInterface(
+                      annotations: [],
                       typeArguments: [],
                       name: "int?",
                       libraryScopePrefix:
@@ -133,6 +137,7 @@ class "package:flutter/src/widgets/icon_data.dart"::IconData {
                 SwidiTypeFormal(
                   name: "T",
                   bound: SwidiInterface(
+                    annotations: [],
                     name: "Object?",
                     libraryScopePrefix: SwidiLibraryScopePrefix(
                       name: "dart:core",
@@ -146,6 +151,7 @@ class "package:flutter/src/widgets/icon_data.dart"::IconData {
                 )
               ],
               returnType: SwidiInterface(
+                annotations: [],
                 name: "T",
                 libraryScopePrefix: SwidiLibraryScopePrefix.empty,
                 referenceDeclarationPrefix: SwidiReferenceDeclarationPrefix(
@@ -165,6 +171,7 @@ class "package:flutter/src/widgets/icon_data.dart"::IconData {
                       ),
                     ),
                     type: SwidiInterface(
+                      annotations: [],
                       name: "T?",
                       libraryScopePrefix: SwidiLibraryScopePrefix.empty,
                       referenceDeclarationPrefix:
@@ -172,6 +179,7 @@ class "package:flutter/src/widgets/icon_data.dart"::IconData {
                       nullabilitySuffix: SwidiNullabilitySuffix.question,
                       typeArguments: [
                         SwidiInterface(
+                          annotations: [],
                           name: "dynamic",
                           libraryScopePrefix: SwidiLibraryScopePrefix.empty,
                           referenceDeclarationPrefix:

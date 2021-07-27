@@ -33,6 +33,7 @@ void main() {
       result: const SwidiTypeArgumentList(
         typeList: [
           SwidiInterface(
+            annotations: [],
             name: "int",
             libraryScopePrefix: SwidiLibraryScopePrefix.empty,
             referenceDeclarationPrefix: SwidiReferenceDeclarationPrefix.empty,
@@ -40,6 +41,7 @@ void main() {
             typeArguments: [],
           ),
           SwidiInterface(
+            annotations: [],
             typeArguments: [],
             name: "int",
             libraryScopePrefix: SwidiLibraryScopePrefix.empty,
@@ -58,6 +60,7 @@ void main() {
       result: const SwidiTypeArgumentList(
         typeList: [
           SwidiInterface(
+            annotations: [],
             typeArguments: [],
             name: "int?",
             libraryScopePrefix: SwidiLibraryScopePrefix(
@@ -69,6 +72,7 @@ void main() {
             nullabilitySuffix: SwidiNullabilitySuffix.question,
           ),
           SwidiInterface(
+            annotations: [],
             typeArguments: [],
             name: "int",
             libraryScopePrefix: SwidiLibraryScopePrefix.empty,
@@ -98,6 +102,7 @@ void main() {
             nullabilitySuffix: SwidiNullabilitySuffix.none,
             typeArguments: [
               SwidiInterface(
+                annotations: [],
                 name: "void?",
                 libraryScopePrefix: SwidiLibraryScopePrefix.empty,
                 referenceDeclarationPrefix: SwidiReferenceDeclarationPrefix(

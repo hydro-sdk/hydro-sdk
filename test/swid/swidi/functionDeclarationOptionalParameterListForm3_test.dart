@@ -8,6 +8,8 @@ import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiOptionalParameter.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiPositionalOrOptionalOrNamedParameter.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiReferenceDeclarationPrefix.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiGrammarDefinition.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiAnnotationListParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiAnnotationParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstFunctionInvocationParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstNamedParameterListParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstNamedParameterParser.dart';
@@ -33,9 +35,6 @@ class BasicFunctionParameterListParser extends SwidiGrammarDefinition
     with
         SwidiLibraryScopePrefixParser,
         SwidiReferenceDeclarationPrefixParser,
-        SwidiTypeParser,
-        SwidiTypeListParser,
-        SwidiTypeArgumentListParser,
         SwidiConstNumberParser,
         SwidiConstStringParser,
         SwidiConstParser,
@@ -44,6 +43,11 @@ class BasicFunctionParameterListParser extends SwidiGrammarDefinition
         SwidiConstPositionalParameterListParser,
         SwidiConstNamedParameterParser,
         SwidiConstNamedParameterListParser,
+        SwidiAnnotationParser,
+        SwidiAnnotationListParser,
+        SwidiTypeParser,
+        SwidiTypeListParser,
+        SwidiTypeArgumentListParser,
         SwidiDeclarationWithConstValueParser,
         SwidiSimpleDeclarationParser,
         SwidiFunctionDeclarationOptionalParameterParser,
@@ -68,6 +72,7 @@ void main() {
               declaration: SwidiDeclaration(
                 name: "foo",
                 type: SwidiInterface(
+                  annotations: [],
                   typeArguments: [],
                   name: "void",
                   libraryScopePrefix: SwidiLibraryScopePrefix.empty,
@@ -83,6 +88,7 @@ void main() {
               declaration: SwidiDeclaration(
                 name: "bar",
                 type: SwidiInterface(
+                  annotations: [],
                   typeArguments: [],
                   name: "int",
                   libraryScopePrefix: SwidiLibraryScopePrefix.empty,
@@ -98,6 +104,7 @@ void main() {
               declaration: SwidiDeclaration(
                 name: "baz",
                 type: SwidiInterface(
+                  annotations: [],
                   typeArguments: [],
                   name: "int",
                   libraryScopePrefix: SwidiLibraryScopePrefix.empty,

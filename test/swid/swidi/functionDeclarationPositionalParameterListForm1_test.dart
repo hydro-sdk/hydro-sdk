@@ -33,9 +33,6 @@ class BasicFunctionParameterListParser extends SwidiGrammarDefinition
     with
         SwidiLibraryScopePrefixParser,
         SwidiReferenceDeclarationPrefixParser,
-        SwidiTypeParser,
-        SwidiTypeListParser,
-        SwidiTypeArgumentListParser,
         SwidiConstNumberParser,
         SwidiConstStringParser,
         SwidiConstParser,
@@ -44,6 +41,11 @@ class BasicFunctionParameterListParser extends SwidiGrammarDefinition
         SwidiConstPositionalParameterListParser,
         SwidiConstNamedParameterParser,
         SwidiConstNamedParameterListParser,
+        SwidiAnnotationParser,
+        SwidiAnnotationListParser,
+        SwidiTypeParser,
+        SwidiTypeListParser,
+        SwidiTypeArgumentListParser,
         SwidiDeclarationWithConstValueParser,
         SwidiSimpleDeclarationParser,
         SwidiFunctionDeclarationOptionalParameterParser,
@@ -68,6 +70,7 @@ void main() {
               declaration: SwidiDeclaration(
                 name: "foo",
                 type: SwidiInterface(
+                  annotations: [],
                   typeArguments: [],
                   name: "void",
                   libraryScopePrefix: SwidiLibraryScopePrefix.empty,

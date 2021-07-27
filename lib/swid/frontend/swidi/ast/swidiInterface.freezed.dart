@@ -21,13 +21,15 @@ class _$SwidiInterfaceTearOff {
       required SwidiLibraryScopePrefix libraryScopePrefix,
       required SwidiReferenceDeclarationPrefix referenceDeclarationPrefix,
       required SwidiNullabilitySuffix nullabilitySuffix,
-      required List<SwidiInterface> typeArguments}) {
+      required List<SwidiInterface> typeArguments,
+      required List<SwidiAnnotation> annotations}) {
     return _$SwidiInterfaceCtor(
       name: name,
       libraryScopePrefix: libraryScopePrefix,
       referenceDeclarationPrefix: referenceDeclarationPrefix,
       nullabilitySuffix: nullabilitySuffix,
       typeArguments: typeArguments,
+      annotations: annotations,
     );
   }
 }
@@ -45,6 +47,7 @@ mixin _$SwidiInterface {
   SwidiNullabilitySuffix get nullabilitySuffix =>
       throw _privateConstructorUsedError;
   List<SwidiInterface> get typeArguments => throw _privateConstructorUsedError;
+  List<SwidiAnnotation> get annotations => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SwidiInterfaceCopyWith<SwidiInterface> get copyWith =>
@@ -61,7 +64,8 @@ abstract class $SwidiInterfaceCopyWith<$Res> {
       SwidiLibraryScopePrefix libraryScopePrefix,
       SwidiReferenceDeclarationPrefix referenceDeclarationPrefix,
       SwidiNullabilitySuffix nullabilitySuffix,
-      List<SwidiInterface> typeArguments});
+      List<SwidiInterface> typeArguments,
+      List<SwidiAnnotation> annotations});
 
   $SwidiLibraryScopePrefixCopyWith<$Res> get libraryScopePrefix;
   $SwidiReferenceDeclarationPrefixCopyWith<$Res> get referenceDeclarationPrefix;
@@ -83,6 +87,7 @@ class _$SwidiInterfaceCopyWithImpl<$Res>
     Object? referenceDeclarationPrefix = freezed,
     Object? nullabilitySuffix = freezed,
     Object? typeArguments = freezed,
+    Object? annotations = freezed,
   }) {
     return _then(_value.copyWith(
       name: name == freezed
@@ -105,6 +110,10 @@ class _$SwidiInterfaceCopyWithImpl<$Res>
           ? _value.typeArguments
           : typeArguments // ignore: cast_nullable_to_non_nullable
               as List<SwidiInterface>,
+      annotations: annotations == freezed
+          ? _value.annotations
+          : annotations // ignore: cast_nullable_to_non_nullable
+              as List<SwidiAnnotation>,
     ));
   }
 
@@ -138,7 +147,8 @@ abstract class _$$SwidiInterfaceCtorCopyWith<$Res>
       SwidiLibraryScopePrefix libraryScopePrefix,
       SwidiReferenceDeclarationPrefix referenceDeclarationPrefix,
       SwidiNullabilitySuffix nullabilitySuffix,
-      List<SwidiInterface> typeArguments});
+      List<SwidiInterface> typeArguments,
+      List<SwidiAnnotation> annotations});
 
   @override
   $SwidiLibraryScopePrefixCopyWith<$Res> get libraryScopePrefix;
@@ -164,6 +174,7 @@ class __$$SwidiInterfaceCtorCopyWithImpl<$Res>
     Object? referenceDeclarationPrefix = freezed,
     Object? nullabilitySuffix = freezed,
     Object? typeArguments = freezed,
+    Object? annotations = freezed,
   }) {
     return _then(_$SwidiInterfaceCtor(
       name: name == freezed
@@ -186,6 +197,10 @@ class __$$SwidiInterfaceCtorCopyWithImpl<$Res>
           ? _value.typeArguments
           : typeArguments // ignore: cast_nullable_to_non_nullable
               as List<SwidiInterface>,
+      annotations: annotations == freezed
+          ? _value.annotations
+          : annotations // ignore: cast_nullable_to_non_nullable
+              as List<SwidiAnnotation>,
     ));
   }
 }
@@ -198,7 +213,8 @@ class _$_$SwidiInterfaceCtor extends _$SwidiInterfaceCtor {
       required this.libraryScopePrefix,
       required this.referenceDeclarationPrefix,
       required this.nullabilitySuffix,
-      required this.typeArguments})
+      required this.typeArguments,
+      required this.annotations})
       : super._();
 
   @override
@@ -211,10 +227,12 @@ class _$_$SwidiInterfaceCtor extends _$SwidiInterfaceCtor {
   final SwidiNullabilitySuffix nullabilitySuffix;
   @override
   final List<SwidiInterface> typeArguments;
+  @override
+  final List<SwidiAnnotation> annotations;
 
   @override
   String toString() {
-    return 'SwidiInterface(name: $name, libraryScopePrefix: $libraryScopePrefix, referenceDeclarationPrefix: $referenceDeclarationPrefix, nullabilitySuffix: $nullabilitySuffix, typeArguments: $typeArguments)';
+    return 'SwidiInterface(name: $name, libraryScopePrefix: $libraryScopePrefix, referenceDeclarationPrefix: $referenceDeclarationPrefix, nullabilitySuffix: $nullabilitySuffix, typeArguments: $typeArguments, annotations: $annotations)';
   }
 
   @override
@@ -236,7 +254,10 @@ class _$_$SwidiInterfaceCtor extends _$SwidiInterfaceCtor {
                     .equals(other.nullabilitySuffix, nullabilitySuffix)) &&
             (identical(other.typeArguments, typeArguments) ||
                 const DeepCollectionEquality()
-                    .equals(other.typeArguments, typeArguments)));
+                    .equals(other.typeArguments, typeArguments)) &&
+            (identical(other.annotations, annotations) ||
+                const DeepCollectionEquality()
+                    .equals(other.annotations, annotations)));
   }
 
   @override
@@ -246,7 +267,8 @@ class _$_$SwidiInterfaceCtor extends _$SwidiInterfaceCtor {
       const DeepCollectionEquality().hash(libraryScopePrefix) ^
       const DeepCollectionEquality().hash(referenceDeclarationPrefix) ^
       const DeepCollectionEquality().hash(nullabilitySuffix) ^
-      const DeepCollectionEquality().hash(typeArguments);
+      const DeepCollectionEquality().hash(typeArguments) ^
+      const DeepCollectionEquality().hash(annotations);
 
   @JsonKey(ignore: true)
   @override
@@ -261,7 +283,8 @@ abstract class _$SwidiInterfaceCtor extends SwidiInterface {
       required SwidiLibraryScopePrefix libraryScopePrefix,
       required SwidiReferenceDeclarationPrefix referenceDeclarationPrefix,
       required SwidiNullabilitySuffix nullabilitySuffix,
-      required List<SwidiInterface> typeArguments}) = _$_$SwidiInterfaceCtor;
+      required List<SwidiInterface> typeArguments,
+      required List<SwidiAnnotation> annotations}) = _$_$SwidiInterfaceCtor;
   const _$SwidiInterfaceCtor._() : super._();
 
   @override
@@ -277,6 +300,8 @@ abstract class _$SwidiInterfaceCtor extends SwidiInterface {
       throw _privateConstructorUsedError;
   @override
   List<SwidiInterface> get typeArguments => throw _privateConstructorUsedError;
+  @override
+  List<SwidiAnnotation> get annotations => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$SwidiInterfaceCtorCopyWith<_$SwidiInterfaceCtor> get copyWith =>

@@ -31,9 +31,6 @@ class SwidiParser extends SwidiGrammarDefinition
         SwidiClassParser,
         SwidiReferenceDeclarationPrefixParser,
         SwidiLibraryScopePrefixParser,
-        SwidiTypeParser,
-        SwidiTypeListParser,
-        SwidiTypeArgumentListParser,
         SwidiConstNumberParser,
         SwidiConstStringParser,
         SwidiConstParser,
@@ -42,6 +39,11 @@ class SwidiParser extends SwidiGrammarDefinition
         SwidiConstParameterListParser,
         SwidiConstNamedParameterListParser,
         SwidiConstFunctionInvocationParser,
+        SwidiAnnotationParser,
+        SwidiAnnotationListParser,
+        SwidiTypeParser,
+        SwidiTypeListParser,
+        SwidiTypeArgumentListParser,
         SwidiSimpleDeclarationParser,
         SwidiDeclarationWithConstValueParser,
         SwidiTypeFormalParser,
@@ -51,8 +53,6 @@ class SwidiParser extends SwidiGrammarDefinition
         SwidiFunctionDeclarationPositionalParameterParser,
         SwidiFunctionDeclarationNamedParameterParser,
         SwidiFunctionDeclarationParameterListParser,
-        SwidiFunctionDeclarationParser,
-        SwidiAnnotationParser,
-        SwidiAnnotationListParser {
+        SwidiFunctionDeclarationParser {
   const SwidiParser();
 }

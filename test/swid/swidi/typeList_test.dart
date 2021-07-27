@@ -32,6 +32,7 @@ void main() {
           .build(start: const SimpleTypeListParser().typeList),
       result: const [
         SwidiInterface(
+          annotations: [],
           name: "int",
           libraryScopePrefix: SwidiLibraryScopePrefix.empty,
           referenceDeclarationPrefix: SwidiReferenceDeclarationPrefix.empty,
@@ -39,6 +40,7 @@ void main() {
           typeArguments: [],
         ),
         SwidiInterface(
+          annotations: [],
           typeArguments: [],
           name: "int",
           libraryScopePrefix: SwidiLibraryScopePrefix.empty,
@@ -55,6 +57,7 @@ void main() {
           .build(start: const SimpleTypeListParser().typeList),
       result: const [
         SwidiInterface(
+          annotations: [],
           typeArguments: [],
           name: "int?",
           libraryScopePrefix: SwidiLibraryScopePrefix(
@@ -66,6 +69,7 @@ void main() {
           nullabilitySuffix: SwidiNullabilitySuffix.question,
         ),
         SwidiInterface(
+          annotations: [],
           typeArguments: [],
           name: "int",
           libraryScopePrefix: SwidiLibraryScopePrefix.empty,

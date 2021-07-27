@@ -52,6 +52,7 @@ void main() {
           .build(start: const SimpleDeclarationParser().simpleDeclaration),
       result: const SwidiDeclaration(
         type: SwidiInterface(
+          annotations: [],
           typeArguments: [],
           name: "void",
           libraryScopePrefix: SwidiLibraryScopePrefix.empty,
@@ -68,6 +69,7 @@ void main() {
           .build(start: const SimpleDeclarationParser().simpleDeclaration),
       result: const SwidiDeclaration(
         type: SwidiInterface(
+          annotations: [],
           typeArguments: [],
           name: "int",
           libraryScopePrefix: SwidiLibraryScopePrefix.empty,
@@ -84,6 +86,7 @@ void main() {
           .build(start: const SimpleDeclarationParser().simpleDeclaration),
       result: const SwidiDeclaration(
         type: SwidiInterface(
+          annotations: [],
           typeArguments: [],
           name: "int?",
           libraryScopePrefix: SwidiLibraryScopePrefix.empty,

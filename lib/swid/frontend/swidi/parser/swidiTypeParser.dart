@@ -1,3 +1,9 @@
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiAnnotationList.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iAnnotationListLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iLibraryScopePrefixLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iReferenceDeclarationPrefixLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/parsers/iAnnotationListParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiAnnotationListParser.dart';
 import 'package:petitparser/petitparser.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiInterface.dart';
@@ -19,12 +25,17 @@ import 'package:hydro_sdk/swid/frontend/swidi/parser/util/collectTokens.dart';
 mixin SwidiTypeParser
     on
         SwidiDeclarationGrammarDefinition,
+        SwidiAnnotationListParser,
         SwidiLibraryScopePrefixParser,
         SwidiReferenceDeclarationPrefixParser
     implements
         ITypeLexer,
-        ITypeParser<Parser<SwidiInterface>>,
+        IAnnotationListLexer,
+        ILibraryScopePrefixLexer,
+        IReferenceDeclarationPrefixLexer,
         ITypeArgumentsLexer,
+        ITypeParser<Parser<SwidiInterface>>,
+        IAnnotationListParser<Parser<SwidiAnnotationList>>,
         ILibraryScopePrefixParser<Parser<SwidiLibraryScopePrefix>>,
         IReferenceDeclarationPrefixParser<
             Parser<SwidiReferenceDeclarationPrefix>>,
@@ -38,6 +49,8 @@ mixin SwidiTypeParser
           token = tokenList.last.input;
           nullabilitySuffix = tokenList.first.input;
         }
+
+        final annotationList = collectTokens<SwidiAnnotationList>(x);
         final typeArguments = collectTokens<SwidiTypeArgumentList>(x);
 
         return SwidiInterface(
@@ -56,6 +69,9 @@ mixin SwidiTypeParser
                   : SwidiReferenceDeclarationPrefix.empty,
           typeArguments:
               typeArguments.isNotEmpty ? typeArguments.first.typeList : [],
+          annotations: annotationList.isNotEmpty
+              ? annotationList.first.annotationList
+              : [],
         );
       });
 }

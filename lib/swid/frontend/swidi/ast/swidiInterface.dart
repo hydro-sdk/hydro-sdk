@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiAnnotation.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiLibraryScopePrefix.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiNullabilitySuffix.dart';
@@ -16,6 +17,7 @@ class SwidiInterface with _$SwidiInterface {
     required SwidiReferenceDeclarationPrefix referenceDeclarationPrefix,
     required SwidiNullabilitySuffix nullabilitySuffix,
     required List<SwidiInterface> typeArguments,
+    required List<SwidiAnnotation> annotations,
   }) = _$SwidiInterfaceCtor;
 
   static const empty = const SwidiInterface(
@@ -24,6 +26,7 @@ class SwidiInterface with _$SwidiInterface {
     referenceDeclarationPrefix: SwidiReferenceDeclarationPrefix.empty,
     nullabilitySuffix: SwidiNullabilitySuffix.none,
     typeArguments: [],
+    annotations: [],
   );
 
   factory SwidiInterface.clone({
@@ -33,6 +36,7 @@ class SwidiInterface with _$SwidiInterface {
     SwidiReferenceDeclarationPrefix? referenceDeclarationPrefix,
     SwidiNullabilitySuffix? nullabilitySuffix,
     List<SwidiInterface>? typeArguments,
+    List<SwidiAnnotation>? annotations,
   }) =>
       SwidiInterface(
         name: name ?? swidiInterface.name,
@@ -49,9 +53,19 @@ class SwidiInterface with _$SwidiInterface {
             nullabilitySuffix ?? swidiInterface.nullabilitySuffix,
         typeArguments: typeArguments ??
             swidiInterface.typeArguments
-                .map((x) => SwidiInterface.clone(
-                      swidiInterface: x,
-                    ))
+                .map(
+                  (x) => SwidiInterface.clone(
+                    swidiInterface: x,
+                  ),
+                )
+                .toList(),
+        annotations: annotations ??
+            swidiInterface.annotations
+                .map(
+                  (x) => SwidiAnnotation.clone(
+                    swidiAnnotation: x,
+                  ),
+                )
                 .toList(),
       );
 }

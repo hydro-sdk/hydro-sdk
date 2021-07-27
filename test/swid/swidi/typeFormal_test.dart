@@ -35,6 +35,7 @@ void main() {
       result: const SwidiTypeFormal(
         name: "T",
         bound: SwidiInterface(
+          annotations: [],
           name: "int",
           libraryScopePrefix: SwidiLibraryScopePrefix.empty,
           referenceDeclarationPrefix: SwidiReferenceDeclarationPrefix.empty,
@@ -52,6 +53,7 @@ void main() {
       result: const SwidiTypeFormal(
         name: "Element",
         bound: SwidiInterface(
+          annotations: [],
           name: "Object?",
           libraryScopePrefix: SwidiLibraryScopePrefix(
             name: "dart:core",

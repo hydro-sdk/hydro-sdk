@@ -7,6 +7,8 @@ import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiReferenceDeclarationPrefix.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiTypeFormal.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiGrammarDefinition.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiAnnotationListParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiAnnotationParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstFunctionInvocationParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstNamedParameterListParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstNamedParameterParser.dart';
@@ -36,9 +38,6 @@ class BasicFunctionDeclarationParser extends SwidiGrammarDefinition
     with
         SwidiLibraryScopePrefixParser,
         SwidiReferenceDeclarationPrefixParser,
-        SwidiTypeParser,
-        SwidiTypeListParser,
-        SwidiTypeArgumentListParser,
         SwidiConstNumberParser,
         SwidiConstStringParser,
         SwidiConstParser,
@@ -47,6 +46,11 @@ class BasicFunctionDeclarationParser extends SwidiGrammarDefinition
         SwidiConstPositionalParameterListParser,
         SwidiConstNamedParameterParser,
         SwidiConstNamedParameterListParser,
+        SwidiAnnotationParser,
+        SwidiAnnotationListParser,
+        SwidiTypeParser,
+        SwidiTypeListParser,
+        SwidiTypeArgumentListParser,
         SwidiDeclarationWithConstValueParser,
         SwidiSimpleDeclarationParser,
         SwidiTypeFormalParser,
@@ -74,6 +78,7 @@ void main() {
             SwidiTypeFormal(
               name: "T",
               bound: SwidiInterface(
+                annotations: [],
                 name: "Object?",
                 libraryScopePrefix: SwidiLibraryScopePrefix(
                   name: "dart:core",
@@ -87,6 +92,7 @@ void main() {
             )
           ],
           returnType: SwidiInterface(
+            annotations: [],
             typeArguments: [],
             name: "void",
             libraryScopePrefix: SwidiLibraryScopePrefix.empty,

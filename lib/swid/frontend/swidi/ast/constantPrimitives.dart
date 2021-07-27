@@ -10,6 +10,7 @@ import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiReferenceDeclarationPrefi
 
 const swidiUnknownInterface = const SwidiInterface(
   typeArguments: [],
+  annotations: [],
   name: "Unknown",
   libraryScopePrefix: SwidiLibraryScopePrefix.empty,
   referenceDeclarationPrefix: SwidiReferenceDeclarationPrefix.empty,

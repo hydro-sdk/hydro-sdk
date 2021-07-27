@@ -30,6 +30,7 @@ void main() {
       parser:
           const SimpleTypeParser().build(start: const SimpleTypeParser().type),
       result: const SwidiInterface(
+        annotations: [],
         typeArguments: [],
         name: "void",
         libraryScopePrefix: SwidiLibraryScopePrefix.empty,
@@ -43,6 +44,7 @@ void main() {
       parser:
           const SimpleTypeParser().build(start: const SimpleTypeParser().type),
       result: const SwidiInterface(
+        annotations: [],
         typeArguments: [],
         name: "void?",
         libraryScopePrefix: SwidiLibraryScopePrefix.empty,
@@ -56,6 +58,7 @@ void main() {
       parser:
           const SimpleTypeParser().build(start: const SimpleTypeParser().type),
       result: const SwidiInterface(
+        annotations: [],
         typeArguments: [],
         name: "int",
         libraryScopePrefix: SwidiLibraryScopePrefix(name: "dart:core"),
@@ -70,6 +73,7 @@ void main() {
       parser:
           const SimpleTypeParser().build(start: const SimpleTypeParser().type),
       result: const SwidiInterface(
+        annotations: [],
         typeArguments: [],
         name: "int?",
         libraryScopePrefix: SwidiLibraryScopePrefix(name: "dart:core"),
@@ -83,6 +87,7 @@ void main() {
       parser:
           const SimpleTypeParser().build(start: const SimpleTypeParser().type),
       result: const SwidiInterface(
+        annotations: [],
         typeArguments: [],
         name: "int?",
         libraryScopePrefix: SwidiLibraryScopePrefix.empty,
@@ -97,6 +102,7 @@ void main() {
       parser:
           const SimpleTypeParser().build(start: const SimpleTypeParser().type),
       result: const SwidiInterface(
+        annotations: [],
         typeArguments: [],
         name: "int",
         libraryScopePrefix: SwidiLibraryScopePrefix.empty,
@@ -112,6 +118,7 @@ void main() {
       parser:
           const SimpleTypeParser().build(start: const SimpleTypeParser().type),
       result: const SwidiInterface(
+        annotations: [],
         typeArguments: [],
         name: "int?",
         libraryScopePrefix: SwidiLibraryScopePrefix(name: "dart:core"),

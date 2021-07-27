@@ -69,6 +69,7 @@ void main() {
               declaration: SwidiDeclaration(
                 name: "foo",
                 type: SwidiInterface(
+                  annotations: [],
                   typeArguments: [],
                   name: "void",
                   libraryScopePrefix: SwidiLibraryScopePrefix.empty,

@@ -29,6 +29,7 @@ void main() {
               name: "foo",
               returnType: SwidiInterface(
                 typeArguments: [],
+                annotations: [],
                 name: "void",
                 libraryScopePrefix: SwidiLibraryScopePrefix.empty,
                 referenceDeclarationPrefix:

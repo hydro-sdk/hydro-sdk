@@ -37,6 +37,7 @@ void main() {
                   typeFormals: [],
                   name: "foo",
                   returnType: SwidiInterface(
+                    annotations: [],
                     typeArguments: [],
                     name: "void",
                     libraryScopePrefix: SwidiLibraryScopePrefix.empty,
@@ -51,6 +52,7 @@ void main() {
                       declaration: SwidiDeclaration(
                         name: "bar",
                         type: SwidiInterface(
+                          annotations: [],
                           typeArguments: [],
                           name: "int",
                           libraryScopePrefix: SwidiLibraryScopePrefix.empty,

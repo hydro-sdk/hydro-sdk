@@ -65,6 +65,7 @@ mixin SwidiDeclarationGrammarDefinition
 
   @override
   Parser type() =>
+      ref0(annotationList).optional() &
       ref0(libraryScopePrefix).optional() &
       ref0(referenceDeclarationPrefix).optional() &
       ref0(qualified) &

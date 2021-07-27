@@ -8,6 +8,8 @@ import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiLibraryScopePrefix.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiReferenceDeclarationPrefix.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiGrammarDefinition.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiAnnotationListParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiAnnotationParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstFunctionInvocationParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstNamedParameterListParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstNamedParameterParser.dart';
@@ -29,9 +31,6 @@ class SimpleDeclarationParser extends SwidiGrammarDefinition
     with
         SwidiLibraryScopePrefixParser,
         SwidiReferenceDeclarationPrefixParser,
-        SwidiTypeParser,
-        SwidiTypeListParser,
-        SwidiTypeArgumentListParser,
         SwidiConstNumberParser,
         SwidiConstStringParser,
         SwidiConstParser,
@@ -40,6 +39,11 @@ class SimpleDeclarationParser extends SwidiGrammarDefinition
         SwidiConstPositionalParameterListParser,
         SwidiConstNamedParameterParser,
         SwidiConstNamedParameterListParser,
+        SwidiAnnotationParser,
+        SwidiAnnotationListParser,
+        SwidiTypeParser,
+        SwidiTypeListParser,
+        SwidiTypeArgumentListParser,
         SwidiDeclarationWithConstValueParser,
         SwidiSimpleDeclarationParser {
   const SimpleDeclarationParser();
@@ -56,6 +60,7 @@ void main() {
       result: const SwidiDeclaration(
           name: "foo",
           type: SwidiInterface(
+            annotations: [],
             typeArguments: [],
             name: "int",
             libraryScopePrefix: SwidiLibraryScopePrefix.empty,

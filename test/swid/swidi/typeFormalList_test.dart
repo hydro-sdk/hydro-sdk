@@ -80,6 +80,7 @@ void main() {
           SwidiTypeFormal(
             name: "u",
             bound: SwidiInterface(
+              annotations: [],
               name: "List",
               libraryScopePrefix: SwidiLibraryScopePrefix(
                 name: "dart:collection",
@@ -90,6 +91,7 @@ void main() {
               nullabilitySuffix: SwidiNullabilitySuffix.none,
               typeArguments: [
                 SwidiInterface(
+                  annotations: [],
                   name: "void?",
                   libraryScopePrefix: SwidiLibraryScopePrefix.empty,
                   referenceDeclarationPrefix: SwidiReferenceDeclarationPrefix(
@@ -108,6 +110,7 @@ void main() {
           SwidiTypeFormal(
             name: "k",
             bound: SwidiInterface(
+              annotations: [],
               typeArguments: [],
               name: "int",
               libraryScopePrefix: SwidiLibraryScopePrefix.empty,
