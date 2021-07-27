@@ -41,6 +41,10 @@ mixin SwidiConstParser
           return SwidiConst.fromSwidiConstString(
             swidiConstString: x,
           );
+        } else if (x is SwidiConstFunctionInvocation) {
+          return SwidiConst.fromSwidiConstFunctionInvocation(
+            swidiConstFunctionInvocation: x,
+          );
         }
 
         return const SwidiConst.fromSwidiEmptyConst(

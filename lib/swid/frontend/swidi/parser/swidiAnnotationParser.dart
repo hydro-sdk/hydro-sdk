@@ -1,3 +1,4 @@
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstParser.dart';
 import 'package:petitparser/petitparser.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiAnnotation.dart';
@@ -10,7 +11,8 @@ import 'package:hydro_sdk/swid/frontend/swidi/parser/parsers/iAnnotationParser.d
 import 'package:hydro_sdk/swid/frontend/swidi/parser/parsers/iConstParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/util/collectTokens.dart';
 
-mixin SwidiAnnotationParser on SwidiDeclarationGrammarDefinition
+mixin SwidiAnnotationParser
+    on SwidiDeclarationGrammarDefinition, SwidiConstParser
     implements
         IAnnotationLexer,
         IConstLexer,
