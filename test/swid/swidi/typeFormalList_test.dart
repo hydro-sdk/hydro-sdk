@@ -7,6 +7,16 @@ import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiReferenceDeclarationPrefi
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiTypeFormal.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiTypeFormalList.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiGrammarDefinition.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiAnnotationListParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiAnnotationParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstFunctionInvocationParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstNamedParameterListParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstNamedParameterParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstNumberParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstParameterListParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstPositionalParameterListParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstStringParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiLibraryScopePrefixParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiReferenceDeclarationPrefixParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiTypeArgumentListParser.dart';
@@ -21,6 +31,16 @@ class SimpleTypeFormalListParser extends SwidiGrammarDefinition
     with
         SwidiLibraryScopePrefixParser,
         SwidiReferenceDeclarationPrefixParser,
+        SwidiConstNumberParser,
+        SwidiConstStringParser,
+        SwidiConstParser,
+        SwidiConstFunctionInvocationParser,
+        SwidiConstParameterListParser,
+        SwidiConstPositionalParameterListParser,
+        SwidiConstNamedParameterParser,
+        SwidiConstNamedParameterListParser,
+        SwidiAnnotationParser,
+        SwidiAnnotationListParser,
         SwidiTypeParser,
         SwidiTypeListParser,
         SwidiTypeArgumentListParser,
