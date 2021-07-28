@@ -1,3 +1,5 @@
+import 'package:petitparser/petitparser.dart';
+
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiAnnotation.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiAnnotationList.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iAnnotationLexer.dart';
@@ -7,7 +9,6 @@ import 'package:hydro_sdk/swid/frontend/swidi/parser/parsers/iAnnotationListPars
 import 'package:hydro_sdk/swid/frontend/swidi/parser/parsers/iAnnotationParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiAnnotationParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/util/collectTokens.dart';
-import 'package:petitparser/petitparser.dart';
 
 mixin SwidiAnnotationListParser
     on SwidiDeclarationGrammarDefinition, SwidiAnnotationParser
