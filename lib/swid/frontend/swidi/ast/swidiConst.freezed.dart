@@ -43,6 +43,13 @@ class _$SwidiConstTearOff {
       swidiConstFunctionInvocation: swidiConstFunctionInvocation,
     );
   }
+
+  _$SwidiConstFromSwidiConstMap fromSwidiConstMap(
+      {required SwidiConstMap swidiConstMap}) {
+    return _$SwidiConstFromSwidiConstMap(
+      swidiConstMap: swidiConstMap,
+    );
+  }
 }
 
 /// @nodoc
@@ -61,6 +68,7 @@ mixin _$SwidiConst {
     required TResult Function(
             SwidiConstFunctionInvocation swidiConstFunctionInvocation)
         fromSwidiConstFunctionInvocation,
+    required TResult Function(SwidiConstMap swidiConstMap) fromSwidiConstMap,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -70,6 +78,7 @@ mixin _$SwidiConst {
     TResult Function(SwidiConstString swidiConstString)? fromSwidiConstString,
     TResult Function(SwidiConstFunctionInvocation swidiConstFunctionInvocation)?
         fromSwidiConstFunctionInvocation,
+    TResult Function(SwidiConstMap swidiConstMap)? fromSwidiConstMap,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -84,6 +93,8 @@ mixin _$SwidiConst {
     required TResult Function(
             _$SwidiConstFromSwidiConstFunctionInvocation value)
         fromSwidiConstFunctionInvocation,
+    required TResult Function(_$SwidiConstFromSwidiConstMap value)
+        fromSwidiConstMap,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -96,6 +107,7 @@ mixin _$SwidiConst {
         fromSwidiConstString,
     TResult Function(_$SwidiConstFromSwidiConstFunctionInvocation value)?
         fromSwidiConstFunctionInvocation,
+    TResult Function(_$SwidiConstFromSwidiConstMap value)? fromSwidiConstMap,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -164,8 +176,9 @@ class __$$SwidiConstFromSwidiEmptyConstCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_$SwidiConstFromSwidiEmptyConst
-    implements _$SwidiConstFromSwidiEmptyConst {
-  const _$_$SwidiConstFromSwidiEmptyConst({required this.swidiEmptyConst});
+    extends _$SwidiConstFromSwidiEmptyConst {
+  const _$_$SwidiConstFromSwidiEmptyConst({required this.swidiEmptyConst})
+      : super._();
 
   @override
   final SwidiEmptyConst swidiEmptyConst;
@@ -207,6 +220,7 @@ class _$_$SwidiConstFromSwidiEmptyConst
     required TResult Function(
             SwidiConstFunctionInvocation swidiConstFunctionInvocation)
         fromSwidiConstFunctionInvocation,
+    required TResult Function(SwidiConstMap swidiConstMap) fromSwidiConstMap,
   }) {
     return fromSwidiEmptyConst(swidiEmptyConst);
   }
@@ -219,6 +233,7 @@ class _$_$SwidiConstFromSwidiEmptyConst
     TResult Function(SwidiConstString swidiConstString)? fromSwidiConstString,
     TResult Function(SwidiConstFunctionInvocation swidiConstFunctionInvocation)?
         fromSwidiConstFunctionInvocation,
+    TResult Function(SwidiConstMap swidiConstMap)? fromSwidiConstMap,
     required TResult orElse(),
   }) {
     if (fromSwidiEmptyConst != null) {
@@ -239,6 +254,8 @@ class _$_$SwidiConstFromSwidiEmptyConst
     required TResult Function(
             _$SwidiConstFromSwidiConstFunctionInvocation value)
         fromSwidiConstFunctionInvocation,
+    required TResult Function(_$SwidiConstFromSwidiConstMap value)
+        fromSwidiConstMap,
   }) {
     return fromSwidiEmptyConst(this);
   }
@@ -254,6 +271,7 @@ class _$_$SwidiConstFromSwidiEmptyConst
         fromSwidiConstString,
     TResult Function(_$SwidiConstFromSwidiConstFunctionInvocation value)?
         fromSwidiConstFunctionInvocation,
+    TResult Function(_$SwidiConstFromSwidiConstMap value)? fromSwidiConstMap,
     required TResult orElse(),
   }) {
     if (fromSwidiEmptyConst != null) {
@@ -263,10 +281,11 @@ class _$_$SwidiConstFromSwidiEmptyConst
   }
 }
 
-abstract class _$SwidiConstFromSwidiEmptyConst implements SwidiConst {
+abstract class _$SwidiConstFromSwidiEmptyConst extends SwidiConst {
   const factory _$SwidiConstFromSwidiEmptyConst(
           {required SwidiEmptyConst swidiEmptyConst}) =
       _$_$SwidiConstFromSwidiEmptyConst;
+  const _$SwidiConstFromSwidiEmptyConst._() : super._();
 
   SwidiEmptyConst get swidiEmptyConst => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -321,8 +340,9 @@ class __$$SwidiConstFromSwidiConstNumberCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_$SwidiConstFromSwidiConstNumber
-    implements _$SwidiConstFromSwidiConstNumber {
-  const _$_$SwidiConstFromSwidiConstNumber({required this.swidiConstNumber});
+    extends _$SwidiConstFromSwidiConstNumber {
+  const _$_$SwidiConstFromSwidiConstNumber({required this.swidiConstNumber})
+      : super._();
 
   @override
   final SwidiConstNumber swidiConstNumber;
@@ -364,6 +384,7 @@ class _$_$SwidiConstFromSwidiConstNumber
     required TResult Function(
             SwidiConstFunctionInvocation swidiConstFunctionInvocation)
         fromSwidiConstFunctionInvocation,
+    required TResult Function(SwidiConstMap swidiConstMap) fromSwidiConstMap,
   }) {
     return fromSwidiConstNumber(swidiConstNumber);
   }
@@ -376,6 +397,7 @@ class _$_$SwidiConstFromSwidiConstNumber
     TResult Function(SwidiConstString swidiConstString)? fromSwidiConstString,
     TResult Function(SwidiConstFunctionInvocation swidiConstFunctionInvocation)?
         fromSwidiConstFunctionInvocation,
+    TResult Function(SwidiConstMap swidiConstMap)? fromSwidiConstMap,
     required TResult orElse(),
   }) {
     if (fromSwidiConstNumber != null) {
@@ -396,6 +418,8 @@ class _$_$SwidiConstFromSwidiConstNumber
     required TResult Function(
             _$SwidiConstFromSwidiConstFunctionInvocation value)
         fromSwidiConstFunctionInvocation,
+    required TResult Function(_$SwidiConstFromSwidiConstMap value)
+        fromSwidiConstMap,
   }) {
     return fromSwidiConstNumber(this);
   }
@@ -411,6 +435,7 @@ class _$_$SwidiConstFromSwidiConstNumber
         fromSwidiConstString,
     TResult Function(_$SwidiConstFromSwidiConstFunctionInvocation value)?
         fromSwidiConstFunctionInvocation,
+    TResult Function(_$SwidiConstFromSwidiConstMap value)? fromSwidiConstMap,
     required TResult orElse(),
   }) {
     if (fromSwidiConstNumber != null) {
@@ -420,10 +445,11 @@ class _$_$SwidiConstFromSwidiConstNumber
   }
 }
 
-abstract class _$SwidiConstFromSwidiConstNumber implements SwidiConst {
+abstract class _$SwidiConstFromSwidiConstNumber extends SwidiConst {
   const factory _$SwidiConstFromSwidiConstNumber(
           {required SwidiConstNumber swidiConstNumber}) =
       _$_$SwidiConstFromSwidiConstNumber;
+  const _$SwidiConstFromSwidiConstNumber._() : super._();
 
   SwidiConstNumber get swidiConstNumber => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -478,8 +504,9 @@ class __$$SwidiConstFromSwidiConstStringCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_$SwidiConstFromSwidiConstString
-    implements _$SwidiConstFromSwidiConstString {
-  const _$_$SwidiConstFromSwidiConstString({required this.swidiConstString});
+    extends _$SwidiConstFromSwidiConstString {
+  const _$_$SwidiConstFromSwidiConstString({required this.swidiConstString})
+      : super._();
 
   @override
   final SwidiConstString swidiConstString;
@@ -521,6 +548,7 @@ class _$_$SwidiConstFromSwidiConstString
     required TResult Function(
             SwidiConstFunctionInvocation swidiConstFunctionInvocation)
         fromSwidiConstFunctionInvocation,
+    required TResult Function(SwidiConstMap swidiConstMap) fromSwidiConstMap,
   }) {
     return fromSwidiConstString(swidiConstString);
   }
@@ -533,6 +561,7 @@ class _$_$SwidiConstFromSwidiConstString
     TResult Function(SwidiConstString swidiConstString)? fromSwidiConstString,
     TResult Function(SwidiConstFunctionInvocation swidiConstFunctionInvocation)?
         fromSwidiConstFunctionInvocation,
+    TResult Function(SwidiConstMap swidiConstMap)? fromSwidiConstMap,
     required TResult orElse(),
   }) {
     if (fromSwidiConstString != null) {
@@ -553,6 +582,8 @@ class _$_$SwidiConstFromSwidiConstString
     required TResult Function(
             _$SwidiConstFromSwidiConstFunctionInvocation value)
         fromSwidiConstFunctionInvocation,
+    required TResult Function(_$SwidiConstFromSwidiConstMap value)
+        fromSwidiConstMap,
   }) {
     return fromSwidiConstString(this);
   }
@@ -568,6 +599,7 @@ class _$_$SwidiConstFromSwidiConstString
         fromSwidiConstString,
     TResult Function(_$SwidiConstFromSwidiConstFunctionInvocation value)?
         fromSwidiConstFunctionInvocation,
+    TResult Function(_$SwidiConstFromSwidiConstMap value)? fromSwidiConstMap,
     required TResult orElse(),
   }) {
     if (fromSwidiConstString != null) {
@@ -577,10 +609,11 @@ class _$_$SwidiConstFromSwidiConstString
   }
 }
 
-abstract class _$SwidiConstFromSwidiConstString implements SwidiConst {
+abstract class _$SwidiConstFromSwidiConstString extends SwidiConst {
   const factory _$SwidiConstFromSwidiConstString(
           {required SwidiConstString swidiConstString}) =
       _$_$SwidiConstFromSwidiConstString;
+  const _$SwidiConstFromSwidiConstString._() : super._();
 
   SwidiConstString get swidiConstString => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -637,9 +670,10 @@ class __$$SwidiConstFromSwidiConstFunctionInvocationCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_$SwidiConstFromSwidiConstFunctionInvocation
-    implements _$SwidiConstFromSwidiConstFunctionInvocation {
+    extends _$SwidiConstFromSwidiConstFunctionInvocation {
   const _$_$SwidiConstFromSwidiConstFunctionInvocation(
-      {required this.swidiConstFunctionInvocation});
+      {required this.swidiConstFunctionInvocation})
+      : super._();
 
   @override
   final SwidiConstFunctionInvocation swidiConstFunctionInvocation;
@@ -685,6 +719,7 @@ class _$_$SwidiConstFromSwidiConstFunctionInvocation
     required TResult Function(
             SwidiConstFunctionInvocation swidiConstFunctionInvocation)
         fromSwidiConstFunctionInvocation,
+    required TResult Function(SwidiConstMap swidiConstMap) fromSwidiConstMap,
   }) {
     return fromSwidiConstFunctionInvocation(swidiConstFunctionInvocation);
   }
@@ -697,6 +732,7 @@ class _$_$SwidiConstFromSwidiConstFunctionInvocation
     TResult Function(SwidiConstString swidiConstString)? fromSwidiConstString,
     TResult Function(SwidiConstFunctionInvocation swidiConstFunctionInvocation)?
         fromSwidiConstFunctionInvocation,
+    TResult Function(SwidiConstMap swidiConstMap)? fromSwidiConstMap,
     required TResult orElse(),
   }) {
     if (fromSwidiConstFunctionInvocation != null) {
@@ -717,6 +753,8 @@ class _$_$SwidiConstFromSwidiConstFunctionInvocation
     required TResult Function(
             _$SwidiConstFromSwidiConstFunctionInvocation value)
         fromSwidiConstFunctionInvocation,
+    required TResult Function(_$SwidiConstFromSwidiConstMap value)
+        fromSwidiConstMap,
   }) {
     return fromSwidiConstFunctionInvocation(this);
   }
@@ -732,6 +770,7 @@ class _$_$SwidiConstFromSwidiConstFunctionInvocation
         fromSwidiConstString,
     TResult Function(_$SwidiConstFromSwidiConstFunctionInvocation value)?
         fromSwidiConstFunctionInvocation,
+    TResult Function(_$SwidiConstFromSwidiConstMap value)? fromSwidiConstMap,
     required TResult orElse(),
   }) {
     if (fromSwidiConstFunctionInvocation != null) {
@@ -741,17 +780,178 @@ class _$_$SwidiConstFromSwidiConstFunctionInvocation
   }
 }
 
-abstract class _$SwidiConstFromSwidiConstFunctionInvocation
-    implements SwidiConst {
+abstract class _$SwidiConstFromSwidiConstFunctionInvocation extends SwidiConst {
   const factory _$SwidiConstFromSwidiConstFunctionInvocation(
           {required SwidiConstFunctionInvocation
               swidiConstFunctionInvocation}) =
       _$_$SwidiConstFromSwidiConstFunctionInvocation;
+  const _$SwidiConstFromSwidiConstFunctionInvocation._() : super._();
 
   SwidiConstFunctionInvocation get swidiConstFunctionInvocation =>
       throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$$SwidiConstFromSwidiConstFunctionInvocationCopyWith<
           _$SwidiConstFromSwidiConstFunctionInvocation>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SwidiConstFromSwidiConstMapCopyWith<$Res> {
+  factory _$$SwidiConstFromSwidiConstMapCopyWith(
+          _$SwidiConstFromSwidiConstMap value,
+          $Res Function(_$SwidiConstFromSwidiConstMap) then) =
+      __$$SwidiConstFromSwidiConstMapCopyWithImpl<$Res>;
+  $Res call({SwidiConstMap swidiConstMap});
+
+  $SwidiConstMapCopyWith<$Res> get swidiConstMap;
+}
+
+/// @nodoc
+class __$$SwidiConstFromSwidiConstMapCopyWithImpl<$Res>
+    extends _$SwidiConstCopyWithImpl<$Res>
+    implements _$$SwidiConstFromSwidiConstMapCopyWith<$Res> {
+  __$$SwidiConstFromSwidiConstMapCopyWithImpl(
+      _$SwidiConstFromSwidiConstMap _value,
+      $Res Function(_$SwidiConstFromSwidiConstMap) _then)
+      : super(_value, (v) => _then(v as _$SwidiConstFromSwidiConstMap));
+
+  @override
+  _$SwidiConstFromSwidiConstMap get _value =>
+      super._value as _$SwidiConstFromSwidiConstMap;
+
+  @override
+  $Res call({
+    Object? swidiConstMap = freezed,
+  }) {
+    return _then(_$SwidiConstFromSwidiConstMap(
+      swidiConstMap: swidiConstMap == freezed
+          ? _value.swidiConstMap
+          : swidiConstMap // ignore: cast_nullable_to_non_nullable
+              as SwidiConstMap,
+    ));
+  }
+
+  @override
+  $SwidiConstMapCopyWith<$Res> get swidiConstMap {
+    return $SwidiConstMapCopyWith<$Res>(_value.swidiConstMap, (value) {
+      return _then(_value.copyWith(swidiConstMap: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_$SwidiConstFromSwidiConstMap extends _$SwidiConstFromSwidiConstMap {
+  const _$_$SwidiConstFromSwidiConstMap({required this.swidiConstMap})
+      : super._();
+
+  @override
+  final SwidiConstMap swidiConstMap;
+
+  @override
+  String toString() {
+    return 'SwidiConst.fromSwidiConstMap(swidiConstMap: $swidiConstMap)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _$SwidiConstFromSwidiConstMap &&
+            (identical(other.swidiConstMap, swidiConstMap) ||
+                const DeepCollectionEquality()
+                    .equals(other.swidiConstMap, swidiConstMap)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(swidiConstMap);
+
+  @JsonKey(ignore: true)
+  @override
+  _$$SwidiConstFromSwidiConstMapCopyWith<_$SwidiConstFromSwidiConstMap>
+      get copyWith => __$$SwidiConstFromSwidiConstMapCopyWithImpl<
+          _$SwidiConstFromSwidiConstMap>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(SwidiEmptyConst swidiEmptyConst)
+        fromSwidiEmptyConst,
+    required TResult Function(SwidiConstNumber swidiConstNumber)
+        fromSwidiConstNumber,
+    required TResult Function(SwidiConstString swidiConstString)
+        fromSwidiConstString,
+    required TResult Function(
+            SwidiConstFunctionInvocation swidiConstFunctionInvocation)
+        fromSwidiConstFunctionInvocation,
+    required TResult Function(SwidiConstMap swidiConstMap) fromSwidiConstMap,
+  }) {
+    return fromSwidiConstMap(swidiConstMap);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(SwidiEmptyConst swidiEmptyConst)? fromSwidiEmptyConst,
+    TResult Function(SwidiConstNumber swidiConstNumber)? fromSwidiConstNumber,
+    TResult Function(SwidiConstString swidiConstString)? fromSwidiConstString,
+    TResult Function(SwidiConstFunctionInvocation swidiConstFunctionInvocation)?
+        fromSwidiConstFunctionInvocation,
+    TResult Function(SwidiConstMap swidiConstMap)? fromSwidiConstMap,
+    required TResult orElse(),
+  }) {
+    if (fromSwidiConstMap != null) {
+      return fromSwidiConstMap(swidiConstMap);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_$SwidiConstFromSwidiEmptyConst value)
+        fromSwidiEmptyConst,
+    required TResult Function(_$SwidiConstFromSwidiConstNumber value)
+        fromSwidiConstNumber,
+    required TResult Function(_$SwidiConstFromSwidiConstString value)
+        fromSwidiConstString,
+    required TResult Function(
+            _$SwidiConstFromSwidiConstFunctionInvocation value)
+        fromSwidiConstFunctionInvocation,
+    required TResult Function(_$SwidiConstFromSwidiConstMap value)
+        fromSwidiConstMap,
+  }) {
+    return fromSwidiConstMap(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$SwidiConstFromSwidiEmptyConst value)?
+        fromSwidiEmptyConst,
+    TResult Function(_$SwidiConstFromSwidiConstNumber value)?
+        fromSwidiConstNumber,
+    TResult Function(_$SwidiConstFromSwidiConstString value)?
+        fromSwidiConstString,
+    TResult Function(_$SwidiConstFromSwidiConstFunctionInvocation value)?
+        fromSwidiConstFunctionInvocation,
+    TResult Function(_$SwidiConstFromSwidiConstMap value)? fromSwidiConstMap,
+    required TResult orElse(),
+  }) {
+    if (fromSwidiConstMap != null) {
+      return fromSwidiConstMap(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _$SwidiConstFromSwidiConstMap extends SwidiConst {
+  const factory _$SwidiConstFromSwidiConstMap(
+      {required SwidiConstMap swidiConstMap}) = _$_$SwidiConstFromSwidiConstMap;
+  const _$SwidiConstFromSwidiConstMap._() : super._();
+
+  SwidiConstMap get swidiConstMap => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$$SwidiConstFromSwidiConstMapCopyWith<_$SwidiConstFromSwidiConstMap>
       get copyWith => throw _privateConstructorUsedError;
 }
