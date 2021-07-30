@@ -6,6 +6,7 @@ import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConstString.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiGrammarDefinition.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiAnnotationParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstFunctionInvocationParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstMapParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstNamedParameterListParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstNamedParameterParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstNumberParser.dart';
@@ -25,6 +26,7 @@ class SimpleAnnotationParser extends SwidiGrammarDefinition
         SwidiConstPositionalParameterListParser,
         SwidiConstParameterListParser,
         SwidiConstFunctionInvocationParser,
+        SwidiConstMapParser,
         SwidiAnnotationParser {
   const SimpleAnnotationParser();
 }

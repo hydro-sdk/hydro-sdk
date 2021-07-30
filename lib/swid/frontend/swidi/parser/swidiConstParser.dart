@@ -1,3 +1,6 @@
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConstMap.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iConstMapLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/parsers/iConstMapParser.dart';
 import 'package:petitparser/petitparser.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConst.dart';
@@ -27,10 +30,12 @@ mixin SwidiConstParser
         IConstNumberLexer,
         IConstStringLexer,
         IConstFunctionInvocationLexer,
+        IConstMapLexer,
         IConstParser<Parser<SwidiConst>>,
         IConstNumberParser<Parser<SwidiConstNumber>>,
         IConstStringParser<Parser<SwidiConstString>>,
-        IConstFunctionInvocationParser<Parser<SwidiConstFunctionInvocation>> {
+        IConstFunctionInvocationParser<Parser<SwidiConstFunctionInvocation>>,
+        IConstMapParser<Parser<SwidiConstMap>> {
   @override
   Parser<SwidiConst> lexicalConst() => super.lexicalConst().map((x) {
         if (x is SwidiConstNumber) {
@@ -44,6 +49,10 @@ mixin SwidiConstParser
         } else if (x is SwidiConstFunctionInvocation) {
           return SwidiConst.fromSwidiConstFunctionInvocation(
             swidiConstFunctionInvocation: x,
+          );
+        } else if (x is SwidiConstMap) {
+          return SwidiConst.fromSwidiConstMap(
+            swidiConstMap: x,
           );
         }
 

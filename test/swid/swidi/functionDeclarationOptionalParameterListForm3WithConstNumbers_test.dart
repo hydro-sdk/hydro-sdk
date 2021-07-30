@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstMapParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConst.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConstNumber.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiDeclaration.dart';
@@ -45,6 +45,7 @@ class BasicFunctionParameterListParser extends SwidiGrammarDefinition
         SwidiConstPositionalParameterListParser,
         SwidiConstNamedParameterParser,
         SwidiConstNamedParameterListParser,
+        SwidiConstMapParser,
         SwidiAnnotationParser,
         SwidiAnnotationListParser,
         SwidiTypeParser,

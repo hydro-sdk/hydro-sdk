@@ -30,7 +30,7 @@ import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiTypeArgumentListParser
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiTypeListParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiTypeParser.dart';
 import 'lib/parserTestHarness.dart';
-
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstMapParser.dart';
 class BasicFunctionParameterListParser extends SwidiGrammarDefinition
     with
         SwidiLibraryScopePrefixParser,
@@ -43,6 +43,7 @@ class BasicFunctionParameterListParser extends SwidiGrammarDefinition
         SwidiConstPositionalParameterListParser,
         SwidiConstNamedParameterParser,
         SwidiConstNamedParameterListParser,
+        SwidiConstMapParser,
         SwidiAnnotationParser,
         SwidiAnnotationListParser,
         SwidiTypeParser,
