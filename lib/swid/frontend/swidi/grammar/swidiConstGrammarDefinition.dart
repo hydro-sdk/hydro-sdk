@@ -42,7 +42,8 @@ mixin SwidiConstGrammarDefinition
 
   @override
   Parser constString() =>
-      char('@') & char('"') & ref0(stringContentDq).star() & char('"');
+      (char('@') & char('"') & ref0(stringContentDq).star() & char('"')) |
+      (char('@') & ref0(multiLineString));
 
   @override
   Parser constMap() =>
