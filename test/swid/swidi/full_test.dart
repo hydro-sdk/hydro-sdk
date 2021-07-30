@@ -4,6 +4,7 @@ import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiAnnotation.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiClass.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConst.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConstFunctionInvocation.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConstMap.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConstString.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiDeclaration.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiEmptyConst.dart';
@@ -17,6 +18,7 @@ import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiPositionalParameter.dart'
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiReferenceDeclarationPrefix.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiTypeFormal.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiParser.dart';
+import 'package:tuple/tuple.dart';
 import 'lib/parserTestHarness.dart';
 
 void main() {
@@ -233,6 +235,156 @@ class "dart:core"::List {
             SwidiFunctionDeclaration(
               shortHandOverride: SwidiConst.fromSwidiEmptyConst(
                 swidiEmptyConst: SwidiEmptyConst(),
+              ),
+              name: "fromArray",
+              returnType: SwidiInterface(
+                name: "List",
+                libraryScopePrefix: SwidiLibraryScopePrefix(
+                  name: "dart:core",
+                ),
+                referenceDeclarationPrefix: SwidiReferenceDeclarationPrefix(
+                  name: "class",
+                ),
+                nullabilitySuffix: SwidiNullabilitySuffix.none,
+                typeArguments: [
+                  SwidiInterface(
+                    name: "T",
+                    libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                    referenceDeclarationPrefix:
+                        SwidiReferenceDeclarationPrefix.empty,
+                    nullabilitySuffix: SwidiNullabilitySuffix.none,
+                    typeArguments: [],
+                    annotations: [],
+                  )
+                ],
+                annotations: [],
+              ),
+              positionalParameters: [],
+              optionalParameters: [
+                SwidiOptionalParameter(
+                  declaration: SwidiDeclaration(
+                    name: "array",
+                    type: SwidiInterface(
+                      name: "Array?",
+                      libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                      referenceDeclarationPrefix:
+                          SwidiReferenceDeclarationPrefix(
+                        name: "class",
+                      ),
+                      nullabilitySuffix: SwidiNullabilitySuffix.question,
+                      typeArguments: [
+                        SwidiInterface(
+                          name: "T",
+                          libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                          referenceDeclarationPrefix:
+                              SwidiReferenceDeclarationPrefix.empty,
+                          nullabilitySuffix: SwidiNullabilitySuffix.none,
+                          typeArguments: [],
+                          annotations: [],
+                        )
+                      ],
+                      annotations: [
+                        SwidiAnnotation(
+                          value: SwidiConst.fromSwidiConstFunctionInvocation(
+                            swidiConstFunctionInvocation:
+                                SwidiConstFunctionInvocation(
+                              value: "ignoreTransform",
+                              positionalParameters: [
+                                SwidiConst.fromSwidiConstString(
+                                  swidiConstString: SwidiConstString(
+                                    value: "referenceRewriting",
+                                  ),
+                                )
+                              ],
+                              namedParameters: {},
+                            ),
+                          ),
+                        ),
+                        SwidiAnnotation(
+                          value: SwidiConst.fromSwidiConstFunctionInvocation(
+                            swidiConstFunctionInvocation:
+                                SwidiConstFunctionInvocation(
+                              value: "ignoreAnalysis",
+                              positionalParameters: [
+                                SwidiConst.fromSwidiConstString(
+                                  swidiConstString: SwidiConstString(
+                                    value: "referenceCollection",
+                                  ),
+                                )
+                              ],
+                              namedParameters: {},
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                )
+              ],
+              namedParameters: [],
+              typeFormals: [
+                SwidiTypeFormal(
+                  name: "T",
+                  bound: SwidiInterface(
+                    name: "Object?",
+                    libraryScopePrefix: SwidiLibraryScopePrefix(
+                      name: "dart:core",
+                    ),
+                    referenceDeclarationPrefix: SwidiReferenceDeclarationPrefix(
+                      name: "class",
+                    ),
+                    nullabilitySuffix: SwidiNullabilitySuffix.question,
+                    typeArguments: [],
+                    annotations: [],
+                  ),
+                ),
+              ],
+            )
+          ],
+        ),
+      ],
+    );
+
+    parserTestHarness(
+      input: const ParserTestHarnessInput.fromString(
+        input: """
+class "dart:core"::List {
+  "dart:core"::class::List<T> fromArray<T extends "dart:core"::class::Object?>([
+    [[ ignoreTransform(@"referenceRewriting") ]]
+    [[ ignoreAnalysis(@"referenceCollection")]]
+    class::Array<T>? array,
+  ]) -> {
+    @"tsClassMethodDeclaration": @"foo bar baz",
+  };
+}
+""",
+      ),
+      parser: const SwidiParser().build(),
+      result: const [
+        SwidiClass(
+          name: "List",
+          libraryScopePrefix: SwidiLibraryScopePrefix(
+            name: "dart:core",
+          ),
+          methods: [
+            SwidiFunctionDeclaration(
+              shortHandOverride: SwidiConst.fromSwidiConstMap(
+                swidiConstMap: SwidiConstMap(
+                  entries: [
+                    Tuple2(
+                      SwidiConst.fromSwidiConstString(
+                        swidiConstString: SwidiConstString(
+                          value: "tsClassMethodDeclaration",
+                        ),
+                      ),
+                      SwidiConst.fromSwidiConstString(
+                        swidiConstString: SwidiConstString(
+                          value: "foo bar baz",
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
               name: "fromArray",
               returnType: SwidiInterface(

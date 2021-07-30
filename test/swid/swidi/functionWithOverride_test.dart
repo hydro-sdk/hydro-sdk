@@ -145,5 +145,58 @@ class IconData {
         ),
       ],
     );
+
+    parserTestHarness(
+      input: const ParserTestHarnessInput.fromString(input: """
+class IconData {
+  void foo() -> {
+    @"1" : @"2",
+  };
+}
+"""),
+      parser: const SwidiParser().build(),
+      result: [
+        const SwidiClass(
+          name: "IconData",
+          libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+          methods: [
+            SwidiFunctionDeclaration(
+              name: "foo",
+              returnType: SwidiInterface(
+                name: "void",
+                libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                referenceDeclarationPrefix:
+                    SwidiReferenceDeclarationPrefix.empty,
+                nullabilitySuffix: SwidiNullabilitySuffix.none,
+                typeArguments: [],
+                annotations: [],
+              ),
+              positionalParameters: [],
+              optionalParameters: [],
+              namedParameters: [],
+              typeFormals: [],
+              shortHandOverride: SwidiConst.fromSwidiConstMap(
+                swidiConstMap: SwidiConstMap(
+                  entries: [
+                    Tuple2(
+                      SwidiConst.fromSwidiConstString(
+                        swidiConstString: SwidiConstString(
+                          value: "1",
+                        ),
+                      ),
+                      SwidiConst.fromSwidiConstString(
+                        swidiConstString: SwidiConstString(
+                          value: "2",
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      ],
+    );
   }, tags: "swid");
 }
