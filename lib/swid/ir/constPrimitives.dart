@@ -178,6 +178,9 @@ const dartUnknownClass = const SwidClass(
   staticConstFieldDeclarations: [],
   instanceFieldDeclarations: {},
   swidDeclarationModifiers: SwidDeclarationModifiers(
+    ignoredAnalyses: [],
+    ignoredTransforms: [],
+    overridenTransforms: [],
     isAbstract: false,
     isGetter: false,
     isOperator: false,
@@ -214,6 +217,9 @@ const dartUnknownFunction = const SwidFunctionType(
   nullabilitySuffix: SwidNullabilitySuffix.none,
   originalPackagePath: "",
   swidDeclarationModifiers: SwidDeclarationModifiers(
+    ignoredAnalyses: [],
+    ignoredTransforms: [],
+    overridenTransforms: [],
     isAbstract: false,
     isGetter: false,
     isOperator: false,

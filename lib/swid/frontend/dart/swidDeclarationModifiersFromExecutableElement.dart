@@ -2,9 +2,13 @@ import 'package:analyzer/dart/element/element.dart' show ExecutableElement;
 
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 
-SwidDeclarationModifiers swidDeclarationModifiersFromExecutableElement(
-        {required ExecutableElement executableElement}) =>
+SwidDeclarationModifiers swidDeclarationModifiersFromExecutableElement({
+  required ExecutableElement executableElement,
+}) =>
     SwidDeclarationModifiers(
+      ignoredAnalyses: [],
+      ignoredTransforms: [],
+      overridenTransforms: [],
       isAbstract: executableElement.isAbstract,
       isGetter: false,
       isOperator: executableElement.isOperator,

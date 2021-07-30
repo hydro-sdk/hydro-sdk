@@ -4,8 +4,33 @@ part 'swidDeclarationModifiers.freezed.dart';
 part 'swidDeclarationModifiers.g.dart';
 
 @freezed
+class StringTuple with _$StringTuple {
+  const StringTuple._();
+
+  const factory StringTuple({
+    required String item1,
+    required String item2,
+  }) = _$StringTupleCtor;
+  factory StringTuple.clone({
+    required StringTuple stringTuple,
+    String? item1,
+    String? item2,
+  }) =>
+      StringTuple(
+        item1: item1 ?? stringTuple.item1,
+        item2: item2 ?? stringTuple.item2,
+      );
+
+  factory StringTuple.fromJson(Map<String, dynamic> json) =>
+      _$StringTupleFromJson(json);
+}
+
+@freezed
 class SwidDeclarationModifiers with _$SwidDeclarationModifiers {
   const factory SwidDeclarationModifiers({
+    required List<String> ignoredTransforms,
+    required List<String> ignoredAnalyses,
+    required List<StringTuple> overridenTransforms,
     required bool isAbstract,
     required bool isGetter,
     required bool isOperator,
@@ -37,6 +62,9 @@ class SwidDeclarationModifiers with _$SwidDeclarationModifiers {
 
   factory SwidDeclarationModifiers.clone({
     required SwidDeclarationModifiers swidDeclarationModifiers,
+    List<String>? ignoredTransforms,
+    List<String>? ignoredAnalyses,
+    List<StringTuple>? overridenTransforms,
     bool? isAbstract,
     bool? isGetter,
     bool? isOperator,
@@ -63,6 +91,18 @@ class SwidDeclarationModifiers with _$SwidDeclarationModifiers {
     bool? isPublic,
   }) =>
       SwidDeclarationModifiers(
+        ignoredTransforms: ignoredTransforms ??
+            List.from(swidDeclarationModifiers.ignoredTransforms),
+        ignoredAnalyses: ignoredAnalyses ??
+            List.from(swidDeclarationModifiers.ignoredAnalyses),
+        overridenTransforms: overridenTransforms ??
+            swidDeclarationModifiers.overridenTransforms
+                .map(
+                  (x) => StringTuple.clone(
+                    stringTuple: x,
+                  ),
+                )
+                .toList(),
         isAbstract: isAbstract ?? swidDeclarationModifiers.isAbstract,
         isGetter: isGetter ?? swidDeclarationModifiers.isGetter,
         isOperator: isOperator ?? swidDeclarationModifiers.isOperator,
@@ -99,32 +139,38 @@ class SwidDeclarationModifiers with _$SwidDeclarationModifiers {
   factory SwidDeclarationModifiers.empty() => SwidDeclarationModifiers.only();
 
   factory SwidDeclarationModifiers.only({
-    isAbstract: false,
-    isGetter: false,
-    isOperator: false,
-    isSetter: false,
-    isStatic: false,
-    isSynthetic: false,
-    hasAlwaysThrows: false,
-    hasDeprecated: false,
-    hasFactory: false,
-    hasImplicitReturnType: false,
-    hasIsTest: false,
-    hasIsTestGroup: false,
-    hasJS: false,
-    hasLiteral: false,
-    hasMustCallSuper: false,
-    hasNonVirtual: false,
-    hasOptionalTypeArgs: false,
-    hasOverride: false,
-    hasProtected: false,
-    hasRequired: false,
-    hasSealed: false,
-    hasVisibleForTemplate: false,
-    hasVisibleForTesting: false,
-    isPublic: true,
+    List<String> ignoredTransforms: const [],
+    List<String> ignoredAnalyses: const [],
+    List<StringTuple> overridenTransforms: const [],
+    bool isAbstract: false,
+    bool isGetter: false,
+    bool isOperator: false,
+    bool isSetter: false,
+    bool isStatic: false,
+    bool isSynthetic: false,
+    bool hasAlwaysThrows: false,
+    bool hasDeprecated: false,
+    bool hasFactory: false,
+    bool hasImplicitReturnType: false,
+    bool hasIsTest: false,
+    bool hasIsTestGroup: false,
+    bool hasJS: false,
+    bool hasLiteral: false,
+    bool hasMustCallSuper: false,
+    bool hasNonVirtual: false,
+    bool hasOptionalTypeArgs: false,
+    bool hasOverride: false,
+    bool hasProtected: false,
+    bool hasRequired: false,
+    bool hasSealed: false,
+    bool hasVisibleForTemplate: false,
+    bool hasVisibleForTesting: false,
+    bool isPublic: true,
   }) =>
       SwidDeclarationModifiers(
+        ignoredTransforms: ignoredTransforms,
+        ignoredAnalyses: ignoredAnalyses,
+        overridenTransforms: overridenTransforms,
         isAbstract: isAbstract,
         isGetter: isGetter,
         isOperator: isOperator,
