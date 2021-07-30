@@ -2,6 +2,8 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiClass.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConst.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConstMap.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConstNumber.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConstString.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiDeclaration.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionDeclaration.dart';
@@ -11,6 +13,7 @@ import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiPositionalParameter.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiReferenceDeclarationPrefix.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiParser.dart';
+import 'package:tuple/tuple.dart';
 import 'lib/parserTestHarness.dart';
 
 void main() {
@@ -84,6 +87,59 @@ void foo(int bar,int baz)->@"foo";
                   ),
                 )
               ],
+            ),
+          ],
+        ),
+      ],
+    );
+
+    parserTestHarness(
+      input: const ParserTestHarnessInput.fromString(input: """
+class IconData {
+  void foo() -> {
+    1 : 2,
+  };
+}
+"""),
+      parser: const SwidiParser().build(),
+      result: [
+        const SwidiClass(
+          name: "IconData",
+          libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+          methods: [
+            SwidiFunctionDeclaration(
+              name: "foo",
+              returnType: SwidiInterface(
+                name: "void",
+                libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                referenceDeclarationPrefix:
+                    SwidiReferenceDeclarationPrefix.empty,
+                nullabilitySuffix: SwidiNullabilitySuffix.none,
+                typeArguments: [],
+                annotations: [],
+              ),
+              positionalParameters: [],
+              optionalParameters: [],
+              namedParameters: [],
+              typeFormals: [],
+              shortHandOverride: SwidiConst.fromSwidiConstMap(
+                swidiConstMap: SwidiConstMap(
+                  entries: [
+                    Tuple2(
+                      SwidiConst.fromSwidiConstNumber(
+                        swidiConstNumber: SwidiConstNumber(
+                          value: "1",
+                        ),
+                      ),
+                      SwidiConst.fromSwidiConstNumber(
+                        swidiConstNumber: SwidiConstNumber(
+                          value: "2",
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ),
           ],
         ),
