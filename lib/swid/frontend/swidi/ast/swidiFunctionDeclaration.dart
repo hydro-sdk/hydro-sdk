@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConst.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiInterface.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiNamedParameter.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiOptionalParameter.dart';
@@ -17,6 +18,7 @@ class SwidiFunctionDeclaration with _$SwidiFunctionDeclaration {
     required List<SwidiOptionalParameter> optionalParameters,
     required List<SwidiNamedParameter> namedParameters,
     required List<SwidiTypeFormal> typeFormals,
+    required SwidiConst shortHandOverride,
   }) = _$SwidiFunctionDeclarationCtor;
 
   factory SwidiFunctionDeclaration.clone({
@@ -27,6 +29,7 @@ class SwidiFunctionDeclaration with _$SwidiFunctionDeclaration {
     List<SwidiOptionalParameter>? optionalParameters,
     List<SwidiNamedParameter>? namedParameters,
     List<SwidiTypeFormal>? typeFormals,
+    SwidiConst? shortHandOverride,
   }) =>
       SwidiFunctionDeclaration(
         name: name ?? swidiFunctionDeclaration.name,
@@ -71,6 +74,10 @@ class SwidiFunctionDeclaration with _$SwidiFunctionDeclaration {
                         swidiTypeFormal: x,
                       ))
                   .toList(),
+            ),
+        shortHandOverride: shortHandOverride ??
+            SwidiConst.clone(
+              swidiConst: swidiFunctionDeclaration.shortHandOverride,
             ),
       );
 }

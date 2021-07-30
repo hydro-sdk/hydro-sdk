@@ -1,3 +1,4 @@
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iConstLexer.dart';
 import 'package:petitparser/definition.dart';
 import 'package:petitparser/petitparser.dart';
 
@@ -19,13 +20,15 @@ mixin SwidiFunctionGrammarDefinition
         SwidiFunctionDeclarationNamedParameterGrammarDefinition
     implements
         IFunctionDeclarationLexer,
-        IFunctionDeclarationParameterListLexer {
+        IFunctionDeclarationParameterListLexer,
+        IConstLexer {
   @override
   Parser functionDeclaration() =>
       ref0(returnType) &
       ref0(identifier) &
       ref0(typeFormalListDeclaration).optional() &
       ref0(functionDeclarationParameterList) &
+      (ref1(token, "->") & ref0(lexicalConst)).optional() &
       ref1(token, ";");
 
   @override

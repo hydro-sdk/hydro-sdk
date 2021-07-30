@@ -4,6 +4,7 @@ import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiClass.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConst.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConstNumber.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiDeclaration.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiEmptyConst.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionDeclaration.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiInterface.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiLibraryScopePrefix.dart';
@@ -31,6 +32,9 @@ void main() {
           libraryScopePrefix: SwidiLibraryScopePrefix.empty,
           methods: [
             SwidiFunctionDeclaration(
+              shortHandOverride: SwidiConst.fromSwidiEmptyConst(
+                swidiEmptyConst: SwidiEmptyConst(),
+              ),
               typeFormals: [],
               name: "foo",
               returnType: SwidiInterface(

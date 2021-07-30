@@ -9,6 +9,9 @@
             "nullabilitySuffix": "none",
             "originalPackagePath": "",
             "swidDeclarationModifiers": {
+                "ignoredTransforms": [],
+                "ignoredAnalyses": [],
+                "overridenTransforms": [],
                 "isAbstract": false,
                 "isGetter": false,
                 "isOperator": false,
@@ -126,6 +129,9 @@
             "nullabilitySuffix": "none",
             "originalPackagePath": "",
             "swidDeclarationModifiers": {
+                "ignoredTransforms": [],
+                "ignoredAnalyses": [],
+                "overridenTransforms": [],
                 "isAbstract": false,
                 "isGetter": false,
                 "isOperator": false,
@@ -232,6 +238,9 @@
             "nullabilitySuffix": "none",
             "originalPackagePath": "",
             "swidDeclarationModifiers": {
+                "ignoredTransforms": [],
+                "ignoredAnalyses": [],
+                "overridenTransforms": [],
                 "isAbstract": false,
                 "isGetter": false,
                 "isOperator": false,
@@ -312,6 +321,9 @@
             "nullabilitySuffix": "none",
             "originalPackagePath": "",
             "swidDeclarationModifiers": {
+                "ignoredTransforms": [],
+                "ignoredAnalyses": [],
+                "overridenTransforms": [],
                 "isAbstract": false,
                 "isGetter": false,
                 "isOperator": false,
@@ -382,6 +394,9 @@
             "nullabilitySuffix": "none",
             "originalPackagePath": "",
             "swidDeclarationModifiers": {
+                "ignoredTransforms": [],
+                "ignoredAnalyses": [],
+                "overridenTransforms": [],
                 "isAbstract": false,
                 "isGetter": false,
                 "isOperator": false,
@@ -626,6 +641,9 @@
             "nullabilitySuffix": "none",
             "originalPackagePath": "",
             "swidDeclarationModifiers": {
+                "ignoredTransforms": [],
+                "ignoredAnalyses": [],
+                "overridenTransforms": [],
                 "isAbstract": false,
                 "isGetter": false,
                 "isOperator": false,
@@ -842,6 +860,9 @@
             "nullabilitySuffix": "none",
             "originalPackagePath": "dart:ui",
             "swidDeclarationModifiers": {
+                "ignoredTransforms": [],
+                "ignoredAnalyses": [],
+                "overridenTransforms": [],
                 "isAbstract": false,
                 "isGetter": false,
                 "isOperator": false,
@@ -924,6 +945,9 @@
             "nullabilitySuffix": "none",
             "originalPackagePath": "dart:ui",
             "swidDeclarationModifiers": {
+                "ignoredTransforms": [],
+                "ignoredAnalyses": [],
+                "overridenTransforms": [],
                 "isAbstract": false,
                 "isGetter": true,
                 "isOperator": false,
@@ -973,6 +997,9 @@
             "nullabilitySuffix": "none",
             "originalPackagePath": "dart:ui",
             "swidDeclarationModifiers": {
+                "ignoredTransforms": [],
+                "ignoredAnalyses": [],
+                "overridenTransforms": [],
                 "isAbstract": false,
                 "isGetter": true,
                 "isOperator": false,
@@ -1022,6 +1049,9 @@
             "nullabilitySuffix": "none",
             "originalPackagePath": "dart:ui",
             "swidDeclarationModifiers": {
+                "ignoredTransforms": [],
+                "ignoredAnalyses": [],
+                "overridenTransforms": [],
                 "isAbstract": false,
                 "isGetter": true,
                 "isOperator": false,
@@ -1071,6 +1101,9 @@
             "nullabilitySuffix": "none",
             "originalPackagePath": "dart:ui",
             "swidDeclarationModifiers": {
+                "ignoredTransforms": [],
+                "ignoredAnalyses": [],
+                "overridenTransforms": [],
                 "isAbstract": false,
                 "isGetter": true,
                 "isOperator": false,
@@ -1120,6 +1153,9 @@
             "nullabilitySuffix": "none",
             "originalPackagePath": "dart:ui",
             "swidDeclarationModifiers": {
+                "ignoredTransforms": [],
+                "ignoredAnalyses": [],
+                "overridenTransforms": [],
                 "isAbstract": false,
                 "isGetter": false,
                 "isOperator": false,
@@ -1180,6 +1216,9 @@
             "nullabilitySuffix": "none",
             "originalPackagePath": "dart:ui",
             "swidDeclarationModifiers": {
+                "ignoredTransforms": [],
+                "ignoredAnalyses": [],
+                "overridenTransforms": [],
                 "isAbstract": false,
                 "isGetter": false,
                 "isOperator": false,
@@ -1240,6 +1279,9 @@
             "nullabilitySuffix": "none",
             "originalPackagePath": "dart:ui",
             "swidDeclarationModifiers": {
+                "ignoredTransforms": [],
+                "ignoredAnalyses": [],
+                "overridenTransforms": [],
                 "isAbstract": false,
                 "isGetter": false,
                 "isOperator": false,
@@ -1300,6 +1342,9 @@
             "nullabilitySuffix": "none",
             "originalPackagePath": "dart:ui",
             "swidDeclarationModifiers": {
+                "ignoredTransforms": [],
+                "ignoredAnalyses": [],
+                "overridenTransforms": [],
                 "isAbstract": false,
                 "isGetter": true,
                 "isOperator": false,
@@ -1349,6 +1394,9 @@
             "nullabilitySuffix": "none",
             "originalPackagePath": "dart:ui",
             "swidDeclarationModifiers": {
+                "ignoredTransforms": [],
+                "ignoredAnalyses": [],
+                "overridenTransforms": [],
                 "isAbstract": false,
                 "isGetter": true,
                 "isOperator": false,
@@ -1398,6 +1446,9 @@
             "nullabilitySuffix": "none",
             "originalPackagePath": "dart:ui",
             "swidDeclarationModifiers": {
+                "ignoredTransforms": [],
+                "ignoredAnalyses": [],
+                "overridenTransforms": [],
                 "isAbstract": false,
                 "isGetter": true,
                 "isOperator": false,
@@ -1447,6 +1498,9 @@
             "nullabilitySuffix": "none",
             "originalPackagePath": "dart:ui",
             "swidDeclarationModifiers": {
+                "ignoredTransforms": [],
+                "ignoredAnalyses": [],
+                "overridenTransforms": [],
                 "isAbstract": false,
                 "isGetter": true,
                 "isOperator": false,
@@ -1496,6 +1550,9 @@
             "nullabilitySuffix": "none",
             "originalPackagePath": "dart:ui",
             "swidDeclarationModifiers": {
+                "ignoredTransforms": [],
+                "ignoredAnalyses": [],
+                "overridenTransforms": [],
                 "isAbstract": false,
                 "isGetter": true,
                 "isOperator": false,
@@ -1545,6 +1602,9 @@
             "nullabilitySuffix": "none",
             "originalPackagePath": "dart:ui",
             "swidDeclarationModifiers": {
+                "ignoredTransforms": [],
+                "ignoredAnalyses": [],
+                "overridenTransforms": [],
                 "isAbstract": false,
                 "isGetter": true,
                 "isOperator": false,
@@ -1594,6 +1654,9 @@
             "nullabilitySuffix": "none",
             "originalPackagePath": "dart:ui",
             "swidDeclarationModifiers": {
+                "ignoredTransforms": [],
+                "ignoredAnalyses": [],
+                "overridenTransforms": [],
                 "isAbstract": false,
                 "isGetter": true,
                 "isOperator": false,
@@ -1643,6 +1706,9 @@
             "nullabilitySuffix": "none",
             "originalPackagePath": "dart:ui",
             "swidDeclarationModifiers": {
+                "ignoredTransforms": [],
+                "ignoredAnalyses": [],
+                "overridenTransforms": [],
                 "isAbstract": false,
                 "isGetter": true,
                 "isOperator": false,
@@ -1692,6 +1758,9 @@
             "nullabilitySuffix": "none",
             "originalPackagePath": "dart:ui",
             "swidDeclarationModifiers": {
+                "ignoredTransforms": [],
+                "ignoredAnalyses": [],
+                "overridenTransforms": [],
                 "isAbstract": false,
                 "isGetter": true,
                 "isOperator": false,
@@ -1741,6 +1810,9 @@
             "nullabilitySuffix": "none",
             "originalPackagePath": "dart:ui",
             "swidDeclarationModifiers": {
+                "ignoredTransforms": [],
+                "ignoredAnalyses": [],
+                "overridenTransforms": [],
                 "isAbstract": false,
                 "isGetter": true,
                 "isOperator": false,
@@ -1790,6 +1862,9 @@
             "nullabilitySuffix": "none",
             "originalPackagePath": "dart:ui",
             "swidDeclarationModifiers": {
+                "ignoredTransforms": [],
+                "ignoredAnalyses": [],
+                "overridenTransforms": [],
                 "isAbstract": false,
                 "isGetter": true,
                 "isOperator": false,
@@ -1839,6 +1914,9 @@
             "nullabilitySuffix": "none",
             "originalPackagePath": "dart:ui",
             "swidDeclarationModifiers": {
+                "ignoredTransforms": [],
+                "ignoredAnalyses": [],
+                "overridenTransforms": [],
                 "isAbstract": false,
                 "isGetter": true,
                 "isOperator": false,
@@ -1888,6 +1966,9 @@
             "nullabilitySuffix": "none",
             "originalPackagePath": "dart:ui",
             "swidDeclarationModifiers": {
+                "ignoredTransforms": [],
+                "ignoredAnalyses": [],
+                "overridenTransforms": [],
                 "isAbstract": false,
                 "isGetter": true,
                 "isOperator": false,
@@ -1937,6 +2018,9 @@
             "nullabilitySuffix": "none",
             "originalPackagePath": "dart:ui",
             "swidDeclarationModifiers": {
+                "ignoredTransforms": [],
+                "ignoredAnalyses": [],
+                "overridenTransforms": [],
                 "isAbstract": false,
                 "isGetter": true,
                 "isOperator": false,
@@ -1986,6 +2070,9 @@
             "nullabilitySuffix": "none",
             "originalPackagePath": "dart:ui",
             "swidDeclarationModifiers": {
+                "ignoredTransforms": [],
+                "ignoredAnalyses": [],
+                "overridenTransforms": [],
                 "isAbstract": false,
                 "isGetter": true,
                 "isOperator": false,
@@ -2035,6 +2122,9 @@
             "nullabilitySuffix": "none",
             "originalPackagePath": "dart:ui",
             "swidDeclarationModifiers": {
+                "ignoredTransforms": [],
+                "ignoredAnalyses": [],
+                "overridenTransforms": [],
                 "isAbstract": false,
                 "isGetter": true,
                 "isOperator": false,
@@ -2084,6 +2174,9 @@
             "nullabilitySuffix": "none",
             "originalPackagePath": "dart:ui",
             "swidDeclarationModifiers": {
+                "ignoredTransforms": [],
+                "ignoredAnalyses": [],
+                "overridenTransforms": [],
                 "isAbstract": false,
                 "isGetter": true,
                 "isOperator": false,
@@ -2133,6 +2226,9 @@
             "nullabilitySuffix": "none",
             "originalPackagePath": "dart:ui",
             "swidDeclarationModifiers": {
+                "ignoredTransforms": [],
+                "ignoredAnalyses": [],
+                "overridenTransforms": [],
                 "isAbstract": false,
                 "isGetter": false,
                 "isOperator": false,
@@ -2182,6 +2278,9 @@
             "nullabilitySuffix": "none",
             "originalPackagePath": "dart:ui",
             "swidDeclarationModifiers": {
+                "ignoredTransforms": [],
+                "ignoredAnalyses": [],
+                "overridenTransforms": [],
                 "isAbstract": false,
                 "isGetter": false,
                 "isOperator": false,
@@ -2242,6 +2341,9 @@
             "nullabilitySuffix": "none",
             "originalPackagePath": "dart:ui",
             "swidDeclarationModifiers": {
+                "ignoredTransforms": [],
+                "ignoredAnalyses": [],
+                "overridenTransforms": [],
                 "isAbstract": false,
                 "isGetter": false,
                 "isOperator": true,
@@ -2302,6 +2404,9 @@
             "nullabilitySuffix": "none",
             "originalPackagePath": "dart:ui",
             "swidDeclarationModifiers": {
+                "ignoredTransforms": [],
+                "ignoredAnalyses": [],
+                "overridenTransforms": [],
                 "isAbstract": false,
                 "isGetter": true,
                 "isOperator": false,
@@ -2351,6 +2456,9 @@
             "nullabilitySuffix": "none",
             "originalPackagePath": "dart:ui",
             "swidDeclarationModifiers": {
+                "ignoredTransforms": [],
+                "ignoredAnalyses": [],
+                "overridenTransforms": [],
                 "isAbstract": false,
                 "isGetter": false,
                 "isOperator": false,
@@ -2543,6 +2651,9 @@
         }
     },
     "swidDeclarationModifiers": {
+        "ignoredTransforms": [],
+        "ignoredAnalyses": [],
+        "overridenTransforms": [],
         "isAbstract": false,
         "isGetter": false,
         "isOperator": false,

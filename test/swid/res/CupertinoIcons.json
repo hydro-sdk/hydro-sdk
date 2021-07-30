@@ -79360,6 +79360,9 @@
     ],
     "instanceFieldDeclarations": {},
     "swidDeclarationModifiers": {
+        "ignoredTransforms": [],
+        "ignoredAnalyses": [],
+        "overridenTransforms": [],
         "isAbstract": false,
         "isGetter": false,
         "isOperator": false,

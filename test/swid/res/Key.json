@@ -7,6 +7,9 @@
         "nullabilitySuffix": "none",
         "originalPackagePath": "",
         "swidDeclarationModifiers": {
+            "ignoredTransforms": [],
+            "ignoredAnalyses": [],
+            "overridenTransforms": [],
             "isAbstract": false,
             "isGetter": false,
             "isOperator": false,
@@ -68,6 +71,9 @@
             "nullabilitySuffix": "none",
             "originalPackagePath": "",
             "swidDeclarationModifiers": {
+                "ignoredTransforms": [],
+                "ignoredAnalyses": [],
+                "overridenTransforms": [],
                 "isAbstract": false,
                 "isGetter": false,
                 "isOperator": false,
@@ -118,6 +124,9 @@
     "staticConstFieldDeclarations": [],
     "instanceFieldDeclarations": {},
     "swidDeclarationModifiers": {
+        "ignoredTransforms": [],
+        "ignoredAnalyses": [],
+        "overridenTransforms": [],
         "isAbstract": true,
         "isGetter": false,
         "isOperator": false,

@@ -6,6 +6,7 @@ import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConst.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConstFunctionInvocation.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConstString.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiDeclaration.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiEmptyConst.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionDeclaration.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiInterface.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiLibraryScopePrefix.dart';
@@ -50,6 +51,9 @@ void main() {
               name: "package:flutter/src/widgets/icon_data.dart"),
           methods: [
             SwidiFunctionDeclaration(
+              shortHandOverride: SwidiConst.fromSwidiEmptyConst(
+                swidiEmptyConst: SwidiEmptyConst(),
+              ),
               typeFormals: [],
               name: "foo",
               returnType: SwidiInterface(
@@ -134,6 +138,9 @@ class "package:flutter/src/widgets/icon_data.dart"::IconData {
           ),
           methods: [
             SwidiFunctionDeclaration(
+              shortHandOverride: SwidiConst.fromSwidiEmptyConst(
+                swidiEmptyConst: SwidiEmptyConst(),
+              ),
               name: "foo",
               typeFormals: [
                 SwidiTypeFormal(
@@ -224,6 +231,9 @@ class "dart:core"::List {
           ),
           methods: [
             SwidiFunctionDeclaration(
+              shortHandOverride: SwidiConst.fromSwidiEmptyConst(
+                swidiEmptyConst: SwidiEmptyConst(),
+              ),
               name: "fromArray",
               returnType: SwidiInterface(
                 name: "List",

@@ -1,5 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConst.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiEmptyConst.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionDeclaration.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiInterface.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiLibraryScopePrefix.dart';
@@ -76,6 +78,9 @@ void main() {
         parser: const BasicFunctionDeclarationParser().build(
             start: const BasicFunctionDeclarationParser().functionDeclaration),
         result: const SwidiFunctionDeclaration(
+          shortHandOverride: SwidiConst.fromSwidiEmptyConst(
+            swidiEmptyConst: SwidiEmptyConst(),
+          ),
           typeFormals: [
             SwidiTypeFormal(
               name: "T",
