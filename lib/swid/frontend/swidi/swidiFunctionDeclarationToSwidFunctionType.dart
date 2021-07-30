@@ -36,8 +36,7 @@ SwidFunctionType swidiFunctionDeclarationToSwidFunctionType({
             (x) => x.declaration.defaultConstValue.when(
               fromSwidiConstFunctionInvocation: (_) =>
                   dartUnkownDefaultFormalParameterEntry,
-              fromSwidiConstMap: (_) =>
-                  dartUnkownDefaultFormalParameterEntry,
+              fromSwidiConstMap: (_) => dartUnkownDefaultFormalParameterEntry,
               fromSwidiEmptyConst: (val) =>
                   dartUnkownDefaultFormalParameterEntry,
               fromSwidiConstNumber: (val) => MapEntry(

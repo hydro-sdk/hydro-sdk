@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstMapParser.dart';
+
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiInterface.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiLibraryScopePrefix.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiNullabilitySuffix.dart';
@@ -10,6 +10,7 @@ import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiGrammarDefinition.dar
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiAnnotationListParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiAnnotationParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstFunctionInvocationParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstMapParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstNamedParameterListParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstNamedParameterParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstNumberParser.dart';

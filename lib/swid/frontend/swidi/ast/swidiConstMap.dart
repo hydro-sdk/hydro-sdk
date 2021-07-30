@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConst.dart';
 import 'package:tuple/tuple.dart';
+
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConst.dart';
 
 part 'swidiConstMap.freezed.dart';
 
