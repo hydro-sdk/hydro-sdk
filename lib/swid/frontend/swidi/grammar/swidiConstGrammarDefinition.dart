@@ -1,3 +1,4 @@
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iConstMapLexer.dart';
 import 'package:petitparser/definition.dart';
 import 'package:petitparser/petitparser.dart';
 
@@ -27,10 +28,14 @@ mixin SwidiConstGrammarDefinition
         IConstNumberLexer,
         IConstParameterListLexer,
         IConstPositionalParameterListLexer,
-        IConstStringLexer {
+        IConstStringLexer,
+        IConstMapLexer {
   @override
   Parser lexicalConst() =>
-      ref0(constNumber) | ref0(constString) | ref0(constFunctionInvocation);
+      ref0(constNumber) |
+      ref0(constString) |
+      ref0(constFunctionInvocation) |
+      ref0(constMap);
 
   @override
   Parser constNumber() => (ref0(number));
@@ -38,6 +43,16 @@ mixin SwidiConstGrammarDefinition
   @override
   Parser constString() =>
       char('@') & char('"') & ref0(stringContentDq).star() & char('"');
+
+  @override
+  Parser constMap() =>
+      ref1(token, "{") &
+      (ref0(lexicalConst) &
+              ref1(token, ":") &
+              ref0(lexicalConst) &
+              ref1(token, ","))
+          .star() &
+      ref1(token, "}");
 
   @override
   Parser constNamedParameter() =>

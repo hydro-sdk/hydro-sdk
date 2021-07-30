@@ -31,6 +31,7 @@ dependencies:
   watcher: ^1.0.0
   glob: 2.0.1
   path_provider: null
+  quiver: 3.0.1
 dev_dependencies: 
   import_sorter: null
   build_runner: null
