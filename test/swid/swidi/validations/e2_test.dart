@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/validation/swidiValidationError.dart';
 
+import 'package:hydro_sdk/swid/frontend/swidi/validation/swidiValidationError.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/validation/validateSwidiClass.dart';
 import '../lib/validatorTestHarness.dart';
 
