@@ -49,4 +49,16 @@ class SwidiValidationError with _$SwidiValidationError {
   static const e10 = SwidiValidationError(
     message: "Map used as an annotation",
   );
+
+  static const e11 = SwidiValidationError(
+    message: "Number used as a method short hand override",
+  );
+
+  static const e12 = SwidiValidationError(
+    message: "String used as a method short hand override",
+  );
+
+  static const e13 = SwidiValidationError(
+    message: "Function used as a method short hand override",
+  );
 }

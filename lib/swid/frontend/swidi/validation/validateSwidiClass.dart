@@ -145,7 +145,21 @@ List<SwidiClassValidationState> validateSwidiClassMethod({
                     ...element,
                   ],
                 )
-            : [])
+            : []),
+        swidiFunctionDeclaration.shortHandOverride.when(
+          fromSwidiEmptyConst: (_) => const SwidiClassValidationState.valid(),
+          fromSwidiConstNumber: (_) => const SwidiClassValidationState.invalid(
+            swidiValidationError: SwidiValidationError.e11,
+          ),
+          fromSwidiConstString: (_) => const SwidiClassValidationState.invalid(
+            swidiValidationError: SwidiValidationError.e12,
+          ),
+          fromSwidiConstFunctionInvocation: (_) =>
+              const SwidiClassValidationState.invalid(
+            swidiValidationError: SwidiValidationError.e13,
+          ),
+          fromSwidiConstMap: (_) => const SwidiClassValidationState.valid(),
+        ),
       ])
     ];
 
