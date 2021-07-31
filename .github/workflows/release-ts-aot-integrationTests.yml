@@ -85,7 +85,7 @@ jobs:
 
     - name: Build Sdk Tools
       shell: bash
-      run: bash scripts/buildSdkTools.bash
+      run: bash scripts/buildSdkTools.bash --skip-swid
       working-directory: hydro
 
     - name: Build Typescript release fixtures
