@@ -95,9 +95,10 @@ mixin SwidiConstGrammarDefinition
 
   @override
   Parser constFunctionInvocation() =>
-      ref0(identifier) &
-      ref1(token, "(") &
-      ref0(constParameterList) &
-      ref1(token, ",").optional() &
-      ref1(token, ")");
+      (ref0(identifier) & ref1(token, "(") & ref1(token, ")")) |
+      (ref0(identifier) &
+          ref1(token, "(") &
+          ref0(constParameterList) &
+          ref1(token, ",").optional() &
+          ref1(token, ")"));
 }
