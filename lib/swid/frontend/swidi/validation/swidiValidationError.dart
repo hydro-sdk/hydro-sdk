@@ -61,4 +61,20 @@ class SwidiValidationError with _$SwidiValidationError {
   static const e13 = SwidiValidationError(
     message: "Function used as a method short hand override",
   );
+
+  static const e14 = SwidiValidationError(
+    message: "Number used as a key in a method short hand override",
+  );
+
+  static const e15 = SwidiValidationError(
+    message: "Function used as a key in a method short hand override",
+  );
+
+  static const e16 = SwidiValidationError(
+    message: "Map used as a key in a method short hand override",
+  );
+
+  static const e17 = SwidiValidationError(
+    message: "Key is not a valid short hand override key",
+  );
 }

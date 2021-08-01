@@ -19,6 +19,10 @@ class SwidiClassValidationState with _$SwidiClassValidationState {
   }) = _$SwidiClassValidationStateInvalid;
 }
 
+const validMethodShortHandOverrideKeys = [
+  "tsClassMethodDeclaration",
+];
+
 List<SwidiClassValidationState> validateSwidiType({
   required SwidiInterface swidiInterface,
 }) =>
@@ -146,19 +150,63 @@ List<SwidiClassValidationState> validateSwidiClassMethod({
                   ],
                 )
             : []),
-        swidiFunctionDeclaration.shortHandOverride.when(
-          fromSwidiEmptyConst: (_) => const SwidiClassValidationState.valid(),
-          fromSwidiConstNumber: (_) => const SwidiClassValidationState.invalid(
-            swidiValidationError: SwidiValidationError.e11,
-          ),
-          fromSwidiConstString: (_) => const SwidiClassValidationState.invalid(
-            swidiValidationError: SwidiValidationError.e12,
-          ),
-          fromSwidiConstFunctionInvocation: (_) =>
-              const SwidiClassValidationState.invalid(
-            swidiValidationError: SwidiValidationError.e13,
-          ),
-          fromSwidiConstMap: (_) => const SwidiClassValidationState.valid(),
+        ...swidiFunctionDeclaration.shortHandOverride.when(
+          fromSwidiEmptyConst: (_) => [
+            const SwidiClassValidationState.valid(),
+          ],
+          fromSwidiConstNumber: (_) => [
+            const SwidiClassValidationState.invalid(
+              swidiValidationError: SwidiValidationError.e11,
+            ),
+          ],
+          fromSwidiConstString: (_) => [
+            const SwidiClassValidationState.invalid(
+              swidiValidationError: SwidiValidationError.e12,
+            ),
+          ],
+          fromSwidiConstFunctionInvocation: (_) => [
+            const SwidiClassValidationState.invalid(
+              swidiValidationError: SwidiValidationError.e13,
+            ),
+          ],
+          fromSwidiConstMap: (val) => val.entries
+              .map(
+                (x) => x.item1.when(
+                  fromSwidiEmptyConst: (_) => [
+                    const SwidiClassValidationState.valid(),
+                  ],
+                  fromSwidiConstNumber: (_) => [
+                    const SwidiClassValidationState.invalid(
+                      swidiValidationError: SwidiValidationError.e14,
+                    ),
+                  ],
+                  fromSwidiConstString: (val) => [
+                    validMethodShortHandOverrideKeys
+                                .firstWhereOrNull((x) => x == val.value) !=
+                            null
+                        ? const SwidiClassValidationState.valid()
+                        : const SwidiClassValidationState.invalid(
+                            swidiValidationError: SwidiValidationError.e17,
+                          )
+                  ],
+                  fromSwidiConstFunctionInvocation: (_) => [
+                    const SwidiClassValidationState.invalid(
+                      swidiValidationError: SwidiValidationError.e15,
+                    ),
+                  ],
+                  fromSwidiConstMap: (_) => [
+                    const SwidiClassValidationState.invalid(
+                      swidiValidationError: SwidiValidationError.e16,
+                    ),
+                  ],
+                ),
+              )
+              .reduce(
+                (value, element) => [
+                  ...value,
+                  ...element,
+                ],
+              ),
         ),
       ])
     ];
