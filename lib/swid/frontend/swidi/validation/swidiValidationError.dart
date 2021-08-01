@@ -81,4 +81,8 @@ class SwidiValidationError with _$SwidiValidationError {
   static const e18 = SwidiValidationError(
     message: "Invalid annotation name",
   );
+
+  static const e19 = SwidiValidationError(
+    message: "Invalid annotation parameter",
+  );
 }

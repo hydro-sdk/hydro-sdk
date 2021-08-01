@@ -82,8 +82,19 @@ List<SwidiClassValidationState> validateSwidiType({
                                       swidiValidationError:
                                           SwidiValidationError.e7,
                                     ),
-                                    fromSwidiConstString: (_) =>
-                                        const SwidiClassValidationState.valid(),
+                                    fromSwidiConstString: (val) => [
+                                              ...validTransformNames,
+                                              ...validAnalysisNames
+                                            ].firstWhereOrNull(
+                                                (x) => x == val.value) ==
+                                            null
+                                        ? const SwidiClassValidationState
+                                            .invalid(
+                                            swidiValidationError:
+                                                SwidiValidationError.e19,
+                                          )
+                                        : const SwidiClassValidationState
+                                            .valid(),
                                     fromSwidiConstFunctionInvocation: (_) =>
                                         const SwidiClassValidationState.invalid(
                                       swidiValidationError:
