@@ -10,7 +10,7 @@ void main() {
     validatorTestHarness(
       input: """
 class "package:flutter/src/widgets/icon_data.dart"::IconData {
-    [[ foo(foo()) ]]
+    [[ ignoreTransform(foo()) ]]
     void::void foo(
       "dart:core"::class::int bar, {
         "dart:core"::class::int baz,
@@ -27,7 +27,7 @@ class "package:flutter/src/widgets/icon_data.dart"::IconData {
       input: """
 class "package:flutter/src/widgets/icon_data.dart"::IconData {
     void::void foo(
-      [[ foo(foo()) ]]
+      [[ ignoreTransform(foo()) ]]
       "dart:core"::class::int bar, {
         "dart:core"::class::int baz,
         "dart:core"::class::int? qux,
@@ -44,9 +44,9 @@ class "package:flutter/src/widgets/icon_data.dart"::IconData {
 class "package:flutter/src/widgets/icon_data.dart"::IconData {
     void::void foo(
       "dart:core"::class::int bar, {
-        [[ foo(foo()) ]]
+        [[ ignoreTransform(foo()) ]]
         "dart:core"::class::int baz,
-        [[ foo(foo()) ]]
+        [[ ignoreTransform(foo()) ]]
         "dart:core"::class::int? qux,
     });
   }
@@ -61,7 +61,7 @@ class "package:flutter/src/widgets/icon_data.dart"::IconData {
 class "package:flutter/src/widgets/icon_data.dart"::IconData {
     void::void foo(
       [
-        [[ foo(foo()) ]]
+        [[ ignoreTransform(foo()) ]]
         "dart:core"::class::int bar
         ]);
   }
@@ -74,7 +74,7 @@ class "package:flutter/src/widgets/icon_data.dart"::IconData {
     validatorTestHarness(
       input: """
 class "package:flutter/src/widgets/icon_data.dart"::IconData {
-    void::void foo<T extends [[ foo(foo()) ]] "dart:core"::class::Object?>();
+    void::void foo<T extends [[ ignoreTransform(foo()) ]] "dart:core"::class::Object?>();
   }
 """,
       expectation: const SwidiClassValidationState.invalid(

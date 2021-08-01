@@ -10,7 +10,7 @@ void main() {
     validatorTestHarness(
       input: """
 class "package:flutter/src/widgets/icon_data.dart"::IconData {
-    [[ foo({
+    [[ ignoreTransform({
       @"foo" : @"bar",
     }) ]]
     void::void foo(
@@ -29,7 +29,7 @@ class "package:flutter/src/widgets/icon_data.dart"::IconData {
       input: """
 class "package:flutter/src/widgets/icon_data.dart"::IconData {
     void::void foo(
-      [[ foo({
+      [[ ignoreTransform({
       @"foo" : @"bar",
     }) ]]
       "dart:core"::class::int bar, {
@@ -48,11 +48,11 @@ class "package:flutter/src/widgets/icon_data.dart"::IconData {
 class "package:flutter/src/widgets/icon_data.dart"::IconData {
     void::void foo(
       "dart:core"::class::int bar, {
-        [[ foo({
+        [[ ignoreTransform({
       @"foo" : @"bar",
     }) ]]
         "dart:core"::class::int baz,
-        [[ foo({
+        [[ ignoreTransform({
       @"foo" : @"bar",
     }) ]]
         "dart:core"::class::int? qux,
@@ -69,7 +69,7 @@ class "package:flutter/src/widgets/icon_data.dart"::IconData {
 class "package:flutter/src/widgets/icon_data.dart"::IconData {
     void::void foo(
       [
-        [[ foo({
+        [[ ignoreTransform({
       @"foo" : @"bar",
     }) ]]
         "dart:core"::class::int bar
@@ -84,7 +84,7 @@ class "package:flutter/src/widgets/icon_data.dart"::IconData {
     validatorTestHarness(
       input: """
 class "package:flutter/src/widgets/icon_data.dart"::IconData {
-    void::void foo<T extends [[ foo({
+    void::void foo<T extends [[ ignoreTransform({
       @"foo" : @"bar",
     }) ]] "dart:core"::class::Object?>();
   }

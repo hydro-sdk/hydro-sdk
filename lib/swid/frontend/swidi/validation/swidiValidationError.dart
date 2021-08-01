@@ -77,4 +77,8 @@ class SwidiValidationError with _$SwidiValidationError {
   static const e17 = SwidiValidationError(
     message: "Key is not a valid short hand override key",
   );
+
+  static const e18 = SwidiValidationError(
+    message: "Invalid annotation name",
+  );
 }

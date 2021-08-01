@@ -10,7 +10,7 @@ void main() {
     validatorTestHarness(
       input: """
 class "package:flutter/src/widgets/icon_data.dart"::IconData {
-    [[ ignoreTransform(1,2) ]]
+    [[ foo(@"bar") ]]
     void::void foo(
       "dart:core"::class::int bar, {
         "dart:core"::class::int baz,
@@ -19,7 +19,7 @@ class "package:flutter/src/widgets/icon_data.dart"::IconData {
   }
 """,
       expectation: const SwidiClassValidationState.invalid(
-        swidiValidationError: SwidiValidationError.e6,
+        swidiValidationError: SwidiValidationError.e18,
       ),
     );
 
@@ -27,7 +27,7 @@ class "package:flutter/src/widgets/icon_data.dart"::IconData {
       input: """
 class "package:flutter/src/widgets/icon_data.dart"::IconData {
     void::void foo(
-      [[ ignoreTransform(1,2) ]]
+      [[ foo(foo()) ]]
       "dart:core"::class::int bar, {
         "dart:core"::class::int baz,
         "dart:core"::class::int? qux,
@@ -35,7 +35,7 @@ class "package:flutter/src/widgets/icon_data.dart"::IconData {
   }
 """,
       expectation: const SwidiClassValidationState.invalid(
-        swidiValidationError: SwidiValidationError.e6,
+        swidiValidationError: SwidiValidationError.e18,
       ),
     );
 
@@ -44,15 +44,15 @@ class "package:flutter/src/widgets/icon_data.dart"::IconData {
 class "package:flutter/src/widgets/icon_data.dart"::IconData {
     void::void foo(
       "dart:core"::class::int bar, {
-        [[ ignoreTransform(1,2) ]]
+        [[ foo(foo()) ]]
         "dart:core"::class::int baz,
-        [[ ignoreTransform(1,2) ]]
+        [[ foo(foo()) ]]
         "dart:core"::class::int? qux,
     });
   }
 """,
       expectation: const SwidiClassValidationState.invalid(
-        swidiValidationError: SwidiValidationError.e6,
+        swidiValidationError: SwidiValidationError.e18,
       ),
     );
 
@@ -61,24 +61,24 @@ class "package:flutter/src/widgets/icon_data.dart"::IconData {
 class "package:flutter/src/widgets/icon_data.dart"::IconData {
     void::void foo(
       [
-        [[ ignoreTransform(1,2) ]]
+        [[ foo(foo()) ]]
         "dart:core"::class::int bar
         ]);
   }
 """,
       expectation: const SwidiClassValidationState.invalid(
-        swidiValidationError: SwidiValidationError.e6,
+        swidiValidationError: SwidiValidationError.e18,
       ),
     );
 
     validatorTestHarness(
       input: """
 class "package:flutter/src/widgets/icon_data.dart"::IconData {
-    void::void foo<T extends [[ ignoreTransform(1,2) ]] "dart:core"::class::Object?>();
+    void::void foo<T extends [[ foo(foo()) ]] "dart:core"::class::Object?>();
   }
 """,
       expectation: const SwidiClassValidationState.invalid(
-        swidiValidationError: SwidiValidationError.e6,
+        swidiValidationError: SwidiValidationError.e18,
       ),
     );
   }, tags: "swid");
