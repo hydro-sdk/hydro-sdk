@@ -50,6 +50,13 @@ class _$SwidiConstTearOff {
       swidiConstMap: swidiConstMap,
     );
   }
+
+  _$SwidiConstFromSwidiConstBoolean fromSwidiConstBoolean(
+      {required SwidiConstBoolean swidiConstBoolean}) {
+    return _$SwidiConstFromSwidiConstBoolean(
+      swidiConstBoolean: swidiConstBoolean,
+    );
+  }
 }
 
 /// @nodoc
@@ -69,6 +76,8 @@ mixin _$SwidiConst {
             SwidiConstFunctionInvocation swidiConstFunctionInvocation)
         fromSwidiConstFunctionInvocation,
     required TResult Function(SwidiConstMap swidiConstMap) fromSwidiConstMap,
+    required TResult Function(SwidiConstBoolean swidiConstBoolean)
+        fromSwidiConstBoolean,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -79,6 +88,8 @@ mixin _$SwidiConst {
     TResult Function(SwidiConstFunctionInvocation swidiConstFunctionInvocation)?
         fromSwidiConstFunctionInvocation,
     TResult Function(SwidiConstMap swidiConstMap)? fromSwidiConstMap,
+    TResult Function(SwidiConstBoolean swidiConstBoolean)?
+        fromSwidiConstBoolean,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -95,6 +106,8 @@ mixin _$SwidiConst {
         fromSwidiConstFunctionInvocation,
     required TResult Function(_$SwidiConstFromSwidiConstMap value)
         fromSwidiConstMap,
+    required TResult Function(_$SwidiConstFromSwidiConstBoolean value)
+        fromSwidiConstBoolean,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -108,6 +121,8 @@ mixin _$SwidiConst {
     TResult Function(_$SwidiConstFromSwidiConstFunctionInvocation value)?
         fromSwidiConstFunctionInvocation,
     TResult Function(_$SwidiConstFromSwidiConstMap value)? fromSwidiConstMap,
+    TResult Function(_$SwidiConstFromSwidiConstBoolean value)?
+        fromSwidiConstBoolean,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -221,6 +236,8 @@ class _$_$SwidiConstFromSwidiEmptyConst
             SwidiConstFunctionInvocation swidiConstFunctionInvocation)
         fromSwidiConstFunctionInvocation,
     required TResult Function(SwidiConstMap swidiConstMap) fromSwidiConstMap,
+    required TResult Function(SwidiConstBoolean swidiConstBoolean)
+        fromSwidiConstBoolean,
   }) {
     return fromSwidiEmptyConst(swidiEmptyConst);
   }
@@ -234,6 +251,8 @@ class _$_$SwidiConstFromSwidiEmptyConst
     TResult Function(SwidiConstFunctionInvocation swidiConstFunctionInvocation)?
         fromSwidiConstFunctionInvocation,
     TResult Function(SwidiConstMap swidiConstMap)? fromSwidiConstMap,
+    TResult Function(SwidiConstBoolean swidiConstBoolean)?
+        fromSwidiConstBoolean,
     required TResult orElse(),
   }) {
     if (fromSwidiEmptyConst != null) {
@@ -256,6 +275,8 @@ class _$_$SwidiConstFromSwidiEmptyConst
         fromSwidiConstFunctionInvocation,
     required TResult Function(_$SwidiConstFromSwidiConstMap value)
         fromSwidiConstMap,
+    required TResult Function(_$SwidiConstFromSwidiConstBoolean value)
+        fromSwidiConstBoolean,
   }) {
     return fromSwidiEmptyConst(this);
   }
@@ -272,6 +293,8 @@ class _$_$SwidiConstFromSwidiEmptyConst
     TResult Function(_$SwidiConstFromSwidiConstFunctionInvocation value)?
         fromSwidiConstFunctionInvocation,
     TResult Function(_$SwidiConstFromSwidiConstMap value)? fromSwidiConstMap,
+    TResult Function(_$SwidiConstFromSwidiConstBoolean value)?
+        fromSwidiConstBoolean,
     required TResult orElse(),
   }) {
     if (fromSwidiEmptyConst != null) {
@@ -385,6 +408,8 @@ class _$_$SwidiConstFromSwidiConstNumber
             SwidiConstFunctionInvocation swidiConstFunctionInvocation)
         fromSwidiConstFunctionInvocation,
     required TResult Function(SwidiConstMap swidiConstMap) fromSwidiConstMap,
+    required TResult Function(SwidiConstBoolean swidiConstBoolean)
+        fromSwidiConstBoolean,
   }) {
     return fromSwidiConstNumber(swidiConstNumber);
   }
@@ -398,6 +423,8 @@ class _$_$SwidiConstFromSwidiConstNumber
     TResult Function(SwidiConstFunctionInvocation swidiConstFunctionInvocation)?
         fromSwidiConstFunctionInvocation,
     TResult Function(SwidiConstMap swidiConstMap)? fromSwidiConstMap,
+    TResult Function(SwidiConstBoolean swidiConstBoolean)?
+        fromSwidiConstBoolean,
     required TResult orElse(),
   }) {
     if (fromSwidiConstNumber != null) {
@@ -420,6 +447,8 @@ class _$_$SwidiConstFromSwidiConstNumber
         fromSwidiConstFunctionInvocation,
     required TResult Function(_$SwidiConstFromSwidiConstMap value)
         fromSwidiConstMap,
+    required TResult Function(_$SwidiConstFromSwidiConstBoolean value)
+        fromSwidiConstBoolean,
   }) {
     return fromSwidiConstNumber(this);
   }
@@ -436,6 +465,8 @@ class _$_$SwidiConstFromSwidiConstNumber
     TResult Function(_$SwidiConstFromSwidiConstFunctionInvocation value)?
         fromSwidiConstFunctionInvocation,
     TResult Function(_$SwidiConstFromSwidiConstMap value)? fromSwidiConstMap,
+    TResult Function(_$SwidiConstFromSwidiConstBoolean value)?
+        fromSwidiConstBoolean,
     required TResult orElse(),
   }) {
     if (fromSwidiConstNumber != null) {
@@ -549,6 +580,8 @@ class _$_$SwidiConstFromSwidiConstString
             SwidiConstFunctionInvocation swidiConstFunctionInvocation)
         fromSwidiConstFunctionInvocation,
     required TResult Function(SwidiConstMap swidiConstMap) fromSwidiConstMap,
+    required TResult Function(SwidiConstBoolean swidiConstBoolean)
+        fromSwidiConstBoolean,
   }) {
     return fromSwidiConstString(swidiConstString);
   }
@@ -562,6 +595,8 @@ class _$_$SwidiConstFromSwidiConstString
     TResult Function(SwidiConstFunctionInvocation swidiConstFunctionInvocation)?
         fromSwidiConstFunctionInvocation,
     TResult Function(SwidiConstMap swidiConstMap)? fromSwidiConstMap,
+    TResult Function(SwidiConstBoolean swidiConstBoolean)?
+        fromSwidiConstBoolean,
     required TResult orElse(),
   }) {
     if (fromSwidiConstString != null) {
@@ -584,6 +619,8 @@ class _$_$SwidiConstFromSwidiConstString
         fromSwidiConstFunctionInvocation,
     required TResult Function(_$SwidiConstFromSwidiConstMap value)
         fromSwidiConstMap,
+    required TResult Function(_$SwidiConstFromSwidiConstBoolean value)
+        fromSwidiConstBoolean,
   }) {
     return fromSwidiConstString(this);
   }
@@ -600,6 +637,8 @@ class _$_$SwidiConstFromSwidiConstString
     TResult Function(_$SwidiConstFromSwidiConstFunctionInvocation value)?
         fromSwidiConstFunctionInvocation,
     TResult Function(_$SwidiConstFromSwidiConstMap value)? fromSwidiConstMap,
+    TResult Function(_$SwidiConstFromSwidiConstBoolean value)?
+        fromSwidiConstBoolean,
     required TResult orElse(),
   }) {
     if (fromSwidiConstString != null) {
@@ -720,6 +759,8 @@ class _$_$SwidiConstFromSwidiConstFunctionInvocation
             SwidiConstFunctionInvocation swidiConstFunctionInvocation)
         fromSwidiConstFunctionInvocation,
     required TResult Function(SwidiConstMap swidiConstMap) fromSwidiConstMap,
+    required TResult Function(SwidiConstBoolean swidiConstBoolean)
+        fromSwidiConstBoolean,
   }) {
     return fromSwidiConstFunctionInvocation(swidiConstFunctionInvocation);
   }
@@ -733,6 +774,8 @@ class _$_$SwidiConstFromSwidiConstFunctionInvocation
     TResult Function(SwidiConstFunctionInvocation swidiConstFunctionInvocation)?
         fromSwidiConstFunctionInvocation,
     TResult Function(SwidiConstMap swidiConstMap)? fromSwidiConstMap,
+    TResult Function(SwidiConstBoolean swidiConstBoolean)?
+        fromSwidiConstBoolean,
     required TResult orElse(),
   }) {
     if (fromSwidiConstFunctionInvocation != null) {
@@ -755,6 +798,8 @@ class _$_$SwidiConstFromSwidiConstFunctionInvocation
         fromSwidiConstFunctionInvocation,
     required TResult Function(_$SwidiConstFromSwidiConstMap value)
         fromSwidiConstMap,
+    required TResult Function(_$SwidiConstFromSwidiConstBoolean value)
+        fromSwidiConstBoolean,
   }) {
     return fromSwidiConstFunctionInvocation(this);
   }
@@ -771,6 +816,8 @@ class _$_$SwidiConstFromSwidiConstFunctionInvocation
     TResult Function(_$SwidiConstFromSwidiConstFunctionInvocation value)?
         fromSwidiConstFunctionInvocation,
     TResult Function(_$SwidiConstFromSwidiConstMap value)? fromSwidiConstMap,
+    TResult Function(_$SwidiConstFromSwidiConstBoolean value)?
+        fromSwidiConstBoolean,
     required TResult orElse(),
   }) {
     if (fromSwidiConstFunctionInvocation != null) {
@@ -885,6 +932,8 @@ class _$_$SwidiConstFromSwidiConstMap extends _$SwidiConstFromSwidiConstMap {
             SwidiConstFunctionInvocation swidiConstFunctionInvocation)
         fromSwidiConstFunctionInvocation,
     required TResult Function(SwidiConstMap swidiConstMap) fromSwidiConstMap,
+    required TResult Function(SwidiConstBoolean swidiConstBoolean)
+        fromSwidiConstBoolean,
   }) {
     return fromSwidiConstMap(swidiConstMap);
   }
@@ -898,6 +947,8 @@ class _$_$SwidiConstFromSwidiConstMap extends _$SwidiConstFromSwidiConstMap {
     TResult Function(SwidiConstFunctionInvocation swidiConstFunctionInvocation)?
         fromSwidiConstFunctionInvocation,
     TResult Function(SwidiConstMap swidiConstMap)? fromSwidiConstMap,
+    TResult Function(SwidiConstBoolean swidiConstBoolean)?
+        fromSwidiConstBoolean,
     required TResult orElse(),
   }) {
     if (fromSwidiConstMap != null) {
@@ -920,6 +971,8 @@ class _$_$SwidiConstFromSwidiConstMap extends _$SwidiConstFromSwidiConstMap {
         fromSwidiConstFunctionInvocation,
     required TResult Function(_$SwidiConstFromSwidiConstMap value)
         fromSwidiConstMap,
+    required TResult Function(_$SwidiConstFromSwidiConstBoolean value)
+        fromSwidiConstBoolean,
   }) {
     return fromSwidiConstMap(this);
   }
@@ -936,6 +989,8 @@ class _$_$SwidiConstFromSwidiConstMap extends _$SwidiConstFromSwidiConstMap {
     TResult Function(_$SwidiConstFromSwidiConstFunctionInvocation value)?
         fromSwidiConstFunctionInvocation,
     TResult Function(_$SwidiConstFromSwidiConstMap value)? fromSwidiConstMap,
+    TResult Function(_$SwidiConstFromSwidiConstBoolean value)?
+        fromSwidiConstBoolean,
     required TResult orElse(),
   }) {
     if (fromSwidiConstMap != null) {
@@ -953,5 +1008,177 @@ abstract class _$SwidiConstFromSwidiConstMap extends SwidiConst {
   SwidiConstMap get swidiConstMap => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$$SwidiConstFromSwidiConstMapCopyWith<_$SwidiConstFromSwidiConstMap>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SwidiConstFromSwidiConstBooleanCopyWith<$Res> {
+  factory _$$SwidiConstFromSwidiConstBooleanCopyWith(
+          _$SwidiConstFromSwidiConstBoolean value,
+          $Res Function(_$SwidiConstFromSwidiConstBoolean) then) =
+      __$$SwidiConstFromSwidiConstBooleanCopyWithImpl<$Res>;
+  $Res call({SwidiConstBoolean swidiConstBoolean});
+
+  $SwidiConstBooleanCopyWith<$Res> get swidiConstBoolean;
+}
+
+/// @nodoc
+class __$$SwidiConstFromSwidiConstBooleanCopyWithImpl<$Res>
+    extends _$SwidiConstCopyWithImpl<$Res>
+    implements _$$SwidiConstFromSwidiConstBooleanCopyWith<$Res> {
+  __$$SwidiConstFromSwidiConstBooleanCopyWithImpl(
+      _$SwidiConstFromSwidiConstBoolean _value,
+      $Res Function(_$SwidiConstFromSwidiConstBoolean) _then)
+      : super(_value, (v) => _then(v as _$SwidiConstFromSwidiConstBoolean));
+
+  @override
+  _$SwidiConstFromSwidiConstBoolean get _value =>
+      super._value as _$SwidiConstFromSwidiConstBoolean;
+
+  @override
+  $Res call({
+    Object? swidiConstBoolean = freezed,
+  }) {
+    return _then(_$SwidiConstFromSwidiConstBoolean(
+      swidiConstBoolean: swidiConstBoolean == freezed
+          ? _value.swidiConstBoolean
+          : swidiConstBoolean // ignore: cast_nullable_to_non_nullable
+              as SwidiConstBoolean,
+    ));
+  }
+
+  @override
+  $SwidiConstBooleanCopyWith<$Res> get swidiConstBoolean {
+    return $SwidiConstBooleanCopyWith<$Res>(_value.swidiConstBoolean, (value) {
+      return _then(_value.copyWith(swidiConstBoolean: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_$SwidiConstFromSwidiConstBoolean
+    extends _$SwidiConstFromSwidiConstBoolean {
+  const _$_$SwidiConstFromSwidiConstBoolean({required this.swidiConstBoolean})
+      : super._();
+
+  @override
+  final SwidiConstBoolean swidiConstBoolean;
+
+  @override
+  String toString() {
+    return 'SwidiConst.fromSwidiConstBoolean(swidiConstBoolean: $swidiConstBoolean)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _$SwidiConstFromSwidiConstBoolean &&
+            (identical(other.swidiConstBoolean, swidiConstBoolean) ||
+                const DeepCollectionEquality()
+                    .equals(other.swidiConstBoolean, swidiConstBoolean)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(swidiConstBoolean);
+
+  @JsonKey(ignore: true)
+  @override
+  _$$SwidiConstFromSwidiConstBooleanCopyWith<_$SwidiConstFromSwidiConstBoolean>
+      get copyWith => __$$SwidiConstFromSwidiConstBooleanCopyWithImpl<
+          _$SwidiConstFromSwidiConstBoolean>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(SwidiEmptyConst swidiEmptyConst)
+        fromSwidiEmptyConst,
+    required TResult Function(SwidiConstNumber swidiConstNumber)
+        fromSwidiConstNumber,
+    required TResult Function(SwidiConstString swidiConstString)
+        fromSwidiConstString,
+    required TResult Function(
+            SwidiConstFunctionInvocation swidiConstFunctionInvocation)
+        fromSwidiConstFunctionInvocation,
+    required TResult Function(SwidiConstMap swidiConstMap) fromSwidiConstMap,
+    required TResult Function(SwidiConstBoolean swidiConstBoolean)
+        fromSwidiConstBoolean,
+  }) {
+    return fromSwidiConstBoolean(swidiConstBoolean);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(SwidiEmptyConst swidiEmptyConst)? fromSwidiEmptyConst,
+    TResult Function(SwidiConstNumber swidiConstNumber)? fromSwidiConstNumber,
+    TResult Function(SwidiConstString swidiConstString)? fromSwidiConstString,
+    TResult Function(SwidiConstFunctionInvocation swidiConstFunctionInvocation)?
+        fromSwidiConstFunctionInvocation,
+    TResult Function(SwidiConstMap swidiConstMap)? fromSwidiConstMap,
+    TResult Function(SwidiConstBoolean swidiConstBoolean)?
+        fromSwidiConstBoolean,
+    required TResult orElse(),
+  }) {
+    if (fromSwidiConstBoolean != null) {
+      return fromSwidiConstBoolean(swidiConstBoolean);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_$SwidiConstFromSwidiEmptyConst value)
+        fromSwidiEmptyConst,
+    required TResult Function(_$SwidiConstFromSwidiConstNumber value)
+        fromSwidiConstNumber,
+    required TResult Function(_$SwidiConstFromSwidiConstString value)
+        fromSwidiConstString,
+    required TResult Function(
+            _$SwidiConstFromSwidiConstFunctionInvocation value)
+        fromSwidiConstFunctionInvocation,
+    required TResult Function(_$SwidiConstFromSwidiConstMap value)
+        fromSwidiConstMap,
+    required TResult Function(_$SwidiConstFromSwidiConstBoolean value)
+        fromSwidiConstBoolean,
+  }) {
+    return fromSwidiConstBoolean(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$SwidiConstFromSwidiEmptyConst value)?
+        fromSwidiEmptyConst,
+    TResult Function(_$SwidiConstFromSwidiConstNumber value)?
+        fromSwidiConstNumber,
+    TResult Function(_$SwidiConstFromSwidiConstString value)?
+        fromSwidiConstString,
+    TResult Function(_$SwidiConstFromSwidiConstFunctionInvocation value)?
+        fromSwidiConstFunctionInvocation,
+    TResult Function(_$SwidiConstFromSwidiConstMap value)? fromSwidiConstMap,
+    TResult Function(_$SwidiConstFromSwidiConstBoolean value)?
+        fromSwidiConstBoolean,
+    required TResult orElse(),
+  }) {
+    if (fromSwidiConstBoolean != null) {
+      return fromSwidiConstBoolean(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _$SwidiConstFromSwidiConstBoolean extends SwidiConst {
+  const factory _$SwidiConstFromSwidiConstBoolean(
+          {required SwidiConstBoolean swidiConstBoolean}) =
+      _$_$SwidiConstFromSwidiConstBoolean;
+  const _$SwidiConstFromSwidiConstBoolean._() : super._();
+
+  SwidiConstBoolean get swidiConstBoolean => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$$SwidiConstFromSwidiConstBooleanCopyWith<_$SwidiConstFromSwidiConstBoolean>
       get copyWith => throw _privateConstructorUsedError;
 }

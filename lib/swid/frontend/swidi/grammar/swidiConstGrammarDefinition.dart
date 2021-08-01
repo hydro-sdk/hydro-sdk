@@ -1,3 +1,6 @@
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iConstBooleanFalseLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iConstBooleanLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iConstBooleanTrueLexer.dart';
 import 'package:petitparser/definition.dart';
 import 'package:petitparser/petitparser.dart';
 
@@ -29,13 +32,17 @@ mixin SwidiConstGrammarDefinition
         IConstParameterListLexer,
         IConstPositionalParameterListLexer,
         IConstStringLexer,
-        IConstMapLexer {
+        IConstMapLexer,
+        IConstBooleanLexer,
+        IConstBooleanTrueLexer,
+        IConstBooleanFalseLexer {
   @override
   Parser lexicalConst() =>
       ref0(constNumber) |
       ref0(constString) |
       ref0(constFunctionInvocation) |
-      ref0(constMap);
+      ref0(constMap) |
+      ref0(constBoolean);
 
   @override
   Parser constNumber() => (ref0(number));
@@ -54,6 +61,15 @@ mixin SwidiConstGrammarDefinition
               ref1(token, ","))
           .star() &
       ref1(token, "}");
+
+  @override
+  Parser constBoolean() => constBooleanTrue() | constBooleanFalse();
+
+  @override
+  Parser constBooleanTrue() => ref1(token, "true");
+
+  @override
+  Parser constBooleanFalse() => ref1(token, "false");
 
   @override
   Parser constNamedParameter() =>

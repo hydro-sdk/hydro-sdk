@@ -1,3 +1,5 @@
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConstBoolean.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstBooleanParser.dart';
 import 'package:petitparser/petitparser.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConst.dart';
@@ -24,7 +26,8 @@ mixin SwidiConstParser
     on
         SwidiConstGrammarDefinition,
         SwidiConstNumberParser,
-        SwidiConstStringParser
+        SwidiConstStringParser,
+        SwidiConstBooleanParser
     implements
         IConstLexer,
         IConstNumberLexer,
@@ -53,6 +56,10 @@ mixin SwidiConstParser
         } else if (x is SwidiConstMap) {
           return SwidiConst.fromSwidiConstMap(
             swidiConstMap: x,
+          );
+        } else if (x is SwidiConstBoolean) {
+          return SwidiConst.fromSwidiConstBoolean(
+            swidiConstBoolean: x,
           );
         }
 

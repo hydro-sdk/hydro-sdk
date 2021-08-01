@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/constantPrimitives.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConstBoolean.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConstFunctionInvocation.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConstMap.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConstNumber.dart';
@@ -33,6 +34,10 @@ class SwidiConst with _$SwidiConst {
     required SwidiConstMap swidiConstMap,
   }) = _$SwidiConstFromSwidiConstMap;
 
+  const factory SwidiConst.fromSwidiConstBoolean({
+    required SwidiConstBoolean swidiConstBoolean,
+  }) = _$SwidiConstFromSwidiConstBoolean;
+
   factory SwidiConst.clone({
     required SwidiConst swidiConst,
   }) =>
@@ -60,6 +65,9 @@ class SwidiConst with _$SwidiConst {
           swidiConstMap: SwidiConstMap.clone(
             swidiConstMap: val,
           ),
+        ),
+        fromSwidiConstBoolean: (val) => SwidiConst.fromSwidiConstBoolean(
+          swidiConstBoolean: val,
         ),
       );
 }
