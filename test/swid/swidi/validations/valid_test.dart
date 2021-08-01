@@ -43,5 +43,27 @@ class "package:flutter/src/widgets/icon_data.dart"::IconData {
 """,
       expectation: const SwidiClassValidationState.valid(),
     );
+
+    validatorTestHarness(
+      input: """
+class "package:flutter/src/widgets/icon_data.dart"::IconData {
+    void::void foo() -> {
+      @"tsClassMethodDeclaration" : true,
+    };
+  }
+""",
+      expectation: const SwidiClassValidationState.valid(),
+    );
+
+    validatorTestHarness(
+      input: """
+class "package:flutter/src/widgets/icon_data.dart"::IconData {
+    void::void foo() -> {
+      @"tsClassMethodDeclaration" : false,
+    };
+  }
+""",
+      expectation: const SwidiClassValidationState.valid(),
+    );
   }, tags: "swid");
 }

@@ -216,40 +216,68 @@ List<SwidiClassValidationState> validateSwidiClassMethod({
           ],
           fromSwidiConstMap: (val) => val.entries
               .map(
-                (x) => x.item1.when(
-                  fromSwidiEmptyConst: (_) => [
-                    const SwidiClassValidationState.valid(),
-                  ],
-                  fromSwidiConstNumber: (_) => [
-                    const SwidiClassValidationState.invalid(
-                      swidiValidationError: SwidiValidationError.e14,
-                    ),
-                  ],
-                  fromSwidiConstBoolean: (_) => [
-                    const SwidiClassValidationState.invalid(
-                      swidiValidationError: SwidiValidationError.e23,
-                    ),
-                  ],
-                  fromSwidiConstString: (val) => [
-                    validTransformNames
-                                .firstWhereOrNull((x) => x == val.value) !=
-                            null
-                        ? const SwidiClassValidationState.valid()
-                        : const SwidiClassValidationState.invalid(
-                            swidiValidationError: SwidiValidationError.e17,
-                          )
-                  ],
-                  fromSwidiConstFunctionInvocation: (_) => [
-                    const SwidiClassValidationState.invalid(
-                      swidiValidationError: SwidiValidationError.e15,
-                    ),
-                  ],
-                  fromSwidiConstMap: (_) => [
-                    const SwidiClassValidationState.invalid(
-                      swidiValidationError: SwidiValidationError.e16,
-                    ),
-                  ],
-                ),
+                (x) => [
+                  ...x.item1.when(
+                    fromSwidiEmptyConst: (_) => [
+                      const SwidiClassValidationState.valid(),
+                    ],
+                    fromSwidiConstNumber: (_) => [
+                      const SwidiClassValidationState.invalid(
+                        swidiValidationError: SwidiValidationError.e14,
+                      ),
+                    ],
+                    fromSwidiConstBoolean: (_) => [
+                      const SwidiClassValidationState.invalid(
+                        swidiValidationError: SwidiValidationError.e23,
+                      ),
+                    ],
+                    fromSwidiConstString: (val) => [
+                      validTransformNames
+                                  .firstWhereOrNull((x) => x == val.value) !=
+                              null
+                          ? const SwidiClassValidationState.valid()
+                          : const SwidiClassValidationState.invalid(
+                              swidiValidationError: SwidiValidationError.e17,
+                            )
+                    ],
+                    fromSwidiConstFunctionInvocation: (_) => [
+                      const SwidiClassValidationState.invalid(
+                        swidiValidationError: SwidiValidationError.e15,
+                      ),
+                    ],
+                    fromSwidiConstMap: (_) => [
+                      const SwidiClassValidationState.invalid(
+                        swidiValidationError: SwidiValidationError.e16,
+                      ),
+                    ],
+                  ),
+                  ...x.item2.when(
+                    fromSwidiEmptyConst: (_) => [
+                      const SwidiClassValidationState.valid(),
+                    ],
+                    fromSwidiConstNumber: (_) => [
+                      const SwidiClassValidationState.invalid(
+                        swidiValidationError: SwidiValidationError.e24,
+                      )
+                    ],
+                    fromSwidiConstString: (_) => [
+                      const SwidiClassValidationState.valid(),
+                    ],
+                    fromSwidiConstFunctionInvocation: (_) => [
+                      const SwidiClassValidationState.invalid(
+                        swidiValidationError: SwidiValidationError.e25,
+                      )
+                    ],
+                    fromSwidiConstMap: (_) => [
+                      const SwidiClassValidationState.invalid(
+                        swidiValidationError: SwidiValidationError.e26,
+                      )
+                    ],
+                    fromSwidiConstBoolean: (_) => [
+                      const SwidiClassValidationState.valid(),
+                    ],
+                  ),
+                ],
               )
               .reduce(
                 (value, element) => [

@@ -101,4 +101,16 @@ class SwidiValidationError with _$SwidiValidationError {
   static const e23 = SwidiValidationError(
     message: "Boolean used as a key in a method short hand override",
   );
+
+  static const e24 = SwidiValidationError(
+    message: "Number used as a value in a method short hand override",
+  );
+
+  static const e25 = SwidiValidationError(
+    message: "Function used as a value in a method short hand override",
+  );
+
+  static const e26 = SwidiValidationError(
+    message: "Map used as a value in a method short hand override",
+  );
 }
