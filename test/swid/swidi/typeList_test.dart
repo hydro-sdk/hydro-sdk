@@ -21,6 +21,9 @@ import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiReferenceDeclarationPr
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiTypeArgumentListParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiTypeListParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiTypeParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstBooleanTrueParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstBooleanFalseParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstBooleanParser.dart';
 import 'lib/parserTestHarness.dart';
 
 class SimpleTypeListParser extends SwidiGrammarDefinition
@@ -29,6 +32,9 @@ class SimpleTypeListParser extends SwidiGrammarDefinition
         SwidiReferenceDeclarationPrefixParser,
         SwidiConstNumberParser,
         SwidiConstStringParser,
+        SwidiConstBooleanFalseParser,
+        SwidiConstBooleanTrueParser,
+        SwidiConstBooleanParser,
         SwidiConstParser,
         SwidiConstFunctionInvocationParser,
         SwidiConstParameterListParser,

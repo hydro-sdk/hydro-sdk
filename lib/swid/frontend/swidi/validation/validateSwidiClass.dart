@@ -105,10 +105,19 @@ List<SwidiClassValidationState> validateSwidiType({
                                       swidiValidationError:
                                           SwidiValidationError.e9,
                                     ),
+                                    fromSwidiConstBoolean: (_) =>
+                                        const SwidiClassValidationState.invalid(
+                                      swidiValidationError:
+                                          SwidiValidationError.e21,
+                                    ),
                                   ),
                 fromSwidiConstMap: (_) =>
                     const SwidiClassValidationState.invalid(
                   swidiValidationError: SwidiValidationError.e10,
+                ),
+                fromSwidiConstBoolean: (_) =>
+                    const SwidiClassValidationState.invalid(
+                  swidiValidationError: SwidiValidationError.e20,
                 ),
               ),
             )
@@ -200,6 +209,11 @@ List<SwidiClassValidationState> validateSwidiClassMethod({
               swidiValidationError: SwidiValidationError.e13,
             ),
           ],
+          fromSwidiConstBoolean: (_) => [
+            const SwidiClassValidationState.invalid(
+              swidiValidationError: SwidiValidationError.e22,
+            ),
+          ],
           fromSwidiConstMap: (val) => val.entries
               .map(
                 (x) => x.item1.when(
@@ -209,6 +223,11 @@ List<SwidiClassValidationState> validateSwidiClassMethod({
                   fromSwidiConstNumber: (_) => [
                     const SwidiClassValidationState.invalid(
                       swidiValidationError: SwidiValidationError.e14,
+                    ),
+                  ],
+                  fromSwidiConstBoolean: (_) => [
+                    const SwidiClassValidationState.invalid(
+                      swidiValidationError: SwidiValidationError.e23,
                     ),
                   ],
                   fromSwidiConstString: (val) => [

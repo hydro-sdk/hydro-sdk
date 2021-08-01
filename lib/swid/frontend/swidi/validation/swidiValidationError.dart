@@ -85,4 +85,20 @@ class SwidiValidationError with _$SwidiValidationError {
   static const e19 = SwidiValidationError(
     message: "Invalid annotation parameter",
   );
+
+  static const e20 = SwidiValidationError(
+    message: "Boolean used as an annotation",
+  );
+
+  static const e21 = SwidiValidationError(
+    message: "Boolean used as a parameter in an annotation",
+  );
+
+  static const e22 = SwidiValidationError(
+    message: "Boolean used as a method short hand override",
+  );
+
+  static const e23 = SwidiValidationError(
+    message: "Boolean used as a key in a method short hand override",
+  );
 }

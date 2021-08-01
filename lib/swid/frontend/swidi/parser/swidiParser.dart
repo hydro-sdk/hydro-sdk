@@ -2,6 +2,9 @@ import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiGrammarDefinition.dar
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiAnnotationListParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiAnnotationParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiClassParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstBooleanFalseParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstBooleanParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstBooleanTrueParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstFunctionInvocationParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstMapParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstNamedParameterListParser.dart';
@@ -34,6 +37,9 @@ class SwidiParser extends SwidiGrammarDefinition
         SwidiLibraryScopePrefixParser,
         SwidiConstNumberParser,
         SwidiConstStringParser,
+        SwidiConstBooleanFalseParser,
+        SwidiConstBooleanTrueParser,
+        SwidiConstBooleanParser,
         SwidiConstParser,
         SwidiConstPositionalParameterListParser,
         SwidiConstNamedParameterParser,

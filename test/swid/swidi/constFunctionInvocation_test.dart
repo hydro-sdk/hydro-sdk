@@ -1,3 +1,6 @@
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstBooleanTrueParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstBooleanFalseParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstBooleanParser.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConst.dart';
@@ -19,6 +22,9 @@ class SimpleConstFunctionInvocationParser extends SwidiGrammarDefinition
     with
         SwidiConstStringParser,
         SwidiConstNumberParser,
+        SwidiConstBooleanFalseParser,
+        SwidiConstBooleanTrueParser,
+        SwidiConstBooleanParser,
         SwidiConstParser,
         SwidiConstNamedParameterParser,
         SwidiConstNamedParameterListParser,
