@@ -1,8 +1,7 @@
-import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConstBoolean.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstBooleanParser.dart';
 import 'package:petitparser/petitparser.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConst.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConstBoolean.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConstFunctionInvocation.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConstMap.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConstNumber.dart';
@@ -19,6 +18,7 @@ import 'package:hydro_sdk/swid/frontend/swidi/parser/parsers/iConstMapParser.dar
 import 'package:hydro_sdk/swid/frontend/swidi/parser/parsers/iConstNumberParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/parsers/iConstParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/parsers/iConstStringParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstBooleanParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstNumberParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstStringParser.dart';
 

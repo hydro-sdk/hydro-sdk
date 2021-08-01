@@ -1,16 +1,12 @@
-import { Command, Option } from "commander";
-
 import * as cp from "child_process";
 import * as fs from "fs";
 import * as path from "path";
 
+import { Command, Option } from "commander";
+
 const program = new Command();
 
-program.addOption(
-    new Option("--skip-swid",
-        "Skip building swid"
-    )
-);
+program.addOption(new Option("--skip-swid", "Skip building swid"));
 
 program.parse();
 
@@ -38,9 +34,11 @@ program.parse();
 
     for (let dartEntryPoint of dartEntryPoints) {
         const startTime = +new Date();
-        const outputPath = `${outputFolder}${path.sep}${path.parse(dartEntryPoint).name
-            }-${process.platform}-${process.arch}${process.platform == "win32" ? ".exe" : ""
-            }`;
+        const outputPath = `${outputFolder}${path.sep}${
+            path.parse(dartEntryPoint).name
+        }-${process.platform}-${process.arch}${
+            process.platform == "win32" ? ".exe" : ""
+        }`;
 
         if (dartEntryPoint == "swid.dart" && skipSwid) {
             console.log(`Building ${outputPath} explicitly skipped`);
