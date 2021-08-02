@@ -21,13 +21,14 @@ void main() {
                 isFactory: false,
                 typeFormals: [],
                 namedDefaults: {},
-                swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+                declarationModifiers: SwidDeclarationModifiers.empty(),
                 name: "",
                 originalPackagePath: "",
                 normalParameterNames: ["foo", "bar"],
                 normalParameterTypes: [
                   SwidType.fromSwidInterface(
                       swidInterface: SwidInterface(
+                    declarationModifiers: SwidDeclarationModifiers.empty(),
                     typeArguments: [],
                     name: "int",
                     referenceDeclarationKind:
@@ -37,6 +38,8 @@ void main() {
                   )),
                   SwidType.fromSwidInterface(
                       swidInterface: SwidInterface(
+                          declarationModifiers:
+                              SwidDeclarationModifiers.empty(),
                           typeArguments: [],
                           name: "String",
                           referenceDeclarationKind:
@@ -50,6 +53,7 @@ void main() {
                 nullabilitySuffix: SwidNullabilitySuffix.star,
                 returnType: SwidType.fromSwidInterface(
                     swidInterface: SwidInterface(
+                  declarationModifiers: SwidDeclarationModifiers.empty(),
                   typeArguments: [],
                   name: "num",
                   referenceDeclarationKind:

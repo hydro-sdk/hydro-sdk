@@ -20,19 +20,19 @@ class DartMethodInjectionImplementation {
   });
 
   String? _methodInvocation() =>
-      (swidFunctionType.swidDeclarationModifiers.isGetter
-          ? (!swidFunctionType.swidDeclarationModifiers.isAbstract
+      (swidFunctionType.declarationModifiers.isGetter
+          ? (!swidFunctionType.declarationModifiers.isAbstract
                   ? "super."
                   : "") +
               swidFunctionType.name +
-              (!swidFunctionType.swidDeclarationModifiers.isGetter ? "()" : "")
+              (!swidFunctionType.declarationModifiers.isGetter ? "()" : "")
           : DartFunctionSelfBindingInvocation(
                   argumentBoxingProcedure: DartBoxingProcedure.unbox,
                   returnValueBoxingProcedure: DartBoxingProcedure.box,
                   useClosureUnpackNameForUnboxingIdentifiers: true,
                   swidFunctionType: SwidFunctionType.clone(
                     swidFunctionType: swidFunctionType,
-                    name: !swidFunctionType.swidDeclarationModifiers.isAbstract
+                    name: !swidFunctionType.declarationModifiers.isAbstract
                         ? "super.${swidFunctionType.name}"
                         : null,
                   ),

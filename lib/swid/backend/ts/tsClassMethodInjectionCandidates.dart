@@ -9,5 +9,5 @@ List<SwidFunctionType> tsClassMethodInjectionCandidates(
         .map((x) => transformPrimitiveFunctionTypeNamesToTs(
             swidFunctionType: transformAccessorName(swidFunctionType: x!)))
         .where((x) => !isOperator(swidFunctionType: x))
-        .where((x) => !x.swidDeclarationModifiers.hasProtected)
+        .where((x) => !x.declarationModifiers.hasProtected)
         .toList();

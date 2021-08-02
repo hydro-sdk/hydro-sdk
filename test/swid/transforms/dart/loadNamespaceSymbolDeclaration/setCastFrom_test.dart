@@ -26,7 +26,7 @@ void main() {
       methods: [],
       mixedInClasses: [],
       staticConstFieldDeclarations: [],
-      swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+      declarationModifiers: SwidDeclarationModifiers.empty(),
       staticMethods: [],
       typeFormals: [],
       extendedClass: null,
@@ -37,14 +37,14 @@ void main() {
       name: "castFrom",
       nullabilitySuffix: SwidNullabilitySuffix.none,
       originalPackagePath: "dart:core",
-      swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+      declarationModifiers: SwidDeclarationModifiers.empty(),
       namedParameterTypes: {
         "newSet": SwidType.fromSwidFunctionType(
           swidFunctionType: SwidFunctionType(
               name: "",
               nullabilitySuffix: SwidNullabilitySuffix.question,
               originalPackagePath: "",
-              swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+              declarationModifiers: SwidDeclarationModifiers.empty(),
               namedParameterTypes: {},
               namedDefaults: {},
               normalParameterNames: [],
@@ -53,12 +53,14 @@ void main() {
               optionalParameterTypes: [],
               returnType: SwidType.fromSwidInterface(
                 swidInterface: SwidInterface(
+                  declarationModifiers: SwidDeclarationModifiers.empty(),
                   name: "Set<R>",
                   nullabilitySuffix: SwidNullabilitySuffix.none,
                   originalPackagePath: "dart:core",
                   typeArguments: [
                     SwidType.fromSwidInterface(
                       swidInterface: SwidInterface(
+                        declarationModifiers: SwidDeclarationModifiers.empty(),
                         name: "R",
                         nullabilitySuffix: SwidNullabilitySuffix.none,
                         originalPackagePath: "",
@@ -87,12 +89,14 @@ void main() {
       normalParameterTypes: [
         SwidType.fromSwidInterface(
           swidInterface: SwidInterface(
+            declarationModifiers: SwidDeclarationModifiers.empty(),
             name: "Set<S>",
             nullabilitySuffix: SwidNullabilitySuffix.none,
             originalPackagePath: "dart:core",
             typeArguments: [
               SwidType.fromSwidInterface(
                 swidInterface: SwidInterface(
+                  declarationModifiers: SwidDeclarationModifiers.empty(),
                   name: "S",
                   nullabilitySuffix: SwidNullabilitySuffix.none,
                   originalPackagePath: "dart:core",
@@ -110,12 +114,14 @@ void main() {
       optionalParameterTypes: [],
       returnType: SwidType.fromSwidInterface(
         swidInterface: SwidInterface(
+          declarationModifiers: SwidDeclarationModifiers.empty(),
           name: "Set<T>",
           nullabilitySuffix: SwidNullabilitySuffix.none,
           originalPackagePath: "dart:core",
           typeArguments: [
             SwidType.fromSwidInterface(
               swidInterface: SwidInterface(
+                declarationModifiers: SwidDeclarationModifiers.empty(),
                 name: "T",
                 nullabilitySuffix: SwidNullabilitySuffix.none,
                 originalPackagePath: "dart:core",

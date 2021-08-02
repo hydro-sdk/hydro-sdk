@@ -98,7 +98,7 @@ class DartVMManagedClassDeclaration {
                             ).toDartSource()))
                         .toList()),
                     ...(swidClass.methods
-                        .where((x) => !x.swidDeclarationModifiers.hasProtected)
+                        .where((x) => !x.declarationModifiers.hasProtected)
                         .where((x) => !isOperator(
                               swidFunctionType: x,
                             ))

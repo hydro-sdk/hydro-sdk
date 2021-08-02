@@ -11,9 +11,9 @@ SwidFunctionType swidFunctionTypeFromPropertyAccessor({
     SwidFunctionType.clone(
       swidFunctionType: swidFunctionTypeFromFunctionType(
         functionType: propertyAccessorElement.type,
-        swidDeclarationModifiers: SwidDeclarationModifiers.clone(
-          swidDeclarationModifiers: SwidDeclarationModifiers.clone(
-            swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+        declarationModifiers: SwidDeclarationModifiers.clone(
+          declarationModifiers: SwidDeclarationModifiers.clone(
+            declarationModifiers: SwidDeclarationModifiers.empty(),
             isAbstract: propertyAccessorElement.isAbstract,
           ),
           isGetter: propertyAccessorElement.isGetter,

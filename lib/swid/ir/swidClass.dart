@@ -276,7 +276,7 @@ class SwidClass
   bool isPureAbstract() =>
       declarationModifiers.isAbstract &&
       (methods.isNotEmpty
-          ? methods.every((x) => x.swidDeclarationModifiers.isAbstract)
+          ? methods.every((x) => x.declarationModifiers.isAbstract)
           : false) &&
       staticMethods.isEmpty &&
       factoryConstructors.isEmpty &&

@@ -5,7 +5,7 @@ SwidDeclarationModifiers swidiShortHandOverrideToSwidDeclarationModifiers({
   required SwidiConst shortHandOverride,
 }) =>
     SwidDeclarationModifiers.clone(
-      swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+      declarationModifiers: SwidDeclarationModifiers.empty(),
       overridenTransforms: shortHandOverride
           .maybeWhen(
             fromSwidiConstMap: (val) => val.entries

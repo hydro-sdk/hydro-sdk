@@ -39,8 +39,8 @@ class "dart:core"::List {
           name: "fromArray",
           nullabilitySuffix: SwidNullabilitySuffix.none,
           originalPackagePath: "dart:core",
-          swidDeclarationModifiers: SwidDeclarationModifiers.clone(
-            swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+          declarationModifiers: SwidDeclarationModifiers.clone(
+            declarationModifiers: SwidDeclarationModifiers.empty(),
             overridenTransforms: [
               StringTuple(
                 item1: "tsClassMethodDeclaration",
@@ -57,12 +57,14 @@ class "dart:core"::List {
           optionalParameterTypes: [
             SwidType.fromSwidInterface(
               swidInterface: SwidInterface(
+                declarationModifiers: SwidDeclarationModifiers.empty(),
                 name: "Array",
                 nullabilitySuffix: SwidNullabilitySuffix.question,
                 originalPackagePath: "",
                 typeArguments: [
                   SwidType.fromSwidInterface(
                     swidInterface: SwidInterface(
+                      declarationModifiers: SwidDeclarationModifiers.empty(),
                       name: "T",
                       nullabilitySuffix: SwidNullabilitySuffix.none,
                       originalPackagePath: "",
@@ -79,12 +81,14 @@ class "dart:core"::List {
           ],
           returnType: SwidType.fromSwidInterface(
             swidInterface: SwidInterface(
+              declarationModifiers: SwidDeclarationModifiers.empty(),
               name: "List",
               nullabilitySuffix: SwidNullabilitySuffix.none,
               originalPackagePath: "dart:core",
               typeArguments: [
                 SwidType.fromSwidInterface(
                   swidInterface: SwidInterface(
+                    declarationModifiers: SwidDeclarationModifiers.empty(),
                     name: "T",
                     nullabilitySuffix: SwidNullabilitySuffix.none,
                     originalPackagePath: "",
@@ -103,6 +107,7 @@ class "dart:core"::List {
             SwidTypeFormal(
               value: SwidTypeFormalValue.fromSwidInterface(
                 swidInterface: SwidInterface(
+                  declarationModifiers: SwidDeclarationModifiers.empty(),
                   name: "T",
                   nullabilitySuffix: SwidNullabilitySuffix.none,
                   originalPackagePath: "",
@@ -120,7 +125,7 @@ class "dart:core"::List {
       methods: [],
       staticConstFieldDeclarations: [],
       instanceFieldDeclarations: {},
-      swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+      declarationModifiers: SwidDeclarationModifiers.empty(),
       mixedInClasses: [],
       implementedClasses: [],
       isMixin: false,

@@ -5,11 +5,13 @@ import 'package:analyzer/src/dart/element/element.dart' show EnumElementImpl;
 import 'package:hydro_sdk/swid/frontend/dart/mapAnalyzerNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/frontend/dart/mapClassLibrarySourcePath.dart';
 import 'package:hydro_sdk/swid/frontend/dart/narrowDartTypeToSwidType.dart';
+import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 
-SwidInterface swidInterfaceFromInterface(
-        {required InterfaceType interfaceType}) =>
+SwidInterface swidInterfaceFromInterface({
+  required InterfaceType interfaceType,
+}) =>
     SwidInterface(
       name: interfaceType.getDisplayString(withNullability: false),
       typeArguments: interfaceType.typeArguments
@@ -24,4 +26,5 @@ SwidInterface swidInterfaceFromInterface(
           : interfaceType.element is ClassElement
               ? SwidReferenceDeclarationKind.classElement
               : SwidReferenceDeclarationKind.unknown,
+      declarationModifiers: SwidDeclarationModifiers.empty(),
     );

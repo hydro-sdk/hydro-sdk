@@ -33,6 +33,7 @@ void main() {
               value: "Endian._",
               staticType: SwidType.fromSwidInterface(
                 swidInterface: SwidInterface(
+                  declarationModifiers: SwidDeclarationModifiers.empty(),
                   name: "Endian",
                   nullabilitySuffix: SwidNullabilitySuffix.none,
                   originalPackagePath: "dart:typed_data",
@@ -58,6 +59,7 @@ void main() {
               value: "Endian._",
               staticType: SwidType.fromSwidInterface(
                 swidInterface: SwidInterface(
+                  declarationModifiers: SwidDeclarationModifiers.empty(),
                   name: "Endian",
                   nullabilitySuffix: SwidNullabilitySuffix.none,
                   originalPackagePath: "dart:typed_data",
@@ -78,7 +80,7 @@ void main() {
         ),
       ],
       instanceFieldDeclarations: {},
-      swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+      declarationModifiers: SwidDeclarationModifiers.empty(),
       mixedInClasses: [],
       extendedClass: null,
       isMixin: false,

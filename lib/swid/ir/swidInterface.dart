@@ -48,7 +48,7 @@ class SwidInterface
             referenceDeclarationKind ?? swidType.referenceDeclarationKind,
         declarationModifiers: declarationModifiers ??
             SwidDeclarationModifiers.clone(
-              swidDeclarationModifiers: swidType.declarationModifiers,
+              declarationModifiers: swidType.declarationModifiers,
             ),
       );
 

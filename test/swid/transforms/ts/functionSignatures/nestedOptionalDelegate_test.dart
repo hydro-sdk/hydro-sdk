@@ -19,7 +19,7 @@ void main() {
             trailingReturnTypeKind: TrailingReturnTypeKind.fatArrow,
             swidFunctionType: SwidFunctionType(
                 namedDefaults: {},
-                swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+                declarationModifiers: SwidDeclarationModifiers.empty(),
                 name: "foo",
                 typeFormals: [],
                 isFactory: false,
@@ -28,6 +28,7 @@ void main() {
                 normalParameterTypes: [
                   SwidType.fromSwidInterface(
                       swidInterface: SwidInterface(
+                        declarationModifiers: SwidDeclarationModifiers.empty(),
                     typeArguments: [],
                     name: "int",
                     referenceDeclarationKind:
@@ -43,7 +44,7 @@ void main() {
                           isFactory: false,
                           typeFormals: [],
                           namedDefaults: {},
-                          swidDeclarationModifiers:
+                          declarationModifiers:
                               SwidDeclarationModifiers.empty(),
                           name: "",
                           normalParameterNames: [],
@@ -56,7 +57,7 @@ void main() {
                                     isFactory: false,
                                     typeFormals: [],
                                     namedDefaults: {},
-                                    swidDeclarationModifiers:
+                                    declarationModifiers:
                                         SwidDeclarationModifiers.empty(),
                                     name: "",
                                     normalParameterNames: ["millis"],
@@ -66,6 +67,7 @@ void main() {
                                     normalParameterTypes: [
                                       SwidType.fromSwidInterface(
                                           swidInterface: SwidInterface(
+                                            declarationModifiers: SwidDeclarationModifiers.empty(),
                                         typeArguments: [],
                                         name: "int",
                                         referenceDeclarationKind:
@@ -81,6 +83,7 @@ void main() {
                                     originalPackagePath: "",
                                     returnType: SwidType.fromSwidInterface(
                                         swidInterface: SwidInterface(
+                                          declarationModifiers: SwidDeclarationModifiers.empty(),
                                       typeArguments: [],
                                       name: "Duration",
                                       referenceDeclarationKind:
@@ -95,6 +98,7 @@ void main() {
                           nullabilitySuffix: SwidNullabilitySuffix.question,
                           returnType: SwidType.fromSwidInterface(
                               swidInterface: SwidInterface(
+                                declarationModifiers: SwidDeclarationModifiers.empty(),
                             typeArguments: [],
                             name: "Widget",
                             referenceDeclarationKind:
@@ -107,6 +111,7 @@ void main() {
                 nullabilitySuffix: SwidNullabilitySuffix.star,
                 returnType: SwidType.fromSwidInterface(
                     swidInterface: SwidInterface(
+                      declarationModifiers: SwidDeclarationModifiers.empty(),
                   typeArguments: [],
                   name: "num",
                   referenceDeclarationKind:

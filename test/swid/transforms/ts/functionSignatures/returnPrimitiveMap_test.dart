@@ -17,7 +17,7 @@ void main() {
       typeFormals: [],
       nullabilitySuffix: SwidNullabilitySuffix.none,
       originalPackagePath: "",
-      swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+      declarationModifiers: SwidDeclarationModifiers.empty(),
       namedParameterTypes: {},
       namedDefaults: {},
       normalParameterNames: [],
@@ -26,6 +26,7 @@ void main() {
       optionalParameterTypes: [],
       returnType: SwidType.fromSwidInterface(
           swidInterface: SwidInterface(
+            declarationModifiers: SwidDeclarationModifiers.empty(),
               name: "Map<String, Object>",
               nullabilitySuffix: SwidNullabilitySuffix.none,
               referenceDeclarationKind:
@@ -34,6 +35,7 @@ void main() {
               typeArguments: [
             SwidType.fromSwidInterface(
                 swidInterface: SwidInterface(
+                  declarationModifiers: SwidDeclarationModifiers.empty(),
               name: "String",
               nullabilitySuffix: SwidNullabilitySuffix.none,
               originalPackagePath: "dart:core",
@@ -43,6 +45,7 @@ void main() {
             )),
             SwidType.fromSwidInterface(
                 swidInterface: SwidInterface(
+                  declarationModifiers: SwidDeclarationModifiers.empty(),
               name: "Object",
               nullabilitySuffix: SwidNullabilitySuffix.none,
               originalPackagePath: "dart:core",

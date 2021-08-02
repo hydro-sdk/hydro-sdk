@@ -49,16 +49,16 @@ SwidClass swidClassFromInterfaceType({
                         ..addAll(childClassMethod.namedDefaults)))(
                 baseClassMethod: swidFunctionTypeFromFunctionType(
                   functionType: x.declaration.type,
-                  swidDeclarationModifiers: SwidDeclarationModifiers.clone(
-                    swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+                  declarationModifiers: SwidDeclarationModifiers.clone(
+                    declarationModifiers: SwidDeclarationModifiers.empty(),
                     isAbstract: x.isAbstract,
                   ),
                   name: x.declaration.displayName,
                 ),
                 childClassMethod: swidFunctionTypeFromFunctionType(
                   functionType: x.type,
-                  swidDeclarationModifiers: SwidDeclarationModifiers.clone(
-                    swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+                  declarationModifiers: SwidDeclarationModifiers.clone(
+                    declarationModifiers: SwidDeclarationModifiers.empty(),
                     isAbstract: x.isAbstract,
                   ),
                   name: x.declaration.displayName,
@@ -77,7 +77,7 @@ SwidClass swidClassFromInterfaceType({
       ],
       staticConstFieldDeclarations: [],
       instanceFieldDeclarations: {},
-      swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+      declarationModifiers: SwidDeclarationModifiers.empty(),
       mixedInClasses: [],
       implementedClasses: interfaceType.interfaces
           .map((x) => swidClassFromInterfaceType(

@@ -110,10 +110,11 @@ class _SwidVisitor extends RecursiveAstVisitor
                   classDeclaration: node));
 
       res = SwidClass.clone(
-          swidClass: res,
-          swidDeclarationModifiers:
-              swidDeclarationModifiersFromClassDeclaration(
-                  classDeclaration: node));
+        swidClass: res,
+        declarationModifiers: swidDeclarationModifiersFromClassDeclaration(
+          classDeclaration: node,
+        ),
+      );
       classes.add(res);
     }
 

@@ -32,66 +32,87 @@ class TsClassVmDeclaration {
                       .split(path.separator)
                       .last ==
                   tsVmDeclaration.name
-          ? TsVmDeclaration.clone(tsVmDeclaration: tsVmDeclaration, methods: [
-              rewriteClassReferencesToInterfaceReferencesInFunction(
-                swidFunctionType: SwidFunctionType.MakeReceiverVoid(
-                  swidFunctionType:
-                      SwidFunctionType.InsertLeadingPositionalParameter(
-                    typeName: transformToCamelCase(str: swidClass.name),
-                    swidType: SwidType.fromSwidInterface(
+          ? TsVmDeclaration.clone(
+              tsVmDeclaration: tsVmDeclaration,
+              methods: [
+                rewriteClassReferencesToInterfaceReferencesInFunction(
+                  swidFunctionType: SwidFunctionType.MakeReceiverVoid(
+                    swidFunctionType:
+                        SwidFunctionType.InsertLeadingPositionalParameter(
+                      typeName: transformToCamelCase(str: swidClass.name),
+                      swidType: SwidType.fromSwidInterface(
                         swidInterface: SwidInterface(
-                            typeArguments: swidClass.typeFormals
-                                .map((x) => SwidType.fromSwidInterface(
-                                        swidInterface: SwidInterface(
-                                      name: x.value.name,
-                                      nullabilitySuffix:
-                                          SwidNullabilitySuffix.none,
-                                      originalPackagePath: "",
-                                      referenceDeclarationKind:
-                                          SwidReferenceDeclarationKind
-                                              .typeParameterType,
-                                      typeArguments: [],
-                                    )))
-                                .toList(),
-                            name: swidClass.name +
-                                (swidClass.typeFormals.isNotEmpty
-                                    ? "<" +
-                                        swidClass.typeFormals
-                                            .map((x) => x.value.name)
-                                            .toList()
-                                            .join(",") +
-                                        ">"
-                                    : ""),
-                            referenceDeclarationKind:
-                                SwidReferenceDeclarationKind.classElement,
-                            nullabilitySuffix: SwidNullabilitySuffix.star,
-                            originalPackagePath: "")),
-                    swidFunctionType: SwidFunctionType.clone(
-                      swidFunctionType: swidClass.constructorType!,
-                      typeFormals: swidClass.typeFormals,
-                      name: transformToCamelCase(
-                        str: swidClass.name,
+                          declarationModifiers:
+                              SwidDeclarationModifiers.empty(),
+                          typeArguments: swidClass.typeFormals
+                              .map(
+                                (x) => SwidType.fromSwidInterface(
+                                  swidInterface: SwidInterface(
+                                    declarationModifiers:
+                                        SwidDeclarationModifiers.empty(),
+                                    name: x.value.name,
+                                    nullabilitySuffix:
+                                        SwidNullabilitySuffix.none,
+                                    originalPackagePath: "",
+                                    referenceDeclarationKind:
+                                        SwidReferenceDeclarationKind
+                                            .typeParameterType,
+                                    typeArguments: [],
+                                  ),
+                                ),
+                              )
+                              .toList(),
+                          name: swidClass.name +
+                              (swidClass.typeFormals.isNotEmpty
+                                  ? "<" +
+                                      swidClass.typeFormals
+                                          .map((x) => x.value.name)
+                                          .toList()
+                                          .join(",") +
+                                      ">"
+                                  : ""),
+                          referenceDeclarationKind:
+                              SwidReferenceDeclarationKind.classElement,
+                          nullabilitySuffix: SwidNullabilitySuffix.star,
+                          originalPackagePath: "",
+                        ),
+                      ),
+                      swidFunctionType: SwidFunctionType.clone(
+                        swidFunctionType: swidClass.constructorType!,
+                        typeFormals: swidClass.typeFormals,
+                        name: transformToCamelCase(
+                          str: swidClass.name,
+                        ),
                       ),
                     ),
                   ),
                 ),
-              ),
-              ...tsVmDeclaration.methods
-            ])
+                ...tsVmDeclaration.methods,
+              ],
+            )
           : tsVmDeclaration;
 
-  String toTsSource() => requiresDartBinding(swidClass: swidClass) ||
+  String toTsSource() => requiresDartBinding(
+            swidClass: swidClass,
+          ) ||
           swidClass.isConstructible()
       ? ((SwidClass swidClass) => transformVmDeclarationToTs(
                 tsVmDeclaration: transformPackageUri(
-                        packageUri: swidClass.originalPackagePath)
+                  packageUri: swidClass.originalPackagePath,
+                )
                     .split(path.separator)
-                    .map((x) =>
-                        TsVmDeclaration(name: x, methods: [], children: []))
+                    .map(
+                      (x) => TsVmDeclaration(
+                        name: x,
+                        methods: [],
+                        children: [],
+                      ),
+                    )
                     .reduce(
                       (previousValue, element) => TsVmDeclaration.clone(
                         tsVmDeclaration: _addConstructorBindingDeclarations(
-                            tsVmDeclaration: previousValue),
+                          tsVmDeclaration: previousValue,
+                        ),
                         children: [
                           _addConstructorBindingDeclarations(
                             tsVmDeclaration: TsVmDeclaration.clone(
@@ -100,20 +121,22 @@ class TsClassVmDeclaration {
                                 ...swidClass.factoryConstructors,
                                 ...swidClass.staticMethods,
                                 ...swidClass.staticConstFieldDeclarations
-                                    .where((x) => isInexpressibleStaticConst(
-                                          staticConst: x.value,
-                                          parentClass: swidClass,
-                                        ))
+                                    .where(
+                                      (x) => isInexpressibleStaticConst(
+                                        staticConst: x.value,
+                                        parentClass: swidClass,
+                                      ),
+                                    )
                                     .map(
                                       (x) => SwidFunctionType.MakeReceiverVoid(
                                         swidFunctionType: SwidFunctionType(
+                                          declarationModifiers:
+                                              SwidDeclarationModifiers.empty(),
                                           name: x.name,
                                           nullabilitySuffix:
                                               SwidNullabilitySuffix.none,
                                           originalPackagePath:
                                               swidClass.originalPackagePath,
-                                          swidDeclarationModifiers:
-                                              SwidDeclarationModifiers.empty(),
                                           namedParameterTypes: {},
                                           namedDefaults: {},
                                           normalParameterNames: [],
@@ -151,8 +174,11 @@ class TsClassVmDeclaration {
                                     (x) => SwidFunctionType.clone(
                                       swidFunctionType: x,
                                       name: transformToCamelCase(
-                                              str: swidClass.name) +
-                                          transformToPascalCase(str: x.name),
+                                            str: swidClass.name,
+                                          ) +
+                                          transformToPascalCase(
+                                            str: x.name,
+                                          ),
                                     ),
                                   )
                                   .toList(),

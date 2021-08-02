@@ -36,7 +36,7 @@ class "package:flutter/src/widgets/icon_data.dart"::IconData {
           name: "foo",
           nullabilitySuffix: SwidNullabilitySuffix.none,
           originalPackagePath: "",
-          swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+          declarationModifiers: SwidDeclarationModifiers.empty(),
           namedParameterTypes: {
             "baz": SwidType.fromSwidInterface(
               swidInterface: dartInt,
@@ -63,7 +63,7 @@ class "package:flutter/src/widgets/icon_data.dart"::IconData {
       ],
       staticConstFieldDeclarations: [],
       instanceFieldDeclarations: {},
-      swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+      declarationModifiers: SwidDeclarationModifiers.empty(),
       mixedInClasses: [],
       implementedClasses: [],
       extendedClass: null,

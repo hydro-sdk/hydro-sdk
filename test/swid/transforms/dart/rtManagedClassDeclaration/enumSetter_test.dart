@@ -23,7 +23,7 @@ void main() {
           nullabilitySuffix: SwidNullabilitySuffix.none,
           typeFormals: [],
           originalPackagePath: "",
-          swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+          declarationModifiers: SwidDeclarationModifiers.empty(),
           namedParameterTypes: {},
           namedDefaults: {},
           normalParameterNames: [],
@@ -32,6 +32,7 @@ void main() {
           optionalParameterTypes: [],
           returnType: SwidType.fromSwidInterface(
             swidInterface: SwidInterface(
+              declarationModifiers: SwidDeclarationModifiers.empty(),
               name: "Path",
               nullabilitySuffix: SwidNullabilitySuffix.none,
               originalPackagePath: "dart:ui",
@@ -50,8 +51,8 @@ void main() {
             typeFormals: [],
             nullabilitySuffix: SwidNullabilitySuffix.none,
             originalPackagePath: "dart:ui",
-            swidDeclarationModifiers: SwidDeclarationModifiers.clone(
-              swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+            declarationModifiers: SwidDeclarationModifiers.clone(
+              declarationModifiers: SwidDeclarationModifiers.empty(),
               isSetter: true,
             ),
             namedParameterTypes: {},
@@ -62,6 +63,7 @@ void main() {
             normalParameterTypes: [
               SwidType.fromSwidInterface(
                   swidInterface: SwidInterface(
+                    declarationModifiers: SwidDeclarationModifiers.empty(),
                 name: "PathFillType",
                 nullabilitySuffix: SwidNullabilitySuffix.none,
                 originalPackagePath: "dart:ui",
@@ -74,6 +76,7 @@ void main() {
             optionalParameterTypes: [],
             returnType: SwidType.fromSwidInterface(
               swidInterface: SwidInterface(
+                declarationModifiers: SwidDeclarationModifiers.empty(),
                 name: "void",
                 nullabilitySuffix: SwidNullabilitySuffix.none,
                 originalPackagePath: "",
@@ -86,7 +89,7 @@ void main() {
         ],
         staticConstFieldDeclarations: [],
         instanceFieldDeclarations: {},
-        swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+        declarationModifiers: SwidDeclarationModifiers.empty(),
         mixedInClasses: [],
         extendedClass: null,
         isMixin: false);

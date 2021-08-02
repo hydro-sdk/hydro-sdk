@@ -32,7 +32,7 @@ void main() {
           name: "",
           nullabilitySuffix: SwidNullabilitySuffix.none,
           originalPackagePath: "",
-          swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+          declarationModifiers: SwidDeclarationModifiers.empty(),
           namedParameterTypes: {},
           namedDefaults: {},
           normalParameterNames: [],
@@ -41,12 +41,14 @@ void main() {
           optionalParameterTypes: [],
           returnType: SwidType.fromSwidInterface(
             swidInterface: SwidInterface(
+              declarationModifiers: SwidDeclarationModifiers.empty(),
               name: "Iterable<E>",
               nullabilitySuffix: SwidNullabilitySuffix.none,
               originalPackagePath: "dart:core",
               typeArguments: [
                 SwidType.fromSwidInterface(
                   swidInterface: SwidInterface(
+                    declarationModifiers: SwidDeclarationModifiers.empty(),
                       name: "E",
                       nullabilitySuffix: SwidNullabilitySuffix.none,
                       originalPackagePath: "dart:core",
@@ -69,14 +71,14 @@ void main() {
             name: "firstWhere",
             nullabilitySuffix: SwidNullabilitySuffix.none,
             originalPackagePath: "dart:core",
-            swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+            declarationModifiers: SwidDeclarationModifiers.empty(),
             namedParameterTypes: {
               "orElse": SwidType.fromSwidFunctionType(
                 swidFunctionType: SwidFunctionType(
                   name: "",
                   nullabilitySuffix: SwidNullabilitySuffix.question,
                   originalPackagePath: "",
-                  swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+                  declarationModifiers: SwidDeclarationModifiers.empty(),
                   namedParameterTypes: {},
                   namedDefaults: {},
                   normalParameterNames: [],
@@ -85,6 +87,7 @@ void main() {
                   optionalParameterTypes: [],
                   returnType: SwidType.fromSwidInterface(
                       swidInterface: SwidInterface(
+                        declarationModifiers: SwidDeclarationModifiers.empty(),
                     name: "E",
                     nullabilitySuffix: SwidNullabilitySuffix.none,
                     originalPackagePath: "dart:core",
@@ -105,13 +108,14 @@ void main() {
                   name: "",
                   nullabilitySuffix: SwidNullabilitySuffix.none,
                   originalPackagePath: "",
-                  swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+                  declarationModifiers: SwidDeclarationModifiers.empty(),
                   namedParameterTypes: {},
                   namedDefaults: {},
                   normalParameterNames: ["element"],
                   normalParameterTypes: [
                     SwidType.fromSwidInterface(
                       swidInterface: SwidInterface(
+                        declarationModifiers: SwidDeclarationModifiers.empty(),
                         name: "E",
                         nullabilitySuffix: SwidNullabilitySuffix.none,
                         originalPackagePath: "dart:core",
@@ -125,6 +129,7 @@ void main() {
                   optionalParameterTypes: [],
                   returnType: SwidType.fromSwidInterface(
                     swidInterface: SwidInterface(
+                      declarationModifiers: SwidDeclarationModifiers.empty(),
                       name: "bool",
                       nullabilitySuffix: SwidNullabilitySuffix.none,
                       originalPackagePath: "dart:core",
@@ -142,6 +147,7 @@ void main() {
             optionalParameterTypes: [],
             returnType: SwidType.fromSwidInterface(
               swidInterface: SwidInterface(
+                declarationModifiers: SwidDeclarationModifiers.empty(),
                 name: "E",
                 nullabilitySuffix: SwidNullabilitySuffix.none,
                 originalPackagePath: "dart:core",
@@ -156,7 +162,7 @@ void main() {
         ],
         staticConstFieldDeclarations: [],
         instanceFieldDeclarations: {},
-        swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+        declarationModifiers: SwidDeclarationModifiers.empty(),
         mixedInClasses: [],
         extendedClass: null,
         isMixin: false,
@@ -176,6 +182,7 @@ void main() {
               swidInstantiableGeneric:
                   SwidInstantiableGeneric.fromSwidInterface(
                 swidInterface: SwidInterface(
+                  declarationModifiers: SwidDeclarationModifiers.empty(),
                   name: "dynamic",
                   nullabilitySuffix: SwidNullabilitySuffix.none,
                   originalPackagePath: "",

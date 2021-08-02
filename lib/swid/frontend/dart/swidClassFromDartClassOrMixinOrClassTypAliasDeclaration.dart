@@ -60,21 +60,21 @@ SwidClass swidClassFromDartClassOrMixinOrClassTypAliasDeclaration({
       .cast<MethodDeclarationImpl>()
       .map((x) => swidFunctionTypeFromFunctionType(
           functionType: x.declaredElement!.type,
-          swidDeclarationModifiers: narrowModifierProducer(
+          declarationModifiers: narrowModifierProducer(
               element: x.declaredElement,
               onExecutablElement: (val) =>
                   swidDeclarationModifiersFromExecutableElement(
                       executableElement: val),
               onPropertyAccessorElement: (val) =>
                   swidDeclarationModifiersFromPropertyAccessorElement(
-                      propertyAccessorElement: val))!))
+                      propertyAccessorElement: val,))!))
       .toList()
       .cast<SwidFunctionType>();
   return SwidClass(
       name: dartClassOrMixinOrClassTypAliasDeclaration.name.name,
       isMixin: dartClassOrMixinOrClassTypAliasDeclaration.isMixin,
       nullabilitySuffix: SwidNullabilitySuffix.none,
-      swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+      declarationModifiers: SwidDeclarationModifiers.empty(),
       originalPackagePath: dartClassOrMixinOrClassTypAliasDeclaration
               .declaredElement?.librarySource.uri
               .toString() ??
@@ -82,9 +82,9 @@ SwidClass swidClassFromDartClassOrMixinOrClassTypAliasDeclaration({
       constructorType: constructorDeclarationImpl != null
           ? SwidFunctionType.clone(
               swidFunctionType: swidFunctionTypeFromFunctionType(
-                  swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+                  declarationModifiers: SwidDeclarationModifiers.empty(),
                   functionType:
-                      constructorDeclarationImpl.declaredElement!.type),
+                      constructorDeclarationImpl.declaredElement!.type,),
               isFactory: constructorDeclarationImpl.factoryKeyword != null,
             )
           : null,
@@ -95,14 +95,14 @@ SwidClass swidClassFromDartClassOrMixinOrClassTypAliasDeclaration({
                 swidFunctionType: swidFunctionTypeFromFunctionType(
                     functionType: x.declaredElement!.type,
                     name: x.name!.name,
-                    swidDeclarationModifiers: SwidDeclarationModifiers.empty()),
+                    declarationModifiers: SwidDeclarationModifiers.empty(),),
                 isFactory: true,
               ))
           .toList(),
       methods:
-          methods.where((x) => !x.swidDeclarationModifiers.isStatic).toList(),
+          methods.where((x) => !x.declarationModifiers.isStatic).toList(),
       staticMethods:
-          methods.where((x) => x.swidDeclarationModifiers.isStatic).toList(),
+          methods.where((x) => x.declarationModifiers.isStatic).toList(),
       mixedInClasses: dartClassOrMixinOrClassTypAliasDeclaration.withClause != null
           ? dartClassOrMixinOrClassTypAliasDeclaration.withClause!.mixinTypes
               .map((x) => swidClassFromInterfaceType(

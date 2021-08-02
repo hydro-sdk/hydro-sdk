@@ -23,10 +23,11 @@ void main() {
       nullabilitySuffix: SwidNullabilitySuffix.none,
       staticMethods: [],
       factoryConstructors: [],
-      swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+      declarationModifiers: SwidDeclarationModifiers.empty(),
       instanceFieldDeclarations: {
         "barField": SwidType.fromSwidInterface(
             swidInterface: SwidInterface(
+              declarationModifiers: SwidDeclarationModifiers.empty(),
           name: "String",
           nullabilitySuffix: SwidNullabilitySuffix.question,
           originalPackagePath: "dart:core",
@@ -48,13 +49,14 @@ void main() {
         originalPackagePath: "",
         returnType: SwidType.fromSwidInterface(
             swidInterface: SwidInterface(
+              declarationModifiers: SwidDeclarationModifiers.empty(),
           name: "",
           nullabilitySuffix: SwidNullabilitySuffix.none,
           originalPackagePath: "",
           referenceDeclarationKind: SwidReferenceDeclarationKind.voidType,
           typeArguments: [],
         )),
-        swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+        declarationModifiers: SwidDeclarationModifiers.empty(),
       ),
       staticConstFieldDeclarations: [],
       methods: [],

@@ -24,13 +24,14 @@ void main() {
           name: "contains",
           nullabilitySuffix: SwidNullabilitySuffix.question,
           originalPackagePath: "dart:core",
-          swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+          declarationModifiers: SwidDeclarationModifiers.empty(),
           namedParameterTypes: {},
           namedDefaults: {},
           normalParameterNames: ["element"],
           normalParameterTypes: [
             SwidType.fromSwidInterface(
               swidInterface: SwidInterface(
+                declarationModifiers: SwidDeclarationModifiers.empty(),
                 name: "Object ",
                 nullabilitySuffix: SwidNullabilitySuffix.question,
                 originalPackagePath: "dart:core",
@@ -44,6 +45,7 @@ void main() {
           optionalParameterTypes: [],
           returnType: SwidType.fromSwidInterface(
             swidInterface: SwidInterface(
+              declarationModifiers: SwidDeclarationModifiers.empty(),
               name: "bool",
               nullabilitySuffix: SwidNullabilitySuffix.none,
               originalPackagePath: "dart:core",
@@ -58,7 +60,7 @@ void main() {
       ],
       staticConstFieldDeclarations: [],
       instanceFieldDeclarations: {},
-      swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+      declarationModifiers: SwidDeclarationModifiers.empty(),
       mixedInClasses: [],
       implementedClasses: [],
       isMixin: false,

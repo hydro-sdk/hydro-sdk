@@ -12,8 +12,6 @@ _$_$Data _$_$_$DataFromJson(Map<String, dynamic> json) {
     nullabilitySuffix:
         _$enumDecode(_$SwidNullabilitySuffixEnumMap, json['nullabilitySuffix']),
     originalPackagePath: json['originalPackagePath'] as String,
-    swidDeclarationModifiers: SwidDeclarationModifiers.fromJson(
-        json['swidDeclarationModifiers'] as Map<String, dynamic>),
     namedParameterTypes:
         (json['namedParameterTypes'] as Map<String, dynamic>).map(
       (k, e) => MapEntry(k, SwidType.fromJson(e as Map<String, dynamic>)),
@@ -49,7 +47,6 @@ Map<String, dynamic> _$_$_$DataToJson(_$_$Data instance) => <String, dynamic>{
       'nullabilitySuffix':
           _$SwidNullabilitySuffixEnumMap[instance.nullabilitySuffix],
       'originalPackagePath': instance.originalPackagePath,
-      'swidDeclarationModifiers': instance.swidDeclarationModifiers,
       'namedParameterTypes': instance.namedParameterTypes,
       'namedDefaults': instance.namedDefaults,
       'normalParameterNames': instance.normalParameterNames,

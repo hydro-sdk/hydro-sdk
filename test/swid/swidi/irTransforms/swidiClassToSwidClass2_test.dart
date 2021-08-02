@@ -41,14 +41,14 @@ void main() {
       isMixin: false,
       mixedInClasses: [],
       staticConstFieldDeclarations: [],
-      swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+      declarationModifiers: SwidDeclarationModifiers.empty(),
       typeFormals: [],
       methods: [
         SwidFunctionType(
           name: "indexOf",
           nullabilitySuffix: SwidNullabilitySuffix.none,
           originalPackagePath: "",
-          swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+          declarationModifiers: SwidDeclarationModifiers.empty(),
           namedParameterTypes: {},
           namedDefaults: {
             "start": SwidDefaultFormalParameter(
@@ -62,6 +62,7 @@ void main() {
               ),
               staticType: SwidType.fromSwidInterface(
                 swidInterface: SwidInterface(
+                  declarationModifiers: SwidDeclarationModifiers.empty(),
                   name: "int",
                   nullabilitySuffix: SwidNullabilitySuffix.none,
                   originalPackagePath: "dart:core",
@@ -78,6 +79,7 @@ void main() {
           normalParameterTypes: [
             SwidType.fromSwidInterface(
               swidInterface: SwidInterface(
+                declarationModifiers: SwidDeclarationModifiers.empty(),
                 name: "double",
                 nullabilitySuffix: SwidNullabilitySuffix.none,
                 originalPackagePath: "dart:core",
@@ -93,6 +95,7 @@ void main() {
           optionalParameterTypes: [
             SwidType.fromSwidInterface(
               swidInterface: SwidInterface(
+                declarationModifiers: SwidDeclarationModifiers.empty(),
                 name: "int",
                 nullabilitySuffix: SwidNullabilitySuffix.none,
                 originalPackagePath: "dart:core",
@@ -104,6 +107,7 @@ void main() {
           ],
           returnType: SwidType.fromSwidInterface(
             swidInterface: SwidInterface(
+              declarationModifiers: SwidDeclarationModifiers.empty(),
               name: "int",
               nullabilitySuffix: SwidNullabilitySuffix.none,
               originalPackagePath: "dart:core",

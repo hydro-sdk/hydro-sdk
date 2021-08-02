@@ -61,7 +61,7 @@ class SwidDeclarationModifiers with _$SwidDeclarationModifiers {
       _$SwidDeclarationModifiersFromJson(json);
 
   factory SwidDeclarationModifiers.clone({
-    required SwidDeclarationModifiers swidDeclarationModifiers,
+    required SwidDeclarationModifiers declarationModifiers,
     List<String>? ignoredTransforms,
     List<String>? ignoredAnalyses,
     List<StringTuple>? overridenTransforms,
@@ -92,48 +92,48 @@ class SwidDeclarationModifiers with _$SwidDeclarationModifiers {
   }) =>
       SwidDeclarationModifiers(
         ignoredTransforms: ignoredTransforms ??
-            List.from(swidDeclarationModifiers.ignoredTransforms),
+            List.from(declarationModifiers.ignoredTransforms),
         ignoredAnalyses: ignoredAnalyses ??
-            List.from(swidDeclarationModifiers.ignoredAnalyses),
+            List.from(declarationModifiers.ignoredAnalyses),
         overridenTransforms: overridenTransforms ??
-            swidDeclarationModifiers.overridenTransforms
+            declarationModifiers.overridenTransforms
                 .map(
                   (x) => StringTuple.clone(
                     stringTuple: x,
                   ),
                 )
                 .toList(),
-        isAbstract: isAbstract ?? swidDeclarationModifiers.isAbstract,
-        isGetter: isGetter ?? swidDeclarationModifiers.isGetter,
-        isOperator: isOperator ?? swidDeclarationModifiers.isOperator,
-        isSetter: isSetter ?? swidDeclarationModifiers.isSetter,
-        isStatic: isStatic ?? swidDeclarationModifiers.isStatic,
-        isSynthetic: isSynthetic ?? swidDeclarationModifiers.isSynthetic,
+        isAbstract: isAbstract ?? declarationModifiers.isAbstract,
+        isGetter: isGetter ?? declarationModifiers.isGetter,
+        isOperator: isOperator ?? declarationModifiers.isOperator,
+        isSetter: isSetter ?? declarationModifiers.isSetter,
+        isStatic: isStatic ?? declarationModifiers.isStatic,
+        isSynthetic: isSynthetic ?? declarationModifiers.isSynthetic,
         hasAlwaysThrows:
-            hasAlwaysThrows ?? swidDeclarationModifiers.hasAlwaysThrows,
-        hasDeprecated: hasDeprecated ?? swidDeclarationModifiers.hasDeprecated,
-        hasFactory: hasFactory ?? swidDeclarationModifiers.hasFactory,
+            hasAlwaysThrows ?? declarationModifiers.hasAlwaysThrows,
+        hasDeprecated: hasDeprecated ?? declarationModifiers.hasDeprecated,
+        hasFactory: hasFactory ?? declarationModifiers.hasFactory,
         hasImplicitReturnType: hasImplicitReturnType ??
-            swidDeclarationModifiers.hasImplicitReturnType,
-        hasIsTest: hasIsTest ?? swidDeclarationModifiers.hasIsTest,
+            declarationModifiers.hasImplicitReturnType,
+        hasIsTest: hasIsTest ?? declarationModifiers.hasIsTest,
         hasIsTestGroup:
-            hasIsTestGroup ?? swidDeclarationModifiers.hasIsTestGroup,
-        hasJS: hasJS ?? swidDeclarationModifiers.hasJS,
-        hasLiteral: hasLiteral ?? swidDeclarationModifiers.hasLiteral,
+            hasIsTestGroup ?? declarationModifiers.hasIsTestGroup,
+        hasJS: hasJS ?? declarationModifiers.hasJS,
+        hasLiteral: hasLiteral ?? declarationModifiers.hasLiteral,
         hasMustCallSuper:
-            hasMustCallSuper ?? swidDeclarationModifiers.hasMustCallSuper,
-        hasNonVirtual: hasNonVirtual ?? swidDeclarationModifiers.hasNonVirtual,
+            hasMustCallSuper ?? declarationModifiers.hasMustCallSuper,
+        hasNonVirtual: hasNonVirtual ?? declarationModifiers.hasNonVirtual,
         hasOptionalTypeArgs:
-            hasOptionalTypeArgs ?? swidDeclarationModifiers.hasOptionalTypeArgs,
-        hasOverride: hasOverride ?? swidDeclarationModifiers.hasOverride,
-        hasProtected: hasProtected ?? swidDeclarationModifiers.hasProtected,
-        hasRequired: hasRequired ?? swidDeclarationModifiers.hasRequired,
-        hasSealed: hasSealed ?? swidDeclarationModifiers.hasSealed,
+            hasOptionalTypeArgs ?? declarationModifiers.hasOptionalTypeArgs,
+        hasOverride: hasOverride ?? declarationModifiers.hasOverride,
+        hasProtected: hasProtected ?? declarationModifiers.hasProtected,
+        hasRequired: hasRequired ?? declarationModifiers.hasRequired,
+        hasSealed: hasSealed ?? declarationModifiers.hasSealed,
         hasVisibleForTemplate: hasVisibleForTemplate ??
-            swidDeclarationModifiers.hasVisibleForTemplate,
+            declarationModifiers.hasVisibleForTemplate,
         hasVisibleForTesting: hasVisibleForTesting ??
-            swidDeclarationModifiers.hasVisibleForTemplate,
-        isPublic: isPublic ?? swidDeclarationModifiers.isPublic,
+            declarationModifiers.hasVisibleForTemplate,
+        isPublic: isPublic ?? declarationModifiers.isPublic,
       );
 
   factory SwidDeclarationModifiers.empty() => SwidDeclarationModifiers.only();

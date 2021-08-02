@@ -6,7 +6,7 @@ SwidFunctionType transformAccessorName({
   bool addPrefixes = true,
   bool removeSuffixes = true,
 }) {
-  if (swidFunctionType.swidDeclarationModifiers.isSetter) {
+  if (swidFunctionType.declarationModifiers.isSetter) {
     return SwidFunctionType.clone(
         swidFunctionType: swidFunctionType,
         name: ([
@@ -23,7 +23,7 @@ SwidFunctionType transformAccessorName({
                   ? swidFunctionType.name.replaceAll("=", "")
                   : swidFunctionType.name,
         ]).join());
-  } else if (swidFunctionType.swidDeclarationModifiers.isGetter) {
+  } else if (swidFunctionType.declarationModifiers.isGetter) {
     return SwidFunctionType.clone(
         swidFunctionType: swidFunctionType,
         name: ([

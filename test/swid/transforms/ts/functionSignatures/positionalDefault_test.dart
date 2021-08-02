@@ -20,7 +20,7 @@ void main() {
       typeFormals: [],
       nullabilitySuffix: SwidNullabilitySuffix.none,
       originalPackagePath: "",
-      swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+      declarationModifiers: SwidDeclarationModifiers.empty(),
       namedParameterTypes: {},
       namedDefaults: {
         "distance": SwidDefaultFormalParameter(
@@ -34,6 +34,7 @@ void main() {
             ),
             staticType: SwidType.fromSwidInterface(
                 swidInterface: SwidInterface(
+                  declarationModifiers: SwidDeclarationModifiers.empty(),
               name: "double",
               nullabilitySuffix: SwidNullabilitySuffix.none,
               originalPackagePath: "dart:core",
@@ -46,6 +47,7 @@ void main() {
       normalParameterTypes: [
         SwidType.fromSwidInterface(
             swidInterface: SwidInterface(
+              declarationModifiers: SwidDeclarationModifiers.empty(),
           name: "double",
           nullabilitySuffix: SwidNullabilitySuffix.none,
           originalPackagePath: "dart:core",
@@ -57,6 +59,7 @@ void main() {
       optionalParameterTypes: [
         SwidType.fromSwidInterface(
             swidInterface: SwidInterface(
+              declarationModifiers: SwidDeclarationModifiers.empty(),
           name: "double",
           nullabilitySuffix: SwidNullabilitySuffix.none,
           originalPackagePath: "dart:core",
@@ -66,6 +69,7 @@ void main() {
       ],
       returnType: SwidType.fromSwidInterface(
           swidInterface: SwidInterface(
+            declarationModifiers: SwidDeclarationModifiers.empty(),
               name: "Offset",
               nullabilitySuffix: SwidNullabilitySuffix.none,
               originalPackagePath: "dart:ui",

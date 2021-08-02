@@ -16,19 +16,21 @@ void main() {
       name: "from",
       nullabilitySuffix: SwidNullabilitySuffix.none,
       originalPackagePath: "",
-      swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+      declarationModifiers: SwidDeclarationModifiers.empty(),
       namedParameterTypes: {},
       namedDefaults: {},
       normalParameterNames: ["elements"],
       normalParameterTypes: [
         SwidType.fromSwidInterface(
           swidInterface: SwidInterface(
+            declarationModifiers: SwidDeclarationModifiers.empty(),
             name: "Iterable<dynamic>",
             nullabilitySuffix: SwidNullabilitySuffix.none,
             originalPackagePath: "dart:core",
             typeArguments: [
               SwidType.fromSwidInterface(
                 swidInterface: SwidInterface(
+                  declarationModifiers: SwidDeclarationModifiers.empty(),
                   name: "dynamic",
                   nullabilitySuffix: SwidNullabilitySuffix.none,
                   originalPackagePath: "",
@@ -46,12 +48,14 @@ void main() {
       optionalParameterTypes: [],
       returnType: SwidType.fromSwidInterface(
         swidInterface: SwidInterface(
+          declarationModifiers: SwidDeclarationModifiers.empty(),
           name: "Set<E>",
           nullabilitySuffix: SwidNullabilitySuffix.none,
           originalPackagePath: "dart:core",
           typeArguments: [
             SwidType.fromSwidInterface(
               swidInterface: SwidInterface(
+                declarationModifiers: SwidDeclarationModifiers.empty(),
                 name: "E",
                 nullabilitySuffix: SwidNullabilitySuffix.none,
                 originalPackagePath: "dart:core",

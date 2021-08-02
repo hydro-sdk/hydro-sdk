@@ -24,7 +24,7 @@ void main() {
       staticMethods: [],
       factoryConstructors: [],
       instanceFieldDeclarations: {},
-      swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+      declarationModifiers: SwidDeclarationModifiers.empty(),
       constructorType: SwidFunctionType(
         name: "",
         typeFormals: [],
@@ -39,13 +39,14 @@ void main() {
         originalPackagePath: "",
         returnType: SwidType.fromSwidInterface(
             swidInterface: SwidInterface(
+              declarationModifiers: SwidDeclarationModifiers.empty(),
           name: "",
           nullabilitySuffix: SwidNullabilitySuffix.none,
           originalPackagePath: "",
           referenceDeclarationKind: SwidReferenceDeclarationKind.voidType,
           typeArguments: [],
         )),
-        swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+        declarationModifiers: SwidDeclarationModifiers.empty(),
       ),
       staticConstFieldDeclarations: [],
       methods: [],

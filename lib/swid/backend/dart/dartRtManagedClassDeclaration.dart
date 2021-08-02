@@ -28,7 +28,6 @@ import 'package:hydro_sdk/swid/backend/dart/util/luaCallerArgumentsParameterName
 import 'package:hydro_sdk/swid/backend/dart/util/swidTypeToDartTypeReference.dart';
 import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
-import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
@@ -227,7 +226,7 @@ class DartRTManagedClassDeclaration {
             .where((x) => !isOperator(
                   swidFunctionType: x,
                 ))
-            .where((x) => !x.swidDeclarationModifiers.hasProtected)
+            .where((x) => !x.declarationModifiers.hasProtected)
             .map((x) => transformAccessorName(
                   swidFunctionType: x,
                   removeSuffixes: true,
@@ -235,9 +234,9 @@ class DartRTManagedClassDeclaration {
                 ))
             .map((x) => Method((k) => k
               ..annotations.add(refer("override"))
-              ..type = x.swidDeclarationModifiers.isGetter
+              ..type = x.declarationModifiers.isGetter
                   ? MethodType.getter
-                  : x.swidDeclarationModifiers.isSetter
+                  : x.declarationModifiers.isSetter
                       ? MethodType.setter
                       : null
               ..types.addAll(

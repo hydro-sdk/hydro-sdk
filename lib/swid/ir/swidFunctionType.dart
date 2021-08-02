@@ -26,7 +26,6 @@ class SwidFunctionType
     required String name,
     required SwidNullabilitySuffix nullabilitySuffix,
     required String originalPackagePath,
-    required SwidDeclarationModifiers swidDeclarationModifiers,
     required Map<String, SwidType> namedParameterTypes,
     required Map<String, SwidDefaultFormalParameter> namedDefaults,
     required List<String> normalParameterNames,
@@ -53,13 +52,15 @@ class SwidFunctionType
         ],
         normalParameterTypes: [
           SwidType.fromSwidInterface(
-              swidInterface: SwidInterface(
-                  typeArguments: [],
-                  name: "void",
-                  referenceDeclarationKind:
-                      SwidReferenceDeclarationKind.voidType,
-                  nullabilitySuffix: SwidNullabilitySuffix.none,
-                  originalPackagePath: "")),
+            swidInterface: SwidInterface(
+              typeArguments: [],
+              name: "void",
+              referenceDeclarationKind: SwidReferenceDeclarationKind.voidType,
+              nullabilitySuffix: SwidNullabilitySuffix.none,
+              originalPackagePath: "",
+              declarationModifiers: SwidDeclarationModifiers.empty(),
+            ),
+          ),
           ...swidFunctionType.normalParameterTypes
         ],
       );
@@ -86,7 +87,6 @@ class SwidFunctionType
     String? name,
     SwidNullabilitySuffix? nullabilitySuffix,
     String? originalPackagePath,
-    SwidDeclarationModifiers? swidDeclarationModifiers,
     Map<String, SwidType>? namedParameterTypes,
     Map<String, SwidDefaultFormalParameter>? namedDefaults,
     List<String>? normalParameterNames,
@@ -104,10 +104,10 @@ class SwidFunctionType
             nullabilitySuffix ?? swidFunctionType.nullabilitySuffix,
         originalPackagePath: nullabilitySuffix as String? ??
             swidFunctionType.originalPackagePath,
-        swidDeclarationModifiers: swidDeclarationModifiers ??
+        declarationModifiers: declarationModifiers ??
             SwidDeclarationModifiers.clone(
-                swidDeclarationModifiers:
-                    swidFunctionType.swidDeclarationModifiers),
+              declarationModifiers: swidFunctionType.declarationModifiers,
+            ),
         namedParameterTypes: namedParameterTypes ??
             Map.from(swidFunctionType.namedParameterTypes),
         namedDefaults:
@@ -124,10 +124,6 @@ class SwidFunctionType
             returnType ?? cloneSwidType(swidType: swidFunctionType.returnType),
         isFactory: isFactory ?? swidFunctionType.isFactory,
         typeFormals: typeFormals ?? List.from(swidFunctionType.typeFormals),
-        declarationModifiers: declarationModifiers ??
-            SwidDeclarationModifiers.clone(
-              swidDeclarationModifiers: swidFunctionType.declarationModifiers,
-            ),
       );
 
   Map<String, SwidDefaultFormalParameter> get namedDefaultParameters =>
@@ -158,7 +154,6 @@ class SwidFunctionType
     String? name,
     SwidNullabilitySuffix? nullabilitySuffix,
     String? originalPackagePath,
-    SwidDeclarationModifiers? swidDeclarationModifiers,
     Map<String, SwidType>? namedParameterTypes,
     Map<String, SwidDefaultFormalParameter>? namedDefaults,
     List<String>? normalParameterNames,
@@ -175,7 +170,6 @@ class SwidFunctionType
         name: name,
         nullabilitySuffix: nullabilitySuffix,
         originalPackagePath: originalPackagePath,
-        swidDeclarationModifiers: swidDeclarationModifiers,
         namedParameterTypes: namedParameterTypes,
         namedDefaults: namedDefaults,
         normalParameterNames: normalParameterNames,

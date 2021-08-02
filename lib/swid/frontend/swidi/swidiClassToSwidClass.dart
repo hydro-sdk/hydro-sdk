@@ -29,7 +29,7 @@ SwidClass swidiClassToSwidClass({
           .toList(),
       staticConstFieldDeclarations: [],
       instanceFieldDeclarations: {},
-      swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+      declarationModifiers: SwidDeclarationModifiers.empty(),
       mixedInClasses: [],
       implementedClasses: [],
       extendedClass: null,
