@@ -33,4 +33,24 @@ SwidDeclarationModifiers swidiShortHandOverrideToSwidDeclarationModifiers({
             (x) => x.item1 != "" && x.item2 != "",
           )
           .toList(),
+      ignoredTransforms: shortHandOverride
+          .maybeWhen(
+            fromSwidiConstMap: (val) => val.entries
+                .map((x) => x.item2.maybeWhen(
+                      fromSwidiConstBoolean: (val) => val.maybeWhen(
+                        fromSwidiConstBooleanFalse: (_) => x.item1.maybeWhen(
+                          fromSwidiConstString: (val) => val.value,
+                          orElse: () => "",
+                        ),
+                        orElse: () => "",
+                      ),
+                      orElse: () => "",
+                    ))
+                .toList(),
+            orElse: () => [
+              "",
+            ],
+          )
+          .where((x) => x != "")
+          .toList(),
     );

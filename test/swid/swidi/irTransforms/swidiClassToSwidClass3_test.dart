@@ -21,6 +21,7 @@ class "dart:core"::List {
     [[ ignoreAnalysis(@"referenceCollection")]]
     class::Array<type::T>? array,
   ]) -> {
+    @"dartStaticMethodNamespaceSymbolDeclaration" : false,
     @"tsClassMethodDeclaration" : @"if(array!==undefined){return List.from<T>(array as any,{}) as List<T>;}return List.from<T>([] as any,{}) as List<T>}",
   };
 }
@@ -47,6 +48,9 @@ class "dart:core"::List {
                 item2:
                     "if(array!==undefined){return List.from<T>(array as any,{}) as List<T>;}return List.from<T>([] as any,{}) as List<T>}",
               ),
+            ],
+            ignoredTransforms: [
+              "dartStaticMethodNamespaceSymbolDeclaration",
             ],
           ),
           namedParameterTypes: {},
