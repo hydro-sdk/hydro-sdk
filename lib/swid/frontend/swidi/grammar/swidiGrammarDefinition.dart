@@ -50,6 +50,6 @@ class SwidiGrammarDefinition extends GrammarDefinition
       ref0(libraryScopePrefix).optional() &
       ref0(identifier) &
       ref1(token, "{") &
-      ref0(functionDeclaration).star() &
+      (ref0(functionDeclaration) | ref0(staticFunctionDeclaration)).star() &
       ref1(token, "}");
 }

@@ -29,6 +29,7 @@ void main() {
         const SwidiClass(
             name: "IconData",
             libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+            staticMethods: [],
             methods: [
               SwidiFunctionDeclaration(
                 shortHandOverride: SwidiConst.fromSwidiEmptyConst(
@@ -107,6 +108,7 @@ void main() {
         const SwidiClass(
             name: "IconData",
             libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+            staticMethods: [],
             methods: [
               SwidiFunctionDeclaration(
                 shortHandOverride: SwidiConst.fromSwidiEmptyConst(

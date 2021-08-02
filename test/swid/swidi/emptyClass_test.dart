@@ -27,6 +27,7 @@ import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiFunctionDeclarationPos
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiLibraryScopePrefixParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiReferenceDeclarationPrefixParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiSimpleDeclarationParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiStaticFunctionDeclarationParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiTypeArgumentListParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiTypeFormalListDeclarationParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiTypeFormalListParser.dart';
@@ -66,7 +67,8 @@ class BasicClassParser extends SwidiGrammarDefinition
         SwidiTypeFormalParser,
         SwidiTypeFormalListParser,
         SwidiTypeFormalListDeclarationParser,
-        SwidiFunctionDeclarationParser {
+        SwidiFunctionDeclarationParser,
+        SwidiStaticFunctionDeclarationParser {
   const BasicClassParser();
 }
 
@@ -74,13 +76,16 @@ void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
     parserTestHarness(
-        input:
-            const ParserTestHarnessInput.fromString(input: "class IconData {}"),
-        parser: const BasicClassParser()
-            .build(start: const BasicClassParser().classDefinition),
-        result: const SwidiClass(
-            name: "IconData",
-            libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-            methods: []));
+      input:
+          const ParserTestHarnessInput.fromString(input: "class IconData {}"),
+      parser: const BasicClassParser()
+          .build(start: const BasicClassParser().classDefinition),
+      result: const SwidiClass(
+        name: "IconData",
+        libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+        methods: [],
+        staticMethods: [],
+      ),
+    );
   }, tags: "swid");
 }

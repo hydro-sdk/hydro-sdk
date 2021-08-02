@@ -29,7 +29,9 @@ void main() {
           const SwidiClass(
               name: "IconData",
               libraryScopePrefix: SwidiLibraryScopePrefix(
-                  name: "package:flutter/src/widgets/icon_data.dart"),
+                name: "package:flutter/src/widgets/icon_data.dart",
+              ),
+              staticMethods: [],
               methods: [
                 SwidiFunctionDeclaration(
                   shortHandOverride: SwidiConst.fromSwidiEmptyConst(

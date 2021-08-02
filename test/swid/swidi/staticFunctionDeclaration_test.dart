@@ -2,13 +2,11 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiClass.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConst.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiDeclaration.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiEmptyConst.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionDeclaration.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiInterface.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiLibraryScopePrefix.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiNullabilitySuffix.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiOptionalParameter.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiReferenceDeclarationPrefix.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiParser.dart';
 import 'lib/parserTestHarness.dart';
@@ -17,25 +15,19 @@ void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
     parserTestHarness(
-      input: const ParserTestHarnessInput.fromList(inputs: [
-        """
+      input: const ParserTestHarnessInput.fromString(
+        input: """
   class IconData {
-    void foo([int bar]);
+    static bar foo();
   }
     """,
-        """
-  class IconData {
-    void foo([int bar,]);
-  }
-    """
-      ]),
+      ),
       parser: const SwidiParser().build(),
       result: [
         const SwidiClass(
           name: "IconData",
           libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-          staticMethods: [],
-          methods: [
+          staticMethods: [
             SwidiFunctionDeclaration(
               shortHandOverride: SwidiConst.fromSwidiEmptyConst(
                 swidiEmptyConst: SwidiEmptyConst(),
@@ -45,32 +37,18 @@ void main() {
               returnType: SwidiInterface(
                 annotations: [],
                 typeArguments: [],
-                name: "void",
+                name: "bar",
                 libraryScopePrefix: SwidiLibraryScopePrefix.empty,
                 referenceDeclarationPrefix:
                     SwidiReferenceDeclarationPrefix.empty,
                 nullabilitySuffix: SwidiNullabilitySuffix.none,
               ),
-              optionalParameters: [
-                SwidiOptionalParameter(
-                  declaration: SwidiDeclaration(
-                    name: "bar",
-                    type: SwidiInterface(
-                      annotations: [],
-                      typeArguments: [],
-                      name: "int",
-                      libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                      referenceDeclarationPrefix:
-                          SwidiReferenceDeclarationPrefix.empty,
-                      nullabilitySuffix: SwidiNullabilitySuffix.none,
-                    ),
-                  ),
-                )
-              ],
-              positionalParameters: [],
+              optionalParameters: [],
               namedParameters: [],
-            ),
+              positionalParameters: [],
+            )
           ],
+          methods: [],
         ),
       ],
     );

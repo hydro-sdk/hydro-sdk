@@ -37,6 +37,7 @@ void foo(int bar,int baz)->@"foo";
         const SwidiClass(
           name: "IconData",
           libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+          staticMethods: [],
           methods: [
             SwidiFunctionDeclaration(
               shortHandOverride: SwidiConst.fromSwidiConstString(
@@ -106,6 +107,7 @@ class IconData {
         const SwidiClass(
           name: "IconData",
           libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+          staticMethods: [],
           methods: [
             SwidiFunctionDeclaration(
               name: "foo",
@@ -159,6 +161,7 @@ class IconData {
         const SwidiClass(
           name: "IconData",
           libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+          staticMethods: [],
           methods: [
             SwidiFunctionDeclaration(
               name: "foo",
