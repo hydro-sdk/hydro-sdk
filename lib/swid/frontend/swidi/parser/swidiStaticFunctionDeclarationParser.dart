@@ -1,3 +1,5 @@
+import 'package:petitparser/petitparser.dart';
+
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionDeclaration.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiStaticFunctionDeclaration.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iFunctionDeclarationLexer.dart';
@@ -6,7 +8,6 @@ import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiGrammarDefinition.dar
 import 'package:hydro_sdk/swid/frontend/swidi/parser/parsers/iFunctionDeclarationParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/parsers/iStaticFunctionDeclarationParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiFunctionDeclarationParser.dart';
-import 'package:petitparser/petitparser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/util/collectTokens.dart';
 
 mixin SwidiStaticFunctionDeclarationParser
