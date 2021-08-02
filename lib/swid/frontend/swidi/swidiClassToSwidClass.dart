@@ -4,16 +4,28 @@ import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 
-SwidClass swidiClassToSwidClass({required SwidiClass swidiClass}) => SwidClass(
+SwidClass swidiClassToSwidClass({
+  required SwidiClass swidiClass,
+}) =>
+    SwidClass(
       name: swidiClass.name,
       nullabilitySuffix: SwidNullabilitySuffix.none,
       originalPackagePath: swidiClass.libraryScopePrefix.name,
       constructorType: null,
       factoryConstructors: [],
-      staticMethods: [],
+      staticMethods: swidiClass.staticMethods
+          .map(
+            (x) => swidiFunctionDeclarationToSwidFunctionType(
+              swidiFunctionDeclaration: x,
+            ),
+          )
+          .toList(),
       methods: swidiClass.methods
-          .map((x) => swidiFunctionDeclarationToSwidFunctionType(
-              swidiFunctionDeclaration: x))
+          .map(
+            (x) => swidiFunctionDeclarationToSwidFunctionType(
+              swidiFunctionDeclaration: x,
+            ),
+          )
           .toList(),
       staticConstFieldDeclarations: [],
       instanceFieldDeclarations: {},

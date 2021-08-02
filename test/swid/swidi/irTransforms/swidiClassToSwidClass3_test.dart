@@ -1,0 +1,136 @@
+import 'package:flutter_test/flutter_test.dart';
+
+import 'package:hydro_sdk/swid/frontend/swidi/swidiSourceToSwidIr.dart';
+import 'package:hydro_sdk/swid/ir/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
+import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/ir/swidInterface.dart';
+import 'package:hydro_sdk/swid/ir/swidIr.dart';
+import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
+import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
+import 'package:hydro_sdk/swid/ir/swidType.dart';
+import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
+
+void main() {
+  LiveTestWidgetsFlutterBinding();
+  testWidgets('', (WidgetTester tester) async {
+    final res = swidiSourceToSwidIr(content: """
+class "dart:core"::List {
+  static "dart:core"::class::List<type::T> fromArray<T extends "dart:core"::class::Object?>([
+    [[ ignoreTransform(@"referenceRewriting") ]]
+    [[ ignoreAnalysis(@"referenceCollection")]]
+    class::Array<type::T>? array,
+  ]) -> {
+    @"tsClassMethodDeclaration" : @"if(array!==undefined){return List.from<T>(array as any,{}) as List<T>;}return List.from<T>([] as any,{}) as List<T>}",
+  };
+}
+      """);
+
+    expect(res, isNotNull);
+
+    final list = SwidClass(
+      name: "List",
+      nullabilitySuffix: SwidNullabilitySuffix.none,
+      originalPackagePath: "dart:core",
+      constructorType: null,
+      factoryConstructors: [],
+      staticMethods: [
+        SwidFunctionType(
+          name: "fromArray",
+          nullabilitySuffix: SwidNullabilitySuffix.none,
+          originalPackagePath: "dart:core",
+          swidDeclarationModifiers: SwidDeclarationModifiers.clone(
+            swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+            overridenTransforms: [
+              StringTuple(
+                item1: "tsClassMethodDeclaration",
+                item2:
+                    "if(array!==undefined){return List.from<T>(array as any,{}) as List<T>;}return List.from<T>([] as any,{}) as List<T>}",
+              ),
+            ],
+          ),
+          namedParameterTypes: {},
+          namedDefaults: {},
+          normalParameterNames: [],
+          normalParameterTypes: [],
+          optionalParameterNames: ["array"],
+          optionalParameterTypes: [
+            SwidType.fromSwidInterface(
+              swidInterface: SwidInterface(
+                name: "Array",
+                nullabilitySuffix: SwidNullabilitySuffix.question,
+                originalPackagePath: "",
+                typeArguments: [
+                  SwidType.fromSwidInterface(
+                    swidInterface: SwidInterface(
+                      name: "T",
+                      nullabilitySuffix: SwidNullabilitySuffix.none,
+                      originalPackagePath: "",
+                      typeArguments: [],
+                      referenceDeclarationKind:
+                          SwidReferenceDeclarationKind.typeParameterType,
+                    ),
+                  ),
+                ],
+                referenceDeclarationKind:
+                    SwidReferenceDeclarationKind.classElement,
+              ),
+            )
+          ],
+          returnType: SwidType.fromSwidInterface(
+            swidInterface: SwidInterface(
+              name: "List",
+              nullabilitySuffix: SwidNullabilitySuffix.none,
+              originalPackagePath: "dart:core",
+              typeArguments: [
+                SwidType.fromSwidInterface(
+                  swidInterface: SwidInterface(
+                    name: "T",
+                    nullabilitySuffix: SwidNullabilitySuffix.none,
+                    originalPackagePath: "",
+                    typeArguments: [],
+                    referenceDeclarationKind:
+                        SwidReferenceDeclarationKind.typeParameterType,
+                  ),
+                )
+              ],
+              referenceDeclarationKind:
+                  SwidReferenceDeclarationKind.classElement,
+            ),
+          ),
+          isFactory: false,
+          typeFormals: [
+            SwidTypeFormal(
+              value: SwidTypeFormalValue.fromSwidInterface(
+                swidInterface: SwidInterface(
+                  name: "T",
+                  nullabilitySuffix: SwidNullabilitySuffix.none,
+                  originalPackagePath: "",
+                  referenceDeclarationKind:
+                      SwidReferenceDeclarationKind.typeParameterType,
+                  typeArguments: [],
+                ),
+              ),
+              swidReferenceDeclarationKind:
+                  SwidReferenceDeclarationKind.typeParameterType,
+            )
+          ],
+        ),
+      ],
+      methods: [],
+      staticConstFieldDeclarations: [],
+      instanceFieldDeclarations: {},
+      swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+      mixedInClasses: [],
+      implementedClasses: [],
+      isMixin: false,
+      typeFormals: [],
+    );
+
+    expect(res, [
+      SwidIr.fromSwidClass(
+        swidClass: list,
+      ),
+    ]);
+  }, tags: "swid");
+}
