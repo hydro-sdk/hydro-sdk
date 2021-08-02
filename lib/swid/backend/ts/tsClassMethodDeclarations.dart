@@ -1,3 +1,5 @@
+import 'package:collection/collection.dart' show IterableExtension;
+
 import 'package:hydro_sdk/swid/backend/ts/tsClassMethodInjectionCandidates.dart';
 import 'package:hydro_sdk/swid/backend/ts/tsClassMethodInjectionFieldName.dart';
 import 'package:hydro_sdk/swid/backend/ts/tsFunctionSelfBindingInvocation.dart';
@@ -18,32 +20,45 @@ class TsClassMethodDeclarations {
       ? [
             ...tsClassMethodInjectionCandidates(
                     swidFunctionTypes: swidClass.methods)
-                .map((x) =>
-                    "public ${x.name}" +
-                    transformTypeDeclarationToTs(
-                      parentClass: swidClass,
-                      emitTrailingReturnType: true,
-                      emitDefaultFormalsAsOptionalNamed: true,
-                      emitTopLevelInitializersForOptionalPositionals: true,
-                      topLevelTrailingReturnTypeKind:
-                          TrailingReturnTypeKind.colon,
-                      swidType: SwidType.fromSwidFunctionType(
-                        swidFunctionType:
-                            rewriteClassReferencesToInterfaceReferencesInFunction(
-                          swidFunctionType: x,
+                .map((x) => [
+                      "public ${x.name}",
+                      transformTypeDeclarationToTs(
+                        parentClass: swidClass,
+                        emitTrailingReturnType: true,
+                        emitDefaultFormalsAsOptionalNamed: true,
+                        emitTopLevelInitializersForOptionalPositionals: true,
+                        topLevelTrailingReturnTypeKind:
+                            TrailingReturnTypeKind.colon,
+                        swidType: SwidType.fromSwidFunctionType(
+                          swidFunctionType:
+                              rewriteClassReferencesToInterfaceReferencesInFunction(
+                            swidFunctionType: x,
+                          ),
                         ),
                       ),
-                    ) +
-                    " {\n" +
-                    "    return " +
-                    TsFunctionSelfBindingInvocation(
-                      functionReference: "this." +
-                          TsClassMethodInjectionFieldName(
-                            swidFunctionType: x,
-                          ).toTsSource(),
-                      swidFunctionType: x,
-                    ).toTsSource() +
-                    "\n}")
+                      " {\n",
+                      ...(x.declarationModifiers.overridenTransforms
+                                  .firstWhereOrNull(
+                                      (k) => k == "tsClassMethodDeclaration") ==
+                              null
+                          ? [
+                              "    return ",
+                              TsFunctionSelfBindingInvocation(
+                                functionReference: "this." +
+                                    TsClassMethodInjectionFieldName(
+                                      swidFunctionType: x,
+                                    ).toTsSource(),
+                                swidFunctionType: x,
+                              ).toTsSource(),
+                            ]
+                          : [
+                              x.declarationModifiers.overridenTransforms
+                                  .firstWhere(
+                                      (k) => k == "tsClassMethodDeclaration")
+                                  .item2
+                            ]),
+                      "\n}",
+                    ].join(""))
           ].join("\n") +
           "\n"
       : "";

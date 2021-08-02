@@ -6,6 +6,6 @@ class "dart:core"::List {
   ]) -> {
     @"dartStaticMethodNamespaceSymbolDeclaration" : false,
     @"tsClassVmDeclaration" : false,
-    @"tsClassMethodDeclaration" : @"if(array!==undefined){return List.from<T>(array as any,{}) as List<T>;}return List.from<T>([] as any,{}) as List<T>}",
+    @"tsClassStaticMethodImplementation" : @"if(array!==undefined){return List.from<T>(array as any,{}) as List<T>;}return List.from<T>([] as any,{}) as List<T>;",
   };
 }

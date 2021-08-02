@@ -182,6 +182,12 @@ export class List<E> implements IIterable<E>, IEfficientLengthIterable<E> {
     public static unmodifiable<E>(elements: IIterable<any>): IList<E> {
         return dart.core.listUnmodifiable(elements);
     }
+    public static fromArray<T>(array?: Array<T> | undefined): IList<T> {
+        if (array !== undefined) {
+            return List.from<T>(array as any, {}) as List<T>;
+        }
+        return List.from<T>([] as any, {}) as List<T>;
+    }
     public static castFrom<S, T>(source: IList<S>): IList<T> {
         return dart.core.listCastFrom(source);
     }
