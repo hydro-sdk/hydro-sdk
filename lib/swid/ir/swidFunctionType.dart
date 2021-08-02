@@ -1,9 +1,8 @@
 import 'package:collection/collection.dart' show IterableExtension;
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:hydro_sdk/swid/ir/iSwidType.dart';
-import 'package:hydro_sdk/swid/util/iCloneable.dart';
 import 'package:json_annotation/json_annotation.dart';
 
+import 'package:hydro_sdk/swid/ir/iSwidType.dart';
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidDefaultFormalParameter.dart';
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
@@ -12,6 +11,7 @@ import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/util/cloneSwidType.dart';
+import 'package:hydro_sdk/swid/util/iCloneable.dart';
 
 part 'swidFunctionType.freezed.dart';
 part 'swidFunctionType.g.dart';

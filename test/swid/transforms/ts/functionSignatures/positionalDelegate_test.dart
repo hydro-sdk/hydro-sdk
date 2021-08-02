@@ -44,7 +44,8 @@ void main() {
                           optionalParameterTypes: [],
                           returnType: SwidType.fromSwidInterface(
                               swidInterface: SwidInterface(
-                                declarationModifiers: SwidDeclarationModifiers.empty(),
+                            declarationModifiers:
+                                SwidDeclarationModifiers.empty(),
                             typeArguments: [],
                             name: "Widget",
                             referenceDeclarationKind:
@@ -59,7 +60,7 @@ void main() {
                 nullabilitySuffix: SwidNullabilitySuffix.star,
                 returnType: SwidType.fromSwidInterface(
                     swidInterface: SwidInterface(
-                      declarationModifiers: SwidDeclarationModifiers.empty(),
+                  declarationModifiers: SwidDeclarationModifiers.empty(),
                   typeArguments: [],
                   name: "num",
                   referenceDeclarationKind:
@@ -96,7 +97,8 @@ void main() {
                     normalParameterTypes: [
                       SwidType.fromSwidInterface(
                           swidInterface: SwidInterface(
-                            declarationModifiers: SwidDeclarationModifiers.empty(),
+                              declarationModifiers:
+                                  SwidDeclarationModifiers.empty(),
                               name: "E",
                               nullabilitySuffix: SwidNullabilitySuffix.none,
                               originalPackagePath: "dart:core",
@@ -109,7 +111,7 @@ void main() {
                     optionalParameterTypes: [],
                     returnType: SwidType.fromSwidInterface(
                         swidInterface: SwidInterface(
-                          declarationModifiers: SwidDeclarationModifiers.empty(),
+                      declarationModifiers: SwidDeclarationModifiers.empty(),
                       name: "T",
                       nullabilitySuffix: SwidNullabilitySuffix.none,
                       originalPackagePath: "dart:core",

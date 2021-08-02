@@ -63,7 +63,7 @@ void main() {
             normalParameterTypes: [
               SwidType.fromSwidInterface(
                   swidInterface: SwidInterface(
-                    declarationModifiers: SwidDeclarationModifiers.empty(),
+                declarationModifiers: SwidDeclarationModifiers.empty(),
                 name: "PathFillType",
                 nullabilitySuffix: SwidNullabilitySuffix.none,
                 originalPackagePath: "dart:ui",

@@ -47,8 +47,7 @@ class DartFunctionSelfBindingInvocation {
                   .accept(DartEmitter(
                     useNullSafetySyntax: true,
                   ))
-                  .toString())(!swidFunctionType
-          .declarationModifiers.isGetter
+                  .toString())(!swidFunctionType.declarationModifiers.isGetter
       ? refer(swidFunctionType.name)
           /*
               args[0] - caller

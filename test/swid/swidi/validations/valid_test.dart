@@ -67,7 +67,7 @@ class "package:flutter/src/widgets/icon_data.dart"::IconData {
     );
 
     validatorTestHarness(
-      input:  """
+      input: """
 class "dart:core"::List {
   static "dart:core"::class::List<T> fromArray<T extends "dart:core"::class::Object?>([
     [[ ignoreTransform(@"referenceRewriting") ]]

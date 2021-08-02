@@ -75,7 +75,7 @@ void main() {
         value: "IconData",
         staticType: SwidType.fromSwidInterface(
             swidInterface: SwidInterface(
-              declarationModifiers: SwidDeclarationModifiers.empty(),
+          declarationModifiers: SwidDeclarationModifiers.empty(),
           name: "IconData",
           nullabilitySuffix: SwidNullabilitySuffix.none,
           originalPackagePath: "package:flutter/widgets.dart",
@@ -104,7 +104,7 @@ void main() {
         value: "IconData",
         staticType: SwidType.fromSwidInterface(
             swidInterface: SwidInterface(
-              declarationModifiers: SwidDeclarationModifiers.empty(),
+          declarationModifiers: SwidDeclarationModifiers.empty(),
           name: "IconData",
           nullabilitySuffix: SwidNullabilitySuffix.none,
           originalPackagePath: "package:flutter/widgets.dart",

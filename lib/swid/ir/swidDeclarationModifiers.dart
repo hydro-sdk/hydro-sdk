@@ -93,8 +93,8 @@ class SwidDeclarationModifiers with _$SwidDeclarationModifiers {
       SwidDeclarationModifiers(
         ignoredTransforms: ignoredTransforms ??
             List.from(declarationModifiers.ignoredTransforms),
-        ignoredAnalyses: ignoredAnalyses ??
-            List.from(declarationModifiers.ignoredAnalyses),
+        ignoredAnalyses:
+            ignoredAnalyses ?? List.from(declarationModifiers.ignoredAnalyses),
         overridenTransforms: overridenTransforms ??
             declarationModifiers.overridenTransforms
                 .map(
@@ -113,11 +113,10 @@ class SwidDeclarationModifiers with _$SwidDeclarationModifiers {
             hasAlwaysThrows ?? declarationModifiers.hasAlwaysThrows,
         hasDeprecated: hasDeprecated ?? declarationModifiers.hasDeprecated,
         hasFactory: hasFactory ?? declarationModifiers.hasFactory,
-        hasImplicitReturnType: hasImplicitReturnType ??
-            declarationModifiers.hasImplicitReturnType,
+        hasImplicitReturnType:
+            hasImplicitReturnType ?? declarationModifiers.hasImplicitReturnType,
         hasIsTest: hasIsTest ?? declarationModifiers.hasIsTest,
-        hasIsTestGroup:
-            hasIsTestGroup ?? declarationModifiers.hasIsTestGroup,
+        hasIsTestGroup: hasIsTestGroup ?? declarationModifiers.hasIsTestGroup,
         hasJS: hasJS ?? declarationModifiers.hasJS,
         hasLiteral: hasLiteral ?? declarationModifiers.hasLiteral,
         hasMustCallSuper:
@@ -129,10 +128,10 @@ class SwidDeclarationModifiers with _$SwidDeclarationModifiers {
         hasProtected: hasProtected ?? declarationModifiers.hasProtected,
         hasRequired: hasRequired ?? declarationModifiers.hasRequired,
         hasSealed: hasSealed ?? declarationModifiers.hasSealed,
-        hasVisibleForTemplate: hasVisibleForTemplate ??
-            declarationModifiers.hasVisibleForTemplate,
-        hasVisibleForTesting: hasVisibleForTesting ??
-            declarationModifiers.hasVisibleForTemplate,
+        hasVisibleForTemplate:
+            hasVisibleForTemplate ?? declarationModifiers.hasVisibleForTemplate,
+        hasVisibleForTesting:
+            hasVisibleForTesting ?? declarationModifiers.hasVisibleForTemplate,
         isPublic: isPublic ?? declarationModifiers.isPublic,
       );
 

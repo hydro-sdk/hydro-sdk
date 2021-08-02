@@ -15,7 +15,7 @@ void main() {
         DartUnboxingExpression(
             swidType: SwidType.fromSwidInterface(
                 swidInterface: SwidInterface(
-                  declarationModifiers: SwidDeclarationModifiers.empty(),
+              declarationModifiers: SwidDeclarationModifiers.empty(),
               name: "void",
               nullabilitySuffix: SwidNullabilitySuffix.none,
               originalPackagePath: "",

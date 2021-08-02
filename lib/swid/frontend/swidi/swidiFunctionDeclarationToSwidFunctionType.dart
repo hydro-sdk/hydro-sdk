@@ -21,8 +21,7 @@ SwidFunctionType swidiFunctionDeclarationToSwidFunctionType({
       name: swidiFunctionDeclaration.name,
       nullabilitySuffix: SwidNullabilitySuffix.none,
       originalPackagePath: "",
-      declarationModifiers:
-          swidiShortHandOverrideToSwidDeclarationModifiers(
+      declarationModifiers: swidiShortHandOverrideToSwidDeclarationModifiers(
         shortHandOverride: swidiFunctionDeclaration.shortHandOverride,
       ),
       namedParameterTypes:

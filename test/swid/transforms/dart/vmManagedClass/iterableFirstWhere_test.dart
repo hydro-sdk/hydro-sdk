@@ -48,7 +48,7 @@ void main() {
               typeArguments: [
                 SwidType.fromSwidInterface(
                   swidInterface: SwidInterface(
-                    declarationModifiers: SwidDeclarationModifiers.empty(),
+                      declarationModifiers: SwidDeclarationModifiers.empty(),
                       name: "E",
                       nullabilitySuffix: SwidNullabilitySuffix.none,
                       originalPackagePath: "dart:core",
@@ -87,7 +87,7 @@ void main() {
                   optionalParameterTypes: [],
                   returnType: SwidType.fromSwidInterface(
                       swidInterface: SwidInterface(
-                        declarationModifiers: SwidDeclarationModifiers.empty(),
+                    declarationModifiers: SwidDeclarationModifiers.empty(),
                     name: "E",
                     nullabilitySuffix: SwidNullabilitySuffix.none,
                     originalPackagePath: "dart:core",

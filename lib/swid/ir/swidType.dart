@@ -1,10 +1,9 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:hydro_sdk/swid/ir/iSwidType.dart';
-import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
-import 'package:hydro_sdk/swid/util/iCloneable.dart';
 import 'package:json_annotation/json_annotation.dart';
 
+import 'package:hydro_sdk/swid/ir/iSwidType.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidDefaultFormalParameter.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
@@ -12,6 +11,7 @@ import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
 import 'package:hydro_sdk/swid/transforms/removeNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/transforms/removeTypeArguments.dart';
+import 'package:hydro_sdk/swid/util/iCloneable.dart';
 
 part 'swidType.freezed.dart';
 part 'swidType.g.dart';

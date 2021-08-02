@@ -28,7 +28,7 @@ void main() {
                 normalParameterTypes: [
                   SwidType.fromSwidInterface(
                       swidInterface: SwidInterface(
-                        declarationModifiers: SwidDeclarationModifiers.empty(),
+                    declarationModifiers: SwidDeclarationModifiers.empty(),
                     typeArguments: [],
                     name: "int",
                     referenceDeclarationKind:
@@ -67,7 +67,8 @@ void main() {
                                     normalParameterTypes: [
                                       SwidType.fromSwidInterface(
                                           swidInterface: SwidInterface(
-                                            declarationModifiers: SwidDeclarationModifiers.empty(),
+                                        declarationModifiers:
+                                            SwidDeclarationModifiers.empty(),
                                         typeArguments: [],
                                         name: "int",
                                         referenceDeclarationKind:
@@ -83,7 +84,8 @@ void main() {
                                     originalPackagePath: "",
                                     returnType: SwidType.fromSwidInterface(
                                         swidInterface: SwidInterface(
-                                          declarationModifiers: SwidDeclarationModifiers.empty(),
+                                      declarationModifiers:
+                                          SwidDeclarationModifiers.empty(),
                                       typeArguments: [],
                                       name: "Duration",
                                       referenceDeclarationKind:
@@ -98,7 +100,8 @@ void main() {
                           nullabilitySuffix: SwidNullabilitySuffix.question,
                           returnType: SwidType.fromSwidInterface(
                               swidInterface: SwidInterface(
-                                declarationModifiers: SwidDeclarationModifiers.empty(),
+                            declarationModifiers:
+                                SwidDeclarationModifiers.empty(),
                             typeArguments: [],
                             name: "Widget",
                             referenceDeclarationKind:
@@ -111,7 +114,7 @@ void main() {
                 nullabilitySuffix: SwidNullabilitySuffix.star,
                 returnType: SwidType.fromSwidInterface(
                     swidInterface: SwidInterface(
-                      declarationModifiers: SwidDeclarationModifiers.empty(),
+                  declarationModifiers: SwidDeclarationModifiers.empty(),
                   typeArguments: [],
                   name: "num",
                   referenceDeclarationKind:

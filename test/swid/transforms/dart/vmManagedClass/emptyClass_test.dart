@@ -39,7 +39,7 @@ void main() {
         originalPackagePath: "",
         returnType: SwidType.fromSwidInterface(
             swidInterface: SwidInterface(
-              declarationModifiers: SwidDeclarationModifiers.empty(),
+          declarationModifiers: SwidDeclarationModifiers.empty(),
           name: "",
           nullabilitySuffix: SwidNullabilitySuffix.none,
           originalPackagePath: "",

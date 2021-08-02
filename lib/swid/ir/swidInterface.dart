@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:hydro_sdk/swid/ir/iSwidType.dart';
 
+import 'package:hydro_sdk/swid/ir/iSwidType.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';

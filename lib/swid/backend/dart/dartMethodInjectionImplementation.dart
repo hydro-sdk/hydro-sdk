@@ -19,25 +19,22 @@ class DartMethodInjectionImplementation {
     required this.swidFunctionType,
   });
 
-  String? _methodInvocation() =>
-      (swidFunctionType.declarationModifiers.isGetter
-          ? (!swidFunctionType.declarationModifiers.isAbstract
-                  ? "super."
-                  : "") +
-              swidFunctionType.name +
-              (!swidFunctionType.declarationModifiers.isGetter ? "()" : "")
-          : DartFunctionSelfBindingInvocation(
-                  argumentBoxingProcedure: DartBoxingProcedure.unbox,
-                  returnValueBoxingProcedure: DartBoxingProcedure.box,
-                  useClosureUnpackNameForUnboxingIdentifiers: true,
-                  swidFunctionType: SwidFunctionType.clone(
-                    swidFunctionType: swidFunctionType,
-                    name: !swidFunctionType.declarationModifiers.isAbstract
-                        ? "super.${swidFunctionType.name}"
-                        : null,
-                  ),
-                  emitTableBindingPrefix: false)
-              .toDartSource());
+  String? _methodInvocation() => (swidFunctionType.declarationModifiers.isGetter
+      ? (!swidFunctionType.declarationModifiers.isAbstract ? "super." : "") +
+          swidFunctionType.name +
+          (!swidFunctionType.declarationModifiers.isGetter ? "()" : "")
+      : DartFunctionSelfBindingInvocation(
+              argumentBoxingProcedure: DartBoxingProcedure.unbox,
+              returnValueBoxingProcedure: DartBoxingProcedure.box,
+              useClosureUnpackNameForUnboxingIdentifiers: true,
+              swidFunctionType: SwidFunctionType.clone(
+                swidFunctionType: swidFunctionType,
+                name: !swidFunctionType.declarationModifiers.isAbstract
+                    ? "super.${swidFunctionType.name}"
+                    : null,
+              ),
+              emitTableBindingPrefix: false)
+          .toDartSource());
 
   Block _nonVoidBody() => Block.of([
         Code(

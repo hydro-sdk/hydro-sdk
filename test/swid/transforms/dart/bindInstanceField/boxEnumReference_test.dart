@@ -15,7 +15,7 @@ void main() {
             referenceName: "style",
             type: SwidType.fromSwidInterface(
                 swidInterface: SwidInterface(
-                  declarationModifiers: SwidDeclarationModifiers.empty(),
+                    declarationModifiers: SwidDeclarationModifiers.empty(),
                     name: "TextStyle",
                     nullabilitySuffix: SwidNullabilitySuffix.none,
                     originalPackagePath: "",

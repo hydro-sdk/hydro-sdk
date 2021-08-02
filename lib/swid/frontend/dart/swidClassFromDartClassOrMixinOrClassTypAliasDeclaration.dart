@@ -67,7 +67,8 @@ SwidClass swidClassFromDartClassOrMixinOrClassTypAliasDeclaration({
                       executableElement: val),
               onPropertyAccessorElement: (val) =>
                   swidDeclarationModifiersFromPropertyAccessorElement(
-                      propertyAccessorElement: val,))!))
+                    propertyAccessorElement: val,
+                  ))!))
       .toList()
       .cast<SwidFunctionType>();
   return SwidClass(
@@ -75,16 +76,14 @@ SwidClass swidClassFromDartClassOrMixinOrClassTypAliasDeclaration({
       isMixin: dartClassOrMixinOrClassTypAliasDeclaration.isMixin,
       nullabilitySuffix: SwidNullabilitySuffix.none,
       declarationModifiers: SwidDeclarationModifiers.empty(),
-      originalPackagePath: dartClassOrMixinOrClassTypAliasDeclaration
-              .declaredElement?.librarySource.uri
-              .toString() ??
+      originalPackagePath: dartClassOrMixinOrClassTypAliasDeclaration.declaredElement?.librarySource.uri.toString() ??
           "",
       constructorType: constructorDeclarationImpl != null
           ? SwidFunctionType.clone(
               swidFunctionType: swidFunctionTypeFromFunctionType(
-                  declarationModifiers: SwidDeclarationModifiers.empty(),
-                  functionType:
-                      constructorDeclarationImpl.declaredElement!.type,),
+                declarationModifiers: SwidDeclarationModifiers.empty(),
+                functionType: constructorDeclarationImpl.declaredElement!.type,
+              ),
               isFactory: constructorDeclarationImpl.factoryKeyword != null,
             )
           : null,
@@ -93,14 +92,14 @@ SwidClass swidClassFromDartClassOrMixinOrClassTypAliasDeclaration({
           .toList()
           .map((x) => SwidFunctionType.clone(
                 swidFunctionType: swidFunctionTypeFromFunctionType(
-                    functionType: x.declaredElement!.type,
-                    name: x.name!.name,
-                    declarationModifiers: SwidDeclarationModifiers.empty(),),
+                  functionType: x.declaredElement!.type,
+                  name: x.name!.name,
+                  declarationModifiers: SwidDeclarationModifiers.empty(),
+                ),
                 isFactory: true,
               ))
           .toList(),
-      methods:
-          methods.where((x) => !x.declarationModifiers.isStatic).toList(),
+      methods: methods.where((x) => !x.declarationModifiers.isStatic).toList(),
       staticMethods:
           methods.where((x) => x.declarationModifiers.isStatic).toList(),
       mixedInClasses: dartClassOrMixinOrClassTypAliasDeclaration.withClause != null
@@ -109,7 +108,9 @@ SwidClass swidClassFromDartClassOrMixinOrClassTypAliasDeclaration({
                   interfaceType: x.type as InterfaceType))
               .toList()
           : [],
-      extendedClass: dartClassOrMixinOrClassTypAliasDeclaration.superClass != null && dartClassOrMixinOrClassTypAliasDeclaration.superClass!.type is InterfaceType
+      extendedClass: dartClassOrMixinOrClassTypAliasDeclaration.superClass != null &&
+              dartClassOrMixinOrClassTypAliasDeclaration.superClass!.type
+                  is InterfaceType
           ? swidClassFromInterfaceType(
               interfaceType: dartClassOrMixinOrClassTypAliasDeclaration.superClass!.type
                   as InterfaceType)

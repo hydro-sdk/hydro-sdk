@@ -27,7 +27,7 @@ void main() {
       instanceFieldDeclarations: {
         "barField": SwidType.fromSwidInterface(
             swidInterface: SwidInterface(
-              declarationModifiers: SwidDeclarationModifiers.empty(),
+          declarationModifiers: SwidDeclarationModifiers.empty(),
           name: "String",
           nullabilitySuffix: SwidNullabilitySuffix.question,
           originalPackagePath: "dart:core",
@@ -49,7 +49,7 @@ void main() {
         originalPackagePath: "",
         returnType: SwidType.fromSwidInterface(
             swidInterface: SwidInterface(
-              declarationModifiers: SwidDeclarationModifiers.empty(),
+          declarationModifiers: SwidDeclarationModifiers.empty(),
           name: "",
           nullabilitySuffix: SwidNullabilitySuffix.none,
           originalPackagePath: "",

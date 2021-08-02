@@ -1,8 +1,8 @@
-import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:path/path.dart' as path;
 
 import 'package:hydro_sdk/swid/backend/ts/tsFunctionSelfBindingInvocation.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
