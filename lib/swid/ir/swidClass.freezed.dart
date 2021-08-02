@@ -31,7 +31,7 @@ class _$SwidClassTearOff {
       required List<SwidStaticConstFieldDeclaration>
           staticConstFieldDeclarations,
       required Map<String, SwidType> instanceFieldDeclarations,
-      required SwidDeclarationModifiers swidDeclarationModifiers,
+      required SwidDeclarationModifiers declarationModifiers,
       required List<SwidClass> mixedInClasses,
       required List<SwidClass> implementedClasses,
       required bool isMixin,
@@ -47,7 +47,7 @@ class _$SwidClassTearOff {
       methods: methods,
       staticConstFieldDeclarations: staticConstFieldDeclarations,
       instanceFieldDeclarations: instanceFieldDeclarations,
-      swidDeclarationModifiers: swidDeclarationModifiers,
+      declarationModifiers: declarationModifiers,
       mixedInClasses: mixedInClasses,
       implementedClasses: implementedClasses,
       isMixin: isMixin,
@@ -80,7 +80,7 @@ mixin _$SwidClass {
       throw _privateConstructorUsedError;
   Map<String, SwidType> get instanceFieldDeclarations =>
       throw _privateConstructorUsedError;
-  SwidDeclarationModifiers get swidDeclarationModifiers =>
+  SwidDeclarationModifiers get declarationModifiers =>
       throw _privateConstructorUsedError;
   List<SwidClass> get mixedInClasses => throw _privateConstructorUsedError;
   List<SwidClass> get implementedClasses => throw _privateConstructorUsedError;
@@ -108,7 +108,7 @@ abstract class $SwidClassCopyWith<$Res> {
       List<SwidFunctionType> methods,
       List<SwidStaticConstFieldDeclaration> staticConstFieldDeclarations,
       Map<String, SwidType> instanceFieldDeclarations,
-      SwidDeclarationModifiers swidDeclarationModifiers,
+      SwidDeclarationModifiers declarationModifiers,
       List<SwidClass> mixedInClasses,
       List<SwidClass> implementedClasses,
       bool isMixin,
@@ -116,7 +116,7 @@ abstract class $SwidClassCopyWith<$Res> {
       SwidClass? extendedClass});
 
   $SwidFunctionTypeCopyWith<$Res>? get constructorType;
-  $SwidDeclarationModifiersCopyWith<$Res> get swidDeclarationModifiers;
+  $SwidDeclarationModifiersCopyWith<$Res> get declarationModifiers;
   $SwidClassCopyWith<$Res>? get extendedClass;
 }
 
@@ -139,7 +139,7 @@ class _$SwidClassCopyWithImpl<$Res> implements $SwidClassCopyWith<$Res> {
     Object? methods = freezed,
     Object? staticConstFieldDeclarations = freezed,
     Object? instanceFieldDeclarations = freezed,
-    Object? swidDeclarationModifiers = freezed,
+    Object? declarationModifiers = freezed,
     Object? mixedInClasses = freezed,
     Object? implementedClasses = freezed,
     Object? isMixin = freezed,
@@ -183,9 +183,9 @@ class _$SwidClassCopyWithImpl<$Res> implements $SwidClassCopyWith<$Res> {
           ? _value.instanceFieldDeclarations
           : instanceFieldDeclarations // ignore: cast_nullable_to_non_nullable
               as Map<String, SwidType>,
-      swidDeclarationModifiers: swidDeclarationModifiers == freezed
-          ? _value.swidDeclarationModifiers
-          : swidDeclarationModifiers // ignore: cast_nullable_to_non_nullable
+      declarationModifiers: declarationModifiers == freezed
+          ? _value.declarationModifiers
+          : declarationModifiers // ignore: cast_nullable_to_non_nullable
               as SwidDeclarationModifiers,
       mixedInClasses: mixedInClasses == freezed
           ? _value.mixedInClasses
@@ -222,10 +222,10 @@ class _$SwidClassCopyWithImpl<$Res> implements $SwidClassCopyWith<$Res> {
   }
 
   @override
-  $SwidDeclarationModifiersCopyWith<$Res> get swidDeclarationModifiers {
-    return $SwidDeclarationModifiersCopyWith<$Res>(
-        _value.swidDeclarationModifiers, (value) {
-      return _then(_value.copyWith(swidDeclarationModifiers: value));
+  $SwidDeclarationModifiersCopyWith<$Res> get declarationModifiers {
+    return $SwidDeclarationModifiersCopyWith<$Res>(_value.declarationModifiers,
+        (value) {
+      return _then(_value.copyWith(declarationModifiers: value));
     });
   }
 
@@ -256,7 +256,7 @@ abstract class _$$DataCopyWith<$Res> implements $SwidClassCopyWith<$Res> {
       List<SwidFunctionType> methods,
       List<SwidStaticConstFieldDeclaration> staticConstFieldDeclarations,
       Map<String, SwidType> instanceFieldDeclarations,
-      SwidDeclarationModifiers swidDeclarationModifiers,
+      SwidDeclarationModifiers declarationModifiers,
       List<SwidClass> mixedInClasses,
       List<SwidClass> implementedClasses,
       bool isMixin,
@@ -266,7 +266,7 @@ abstract class _$$DataCopyWith<$Res> implements $SwidClassCopyWith<$Res> {
   @override
   $SwidFunctionTypeCopyWith<$Res>? get constructorType;
   @override
-  $SwidDeclarationModifiersCopyWith<$Res> get swidDeclarationModifiers;
+  $SwidDeclarationModifiersCopyWith<$Res> get declarationModifiers;
   @override
   $SwidClassCopyWith<$Res>? get extendedClass;
 }
@@ -291,7 +291,7 @@ class __$$DataCopyWithImpl<$Res> extends _$SwidClassCopyWithImpl<$Res>
     Object? methods = freezed,
     Object? staticConstFieldDeclarations = freezed,
     Object? instanceFieldDeclarations = freezed,
-    Object? swidDeclarationModifiers = freezed,
+    Object? declarationModifiers = freezed,
     Object? mixedInClasses = freezed,
     Object? implementedClasses = freezed,
     Object? isMixin = freezed,
@@ -335,9 +335,9 @@ class __$$DataCopyWithImpl<$Res> extends _$SwidClassCopyWithImpl<$Res>
           ? _value.instanceFieldDeclarations
           : instanceFieldDeclarations // ignore: cast_nullable_to_non_nullable
               as Map<String, SwidType>,
-      swidDeclarationModifiers: swidDeclarationModifiers == freezed
-          ? _value.swidDeclarationModifiers
-          : swidDeclarationModifiers // ignore: cast_nullable_to_non_nullable
+      declarationModifiers: declarationModifiers == freezed
+          ? _value.declarationModifiers
+          : declarationModifiers // ignore: cast_nullable_to_non_nullable
               as SwidDeclarationModifiers,
       mixedInClasses: mixedInClasses == freezed
           ? _value.mixedInClasses
@@ -365,7 +365,7 @@ class __$$DataCopyWithImpl<$Res> extends _$SwidClassCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_$Data implements _$Data {
+class _$_$Data extends _$Data {
   const _$_$Data(
       {required this.name,
       required this.nullabilitySuffix,
@@ -376,12 +376,13 @@ class _$_$Data implements _$Data {
       required this.methods,
       required this.staticConstFieldDeclarations,
       required this.instanceFieldDeclarations,
-      required this.swidDeclarationModifiers,
+      required this.declarationModifiers,
       required this.mixedInClasses,
       required this.implementedClasses,
       required this.isMixin,
       required this.typeFormals,
-      this.extendedClass});
+      this.extendedClass})
+      : super._();
 
   factory _$_$Data.fromJson(Map<String, dynamic> json) =>
       _$_$_$DataFromJson(json);
@@ -405,7 +406,7 @@ class _$_$Data implements _$Data {
   @override
   final Map<String, SwidType> instanceFieldDeclarations;
   @override
-  final SwidDeclarationModifiers swidDeclarationModifiers;
+  final SwidDeclarationModifiers declarationModifiers;
   @override
   final List<SwidClass> mixedInClasses;
   @override
@@ -419,7 +420,7 @@ class _$_$Data implements _$Data {
 
   @override
   String toString() {
-    return 'SwidClass(name: $name, nullabilitySuffix: $nullabilitySuffix, originalPackagePath: $originalPackagePath, constructorType: $constructorType, factoryConstructors: $factoryConstructors, staticMethods: $staticMethods, methods: $methods, staticConstFieldDeclarations: $staticConstFieldDeclarations, instanceFieldDeclarations: $instanceFieldDeclarations, swidDeclarationModifiers: $swidDeclarationModifiers, mixedInClasses: $mixedInClasses, implementedClasses: $implementedClasses, isMixin: $isMixin, typeFormals: $typeFormals, extendedClass: $extendedClass)';
+    return 'SwidClass(name: $name, nullabilitySuffix: $nullabilitySuffix, originalPackagePath: $originalPackagePath, constructorType: $constructorType, factoryConstructors: $factoryConstructors, staticMethods: $staticMethods, methods: $methods, staticConstFieldDeclarations: $staticConstFieldDeclarations, instanceFieldDeclarations: $instanceFieldDeclarations, declarationModifiers: $declarationModifiers, mixedInClasses: $mixedInClasses, implementedClasses: $implementedClasses, isMixin: $isMixin, typeFormals: $typeFormals, extendedClass: $extendedClass)';
   }
 
   @override
@@ -446,7 +447,8 @@ class _$_$Data implements _$Data {
             (identical(other.methods, methods) ||
                 const DeepCollectionEquality()
                     .equals(other.methods, methods)) &&
-            (identical(other.staticConstFieldDeclarations, staticConstFieldDeclarations) ||
+            (identical(other.staticConstFieldDeclarations,
+                    staticConstFieldDeclarations) ||
                 const DeepCollectionEquality().equals(
                     other.staticConstFieldDeclarations,
                     staticConstFieldDeclarations)) &&
@@ -454,10 +456,9 @@ class _$_$Data implements _$Data {
                 const DeepCollectionEquality().equals(
                     other.instanceFieldDeclarations,
                     instanceFieldDeclarations)) &&
-            (identical(other.swidDeclarationModifiers, swidDeclarationModifiers) ||
+            (identical(other.declarationModifiers, declarationModifiers) ||
                 const DeepCollectionEquality().equals(
-                    other.swidDeclarationModifiers,
-                    swidDeclarationModifiers)) &&
+                    other.declarationModifiers, declarationModifiers)) &&
             (identical(other.mixedInClasses, mixedInClasses) ||
                 const DeepCollectionEquality()
                     .equals(other.mixedInClasses, mixedInClasses)) &&
@@ -487,7 +488,7 @@ class _$_$Data implements _$Data {
       const DeepCollectionEquality().hash(methods) ^
       const DeepCollectionEquality().hash(staticConstFieldDeclarations) ^
       const DeepCollectionEquality().hash(instanceFieldDeclarations) ^
-      const DeepCollectionEquality().hash(swidDeclarationModifiers) ^
+      const DeepCollectionEquality().hash(declarationModifiers) ^
       const DeepCollectionEquality().hash(mixedInClasses) ^
       const DeepCollectionEquality().hash(implementedClasses) ^
       const DeepCollectionEquality().hash(isMixin) ^
@@ -505,7 +506,7 @@ class _$_$Data implements _$Data {
   }
 }
 
-abstract class _$Data implements SwidClass {
+abstract class _$Data extends SwidClass {
   const factory _$Data(
       {required String name,
       required SwidNullabilitySuffix nullabilitySuffix,
@@ -517,12 +518,13 @@ abstract class _$Data implements SwidClass {
       required List<SwidStaticConstFieldDeclaration>
           staticConstFieldDeclarations,
       required Map<String, SwidType> instanceFieldDeclarations,
-      required SwidDeclarationModifiers swidDeclarationModifiers,
+      required SwidDeclarationModifiers declarationModifiers,
       required List<SwidClass> mixedInClasses,
       required List<SwidClass> implementedClasses,
       required bool isMixin,
       required List<SwidTypeFormal> typeFormals,
       SwidClass? extendedClass}) = _$_$Data;
+  const _$Data._() : super._();
 
   factory _$Data.fromJson(Map<String, dynamic> json) = _$_$Data.fromJson;
 
@@ -550,7 +552,7 @@ abstract class _$Data implements SwidClass {
   Map<String, SwidType> get instanceFieldDeclarations =>
       throw _privateConstructorUsedError;
   @override
-  SwidDeclarationModifiers get swidDeclarationModifiers =>
+  SwidDeclarationModifiers get declarationModifiers =>
       throw _privateConstructorUsedError;
   @override
   List<SwidClass> get mixedInClasses => throw _privateConstructorUsedError;

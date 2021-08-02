@@ -34,8 +34,8 @@ _$_$Data _$_$_$DataFromJson(Map<String, dynamic> json) {
         (json['instanceFieldDeclarations'] as Map<String, dynamic>).map(
       (k, e) => MapEntry(k, SwidType.fromJson(e as Map<String, dynamic>)),
     ),
-    swidDeclarationModifiers: SwidDeclarationModifiers.fromJson(
-        json['swidDeclarationModifiers'] as Map<String, dynamic>),
+    declarationModifiers: SwidDeclarationModifiers.fromJson(
+        json['declarationModifiers'] as Map<String, dynamic>),
     mixedInClasses: (json['mixedInClasses'] as List<dynamic>)
         .map((e) => SwidClass.fromJson(e as Map<String, dynamic>))
         .toList(),
@@ -63,7 +63,7 @@ Map<String, dynamic> _$_$_$DataToJson(_$_$Data instance) => <String, dynamic>{
       'methods': instance.methods,
       'staticConstFieldDeclarations': instance.staticConstFieldDeclarations,
       'instanceFieldDeclarations': instance.instanceFieldDeclarations,
-      'swidDeclarationModifiers': instance.swidDeclarationModifiers,
+      'declarationModifiers': instance.declarationModifiers,
       'mixedInClasses': instance.mixedInClasses,
       'implementedClasses': instance.implementedClasses,
       'isMixin': instance.isMixin,

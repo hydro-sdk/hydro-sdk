@@ -39,6 +39,8 @@ _$_$Data _$_$_$DataFromJson(Map<String, dynamic> json) {
     typeFormals: (json['typeFormals'] as List<dynamic>)
         .map((e) => SwidTypeFormal.fromJson(e as Map<String, dynamic>))
         .toList(),
+    declarationModifiers: SwidDeclarationModifiers.fromJson(
+        json['declarationModifiers'] as Map<String, dynamic>),
   );
 }
 
@@ -57,6 +59,7 @@ Map<String, dynamic> _$_$_$DataToJson(_$_$Data instance) => <String, dynamic>{
       'returnType': instance.returnType,
       'isFactory': instance.isFactory,
       'typeFormals': instance.typeFormals,
+      'declarationModifiers': instance.declarationModifiers,
     };
 
 K _$enumDecode<K, V>(

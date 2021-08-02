@@ -1,14 +1,23 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/ir/iSwidType.dart';
+import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
+import 'package:hydro_sdk/swid/util/iCloneable.dart';
 
 part 'swidDefaultFormalParameter.freezed.dart';
 part 'swidDefaultFormalParameter.g.dart';
 
 @freezed
-class SwidDefaultFormalParameter with _$SwidDefaultFormalParameter {
+class SwidDefaultFormalParameter
+    with _$SwidDefaultFormalParameter
+    implements
+        ISwidType<SwidDefaultFormalParameter>,
+        ICloneable<SwidDefaultFormalParameter> {
+  const SwidDefaultFormalParameter._();
+
   const factory SwidDefaultFormalParameter({
     required SwidNullabilitySuffix nullabilitySuffix,
     required String originalPackagePath,
@@ -43,5 +52,29 @@ class SwidDefaultFormalParameter with _$SwidDefaultFormalParameter {
             ),
         defaultValueCode:
             defaultValueCode ?? swidDefaultFormalParameter.defaultValueCode,
+      );
+
+  @override
+  String get name => staticType.name;
+
+  @override
+  SwidDeclarationModifiers get declarationModifiers =>
+      staticType.declarationModifiers;
+
+  @override
+  SwidDefaultFormalParameter clone({
+    SwidNullabilitySuffix? nullabilitySuffix,
+    String? originalPackagePath,
+    SwidType? staticType,
+    SwidStaticConst? value,
+    String? defaultValueCode,
+  }) =>
+      SwidDefaultFormalParameter.clone(
+        swidDefaultFormalParameter: this,
+        nullabilitySuffix: nullabilitySuffix,
+        originalPackagePath: originalPackagePath,
+        staticType: staticType,
+        value: value,
+        defaultValueCode: defaultValueCode,
       );
 }

@@ -1,4 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/ir/iSwidType.dart';
+import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
+import 'package:hydro_sdk/swid/util/iCloneable.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
@@ -14,7 +17,9 @@ part 'swidType.freezed.dart';
 part 'swidType.g.dart';
 
 @freezed
-class SwidType with _$SwidType {
+class SwidType
+    with _$SwidType
+    implements ICloneable<SwidType>, ISwidType<SwidType> {
   const SwidType._();
 
   const factory SwidType.fromSwidInterface({
@@ -61,6 +66,19 @@ class SwidType with _$SwidType {
             swidFunctionType: val,
           ),
         ),
+      );
+
+  @override
+  SwidType clone() => SwidType.clone(
+        swidType: this,
+      );
+
+  @override
+  SwidDeclarationModifiers get declarationModifiers => when(
+        fromSwidInterface: (val) => val.declarationModifiers,
+        fromSwidClass: (val) => val.declarationModifiers,
+        fromSwidDefaultFormalParameter: (val) => val.declarationModifiers,
+        fromSwidFunctionType: (val) => val.declarationModifiers,
       );
 
   SwidNullabilitySuffix get nullabilitySuffix => when(
