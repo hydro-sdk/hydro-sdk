@@ -38,7 +38,7 @@ class "dart:core"::List {
         SwidFunctionType(
           name: "fromArray",
           nullabilitySuffix: SwidNullabilitySuffix.none,
-          originalPackagePath: "dart:core",
+          originalPackagePath: "",
           declarationModifiers: SwidDeclarationModifiers.clone(
             declarationModifiers: SwidDeclarationModifiers.empty(),
             overridenTransforms: [
@@ -57,8 +57,16 @@ class "dart:core"::List {
           optionalParameterTypes: [
             SwidType.fromSwidInterface(
               swidInterface: SwidInterface(
-                declarationModifiers: SwidDeclarationModifiers.empty(),
-                name: "Array",
+                declarationModifiers: SwidDeclarationModifiers.clone(
+                  declarationModifiers: SwidDeclarationModifiers.empty(),
+                  ignoredAnalyses: [
+                    "referenceCollection",
+                  ],
+                  ignoredTransforms: [
+                    "referenceRewriting",
+                  ],
+                ),
+                name: "Array?",
                 nullabilitySuffix: SwidNullabilitySuffix.question,
                 originalPackagePath: "",
                 typeArguments: [

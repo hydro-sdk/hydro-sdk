@@ -38,5 +38,37 @@ SwidInterface swidiInterfaceToSwidInterface({
                                   "dynamic"
                               ? SwidReferenceDeclarationKind.dynamicType
                               : SwidReferenceDeclarationKind.unknown,
-      declarationModifiers: SwidDeclarationModifiers.empty(),
+      declarationModifiers: SwidDeclarationModifiers.clone(
+        declarationModifiers: SwidDeclarationModifiers.empty(),
+        ignoredAnalyses: swidiInterface.annotations
+            .map(
+              (x) => x.value.maybeWhen(
+                fromSwidiConstFunctionInvocation: (val) =>
+                    val.value == "ignoreAnalysis"
+                        ? val.positionalParameters.first.maybeWhen(
+                            fromSwidiConstString: (val) => val.value,
+                            orElse: () => "",
+                          )
+                        : "",
+                orElse: () => "",
+              ),
+            )
+            .where((x) => x != "")
+            .toList(),
+        ignoredTransforms: swidiInterface.annotations
+            .map(
+              (x) => x.value.maybeWhen(
+                fromSwidiConstFunctionInvocation: (val) =>
+                    val.value == "ignoreTransform"
+                        ? val.positionalParameters.first.maybeWhen(
+                            fromSwidiConstString: (val) => val.value,
+                            orElse: () => "",
+                          )
+                        : "",
+                orElse: () => "",
+              ),
+            )
+            .where((x) => x != "")
+            .toList(),
+      ),
     );
