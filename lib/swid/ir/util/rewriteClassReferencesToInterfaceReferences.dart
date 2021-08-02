@@ -1,3 +1,5 @@
+import 'package:collection/collection.dart' show IterableExtension;
+
 import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
@@ -14,16 +16,20 @@ import 'package:hydro_sdk/swid/transforms/removeNullabilitySuffix.dart';
 String rewriteReferenceName({
   required SwidType swidType,
 }) =>
-    isDartObject(swidType: swidType)
-        ? "Object"
-        : isDartType(swidType: swidType)
-            ? "Type"
-            : [
-                "I",
-                removeNullabilitySuffix(
-                  str: swidType.name,
-                )
-              ].join("");
+    swidType.declarationModifiers.ignoredTransforms
+                .firstWhereOrNull((x) => x == "referenceRewriting") ==
+            null
+        ? isDartObject(swidType: swidType)
+            ? "Object"
+            : isDartType(swidType: swidType)
+                ? "Type"
+                : [
+                    "I",
+                    removeNullabilitySuffix(
+                      str: swidType.name,
+                    )
+                  ].join("")
+        : swidType.name;
 
 SwidType rewriteClassReferencesToInterfaceReferences({
   required SwidType swidType,
