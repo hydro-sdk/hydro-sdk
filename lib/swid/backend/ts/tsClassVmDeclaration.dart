@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart' show IterableExtension;
 import 'package:path/path.dart' as path;
 
 import 'package:hydro_sdk/swid/backend/ts/tsVmDeclaration.dart';
@@ -25,8 +26,9 @@ class TsClassVmDeclaration {
     required this.swidClass,
   });
 
-  TsVmDeclaration _addConstructorBindingDeclarations(
-          {required TsVmDeclaration tsVmDeclaration}) =>
+  TsVmDeclaration _addConstructorBindingDeclarations({
+    required TsVmDeclaration tsVmDeclaration,
+  }) =>
       swidClass.constructorType != null &&
               transformPackageUri(packageUri: swidClass.originalPackagePath)
                       .split(path.separator)
@@ -119,7 +121,11 @@ class TsClassVmDeclaration {
                               tsVmDeclaration: element,
                               methods: [
                                 ...swidClass.factoryConstructors,
-                                ...swidClass.staticMethods,
+                                ...swidClass.staticMethods.where((x) =>
+                                    x.declarationModifiers.ignoredTransforms
+                                        .firstWhereOrNull((k) =>
+                                            k == "tsClassVmDeclaration") ==
+                                    null),
                                 ...swidClass.staticConstFieldDeclarations
                                     .where(
                                       (x) => isInexpressibleStaticConst(

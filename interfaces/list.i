@@ -5,6 +5,7 @@ class "dart:core"::List {
     class::Array<type::T>? array,
   ]) -> {
     @"dartStaticMethodNamespaceSymbolDeclaration" : false,
+    @"tsClassVmDeclaration" : false,
     @"tsClassMethodDeclaration" : @"if(array!==undefined){return List.from<T>(array as any,{}) as List<T>;}return List.from<T>([] as any,{}) as List<T>}",
   };
 }

@@ -22,6 +22,7 @@ class SwidiClassValidationState with _$SwidiClassValidationState {
 const validTransformNames = [
   "referenceRewriting",
   "tsClassMethodDeclaration",
+  "tsClassVmDeclaration",
   "dartStaticMethodNamespaceSymbolDeclaration",
 ];
 
