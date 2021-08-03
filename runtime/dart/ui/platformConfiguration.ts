@@ -1,6 +1,6 @@
 
 import { IAccessibilityFeatures,AccessibilityFeatures } from "./accessibilityFeatures";
-import { IList } from "../core/list";
+import { IList,List } from "../core/list";
 import { ILocale } from "./locale";
 import { Brightness } from "./brightness";
 declare const dart: {
@@ -41,7 +41,7 @@ public copyWith( props : { accessibilityFeatures? : IAccessibilityFeatures | und
 const platformConfigurationDefaultProps = {
     accessibilityFeatures: (),
     alwaysUse24HourFormat: false,
-    locales: [],
+    locales: List.fromArray([]),
     platformBrightness: Brightness.light,
     semanticsEnabled: false,
     textScaleFactor: 1.0

@@ -1,3 +1,4 @@
+import { List } from "../core/list";
 declare const dart: {
     ui: {
         fontWeightLerp: (
@@ -32,7 +33,7 @@ export class FontWeight {
     public static w900 = dart.ui.fontWeightW900();
     public static normal = FontWeight.w400;
     public static bold = FontWeight.w700;
-    public static values = [
+    public static values = List.fromArray([
         FontWeight.w100,
         FontWeight.w200,
         FontWeight.w300,
@@ -42,7 +43,7 @@ export class FontWeight {
         FontWeight.w700,
         FontWeight.w800,
         FontWeight.w900,
-    ];
+    ]);
     public readonly index: number = undefined as any;
     public static lerp(
         a: IFontWeight | undefined,

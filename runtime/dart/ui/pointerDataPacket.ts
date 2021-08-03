@@ -1,4 +1,4 @@
-import { IList } from "../core/list";
+import { IList, List } from "../core/list";
 import { IPointerData } from "./pointerData";
 declare const dart: {
     ui: {
@@ -22,5 +22,5 @@ export class PointerDataPacket {
     }
 }
 const pointerDataPacketDefaultProps = {
-    data: [],
+    data: List.fromArray([]),
 };
