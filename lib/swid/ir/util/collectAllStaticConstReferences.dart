@@ -5,6 +5,7 @@ import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
+import 'package:hydro_sdk/swid/ir/util/isInexpressibleStaticConst.dart';
 
 List<SwidInterface> collectReferencesFromStaticConst({
   required SwidStaticConst swidStaticConst,
@@ -159,9 +160,14 @@ List<SwidInterface> collectAllStaticConstReferences({
         ])
           ..removeWhere(((x) => x == dartUnknownInterface)),
         fromSwidDefaultFormalParameter: (val) => ([
-          ...collectReferencesFromStaticConst(
-            swidStaticConst: val.value,
-          ),
+          ...(!isInexpressibleStaticConst(
+            parentClass: null,
+            staticConst: val.value,
+          )
+              ? collectReferencesFromStaticConst(
+                  swidStaticConst: val.value,
+                )
+              : []),
         ]..removeWhere((x) => x == dartUnknownInterface)),
         fromSwidFunctionType: (val) => ([
           ...((List<List<SwidInterface>> elements) => elements.isNotEmpty
