@@ -1,8 +1,5 @@
 import { IList, List } from "../core/list";
-import {
-    AccessibilityFeatures,
-    IAccessibilityFeatures,
-} from "./accessibilityFeatures";
+import { IAccessibilityFeatures } from "./accessibilityFeatures";
 import { Brightness } from "./brightness";
 import { ILocale } from "./locale";
 declare const dart: {
