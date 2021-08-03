@@ -1,8 +1,10 @@
 import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
+import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
+import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
+import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
-import 'package:hydro_sdk/swid/ir/util/collectAllReferences.dart';
 
 List<SwidInterface> collectReferencesFromStaticConst({
   required SwidStaticConst swidStaticConst,
@@ -70,6 +72,14 @@ List<SwidInterface> collectReferencesFromStaticConst({
                     swidStaticConst: x,
                   )..removeWhere((x) => x == dartUnknownInterface))
               .toList()),
+          SwidInterface(
+            name: "List",
+            nullabilitySuffix: SwidNullabilitySuffix.none,
+            originalPackagePath: "dart:core",
+            typeArguments: [],
+            referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
+            declarationModifiers: SwidDeclarationModifiers.empty(),
+          )
         ],
       )
     ]

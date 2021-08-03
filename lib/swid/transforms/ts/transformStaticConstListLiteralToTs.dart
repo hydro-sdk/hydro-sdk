@@ -9,7 +9,8 @@ String transformStaticConstListLiteralToTs({
   required SwidStaticConstFieldReferenceScopeResolver scopeResolver,
 }) =>
     [
-      "[",
+      "List.fromArray("
+          "[",
       ...staticConstListLiteral.elements
           .map((x) => [
                 transformLiteralToTs(
@@ -22,5 +23,5 @@ String transformStaticConstListLiteralToTs({
                 ",",
               ].join(""))
           .toList(),
-      "]"
+      "])"
     ].join("");
