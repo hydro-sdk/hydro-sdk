@@ -22,9 +22,10 @@ class _$SwidStaticConstListLiteralTearOff {
   const _$SwidStaticConstListLiteralTearOff();
 
   _$SwidStaticConstListLiteralCtor call(
-      {required List<SwidStaticConst> elements}) {
+      {required List<SwidStaticConst> elements, required SwidType staticType}) {
     return _$SwidStaticConstListLiteralCtor(
       elements: elements,
+      staticType: staticType,
     );
   }
 
@@ -39,6 +40,7 @@ const $SwidStaticConstListLiteral = _$SwidStaticConstListLiteralTearOff();
 /// @nodoc
 mixin _$SwidStaticConstListLiteral {
   List<SwidStaticConst> get elements => throw _privateConstructorUsedError;
+  SwidType get staticType => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -51,7 +53,9 @@ abstract class $SwidStaticConstListLiteralCopyWith<$Res> {
   factory $SwidStaticConstListLiteralCopyWith(SwidStaticConstListLiteral value,
           $Res Function(SwidStaticConstListLiteral) then) =
       _$SwidStaticConstListLiteralCopyWithImpl<$Res>;
-  $Res call({List<SwidStaticConst> elements});
+  $Res call({List<SwidStaticConst> elements, SwidType staticType});
+
+  $SwidTypeCopyWith<$Res> get staticType;
 }
 
 /// @nodoc
@@ -66,13 +70,25 @@ class _$SwidStaticConstListLiteralCopyWithImpl<$Res>
   @override
   $Res call({
     Object? elements = freezed,
+    Object? staticType = freezed,
   }) {
     return _then(_value.copyWith(
       elements: elements == freezed
           ? _value.elements
           : elements // ignore: cast_nullable_to_non_nullable
               as List<SwidStaticConst>,
+      staticType: staticType == freezed
+          ? _value.staticType
+          : staticType // ignore: cast_nullable_to_non_nullable
+              as SwidType,
     ));
+  }
+
+  @override
+  $SwidTypeCopyWith<$Res> get staticType {
+    return $SwidTypeCopyWith<$Res>(_value.staticType, (value) {
+      return _then(_value.copyWith(staticType: value));
+    });
   }
 }
 
@@ -84,7 +100,10 @@ abstract class _$$SwidStaticConstListLiteralCtorCopyWith<$Res>
           $Res Function(_$SwidStaticConstListLiteralCtor) then) =
       __$$SwidStaticConstListLiteralCtorCopyWithImpl<$Res>;
   @override
-  $Res call({List<SwidStaticConst> elements});
+  $Res call({List<SwidStaticConst> elements, SwidType staticType});
+
+  @override
+  $SwidTypeCopyWith<$Res> get staticType;
 }
 
 /// @nodoc
@@ -103,12 +122,17 @@ class __$$SwidStaticConstListLiteralCtorCopyWithImpl<$Res>
   @override
   $Res call({
     Object? elements = freezed,
+    Object? staticType = freezed,
   }) {
     return _then(_$SwidStaticConstListLiteralCtor(
       elements: elements == freezed
           ? _value.elements
           : elements // ignore: cast_nullable_to_non_nullable
               as List<SwidStaticConst>,
+      staticType: staticType == freezed
+          ? _value.staticType
+          : staticType // ignore: cast_nullable_to_non_nullable
+              as SwidType,
     ));
   }
 }
@@ -117,7 +141,8 @@ class __$$SwidStaticConstListLiteralCtorCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_$SwidStaticConstListLiteralCtor
     implements _$SwidStaticConstListLiteralCtor {
-  const _$_$SwidStaticConstListLiteralCtor({required this.elements});
+  const _$_$SwidStaticConstListLiteralCtor(
+      {required this.elements, required this.staticType});
 
   factory _$_$SwidStaticConstListLiteralCtor.fromJson(
           Map<String, dynamic> json) =>
@@ -125,10 +150,12 @@ class _$_$SwidStaticConstListLiteralCtor
 
   @override
   final List<SwidStaticConst> elements;
+  @override
+  final SwidType staticType;
 
   @override
   String toString() {
-    return 'SwidStaticConstListLiteral(elements: $elements)';
+    return 'SwidStaticConstListLiteral(elements: $elements, staticType: $staticType)';
   }
 
   @override
@@ -137,12 +164,17 @@ class _$_$SwidStaticConstListLiteralCtor
         (other is _$SwidStaticConstListLiteralCtor &&
             (identical(other.elements, elements) ||
                 const DeepCollectionEquality()
-                    .equals(other.elements, elements)));
+                    .equals(other.elements, elements)) &&
+            (identical(other.staticType, staticType) ||
+                const DeepCollectionEquality()
+                    .equals(other.staticType, staticType)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(elements);
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(elements) ^
+      const DeepCollectionEquality().hash(staticType);
 
   @JsonKey(ignore: true)
   @override
@@ -159,14 +191,16 @@ class _$_$SwidStaticConstListLiteralCtor
 abstract class _$SwidStaticConstListLiteralCtor
     implements SwidStaticConstListLiteral {
   const factory _$SwidStaticConstListLiteralCtor(
-          {required List<SwidStaticConst> elements}) =
-      _$_$SwidStaticConstListLiteralCtor;
+      {required List<SwidStaticConst> elements,
+      required SwidType staticType}) = _$_$SwidStaticConstListLiteralCtor;
 
   factory _$SwidStaticConstListLiteralCtor.fromJson(Map<String, dynamic> json) =
       _$_$SwidStaticConstListLiteralCtor.fromJson;
 
   @override
   List<SwidStaticConst> get elements => throw _privateConstructorUsedError;
+  @override
+  SwidType get staticType => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$SwidStaticConstListLiteralCtorCopyWith<_$SwidStaticConstListLiteralCtor>

@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
+import 'package:hydro_sdk/swid/ir/swidType.dart';
 
 part 'swidStaticConstListLiteral.freezed.dart';
 part 'swidStaticConstListLiteral.g.dart';
@@ -9,6 +10,7 @@ part 'swidStaticConstListLiteral.g.dart';
 class SwidStaticConstListLiteral with _$SwidStaticConstListLiteral {
   const factory SwidStaticConstListLiteral({
     required List<SwidStaticConst> elements,
+    required SwidType staticType,
   }) = _$SwidStaticConstListLiteralCtor;
 
   factory SwidStaticConstListLiteral.fromJson(Map<String, dynamic> json) =>
@@ -17,6 +19,7 @@ class SwidStaticConstListLiteral with _$SwidStaticConstListLiteral {
   factory SwidStaticConstListLiteral.clone({
     required SwidStaticConstListLiteral swidStaticConstListLiteral,
     List<SwidStaticConst>? elements,
+    SwidType? staticType,
   }) =>
       SwidStaticConstListLiteral(
         elements: elements ??
@@ -26,6 +29,10 @@ class SwidStaticConstListLiteral with _$SwidStaticConstListLiteral {
                         swidStaticConst: x,
                       ))
                   .toList(),
+            ),
+        staticType: staticType ??
+            SwidType.clone(
+              swidType: swidStaticConstListLiteral.staticType,
             ),
       );
 }

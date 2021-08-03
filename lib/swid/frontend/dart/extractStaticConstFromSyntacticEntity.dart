@@ -1,11 +1,11 @@
 import 'package:analyzer/dart/ast/syntactic_entity.dart';
 import 'package:analyzer/dart/element/element.dart' show ClassElement;
-import 'package:analyzer/dart/element/type.dart' show FunctionType;
 
 import 'package:hydro_sdk/swid/frontend/dart/narrowStaticConstSyntacticEntity.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidDoubleLiteralFromDoubleLiteral.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidIntegerLiteralFromIntegerLiteral.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidInterfaceFromClassElement.dart';
+import 'package:hydro_sdk/swid/frontend/dart/swidInterfaceFromInterface.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidStaticConstFunctionInvocationFromInstanceCreationExpression.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidStaticConstPrefixedIdentifierFromPrefixedIdentifier.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidStringLiteralFromSimpleStringLiteral.dart';
@@ -19,6 +19,9 @@ import 'package:hydro_sdk/swid/ir/swidStaticConstListLiteral.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstPrefixedExpression.dart';
 import 'package:hydro_sdk/swid/ir/swidStringLiteral.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
+
+import 'package:analyzer/dart/element/type.dart'
+    show FunctionType, InterfaceType;
 
 import 'package:analyzer/src/dart/element/element.dart'
     show PropertyAccessorElementImpl_ImplicitGetter;
@@ -102,6 +105,14 @@ SwidStaticConst extractStaticConstFromSyntacticEntity({
       ),
       onListLiteral: (val) => SwidStaticConst.fromSwidStaticConstListLiteral(
         staticConstListLiteral: SwidStaticConstListLiteral(
+            staticType:
+                val.staticType != null && val.staticType is InterfaceType
+                    ? SwidType.fromSwidInterface(
+                        swidInterface: swidInterfaceFromInterface(
+                          interfaceType: val.staticType! as InterfaceType,
+                        ),
+                      )
+                    : dartUnknownType,
             elements: val.elements
                 .map(
                   (x) => extractStaticConstFromSyntacticEntity(
