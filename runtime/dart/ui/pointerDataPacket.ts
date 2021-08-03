@@ -22,5 +22,5 @@ export class PointerDataPacket {
     }
 }
 const pointerDataPacketDefaultProps = {
-    data: List.fromArray([]),
+    data: List.fromArray<IPointerData>([]),
 };

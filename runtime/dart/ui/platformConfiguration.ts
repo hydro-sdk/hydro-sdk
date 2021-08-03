@@ -83,7 +83,7 @@ export class PlatformConfiguration {
 }
 const platformConfigurationDefaultProps = {
     alwaysUse24HourFormat: false,
-    locales: List.fromArray([]),
+    locales: List.fromArray<ILocale>([]),
     platformBrightness: Brightness.light,
     semanticsEnabled: false,
     textScaleFactor: 1.0,
