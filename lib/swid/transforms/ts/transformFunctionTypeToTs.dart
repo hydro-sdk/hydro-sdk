@@ -5,6 +5,7 @@ import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/util/cloneSwidType.dart';
+import 'package:hydro_sdk/swid/ir/util/isInexpressibleStaticConst.dart';
 import 'package:hydro_sdk/swid/transforms/ts/trailingReturnTypeKind.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformReturnTypeToTs.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformTypeDeclarationToTs.dart';
@@ -139,8 +140,23 @@ String transformFunctionTypeToTs({
     res += " props : { ";
 
     swidFunctionType.namedParameterTypes.entries.forEach((x) {
-      res +=
-          "${x.key}${x.value.nullabilitySuffix == SwidNullabilitySuffix.question || (emitDefaultFormalsAsOptionalNamed && swidFunctionType.namedDefaults[x.key] != null) ? "?" : ""} : ${transformTypeDeclarationToTs(parentClass: parentClass, swidType: x.value)}, ";
+      res += [
+        " ",
+        x.key,
+        x.value.nullabilitySuffix == SwidNullabilitySuffix.question ||
+                (emitDefaultFormalsAsOptionalNamed &&
+                    swidFunctionType.namedDefaults[x.key] != null &&
+                    !isInexpressibleStaticConst(
+                      parentClass: parentClass,
+                      staticConst: swidFunctionType.namedDefaults[x.key]!.value,
+                    ))
+            ? "?"
+            : "",
+        ":",
+        transformTypeDeclarationToTs(
+            parentClass: parentClass, swidType: x.value),
+        ",",
+      ].join("");
     });
     res += "}";
   }
