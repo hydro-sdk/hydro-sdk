@@ -9,9 +9,9 @@ List<SwidInterface> collectAllReferences({
   required SwidType swidType,
 }) =>
     ([
-      ...(swidType.declarationModifiers.ignoredAnalyses
-                  .firstWhereOrNull((x) => x == "referenceCollection") ==
-              null
+      ...(swidType.isAnalysisIgnored(
+        analisysName: "referenceCollection",
+      )
           ? swidType.when<List<SwidInterface>>(
               fromSwidInterface: (val) => [
                     val,

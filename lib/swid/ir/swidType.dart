@@ -9,6 +9,7 @@ import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
+import 'package:hydro_sdk/swid/ir/swidTypeMixin.dart';
 import 'package:hydro_sdk/swid/transforms/removeNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/transforms/removeTypeArguments.dart';
 import 'package:hydro_sdk/swid/util/iCloneable.dart';
@@ -18,7 +19,7 @@ part 'swidType.g.dart';
 
 @freezed
 class SwidType
-    with _$SwidType
+    with _$SwidType, SwidTypeMixin<SwidType>
     implements ICloneable<SwidType>, ISwidType<SwidType> {
   const SwidType._();
 

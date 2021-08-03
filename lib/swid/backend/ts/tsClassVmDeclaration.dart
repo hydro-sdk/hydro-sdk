@@ -121,11 +121,11 @@ class TsClassVmDeclaration {
                               tsVmDeclaration: element,
                               methods: [
                                 ...swidClass.factoryConstructors,
-                                ...swidClass.staticMethods.where((x) =>
-                                    x.declarationModifiers.ignoredTransforms
-                                        .firstWhereOrNull((k) =>
-                                            k == "tsClassVmDeclaration") ==
-                                    null),
+                                ...swidClass.staticMethods.where(
+                                  (x) => x.isTransformIgnored(
+                                    transformName: "tsClassVmDeclaration",
+                                  ),
+                                ),
                                 ...swidClass.staticConstFieldDeclarations
                                     .where(
                                       (x) => isInexpressibleStaticConst(

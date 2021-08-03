@@ -19,10 +19,9 @@ class DartStaticMethodNamespaceSymbolDeclaration {
     required this.swidFunctionType,
   });
 
-  Code toCode() =>
-      swidFunctionType.declarationModifiers.ignoredTransforms.firstWhereOrNull(
-                  (x) => x == "dartStaticMethodNamespaceSymbolDeclaration") ==
-              null
+  Code toCode() => swidFunctionType.isTransformIgnored(
+        transformName: "dartStaticMethodNamespaceSymbolDeclaration",
+      )
           ? refer("table")
               .index(
                 literalString(
