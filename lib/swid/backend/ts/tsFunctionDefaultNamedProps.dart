@@ -2,6 +2,7 @@ import 'package:hydro_sdk/swid/backend/ts/tsFunctionDefaultNamedPropsObjectName.
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/util/isInexpressibleStaticConst.dart';
+import 'package:hydro_sdk/swid/ir/util/rewriteClassReferencesToInterfaceReferences.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformTypeDeclarationToTs.dart';
 
 class TsFunctionDefaultNamedProps {
@@ -24,8 +25,11 @@ class TsFunctionDefaultNamedProps {
                             parentClass: null,
                             emitTopLevelInitializersForOptionalPositionals:
                                 true,
-                            swidType: SwidType.fromSwidDefaultFormalParameter(
-                              swidDefaultFormalParameter: x.value,
+                            swidType:
+                                rewriteClassReferencesToInterfaceReferences(
+                              swidType: SwidType.fromSwidDefaultFormalParameter(
+                                swidDefaultFormalParameter: x.value,
+                              ),
                             ),
                           ),
                           ",",
