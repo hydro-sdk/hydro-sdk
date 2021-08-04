@@ -104,7 +104,9 @@ export interface ISingletonFlutterWindow {
     toString: () => string;
     getHashCode: () => number;
 }
-export class SingletonFlutterWindow implements IFlutterWindow {
+export class SingletonFlutterWindow
+    implements Omit<IFlutterWindow, "platformDispatcher">
+{
     private readonly _dart_getOnMetricsChanged: () => () => void | undefined =
         undefined as any;
     private readonly _dart_setOnMetricsChanged: (
