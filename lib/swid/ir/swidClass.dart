@@ -287,6 +287,18 @@ class SwidClass
 
   String get displayName => SwidType.fromSwidClass(swidClass: this).displayName;
 
+  bool hasSyntheticAccessors() =>
+      methods.firstWhereOrNull(
+        (x) => x.declarationModifiers.isSynthetic,
+      ) !=
+      null;
+
+  List<SwidFunctionType> syntheticAccessors() => methods
+      .where(
+        (x) => x.declarationModifiers.isSynthetic,
+      )
+      .toList();
+
   @override
   SwidClass clone({
     String? name,

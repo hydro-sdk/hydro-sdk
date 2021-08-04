@@ -6,58 +6,75 @@ import 'package:hydro_sdk/swid/transforms/ts/transformTypeFormalsToTs.dart';
 
 class TsClassPreamble {
   final SwidClass swidClass;
-  final List<String?> superInterfaces;
 
-  TsClassPreamble({
+  const TsClassPreamble({
     required this.swidClass,
-  }) : superInterfaces = ([
-          swidClass.extendedClass != null &&
-                  !isClassDartObject(
-                    swidClass: swidClass.extendedClass!,
-                  )
-              ? [
-                  "I",
-                  transformPrimitiveNamesToTs(
-                    swidType: SwidType.fromSwidClass(
-                      swidClass: swidClass.extendedClass!,
-                    ),
-                  ).displayName,
-                ].join("")
-              : null,
-          ...swidClass.mixedInClasses
-              .where((x) => !isClassDartObject(
-                    swidClass: x,
-                  ))
-              .map(
-                (x) => transformPrimitiveNamesToTs(
-                  swidType: SwidType.fromSwidClass(
-                    swidClass: x,
-                  ),
-                ),
-              )
-              .map((x) => "I${x.displayName}")
-              .toList(),
-          ...swidClass.implementedClasses
-              .where((x) => !isClassDartObject(
-                    swidClass: x,
-                  ))
-              .map(
-                (x) => transformPrimitiveNamesToTs(
-                  swidType: SwidType.fromSwidClass(
-                    swidClass: x,
-                  ),
-                ),
-              )
-              .map((x) => "I${x.displayName}")
-              .toList()
-        ]..removeWhere((x) => x == null));
+  });
 
   String toTsSource() => ([
         "export class ${swidClass.name}",
         transformTypeFormalsToTs(swidTypeFormals: swidClass.typeFormals),
-        ...(superInterfaces.isNotEmpty
-            ? ["implements", superInterfaces.map((x) => x).toList().join(", ")]
-            : []),
+        ...((({
+          required List<SwidClass> superInterfaces,
+        }) =>
+            superInterfaces.isNotEmpty
+                ? [
+                    " implements ",
+                    superInterfaces
+                        .map(
+                          (x) => transformPrimitiveNamesToTs(
+                            swidType: SwidType.fromSwidClass(
+                              swidClass: x,
+                            ),
+                          ).when(
+                            fromSwidInterface: (_) => dartUnknownClass,
+                            fromSwidClass: (val) => val,
+                            fromSwidDefaultFormalParameter: (_) =>
+                                dartUnknownClass,
+                            fromSwidFunctionType: (_) => dartUnknownClass,
+                          ),
+                        )
+                        .map((x) => !x.hasSyntheticAccessors()
+                            ? [
+                                "I",
+                                x.displayName,
+                              ].join("")
+                            : [
+                                "Omit",
+                                "<",
+                                [
+                                  "I",
+                                  x.displayName,
+                                ].join(""),
+                                ", ",
+                                x
+                                    .syntheticAccessors()
+                                    .map((x) => "\"${x.name}\"")
+                                    .join(" | "),
+                                ">",
+                              ].join(""))
+                        .join(", ")
+                  ]
+                : [])(
+          superInterfaces: [
+            swidClass.extendedClass != null &&
+                    !isClassDartObject(
+                      swidClass: swidClass.extendedClass!,
+                    )
+                ? swidClass.extendedClass
+                : null,
+            ...swidClass.mixedInClasses.where(
+              (x) => !isClassDartObject(
+                swidClass: x,
+              ),
+            ),
+            ...swidClass.implementedClasses.where(
+              (x) => !isClassDartObject(
+                swidClass: x,
+              ),
+            )
+          ].where((x) => x != null).toList().cast<SwidClass>(),
+        )),
         "{"
       ]..removeWhere((x) => x == null))
           .join("\n");
