@@ -52,6 +52,7 @@ SwidClass swidClassFromInterfaceType({
                   declarationModifiers: SwidDeclarationModifiers.clone(
                     declarationModifiers: SwidDeclarationModifiers.empty(),
                     isAbstract: x.isAbstract,
+                    isSynthetic: x.isSynthetic,
                   ),
                   name: x.declaration.displayName,
                 ),
@@ -60,6 +61,7 @@ SwidClass swidClassFromInterfaceType({
                   declarationModifiers: SwidDeclarationModifiers.clone(
                     declarationModifiers: SwidDeclarationModifiers.empty(),
                     isAbstract: x.isAbstract,
+                    isSynthetic: x.isSynthetic,
                   ),
                   name: x.declaration.displayName,
                 ),

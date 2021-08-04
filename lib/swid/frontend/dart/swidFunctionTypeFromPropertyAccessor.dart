@@ -18,6 +18,7 @@ SwidFunctionType swidFunctionTypeFromPropertyAccessor({
           ),
           isGetter: propertyAccessorElement.isGetter,
           isSetter: propertyAccessorElement.isSetter,
+          isSynthetic: propertyAccessorElement.isSynthetic,
         ),
       ),
       name: propertyAccessorElement.name,
