@@ -152,7 +152,7 @@ String transformFunctionTypeToTs({
                     ))
             ? "?"
             : "",
-        ":",
+        " : ",
         transformTypeDeclarationToTs(
             parentClass: parentClass, swidType: x.value),
         ",",
