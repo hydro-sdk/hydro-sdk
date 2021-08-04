@@ -21,6 +21,6 @@ void main() {
           ),
           parentClass: null,
         ),
-        "(codePoint: number, props : { fontFamily? : string | undefined, fontPackage? : string | undefined, matchTextDirection : boolean, }) => IconData");
+        "(codePoint: number, props : {  fontFamily? : string | undefined, fontPackage? : string | undefined, matchTextDirection : boolean,}) => IconData");
   }, tags: "swid");
 }

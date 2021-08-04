@@ -23,7 +23,7 @@ void main() {
         """
 const diagnosticsNodeDefaultProps = {
     showName: true,
-    showSeparator: true
+    showSeparator: true,
 };
 """);
   }, tags: "swid");

@@ -23,7 +23,7 @@ void main() {
         ).toTsSource(),
         """
 const iconDataDefaultProps = {
-    matchTextDirection: false
+    matchTextDirection: false,
 };
 """);
   }, tags: "swid");
