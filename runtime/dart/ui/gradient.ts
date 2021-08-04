@@ -4,6 +4,37 @@ import { IColor } from "./color";
 import { IOffset } from "./offset";
 import { IShader } from "./shader";
 import { TileMode } from "./tileMode";
+declare const dart: {
+    ui: {
+        gradientLinear: (
+            from: IOffset,
+            to: IOffset,
+            colors: IList<IColor>,
+            colorStops: IList<number> | undefined,
+            tileMode: TileMode,
+            matrix4?: IFloat64List | undefined
+        ) => IGradient;
+        gradientRadial: (
+            center: IOffset,
+            radius: number,
+            colors: IList<IColor>,
+            colorStops: IList<number> | undefined,
+            tileMode: TileMode,
+            matrix4: IFloat64List | undefined,
+            focal: IOffset | undefined,
+            focalRadius: number
+        ) => IGradient;
+        gradientSweep: (
+            center: IOffset,
+            colors: IList<IColor>,
+            colorStops: IList<number> | undefined,
+            tileMode: TileMode,
+            startAngle: number,
+            endAngle: number,
+            matrix4?: IFloat64List | undefined
+        ) => IGradient;
+    };
+};
 export interface IGradient {
     toString: () => string;
     getHashCode: () => number;
@@ -21,8 +52,8 @@ export class Gradient implements IShader {
             from,
             to,
             colors,
-            tileMode,
             colorStops,
+            tileMode,
             matrix4
         );
     }
@@ -40,11 +71,11 @@ export class Gradient implements IShader {
             center,
             radius,
             colors,
-            tileMode,
-            focalRadius,
             colorStops,
+            tileMode,
             matrix4,
-            focal
+            focal,
+            focalRadius
         );
     }
     public static sweep(
@@ -59,10 +90,10 @@ export class Gradient implements IShader {
         return dart.ui.gradientSweep(
             center,
             colors,
+            colorStops,
             tileMode,
             startAngle,
             endAngle,
-            colorStops,
             matrix4
         );
     }
