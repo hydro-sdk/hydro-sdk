@@ -6,8 +6,7 @@ import 'package:hydro_sdk/swid/ir/util/isInexpressibleStaticConst.dart';
 bool requiresDartBinding({
   required SwidClass swidClass,
 }) =>
-    swidClass.instanceFieldDeclarations.entries.isNotEmpty ||
-    swidClass.methods.isNotEmpty ||
+    (swidClass.name[0] != "_" && swidClass.isConstructible()) ||
     swidClass.factoryConstructors.isNotEmpty ||
     swidClass.staticMethods.isNotEmpty ||
     swidClass.staticConstFieldDeclarations.firstWhereOrNull(

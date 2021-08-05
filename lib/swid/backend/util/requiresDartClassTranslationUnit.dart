@@ -11,6 +11,8 @@ bool requiresDartClassTranslationUnit({
     swidClass.originalPackagePath != "dart:_internal" &&
     (requiresDartBinding(swidClass: swidClass) ||
         swidClass.isConstructible() ||
+        swidClass.methods.isNotEmpty ||
+        swidClass.instanceFieldDeclarations.isNotEmpty ||
         swidClass.staticConstFieldDeclarations.firstWhereOrNull(
               (x) => isInexpressibleStaticConst(
                 parentClass: swidClass,
