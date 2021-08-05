@@ -1,6 +1,6 @@
 declare const dart: {
     ui: {
-        windowPaddingZero: (this: void) => WindowPadding;
+        windowPaddingZero: (this: void) => IWindowPadding;
     };
 };
 export interface IWindowPadding {

@@ -69,7 +69,8 @@
                 "ListBase",
                 "_UnmodifiableListMixin",
                 "UnmodifiableListMixin",
-                "ListMixin"
+                "ListMixin",
+                "StackTrace"
             ]
         },
         "denyList": {

@@ -6,15 +6,15 @@ declare const dart: {
             b: IFontWeight | undefined,
             t: number
         ) => IFontWeight | undefined;
-        fontWeightW100: (this: void) => FontWeight;
-        fontWeightW200: (this: void) => FontWeight;
-        fontWeightW300: (this: void) => FontWeight;
-        fontWeightW400: (this: void) => FontWeight;
-        fontWeightW500: (this: void) => FontWeight;
-        fontWeightW600: (this: void) => FontWeight;
-        fontWeightW700: (this: void) => FontWeight;
-        fontWeightW800: (this: void) => FontWeight;
-        fontWeightW900: (this: void) => FontWeight;
+        fontWeightW100: (this: void) => IFontWeight;
+        fontWeightW200: (this: void) => IFontWeight;
+        fontWeightW300: (this: void) => IFontWeight;
+        fontWeightW400: (this: void) => IFontWeight;
+        fontWeightW500: (this: void) => IFontWeight;
+        fontWeightW600: (this: void) => IFontWeight;
+        fontWeightW700: (this: void) => IFontWeight;
+        fontWeightW800: (this: void) => IFontWeight;
+        fontWeightW900: (this: void) => IFontWeight;
     };
 };
 export interface IFontWeight {

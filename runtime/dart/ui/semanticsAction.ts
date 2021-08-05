@@ -1,36 +1,38 @@
 declare const dart: {
     ui: {
-        semanticsActionTap: (this: void) => SemanticsAction;
-        semanticsActionLongPress: (this: void) => SemanticsAction;
-        semanticsActionScrollLeft: (this: void) => SemanticsAction;
-        semanticsActionScrollRight: (this: void) => SemanticsAction;
-        semanticsActionScrollUp: (this: void) => SemanticsAction;
-        semanticsActionScrollDown: (this: void) => SemanticsAction;
-        semanticsActionIncrease: (this: void) => SemanticsAction;
-        semanticsActionDecrease: (this: void) => SemanticsAction;
-        semanticsActionShowOnScreen: (this: void) => SemanticsAction;
+        semanticsActionTap: (this: void) => ISemanticsAction;
+        semanticsActionLongPress: (this: void) => ISemanticsAction;
+        semanticsActionScrollLeft: (this: void) => ISemanticsAction;
+        semanticsActionScrollRight: (this: void) => ISemanticsAction;
+        semanticsActionScrollUp: (this: void) => ISemanticsAction;
+        semanticsActionScrollDown: (this: void) => ISemanticsAction;
+        semanticsActionIncrease: (this: void) => ISemanticsAction;
+        semanticsActionDecrease: (this: void) => ISemanticsAction;
+        semanticsActionShowOnScreen: (this: void) => ISemanticsAction;
         semanticsActionMoveCursorForwardByCharacter: (
             this: void
-        ) => SemanticsAction;
+        ) => ISemanticsAction;
         semanticsActionMoveCursorBackwardByCharacter: (
             this: void
-        ) => SemanticsAction;
-        semanticsActionSetSelection: (this: void) => SemanticsAction;
-        semanticsActionCopy: (this: void) => SemanticsAction;
-        semanticsActionCut: (this: void) => SemanticsAction;
-        semanticsActionPaste: (this: void) => SemanticsAction;
+        ) => ISemanticsAction;
+        semanticsActionSetSelection: (this: void) => ISemanticsAction;
+        semanticsActionCopy: (this: void) => ISemanticsAction;
+        semanticsActionCut: (this: void) => ISemanticsAction;
+        semanticsActionPaste: (this: void) => ISemanticsAction;
         semanticsActionDidGainAccessibilityFocus: (
             this: void
-        ) => SemanticsAction;
+        ) => ISemanticsAction;
         semanticsActionDidLoseAccessibilityFocus: (
             this: void
-        ) => SemanticsAction;
-        semanticsActionCustomAction: (this: void) => SemanticsAction;
-        semanticsActionDismiss: (this: void) => SemanticsAction;
-        semanticsActionMoveCursorForwardByWord: (this: void) => SemanticsAction;
+        ) => ISemanticsAction;
+        semanticsActionCustomAction: (this: void) => ISemanticsAction;
+        semanticsActionDismiss: (this: void) => ISemanticsAction;
+        semanticsActionMoveCursorForwardByWord: (
+            this: void
+        ) => ISemanticsAction;
         semanticsActionMoveCursorBackwardByWord: (
             this: void
-        ) => SemanticsAction;
+        ) => ISemanticsAction;
     };
 };
 export interface ISemanticsAction {

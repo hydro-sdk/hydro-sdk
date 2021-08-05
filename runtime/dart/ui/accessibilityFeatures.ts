@@ -1,6 +1,3 @@
-declare const dart: {
-    ui: {};
-};
 export interface IAccessibilityFeatures {
     getAccessibleNavigation: () => boolean;
     getInvertColors: () => boolean;

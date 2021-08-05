@@ -4,10 +4,10 @@ declare const dart: {
         textDecorationCombine: (
             decorations: IList<ITextDecoration>
         ) => ITextDecoration;
-        textDecorationNone: (this: void) => TextDecoration;
-        textDecorationUnderline: (this: void) => TextDecoration;
-        textDecorationOverline: (this: void) => TextDecoration;
-        textDecorationLineThrough: (this: void) => TextDecoration;
+        textDecorationNone: (this: void) => ITextDecoration;
+        textDecorationUnderline: (this: void) => ITextDecoration;
+        textDecorationOverline: (this: void) => ITextDecoration;
+        textDecorationLineThrough: (this: void) => ITextDecoration;
     };
 };
 export interface ITextDecoration {
