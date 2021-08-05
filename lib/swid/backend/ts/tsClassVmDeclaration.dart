@@ -133,43 +133,51 @@ class TsClassVmDeclaration {
                                       ),
                                     )
                                     .map(
-                                      (x) => SwidFunctionType.MakeReceiverVoid(
-                                        swidFunctionType: SwidFunctionType(
-                                          declarationModifiers:
-                                              SwidDeclarationModifiers.empty(),
-                                          name: x.name,
-                                          nullabilitySuffix:
-                                              SwidNullabilitySuffix.none,
-                                          originalPackagePath:
-                                              swidClass.originalPackagePath,
-                                          namedParameterTypes: {},
-                                          namedDefaults: {},
-                                          normalParameterNames: [],
-                                          normalParameterTypes: [],
-                                          optionalParameterNames: [],
-                                          optionalParameterTypes: [],
-                                          returnType: x.value.when<SwidType?>(
-                                            fromSwidBooleanLiteral: (_) => null,
-                                            fromSwidStringLiteral: (_) => null,
-                                            fromSwidIntegerLiteral: (_) => null,
-                                            fromDoubleLiteral: (_) => null,
-                                            fromSwidStaticConstFunctionInvocation:
-                                                (val) => val.staticType,
-                                            fromSwidStaticConstFieldReference:
-                                                (_) => null,
-                                            fromSwidStaticConstPrefixedExpression:
-                                                (_) => null,
-                                            fromSwidStaticConstBinaryExpression:
-                                                (_) => null,
-                                            fromSwidStaticConstPrefixedIdentifier:
-                                                (_) => null,
-                                            fromSwidStaticConstIdentifier:
-                                                (_) => null,
-                                            fromSwidStaticConstListLiteral:
-                                                (_) => null,
-                                          )!,
-                                          isFactory: false,
-                                          typeFormals: [],
+                                      (x) =>
+                                          rewriteClassReferencesToInterfaceReferencesInFunction(
+                                        swidFunctionType:
+                                            SwidFunctionType.MakeReceiverVoid(
+                                          swidFunctionType: SwidFunctionType(
+                                            declarationModifiers:
+                                                SwidDeclarationModifiers
+                                                    .empty(),
+                                            name: x.name,
+                                            nullabilitySuffix:
+                                                SwidNullabilitySuffix.none,
+                                            originalPackagePath:
+                                                swidClass.originalPackagePath,
+                                            namedParameterTypes: {},
+                                            namedDefaults: {},
+                                            normalParameterNames: [],
+                                            normalParameterTypes: [],
+                                            optionalParameterNames: [],
+                                            optionalParameterTypes: [],
+                                            returnType: x.value.when<SwidType?>(
+                                              fromSwidBooleanLiteral: (_) =>
+                                                  null,
+                                              fromSwidStringLiteral: (_) =>
+                                                  null,
+                                              fromSwidIntegerLiteral: (_) =>
+                                                  null,
+                                              fromDoubleLiteral: (_) => null,
+                                              fromSwidStaticConstFunctionInvocation:
+                                                  (val) => val.staticType,
+                                              fromSwidStaticConstFieldReference:
+                                                  (_) => null,
+                                              fromSwidStaticConstPrefixedExpression:
+                                                  (_) => null,
+                                              fromSwidStaticConstBinaryExpression:
+                                                  (_) => null,
+                                              fromSwidStaticConstPrefixedIdentifier:
+                                                  (_) => null,
+                                              fromSwidStaticConstIdentifier:
+                                                  (_) => null,
+                                              fromSwidStaticConstListLiteral:
+                                                  (_) => null,
+                                            )!,
+                                            isFactory: false,
+                                            typeFormals: [],
+                                          ),
                                         ),
                                       ),
                                     )
