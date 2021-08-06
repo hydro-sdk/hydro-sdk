@@ -3,7 +3,7 @@ import { IIterator } from "../core/iterator";
 import { IList } from "../core/list";
 import { ISet } from "../core/set";
 import { IRandom } from "../math/random";
-export interface IListMixin<E> {
+export interface IListMixin<E> extends IList<E> {
     getIterator: () => IIterator<E>;
     elementAt: (index: number) => E;
     followedBy: (other: IIterable<E>) => IIterable<E>;

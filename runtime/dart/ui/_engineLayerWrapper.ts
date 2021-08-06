@@ -1,2 +1,2 @@
 import { IEngineLayer } from "./engineLayer";
-export interface I_EngineLayerWrapper {}
+export interface I_EngineLayerWrapper extends IEngineLayer {}

@@ -9,7 +9,8 @@ import { ILocale } from "./locale";
 import { IPointerDataPacket } from "./pointerDataPacket";
 import { ISemanticsAction } from "./semanticsAction";
 import { ISemanticsUpdate } from "./semanticsUpdate";
-export interface ISingletonFlutterWindow extends IFlutterWindow {
+export interface ISingletonFlutterWindow
+    extends Omit<IFlutterWindow, "platformDispatcher"> {
     getOnMetricsChanged: () => () => void | undefined;
     setOnMetricsChanged: (callback?: () => void) => void;
     getLocale: () => ILocale;
