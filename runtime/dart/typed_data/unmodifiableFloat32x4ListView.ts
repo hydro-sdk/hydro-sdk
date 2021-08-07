@@ -1,5 +1,7 @@
 import { IEfficientLengthIterable } from "../_internal/efficientLengthIterable";
 import { IUnmodifiableListBase } from "../_internal/unmodifiableListBase";
+import { IUnmodifiableListMixin } from "../_internal/unmodifiableListMixin";
+import { IListMixin } from "../collection/listMixin";
 import { IIterable } from "../core/iterable";
 import { IIterator } from "../core/iterator";
 import { IList } from "../core/list";
@@ -123,8 +125,72 @@ export interface IUnmodifiableFloat32x4ListView {
 }
 export class UnmodifiableFloat32x4ListView
     implements
-        IUnmodifiableListBase<IFloat32x4>,
+        Omit<
+            IUnmodifiableListBase<IFloat32x4>,
+            | "sublist"
+            | "length"
+            | "toString"
+            | "hashCode"
+            | "setAll"
+            | "add"
+            | "insert"
+            | "insertAll"
+            | "addAll"
+            | "remove"
+            | "removeWhere"
+            | "retainWhere"
+            | "sort"
+            | "shuffle"
+            | "clear"
+            | "removeAt"
+            | "removeLast"
+            | "setRange"
+            | "removeRange"
+            | "replaceRange"
+            | "fillRange"
+            | "length="
+            | "first="
+            | "last="
+            | "cast"
+            | "indexOf"
+            | "indexWhere"
+            | "lastIndexWhere"
+            | "lastIndexOf"
+            | "getRange"
+            | "asMap"
+            | "reversed"
+            | "followedBy"
+            | "map"
+            | "where"
+            | "whereType"
+            | "expand"
+            | "contains"
+            | "forEach"
+            | "reduce"
+            | "fold"
+            | "every"
+            | "join"
+            | "any"
+            | "toList"
+            | "toSet"
+            | "take"
+            | "takeWhile"
+            | "skip"
+            | "skipWhile"
+            | "firstWhere"
+            | "lastWhere"
+            | "singleWhere"
+            | "elementAt"
+            | "iterator"
+            | "isEmpty"
+            | "isNotEmpty"
+            | "first"
+            | "last"
+            | "single"
+        >,
         I_UnmodifiableListMixin<IFloat32x4, IFloat32x4List, IFloat32x4List>,
+        IUnmodifiableListMixin<IFloat32x4>,
+        IListMixin<IFloat32x4>,
         IFloat32x4List,
         IList<IFloat32x4>,
         ITypedData,

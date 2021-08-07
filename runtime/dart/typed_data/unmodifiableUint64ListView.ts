@@ -1,5 +1,7 @@
 import { IEfficientLengthIterable } from "../_internal/efficientLengthIterable";
 import { IUnmodifiableListBase } from "../_internal/unmodifiableListBase";
+import { IUnmodifiableListMixin } from "../_internal/unmodifiableListMixin";
+import { IListMixin } from "../collection/listMixin";
 import { IIterable } from "../core/iterable";
 import { IIterator } from "../core/iterator";
 import { IList } from "../core/list";
@@ -117,8 +119,72 @@ export interface IUnmodifiableUint64ListView {
 }
 export class UnmodifiableUint64ListView
     implements
-        IUnmodifiableListBase<number>,
+        Omit<
+            IUnmodifiableListBase<number>,
+            | "sublist"
+            | "length"
+            | "toString"
+            | "hashCode"
+            | "setAll"
+            | "add"
+            | "insert"
+            | "insertAll"
+            | "addAll"
+            | "remove"
+            | "removeWhere"
+            | "retainWhere"
+            | "sort"
+            | "shuffle"
+            | "clear"
+            | "removeAt"
+            | "removeLast"
+            | "setRange"
+            | "removeRange"
+            | "replaceRange"
+            | "fillRange"
+            | "length="
+            | "first="
+            | "last="
+            | "cast"
+            | "indexOf"
+            | "indexWhere"
+            | "lastIndexWhere"
+            | "lastIndexOf"
+            | "getRange"
+            | "asMap"
+            | "reversed"
+            | "followedBy"
+            | "map"
+            | "where"
+            | "whereType"
+            | "expand"
+            | "contains"
+            | "forEach"
+            | "reduce"
+            | "fold"
+            | "every"
+            | "join"
+            | "any"
+            | "toList"
+            | "toSet"
+            | "take"
+            | "takeWhile"
+            | "skip"
+            | "skipWhile"
+            | "firstWhere"
+            | "lastWhere"
+            | "singleWhere"
+            | "elementAt"
+            | "iterator"
+            | "isEmpty"
+            | "isNotEmpty"
+            | "first"
+            | "last"
+            | "single"
+        >,
         I_UnmodifiableListMixin<number, IUint64List, IUint64List>,
+        IUnmodifiableListMixin<number>,
+        IListMixin<number>,
         IUint64List,
         IList<number>,
         I_TypedIntList,
