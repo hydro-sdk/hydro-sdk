@@ -52,6 +52,8 @@ export class Duration {
     private readonly _dart_getIsNegative: () => boolean = undefined as any;
     private readonly _dart_abs: () => Duration = undefined as any;
 
+    public static zero = new Duration({ seconds: 0 });
+
     public getInDays() {
         return this._dart_getInDays();
     }
