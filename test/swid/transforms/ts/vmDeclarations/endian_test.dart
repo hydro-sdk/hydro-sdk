@@ -90,8 +90,8 @@ void main() {
     expect(TsClassVmDeclaration(swidClass: endian).toTsSource(), """
 declare const dart: {
 typed_data: {
-endianBig: (this: void) => Endian;
-endianLittle: (this: void) => Endian
+endianBig: (this: void) => IEndian;
+endianLittle: (this: void) => IEndian
 }
 };
 """);
