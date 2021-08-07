@@ -80,7 +80,13 @@ SwidClass swidClassFromInterfaceType({
       staticConstFieldDeclarations: [],
       instanceFieldDeclarations: {},
       declarationModifiers: SwidDeclarationModifiers.empty(),
-      mixedInClasses: [],
+      mixedInClasses: interfaceType.mixins
+          .map(
+            (x) => swidClassFromInterfaceType(
+              interfaceType: x,
+            ),
+          )
+          .toList(),
       implementedClasses: interfaceType.interfaces
           .map((x) => swidClassFromInterfaceType(
                 interfaceType: x,
