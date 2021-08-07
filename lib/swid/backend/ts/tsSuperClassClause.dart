@@ -1,6 +1,7 @@
 import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
+import 'package:hydro_sdk/swid/ir/util/instanceMemberIntersection.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformPrimitiveNamesToTs.dart';
 
 class TsSuperClassClause {
@@ -35,7 +36,8 @@ class TsSuperClassClause {
                             fromSwidFunctionType: (_) => dartUnknownClass,
                           ),
                         )
-                        .map((x) => !x.hasSyntheticAccessors()
+                        .map((x) => (!x.hasSyntheticAccessors() &&
+                                !x.hasMixinApplicationThatConflictsWithSuperClassOrInterface())
                             ? [
                                 "I",
                                 x.displayName,
@@ -48,10 +50,39 @@ class TsSuperClassClause {
                                   x.displayName,
                                 ].join(""),
                                 ", ",
-                                x
-                                    .syntheticAccessors()
-                                    .map((x) => "\"${x.name}\"")
-                                    .join(" | "),
+                                [
+                                  ...x
+                                      .syntheticAccessors()
+                                      .map((x) => "\"${x.name}\""),
+                                  ...((({
+                                    required List<List<String>>
+                                        intersectedMembers,
+                                  }) =>
+                                      intersectedMembers.isNotEmpty
+                                          ? intersectedMembers
+                                              .reduce((value, element) => [
+                                                    ...value,
+                                                    ...element,
+                                                  ])
+                                          : <String>[])(
+                                    intersectedMembers: swidClass.mixedInClasses
+                                        .map(
+                                          (k) => instanceMemberIntersection(
+                                            first: SwidClass.mergeSuperClasses(
+                                              swidClass: x,
+                                            ),
+                                            second: SwidClass.mergeSuperClasses(
+                                              swidClass: k,
+                                            ),
+                                          ),
+                                        )
+                                        .map((k) => [
+                                              ...k.methods,
+                                              ...k.instanceFields,
+                                            ])
+                                        .toList(),
+                                  )).map((x) => "\"$x\"")
+                                ].toSet().toList().join(" | "),
                                 ">",
                               ].join(""))
                         .join(", ")

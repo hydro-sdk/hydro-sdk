@@ -9,6 +9,7 @@ import 'package:hydro_sdk/swid/ir/swidStaticConstFieldDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeMixin.dart';
+import 'package:hydro_sdk/swid/ir/util/instanceMemberIntersection.dart';
 import 'package:hydro_sdk/swid/util/iCloneable.dart';
 
 part 'swidClass.freezed.dart';
@@ -298,6 +299,50 @@ class SwidClass
         (x) => x.declarationModifiers.isSynthetic,
       )
       .toList();
+
+  bool hasMixinApplicationThatConflictsWithSuperClassOrInterface() =>
+      implementedClasses.firstWhereOrNull((x) => mixedInClasses
+              .map(
+                (k) => (({
+                  required InstanceMemberIntersectionResult
+                      instanceMemberIntersectionResult,
+                }) =>
+                    instanceMemberIntersectionResult
+                        .instanceFields.isNotEmpty ||
+                    instanceMemberIntersectionResult.methods.isNotEmpty)(
+                  instanceMemberIntersectionResult: instanceMemberIntersection(
+                    first: SwidClass.mergeSuperClasses(
+                      swidClass: x,
+                    ),
+                    second: SwidClass.mergeSuperClasses(
+                      swidClass: k,
+                    ),
+                  ),
+                ),
+              )
+              .any((e) => e)) !=
+          null ||
+      (extendedClass != null &&
+          mixedInClasses
+              .map(
+                (k) => (({
+                  required InstanceMemberIntersectionResult
+                      instanceMemberIntersectionResult,
+                }) =>
+                    instanceMemberIntersectionResult
+                        .instanceFields.isNotEmpty ||
+                    instanceMemberIntersectionResult.methods.isNotEmpty)(
+                  instanceMemberIntersectionResult: instanceMemberIntersection(
+                    first: SwidClass.mergeSuperClasses(
+                      swidClass: extendedClass!,
+                    ),
+                    second: SwidClass.mergeSuperClasses(
+                      swidClass: k,
+                    ),
+                  ),
+                ),
+              )
+              .any((e) => e));
 
   @override
   SwidClass clone({
