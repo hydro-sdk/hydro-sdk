@@ -1,7 +1,7 @@
 import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
-import 'package:hydro_sdk/swid/ir/util/instanceMemberIntersection.dart';
+import 'package:hydro_sdk/swid/ir/util/conflictingInstanceMembers.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformPrimitiveNamesToTs.dart';
 
 class TsSuperClassClause {
@@ -67,7 +67,7 @@ class TsSuperClassClause {
                                           : <String>[])(
                                     intersectedMembers: swidClass.mixedInClasses
                                         .map(
-                                          (k) => instanceMemberIntersection(
+                                          (k) => conflictingInstanceMembers(
                                             first: SwidClass.mergeSuperClasses(
                                               swidClass: x,
                                             ),
