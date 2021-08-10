@@ -45,7 +45,7 @@ class DartLoadNamespaceSymbolDeclaration {
             ..name = "hydroState"
             ..type = refer("HydroState")),
           Parameter((p) => p
-            ..required  = true
+            ..required = true
             ..named = true
             ..name = "table"
             ..type = refer("HydroTable")),

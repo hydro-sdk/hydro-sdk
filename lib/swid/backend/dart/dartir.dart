@@ -32,8 +32,8 @@ class DartIr with _$DartIr {
           {required final DartBindInstanceField dartBindInstanceField}) =
       _$FromDartBindInstanceField;
   factory DartIr.fromDartBindInstanceFieldDirect(
-          {required final DartBindInstanceFieldDirect dartBindInstanceFieldDirect}) =
-      _$FromDartBindInstanceFieldDirect;
+      {required final DartBindInstanceFieldDirect
+          dartBindInstanceFieldDirect}) = _$FromDartBindInstanceFieldDirect;
   factory DartIr.fromDartBoxEnumReference(
           {required final DartBoxEnumReference dartBoxEnumReference}) =
       _$FromDartBoxEnumReference;
@@ -53,8 +53,8 @@ class DartIr with _$DartIr {
           {required final DartFunctionSelfBindingInvocation
               dartFunctionSelfBindingInvocation}) =
       _$FromDartFunctionSelfBindingInvocation;
-  factory DartIr.fromDartLinebreak({required final DartLinebreak dartLinebreak}) =
-      _$FromDartLinebreak;
+  factory DartIr.fromDartLinebreak(
+      {required final DartLinebreak dartLinebreak}) = _$FromDartLinebreak;
   factory DartIr.fromDartUnboxingExpression(
           {required final DartUnboxingExpression dartUnboxingExpression}) =
       _$FromDartUnboxingExpression;
@@ -73,15 +73,15 @@ class DartIr with _$DartIr {
       {required final DartMethodInjectionImplementation
           methodInjectionImplementation}) = _$FromMethodInjectionImplementation;
   factory DartIr.fromRTManagedClassDeclaration(
-          {required final DartRTManagedClassDeclaration rtManagedClassDeclaration}) =
-      _$FromRTManagedClassDeclaration;
+      {required final DartRTManagedClassDeclaration
+          rtManagedClassDeclaration}) = _$FromRTManagedClassDeclaration;
   factory DartIr.fromDartStaticMethodNamespaceSymbolDeclaration(
           {required final DartStaticMethodNamespaceSymbolDeclaration
               staticMethodNamespaceSymbolDeclaration}) =
       _$FromDartStaticMethodNamespaceSymbolDeclaration;
   factory DartIr.fromVMManagedClassDeclaration(
-          {required final DartVMManagedClassDeclaration vmManagedClassDeclaration}) =
-      _$FromVMManagedClassDeclaration;
+      {required final DartVMManagedClassDeclaration
+          vmManagedClassDeclaration}) = _$FromVMManagedClassDeclaration;
   factory DartIr.fromVMManagedClassMethodInjectionImplementation(
           {required final DartVMManagedClassMethodInjectionImplementation
               vmManagedClassMethodInjectionImplementation}) =

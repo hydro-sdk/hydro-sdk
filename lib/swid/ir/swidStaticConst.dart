@@ -36,7 +36,8 @@ class SwidStaticConst with _$SwidStaticConst {
   }) = _$FromSwidDoubleLiteral;
 
   const factory SwidStaticConst.fromSwidStaticConstFunctionInvocation({
-    required final SwidStaticConstFunctionInvocation staticConstFunctionInvocation,
+    required final SwidStaticConstFunctionInvocation
+        staticConstFunctionInvocation,
   }) = _$FromSwidStaticConstFunctionInvocation;
 
   const factory SwidStaticConst.fromSwidStaticConstFieldReference({
@@ -49,11 +50,13 @@ class SwidStaticConst with _$SwidStaticConst {
   }) = _$FromSwidStaticConstPrefixedExpression;
 
   const factory SwidStaticConst.fromSwidStaticConstBinaryExpression({
-    required final SwidStaticConstBinaryExpression swidStaticConstBinaryExpression,
+    required final SwidStaticConstBinaryExpression
+        swidStaticConstBinaryExpression,
   }) = _$FromSwidStaticConstBinaryExpression;
 
   const factory SwidStaticConst.fromSwidStaticConstPrefixedIdentifier({
-    required final SwidStaticConstPrefixedIdentifier staticConstPrefixedIdentifier,
+    required final SwidStaticConstPrefixedIdentifier
+        staticConstPrefixedIdentifier,
   }) = _$FromSwidStaticConstPrefixedIdentifier;
 
   const factory SwidStaticConst.fromSwidStaticConstIdentifier({
@@ -65,7 +68,8 @@ class SwidStaticConst with _$SwidStaticConst {
   }) = _$FromSwidStaticConstListLiteral;
 
   const factory SwidStaticConst.fromSwidStaticConstMapLiteralEntry({
-    required final SwidStaticConstMapLiteralEntry swidStaticConstMapLiteralEntry,
+    required final SwidStaticConstMapLiteralEntry
+        swidStaticConstMapLiteralEntry,
   }) = _$FromSwidStaticConstMapLiteralEntry;
 
   const factory SwidStaticConst.fromSwidStaticConstMapLiteral({

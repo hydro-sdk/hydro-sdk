@@ -17,7 +17,8 @@ class SwidStaticConstBinaryExpression with _$SwidStaticConstBinaryExpression {
       _$SwidStaticConstBinaryExpressionFromJson(json);
 
   factory SwidStaticConstBinaryExpression.clone({
-    required final SwidStaticConstBinaryExpression swidStaticConstBinaryExpression,
+    required final SwidStaticConstBinaryExpression
+        swidStaticConstBinaryExpression,
     String? operator,
     SwidStaticConst? leftOperand,
     SwidStaticConst? rightOperand,

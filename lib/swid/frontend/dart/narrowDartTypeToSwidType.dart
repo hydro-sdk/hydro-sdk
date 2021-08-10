@@ -16,25 +16,27 @@ import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 
-SwidType narrowDartTypeToSwidType({required final DartType? dartType}) => dartType
-        is FunctionType
-    ? SwidType.fromSwidFunctionType(
-        swidFunctionType: swidFunctionTypeFromFunctionType(
-        functionType: dartType,
-        declarationModifiers: SwidDeclarationModifiers.empty(),
-      ))
-    : dartType is InterfaceType
-        ? SwidType.fromSwidInterface(
-            swidInterface: swidInterfaceFromInterface(interfaceType: dartType))
-        : dartType is VoidType
+SwidType narrowDartTypeToSwidType({required final DartType? dartType}) =>
+    dartType is FunctionType
+        ? SwidType.fromSwidFunctionType(
+            swidFunctionType: swidFunctionTypeFromFunctionType(
+            functionType: dartType,
+            declarationModifiers: SwidDeclarationModifiers.empty(),
+          ))
+        : dartType is InterfaceType
             ? SwidType.fromSwidInterface(
-                swidInterface: swidInterfaceFromVoidType(voidType: dartType))
-            : dartType is TypeParameterType
+                swidInterface:
+                    swidInterfaceFromInterface(interfaceType: dartType))
+            : dartType is VoidType
                 ? SwidType.fromSwidInterface(
-                    swidInterface: swidInterfaceFromTypeParameterType(
-                        typeParameterType: dartType))
-                : dartType is DynamicType
+                    swidInterface:
+                        swidInterfaceFromVoidType(voidType: dartType))
+                : dartType is TypeParameterType
                     ? SwidType.fromSwidInterface(
-                        swidInterface:
-                            swidInterfaceFromDynamicType(dynamicType: dartType))
-                    : dartUnknownType;
+                        swidInterface: swidInterfaceFromTypeParameterType(
+                            typeParameterType: dartType))
+                    : dartType is DynamicType
+                        ? SwidType.fromSwidInterface(
+                            swidInterface: swidInterfaceFromDynamicType(
+                                dynamicType: dartType))
+                        : dartUnknownType;

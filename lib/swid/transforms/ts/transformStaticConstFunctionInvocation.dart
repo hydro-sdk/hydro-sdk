@@ -7,7 +7,8 @@ import 'package:hydro_sdk/swid/transforms/ts/transformNamedParametersToTs.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformNormalParametersToTs.dart';
 
 String transformStaticConstFunctionInvocation({
-  required final SwidStaticConstFunctionInvocation swidStaticConstFunctionInvocation,
+  required final SwidStaticConstFunctionInvocation
+      swidStaticConstFunctionInvocation,
   required final SwidClass? parentClass,
   required final String inexpressibleFunctionInvocationFallback,
   required final SwidStaticConstFieldReferenceScopeResolver scopeResolver,

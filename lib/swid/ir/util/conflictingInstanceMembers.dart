@@ -18,7 +18,8 @@ class ConflictingInstanceMembersResult
   }) = _$ConflictingInstanceMembersResultCtor;
 
   factory ConflictingInstanceMembersResult.clone({
-    required final ConflictingInstanceMembersResult instanceMemberIntersectionResult,
+    required final ConflictingInstanceMembersResult
+        instanceMemberIntersectionResult,
     List<String>? methods,
     List<String>? instanceFields,
   }) =>

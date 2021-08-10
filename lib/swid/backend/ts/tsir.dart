@@ -30,15 +30,15 @@ class TsIr with _$TsIr {
               tsClassConstructorImplementation}) =
       _$FromTsClassConstructorImplementation;
   factory TsIr.fromTsFunctionDefaultNamedProps(
-          {required final TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps}) =
-      _$FromTsFunctionDefaultNamedProps;
+      {required final TsFunctionDefaultNamedProps
+          tsFunctionDefaultNamedProps}) = _$FromTsFunctionDefaultNamedProps;
   factory TsIr.fromTsClassInstanceFieldDeclarations(
           {required final TsClassInstanceFieldDeclarations
               tsClassInstanceFieldDeclarations}) =
       _$FromClassInstanceFieldDeclarations;
   factory TsIr.fromTsClassMethodDeclarations(
-          {required final TsClassMethodDeclarations tsClassMethodDeclarations}) =
-      _$FromTsClassMethodDeclarations;
+      {required final TsClassMethodDeclarations
+          tsClassMethodDeclarations}) = _$FromTsClassMethodDeclarations;
   factory TsIr.fromTsClassMethodInjectionFieldDeclarations(
           {required final TsClassMethodInjectionFieldDeclarations
               tsClassMethodInjectionFieldDeclarations}) =
@@ -48,9 +48,10 @@ class TsIr with _$TsIr {
               tsClassMethodInjectionFieldName}) =
       _$FromTsClassMethodInjectionFieldName;
   factory TsIr.fromTsClassPostamble(
-      {required final TsClassPostamble tsClassPostamble}) = _$FromTsClassPostamble;
-  factory TsIr.fromTsClassPreamble({required final TsClassPreamble tsClassPreamble}) =
-      _$FromTsClassPreamble;
+          {required final TsClassPostamble tsClassPostamble}) =
+      _$FromTsClassPostamble;
+  factory TsIr.fromTsClassPreamble(
+      {required final TsClassPreamble tsClassPreamble}) = _$FromTsClassPreamble;
   factory TsIr.fromTsClassStaticConstFieldDeclarations(
           {required final TsClassStaticConstFieldDeclarations
               tsClassStaticConstFieldDeclarations}) =
@@ -87,7 +88,8 @@ class TsIr with _$TsIr {
               tsFunctionSelfBindingInvocation}) =
       _$FromTsFunctionSelfBindingInvocation;
   factory TsIr.fromTsResolvedImport(
-      {required final TsResolvedImport tsResolvedImport}) = _$FromTsResolvedImport;
+          {required final TsResolvedImport tsResolvedImport}) =
+      _$FromTsResolvedImport;
 }
 
 extension TsIrMethods on TsIr {

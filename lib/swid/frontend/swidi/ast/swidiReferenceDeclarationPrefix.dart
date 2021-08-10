@@ -11,7 +11,8 @@ class SwidiReferenceDeclarationPrefix with _$SwidiReferenceDeclarationPrefix {
   static const empty = const SwidiReferenceDeclarationPrefix(name: "");
 
   factory SwidiReferenceDeclarationPrefix.clone({
-    required final SwidiReferenceDeclarationPrefix swidiReferenceDeclarationPrefix,
+    required final SwidiReferenceDeclarationPrefix
+        swidiReferenceDeclarationPrefix,
     String? name,
   }) =>
       SwidiReferenceDeclarationPrefix(

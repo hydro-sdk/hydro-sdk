@@ -24,14 +24,17 @@ class TranslationUnitProducer {
     required final this.prefixPaths,
   });
 
-  List<TranslationUnit> produceFromSwidEnum({required final SwidEnum? swidEnum}) => [
+  List<TranslationUnit> produceFromSwidEnum(
+          {required final SwidEnum? swidEnum}) =>
+      [
         TsTranslationUnit(
             path: tsPrefixPaths.join(p.separator) + p.separator + path,
             fileName: "$baseFileName.ts",
             ir: [TsIr.fromTsEnum(tsEnum: TsEnum(swidEnum: swidEnum))])
       ];
 
-  List<TranslationUnit?> produceFromSwidClass({required final SwidClass swidClass}) =>
+  List<TranslationUnit?> produceFromSwidClass(
+          {required final SwidClass swidClass}) =>
       [
         produceTsTranslationUnitFromSwidClass(
             swidClass: swidClass,

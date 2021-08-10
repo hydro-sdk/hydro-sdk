@@ -18,7 +18,8 @@ class InstanceMemberIntersectionResult
   }) = _$InstanceMemberIntersectionResultCtor;
 
   factory InstanceMemberIntersectionResult.clone({
-    required final InstanceMemberIntersectionResult instanceMemberIntersectionResult,
+    required final InstanceMemberIntersectionResult
+        instanceMemberIntersectionResult,
     List<String>? methods,
     List<String>? instanceFields,
   }) =>

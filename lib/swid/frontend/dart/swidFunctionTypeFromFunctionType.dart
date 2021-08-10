@@ -38,7 +38,8 @@ SwidFunctionType swidFunctionTypeFromFunctionType({
           .where((x) => x != dartUnknownType)
           .toList()),
       namedDefaults: (({
-        required final List<DartDefaultFieldFormalOrDefaultFormal> defaultParameters,
+        required final List<DartDefaultFieldFormalOrDefaultFormal>
+            defaultParameters,
       }) =>
           defaultParameters.isNotEmpty
               ? Map.fromEntries(defaultParameters

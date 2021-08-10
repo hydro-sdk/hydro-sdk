@@ -29,7 +29,8 @@ class SwidClass
     required final List<SwidFunctionType> factoryConstructors,
     required final List<SwidFunctionType> staticMethods,
     required final List<SwidFunctionType> methods,
-    required final List<SwidStaticConstFieldDeclaration> staticConstFieldDeclarations,
+    required final List<SwidStaticConstFieldDeclaration>
+        staticConstFieldDeclarations,
     required final Map<String, SwidType> instanceFieldDeclarations,
     required final SwidDeclarationModifiers declarationModifiers,
     required final List<SwidClass> mixedInClasses,

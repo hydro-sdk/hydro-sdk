@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
 import 'package:hydro_sdk/swid/util/iCloneable.dart';
 
@@ -12,15 +13,15 @@ class SwidStaticConstMapLiteralEntry
   const SwidStaticConstMapLiteralEntry._();
 
   const factory SwidStaticConstMapLiteralEntry({
-    required final  SwidStaticConst key,
-    required final  SwidStaticConst value,
+    required final SwidStaticConst key,
+    required final SwidStaticConst value,
   }) = _$SwidStaticConstMapLiteralEntryCtor;
 
   factory SwidStaticConstMapLiteralEntry.fromJson(Map<String, dynamic> json) =>
       _$SwidStaticConstMapLiteralEntryFromJson(json);
 
   factory SwidStaticConstMapLiteralEntry.clone({
-    required final  SwidStaticConstMapLiteralEntry
+    required final SwidStaticConstMapLiteralEntry
         swidStaticConstMapLiteralEntry,
     final SwidStaticConst? key,
     final SwidStaticConst? value,

@@ -32,7 +32,9 @@ DartTranslationUnit? produceDartTranslationUnitFromSwidClass({
                 fileName: "$baseFileName.dart",
                 ir: [
                   DartIr.fromDartLinebreak(dartLinebreak: DartLinebreak()),
-                  ...(({required final List<DartImportStatement> importStatements}) =>
+                  ...((
+                          {required final List<DartImportStatement>
+                              importStatements}) =>
                       importStatements
                           .fold<List<DartImportStatement>>(
                               <DartImportStatement>[],

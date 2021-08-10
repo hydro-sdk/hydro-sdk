@@ -7,8 +7,8 @@ part 'parserTestHarness.freezed.dart';
 
 @freezed
 class ParserTestHarnessInput with _$ParserTestHarnessInput {
-  const factory ParserTestHarnessInput.fromString({required final String input}) =
-      _$ParserTestHarnessInputFromString;
+  const factory ParserTestHarnessInput.fromString(
+      {required final String input}) = _$ParserTestHarnessInputFromString;
   const factory ParserTestHarnessInput.fromList(
       {required final List<String> inputs}) = _$ParserTestHarnessInputFromList;
 }

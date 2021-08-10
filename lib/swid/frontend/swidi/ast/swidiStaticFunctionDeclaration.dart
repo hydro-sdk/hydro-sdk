@@ -13,7 +13,8 @@ class SwidiStaticFunctionDeclaration with _$SwidiStaticFunctionDeclaration {
   }) = _$SwidiStaticFunctionDeclarationCtor;
 
   factory SwidiStaticFunctionDeclaration.clone({
-    required final SwidiStaticFunctionDeclaration swidiStaticFunctionDeclaration,
+    required final SwidiStaticFunctionDeclaration
+        swidiStaticFunctionDeclaration,
     SwidiFunctionDeclaration? functionDeclaration,
   }) =>
       SwidiStaticFunctionDeclaration(

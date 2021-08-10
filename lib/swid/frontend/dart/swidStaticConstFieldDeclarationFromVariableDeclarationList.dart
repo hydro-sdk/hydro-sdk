@@ -101,7 +101,8 @@ SwidStaticConstFieldDeclaration
                                     !x.inDeclarationContext()) !=
                                 null
                             ? (({
-                                required final SimpleIdentifier? simpleIdentifier,
+                                required final SimpleIdentifier?
+                                    simpleIdentifier,
                               }) =>
                                 simpleIdentifier?.unParenthesized.staticType is InterfaceType
                                     ? SwidStaticConst.fromSwidStaticConstIdentifier(

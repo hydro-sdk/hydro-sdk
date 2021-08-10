@@ -21,7 +21,8 @@ class SwidTypeFormalValue with _$SwidTypeFormalValue {
       {required final SwidInterface swidInterface}) = _$FromSwidInterface;
 
   const factory SwidTypeFormalValue.fromSwidFunctionType(
-      {required final SwidFunctionType swidFunctionType}) = _$FromSwidFunctionType;
+          {required final SwidFunctionType swidFunctionType}) =
+      _$FromSwidFunctionType;
 
   factory SwidTypeFormalValue.clone({
     required final SwidTypeFormalValue swidTypeFormalValue,

@@ -4,7 +4,7 @@ import 'package:meta/meta.dart';
 part 'inputResolver.freezed.dart';
 
 @freezed
- class ResolvedInput with _$ResolvedInput {
+class ResolvedInput with _$ResolvedInput {
   const factory ResolvedInput.fromString({
     required final String str,
   }) = _$ResolvedInputFromString;

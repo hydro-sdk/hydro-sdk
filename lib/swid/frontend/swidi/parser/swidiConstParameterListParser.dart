@@ -29,7 +29,8 @@ mixin SwidiConstParameterListParser on SwidiConstGrammarDefinition
       super.constParameterList().map(
             (x) => SwidiConstParameterList(
               namedParameters: (({
-                required final List<SwidiConstNamedParameterList> namedParameterList,
+                required final List<SwidiConstNamedParameterList>
+                    namedParameterList,
               }) =>
                   namedParameterList.isNotEmpty
                       ? namedParameterList.first.parameters

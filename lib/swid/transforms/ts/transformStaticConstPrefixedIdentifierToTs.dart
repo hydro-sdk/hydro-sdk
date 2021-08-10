@@ -4,7 +4,8 @@ import 'package:hydro_sdk/swid/ir/swidStaticConstPrefixedIdentifier.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformLiteralToTs.dart';
 
 String transformStaticConstPrefixedIdentifierToTs({
-  required final SwidStaticConstPrefixedIdentifier staticConstPrefixedIdentifier,
+  required final SwidStaticConstPrefixedIdentifier
+      staticConstPrefixedIdentifier,
   required final SwidClass? parentClass,
   required final String inexpressibleFunctionInvocationFallback,
   required final SwidStaticConstFieldReferenceScopeResolver scopeResolver,
