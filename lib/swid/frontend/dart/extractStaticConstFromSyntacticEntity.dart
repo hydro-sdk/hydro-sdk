@@ -1,5 +1,6 @@
 import 'package:analyzer/dart/ast/syntactic_entity.dart';
 import 'package:analyzer/dart/element/element.dart' show ClassElement;
+import 'package:collection/collection.dart';
 
 import 'package:hydro_sdk/swid/frontend/dart/narrowStaticConstSyntacticEntity.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidDoubleLiteralFromDoubleLiteral.dart';
@@ -16,6 +17,8 @@ import 'package:hydro_sdk/swid/ir/swidStaticConstBinaryExpression.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstFieldReference.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstIdentifier.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstListLiteral.dart';
+import 'package:hydro_sdk/swid/ir/swidStaticConstMapLiteral.dart';
+import 'package:hydro_sdk/swid/ir/swidStaticConstMapLiteralEntry.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstPrefixedExpression.dart';
 import 'package:hydro_sdk/swid/ir/swidStringLiteral.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
@@ -105,21 +108,58 @@ SwidStaticConst extractStaticConstFromSyntacticEntity({
       ),
       onListLiteral: (val) => SwidStaticConst.fromSwidStaticConstListLiteral(
         staticConstListLiteral: SwidStaticConstListLiteral(
-            staticType:
-                val.staticType != null && val.staticType is InterfaceType
-                    ? SwidType.fromSwidInterface(
-                        swidInterface: swidInterfaceFromInterface(
-                          interfaceType: val.staticType! as InterfaceType,
-                        ),
-                      )
-                    : dartUnknownType,
-            elements: val.elements
-                .map(
-                  (x) => extractStaticConstFromSyntacticEntity(
-                    syntacticEntity: x,
+          staticType: val.staticType != null && val.staticType is InterfaceType
+              ? SwidType.fromSwidInterface(
+                  swidInterface: swidInterfaceFromInterface(
+                    interfaceType: val.staticType! as InterfaceType,
                   ),
                 )
-                .toList()),
+              : dartUnknownType,
+          elements: val.elements
+              .map(
+                (x) => extractStaticConstFromSyntacticEntity(
+                  syntacticEntity: x,
+                ),
+              )
+              .toList(),
+        ),
       ),
+      onMapLiteralEntry: (val) =>
+          SwidStaticConst.fromSwidStaticConstMapLiteralEntry(
+        swidStaticConstMapLiteralEntry: SwidStaticConstMapLiteralEntry(
+          key: extractStaticConstFromSyntacticEntity(
+            syntacticEntity: val.key,
+          ),
+          value: extractStaticConstFromSyntacticEntity(
+            syntacticEntity: val.value,
+          ),
+        ),
+      ),
+      onSetOrMapLiteral: (val) => val.isMap
+          ? SwidStaticConst.fromSwidStaticConstMapLiteral(
+              swidStaticConstMapLiteral: SwidStaticConstMapLiteral(
+                elements: val.elements
+                    .map(
+                      (x) => extractStaticConstFromSyntacticEntity(
+                        syntacticEntity: x,
+                      ),
+                    )
+                    .map((x) => x.maybeWhen(
+                          fromSwidStaticConstMapLiteralEntry: (val) => val,
+                          orElse: () => null,
+                        ))
+                    .whereNotNull()
+                    .toList(),
+                staticType:
+                    val.staticType != null && val.staticType is InterfaceType
+                        ? SwidType.fromSwidInterface(
+                            swidInterface: swidInterfaceFromInterface(
+                              interfaceType: val.staticType! as InterfaceType,
+                            ),
+                          )
+                        : dartUnknownType,
+              ),
+            )
+          : dartUnknownConst,
     ) ??
     dartUnknownConst;

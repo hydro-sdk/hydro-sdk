@@ -44,4 +44,21 @@ bool isUnrepresentableStaticConst({
               staticConst: x,
             ),
           ),
+      fromSwidStaticConstMapLiteralEntry: (val) =>
+          isUnrepresentableStaticConst(
+              parentClass: parentClass, staticConst: val.key) ||
+          isUnrepresentableStaticConst(
+            parentClass: parentClass,
+            staticConst: val.value,
+          ),
+      fromSwidStaticConstMapLiteral: (val) =>
+          val.staticType.displayName[0] == "_" ||
+          val.elements.any(
+            (x) => isUnrepresentableStaticConst(
+              parentClass: parentClass,
+              staticConst: SwidStaticConst.fromSwidStaticConstMapLiteralEntry(
+                swidStaticConstMapLiteralEntry: x,
+              ),
+            ),
+          ),
     );

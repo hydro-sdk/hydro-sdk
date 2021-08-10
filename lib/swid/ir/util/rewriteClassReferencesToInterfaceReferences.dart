@@ -223,6 +223,18 @@ SwidType rewriteClassReferencesToInterfaceReferences({
                 ),
               ),
             ),
+            fromSwidStaticConstMapLiteralEntry: (val) =>
+                SwidStaticConst.fromSwidStaticConstMapLiteralEntry(
+              swidStaticConstMapLiteralEntry: val.clone(),
+            ),
+            fromSwidStaticConstMapLiteral: (val) =>
+                SwidStaticConst.fromSwidStaticConstMapLiteral(
+              swidStaticConstMapLiteral: val.clone(
+                staticType: rewriteClassReferencesToInterfaceReferences(
+                  swidType: val.staticType,
+                ),
+              ),
+            ),
           ),
         ),
       ),
@@ -303,6 +315,18 @@ SwidType rewriteClassReferencesToInterfaceReferences({
                       SwidStaticConst.fromSwidStaticConstListLiteral(
                     staticConstListLiteral: SwidStaticConstListLiteral.clone(
                       swidStaticConstListLiteral: val,
+                      staticType: rewriteClassReferencesToInterfaceReferences(
+                        swidType: val.staticType,
+                      ),
+                    ),
+                  ),
+                  fromSwidStaticConstMapLiteralEntry: (val) =>
+                      SwidStaticConst.fromSwidStaticConstMapLiteralEntry(
+                    swidStaticConstMapLiteralEntry: val,
+                  ),
+                  fromSwidStaticConstMapLiteral: (val) =>
+                      SwidStaticConst.fromSwidStaticConstMapLiteral(
+                    swidStaticConstMapLiteral: val.clone(
                       staticType: rewriteClassReferencesToInterfaceReferences(
                         swidType: val.staticType,
                       ),

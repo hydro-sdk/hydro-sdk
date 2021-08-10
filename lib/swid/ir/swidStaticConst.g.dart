@@ -166,3 +166,32 @@ Map<String, dynamic> _$_$_$FromSwidStaticConstListLiteralToJson(
     <String, dynamic>{
       'staticConstListLiteral': instance.staticConstListLiteral,
     };
+
+_$_$FromSwidStaticConstMapLiteralEntry
+    _$_$_$FromSwidStaticConstMapLiteralEntryFromJson(
+        Map<String, dynamic> json) {
+  return _$_$FromSwidStaticConstMapLiteralEntry(
+    swidStaticConstMapLiteralEntry: SwidStaticConstMapLiteralEntry.fromJson(
+        json['swidStaticConstMapLiteralEntry'] as Map<String, dynamic>),
+  );
+}
+
+Map<String, dynamic> _$_$_$FromSwidStaticConstMapLiteralEntryToJson(
+        _$_$FromSwidStaticConstMapLiteralEntry instance) =>
+    <String, dynamic>{
+      'swidStaticConstMapLiteralEntry': instance.swidStaticConstMapLiteralEntry,
+    };
+
+_$_$FromSwidStaticConstMapLiteral _$_$_$FromSwidStaticConstMapLiteralFromJson(
+    Map<String, dynamic> json) {
+  return _$_$FromSwidStaticConstMapLiteral(
+    swidStaticConstMapLiteral: SwidStaticConstMapLiteral.fromJson(
+        json['swidStaticConstMapLiteral'] as Map<String, dynamic>),
+  );
+}
+
+Map<String, dynamic> _$_$_$FromSwidStaticConstMapLiteralToJson(
+        _$_$FromSwidStaticConstMapLiteral instance) =>
+    <String, dynamic>{
+      'swidStaticConstMapLiteral': instance.swidStaticConstMapLiteral,
+    };

@@ -58,9 +58,27 @@ bool isInexpressibleStaticConst({
           swidStaticConstFieldReference: val.staticConstFieldReference,
         ),
       ),
-      fromSwidStaticConstListLiteral: (val) =>
-          val.elements.any((x) => isInexpressibleStaticConst(
-                parentClass: parentClass,
-                staticConst: x,
-              )),
+      fromSwidStaticConstListLiteral: (val) => val.elements.any(
+        (x) => isInexpressibleStaticConst(
+          parentClass: parentClass,
+          staticConst: x,
+        ),
+      ),
+      fromSwidStaticConstMapLiteralEntry: (val) =>
+          isInexpressibleStaticConst(
+            parentClass: parentClass,
+            staticConst: val.key,
+          ) ||
+          isInexpressibleStaticConst(
+            parentClass: parentClass,
+            staticConst: val.value,
+          ),
+      fromSwidStaticConstMapLiteral: (val) => val.elements.any(
+        (x) => isInexpressibleStaticConst(
+          parentClass: parentClass,
+          staticConst: SwidStaticConst.fromSwidStaticConstMapLiteralEntry(
+            swidStaticConstMapLiteralEntry: x,
+          ),
+        ),
+      ),
     );

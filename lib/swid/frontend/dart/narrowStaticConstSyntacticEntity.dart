@@ -10,23 +10,28 @@ import 'package:analyzer/dart/ast/ast.dart'
         PrefixedIdentifier,
         SimpleIdentifier,
         SimpleStringLiteral,
+        SetOrMapLiteral,
+        MapLiteralEntry,
         StringLiteral;
 
 import 'package:analyzer/dart/ast/syntactic_entity.dart' show SyntacticEntity;
 
 T? narrowStaticConstSyntacticEntity<T>({
-  required SyntacticEntity? syntacticEntity,
-  required T Function(IntegerLiteral) onIntegerLiteral,
-  required T Function(StringLiteral) onStringLiteral,
-  required T Function(SimpleStringLiteral) onSimpleStringLiteral,
-  required T Function(DoubleLiteral) onDoubleLiteral,
-  required T Function(BooleanLiteral) onBooleanLiteral,
-  required T Function(PrefixedIdentifier) onPrefixedIdentifier,
-  required T Function(SimpleIdentifier) onSimpleIdentifier,
-  required T Function(PrefixExpression) onPrefixExpression,
-  required T Function(InstanceCreationExpression) onInstanceCreationExpression,
-  required T Function(BinaryExpression) onBinaryExpression,
-  required T Function(ListLiteral) onListLiteral,
+  required final SyntacticEntity? syntacticEntity,
+  required final T Function(IntegerLiteral) onIntegerLiteral,
+  required final T Function(StringLiteral) onStringLiteral,
+  required final T Function(SimpleStringLiteral) onSimpleStringLiteral,
+  required final T Function(DoubleLiteral) onDoubleLiteral,
+  required final T Function(BooleanLiteral) onBooleanLiteral,
+  required final T Function(PrefixedIdentifier) onPrefixedIdentifier,
+  required final T Function(SimpleIdentifier) onSimpleIdentifier,
+  required final T Function(PrefixExpression) onPrefixExpression,
+  required final T Function(InstanceCreationExpression)
+      onInstanceCreationExpression,
+  required final T Function(BinaryExpression) onBinaryExpression,
+  required final T Function(ListLiteral) onListLiteral,
+  required final T Function(SetOrMapLiteral) onSetOrMapLiteral,
+  required final T Function(MapLiteralEntry) onMapLiteralEntry,
 }) =>
     syntacticEntity is InstanceCreationExpression
         ? onInstanceCreationExpression(syntacticEntity)
@@ -52,4 +57,12 @@ T? narrowStaticConstSyntacticEntity<T>({
                                                     is SimpleIdentifier
                                                 ? onSimpleIdentifier(
                                                     syntacticEntity)
-                                                : null;
+                                                : syntacticEntity
+                                                        is SetOrMapLiteral
+                                                    ? onSetOrMapLiteral(
+                                                        syntacticEntity)
+                                                    : syntacticEntity
+                                                            is MapLiteralEntry
+                                                        ? onMapLiteralEntry(
+                                                            syntacticEntity)
+                                                        : null;

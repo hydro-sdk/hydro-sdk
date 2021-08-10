@@ -256,9 +256,9 @@ class _SwidVisitor extends RecursiveAstVisitor
           .writeAsStringSync(json.encode(classes.last.toJson()));
     }
 
-    if (node.name.name == "FontWeight") {
+    if (node.name.name == "SemanticsAction") {
       print(node.name.name);
-      File("test/swid/res/FontWeight.json")
+      File("test/swid/res/SemanticsAction.json")
           .writeAsStringSync(json.encode(classes.last.toJson()));
     }
 

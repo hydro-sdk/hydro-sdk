@@ -82,6 +82,29 @@ List<SwidInterface> collectReferencesFromStaticConst({
             declarationModifiers: SwidDeclarationModifiers.empty(),
           )
         ],
+        fromSwidStaticConstMapLiteralEntry: (val) => [
+          ...(collectReferencesFromStaticConst(
+            swidStaticConst: val.key,
+          )..removeWhere((x) => x == dartUnknownInterface)),
+          ...(collectReferencesFromStaticConst(
+            swidStaticConst: val.value,
+          )..removeWhere((x) => x == dartUnknownInterface))
+        ],
+        fromSwidStaticConstMapLiteral: (val) => [
+          ...((List<List<SwidInterface>> elements) => elements.isNotEmpty
+              ? elements.reduce((value, element) => [
+                    ...value,
+                    ...element,
+                  ])
+              : <SwidInterface>[])(val.elements
+              .map((x) => collectReferencesFromStaticConst(
+                    swidStaticConst:
+                        SwidStaticConst.fromSwidStaticConstMapLiteralEntry(
+                      swidStaticConstMapLiteralEntry: x,
+                    ),
+                  )..removeWhere((x) => x == dartUnknownInterface))
+              .toList()),
+        ],
       )
     ]
         .fold<List<SwidInterface>>(

@@ -8,6 +8,8 @@ import 'package:hydro_sdk/swid/ir/swidStaticConstFieldReference.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstFunctionInvocation.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstIdentifier.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstListLiteral.dart';
+import 'package:hydro_sdk/swid/ir/swidStaticConstMapLiteral.dart';
+import 'package:hydro_sdk/swid/ir/swidStaticConstMapLiteralEntry.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstPrefixedExpression.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstPrefixedIdentifier.dart';
 import 'package:hydro_sdk/swid/ir/swidStringLiteral.dart';
@@ -61,6 +63,14 @@ class SwidStaticConst with _$SwidStaticConst {
   const factory SwidStaticConst.fromSwidStaticConstListLiteral({
     required SwidStaticConstListLiteral staticConstListLiteral,
   }) = _$FromSwidStaticConstListLiteral;
+
+  const factory SwidStaticConst.fromSwidStaticConstMapLiteralEntry({
+    required SwidStaticConstMapLiteralEntry swidStaticConstMapLiteralEntry,
+  }) = _$FromSwidStaticConstMapLiteralEntry;
+
+  const factory SwidStaticConst.fromSwidStaticConstMapLiteral({
+    required SwidStaticConstMapLiteral swidStaticConstMapLiteral,
+  }) = _$FromSwidStaticConstMapLiteral;
 
   factory SwidStaticConst.fromJson(Map<String, dynamic> json) =>
       _$SwidStaticConstFromJson(json);
@@ -134,6 +144,14 @@ class SwidStaticConst with _$SwidStaticConst {
           staticConstListLiteral: SwidStaticConstListLiteral.clone(
             swidStaticConstListLiteral: val,
           ),
+        ),
+        fromSwidStaticConstMapLiteral: (val) =>
+            SwidStaticConst.fromSwidStaticConstMapLiteral(
+          swidStaticConstMapLiteral: val.clone(),
+        ),
+        fromSwidStaticConstMapLiteralEntry: (val) =>
+            SwidStaticConst.fromSwidStaticConstMapLiteralEntry(
+          swidStaticConstMapLiteralEntry: val.clone(),
         ),
       );
 }

@@ -21,57 +21,60 @@ String transformLiteralToTs({
   required SwidStaticConstFieldReferenceScopeResolver scopeResolver,
 }) =>
     swidLiteral.when(
-        fromSwidIntegerLiteral: (val) =>
-            transformIntegerLiteralToTs(swidIntegerLiteral: val),
-        fromSwidStringLiteral: (val) =>
-            transformStringLiteralToTs(swidStringLiteral: val),
-        fromDoubleLiteral: (val) =>
-            transformDoubleLiteralToTs(swidDoubleLiteral: val),
-        fromSwidBooleanLiteral: (val) =>
-            transformBooleanLiteralToTs(swidBooleanLiteral: val),
-        fromSwidStaticConstIdentifier: (val) => [
-              val.enclosingType.name,
-              ".",
-              val.identifier,
-            ].join(""),
-        fromSwidStaticConstListLiteral: (val) =>
-            transformStaticConstListLiteralToTs(
-              staticConstListLiteral: val,
-              parentClass: parentClass,
-              inexpressibleFunctionInvocationFallback:
-                  inexpressibleFunctionInvocationFallback,
-              scopeResolver: scopeResolver,
-            ),
-        fromSwidStaticConstPrefixedExpression: (val) =>
-            transformStaticConstPrefixedExpressionToTs(
-              swidStaticConstPrefixedExpression: val,
-              parentClass: parentClass,
-              scopeResolver: scopeResolver,
-              inexpressibleFunctionInvocationFallback:
-                  inexpressibleFunctionInvocationFallback,
-            ),
-        fromSwidStaticConstBinaryExpression: (val) =>
-            transformStaticConstBinaryExpressionToTs(
-              swidStaticConstBinaryExpression: val,
-              scopeResolver: scopeResolver,
-              parentClass: parentClass,
-              inexpressibleFunctionInvocationFallback:
-                  inexpressibleFunctionInvocationFallback,
-            ),
-        fromSwidStaticConstFunctionInvocation: (val) =>
-            transformStaticConstFunctionInvocation(
-              swidStaticConstFunctionInvocation: val,
-              parentClass: parentClass,
-              scopeResolver: scopeResolver,
-              inexpressibleFunctionInvocationFallback:
-                  inexpressibleFunctionInvocationFallback,
-            ),
-        fromSwidStaticConstPrefixedIdentifier: (val) =>
-            transformStaticConstPrefixedIdentifierToTs(
-              staticConstPrefixedIdentifier: val,
-              parentClass: parentClass,
-              scopeResolver: scopeResolver,
-              inexpressibleFunctionInvocationFallback:
-                  inexpressibleFunctionInvocationFallback,
-            ),
-        fromSwidStaticConstFieldReference: (val) => val.name);
+      fromSwidIntegerLiteral: (val) =>
+          transformIntegerLiteralToTs(swidIntegerLiteral: val),
+      fromSwidStringLiteral: (val) =>
+          transformStringLiteralToTs(swidStringLiteral: val),
+      fromDoubleLiteral: (val) =>
+          transformDoubleLiteralToTs(swidDoubleLiteral: val),
+      fromSwidBooleanLiteral: (val) =>
+          transformBooleanLiteralToTs(swidBooleanLiteral: val),
+      fromSwidStaticConstIdentifier: (val) => [
+        val.enclosingType.name,
+        ".",
+        val.identifier,
+      ].join(""),
+      fromSwidStaticConstListLiteral: (val) =>
+          transformStaticConstListLiteralToTs(
+        staticConstListLiteral: val,
+        parentClass: parentClass,
+        inexpressibleFunctionInvocationFallback:
+            inexpressibleFunctionInvocationFallback,
+        scopeResolver: scopeResolver,
+      ),
+      fromSwidStaticConstPrefixedExpression: (val) =>
+          transformStaticConstPrefixedExpressionToTs(
+        swidStaticConstPrefixedExpression: val,
+        parentClass: parentClass,
+        scopeResolver: scopeResolver,
+        inexpressibleFunctionInvocationFallback:
+            inexpressibleFunctionInvocationFallback,
+      ),
+      fromSwidStaticConstBinaryExpression: (val) =>
+          transformStaticConstBinaryExpressionToTs(
+        swidStaticConstBinaryExpression: val,
+        scopeResolver: scopeResolver,
+        parentClass: parentClass,
+        inexpressibleFunctionInvocationFallback:
+            inexpressibleFunctionInvocationFallback,
+      ),
+      fromSwidStaticConstFunctionInvocation: (val) =>
+          transformStaticConstFunctionInvocation(
+        swidStaticConstFunctionInvocation: val,
+        parentClass: parentClass,
+        scopeResolver: scopeResolver,
+        inexpressibleFunctionInvocationFallback:
+            inexpressibleFunctionInvocationFallback,
+      ),
+      fromSwidStaticConstPrefixedIdentifier: (val) =>
+          transformStaticConstPrefixedIdentifierToTs(
+        staticConstPrefixedIdentifier: val,
+        parentClass: parentClass,
+        scopeResolver: scopeResolver,
+        inexpressibleFunctionInvocationFallback:
+            inexpressibleFunctionInvocationFallback,
+      ),
+      fromSwidStaticConstFieldReference: (val) => val.name,
+      fromSwidStaticConstMapLiteralEntry: (val)=>"",
+      fromSwidStaticConstMapLiteral: (val)=>"",
+    );
