@@ -7,8 +7,6 @@ import 'package:hydro_sdk/swid/transforms/ts/transformIntegerLiteralToTs.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformStaticConstBinaryExpressionToTs.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformStaticConstFunctionInvocation.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformStaticConstListLiteralToTs.dart';
-import 'package:hydro_sdk/swid/transforms/ts/transformStaticConstMapLiteralEntryToTs.dart';
-import 'package:hydro_sdk/swid/transforms/ts/transformStaticConstMapLiteralToTs.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformStaticConstPrefixedExpressionToTs.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformStaticConstPrefixedIdentifierToTs.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformStringLiteralToTs.dart';
@@ -77,20 +75,6 @@ String transformLiteralToTs({
             inexpressibleFunctionInvocationFallback,
       ),
       fromSwidStaticConstFieldReference: (val) => val.name,
-      fromSwidStaticConstMapLiteralEntry: (val) =>
-          transformStaticConstMapLiteralEntryToTs(
-        staticConstMapLiteralEntry: val,
-        parentClass: parentClass,
-        inexpressibleFunctionInvocationFallback:
-            inexpressibleFunctionInvocationFallback,
-        scopeResolver: scopeResolver,
-      ),
-      fromSwidStaticConstMapLiteral: (val) =>
-          transformStaticConstMapLiteralToTs(
-        staticConstMapLiteral: val,
-        parentClass: parentClass,
-        inexpressibleFunctionInvocationFallback:
-            inexpressibleFunctionInvocationFallback,
-        scopeResolver: scopeResolver,
-      ),
+      fromSwidStaticConstMapLiteralEntry: (val) => "",
+      fromSwidStaticConstMapLiteral: (val) => "",
     );
