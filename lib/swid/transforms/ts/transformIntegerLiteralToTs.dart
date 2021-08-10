@@ -1,5 +1,5 @@
 import 'package:hydro_sdk/swid/ir/swidIntegerLiteral.dart';
 
 String transformIntegerLiteralToTs(
-        {required SwidIntegerLiteral swidIntegerLiteral}) =>
+        {required final SwidIntegerLiteral swidIntegerLiteral}) =>
     swidIntegerLiteral.value;

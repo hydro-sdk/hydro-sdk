@@ -21,7 +21,7 @@ class SwidDartFrontend extends SwidFrontend {
   final List<String> inputs;
 
   const SwidDartFrontend({
-    required this.inputs,
+    required final this.inputs,
   }) : super(
           inputs: inputs,
         );

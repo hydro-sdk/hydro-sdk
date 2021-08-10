@@ -20,18 +20,18 @@ class SwidDefaultFormalParameter
   const SwidDefaultFormalParameter._();
 
   const factory SwidDefaultFormalParameter({
-    required SwidNullabilitySuffix nullabilitySuffix,
-    required String originalPackagePath,
-    required SwidType staticType,
-    required SwidStaticConst value,
-    required String defaultValueCode,
+    required final SwidNullabilitySuffix nullabilitySuffix,
+    required final String originalPackagePath,
+    required final SwidType staticType,
+    required final SwidStaticConst value,
+    required final String defaultValueCode,
   }) = _$Data;
 
   factory SwidDefaultFormalParameter.fromJson(Map<String, dynamic> json) =>
       _$SwidDefaultFormalParameterFromJson(json);
 
   factory SwidDefaultFormalParameter.clone({
-    required SwidDefaultFormalParameter swidDefaultFormalParameter,
+    required final SwidDefaultFormalParameter swidDefaultFormalParameter,
     SwidNullabilitySuffix? nullabilitySuffix,
     String? originalPackagePath,
     SwidType? staticType,

@@ -9,11 +9,11 @@ class SwidiTypeFormalList with _$SwidiTypeFormalList {
   const SwidiTypeFormalList._();
 
   const factory SwidiTypeFormalList({
-    required List<SwidiTypeFormal> typeFormalList,
+    required final List<SwidiTypeFormal> typeFormalList,
   }) = _$SwidiTypeFormalListCtorl;
 
   factory SwidiTypeFormalList.clone({
-    required SwidiTypeFormalList swidiTypeFormalList,
+    required final SwidiTypeFormalList swidiTypeFormalList,
     List<SwidiTypeFormal>? typeFormalList,
   }) =>
       SwidiTypeFormalList(

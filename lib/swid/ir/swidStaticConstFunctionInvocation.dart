@@ -10,11 +10,11 @@ part 'swidStaticConstFunctionInvocation.g.dart';
 class SwidStaticConstFunctionInvocation
     with _$SwidStaticConstFunctionInvocation {
   const factory SwidStaticConstFunctionInvocation({
-    required String value,
-    required SwidType staticType,
-    required List<SwidStaticConst> normalParameters,
-    required Map<String, SwidStaticConst> namedParameters,
-    required bool isConstructorInvocation,
+    required final String value,
+    required final SwidType staticType,
+    required final List<SwidStaticConst> normalParameters,
+    required final Map<String, SwidStaticConst> namedParameters,
+    required final bool isConstructorInvocation,
   }) = _$Data;
 
   factory SwidStaticConstFunctionInvocation.fromJson(
@@ -22,7 +22,7 @@ class SwidStaticConstFunctionInvocation
       _$SwidStaticConstFunctionInvocationFromJson(json);
 
   factory SwidStaticConstFunctionInvocation.clone({
-    required SwidStaticConstFunctionInvocation
+    required final SwidStaticConstFunctionInvocation
         swidStaticConstFunctionInvocation,
     String? value,
     SwidType? staticType,

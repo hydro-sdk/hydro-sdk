@@ -93,14 +93,14 @@ mixin SwidiFunctionDeclarationParser
           ],
           typeFormals: [
             ...((({
-              required List<SwidiTypeFormalList> typeFormals,
+              required final List<SwidiTypeFormalList> typeFormals,
             }) =>
                 typeFormals.isNotEmpty ? typeFormals.first.typeFormalList : [])(
               typeFormals: collectTokens<SwidiTypeFormalList>(x),
             )),
           ],
           shortHandOverride: (({
-            required List<SwidiConst> consts,
+            required final List<SwidiConst> consts,
           }) =>
               consts.isNotEmpty
                   ? consts.first

@@ -30,7 +30,7 @@ import 'package:analyzer/src/dart/ast/ast.dart'
     show ConstructorDeclarationImpl, MethodDeclarationImpl;
 
 SwidClass swidClassFromDartClassOrMixinOrClassTypAliasDeclaration({
-  required DartClassOrMixinOrClassTypAliasDeclaration
+  required final DartClassOrMixinOrClassTypAliasDeclaration
       dartClassOrMixinOrClassTypAliasDeclaration,
 }) {
   final List<ConstructorDeclarationImpl> constructors =

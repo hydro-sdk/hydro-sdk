@@ -12,9 +12,9 @@ import 'package:hydro_sdk/swid/transforms/transformPackageUri.dart';
 import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';
 
 List<DartTranslationUnit> produceDartTranslationUnitsFromBarrelSpec({
-  required String packageName,
-  required List<String> prefixPaths,
-  required BarrelSpec barrelSpec,
+  required final String packageName,
+  required final List<String> prefixPaths,
+  required final BarrelSpec barrelSpec,
 }) =>
     [
       DartTranslationUnit(

@@ -6,7 +6,7 @@ class TsClassPreamble {
   final SwidClass swidClass;
 
   const TsClassPreamble({
-    required this.swidClass,
+    required final this.swidClass,
   });
 
   String toTsSource() => ([

@@ -22,20 +22,20 @@ class SwidClass
   const SwidClass._();
 
   const factory SwidClass({
-    required String name,
-    required SwidNullabilitySuffix nullabilitySuffix,
-    required String originalPackagePath,
-    required SwidFunctionType? constructorType,
-    required List<SwidFunctionType> factoryConstructors,
-    required List<SwidFunctionType> staticMethods,
-    required List<SwidFunctionType> methods,
-    required List<SwidStaticConstFieldDeclaration> staticConstFieldDeclarations,
-    required Map<String, SwidType> instanceFieldDeclarations,
-    required SwidDeclarationModifiers declarationModifiers,
-    required List<SwidClass> mixedInClasses,
-    required List<SwidClass> implementedClasses,
-    required bool isMixin,
-    required List<SwidTypeFormal> typeFormals,
+    required final String name,
+    required final SwidNullabilitySuffix nullabilitySuffix,
+    required final String originalPackagePath,
+    required final SwidFunctionType? constructorType,
+    required final List<SwidFunctionType> factoryConstructors,
+    required final List<SwidFunctionType> staticMethods,
+    required final List<SwidFunctionType> methods,
+    required final List<SwidStaticConstFieldDeclaration> staticConstFieldDeclarations,
+    required final Map<String, SwidType> instanceFieldDeclarations,
+    required final SwidDeclarationModifiers declarationModifiers,
+    required final List<SwidClass> mixedInClasses,
+    required final List<SwidClass> implementedClasses,
+    required final bool isMixin,
+    required final List<SwidTypeFormal> typeFormals,
     SwidClass? extendedClass,
   }) = _$Data;
 
@@ -43,7 +43,7 @@ class SwidClass
       _$SwidClassFromJson(json);
 
   factory SwidClass.clone({
-    required SwidClass swidClass,
+    required final SwidClass swidClass,
     String? name,
     SwidNullabilitySuffix? nullabilitySuffix,
     String? originalPackagePath,
@@ -146,8 +146,8 @@ class SwidClass
       );
 
   factory SwidClass.mergeDeclarations({
-    required SwidClass swidClass,
-    required SwidClass? superClass,
+    required final SwidClass swidClass,
+    required final SwidClass? superClass,
   }) =>
       superClass != null
           ? SwidClass.clone(
@@ -231,13 +231,13 @@ class SwidClass
             );
 
   factory SwidClass.mergeSuperClasses({
-    required SwidClass swidClass,
+    required final SwidClass swidClass,
   }) =>
       (({
-        required SwidClass swidClassWithMergedInterfaces,
+        required final SwidClass swidClassWithMergedInterfaces,
       }) =>
           (({
-            required SwidClass swidClassWithMixinApplications,
+            required final SwidClass swidClassWithMixinApplications,
           }) =>
               swidClassWithMixinApplications.extendedClass != null
                   ? SwidClass.mergeDeclarations(
@@ -304,7 +304,7 @@ class SwidClass
       implementedClasses.firstWhereOrNull((x) => mixedInClasses
               .map(
                 (k) => (({
-                  required ConflictingInstanceMembersResult
+                  required final ConflictingInstanceMembersResult
                       conflictingInstanceMembersResult,
                 }) =>
                     conflictingInstanceMembersResult
@@ -326,7 +326,7 @@ class SwidClass
           mixedInClasses
               .map(
                 (k) => (({
-                  required ConflictingInstanceMembersResult
+                  required final ConflictingInstanceMembersResult
                       conflictingInstanceMembersResult,
                 }) =>
                     conflictingInstanceMembersResult

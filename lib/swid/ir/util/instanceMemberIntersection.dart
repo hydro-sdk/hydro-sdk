@@ -13,12 +13,12 @@ class InstanceMemberIntersectionResult
   const InstanceMemberIntersectionResult._();
 
   const factory InstanceMemberIntersectionResult({
-    required List<String> methods,
-    required List<String> instanceFields,
+    required final List<String> methods,
+    required final List<String> instanceFields,
   }) = _$InstanceMemberIntersectionResultCtor;
 
   factory InstanceMemberIntersectionResult.clone({
-    required InstanceMemberIntersectionResult instanceMemberIntersectionResult,
+    required final InstanceMemberIntersectionResult instanceMemberIntersectionResult,
     List<String>? methods,
     List<String>? instanceFields,
   }) =>
@@ -42,16 +42,16 @@ class InstanceMemberIntersectionResult
 
 Iterable<T>
     leftAssociativeIntersection<T extends Object, U extends Iterable<T>>({
-  required U left,
-  required U right,
+  required final U left,
+  required final U right,
 }) =>
         left
             .mapIndexed((_, x) => right.firstWhereOrNull((k) => x == k))
             .whereNotNull();
 
 InstanceMemberIntersectionResult instanceMemberIntersection({
-  required SwidClass first,
-  required SwidClass second,
+  required final SwidClass first,
+  required final SwidClass second,
 }) =>
     InstanceMemberIntersectionResult(
       methods: [

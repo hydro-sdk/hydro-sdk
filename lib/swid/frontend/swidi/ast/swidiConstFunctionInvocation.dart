@@ -9,13 +9,13 @@ class SwidiConstFunctionInvocation with _$SwidiConstFunctionInvocation {
   const SwidiConstFunctionInvocation._();
 
   const factory SwidiConstFunctionInvocation({
-    required String value,
-    required List<SwidiConst> positionalParameters,
-    required Map<String, SwidiConst> namedParameters,
+    required final String value,
+    required final List<SwidiConst> positionalParameters,
+    required final Map<String, SwidiConst> namedParameters,
   }) = _$SwidiConstFunctionInvocationCtor;
 
   factory SwidiConstFunctionInvocation.clone({
-    required SwidiConstFunctionInvocation swidiConstFunctionInvocation,
+    required final SwidiConstFunctionInvocation swidiConstFunctionInvocation,
     String? value,
     List<SwidiConst>? positionalParameters,
     Map<String, SwidiConst>? namedParameters,

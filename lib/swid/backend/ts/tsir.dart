@@ -26,68 +26,68 @@ part 'tsir.freezed.dart';
 @freezed
 class TsIr with _$TsIr {
   factory TsIr.fromTsClassConstructorImplementation(
-          {required TsClassConstructorImplementation
+          {required final TsClassConstructorImplementation
               tsClassConstructorImplementation}) =
       _$FromTsClassConstructorImplementation;
   factory TsIr.fromTsFunctionDefaultNamedProps(
-          {required TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps}) =
+          {required final TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps}) =
       _$FromTsFunctionDefaultNamedProps;
   factory TsIr.fromTsClassInstanceFieldDeclarations(
-          {required TsClassInstanceFieldDeclarations
+          {required final TsClassInstanceFieldDeclarations
               tsClassInstanceFieldDeclarations}) =
       _$FromClassInstanceFieldDeclarations;
   factory TsIr.fromTsClassMethodDeclarations(
-          {required TsClassMethodDeclarations tsClassMethodDeclarations}) =
+          {required final TsClassMethodDeclarations tsClassMethodDeclarations}) =
       _$FromTsClassMethodDeclarations;
   factory TsIr.fromTsClassMethodInjectionFieldDeclarations(
-          {required TsClassMethodInjectionFieldDeclarations
+          {required final TsClassMethodInjectionFieldDeclarations
               tsClassMethodInjectionFieldDeclarations}) =
       _$FromTsClassMethodInjectionFieldDeclarations;
   factory TsIr.fromTsClassMethodInjectionFieldName(
-          {required TsClassMethodInjectionFieldName
+          {required final TsClassMethodInjectionFieldName
               tsClassMethodInjectionFieldName}) =
       _$FromTsClassMethodInjectionFieldName;
   factory TsIr.fromTsClassPostamble(
-      {required TsClassPostamble tsClassPostamble}) = _$FromTsClassPostamble;
-  factory TsIr.fromTsClassPreamble({required TsClassPreamble tsClassPreamble}) =
+      {required final TsClassPostamble tsClassPostamble}) = _$FromTsClassPostamble;
+  factory TsIr.fromTsClassPreamble({required final TsClassPreamble tsClassPreamble}) =
       _$FromTsClassPreamble;
   factory TsIr.fromTsClassStaticConstFieldDeclarations(
-          {required TsClassStaticConstFieldDeclarations
+          {required final TsClassStaticConstFieldDeclarations
               tsClassStaticConstFieldDeclarations}) =
       _$FromTsClassStaticConstFieldDeclarations;
   factory TsIr.fromTsClassStaticMethodImplementation(
-          {required TsClassStaticMethodImplementation
+          {required final TsClassStaticMethodImplementation
               tsClassStaticMethodImplementation}) =
       _$FromTsClassStaticMethodImplementation;
-  factory TsIr.fromTsEnum({required TsEnum tsEnum}) = _$FromTsEnum;
-  factory TsIr.fromTsInterface({required TsInterface tsInterface}) =
+  factory TsIr.fromTsEnum({required final TsEnum tsEnum}) = _$FromTsEnum;
+  factory TsIr.fromTsInterface({required final TsInterface tsInterface}) =
       _$FromTsInterface;
   factory TsIr.fromTsClassVmDeclaration(
-          {required TsClassVmDeclaration tsClassVmDeclaration}) =
+          {required final TsClassVmDeclaration tsClassVmDeclaration}) =
       _$FromTsClassVmDeclaration;
   factory TsIr.fromTsFunctionInvocation(
-          {required TsFunctionInvocation tsFunctionInvocation}) =
+          {required final TsFunctionInvocation tsFunctionInvocation}) =
       _$FromTsFunctionInvocation;
   factory TsIr.fromTsFunctionInvocationNamedParameters(
-          {required TsFunctionInvocationNamedParameters
+          {required final TsFunctionInvocationNamedParameters
               tsFunctionInvocationNamedParameters}) =
       _$FromTsFunctionInvocationNamedParameters;
   factory TsIr.fromTsFunctionInvocationNamedParametersKeyValue(
-          {required TsFunctionInvocationNamedParametersKeyValue
+          {required final TsFunctionInvocationNamedParametersKeyValue
               tsFunctionInvocationNamedParametersKeyValue}) =
       _$FromTsFunctionInvocationNamedParametersKeyValue;
   factory TsIr.fromTsFunctionInvocationNamedParametersSpread(
-          {required TsFunctionInvocationNamedParametersSpread
+          {required final TsFunctionInvocationNamedParametersSpread
               tsFunctionInvocationNamedParametersSpread}) =
       _$TsFunctionInvocationNamedParametersSpread;
-  factory TsIr.fromTsLinebreak({required TsLinebreak tsLinebreak}) =
+  factory TsIr.fromTsLinebreak({required final TsLinebreak tsLinebreak}) =
       _$FromTsLinebreak;
   factory TsIr.fromTsFunctionSelfBindingInvocation(
-          {required TsFunctionSelfBindingInvocation
+          {required final TsFunctionSelfBindingInvocation
               tsFunctionSelfBindingInvocation}) =
       _$FromTsFunctionSelfBindingInvocation;
   factory TsIr.fromTsResolvedImport(
-      {required TsResolvedImport tsResolvedImport}) = _$FromTsResolvedImport;
+      {required final TsResolvedImport tsResolvedImport}) = _$FromTsResolvedImport;
 }
 
 extension TsIrMethods on TsIr {

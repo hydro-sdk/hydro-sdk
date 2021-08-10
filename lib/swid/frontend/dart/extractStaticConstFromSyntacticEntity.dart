@@ -30,7 +30,7 @@ import 'package:analyzer/src/dart/element/element.dart'
     show PropertyAccessorElementImpl_ImplicitGetter;
 
 SwidStaticConst extractStaticConstFromSyntacticEntity({
-  required SyntacticEntity syntacticEntity,
+  required final SyntacticEntity syntacticEntity,
 }) =>
     narrowStaticConstSyntacticEntity(
       syntacticEntity: syntacticEntity,

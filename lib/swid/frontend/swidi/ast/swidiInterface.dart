@@ -12,12 +12,12 @@ class SwidiInterface with _$SwidiInterface {
   const SwidiInterface._();
 
   const factory SwidiInterface({
-    required String name,
-    required SwidiLibraryScopePrefix libraryScopePrefix,
-    required SwidiReferenceDeclarationPrefix referenceDeclarationPrefix,
-    required SwidiNullabilitySuffix nullabilitySuffix,
-    required List<SwidiInterface> typeArguments,
-    required List<SwidiAnnotation> annotations,
+    required final String name,
+    required final SwidiLibraryScopePrefix libraryScopePrefix,
+    required final SwidiReferenceDeclarationPrefix referenceDeclarationPrefix,
+    required final SwidiNullabilitySuffix nullabilitySuffix,
+    required final List<SwidiInterface> typeArguments,
+    required final List<SwidiAnnotation> annotations,
   }) = _$SwidiInterfaceCtor;
 
   static const empty = const SwidiInterface(
@@ -30,7 +30,7 @@ class SwidiInterface with _$SwidiInterface {
   );
 
   factory SwidiInterface.clone({
-    required SwidiInterface swidiInterface,
+    required final SwidiInterface swidiInterface,
     String? name,
     SwidiLibraryScopePrefix? libraryScopePrefix,
     SwidiReferenceDeclarationPrefix? referenceDeclarationPrefix,

@@ -1,6 +1,6 @@
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 
-bool isPrimitive({required SwidType swidType}) =>
+bool isPrimitive({required final SwidType swidType}) =>
     swidType.originalPackagePath == "dart:core" &&
     (swidType.name == "String" ||
         swidType.name == "String*" ||

@@ -15,8 +15,8 @@ class DartStaticMethodNamespaceSymbolDeclaration {
   final SwidFunctionType swidFunctionType;
 
   const DartStaticMethodNamespaceSymbolDeclaration({
-    required this.swidClass,
-    required this.swidFunctionType,
+    required final this.swidClass,
+    required final this.swidFunctionType,
   });
 
   Code toCode() => swidFunctionType.isTransformIgnored(

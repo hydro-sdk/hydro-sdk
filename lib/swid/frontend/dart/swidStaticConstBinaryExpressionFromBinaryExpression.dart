@@ -5,7 +5,7 @@ import 'package:hydro_sdk/swid/ir/swidStaticConstBinaryExpression.dart';
 
 SwidStaticConstBinaryExpression
     swidStaticConstBinaryExpressionFromBinaryExpression({
-  required BinaryExpression binaryExpression,
+  required final BinaryExpression binaryExpression,
 }) =>
         SwidStaticConstBinaryExpression(
           operator: binaryExpression.operator.value() as String,

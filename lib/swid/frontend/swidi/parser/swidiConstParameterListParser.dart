@@ -29,7 +29,7 @@ mixin SwidiConstParameterListParser on SwidiConstGrammarDefinition
       super.constParameterList().map(
             (x) => SwidiConstParameterList(
               namedParameters: (({
-                required List<SwidiConstNamedParameterList> namedParameterList,
+                required final List<SwidiConstNamedParameterList> namedParameterList,
               }) =>
                   namedParameterList.isNotEmpty
                       ? namedParameterList.first.parameters
@@ -38,7 +38,7 @@ mixin SwidiConstParameterListParser on SwidiConstGrammarDefinition
                     collectTokens<SwidiConstNamedParameterList>(x),
               ),
               positionalParameters: (({
-                required List<SwidiConstPositionalParameterList>
+                required final List<SwidiConstPositionalParameterList>
                     positionalParameterList,
               }) =>
                   positionalParameterList.isNotEmpty

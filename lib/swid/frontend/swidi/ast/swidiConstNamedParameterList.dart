@@ -9,11 +9,11 @@ class SwidiConstNamedParameterList with _$SwidiConstNamedParameterList {
   const SwidiConstNamedParameterList._();
 
   const factory SwidiConstNamedParameterList({
-    required List<SwidiConstNamedParameter> parameters,
+    required final List<SwidiConstNamedParameter> parameters,
   }) = _$SwidiConstNamedParameterListCtor;
 
   factory SwidiConstNamedParameterList.clone({
-    required SwidiConstNamedParameterList swidiConstNamedParameterList,
+    required final SwidiConstNamedParameterList swidiConstNamedParameterList,
     List<SwidiConstNamedParameter>? parameters,
   }) =>
       SwidiConstNamedParameterList(

@@ -4,7 +4,7 @@ import 'package:hydro_sdk/swid/transforms/transformAccessorName.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformPrimitiveFunctionTypeNamesToTs.dart';
 
 List<SwidFunctionType> tsClassMethodInjectionCandidates(
-        {required List<SwidFunctionType?> swidFunctionTypes}) =>
+        {required final List<SwidFunctionType?> swidFunctionTypes}) =>
     swidFunctionTypes
         .map((x) => transformPrimitiveFunctionTypeNamesToTs(
             swidFunctionType: transformAccessorName(swidFunctionType: x!)))

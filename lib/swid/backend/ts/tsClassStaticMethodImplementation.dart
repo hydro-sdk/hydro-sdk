@@ -17,8 +17,8 @@ class TsClassStaticMethodImplementation {
   final SwidFunctionType swidFunctionType;
 
   const TsClassStaticMethodImplementation({
-    required this.swidClass,
-    required this.swidFunctionType,
+    required final this.swidClass,
+    required final this.swidFunctionType,
   });
 
   String toTsSource() => [

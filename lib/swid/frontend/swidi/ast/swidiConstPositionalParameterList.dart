@@ -10,11 +10,11 @@ class SwidiConstPositionalParameterList
   const SwidiConstPositionalParameterList._();
 
   const factory SwidiConstPositionalParameterList({
-    required List<SwidiConst> parameters,
+    required final List<SwidiConst> parameters,
   }) = _$SwidiConstPositionalParameterListCtor;
 
   factory SwidiConstPositionalParameterList.clone({
-    required SwidiConstPositionalParameterList
+    required final SwidiConstPositionalParameterList
         swidiConstPositionalParameterList,
     List<SwidiConst>? parameters,
   }) =>

@@ -8,7 +8,7 @@ import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/util/isInexpressibleStaticConst.dart';
 
 List<SwidInterface> collectReferencesFromStaticConst({
-  required SwidStaticConst swidStaticConst,
+  required final SwidStaticConst swidStaticConst,
 }) =>
     ([
       ...swidStaticConst.when<List<SwidInterface>>(
@@ -124,7 +124,7 @@ List<SwidInterface> collectReferencesFromStaticConst({
       ..removeWhere((x) => x == dartUnknownInterface);
 
 List<SwidInterface> collectAllStaticConstReferences({
-  required SwidType swidType,
+  required final SwidType swidType,
 }) =>
     ([
       ...swidType.when<List<SwidInterface>>(

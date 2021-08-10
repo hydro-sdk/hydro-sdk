@@ -9,10 +9,10 @@ part 'tsFunctionInvocation.g.dart';
 @freezed
 class TsFunctionInvocation with _$TsFunctionInvocation {
   factory TsFunctionInvocation({
-    required String functionReference,
-    required TsFunctionInvocationPositionalParameters
+    required final String functionReference,
+    required final TsFunctionInvocationPositionalParameters
         tsFunctionInvocationPositionalParameters,
-    required List<TsFunctionInvocationNamedParameters>
+    required final List<TsFunctionInvocationNamedParameters>
         tsFunctionInvocationNamedParameters,
   }) = _$Data;
 

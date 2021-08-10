@@ -15,7 +15,7 @@ class SwidiClassValidationState with _$SwidiClassValidationState {
       _$SwidiClassValidationStateValid;
 
   const factory SwidiClassValidationState.invalid({
-    required SwidiValidationError swidiValidationError,
+    required final SwidiValidationError swidiValidationError,
   }) = _$SwidiClassValidationStateInvalid;
 }
 
@@ -37,7 +37,7 @@ const validAnnotationNames = [
 ];
 
 List<SwidiClassValidationState> validateSwidiType({
-  required SwidiInterface swidiInterface,
+  required final SwidiInterface swidiInterface,
 }) =>
     swidiInterface.annotations.isNotEmpty
         ? swidiInterface.annotations
@@ -130,7 +130,7 @@ List<SwidiClassValidationState> validateSwidiType({
           ];
 
 List<SwidiClassValidationState> validateSwidiClassMethod({
-  required SwidiFunctionDeclaration swidiFunctionDeclaration,
+  required final SwidiFunctionDeclaration swidiFunctionDeclaration,
 }) =>
     [
       ...validateSwidiType(
@@ -293,11 +293,11 @@ List<SwidiClassValidationState> validateSwidiClassMethod({
     ];
 
 SwidiClassValidationState validateSwidiClass({
-  required SwidiClass swidiClass,
+  required final SwidiClass swidiClass,
 }) =>
     swidiClass.methods.isNotEmpty
         ? (({
-            required List<SwidiClassValidationState> aggregateValidations,
+            required final List<SwidiClassValidationState> aggregateValidations,
           }) =>
             aggregateValidations.firstWhereOrNull(
                       (x) => x.when(

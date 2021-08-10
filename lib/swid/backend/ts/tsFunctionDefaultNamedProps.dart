@@ -9,7 +9,7 @@ class TsFunctionDefaultNamedProps {
   final SwidFunctionType swidFunctionType;
 
   const TsFunctionDefaultNamedProps({
-    required this.swidFunctionType,
+    required final this.swidFunctionType,
   });
 
   String toTsSource() => swidFunctionType.namedDefaultParameters.isNotEmpty

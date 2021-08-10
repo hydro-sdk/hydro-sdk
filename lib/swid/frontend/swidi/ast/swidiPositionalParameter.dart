@@ -7,11 +7,11 @@ part 'swidiPositionalParameter.freezed.dart';
 @freezed
 class SwidiPositionalParameter with _$SwidiPositionalParameter {
   const factory SwidiPositionalParameter({
-    required SwidiDeclaration declaration,
+    required final SwidiDeclaration declaration,
   }) = _$SwidiPositionalParameterCtor;
 
   factory SwidiPositionalParameter.clone({
-    required SwidiPositionalParameter swidiPositionalParameter,
+    required final SwidiPositionalParameter swidiPositionalParameter,
     SwidiDeclaration? declaration,
   }) =>
       SwidiPositionalParameter(

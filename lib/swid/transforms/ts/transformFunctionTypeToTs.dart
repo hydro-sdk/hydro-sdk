@@ -12,9 +12,9 @@ import 'package:hydro_sdk/swid/transforms/ts/transformTypeDeclarationToTs.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformTypeFormalsToTs.dart';
 
 String transformFunctionTypeToTs({
-  required SwidFunctionType swidFunctionType,
-  required SwidClass? parentClass,
-  required TrailingReturnTypeKind trailingReturnTypeKind,
+  required final SwidFunctionType swidFunctionType,
+  required final SwidClass? parentClass,
+  required final TrailingReturnTypeKind trailingReturnTypeKind,
   TrailingReturnTypeKind nestedTrailingReturnTypeKind =
       TrailingReturnTypeKind.fatArrow,
   bool emitTrailingReturnType = true,
@@ -39,7 +39,7 @@ String transformFunctionTypeToTs({
     ]);
   }
 
-  var shouldEmitPositionalAsOptional = ({required String argName}) =>
+  var shouldEmitPositionalAsOptional = ({required final String argName}) =>
       normalTypes.entries
               .takeWhile((x) =>
                   x.value!.nullabilitySuffix == SwidNullabilitySuffix.question)

@@ -14,9 +14,9 @@ import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';
 import 'package:hydro_sdk/swid/transforms/ts/resolveTsImportPaths.dart';
 
 List<Tuple2<List<String>, String>> resolveDependencyInformation({
-  required List<SwidInterface> dependencies,
-  required SwidType importer,
-  required List<String> prefixPaths,
+  required final List<SwidInterface> dependencies,
+  required final SwidType importer,
+  required final List<String> prefixPaths,
   bool rewriteReferences = true,
 }) =>
     dependencies

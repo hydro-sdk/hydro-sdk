@@ -13,8 +13,8 @@ import 'package:hydro_sdk/swid/transforms/ts/util/makeDefaultInexpressibleFuncti
 import 'package:hydro_sdk/swid/transforms/ts/util/makeDefaultStaticConstFieldReferenceScopeResolver.dart';
 
 String transformTypeDeclarationToTs({
-  required SwidType swidType,
-  required SwidClass? parentClass,
+  required final SwidType swidType,
+  required final SwidClass? parentClass,
   bool emitTrailingReturnType = true,
   bool emitDefaultFormalsAsOptionalNamed = false,
   bool emitTopLevelInitializersForOptionalPositionals = false,

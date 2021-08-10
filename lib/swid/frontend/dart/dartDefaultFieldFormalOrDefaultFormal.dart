@@ -14,13 +14,13 @@ class DartDefaultFieldFormalOrDefaultFormal
   const DartDefaultFieldFormalOrDefaultFormal._();
 
   const factory DartDefaultFieldFormalOrDefaultFormal.fromDefaultFieldFormalParameterElementImpl({
-    required DefaultFieldFormalParameterElementImpl
+    required final DefaultFieldFormalParameterElementImpl
         defaultFieldFormalParameterElementImpl,
   }) =
       _$DartDefaultFieldFormalOrDefaultFormalFromDefaultFieldFormalParameterElementImpl;
 
   const factory DartDefaultFieldFormalOrDefaultFormal.fromDefaultParameterElementImpl({
-    required DefaultParameterElementImpl defaultParameterElementImpl,
+    required final DefaultParameterElementImpl defaultParameterElementImpl,
   }) = _$DartDefaultFieldFormalOrDefaultFormalFromDefaultParameterElementImpl;
 
   String get defaultValueCode => when(

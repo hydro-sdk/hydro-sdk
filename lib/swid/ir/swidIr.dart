@@ -9,15 +9,15 @@ part 'swidIr.g.dart';
 
 @freezed
 class SwidIr with _$SwidIr {
-  const factory SwidIr.fromSwidClass({required SwidClass swidClass}) =
+  const factory SwidIr.fromSwidClass({required final SwidClass swidClass}) =
       _$SwidIrFromSwidClass;
 
-  const factory SwidIr.fromSwidEnum({required SwidEnum swidEnum}) =
+  const factory SwidIr.fromSwidEnum({required final SwidEnum swidEnum}) =
       _$SwidIrFromSwidEnum;
 
   factory SwidIr.fromJson(Map<String, dynamic> json) => _$SwidIrFromJson(json);
 
-  static List<SwidIr> merge({required List<List<SwidIr>> ir}) =>
+  static List<SwidIr> merge({required final List<List<SwidIr>> ir}) =>
       ir.reduce((value, element) => [
             ...([
               ...value
@@ -59,8 +59,8 @@ class SwidIr with _$SwidIr {
 }
 
 List<SwidClass> _mergeClasses({
-  required List<SwidClass> first,
-  required List<SwidClass> second,
+  required final List<SwidClass> first,
+  required final List<SwidClass> second,
 }) =>
     second.fold(
       first,

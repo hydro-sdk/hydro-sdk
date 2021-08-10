@@ -9,8 +9,8 @@ part 'swidStaticConstPrefixedExpression.g.dart';
 class SwidStaticConstPrefixedExpression
     with _$SwidStaticConstPrefixedExpression {
   const factory SwidStaticConstPrefixedExpression({
-    required String prefix,
-    required SwidStaticConst expression,
+    required final String prefix,
+    required final SwidStaticConst expression,
   }) = _$Data;
 
   factory SwidStaticConstPrefixedExpression.fromJson(
@@ -18,7 +18,7 @@ class SwidStaticConstPrefixedExpression
       _$SwidStaticConstPrefixedExpressionFromJson(json);
 
   factory SwidStaticConstPrefixedExpression.clone({
-    required SwidStaticConstPrefixedExpression
+    required final SwidStaticConstPrefixedExpression
         swidStaticConstPrefixedExpression,
     String? prefix,
     SwidStaticConst? expression,

@@ -24,11 +24,11 @@ class DartFunctionSelfBindingInvocation {
   final Expression? returnValueBoxingTableExpression;
 
   const DartFunctionSelfBindingInvocation({
-    required this.swidFunctionType,
-    required this.argumentBoxingProcedure,
-    required this.returnValueBoxingProcedure,
-    required this.emitTableBindingPrefix,
-    required this.useClosureUnpackNameForUnboxingIdentifiers,
+    required final this.swidFunctionType,
+    required final this.argumentBoxingProcedure,
+    required final this.returnValueBoxingProcedure,
+    required final this.emitTableBindingPrefix,
+    required final this.useClosureUnpackNameForUnboxingIdentifiers,
     this.returnValueBoxingTableExpression,
   });
 

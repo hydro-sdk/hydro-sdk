@@ -6,8 +6,8 @@ import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';
 import 'package:hydro_sdk/swid/transforms/transformToPascalCase.dart';
 
 String makeDefaultInexpressibleFunctionInvocationFallback({
-  required SwidClass? parentClass,
-  required String name,
+  required final SwidClass? parentClass,
+  required final String name,
 }) =>
     parentClass != null
         ? [

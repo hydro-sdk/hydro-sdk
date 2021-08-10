@@ -9,15 +9,15 @@ part 'swidStaticConstListLiteral.g.dart';
 @freezed
 class SwidStaticConstListLiteral with _$SwidStaticConstListLiteral {
   const factory SwidStaticConstListLiteral({
-    required List<SwidStaticConst> elements,
-    required SwidType staticType,
+    required final List<SwidStaticConst> elements,
+    required final SwidType staticType,
   }) = _$SwidStaticConstListLiteralCtor;
 
   factory SwidStaticConstListLiteral.fromJson(Map<String, dynamic> json) =>
       _$SwidStaticConstListLiteralFromJson(json);
 
   factory SwidStaticConstListLiteral.clone({
-    required SwidStaticConstListLiteral swidStaticConstListLiteral,
+    required final SwidStaticConstListLiteral swidStaticConstListLiteral,
     List<SwidStaticConst>? elements,
     SwidType? staticType,
   }) =>

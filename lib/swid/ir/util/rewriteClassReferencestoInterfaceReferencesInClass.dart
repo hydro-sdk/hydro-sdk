@@ -4,7 +4,7 @@ import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/util/rewriteClassReferencesToInterfaceReferences.dart';
 
 SwidClass rewriteClassReferencesToInterfaceReferencesInClass({
-  required SwidClass swidClass,
+  required final SwidClass swidClass,
 }) =>
     rewriteClassReferencesToInterfaceReferences(
       swidType: SwidType.fromSwidClass(

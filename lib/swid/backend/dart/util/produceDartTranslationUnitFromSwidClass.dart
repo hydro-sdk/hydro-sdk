@@ -18,13 +18,13 @@ import 'package:hydro_sdk/swid/ir/util/collectAllReferences.dart';
 import 'package:hydro_sdk/swid/ir/util/instantiateAllGenericsAsDynamic.dart';
 
 DartTranslationUnit? produceDartTranslationUnitFromSwidClass({
-  required SwidClass swidClass,
-  required String baseFileName,
-  required String path,
-  required List<String> prefixPaths,
+  required final SwidClass swidClass,
+  required final String baseFileName,
+  required final String path,
+  required final List<String> prefixPaths,
 }) =>
     (({
-      required SwidClass swidClass,
+      required final SwidClass swidClass,
     }) =>
         requiresDartClassTranslationUnit(swidClass: swidClass)
             ? DartTranslationUnit(
@@ -32,7 +32,7 @@ DartTranslationUnit? produceDartTranslationUnitFromSwidClass({
                 fileName: "$baseFileName.dart",
                 ir: [
                   DartIr.fromDartLinebreak(dartLinebreak: DartLinebreak()),
-                  ...(({required List<DartImportStatement> importStatements}) =>
+                  ...(({required final List<DartImportStatement> importStatements}) =>
                       importStatements
                           .fold<List<DartImportStatement>>(
                               <DartImportStatement>[],

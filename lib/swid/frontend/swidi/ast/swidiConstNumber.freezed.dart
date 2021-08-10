@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$SwidiConstNumberTearOff {
   const _$SwidiConstNumberTearOff();
 
-  _$SwidiConstNumberCtor call({required String value}) {
+  _$SwidiConstNumberCtor call({required final String value}) {
     return _$SwidiConstNumberCtor(
       value: value,
     );
@@ -102,7 +102,7 @@ class __$$SwidiConstNumberCtorCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_$SwidiConstNumberCtor implements _$SwidiConstNumberCtor {
-  const _$_$SwidiConstNumberCtor({required this.value});
+  const _$_$SwidiConstNumberCtor({required final this.value});
 
   @override
   final String value;
@@ -132,7 +132,7 @@ class _$_$SwidiConstNumberCtor implements _$SwidiConstNumberCtor {
 }
 
 abstract class _$SwidiConstNumberCtor implements SwidiConstNumber {
-  const factory _$SwidiConstNumberCtor({required String value}) =
+  const factory _$SwidiConstNumberCtor({required final String value}) =
       _$_$SwidiConstNumberCtor;
 
   @override

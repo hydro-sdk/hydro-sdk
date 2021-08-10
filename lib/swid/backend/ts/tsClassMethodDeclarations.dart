@@ -13,7 +13,7 @@ class TsClassMethodDeclarations {
   final SwidClass swidClass;
 
   const TsClassMethodDeclarations({
-    required this.swidClass,
+    required final this.swidClass,
   });
 
   String toTsSource() => (swidClass.methods.isNotEmpty)

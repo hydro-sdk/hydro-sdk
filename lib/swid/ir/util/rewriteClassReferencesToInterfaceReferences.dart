@@ -17,7 +17,7 @@ import 'package:hydro_sdk/swid/ir/util/rewriteClassReferencestoInterfaceReferenc
 import 'package:hydro_sdk/swid/transforms/removeNullabilitySuffix.dart';
 
 String rewriteReferenceName({
-  required SwidType swidType,
+  required final SwidType swidType,
 }) =>
     swidType.declarationModifiers.ignoredTransforms
                 .firstWhereOrNull((x) => x == "referenceRewriting") ==
@@ -35,7 +35,7 @@ String rewriteReferenceName({
         : swidType.name;
 
 SwidType rewriteClassReferencesToInterfaceReferences({
-  required SwidType swidType,
+  required final SwidType swidType,
 }) =>
     swidType.when(
       fromSwidInterface: (val) => isPrimitiveMap(

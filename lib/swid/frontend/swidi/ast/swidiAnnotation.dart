@@ -7,11 +7,11 @@ part 'swidiAnnotation.freezed.dart';
 @freezed
 class SwidiAnnotation with _$SwidiAnnotation {
   const factory SwidiAnnotation({
-    required SwidiConst value,
+    required final SwidiConst value,
   }) = _$SwidiAnnotationCtor;
 
   factory SwidiAnnotation.clone({
-    required SwidiAnnotation swidiAnnotation,
+    required final SwidiAnnotation swidiAnnotation,
     SwidiConst? value,
   }) =>
       SwidiAnnotation(

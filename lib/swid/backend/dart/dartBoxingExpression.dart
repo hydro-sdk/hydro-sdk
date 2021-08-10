@@ -12,8 +12,8 @@ class DartBoxingExpression {
   final Expression? tableExpression;
 
   const DartBoxingExpression({
-    required this.swidType,
-    required this.expression,
+    required final this.swidType,
+    required final this.expression,
     this.tableExpression,
   });
 

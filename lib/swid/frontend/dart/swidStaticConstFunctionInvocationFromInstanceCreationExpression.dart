@@ -23,7 +23,7 @@ import 'package:hydro_sdk/swid/ir/swidType.dart';
 
 SwidStaticConstFunctionInvocation
     swidStaticConstFunctionInvocationFromInstanceCreationExpression({
-  required InstanceCreationExpression instanceCreationExpression,
+  required final InstanceCreationExpression instanceCreationExpression,
 }) {
   ConstructorName constructor = instanceCreationExpression.childEntities
       .firstWhere((x) => x is ConstructorName) as ConstructorName;

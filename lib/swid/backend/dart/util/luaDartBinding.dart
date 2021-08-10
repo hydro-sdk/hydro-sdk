@@ -3,7 +3,7 @@ import 'package:code_builder/code_builder.dart'
 
 import 'package:hydro_sdk/swid/backend/dart/util/luaCallerArgumentsParameterName.dart';
 
-Expression luaDartBinding({required Code? code}) =>
+Expression luaDartBinding({required final Code? code}) =>
     refer("makeLuaDartFunc").call([], {
       "func": Method((k) => k
         ..requiredParameters.addAll([

@@ -15,31 +15,31 @@ class SwidiConst with _$SwidiConst {
   const SwidiConst._();
 
   const factory SwidiConst.fromSwidiEmptyConst({
-    required SwidiEmptyConst swidiEmptyConst,
+    required final SwidiEmptyConst swidiEmptyConst,
   }) = _$SwidiConstFromSwidiEmptyConst;
 
   const factory SwidiConst.fromSwidiConstNumber({
-    required SwidiConstNumber swidiConstNumber,
+    required final SwidiConstNumber swidiConstNumber,
   }) = _$SwidiConstFromSwidiConstNumber;
 
   const factory SwidiConst.fromSwidiConstString({
-    required SwidiConstString swidiConstString,
+    required final SwidiConstString swidiConstString,
   }) = _$SwidiConstFromSwidiConstString;
 
   const factory SwidiConst.fromSwidiConstFunctionInvocation({
-    required SwidiConstFunctionInvocation swidiConstFunctionInvocation,
+    required final SwidiConstFunctionInvocation swidiConstFunctionInvocation,
   }) = _$SwidiConstFromSwidiConstFunctionInvocation;
 
   const factory SwidiConst.fromSwidiConstMap({
-    required SwidiConstMap swidiConstMap,
+    required final SwidiConstMap swidiConstMap,
   }) = _$SwidiConstFromSwidiConstMap;
 
   const factory SwidiConst.fromSwidiConstBoolean({
-    required SwidiConstBoolean swidiConstBoolean,
+    required final SwidiConstBoolean swidiConstBoolean,
   }) = _$SwidiConstFromSwidiConstBoolean;
 
   factory SwidiConst.clone({
-    required SwidiConst swidiConst,
+    required final SwidiConst swidiConst,
   }) =>
       swidiConst.when(
         fromSwidiEmptyConst: (val) => SwidiConst.fromSwidiEmptyConst(

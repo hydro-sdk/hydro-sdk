@@ -10,10 +10,10 @@ class SwidiConstBoolean with _$SwidiConstBoolean {
   const SwidiConstBoolean._();
 
   const factory SwidiConstBoolean.fromSwidiConstBooleanTrue({
-    required SwidiConstBooleanTrue swidiConstBooleanTrue,
+    required final SwidiConstBooleanTrue swidiConstBooleanTrue,
   }) = _$SwidiConstBooleanFromSwidiConstBooleanTrue;
 
   const factory SwidiConstBoolean.fromSwidiConstBooleanFalse({
-    required SwidiConstBooleanFalse swidiConstBooleanFalse,
+    required final SwidiConstBooleanFalse swidiConstBooleanFalse,
   }) = _$SwidiConstBooleanFromSwidiConstBooleanFalse;
 }

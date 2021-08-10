@@ -5,7 +5,7 @@ import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/util/instantiateAllGenericsAs.dart';
 
 SwidType instantiateAllGenericsAsDynamic({
-  required SwidType swidType,
+  required final SwidType swidType,
 }) =>
     instantiateAllGenericsAs(
       swidType: swidType,

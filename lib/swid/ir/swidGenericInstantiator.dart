@@ -8,8 +8,8 @@ part "swidGenericInstantiator.g.dart";
 @freezed
 class SwidGenericInstantiator with _$SwidGenericInstantiator {
   const factory SwidGenericInstantiator({
-    required String name,
-    required SwidInstantiatedGeneric instantiatedGeneric,
+    required final String name,
+    required final SwidInstantiatedGeneric instantiatedGeneric,
   }) = _$SwidGenericInstantiatorCtor;
 
   factory SwidGenericInstantiator.fromJson(Map<String, dynamic> json) =>

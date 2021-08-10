@@ -13,16 +13,16 @@ class TsInterface {
   final String superClause;
 
   const TsInterface({
-    required this.name,
-    required this.members,
-    required this.emitSuperInterfaceExtensions,
+    required final this.name,
+    required final this.members,
+    required final this.emitSuperInterfaceExtensions,
     this.typeFormals = const [],
     this.superClause = "",
   });
 
   factory TsInterface.fromSwidClass({
-    required SwidClass swidClass,
-    required bool emitSuperInterfaceExtensions,
+    required final SwidClass swidClass,
+    required final bool emitSuperInterfaceExtensions,
   }) =>
       TsInterface(
         name: swidClass.name,

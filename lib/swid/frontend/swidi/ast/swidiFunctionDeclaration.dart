@@ -12,17 +12,17 @@ part 'swidiFunctionDeclaration.freezed.dart';
 @freezed
 class SwidiFunctionDeclaration with _$SwidiFunctionDeclaration {
   const factory SwidiFunctionDeclaration({
-    required String name,
-    required SwidiInterface returnType,
-    required List<SwidiPositionalParameter> positionalParameters,
-    required List<SwidiOptionalParameter> optionalParameters,
-    required List<SwidiNamedParameter> namedParameters,
-    required List<SwidiTypeFormal> typeFormals,
-    required SwidiConst shortHandOverride,
+    required final String name,
+    required final SwidiInterface returnType,
+    required final List<SwidiPositionalParameter> positionalParameters,
+    required final List<SwidiOptionalParameter> optionalParameters,
+    required final List<SwidiNamedParameter> namedParameters,
+    required final List<SwidiTypeFormal> typeFormals,
+    required final SwidiConst shortHandOverride,
   }) = _$SwidiFunctionDeclarationCtor;
 
   factory SwidiFunctionDeclaration.clone({
-    required SwidiFunctionDeclaration swidiFunctionDeclaration,
+    required final SwidiFunctionDeclaration swidiFunctionDeclaration,
     String? name,
     SwidiInterface? returnType,
     List<SwidiPositionalParameter>? positionalParameters,

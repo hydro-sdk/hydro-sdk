@@ -8,8 +8,8 @@ class DartBindInstanceFieldDirect {
   final String tableKey;
 
   DartBindInstanceFieldDirect({
-    required this.instanceFieldName,
-    required this.tableKey,
+    required final this.instanceFieldName,
+    required final this.tableKey,
   });
 
   String toDartSource() => DartFormatter().formatStatement(refer("table")

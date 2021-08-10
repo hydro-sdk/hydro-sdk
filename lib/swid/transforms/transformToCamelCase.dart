@@ -1,7 +1,7 @@
 import 'package:recase/recase.dart';
 
 String transformToCamelCase({
-  required String str,
+  required final String str,
 }) =>
     [
       str[0] == "_" ? "_" : "",

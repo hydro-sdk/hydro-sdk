@@ -16,7 +16,7 @@ class DartMethodInjectionImplementation {
   final SwidFunctionType swidFunctionType;
 
   const DartMethodInjectionImplementation({
-    required this.swidFunctionType,
+    required final this.swidFunctionType,
   });
 
   String? _methodInvocation() => (swidFunctionType.declarationModifiers.isGetter

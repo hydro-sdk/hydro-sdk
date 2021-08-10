@@ -19,9 +19,9 @@ class DartBoxObjectReference {
   Expression? tableExpression;
 
   DartBoxObjectReference({
-    required this.type,
-    required this.objectReference,
-    required this.boxLists,
+    required final this.type,
+    required final this.objectReference,
+    required final this.boxLists,
     this.codeKind = CodeKind.statement,
     this.tableExpression,
   }) {

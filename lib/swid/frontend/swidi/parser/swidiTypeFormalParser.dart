@@ -22,7 +22,7 @@ mixin SwidiTypeFormalParser
         (x) => SwidiTypeFormal(
           name: List.from(x).whereType<Token?>().first?.input ?? "",
           bound: (({
-            required List<SwidiInterface> bound,
+            required final List<SwidiInterface> bound,
           }) =>
               bound.isNotEmpty ? bound.first : SwidiInterface.empty)(
             bound: collectTokens<SwidiInterface>(x),

@@ -12,25 +12,25 @@ class DartBarrelLoadNamespaceSymbolDeclaration {
   final BarrelSpec barrelSpec;
 
   DartBarrelLoadNamespaceSymbolDeclaration({
-    required this.barrelSpec,
+    required final this.barrelSpec,
   });
   String toDartSource() => DartFormatter().format(Method((m) => m
         ..name = "load${barrelSpec.name}"
         ..returns = refer("void")
         ..optionalParameters.addAll([
           Parameter((p) => p
-            ..required = true
+            ..required  = true
             ..named = true
             ..name = "hydroState"
             ..type = refer("HydroState")),
           barrelSpec.isTopLevel()
               ? Parameter((p) => p
-                ..required = true
+                ..required  = true
                 ..named = true
                 ..name = "context"
                 ..type = refer("Context"))
               : Parameter((p) => p
-                ..required = true
+                ..required  = true
                 ..named = true
                 ..name = "table"
                 ..type = refer("HydroTable")),

@@ -1,4 +1,4 @@
 String unpackedClosureName({
-  required String str,
+  required final String str,
 }) =>
     "unpacked$str";

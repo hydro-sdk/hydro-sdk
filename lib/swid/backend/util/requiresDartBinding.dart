@@ -4,7 +4,7 @@ import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/util/isInexpressibleStaticConst.dart';
 
 bool requiresDartBinding({
-  required SwidClass swidClass,
+  required final SwidClass swidClass,
 }) =>
     (swidClass.name[0] != "_" && swidClass.isConstructible()) ||
     swidClass.factoryConstructors.isNotEmpty ||

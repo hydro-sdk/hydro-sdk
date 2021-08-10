@@ -24,26 +24,26 @@ class SwidFunctionType
   const SwidFunctionType._();
 
   const factory SwidFunctionType({
-    required String name,
-    required SwidNullabilitySuffix nullabilitySuffix,
-    required String originalPackagePath,
-    required Map<String, SwidType> namedParameterTypes,
-    required Map<String, SwidDefaultFormalParameter> namedDefaults,
-    required List<String> normalParameterNames,
-    required List<SwidType> normalParameterTypes,
-    required List<String> optionalParameterNames,
-    required List<SwidType> optionalParameterTypes,
-    required SwidType returnType,
-    required bool isFactory,
-    required List<SwidTypeFormal> typeFormals,
-    required SwidDeclarationModifiers declarationModifiers,
+    required final String name,
+    required final SwidNullabilitySuffix nullabilitySuffix,
+    required final String originalPackagePath,
+    required final Map<String, SwidType> namedParameterTypes,
+    required final Map<String, SwidDefaultFormalParameter> namedDefaults,
+    required final List<String> normalParameterNames,
+    required final List<SwidType> normalParameterTypes,
+    required final List<String> optionalParameterNames,
+    required final List<SwidType> optionalParameterTypes,
+    required final SwidType returnType,
+    required final bool isFactory,
+    required final List<SwidTypeFormal> typeFormals,
+    required final SwidDeclarationModifiers declarationModifiers,
   }) = _$Data;
 
   factory SwidFunctionType.fromJson(Map<String, dynamic> json) =>
       _$SwidFunctionTypeFromJson(json);
 
   factory SwidFunctionType.MakeReceiverVoid({
-    required SwidFunctionType swidFunctionType,
+    required final SwidFunctionType swidFunctionType,
   }) =>
       SwidFunctionType.clone(
         swidFunctionType: swidFunctionType,
@@ -67,9 +67,9 @@ class SwidFunctionType
       );
 
   factory SwidFunctionType.InsertLeadingPositionalParameter({
-    required SwidFunctionType swidFunctionType,
-    required String typeName,
-    required SwidType swidType,
+    required final SwidFunctionType swidFunctionType,
+    required final String typeName,
+    required final SwidType swidType,
   }) =>
       SwidFunctionType.clone(
         swidFunctionType: swidFunctionType,
@@ -84,7 +84,7 @@ class SwidFunctionType
       );
 
   factory SwidFunctionType.clone({
-    required SwidFunctionType swidFunctionType,
+    required final SwidFunctionType swidFunctionType,
     String? name,
     SwidNullabilitySuffix? nullabilitySuffix,
     String? originalPackagePath,

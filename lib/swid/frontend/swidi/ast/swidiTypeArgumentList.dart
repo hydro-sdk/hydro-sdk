@@ -9,11 +9,11 @@ class SwidiTypeArgumentList with _$SwidiTypeArgumentList {
   const SwidiTypeArgumentList._();
 
   const factory SwidiTypeArgumentList({
-    required List<SwidiInterface> typeList,
+    required final List<SwidiInterface> typeList,
   }) = _$SwidiTypeArgumentListCtor;
 
   factory SwidiTypeArgumentList.clone({
-    required SwidiTypeArgumentList swidiTypeArgumentList,
+    required final SwidiTypeArgumentList swidiTypeArgumentList,
     List<SwidiInterface>? typeList,
   }) =>
       SwidiTypeArgumentList(

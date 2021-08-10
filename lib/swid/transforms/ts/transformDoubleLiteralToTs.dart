@@ -1,5 +1,5 @@
 import 'package:hydro_sdk/swid/ir/swidDoubleLiteral.dart';
 
 String transformDoubleLiteralToTs(
-        {required SwidDoubleLiteral swidDoubleLiteral}) =>
+        {required final SwidDoubleLiteral swidDoubleLiteral}) =>
     swidDoubleLiteral.value;

@@ -25,7 +25,7 @@ class DartVMManagedClassDeclaration {
   final SwidClass swidClass;
 
   const DartVMManagedClassDeclaration({
-    required this.swidClass,
+    required final this.swidClass,
   });
 
   String toDartSource() => DartFormatter().format(Class(
@@ -66,17 +66,17 @@ class DartVMManagedClassDeclaration {
               (c) => c
                 ..optionalParameters.addAll([
                   Parameter((p) => p
-                    ..required = true
+                    ..required  = true
                     ..toThis = true
                     ..named = true
                     ..name = "table"),
                   Parameter((p) => p
-                    ..required = true
+                    ..required  = true
                     ..toThis = true
                     ..named = true
                     ..name = "vmObject"),
                   Parameter((p) => p
-                    ..required = true
+                    ..required  = true
                     ..toThis = true
                     ..named = true
                     ..name = "hydroState"),

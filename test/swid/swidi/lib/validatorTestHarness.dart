@@ -5,8 +5,8 @@ import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/validation/validateSwidiClass.dart';
 
 void validatorTestHarness<T>({
-  required String input,
-  required T expectation,
+  required final String input,
+  required final T expectation,
 }) {
   final inputValidationState = const SwidiParser()
       .build()

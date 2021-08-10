@@ -9,8 +9,8 @@ import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/util/instantiateGeneric.dart';
 
 SwidType instantiateAllGenericsAs({
-  required SwidType swidType,
-  required SwidInstantiatedGeneric instantiatedGeneric,
+  required final SwidType swidType,
+  required final SwidInstantiatedGeneric instantiatedGeneric,
 }) =>
     swidType.when(
       fromSwidInterface: (val) => SwidType.fromSwidInterface(

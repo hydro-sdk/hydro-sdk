@@ -7,11 +7,11 @@ part 'swidiNamedParameter.freezed.dart';
 @freezed
 class SwidiNamedParameter with _$SwidiNamedParameter {
   const factory SwidiNamedParameter({
-    required SwidiDeclaration declaration,
+    required final SwidiDeclaration declaration,
   }) = _$SwidiNamedParameterCtor;
 
   factory SwidiNamedParameter.clone({
-    required SwidiNamedParameter? swidiNamedParameter,
+    required final SwidiNamedParameter? swidiNamedParameter,
     SwidiDeclaration? declaration,
   }) =>
       SwidiNamedParameter(

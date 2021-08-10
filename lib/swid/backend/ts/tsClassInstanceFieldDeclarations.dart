@@ -5,7 +5,7 @@ class TsClassInstanceFieldDeclarations {
   final SwidClass swidClass;
 
   const TsClassInstanceFieldDeclarations({
-    required this.swidClass,
+    required final this.swidClass,
   });
 
   String toTsSource() => (swidClass.instanceFieldDeclarations.isNotEmpty)

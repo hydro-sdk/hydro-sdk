@@ -19,19 +19,19 @@ class SwidInterface
   const SwidInterface._();
 
   const factory SwidInterface({
-    required String name,
-    required SwidNullabilitySuffix nullabilitySuffix,
-    required String originalPackagePath,
-    required List<SwidType> typeArguments,
-    required SwidReferenceDeclarationKind referenceDeclarationKind,
-    required SwidDeclarationModifiers declarationModifiers,
+    required final String name,
+    required final SwidNullabilitySuffix nullabilitySuffix,
+    required final String originalPackagePath,
+    required final List<SwidType> typeArguments,
+    required final SwidReferenceDeclarationKind referenceDeclarationKind,
+    required final SwidDeclarationModifiers declarationModifiers,
   }) = _$Data;
 
   factory SwidInterface.fromJson(Map<String, dynamic> json) =>
       _$SwidInterfaceFromJson(json);
 
   factory SwidInterface.clone({
-    required SwidInterface swidType,
+    required final SwidInterface swidType,
     String? name,
     SwidNullabilitySuffix? nullabilitySuffix,
     String? originalPackagePath,
@@ -54,7 +54,7 @@ class SwidInterface
       );
 
   factory SwidInterface.fromSwidClass({
-    required SwidClass swidClass,
+    required final SwidClass swidClass,
   }) =>
       SwidInterface(
         name: swidClass.name,

@@ -7,11 +7,11 @@ part 'swidiAnnotationList.freezed.dart';
 @freezed
 class SwidiAnnotationList with _$SwidiAnnotationList {
   const factory SwidiAnnotationList({
-    required List<SwidiAnnotation> annotationList,
+    required final List<SwidiAnnotation> annotationList,
   }) = _$SwidiAnnotationListCtor;
 
   factory SwidiAnnotationList.clone({
-    required SwidiAnnotationList swidiAnnotationList,
+    required final SwidiAnnotationList swidiAnnotationList,
     List<SwidiAnnotation>? annotationList,
   }) =>
       SwidiAnnotationList(

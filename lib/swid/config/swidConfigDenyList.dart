@@ -6,8 +6,8 @@ part 'swidConfigDenyList.g.dart';
 @freezed
 class SwidConfigDenyList with _$SwidConfigDenyList {
   const factory SwidConfigDenyList({
-    required List<String> classNames,
-    required List<String> packagePaths,
+    required final List<String> classNames,
+    required final List<String> packagePaths,
   }) = _$SwidConfigDenyListCtor;
 
   factory SwidConfigDenyList.fromJson(Map<String, dynamic> json) =>

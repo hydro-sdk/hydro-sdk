@@ -6,7 +6,7 @@ import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 
 SwidInterface swidInterfaceFromVoidType({
-  required VoidType voidType,
+  required final VoidType voidType,
 }) =>
     SwidInterface(
       name: "void",

@@ -8,11 +8,11 @@ class StringTuple with _$StringTuple {
   const StringTuple._();
 
   const factory StringTuple({
-    required String item1,
-    required String item2,
+    required final String item1,
+    required final String item2,
   }) = _$StringTupleCtor;
   factory StringTuple.clone({
-    required StringTuple stringTuple,
+    required final StringTuple stringTuple,
     String? item1,
     String? item2,
   }) =>
@@ -28,40 +28,40 @@ class StringTuple with _$StringTuple {
 @freezed
 class SwidDeclarationModifiers with _$SwidDeclarationModifiers {
   const factory SwidDeclarationModifiers({
-    required List<String> ignoredTransforms,
-    required List<String> ignoredAnalyses,
-    required List<StringTuple> overridenTransforms,
-    required bool isAbstract,
-    required bool isGetter,
-    required bool isOperator,
-    required bool isSetter,
-    required bool isStatic,
-    required bool isSynthetic,
-    required bool hasAlwaysThrows,
-    required bool hasDeprecated,
-    required bool hasFactory,
-    required bool hasImplicitReturnType,
-    required bool hasIsTest,
-    required bool hasIsTestGroup,
-    required bool hasJS,
-    required bool hasLiteral,
-    required bool hasMustCallSuper,
-    required bool hasNonVirtual,
-    required bool hasOptionalTypeArgs,
-    required bool hasOverride,
-    required bool hasProtected,
-    required bool hasRequired,
-    required bool hasSealed,
-    required bool hasVisibleForTemplate,
-    required bool hasVisibleForTesting,
-    required bool isPublic,
+    required final List<String> ignoredTransforms,
+    required final List<String> ignoredAnalyses,
+    required final List<StringTuple> overridenTransforms,
+    required final bool isAbstract,
+    required final bool isGetter,
+    required final bool isOperator,
+    required final bool isSetter,
+    required final bool isStatic,
+    required final bool isSynthetic,
+    required final bool hasAlwaysThrows,
+    required final bool hasDeprecated,
+    required final bool hasFactory,
+    required final bool hasImplicitReturnType,
+    required final bool hasIsTest,
+    required final bool hasIsTestGroup,
+    required final bool hasJS,
+    required final bool hasLiteral,
+    required final bool hasMustCallSuper,
+    required final bool hasNonVirtual,
+    required final bool hasOptionalTypeArgs,
+    required final bool hasOverride,
+    required final bool hasProtected,
+    required final bool hasRequired,
+    required final bool hasSealed,
+    required final bool hasVisibleForTemplate,
+    required final bool hasVisibleForTesting,
+    required final bool isPublic,
   }) = _$Data;
 
   factory SwidDeclarationModifiers.fromJson(Map<String, dynamic> json) =>
       _$SwidDeclarationModifiersFromJson(json);
 
   factory SwidDeclarationModifiers.clone({
-    required SwidDeclarationModifiers declarationModifiers,
+    required final SwidDeclarationModifiers declarationModifiers,
     List<String>? ignoredTransforms,
     List<String>? ignoredAnalyses,
     List<StringTuple>? overridenTransforms,

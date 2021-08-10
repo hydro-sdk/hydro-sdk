@@ -8,16 +8,16 @@ part 'swidStaticConstBinaryExpression.g.dart';
 @freezed
 class SwidStaticConstBinaryExpression with _$SwidStaticConstBinaryExpression {
   const factory SwidStaticConstBinaryExpression({
-    required String operator,
-    required SwidStaticConst leftOperand,
-    required SwidStaticConst rightOperand,
+    required final String operator,
+    required final SwidStaticConst leftOperand,
+    required final SwidStaticConst rightOperand,
   }) = _$Data;
 
   factory SwidStaticConstBinaryExpression.fromJson(Map<String, dynamic> json) =>
       _$SwidStaticConstBinaryExpressionFromJson(json);
 
   factory SwidStaticConstBinaryExpression.clone({
-    required SwidStaticConstBinaryExpression swidStaticConstBinaryExpression,
+    required final SwidStaticConstBinaryExpression swidStaticConstBinaryExpression,
     String? operator,
     SwidStaticConst? leftOperand,
     SwidStaticConst? rightOperand,

@@ -11,14 +11,14 @@ import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
 
 bool _isConstPrimitive({
-  required SwidType swidType,
-  required SwidType constPrimitive,
+  required final SwidType swidType,
+  required final SwidType constPrimitive,
 }) =>
     swidType.name == constPrimitive.name &&
     swidType.originalPackagePath == constPrimitive.originalPackagePath;
 
 bool isDartObject({
-  required SwidType swidType,
+  required final SwidType swidType,
 }) =>
     _isConstPrimitive(
       swidType: swidType,
@@ -34,7 +34,7 @@ bool isDartObject({
     );
 
 bool isClassDartObject({
-  required SwidClass swidClass,
+  required final SwidClass swidClass,
 }) =>
     isDartObject(
       swidType: SwidType.fromSwidClass(
@@ -91,7 +91,7 @@ const dartNullableObject = const SwidInterface(
 );
 
 bool isDartType({
-  required SwidType swidType,
+  required final SwidType swidType,
 }) =>
     _isConstPrimitive(
       swidType: swidType,
@@ -107,7 +107,7 @@ bool isDartType({
     );
 
 bool isClassDartType({
-  required SwidClass swidClass,
+  required final SwidClass swidClass,
 }) =>
     isDartType(
       swidType: SwidType.fromSwidClass(

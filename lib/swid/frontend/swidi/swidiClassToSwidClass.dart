@@ -5,7 +5,7 @@ import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 
 SwidClass swidiClassToSwidClass({
-  required SwidiClass swidiClass,
+  required final SwidiClass swidiClass,
 }) =>
     SwidClass(
       name: swidiClass.name,

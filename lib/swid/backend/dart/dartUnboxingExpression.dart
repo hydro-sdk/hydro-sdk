@@ -21,8 +21,8 @@ class DartUnboxingExpression {
   final String identifierName;
 
   const DartUnboxingExpression({
-    required this.swidType,
-    required this.expression,
+    required final this.swidType,
+    required final this.expression,
     this.identifierName = "",
   });
 

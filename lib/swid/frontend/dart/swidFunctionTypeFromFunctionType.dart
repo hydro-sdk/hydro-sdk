@@ -19,8 +19,8 @@ import 'package:analyzer/dart/element/type.dart'
     show FunctionType, InterfaceType;
 
 SwidFunctionType swidFunctionTypeFromFunctionType({
-  required FunctionType functionType,
-  required SwidDeclarationModifiers declarationModifiers,
+  required final FunctionType functionType,
+  required final SwidDeclarationModifiers declarationModifiers,
   String? name,
 }) =>
     SwidFunctionType(
@@ -38,7 +38,7 @@ SwidFunctionType swidFunctionTypeFromFunctionType({
           .where((x) => x != dartUnknownType)
           .toList()),
       namedDefaults: (({
-        required List<DartDefaultFieldFormalOrDefaultFormal> defaultParameters,
+        required final List<DartDefaultFieldFormalOrDefaultFormal> defaultParameters,
       }) =>
           defaultParameters.isNotEmpty
               ? Map.fromEntries(defaultParameters

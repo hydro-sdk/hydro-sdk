@@ -9,8 +9,8 @@ part 'swidiDeclaration.freezed.dart';
 @freezed
 class SwidiDeclaration with _$SwidiDeclaration {
   const factory SwidiDeclaration({
-    required String name,
-    required SwidiInterface type,
+    required final String name,
+    required final SwidiInterface type,
     @Default(
       const SwidiConst.fromSwidiEmptyConst(
         swidiEmptyConst: swidiEmptyConst,
@@ -20,7 +20,7 @@ class SwidiDeclaration with _$SwidiDeclaration {
   }) = _$SwidiDeclarationCtor;
 
   factory SwidiDeclaration.clone({
-    required SwidiDeclaration swidiDeclaration,
+    required final SwidiDeclaration swidiDeclaration,
     String? name,
     SwidiInterface? type,
     SwidiConst? defaultConstValue,

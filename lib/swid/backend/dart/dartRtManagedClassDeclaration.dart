@@ -42,7 +42,7 @@ class DartRTManagedClassDeclaration {
   final SwidClass swidClass;
 
   const DartRTManagedClassDeclaration({
-    required this.swidClass,
+    required final this.swidClass,
   });
 
   String toDartSource() => DartFormatter().format(Class((x) => x
@@ -106,7 +106,7 @@ class DartRTManagedClassDeclaration {
                                 ),
                               ),
                             )
-                            ..required = false
+                            ..required  = false
                             ..named = false),
                         )
                         .toList())
@@ -124,17 +124,17 @@ class DartRTManagedClassDeclaration {
                         preserveTypeArguments: true,
                         swidType: x.value,
                       )
-                      ..required = x.value.nullabilitySuffix == SwidNullabilitySuffix.none
+                      ..required  = x.value.nullabilitySuffix == SwidNullabilitySuffix.none
                       ..named = true))
                     .toList())
                 ..optionalParameters.addAll([
                   Parameter((i) => i
-                    ..required = true
+                    ..required  = true
                     ..toThis = true
                     ..named = true
                     ..name = "table"),
                   Parameter((i) => i
-                    ..required = true
+                    ..required  = true
                     ..toThis = true
                     ..named = true
                     ..name = "hydroState")
@@ -266,7 +266,7 @@ class DartRTManagedClassDeclaration {
                           ? Code(x.namedDefaults[e.key]!.defaultValueCode)
                           : null)
                       ..named = true
-                      ..required = (x.namedDefaults[e.key] == null)
+                      ..required  = (x.namedDefaults[e.key] == null)
                           ? e.value.nullabilitySuffix ==
                               SwidNullabilitySuffix.none
                           : false
@@ -282,7 +282,7 @@ class DartRTManagedClassDeclaration {
                           swidType: e.value.staticType,
                         )
                         ..named = false
-                        ..required = false
+                        ..required  = false
                         ..defaultTo = Code(e.value.defaultValueCode)),
                     )
                     .toList(),
@@ -294,13 +294,13 @@ class DartRTManagedClassDeclaration {
                     .map(
                       (e) => ((
                               {Tuple2<String, SwidType>?
-                                  optionalParameterType}) =>
+                                  optionalParameterType,}) =>
                           Parameter((p) => p
                             ..name = optionalParameterType!.item1
                             ..type = swidTypeToDartTypeReference(
                                 swidType: optionalParameterType.item2)
                             ..named = false
-                            ..required = false))(
+                            ..required  = false))(
                         optionalParameterType: Tuple2(
                           e,
                           x.optionalParameterTypes.elementAt(

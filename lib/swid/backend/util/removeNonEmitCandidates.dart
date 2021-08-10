@@ -3,7 +3,7 @@ import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/util/isUnrepresentableStaticConst.dart';
 
 SwidClass removeNonEmitCandidates({
-  required SwidClass swidClass,
+  required final SwidClass swidClass,
 }) =>
     SwidClass.clone(
       swidClass: swidClass,

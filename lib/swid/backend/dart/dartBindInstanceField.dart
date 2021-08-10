@@ -13,9 +13,9 @@ class DartBindInstanceField {
   final SwidType instanceField;
 
   const DartBindInstanceField({
-    required this.instanceFieldName,
-    required this.tableKey,
-    required this.instanceField,
+    required final this.instanceFieldName,
+    required final this.tableKey,
+    required final this.instanceField,
   });
 
   String toDartSource() => instanceField.when(

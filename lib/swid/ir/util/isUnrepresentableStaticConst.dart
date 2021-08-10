@@ -2,8 +2,8 @@ import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
 
 bool isUnrepresentableStaticConst({
-  required SwidClass? parentClass,
-  required SwidStaticConst staticConst,
+  required final SwidClass? parentClass,
+  required final SwidStaticConst staticConst,
 }) =>
     staticConst.when(
       fromSwidBooleanLiteral: (_) => false,

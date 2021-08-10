@@ -2,7 +2,7 @@ import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/util/isOperator.dart';
 
 bool methodIsEmitCandidate({
-  required SwidFunctionType swidFunctionType,
+  required final SwidFunctionType swidFunctionType,
 }) =>
     !swidFunctionType.declarationModifiers.hasMustCallSuper &&
     !isOperator(swidFunctionType: swidFunctionType) &&

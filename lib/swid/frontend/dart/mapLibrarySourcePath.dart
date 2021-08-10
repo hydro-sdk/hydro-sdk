@@ -1,6 +1,6 @@
 import 'package:analyzer/src/generated/source.dart' show Source;
 
 String mapLibrarySourcePath({
-  required Source? librarySource,
+  required final Source? librarySource,
 }) =>
     librarySource?.uri.toString() ?? "";

@@ -12,8 +12,8 @@ import 'package:hydro_sdk/swid/ir/util/collectAllStaticConstReferences.dart';
 import 'package:hydro_sdk/swid/ir/util/narrowSwidInterfaceByReferenceDeclaration.dart';
 
 List<TsIr> tsImportBlock({
-  required SwidClass swidClass,
-  required List<String> prefixPaths,
+  required final SwidClass swidClass,
+  required final List<String> prefixPaths,
 }) {
   List<Tuple2<List<String>, String>> symbolModulePairs =
       resolveDependencyInformation(

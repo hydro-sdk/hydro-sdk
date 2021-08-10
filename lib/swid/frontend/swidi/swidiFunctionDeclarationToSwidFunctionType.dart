@@ -15,7 +15,7 @@ import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
 
 SwidFunctionType swidiFunctionDeclarationToSwidFunctionType({
-  required SwidiFunctionDeclaration swidiFunctionDeclaration,
+  required final SwidiFunctionDeclaration swidiFunctionDeclaration,
 }) =>
     SwidFunctionType(
       name: swidiFunctionDeclaration.name,

@@ -19,7 +19,7 @@ mixin SwidiConstFunctionInvocationParser on SwidiConstGrammarDefinition
   Parser<SwidiConstFunctionInvocation> constFunctionInvocation() =>
       super.constFunctionInvocation().map(
             (x) => (({
-              required List<SwidiConstParameterList> parameterList,
+              required final List<SwidiConstParameterList> parameterList,
             }) =>
                 SwidiConstFunctionInvocation(
                   value: List.from(x).whereType<Token?>().first?.input ?? "",

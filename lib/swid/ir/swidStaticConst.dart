@@ -20,63 +20,63 @@ part 'swidStaticConst.g.dart';
 @freezed
 class SwidStaticConst with _$SwidStaticConst {
   const factory SwidStaticConst.fromSwidBooleanLiteral({
-    required SwidBooleanLiteral swidBooleanLiteral,
+    required final SwidBooleanLiteral swidBooleanLiteral,
   }) = _$FromSwidBooleanLiteral;
 
   const factory SwidStaticConst.fromSwidStringLiteral({
-    required SwidStringLiteral swidStringLiteral,
+    required final SwidStringLiteral swidStringLiteral,
   }) = _$FromSwidStringLiteral;
 
   const factory SwidStaticConst.fromSwidIntegerLiteral({
-    required SwidIntegerLiteral swidIntegerLiteral,
+    required final SwidIntegerLiteral swidIntegerLiteral,
   }) = _$FromSwidIntegerLiteral;
 
   const factory SwidStaticConst.fromDoubleLiteral({
-    required SwidDoubleLiteral swidDoubleLiteral,
+    required final SwidDoubleLiteral swidDoubleLiteral,
   }) = _$FromSwidDoubleLiteral;
 
   const factory SwidStaticConst.fromSwidStaticConstFunctionInvocation({
-    required SwidStaticConstFunctionInvocation staticConstFunctionInvocation,
+    required final SwidStaticConstFunctionInvocation staticConstFunctionInvocation,
   }) = _$FromSwidStaticConstFunctionInvocation;
 
   const factory SwidStaticConst.fromSwidStaticConstFieldReference({
-    required SwidStaticConstFieldReference swidStaticConstFieldReference,
+    required final SwidStaticConstFieldReference swidStaticConstFieldReference,
   }) = _$FromSwidStaticConstFieldReference;
 
   const factory SwidStaticConst.fromSwidStaticConstPrefixedExpression({
-    required SwidStaticConstPrefixedExpression
+    required final SwidStaticConstPrefixedExpression
         swidStaticConstPrefixedExpression,
   }) = _$FromSwidStaticConstPrefixedExpression;
 
   const factory SwidStaticConst.fromSwidStaticConstBinaryExpression({
-    required SwidStaticConstBinaryExpression swidStaticConstBinaryExpression,
+    required final SwidStaticConstBinaryExpression swidStaticConstBinaryExpression,
   }) = _$FromSwidStaticConstBinaryExpression;
 
   const factory SwidStaticConst.fromSwidStaticConstPrefixedIdentifier({
-    required SwidStaticConstPrefixedIdentifier staticConstPrefixedIdentifier,
+    required final SwidStaticConstPrefixedIdentifier staticConstPrefixedIdentifier,
   }) = _$FromSwidStaticConstPrefixedIdentifier;
 
   const factory SwidStaticConst.fromSwidStaticConstIdentifier({
-    required SwidStaticConstIdentifier staticConstIdentifier,
+    required final SwidStaticConstIdentifier staticConstIdentifier,
   }) = _$FromSwidStaticConstIdentifier;
 
   const factory SwidStaticConst.fromSwidStaticConstListLiteral({
-    required SwidStaticConstListLiteral staticConstListLiteral,
+    required final SwidStaticConstListLiteral staticConstListLiteral,
   }) = _$FromSwidStaticConstListLiteral;
 
   const factory SwidStaticConst.fromSwidStaticConstMapLiteralEntry({
-    required SwidStaticConstMapLiteralEntry swidStaticConstMapLiteralEntry,
+    required final SwidStaticConstMapLiteralEntry swidStaticConstMapLiteralEntry,
   }) = _$FromSwidStaticConstMapLiteralEntry;
 
   const factory SwidStaticConst.fromSwidStaticConstMapLiteral({
-    required SwidStaticConstMapLiteral swidStaticConstMapLiteral,
+    required final SwidStaticConstMapLiteral swidStaticConstMapLiteral,
   }) = _$FromSwidStaticConstMapLiteral;
 
   factory SwidStaticConst.fromJson(Map<String, dynamic> json) =>
       _$SwidStaticConstFromJson(json);
 
   factory SwidStaticConst.clone({
-    required SwidStaticConst swidStaticConst,
+    required final SwidStaticConst swidStaticConst,
   }) =>
       swidStaticConst.when(
         fromSwidBooleanLiteral: (val) => SwidStaticConst.fromSwidBooleanLiteral(

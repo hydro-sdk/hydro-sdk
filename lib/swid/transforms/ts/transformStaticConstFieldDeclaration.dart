@@ -4,9 +4,9 @@ import 'package:hydro_sdk/swid/transforms/ts/transformLiteralToTs.dart';
 import 'package:hydro_sdk/swid/transforms/ts/util/makeDefaultInexpressibleFunctionInvocationFallback.dart';
 
 String transformStaticConstFieldDeclaration({
-  required SwidStaticConstFieldDeclaration staticConstFieldDeclaration,
-  required SwidStaticConstFieldReferenceScopeResolver scopeResolver,
-  required SwidClass parentClass,
+  required final SwidStaticConstFieldDeclaration staticConstFieldDeclaration,
+  required final SwidStaticConstFieldReferenceScopeResolver scopeResolver,
+  required final SwidClass parentClass,
 }) =>
     [
       "public",

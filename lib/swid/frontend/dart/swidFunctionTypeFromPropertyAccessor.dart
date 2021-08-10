@@ -6,7 +6,7 @@ import 'package:analyzer/dart/element/element.dart'
     show PropertyAccessorElement;
 
 SwidFunctionType swidFunctionTypeFromPropertyAccessor({
-  required PropertyAccessorElement propertyAccessorElement,
+  required final PropertyAccessorElement propertyAccessorElement,
 }) =>
     SwidFunctionType.clone(
       swidFunctionType: swidFunctionTypeFromFunctionType(

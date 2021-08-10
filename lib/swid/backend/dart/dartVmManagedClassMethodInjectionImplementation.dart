@@ -12,8 +12,8 @@ class DartVMManagedClassMethodInjectionImplementation {
   final String tableKey;
 
   const DartVMManagedClassMethodInjectionImplementation({
-    required this.swidFunctionType,
-    required this.tableKey,
+    required final this.swidFunctionType,
+    required final this.tableKey,
   });
 
   String toDartSource() => DartFormatter().formatStatement(refer("table")

@@ -12,8 +12,8 @@ class TsFunctionSelfBindingInvocation {
   final String functionReference;
 
   const TsFunctionSelfBindingInvocation({
-    required this.swidFunctionType,
-    required this.functionReference,
+    required final this.swidFunctionType,
+    required final this.functionReference,
   });
 
   String toTsSource() => TsFunctionInvocation(

@@ -2,7 +2,7 @@ import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/transforms/transformToPascalCase.dart';
 
 SwidFunctionType transformAccessorName({
-  required SwidFunctionType swidFunctionType,
+  required final SwidFunctionType swidFunctionType,
   bool addPrefixes = true,
   bool removeSuffixes = true,
 }) {

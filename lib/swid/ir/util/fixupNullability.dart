@@ -3,7 +3,7 @@ import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/util/cloneSwidType.dart';
 
-SwidClass fixupNullability({required SwidClass swidClass}) => swidClass.name ==
+SwidClass fixupNullability({required final SwidClass swidClass}) => swidClass.name ==
         "IconData"
     ? SwidClass.clone(
         swidClass: swidClass,

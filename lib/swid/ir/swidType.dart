@@ -24,26 +24,26 @@ class SwidType
   const SwidType._();
 
   const factory SwidType.fromSwidInterface({
-    required SwidInterface swidInterface,
+    required final SwidInterface swidInterface,
   }) = _$FromSwidInterface;
 
   const factory SwidType.fromSwidClass({
-    required SwidClass swidClass,
+    required final SwidClass swidClass,
   }) = _$FromSwidClass;
 
   const factory SwidType.fromSwidDefaultFormalParameter({
-    required SwidDefaultFormalParameter swidDefaultFormalParameter,
+    required final SwidDefaultFormalParameter swidDefaultFormalParameter,
   }) = _$FromSwidDefaultFormalParameter;
 
   const factory SwidType.fromSwidFunctionType({
-    required SwidFunctionType swidFunctionType,
+    required final SwidFunctionType swidFunctionType,
   }) = _$FromSwidFunctionType;
 
   factory SwidType.fromJson(Map<String, dynamic> json) =>
       _$SwidTypeFromJson(json);
 
   factory SwidType.clone({
-    required SwidType swidType,
+    required final SwidType swidType,
   }) =>
       swidType.when(
         fromSwidInterface: (val) => SwidType.fromSwidInterface(
@@ -103,7 +103,7 @@ class SwidType
       );
 
   String get displayName => (({
-        required String name,
+        required final String name,
       }) =>
               name.isNotEmpty
                   ? [

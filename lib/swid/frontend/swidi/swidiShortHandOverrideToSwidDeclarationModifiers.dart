@@ -2,7 +2,7 @@ import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConst.dart';
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 
 SwidDeclarationModifiers swidiShortHandOverrideToSwidDeclarationModifiers({
-  required SwidiConst shortHandOverride,
+  required final SwidiConst shortHandOverride,
 }) =>
     SwidDeclarationModifiers.clone(
       declarationModifiers: SwidDeclarationModifiers.empty(),

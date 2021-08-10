@@ -10,11 +10,11 @@ class SwidiConstMap with _$SwidiConstMap {
   const SwidiConstMap._();
 
   const factory SwidiConstMap({
-    required List<Tuple2<SwidiConst, SwidiConst>> entries,
+    required final List<Tuple2<SwidiConst, SwidiConst>> entries,
   }) = _$SwidiConstMapCtor;
 
   factory SwidiConstMap.clone({
-    required SwidiConstMap swidiConstMap,
+    required final SwidiConstMap swidiConstMap,
     List<Tuple2<SwidiConst, SwidiConst>>? entries,
   }) =>
       SwidiConstMap(

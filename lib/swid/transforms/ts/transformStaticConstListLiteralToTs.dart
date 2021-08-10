@@ -5,10 +5,10 @@ import 'package:hydro_sdk/swid/transforms/ts/transformLiteralToTs.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformTypeDeclarationToTs.dart';
 
 String transformStaticConstListLiteralToTs({
-  required SwidStaticConstListLiteral staticConstListLiteral,
-  required SwidClass? parentClass,
-  required String inexpressibleFunctionInvocationFallback,
-  required SwidStaticConstFieldReferenceScopeResolver scopeResolver,
+  required final SwidStaticConstListLiteral staticConstListLiteral,
+  required final SwidClass? parentClass,
+  required final String inexpressibleFunctionInvocationFallback,
+  required final SwidStaticConstFieldReferenceScopeResolver scopeResolver,
 }) =>
     [
       "List.fromArray",

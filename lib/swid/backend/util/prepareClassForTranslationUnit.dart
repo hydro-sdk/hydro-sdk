@@ -9,7 +9,7 @@ import 'package:hydro_sdk/swid/transforms/ts/transformPrimitiveClassTypeNamesToT
 import 'package:hydro_sdk/swid/transforms/ts/transformPrimitiveNamesToTs.dart';
 
 Tuple3<SwidClass, SwidClass, SwidClass> prepareClassForTranslationUnit({
-  required SwidClass swidClass,
+  required final SwidClass swidClass,
 }) =>
     Tuple3(
       removeNonEmitCandidates(

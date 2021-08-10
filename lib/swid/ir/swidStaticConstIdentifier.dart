@@ -8,15 +8,15 @@ part 'swidStaticConstIdentifier.g.dart';
 @freezed
 class SwidStaticConstIdentifier with _$SwidStaticConstIdentifier {
   const factory SwidStaticConstIdentifier({
-    required String identifier,
-    required SwidType enclosingType,
+    required final String identifier,
+    required final SwidType enclosingType,
   }) = _$SwidStaticConstIdentifierCtor;
 
   factory SwidStaticConstIdentifier.fromJson(Map<String, dynamic> json) =>
       _$SwidStaticConstIdentifierFromJson(json);
 
   factory SwidStaticConstIdentifier.clone({
-    required SwidStaticConstIdentifier swidStaticConstIdentifier,
+    required final SwidStaticConstIdentifier swidStaticConstIdentifier,
     String? identifier,
     SwidType? enclosingType,
   }) =>

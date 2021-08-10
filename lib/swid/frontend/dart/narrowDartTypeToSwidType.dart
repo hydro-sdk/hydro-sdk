@@ -16,7 +16,7 @@ import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 
-SwidType narrowDartTypeToSwidType({required DartType? dartType}) => dartType
+SwidType narrowDartTypeToSwidType({required final DartType? dartType}) => dartType
         is FunctionType
     ? SwidType.fromSwidFunctionType(
         swidFunctionType: swidFunctionTypeFromFunctionType(

@@ -7,7 +7,7 @@ class SwidiValidationError with _$SwidiValidationError {
   const SwidiValidationError._();
 
   const factory SwidiValidationError({
-    required String message,
+    required final String message,
   }) = _$SwidiValidationErrorCtor;
 
   static const e1 = SwidiValidationError(

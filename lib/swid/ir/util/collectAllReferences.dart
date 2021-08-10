@@ -4,7 +4,7 @@ import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/util/collectAllStaticConstReferences.dart';
 
 List<SwidInterface> collectAllReferences({
-  required SwidType swidType,
+  required final SwidType swidType,
 }) =>
     ([
       ...(swidType.isAnalysisIgnored(

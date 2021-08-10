@@ -16,7 +16,7 @@ class DartMethodBindingImplementation {
   final SwidFunctionType swidFunctionType;
 
   const DartMethodBindingImplementation({
-    required this.swidFunctionType,
+    required final this.swidFunctionType,
   });
 
   String _methodInvocation() => DartFunctionSelfBindingInvocation(
@@ -101,7 +101,7 @@ class DartMethodBindingImplementation {
       ].join("");
 
   String _nonVoidBody({
-    required SwidType swidType,
+    required final SwidType swidType,
   }) =>
       swidType.nullabilitySuffix == SwidNullabilitySuffix.none
           ? _nonNullableBody()

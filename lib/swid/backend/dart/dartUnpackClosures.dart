@@ -13,7 +13,7 @@ class DartUnpackClosures {
   final SwidFunctionType swidFunctionType;
 
   const DartUnpackClosures({
-    required this.swidFunctionType,
+    required final this.swidFunctionType,
   });
 
   String toDartSource() => ([
@@ -51,8 +51,8 @@ class DartUnpackClosures {
         ]
             .map(
               (x) => (({
-                required String parameterName,
-                required SwidType parameterType,
+                required final String parameterName,
+                required final SwidType parameterType,
                 int? argIndex,
               }) =>
                   parameterType.when(
@@ -89,8 +89,8 @@ class DartUnpackClosures {
         ]
             .map(
               (x) => (({
-                required String parameterName,
-                required SwidType parameterType,
+                required final String parameterName,
+                required final SwidType parameterType,
               }) =>
                   parameterType.when(
                     fromSwidInterface: (_) => "",

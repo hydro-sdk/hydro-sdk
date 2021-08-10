@@ -5,11 +5,11 @@ part 'swidiConstString.freezed.dart';
 @freezed
 class SwidiConstString with _$SwidiConstString {
   const factory SwidiConstString({
-    required String value,
+    required final String value,
   }) = _$SwidiConstStringCtor;
 
   factory SwidiConstString.clone({
-    required SwidiConstString swidiConstString,
+    required final SwidiConstString swidiConstString,
     String? value,
   }) =>
       SwidiConstString(

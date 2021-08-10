@@ -32,7 +32,7 @@ class DartLoadNamespaceSymbolDeclaration {
   final SwidClass swidClass;
 
   const DartLoadNamespaceSymbolDeclaration({
-    required this.swidClass,
+    required final this.swidClass,
   });
 
   String toDartSource() => DartFormatter().format(Method((m) => m
@@ -45,7 +45,7 @@ class DartLoadNamespaceSymbolDeclaration {
             ..name = "hydroState"
             ..type = refer("HydroState")),
           Parameter((p) => p
-            ..required = true
+            ..required  = true
             ..named = true
             ..name = "table"
             ..type = refer("HydroTable")),

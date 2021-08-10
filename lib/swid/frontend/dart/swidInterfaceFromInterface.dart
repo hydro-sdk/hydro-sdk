@@ -10,7 +10,7 @@ import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 
 SwidInterface swidInterfaceFromInterface({
-  required InterfaceType interfaceType,
+  required final InterfaceType interfaceType,
 }) =>
     SwidInterface(
       name: interfaceType.getDisplayString(withNullability: false),

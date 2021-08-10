@@ -5,13 +5,13 @@ part 'swidiReferenceDeclarationPrefix.freezed.dart';
 @freezed
 class SwidiReferenceDeclarationPrefix with _$SwidiReferenceDeclarationPrefix {
   const factory SwidiReferenceDeclarationPrefix({
-    required String name,
+    required final String name,
   }) = _$SwidiReferenceDeclarationPrefixCtor;
 
   static const empty = const SwidiReferenceDeclarationPrefix(name: "");
 
   factory SwidiReferenceDeclarationPrefix.clone({
-    required SwidiReferenceDeclarationPrefix swidiReferenceDeclarationPrefix,
+    required final SwidiReferenceDeclarationPrefix swidiReferenceDeclarationPrefix,
     String? name,
   }) =>
       SwidiReferenceDeclarationPrefix(

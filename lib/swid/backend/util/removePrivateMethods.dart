@@ -1,7 +1,7 @@
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 
 SwidClass removePrivateMethods({
-  required SwidClass swidClass,
+  required final SwidClass swidClass,
 }) =>
     SwidClass.clone(
       swidClass: swidClass,

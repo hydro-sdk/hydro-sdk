@@ -9,13 +9,13 @@ class TsSuperClassClause {
   final String clauseKeyword;
 
   const TsSuperClassClause({
-    required this.swidClass,
-    required this.clauseKeyword,
+    required final this.swidClass,
+    required final this.clauseKeyword,
   });
 
   String toTsSource() => [
         ...((({
-          required List<SwidClass> superInterfaces,
+          required final List<SwidClass> superInterfaces,
         }) =>
             superInterfaces.isNotEmpty
                 ? [
@@ -55,7 +55,7 @@ class TsSuperClassClause {
                                       .syntheticAccessors()
                                       .map((x) => "\"${x.name}\""),
                                   ...((({
-                                    required List<List<String>>
+                                    required final List<List<String>>
                                         intersectedMembers,
                                   }) =>
                                       intersectedMembers.isNotEmpty

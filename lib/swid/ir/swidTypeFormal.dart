@@ -11,20 +11,20 @@ part 'swidTypeFormal.g.dart';
 
 @freezed
 class SwidTypeFormalValue with _$SwidTypeFormalValue {
-  const factory SwidTypeFormalValue.fromString({required String string}) =
+  const factory SwidTypeFormalValue.fromString({required final String string}) =
       _$FromString;
 
   const factory SwidTypeFormalValue.fromSwidClass(
-      {required SwidClass swidClass}) = _$FromSwidClass;
+      {required final SwidClass swidClass}) = _$FromSwidClass;
 
   const factory SwidTypeFormalValue.fromSwidInterface(
-      {required SwidInterface swidInterface}) = _$FromSwidInterface;
+      {required final SwidInterface swidInterface}) = _$FromSwidInterface;
 
   const factory SwidTypeFormalValue.fromSwidFunctionType(
-      {required SwidFunctionType swidFunctionType}) = _$FromSwidFunctionType;
+      {required final SwidFunctionType swidFunctionType}) = _$FromSwidFunctionType;
 
   factory SwidTypeFormalValue.clone({
-    required SwidTypeFormalValue swidTypeFormalValue,
+    required final SwidTypeFormalValue swidTypeFormalValue,
   }) =>
       swidTypeFormalValue.when(
         fromString: (val) => SwidTypeFormalValue.fromString(string: val),
@@ -67,15 +67,15 @@ extension SwidTypeFormalValueMethods on SwidTypeFormalValue {
 @freezed
 class SwidTypeFormal with _$SwidTypeFormal {
   const factory SwidTypeFormal({
-    required SwidTypeFormalValue value,
-    required SwidReferenceDeclarationKind swidReferenceDeclarationKind,
+    required final SwidTypeFormalValue value,
+    required final SwidReferenceDeclarationKind swidReferenceDeclarationKind,
   }) = _$Data;
 
   factory SwidTypeFormal.fromJson(Map<String, dynamic> json) =>
       _$SwidTypeFormalFromJson(json);
 
   factory SwidTypeFormal.clone({
-    required SwidTypeFormal swidTypeFormal,
+    required final SwidTypeFormal swidTypeFormal,
     SwidTypeFormalValue? value,
     SwidReferenceDeclarationKind? swidReferenceDeclarationKind,
   }) =>

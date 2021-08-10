@@ -15,10 +15,10 @@ typedef String? SwidStaticConstFieldReferenceScopeResolver(
     SwidStaticConstFieldReference staticConstFieldReference);
 
 String transformLiteralToTs({
-  required SwidStaticConst swidLiteral,
-  required SwidClass? parentClass,
-  required String inexpressibleFunctionInvocationFallback,
-  required SwidStaticConstFieldReferenceScopeResolver scopeResolver,
+  required final SwidStaticConst swidLiteral,
+  required final SwidClass? parentClass,
+  required final String inexpressibleFunctionInvocationFallback,
+  required final SwidStaticConstFieldReferenceScopeResolver scopeResolver,
 }) =>
     swidLiteral.when(
       fromSwidIntegerLiteral: (val) =>

@@ -1,5 +1,5 @@
 import 'package:hydro_sdk/swid/ir/swidBooleanLiteral.dart';
 
 String transformBooleanLiteralToTs(
-        {required SwidBooleanLiteral swidBooleanLiteral}) =>
+        {required final SwidBooleanLiteral swidBooleanLiteral}) =>
     swidBooleanLiteral.value;

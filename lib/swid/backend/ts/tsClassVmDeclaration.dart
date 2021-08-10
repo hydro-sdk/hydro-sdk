@@ -22,11 +22,11 @@ class TsClassVmDeclaration {
   final SwidClass swidClass;
 
   const TsClassVmDeclaration({
-    required this.swidClass,
+    required final this.swidClass,
   });
 
   TsVmDeclaration _addConstructorBindingDeclarations({
-    required TsVmDeclaration tsVmDeclaration,
+    required final TsVmDeclaration tsVmDeclaration,
   }) =>
       swidClass.constructorType != null &&
               transformPackageUri(packageUri: swidClass.originalPackagePath)

@@ -6,7 +6,7 @@ import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 
 SwidInterface swidInterfaceFromTypeParameterType({
-  required TypeParameterType typeParameterType,
+  required final TypeParameterType typeParameterType,
 }) =>
     SwidInterface(
       name: typeParameterType.element.name.isNotEmpty

@@ -9,11 +9,11 @@ class SwidiStaticFunctionDeclaration with _$SwidiStaticFunctionDeclaration {
   const SwidiStaticFunctionDeclaration._();
 
   const factory SwidiStaticFunctionDeclaration({
-    required SwidiFunctionDeclaration functionDeclaration,
+    required final SwidiFunctionDeclaration functionDeclaration,
   }) = _$SwidiStaticFunctionDeclarationCtor;
 
   factory SwidiStaticFunctionDeclaration.clone({
-    required SwidiStaticFunctionDeclaration swidiStaticFunctionDeclaration,
+    required final SwidiStaticFunctionDeclaration swidiStaticFunctionDeclaration,
     SwidiFunctionDeclaration? functionDeclaration,
   }) =>
       SwidiStaticFunctionDeclaration(

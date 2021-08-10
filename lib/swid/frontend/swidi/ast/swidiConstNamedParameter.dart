@@ -9,12 +9,12 @@ class SwidiConstNamedParameter with _$SwidiConstNamedParameter {
   const SwidiConstNamedParameter._();
 
   const factory SwidiConstNamedParameter({
-    required String name,
-    required SwidiConst value,
+    required final String name,
+    required final SwidiConst value,
   }) = _$SwidiConstNamedParameterCtor;
 
   factory SwidiConstNamedParameter.clone({
-    required SwidiConstNamedParameter swidiConstNamedParameter,
+    required final SwidiConstNamedParameter swidiConstNamedParameter,
     String? name,
     SwidiConst? value,
   }) =>

@@ -31,7 +31,7 @@ import 'package:analyzer/src/dart/element/element.dart'
 
 SwidStaticConstFieldDeclaration
     swidStaticConstFieldDeclarationFromVariableDeclarationList({
-  required VariableDeclarationList variableDeclarationList,
+  required final VariableDeclarationList variableDeclarationList,
 }) {
   assert(variableDeclarationList.isConst);
   assert(!variableDeclarationList.isLate);
@@ -101,7 +101,7 @@ SwidStaticConstFieldDeclaration
                                     !x.inDeclarationContext()) !=
                                 null
                             ? (({
-                                required SimpleIdentifier? simpleIdentifier,
+                                required final SimpleIdentifier? simpleIdentifier,
                               }) =>
                                 simpleIdentifier?.unParenthesized.staticType is InterfaceType
                                     ? SwidStaticConst.fromSwidStaticConstIdentifier(
@@ -127,7 +127,7 @@ SwidStaticConstFieldDeclaration
                                 ) as SimpleIdentifier?,
                               )
                             : (({
-                                required List<SwidStaticConst>
+                                required final List<SwidStaticConst>
                                     childStaticConsts,
                               }) =>
                                 childStaticConsts.isNotEmpty ? childStaticConsts.first : dartUnknownConst)(

@@ -13,12 +13,12 @@ class ConflictingInstanceMembersResult
   const ConflictingInstanceMembersResult._();
 
   const factory ConflictingInstanceMembersResult({
-    required List<String> methods,
-    required List<String> instanceFields,
+    required final List<String> methods,
+    required final List<String> instanceFields,
   }) = _$ConflictingInstanceMembersResultCtor;
 
   factory ConflictingInstanceMembersResult.clone({
-    required ConflictingInstanceMembersResult instanceMemberIntersectionResult,
+    required final ConflictingInstanceMembersResult instanceMemberIntersectionResult,
     List<String>? methods,
     List<String>? instanceFields,
   }) =>
@@ -41,11 +41,11 @@ class ConflictingInstanceMembersResult
 }
 
 ConflictingInstanceMembersResult conflictingInstanceMembers({
-  required SwidClass first,
-  required SwidClass second,
+  required final SwidClass first,
+  required final SwidClass second,
 }) =>
     (({
-      required InstanceMemberIntersectionResult
+      required final InstanceMemberIntersectionResult
           instanceMemberIntersectionResult,
     }) =>
         ConflictingInstanceMembersResult(

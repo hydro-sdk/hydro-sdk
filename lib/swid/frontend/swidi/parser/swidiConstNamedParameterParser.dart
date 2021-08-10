@@ -24,7 +24,7 @@ mixin SwidiConstNamedParameterParser
             (x) => SwidiConstNamedParameter(
               name: List.from(x).whereType<Token?>().first?.input ?? "",
               value: (({
-                required List<SwidiConst> consts,
+                required final List<SwidiConst> consts,
               }) =>
                   consts.isNotEmpty
                       ? consts.first

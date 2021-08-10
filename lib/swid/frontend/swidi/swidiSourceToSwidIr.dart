@@ -5,7 +5,7 @@ import 'package:hydro_sdk/swid/frontend/swidi/validation/validateSwidiClass.dart
 import 'package:hydro_sdk/swid/ir/swidIr.dart';
 
 List<SwidIr> swidiSourceToSwidIr({
-  required String content,
+  required final String content,
 }) {
   var parseResult = const SwidiParser().build().parse(content);
 

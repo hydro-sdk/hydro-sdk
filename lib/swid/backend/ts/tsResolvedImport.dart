@@ -3,8 +3,8 @@ class TsResolvedImport {
   final String path;
 
   TsResolvedImport({
-    required this.symbols,
-    required this.path,
+    required final this.symbols,
+    required final this.path,
   });
 
   String toTsSource() => [

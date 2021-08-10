@@ -9,8 +9,8 @@ class SwidiTypeFormal with _$SwidiTypeFormal {
   const SwidiTypeFormal._();
 
   const factory SwidiTypeFormal({
-    required String name,
-    required SwidiInterface bound,
+    required final String name,
+    required final SwidiInterface bound,
   }) = _$SwidiTypeFormalCtor;
 
   static const empty = const SwidiTypeFormal(
@@ -19,7 +19,7 @@ class SwidiTypeFormal with _$SwidiTypeFormal {
   );
 
   factory SwidiTypeFormal.clone({
-    required SwidiTypeFormal swidiTypeFormal,
+    required final SwidiTypeFormal swidiTypeFormal,
     String? name,
     SwidiInterface? bound,
   }) =>

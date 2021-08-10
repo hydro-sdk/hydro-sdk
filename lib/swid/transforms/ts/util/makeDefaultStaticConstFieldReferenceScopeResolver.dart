@@ -6,7 +6,7 @@ import 'package:hydro_sdk/swid/transforms/ts/transformLiteralToTs.dart';
 
 SwidStaticConstFieldReferenceScopeResolver
     makeDefaultStaticConstFieldReferenceScopeResolver({
-  required SwidClass? parentClass,
+  required final SwidClass? parentClass,
 }) =>
         parentClass == null
             ? (_) => ""

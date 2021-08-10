@@ -18,7 +18,7 @@ import 'package:analyzer/dart/element/type.dart'
     show InterfaceType, TypeParameterType;
 
 SwidClass swidClassFromInterfaceType({
-  required InterfaceType interfaceType,
+  required final InterfaceType interfaceType,
   /*
       This is a hack to break cycles in self-referencing class declarations (declarations that look like CRTP).
       Should probably use an inheritance manager of some sort similar to package:analyzer.
@@ -40,8 +40,8 @@ SwidClass swidClassFromInterfaceType({
             .where((x) => !x.isStatic)
             .map(
               (x) => (({
-                required SwidFunctionType baseClassMethod,
-                required SwidFunctionType childClassMethod,
+                required final SwidFunctionType baseClassMethod,
+                required final SwidFunctionType childClassMethod,
               }) =>
                   SwidFunctionType.clone(
                       swidFunctionType: childClassMethod,

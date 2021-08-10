@@ -6,7 +6,7 @@ class TsClassStaticConstFieldDeclarations {
   final SwidClass swidClass;
 
   const TsClassStaticConstFieldDeclarations({
-    required this.swidClass,
+    required final this.swidClass,
   });
 
   String toTsSource() {

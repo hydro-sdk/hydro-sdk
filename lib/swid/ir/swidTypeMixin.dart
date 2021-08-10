@@ -7,7 +7,7 @@ import 'package:hydro_sdk/swid/util/iCloneable.dart';
 mixin SwidTypeMixin<T extends Object> implements ISwidType<T>, ICloneable<T> {
   @nonVirtual
   bool isAnalysisIgnored({
-    required String analisysName,
+    required final String analisysName,
   }) =>
       declarationModifiers.ignoredAnalyses
           .firstWhereOrNull((x) => x == analisysName) ==
@@ -15,7 +15,7 @@ mixin SwidTypeMixin<T extends Object> implements ISwidType<T>, ICloneable<T> {
 
   @nonVirtual
   bool isTransformIgnored({
-    required String transformName,
+    required final String transformName,
   }) =>
       declarationModifiers.ignoredTransforms
           .firstWhereOrNull((x) => x == transformName) ==
@@ -23,7 +23,7 @@ mixin SwidTypeMixin<T extends Object> implements ISwidType<T>, ICloneable<T> {
 
   @nonVirtual
   bool isTransformOverriden({
-    required String transformName,
+    required final String transformName,
   }) =>
       declarationModifiers.overridenTransforms
           .firstWhereOrNull((x) => x.item1 == transformName) !=
@@ -31,7 +31,7 @@ mixin SwidTypeMixin<T extends Object> implements ISwidType<T>, ICloneable<T> {
 
   @nonVirtual
   String transformOverrideContent({
-    required String transformName,
+    required final String transformName,
   }) =>
       declarationModifiers.overridenTransforms
           .firstWhere((x) => x.item1 == transformName)

@@ -9,8 +9,8 @@ import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/util/narrowSwidInterfaceByReferenceDeclaration.dart';
 
 SwidType instantiateGeneric({
-  required SwidGenericInstantiator genericInstantiator,
-  required SwidType swidType,
+  required final SwidGenericInstantiator genericInstantiator,
+  required final SwidType swidType,
 }) =>
     swidType.when(
       fromSwidInterface: (val) => narrowSwidInterfaceByReferenceDeclaration(

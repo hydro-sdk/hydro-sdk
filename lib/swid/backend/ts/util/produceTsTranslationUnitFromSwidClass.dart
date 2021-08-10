@@ -24,15 +24,15 @@ import 'package:hydro_sdk/swid/ir/util/propagateUnsatisfiedTypeParameters.dart';
 import 'package:hydro_sdk/swid/ir/util/rewriteClassReferencestoInterfaceReferencesInClass.dart';
 
 TsTranslationUnit produceTsTranslationUnitFromSwidClass({
-  required SwidClass swidClass,
-  required String baseFileName,
-  required String path,
-  required List<String> prefixPaths,
+  required final SwidClass swidClass,
+  required final String baseFileName,
+  required final String path,
+  required final List<String> prefixPaths,
 }) =>
     (({
-      required SwidClass swidClass,
-      required SwidClass swidClassWithInterfaceReferences,
-      required SwidClass unMergedSwidClassWithInterfaceReferences,
+      required final SwidClass swidClass,
+      required final SwidClass swidClassWithInterfaceReferences,
+      required final SwidClass unMergedSwidClassWithInterfaceReferences,
     }) =>
         TsTranslationUnit(
             path: prefixPaths.join(p.separator) + p.separator + path,

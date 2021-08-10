@@ -17,21 +17,21 @@ class TranslationUnitProducer {
   final List<String> prefixPaths;
 
   TranslationUnitProducer({
-    required this.tsPrefixPaths,
-    required this.dartPrefixPaths,
-    required this.path,
-    required this.baseFileName,
-    required this.prefixPaths,
+    required final this.tsPrefixPaths,
+    required final this.dartPrefixPaths,
+    required final this.path,
+    required final this.baseFileName,
+    required final this.prefixPaths,
   });
 
-  List<TranslationUnit> produceFromSwidEnum({required SwidEnum? swidEnum}) => [
+  List<TranslationUnit> produceFromSwidEnum({required final SwidEnum? swidEnum}) => [
         TsTranslationUnit(
             path: tsPrefixPaths.join(p.separator) + p.separator + path,
             fileName: "$baseFileName.ts",
             ir: [TsIr.fromTsEnum(tsEnum: TsEnum(swidEnum: swidEnum))])
       ];
 
-  List<TranslationUnit?> produceFromSwidClass({required SwidClass swidClass}) =>
+  List<TranslationUnit?> produceFromSwidClass({required final SwidClass swidClass}) =>
       [
         produceTsTranslationUnitFromSwidClass(
             swidClass: swidClass,

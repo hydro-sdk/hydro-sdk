@@ -6,7 +6,7 @@ import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 
 SwidInterface swidInterfaceFromDynamicType({
-  required DynamicType dynamicType,
+  required final DynamicType dynamicType,
 }) =>
     SwidInterface(
       name: dynamicType.element?.name ??

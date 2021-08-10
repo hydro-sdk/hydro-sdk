@@ -16,7 +16,7 @@ class TsClassConstructorImplementation {
   final SwidClass swidClass;
 
   const TsClassConstructorImplementation({
-    required this.swidClass,
+    required final this.swidClass,
   });
 
   String toTsSource() => swidClass.constructorType != null
