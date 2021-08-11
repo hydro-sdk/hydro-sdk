@@ -70,7 +70,9 @@
                 "_UnmodifiableListMixin",
                 "UnmodifiableListMixin",
                 "ListMixin",
-                "StackTrace"
+                "StackTrace",
+                "Map",
+                "MapEntry"
             ]
         },
         "denyList": {
