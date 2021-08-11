@@ -88,7 +88,15 @@ List<SwidInterface> collectReferencesFromStaticConst({
           )..removeWhere((x) => x == dartUnknownInterface)),
           ...(collectReferencesFromStaticConst(
             swidStaticConst: val.value,
-          )..removeWhere((x) => x == dartUnknownInterface))
+          )..removeWhere((x) => x == dartUnknownInterface)),
+          SwidInterface(
+            name: "MapEntry",
+            nullabilitySuffix: SwidNullabilitySuffix.none,
+            originalPackagePath: "dart:core",
+            typeArguments: [],
+            referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
+            declarationModifiers: SwidDeclarationModifiers.empty(),
+          )
         ],
         fromSwidStaticConstMapLiteral: (val) => [
           ...((List<List<SwidInterface>> elements) => elements.isNotEmpty
@@ -96,14 +104,32 @@ List<SwidInterface> collectReferencesFromStaticConst({
                     ...value,
                     ...element,
                   ])
-              : <SwidInterface>[])(val.elements
-              .map((x) => collectReferencesFromStaticConst(
-                    swidStaticConst:
-                        SwidStaticConst.fromSwidStaticConstMapLiteralEntry(
-                      swidStaticConstMapLiteralEntry: x,
-                    ),
-                  )..removeWhere((x) => x == dartUnknownInterface))
-              .toList()),
+              : <SwidInterface>[])(
+            val.elements
+                .map((x) => collectReferencesFromStaticConst(
+                      swidStaticConst:
+                          SwidStaticConst.fromSwidStaticConstMapLiteralEntry(
+                        swidStaticConstMapLiteralEntry: x,
+                      ),
+                    )..removeWhere((x) => x == dartUnknownInterface))
+                .toList(),
+          ),
+          SwidInterface(
+            name: "List",
+            nullabilitySuffix: SwidNullabilitySuffix.none,
+            originalPackagePath: "dart:core",
+            typeArguments: [],
+            referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
+            declarationModifiers: SwidDeclarationModifiers.empty(),
+          ),
+          SwidInterface(
+            name: "Map",
+            nullabilitySuffix: SwidNullabilitySuffix.none,
+            originalPackagePath: "dart:core",
+            typeArguments: [],
+            referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
+            declarationModifiers: SwidDeclarationModifiers.empty(),
+          )
         ],
       )
     ]
