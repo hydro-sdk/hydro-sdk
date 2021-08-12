@@ -1,3 +1,7 @@
+import { IIterable } from "../core/iterable";
+import { List } from "../core/list";
+import { Map } from "../core/map";
+import { IMapEntry, MapEntry } from "../core/mapEntry";
 declare const dart: {
     ui: {
         semanticsFlagHasCheckedState: (this: void) => ISemanticsFlag;
@@ -81,7 +85,110 @@ export class SemanticsFlag {
     public static isToggled = dart.ui.semanticsFlagIsToggled();
     public static hasImplicitScrolling =
         dart.ui.semanticsFlagHasImplicitScrolling();
-    public static values = Unknown;
+    public static values = Map.fromEntries(
+        <IIterable<IMapEntry<number, ISemanticsFlag>>>(
+            (<unknown>(
+                List.fromArray([
+                    new MapEntry(
+                        SemanticsFlag._kHasCheckedStateIndex,
+                        SemanticsFlag.hasCheckedState
+                    ),
+                    new MapEntry(
+                        SemanticsFlag._kIsCheckedIndex,
+                        SemanticsFlag.isChecked
+                    ),
+                    new MapEntry(
+                        SemanticsFlag._kIsSelectedIndex,
+                        SemanticsFlag.isSelected
+                    ),
+                    new MapEntry(
+                        SemanticsFlag._kIsButtonIndex,
+                        SemanticsFlag.isButton
+                    ),
+                    new MapEntry(
+                        SemanticsFlag._kIsTextFieldIndex,
+                        SemanticsFlag.isTextField
+                    ),
+                    new MapEntry(
+                        SemanticsFlag._kIsFocusedIndex,
+                        SemanticsFlag.isFocused
+                    ),
+                    new MapEntry(
+                        SemanticsFlag._kHasEnabledStateIndex,
+                        SemanticsFlag.hasEnabledState
+                    ),
+                    new MapEntry(
+                        SemanticsFlag._kIsEnabledIndex,
+                        SemanticsFlag.isEnabled
+                    ),
+                    new MapEntry(
+                        SemanticsFlag._kIsInMutuallyExclusiveGroupIndex,
+                        SemanticsFlag.isInMutuallyExclusiveGroup
+                    ),
+                    new MapEntry(
+                        SemanticsFlag._kIsHeaderIndex,
+                        SemanticsFlag.isHeader
+                    ),
+                    new MapEntry(
+                        SemanticsFlag._kIsObscuredIndex,
+                        SemanticsFlag.isObscured
+                    ),
+                    new MapEntry(
+                        SemanticsFlag._kScopesRouteIndex,
+                        SemanticsFlag.scopesRoute
+                    ),
+                    new MapEntry(
+                        SemanticsFlag._kNamesRouteIndex,
+                        SemanticsFlag.namesRoute
+                    ),
+                    new MapEntry(
+                        SemanticsFlag._kIsHiddenIndex,
+                        SemanticsFlag.isHidden
+                    ),
+                    new MapEntry(
+                        SemanticsFlag._kIsImageIndex,
+                        SemanticsFlag.isImage
+                    ),
+                    new MapEntry(
+                        SemanticsFlag._kIsLiveRegionIndex,
+                        SemanticsFlag.isLiveRegion
+                    ),
+                    new MapEntry(
+                        SemanticsFlag._kHasToggledStateIndex,
+                        SemanticsFlag.hasToggledState
+                    ),
+                    new MapEntry(
+                        SemanticsFlag._kIsToggledIndex,
+                        SemanticsFlag.isToggled
+                    ),
+                    new MapEntry(
+                        SemanticsFlag._kHasImplicitScrollingIndex,
+                        SemanticsFlag.hasImplicitScrolling
+                    ),
+                    new MapEntry(
+                        SemanticsFlag._kIsMultilineIndex,
+                        SemanticsFlag.isMultiline
+                    ),
+                    new MapEntry(
+                        SemanticsFlag._kIsReadOnlyIndex,
+                        SemanticsFlag.isReadOnly
+                    ),
+                    new MapEntry(
+                        SemanticsFlag._kIsFocusableIndex,
+                        SemanticsFlag.isFocusable
+                    ),
+                    new MapEntry(
+                        SemanticsFlag._kIsLinkIndex,
+                        SemanticsFlag.isLink
+                    ),
+                    new MapEntry(
+                        SemanticsFlag._kIsSliderIndex,
+                        SemanticsFlag.isSlider
+                    ),
+                ])
+            ))
+        )
+    );
     public readonly index: number = undefined as any;
     private readonly _dart_toString: () => string = undefined as any;
     public toString(): string {

@@ -1,3 +1,7 @@
+import { IIterable } from "../core/iterable";
+import { List } from "../core/list";
+import { Map } from "../core/map";
+import { IMapEntry, MapEntry } from "../core/mapEntry";
 declare const dart: {
     ui: {
         semanticsActionTap: (this: void) => ISemanticsAction;
@@ -88,7 +92,98 @@ export class SemanticsAction {
         dart.ui.semanticsActionMoveCursorForwardByWord();
     public static moveCursorBackwardByWord =
         dart.ui.semanticsActionMoveCursorBackwardByWord();
-    public static values = Unknown;
+    public static values = Map.fromEntries(
+        <IIterable<IMapEntry<number, ISemanticsAction>>>(
+            (<unknown>(
+                List.fromArray([
+                    new MapEntry(
+                        SemanticsAction._kTapIndex,
+                        SemanticsAction.tap
+                    ),
+                    new MapEntry(
+                        SemanticsAction._kLongPressIndex,
+                        SemanticsAction.longPress
+                    ),
+                    new MapEntry(
+                        SemanticsAction._kScrollLeftIndex,
+                        SemanticsAction.scrollLeft
+                    ),
+                    new MapEntry(
+                        SemanticsAction._kScrollRightIndex,
+                        SemanticsAction.scrollRight
+                    ),
+                    new MapEntry(
+                        SemanticsAction._kScrollUpIndex,
+                        SemanticsAction.scrollUp
+                    ),
+                    new MapEntry(
+                        SemanticsAction._kScrollDownIndex,
+                        SemanticsAction.scrollDown
+                    ),
+                    new MapEntry(
+                        SemanticsAction._kIncreaseIndex,
+                        SemanticsAction.increase
+                    ),
+                    new MapEntry(
+                        SemanticsAction._kDecreaseIndex,
+                        SemanticsAction.decrease
+                    ),
+                    new MapEntry(
+                        SemanticsAction._kShowOnScreenIndex,
+                        SemanticsAction.showOnScreen
+                    ),
+                    new MapEntry(
+                        SemanticsAction._kMoveCursorForwardByCharacterIndex,
+                        SemanticsAction.moveCursorForwardByCharacter
+                    ),
+                    new MapEntry(
+                        SemanticsAction._kMoveCursorBackwardByCharacterIndex,
+                        SemanticsAction.moveCursorBackwardByCharacter
+                    ),
+                    new MapEntry(
+                        SemanticsAction._kSetSelectionIndex,
+                        SemanticsAction.setSelection
+                    ),
+                    new MapEntry(
+                        SemanticsAction._kCopyIndex,
+                        SemanticsAction.copy
+                    ),
+                    new MapEntry(
+                        SemanticsAction._kCutIndex,
+                        SemanticsAction.cut
+                    ),
+                    new MapEntry(
+                        SemanticsAction._kPasteIndex,
+                        SemanticsAction.paste
+                    ),
+                    new MapEntry(
+                        SemanticsAction._kDidGainAccessibilityFocusIndex,
+                        SemanticsAction.didGainAccessibilityFocus
+                    ),
+                    new MapEntry(
+                        SemanticsAction._kDidLoseAccessibilityFocusIndex,
+                        SemanticsAction.didLoseAccessibilityFocus
+                    ),
+                    new MapEntry(
+                        SemanticsAction._kCustomAction,
+                        SemanticsAction.customAction
+                    ),
+                    new MapEntry(
+                        SemanticsAction._kDismissIndex,
+                        SemanticsAction.dismiss
+                    ),
+                    new MapEntry(
+                        SemanticsAction._kMoveCursorForwardByWordIndex,
+                        SemanticsAction.moveCursorForwardByWord
+                    ),
+                    new MapEntry(
+                        SemanticsAction._kMoveCursorBackwardByWordIndex,
+                        SemanticsAction.moveCursorBackwardByWord
+                    ),
+                ])
+            ))
+        )
+    );
     public readonly index: number = undefined as any;
     private readonly _dart_toString: () => string = undefined as any;
     public toString(): string {
