@@ -72,7 +72,9 @@
                 "ListMixin",
                 "StackTrace",
                 "Map",
-                "MapEntry"
+                "MapEntry",
+                "Function",
+                "Symbol"
             ]
         },
         "denyList": {
