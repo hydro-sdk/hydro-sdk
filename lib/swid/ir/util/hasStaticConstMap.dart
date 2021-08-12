@@ -7,11 +7,12 @@ bool hasStaticConstMap({
     swidType.when(
       fromSwidInterface: (_) => false,
       fromSwidClass: (val) =>
-          val.constructorType?.namedDefaultParameters.entries.any(
-            (x) => _hasStaticConstMap(
-              swidStaticConst: x.value.value,
-            ),
-          ) ??
+          (val.constructorType?.namedDefaultParameters.entries.any(
+                (x) => _hasStaticConstMap(
+                  swidStaticConst: x.value.value,
+                ),
+              ) ??
+              false) ||
           (val.factoryConstructors.any(
                 (x) => hasStaticConstMap(
                   swidType: SwidType.fromSwidFunctionType(
