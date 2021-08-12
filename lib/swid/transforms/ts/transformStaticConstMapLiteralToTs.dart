@@ -1,6 +1,8 @@
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstMapLiteral.dart';
+import 'package:hydro_sdk/swid/ir/util/rewriteClassReferencesToInterfaceReferences.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformLiteralToTs.dart';
+import 'package:hydro_sdk/swid/transforms/ts/transformPrimitiveNamesToTs.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformStaticConstMapLiteralEntryToTs.dart';
 
 String transformStaticConstMapLiteralToTs({
@@ -10,7 +12,21 @@ String transformStaticConstMapLiteralToTs({
   required final SwidStaticConstFieldReferenceScopeResolver scopeResolver,
 }) =>
     [
-      " Map.fromEntries(<unknown>List.fromArray([",
+      " Map.fromEntries(",
+      "<IIterable<IMapEntry",
+      "<",
+      rewriteClassReferencesToInterfaceReferences(
+        swidType: transformPrimitiveNamesToTs(
+          swidType: staticConstMapLiteral.staticType,
+        ),
+      ).maybeWhen(
+        fromSwidInterface: (val) =>
+            val.typeArguments.map((x) => x.name).join(","),
+        orElse: () => "",
+      ),
+      ">>>",
+      "<unknown>",
+      "List.fromArray([",
       staticConstMapLiteral.elements
           .map(
             (x) => transformStaticConstMapLiteralEntryToTs(

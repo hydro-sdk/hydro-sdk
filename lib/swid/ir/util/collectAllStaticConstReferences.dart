@@ -129,7 +129,7 @@ List<SwidInterface> collectReferencesFromStaticConst({
             typeArguments: [],
             referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
             declarationModifiers: SwidDeclarationModifiers.empty(),
-          )
+          ),
         ],
       )
     ]
