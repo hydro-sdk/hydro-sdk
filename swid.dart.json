@@ -93,7 +93,15 @@
                 "StreamSink",
                 "Codec",
                 "Converter",
-                "StreamTransformerBase"
+                "StreamTransformerBase",
+                "Utf8Codec",
+                "Utf8Encoder",
+                "Utf8Decoder",
+                "ByteConversionSink",
+                "StringConversionSink",
+                "ClosableStringSink",
+                "StringSink",
+                "ChunkedConversionSink"
             ]
         },
         "denyList": {
