@@ -11,6 +11,7 @@ import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/transforms/transformPackageUri.dart';
 import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformTypeDeclarationToTs.dart';
+import 'package:hydro_sdk/swid/transforms/ts/util/transformIllegalParameterNames.dart';
 
 class TsClassConstructorImplementation {
   final SwidClass swidClass;
@@ -38,26 +39,28 @@ class TsClassConstructorImplementation {
                 str: swidClass.name,
               )
             ].join("."),
-            swidFunctionType: SwidFunctionType.clone(
-              swidFunctionType:
-                  SwidFunctionType.InsertLeadingPositionalParameter(
-                swidFunctionType: swidClass.constructorType!,
-                typeName: "this",
-                swidType: SwidType.fromSwidInterface(
-                  swidInterface: SwidInterface(
-                    //todo classes should eventually support type arguments
-                    //todo should eventually be able to produce an interface from a class
-                    typeArguments: [],
-                    name: "this",
-                    referenceDeclarationKind:
-                        SwidReferenceDeclarationKind.classElement,
-                    nullabilitySuffix: SwidNullabilitySuffix.star,
-                    originalPackagePath: "",
-                    declarationModifiers: SwidDeclarationModifiers.empty(),
+            swidFunctionType: transformIllegalParameterNames(
+              swidFunctionType: SwidFunctionType.clone(
+                swidFunctionType:
+                    SwidFunctionType.InsertLeadingPositionalParameter(
+                  swidFunctionType: swidClass.constructorType!,
+                  typeName: "this",
+                  swidType: SwidType.fromSwidInterface(
+                    swidInterface: SwidInterface(
+                      //todo classes should eventually support type arguments
+                      //todo should eventually be able to produce an interface from a class
+                      typeArguments: [],
+                      name: "this",
+                      referenceDeclarationKind:
+                          SwidReferenceDeclarationKind.classElement,
+                      nullabilitySuffix: SwidNullabilitySuffix.star,
+                      originalPackagePath: "",
+                      declarationModifiers: SwidDeclarationModifiers.empty(),
+                    ),
                   ),
                 ),
+                name: swidClass.name,
               ),
-              name: swidClass.name,
             ),
           ).toTsSource() +
           "}\n"

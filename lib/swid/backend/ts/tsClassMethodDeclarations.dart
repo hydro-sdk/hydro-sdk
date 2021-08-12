@@ -8,6 +8,7 @@ import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/util/rewriteClassReferencesToInterfaceReferencesInFunction.dart';
 import 'package:hydro_sdk/swid/transforms/ts/trailingReturnTypeKind.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformTypeDeclarationToTs.dart';
+import 'package:hydro_sdk/swid/transforms/ts/util/transformIllegalParameterNames.dart';
 
 class TsClassMethodDeclarations {
   final SwidClass swidClass;
@@ -48,7 +49,10 @@ class TsClassMethodDeclarations {
                                     TsClassMethodInjectionFieldName(
                                       swidFunctionType: x,
                                     ).toTsSource(),
-                                swidFunctionType: x,
+                                swidFunctionType:
+                                    transformIllegalParameterNames(
+                                  swidFunctionType: x,
+                                ),
                               ).toTsSource(),
                             ]
                           : [

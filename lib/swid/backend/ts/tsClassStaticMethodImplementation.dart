@@ -11,6 +11,7 @@ import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';
 import 'package:hydro_sdk/swid/transforms/transformToPascalCase.dart';
 import 'package:hydro_sdk/swid/transforms/ts/trailingReturnTypeKind.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformTypeDeclarationToTs.dart';
+import 'package:hydro_sdk/swid/transforms/ts/util/transformIllegalParameterNames.dart';
 
 class TsClassStaticMethodImplementation {
   final SwidClass swidClass;
@@ -57,7 +58,9 @@ class TsClassStaticMethodImplementation {
                           str: swidFunctionType.name,
                         )
                   ].join("."),
-                  swidFunctionType: swidFunctionType,
+                  swidFunctionType: transformIllegalParameterNames(
+                    swidFunctionType: swidFunctionType,
+                  ),
                 ).toTsSource(),
               ]
             : [
