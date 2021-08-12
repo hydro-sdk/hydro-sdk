@@ -1,11 +1,12 @@
-import 'package:hydro_sdk/cfr/builtins/libs/dart/convert/jsonDecode.dart';
-import 'package:hydro_sdk/cfr/vm/table.dart';
-import 'package:hydro_sdk/hydroState.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/dart/convert/codec.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/dart/convert/converter.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/dart/convert/encoding.dart';
+import 'package:hydro_sdk/cfr/runtimeSupport.dart';
 
-void loadConvert({required HydroTable table, required HydroState hydroState}) {
-  var convert = HydroTable();
-
-  table["convert"] = convert;
-
-  loadJsonDecode(table: convert, hydroState: hydroState);
+void loadconvert({required HydroState hydroState, required HydroTable table}) {
+  final convert = HydroTable();
+  table['convert'] = convert;
+  loadConverter(table: convert, hydroState: hydroState);
+  loadCodec(table: convert, hydroState: hydroState);
+  loadEncoding(table: convert, hydroState: hydroState);
 }

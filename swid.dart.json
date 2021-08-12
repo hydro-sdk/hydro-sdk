@@ -10,7 +10,8 @@
         "allowList": {
             "packagePaths": [
                 "dart:typed_data",
-                "dart:ui"
+                "dart:ui",
+                "dart:isolate"
             ],
             "classNames": [
                 "Random",
@@ -74,7 +75,25 @@
                 "Map",
                 "MapEntry",
                 "Function",
-                "Symbol"
+                "Symbol",
+                "Error",
+                "EventSink",
+                "FutureOr",
+                "Stream",
+                "StreamConsumer",
+                "StreamSubscription",
+                "StreamTransformer",
+                "Exception",
+                "Uri",
+                "Sink",
+                "UriData",
+                "Encoding",
+                "MultiStreamController",
+                "StreamController",
+                "StreamSink",
+                "Codec",
+                "Converter",
+                "StreamTransformerBase"
             ]
         },
         "denyList": {
