@@ -10,8 +10,7 @@
         "allowList": {
             "packagePaths": [
                 "dart:typed_data",
-                "dart:ui",
-                "dart:isolate"
+                "dart:ui"
             ],
             "classNames": [
                 "Random",
@@ -79,34 +78,19 @@
                 "Error",
                 "EventSink",
                 "FutureOr",
-                "Stream",
-                "StreamConsumer",
                 "StreamSubscription",
-                "StreamTransformer",
                 "Exception",
-                "Uri",
                 "Sink",
-                "UriData",
-                "Encoding",
-                "MultiStreamController",
-                "StreamController",
-                "StreamSink",
-                "Codec",
-                "Converter",
-                "StreamTransformerBase",
-                "Utf8Codec",
-                "Utf8Encoder",
-                "Utf8Decoder",
                 "ByteConversionSink",
-                "StringConversionSink",
-                "ClosableStringSink",
                 "StringSink",
                 "ChunkedConversionSink"
             ]
         },
         "denyList": {
             "packagePaths": [],
-            "classNames": []
+            "classNames": [
+                "IsolateNameServer"
+            ]
         },
         "tsEmitOptions": {
             "prefixPaths": [

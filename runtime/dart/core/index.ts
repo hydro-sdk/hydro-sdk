@@ -16,5 +16,3 @@ export * from "./stackTrace";
 export * from "./stringSink";
 export * from "./symbol";
 export * from "./type";
-export * from "./uri";
-export * from "./uriData";

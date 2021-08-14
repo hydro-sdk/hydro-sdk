@@ -51,7 +51,6 @@ export * from "./imageFilter";
 export * from "./imageFilterEngineLayer";
 export * from "./imageShader";
 export * from "./immutableBuffer";
-export * from "./isolateNameServer";
 export * from "./lineMetrics";
 export * from "./locale";
 export * from "./maskFilter";

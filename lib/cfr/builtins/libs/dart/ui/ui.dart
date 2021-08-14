@@ -17,7 +17,6 @@ import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/imageDescriptor.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/imageFilter.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/imageShader.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/immutableBuffer.dart';
-import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/isolateNameServer.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/lineMetrics.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/locale.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/maskFilter.dart';
@@ -134,5 +133,4 @@ void loadui({required HydroState hydroState, required HydroTable table}) {
   loadFrameTiming(table: ui, hydroState: hydroState);
   loadWindowPadding(table: ui, hydroState: hydroState);
   loadLocale(table: ui, hydroState: hydroState);
-  loadIsolateNameServer(table: ui, hydroState: hydroState);
 }
