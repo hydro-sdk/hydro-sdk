@@ -26,8 +26,6 @@ import 'package:hydro_sdk/swid/ir/swidStaticConstFieldDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstIdentifier.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 
-import 'package:analyzer/src/dart/element/element.dart'
-    show ConstFieldElementImpl;
 
 SwidStaticConstFieldDeclaration
     swidStaticConstFieldDeclarationFromVariableDeclarationList({
@@ -37,7 +35,6 @@ SwidStaticConstFieldDeclaration
   assert(!variableDeclarationList.isLate);
   VariableDeclaration declaration = variableDeclarationList.childEntities
       .firstWhere((x) => x is VariableDeclaration) as VariableDeclaration;
-  assert(declaration.declaredElement is ConstFieldElementImpl);
   assert(declaration.declaredElement!.isConst);
   assert(declaration.declaredElement!.isStatic);
   assert(!declaration.declaredElement!.isLate);

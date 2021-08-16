@@ -12,10 +12,12 @@ import 'package:hydro_sdk/swid/frontend/dart/surveyor/driver.dart';
 import 'package:hydro_sdk/swid/frontend/dart/surveyor/visitors.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidClassFromDartClassOrMixinOrClassTypAliasDeclaration.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidDeclarationModifiersFromClassDeclaration.dart';
+import 'package:hydro_sdk/swid/frontend/dart/swidTopLevelStaticConstFieldDeclarationFromTopLevelVariableDeclaration.dart';
 import 'package:hydro_sdk/swid/frontend/swidFrontend.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidEnum.dart';
 import 'package:hydro_sdk/swid/ir/swidIr.dart';
+import 'package:hydro_sdk/swid/ir/swidTopLevelStaticConstFieldDeclaration.dart';
 
 class SwidDartFrontend extends SwidFrontend {
   final List<String> inputs;
@@ -71,6 +73,8 @@ class _SwidVisitor extends RecursiveAstVisitor
   List<String> reports = <String>[];
   List<SwidEnum> enums = [];
   List<SwidClass> classes = [];
+  List<SwidTopLevelStaticConstFieldDeclaration> topLevelStaticConstFieldDeclarations =
+      [];
 
   @override
   void visitEnumDeclaration(EnumDeclaration node) {
@@ -286,6 +290,20 @@ class _SwidVisitor extends RecursiveAstVisitor
     }
 
     return super.visitClassTypeAlias(node);
+  }
+
+  @override
+  void visitCompilationUnit(CompilationUnit node) {
+
+    topLevelStaticConstFieldDeclarations.addAll(node.childEntities
+              .whereType<TopLevelVariableDeclaration>()
+              .map((x) =>
+                  swidTopLevelStaticConstFieldDeclarationFromTopLevelVariableDeclaration(
+                    topLevelVariableDeclaration: x,
+                  ))
+              .toList());
+
+    return super.visitCompilationUnit(node);
   }
 
   @override
