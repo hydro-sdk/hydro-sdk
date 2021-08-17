@@ -10,6 +10,8 @@ String transformTopLevelStaticConstFieldDeclaration({
     [
       "export",
       " ",
+      "const",
+      " ",
       swidTopLevelStaticConstFieldDeclaration.declaration.name,
       " = ",
       transformLiteralToTs(
