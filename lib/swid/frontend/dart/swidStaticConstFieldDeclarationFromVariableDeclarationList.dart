@@ -26,7 +26,6 @@ import 'package:hydro_sdk/swid/ir/swidStaticConstFieldDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstIdentifier.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 
-
 SwidStaticConstFieldDeclaration
     swidStaticConstFieldDeclarationFromVariableDeclarationList({
   required final VariableDeclarationList variableDeclarationList,

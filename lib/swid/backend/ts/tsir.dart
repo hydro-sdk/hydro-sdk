@@ -20,6 +20,7 @@ import 'package:hydro_sdk/swid/backend/ts/tsFunctionSelfBindingInvocation.dart';
 import 'package:hydro_sdk/swid/backend/ts/tsInterface.dart';
 import 'package:hydro_sdk/swid/backend/ts/tsLinebreak.dart';
 import 'package:hydro_sdk/swid/backend/ts/tsResolvedImport.dart';
+import 'package:hydro_sdk/swid/backend/ts/tsTopLevelStaticConstFieldDeclaration.dart';
 
 part 'tsir.freezed.dart';
 
@@ -90,6 +91,11 @@ class TsIr with _$TsIr {
   factory TsIr.fromTsResolvedImport(
           {required final TsResolvedImport tsResolvedImport}) =
       _$FromTsResolvedImport;
+
+  factory TsIr.fromTsTopLevelStaticConstFieldDeclaration(
+          {required final TsTopLevelStaticConstFieldDeclaration
+              tsTopLevelStaticConstFieldDeclaration}) =
+      _$FromTsTopLevelStaticConstFieldDeclaration;
 }
 
 extension TsIrMethods on TsIr {
@@ -116,5 +122,6 @@ extension TsIrMethods on TsIr {
         fromTsLinebreak: (val) => val.toTsSource(),
         fromTsFunctionSelfBindingInvocation: (val) => val.toTsSource(),
         fromTsResolvedImport: (val) => val.toTsSource(),
+        fromTsTopLevelStaticConstFieldDeclaration: (val) => val.toTsSource(),
       );
 }

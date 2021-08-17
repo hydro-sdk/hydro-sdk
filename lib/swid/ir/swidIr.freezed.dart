@@ -18,6 +18,8 @@ SwidIr _$SwidIrFromJson(Map<String, dynamic> json) {
       return _$SwidIrFromSwidClass.fromJson(json);
     case 'fromSwidEnum':
       return _$SwidIrFromSwidEnum.fromJson(json);
+    case 'fromSwidTopLevelStaticConstFieldDeclaration':
+      return _$SwidIrFromSwidTopLevelStaticConstFieldDeclaration.fromJson(json);
 
     default:
       throw FallThroughError();
@@ -40,6 +42,16 @@ class _$SwidIrTearOff {
     );
   }
 
+  _$SwidIrFromSwidTopLevelStaticConstFieldDeclaration
+      fromSwidTopLevelStaticConstFieldDeclaration(
+          {required SwidTopLevelStaticConstFieldDeclaration
+              swidTopLevelStaticConstFieldDeclaration}) {
+    return _$SwidIrFromSwidTopLevelStaticConstFieldDeclaration(
+      swidTopLevelStaticConstFieldDeclaration:
+          swidTopLevelStaticConstFieldDeclaration,
+    );
+  }
+
   SwidIr fromJson(Map<String, Object> json) {
     return SwidIr.fromJson(json);
   }
@@ -54,12 +66,20 @@ mixin _$SwidIr {
   TResult when<TResult extends Object?>({
     required TResult Function(SwidClass swidClass) fromSwidClass,
     required TResult Function(SwidEnum swidEnum) fromSwidEnum,
+    required TResult Function(
+            SwidTopLevelStaticConstFieldDeclaration
+                swidTopLevelStaticConstFieldDeclaration)
+        fromSwidTopLevelStaticConstFieldDeclaration,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(SwidClass swidClass)? fromSwidClass,
     TResult Function(SwidEnum swidEnum)? fromSwidEnum,
+    TResult Function(
+            SwidTopLevelStaticConstFieldDeclaration
+                swidTopLevelStaticConstFieldDeclaration)?
+        fromSwidTopLevelStaticConstFieldDeclaration,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -67,12 +87,17 @@ mixin _$SwidIr {
   TResult map<TResult extends Object?>({
     required TResult Function(_$SwidIrFromSwidClass value) fromSwidClass,
     required TResult Function(_$SwidIrFromSwidEnum value) fromSwidEnum,
+    required TResult Function(
+            _$SwidIrFromSwidTopLevelStaticConstFieldDeclaration value)
+        fromSwidTopLevelStaticConstFieldDeclaration,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_$SwidIrFromSwidClass value)? fromSwidClass,
     TResult Function(_$SwidIrFromSwidEnum value)? fromSwidEnum,
+    TResult Function(_$SwidIrFromSwidTopLevelStaticConstFieldDeclaration value)?
+        fromSwidTopLevelStaticConstFieldDeclaration,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -175,6 +200,10 @@ class _$_$SwidIrFromSwidClass implements _$SwidIrFromSwidClass {
   TResult when<TResult extends Object?>({
     required TResult Function(SwidClass swidClass) fromSwidClass,
     required TResult Function(SwidEnum swidEnum) fromSwidEnum,
+    required TResult Function(
+            SwidTopLevelStaticConstFieldDeclaration
+                swidTopLevelStaticConstFieldDeclaration)
+        fromSwidTopLevelStaticConstFieldDeclaration,
   }) {
     return fromSwidClass(swidClass);
   }
@@ -184,6 +213,10 @@ class _$_$SwidIrFromSwidClass implements _$SwidIrFromSwidClass {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(SwidClass swidClass)? fromSwidClass,
     TResult Function(SwidEnum swidEnum)? fromSwidEnum,
+    TResult Function(
+            SwidTopLevelStaticConstFieldDeclaration
+                swidTopLevelStaticConstFieldDeclaration)?
+        fromSwidTopLevelStaticConstFieldDeclaration,
     required TResult orElse(),
   }) {
     if (fromSwidClass != null) {
@@ -197,6 +230,9 @@ class _$_$SwidIrFromSwidClass implements _$SwidIrFromSwidClass {
   TResult map<TResult extends Object?>({
     required TResult Function(_$SwidIrFromSwidClass value) fromSwidClass,
     required TResult Function(_$SwidIrFromSwidEnum value) fromSwidEnum,
+    required TResult Function(
+            _$SwidIrFromSwidTopLevelStaticConstFieldDeclaration value)
+        fromSwidTopLevelStaticConstFieldDeclaration,
   }) {
     return fromSwidClass(this);
   }
@@ -206,6 +242,8 @@ class _$_$SwidIrFromSwidClass implements _$SwidIrFromSwidClass {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_$SwidIrFromSwidClass value)? fromSwidClass,
     TResult Function(_$SwidIrFromSwidEnum value)? fromSwidEnum,
+    TResult Function(_$SwidIrFromSwidTopLevelStaticConstFieldDeclaration value)?
+        fromSwidTopLevelStaticConstFieldDeclaration,
     required TResult orElse(),
   }) {
     if (fromSwidClass != null) {
@@ -315,6 +353,10 @@ class _$_$SwidIrFromSwidEnum implements _$SwidIrFromSwidEnum {
   TResult when<TResult extends Object?>({
     required TResult Function(SwidClass swidClass) fromSwidClass,
     required TResult Function(SwidEnum swidEnum) fromSwidEnum,
+    required TResult Function(
+            SwidTopLevelStaticConstFieldDeclaration
+                swidTopLevelStaticConstFieldDeclaration)
+        fromSwidTopLevelStaticConstFieldDeclaration,
   }) {
     return fromSwidEnum(swidEnum);
   }
@@ -324,6 +366,10 @@ class _$_$SwidIrFromSwidEnum implements _$SwidIrFromSwidEnum {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(SwidClass swidClass)? fromSwidClass,
     TResult Function(SwidEnum swidEnum)? fromSwidEnum,
+    TResult Function(
+            SwidTopLevelStaticConstFieldDeclaration
+                swidTopLevelStaticConstFieldDeclaration)?
+        fromSwidTopLevelStaticConstFieldDeclaration,
     required TResult orElse(),
   }) {
     if (fromSwidEnum != null) {
@@ -337,6 +383,9 @@ class _$_$SwidIrFromSwidEnum implements _$SwidIrFromSwidEnum {
   TResult map<TResult extends Object?>({
     required TResult Function(_$SwidIrFromSwidClass value) fromSwidClass,
     required TResult Function(_$SwidIrFromSwidEnum value) fromSwidEnum,
+    required TResult Function(
+            _$SwidIrFromSwidTopLevelStaticConstFieldDeclaration value)
+        fromSwidTopLevelStaticConstFieldDeclaration,
   }) {
     return fromSwidEnum(this);
   }
@@ -346,6 +395,8 @@ class _$_$SwidIrFromSwidEnum implements _$SwidIrFromSwidEnum {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_$SwidIrFromSwidClass value)? fromSwidClass,
     TResult Function(_$SwidIrFromSwidEnum value)? fromSwidEnum,
+    TResult Function(_$SwidIrFromSwidTopLevelStaticConstFieldDeclaration value)?
+        fromSwidTopLevelStaticConstFieldDeclaration,
     required TResult orElse(),
   }) {
     if (fromSwidEnum != null) {
@@ -372,4 +423,193 @@ abstract class _$SwidIrFromSwidEnum implements SwidIr {
   @JsonKey(ignore: true)
   _$$SwidIrFromSwidEnumCopyWith<_$SwidIrFromSwidEnum> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SwidIrFromSwidTopLevelStaticConstFieldDeclarationCopyWith<
+    $Res> {
+  factory _$$SwidIrFromSwidTopLevelStaticConstFieldDeclarationCopyWith(
+          _$SwidIrFromSwidTopLevelStaticConstFieldDeclaration value,
+          $Res Function(_$SwidIrFromSwidTopLevelStaticConstFieldDeclaration)
+              then) =
+      __$$SwidIrFromSwidTopLevelStaticConstFieldDeclarationCopyWithImpl<$Res>;
+  $Res call(
+      {SwidTopLevelStaticConstFieldDeclaration
+          swidTopLevelStaticConstFieldDeclaration});
+
+  $SwidTopLevelStaticConstFieldDeclarationCopyWith<$Res>
+      get swidTopLevelStaticConstFieldDeclaration;
+}
+
+/// @nodoc
+class __$$SwidIrFromSwidTopLevelStaticConstFieldDeclarationCopyWithImpl<$Res>
+    extends _$SwidIrCopyWithImpl<$Res>
+    implements
+        _$$SwidIrFromSwidTopLevelStaticConstFieldDeclarationCopyWith<$Res> {
+  __$$SwidIrFromSwidTopLevelStaticConstFieldDeclarationCopyWithImpl(
+      _$SwidIrFromSwidTopLevelStaticConstFieldDeclaration _value,
+      $Res Function(_$SwidIrFromSwidTopLevelStaticConstFieldDeclaration) _then)
+      : super(
+            _value,
+            (v) => _then(
+                v as _$SwidIrFromSwidTopLevelStaticConstFieldDeclaration));
+
+  @override
+  _$SwidIrFromSwidTopLevelStaticConstFieldDeclaration get _value =>
+      super._value as _$SwidIrFromSwidTopLevelStaticConstFieldDeclaration;
+
+  @override
+  $Res call({
+    Object? swidTopLevelStaticConstFieldDeclaration = freezed,
+  }) {
+    return _then(_$SwidIrFromSwidTopLevelStaticConstFieldDeclaration(
+      swidTopLevelStaticConstFieldDeclaration:
+          swidTopLevelStaticConstFieldDeclaration == freezed
+              ? _value.swidTopLevelStaticConstFieldDeclaration
+              : swidTopLevelStaticConstFieldDeclaration // ignore: cast_nullable_to_non_nullable
+                  as SwidTopLevelStaticConstFieldDeclaration,
+    ));
+  }
+
+  @override
+  $SwidTopLevelStaticConstFieldDeclarationCopyWith<$Res>
+      get swidTopLevelStaticConstFieldDeclaration {
+    return $SwidTopLevelStaticConstFieldDeclarationCopyWith<$Res>(
+        _value.swidTopLevelStaticConstFieldDeclaration, (value) {
+      return _then(
+          _value.copyWith(swidTopLevelStaticConstFieldDeclaration: value));
+    });
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_$SwidIrFromSwidTopLevelStaticConstFieldDeclaration
+    implements _$SwidIrFromSwidTopLevelStaticConstFieldDeclaration {
+  const _$_$SwidIrFromSwidTopLevelStaticConstFieldDeclaration(
+      {required this.swidTopLevelStaticConstFieldDeclaration});
+
+  factory _$_$SwidIrFromSwidTopLevelStaticConstFieldDeclaration.fromJson(
+          Map<String, dynamic> json) =>
+      _$_$_$SwidIrFromSwidTopLevelStaticConstFieldDeclarationFromJson(json);
+
+  @override
+  final SwidTopLevelStaticConstFieldDeclaration
+      swidTopLevelStaticConstFieldDeclaration;
+
+  @override
+  String toString() {
+    return 'SwidIr.fromSwidTopLevelStaticConstFieldDeclaration(swidTopLevelStaticConstFieldDeclaration: $swidTopLevelStaticConstFieldDeclaration)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _$SwidIrFromSwidTopLevelStaticConstFieldDeclaration &&
+            (identical(other.swidTopLevelStaticConstFieldDeclaration,
+                    swidTopLevelStaticConstFieldDeclaration) ||
+                const DeepCollectionEquality().equals(
+                    other.swidTopLevelStaticConstFieldDeclaration,
+                    swidTopLevelStaticConstFieldDeclaration)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality()
+          .hash(swidTopLevelStaticConstFieldDeclaration);
+
+  @JsonKey(ignore: true)
+  @override
+  _$$SwidIrFromSwidTopLevelStaticConstFieldDeclarationCopyWith<
+          _$SwidIrFromSwidTopLevelStaticConstFieldDeclaration>
+      get copyWith =>
+          __$$SwidIrFromSwidTopLevelStaticConstFieldDeclarationCopyWithImpl<
+                  _$SwidIrFromSwidTopLevelStaticConstFieldDeclaration>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(SwidClass swidClass) fromSwidClass,
+    required TResult Function(SwidEnum swidEnum) fromSwidEnum,
+    required TResult Function(
+            SwidTopLevelStaticConstFieldDeclaration
+                swidTopLevelStaticConstFieldDeclaration)
+        fromSwidTopLevelStaticConstFieldDeclaration,
+  }) {
+    return fromSwidTopLevelStaticConstFieldDeclaration(
+        swidTopLevelStaticConstFieldDeclaration);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(SwidClass swidClass)? fromSwidClass,
+    TResult Function(SwidEnum swidEnum)? fromSwidEnum,
+    TResult Function(
+            SwidTopLevelStaticConstFieldDeclaration
+                swidTopLevelStaticConstFieldDeclaration)?
+        fromSwidTopLevelStaticConstFieldDeclaration,
+    required TResult orElse(),
+  }) {
+    if (fromSwidTopLevelStaticConstFieldDeclaration != null) {
+      return fromSwidTopLevelStaticConstFieldDeclaration(
+          swidTopLevelStaticConstFieldDeclaration);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_$SwidIrFromSwidClass value) fromSwidClass,
+    required TResult Function(_$SwidIrFromSwidEnum value) fromSwidEnum,
+    required TResult Function(
+            _$SwidIrFromSwidTopLevelStaticConstFieldDeclaration value)
+        fromSwidTopLevelStaticConstFieldDeclaration,
+  }) {
+    return fromSwidTopLevelStaticConstFieldDeclaration(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$SwidIrFromSwidClass value)? fromSwidClass,
+    TResult Function(_$SwidIrFromSwidEnum value)? fromSwidEnum,
+    TResult Function(_$SwidIrFromSwidTopLevelStaticConstFieldDeclaration value)?
+        fromSwidTopLevelStaticConstFieldDeclaration,
+    required TResult orElse(),
+  }) {
+    if (fromSwidTopLevelStaticConstFieldDeclaration != null) {
+      return fromSwidTopLevelStaticConstFieldDeclaration(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_$SwidIrFromSwidTopLevelStaticConstFieldDeclarationToJson(this)
+      ..['runtimeType'] = 'fromSwidTopLevelStaticConstFieldDeclaration';
+  }
+}
+
+abstract class _$SwidIrFromSwidTopLevelStaticConstFieldDeclaration
+    implements SwidIr {
+  const factory _$SwidIrFromSwidTopLevelStaticConstFieldDeclaration(
+          {required SwidTopLevelStaticConstFieldDeclaration
+              swidTopLevelStaticConstFieldDeclaration}) =
+      _$_$SwidIrFromSwidTopLevelStaticConstFieldDeclaration;
+
+  factory _$SwidIrFromSwidTopLevelStaticConstFieldDeclaration.fromJson(
+          Map<String, dynamic> json) =
+      _$_$SwidIrFromSwidTopLevelStaticConstFieldDeclaration.fromJson;
+
+  SwidTopLevelStaticConstFieldDeclaration
+      get swidTopLevelStaticConstFieldDeclaration =>
+          throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$$SwidIrFromSwidTopLevelStaticConstFieldDeclarationCopyWith<
+          _$SwidIrFromSwidTopLevelStaticConstFieldDeclaration>
+      get copyWith => throw _privateConstructorUsedError;
 }

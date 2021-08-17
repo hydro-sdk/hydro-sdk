@@ -52,11 +52,21 @@ class SwidDartFrontend extends SwidFrontend {
     return [
       ...((driver.visitor as _SwidVisitor)
           .enums
-          .map((x) => SwidIr.fromSwidEnum(swidEnum: x))
+          .map((x) => SwidIr.fromSwidEnum(
+                swidEnum: x,
+              ))
           .toList()),
       ...((driver.visitor as _SwidVisitor)
           .classes
-          .map((x) => SwidIr.fromSwidClass(swidClass: x))
+          .map((x) => SwidIr.fromSwidClass(
+                swidClass: x,
+              ))
+          .toList()),
+      ...((driver.visitor as _SwidVisitor)
+          .topLevelStaticConstFieldDeclarations
+          .map((x) => SwidIr.fromSwidTopLevelStaticConstFieldDeclaration(
+                swidTopLevelStaticConstFieldDeclaration: x,
+              ))
           .toList()),
     ];
   }
@@ -73,8 +83,8 @@ class _SwidVisitor extends RecursiveAstVisitor
   List<String> reports = <String>[];
   List<SwidEnum> enums = [];
   List<SwidClass> classes = [];
-  List<SwidTopLevelStaticConstFieldDeclaration> topLevelStaticConstFieldDeclarations =
-      [];
+  List<SwidTopLevelStaticConstFieldDeclaration>
+      topLevelStaticConstFieldDeclarations = [];
 
   @override
   void visitEnumDeclaration(EnumDeclaration node) {
@@ -294,14 +304,15 @@ class _SwidVisitor extends RecursiveAstVisitor
 
   @override
   void visitCompilationUnit(CompilationUnit node) {
-
     topLevelStaticConstFieldDeclarations.addAll(node.childEntities
-              .whereType<TopLevelVariableDeclaration>()
-              .map((x) =>
-                  swidTopLevelStaticConstFieldDeclarationFromTopLevelVariableDeclaration(
-                    topLevelVariableDeclaration: x,
-                  ))
-              .toList());
+        .whereType<TopLevelVariableDeclaration>()
+        .where((x) =>
+            x.childEntities.whereType<VariableDeclarationList>().first.isConst)
+        .map((x) =>
+            swidTopLevelStaticConstFieldDeclarationFromTopLevelVariableDeclaration(
+              topLevelVariableDeclaration: x,
+            ))
+        .toList());
 
     return super.visitCompilationUnit(node);
   }
