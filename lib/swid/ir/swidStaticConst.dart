@@ -12,6 +12,7 @@ import 'package:hydro_sdk/swid/ir/swidStaticConstMapLiteral.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstMapLiteralEntry.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstPrefixedExpression.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstPrefixedIdentifier.dart';
+import 'package:hydro_sdk/swid/ir/swidStaticConstTopLevelVariableReference.dart';
 import 'package:hydro_sdk/swid/ir/swidStringLiteral.dart';
 
 part 'swidStaticConst.freezed.dart';
@@ -75,6 +76,11 @@ class SwidStaticConst with _$SwidStaticConst {
   const factory SwidStaticConst.fromSwidStaticConstMapLiteral({
     required final SwidStaticConstMapLiteral swidStaticConstMapLiteral,
   }) = _$FromSwidStaticConstMapLiteral;
+
+  const factory SwidStaticConst.fromSwidStaticConstTopLevelVariableReference({
+    required final SwidStaticConstTopLevelVariableReference
+        swidStaticConstTopLevelVariableReference,
+  }) = _$FromSwidStaticConstTopLevelVariableReference;
 
   factory SwidStaticConst.fromJson(Map<String, dynamic> json) =>
       _$SwidStaticConstFromJson(json);
@@ -156,6 +162,13 @@ class SwidStaticConst with _$SwidStaticConst {
         fromSwidStaticConstMapLiteralEntry: (val) =>
             SwidStaticConst.fromSwidStaticConstMapLiteralEntry(
           swidStaticConstMapLiteralEntry: val.clone(),
+        ),
+        fromSwidStaticConstTopLevelVariableReference: (val) =>
+            SwidStaticConst.fromSwidStaticConstTopLevelVariableReference(
+          swidStaticConstTopLevelVariableReference:
+              SwidStaticConstTopLevelVariableReference.clone(
+            swidStaticConstTopLevelVariableReference: val,
+          ),
         ),
       );
 }

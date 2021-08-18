@@ -41,6 +41,8 @@ class DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration {
                     boxLists: true,
                     type: swidStaticConstFieldDeclaration.value
                         .when<SwidInterface>(
+                      fromSwidStaticConstTopLevelVariableReference: (_) =>
+                          dartUnknownInterface,
                       fromSwidStaticConstMapLiteral: (_) =>
                           dartUnknownInterface,
                       fromSwidStaticConstMapLiteralEntry: (_) =>

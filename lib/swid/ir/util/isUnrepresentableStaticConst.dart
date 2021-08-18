@@ -13,6 +13,8 @@ bool isUnrepresentableStaticConst({
       fromSwidStaticConstFunctionInvocation: (val) =>
           val.staticType.name[0] == "_",
       fromSwidStaticConstFieldReference: (_) => false,
+      fromSwidStaticConstTopLevelVariableReference: (val) =>
+          val.topLevelReference.name[0] != "_",
       fromSwidStaticConstPrefixedExpression: (val) =>
           isUnrepresentableStaticConst(
         parentClass: parentClass,

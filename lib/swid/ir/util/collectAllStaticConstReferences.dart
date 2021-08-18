@@ -17,6 +17,14 @@ List<SwidInterface> collectReferencesFromStaticConst({
         fromSwidIntegerLiteral: (_) => [],
         fromDoubleLiteral: (_) => [],
         fromSwidStaticConstIdentifier: (_) => [],
+        fromSwidStaticConstTopLevelVariableReference: (val) => [
+          val.topLevelReference.when(
+            fromSwidInterface: (val) => val,
+            fromSwidClass: (_) => dartUnknownInterface,
+            fromSwidDefaultFormalParameter: (_) => dartUnknownInterface,
+            fromSwidFunctionType: (_) => dartUnknownInterface,
+          ),
+        ].where((x) => x != dartUnknownInterface).toList(),
         fromSwidStaticConstFunctionInvocation: (val) => [
           ...((List<List<SwidInterface>> elements) => elements.isNotEmpty
               ? elements.reduce((value, element) => [

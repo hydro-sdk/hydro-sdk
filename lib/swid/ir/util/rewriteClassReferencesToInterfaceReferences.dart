@@ -175,6 +175,10 @@ SwidType rewriteClassReferencesToInterfaceReferences({
         swidDefaultFormalParameter: SwidDefaultFormalParameter.clone(
           swidDefaultFormalParameter: val,
           value: val.value.when(
+            fromSwidStaticConstTopLevelVariableReference: (val) =>
+                SwidStaticConst.fromSwidStaticConstTopLevelVariableReference(
+              swidStaticConstTopLevelVariableReference: val,
+            ),
             fromSwidBooleanLiteral: (val) =>
                 SwidStaticConst.fromSwidBooleanLiteral(
               swidBooleanLiteral: val,
@@ -272,6 +276,11 @@ SwidType rewriteClassReferencesToInterfaceReferences({
               SwidDefaultFormalParameter.clone(
                 swidDefaultFormalParameter: value,
                 value: value.value.when(
+                  fromSwidStaticConstTopLevelVariableReference: (val) =>
+                      SwidStaticConst
+                          .fromSwidStaticConstTopLevelVariableReference(
+                    swidStaticConstTopLevelVariableReference: val,
+                  ),
                   fromSwidBooleanLiteral: (val) =>
                       SwidStaticConst.fromSwidBooleanLiteral(
                     swidBooleanLiteral: val,

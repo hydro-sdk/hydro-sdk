@@ -1,7 +1,10 @@
 import 'package:analyzer/dart/ast/ast.dart' show Expression;
 import 'package:analyzer/dart/element/element.dart' show Element;
-import 'package:analyzer/dart/element/type.dart';
+import 'package:analyzer/dart/element/type.dart' show DartType;
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+import 'package:analyzer/src/dart/constant/evaluation.dart'
+    show EvaluationResultImpl;
 
 import 'package:analyzer/src/dart/element/element.dart'
     show DefaultFieldFormalParameterElementImpl, DefaultParameterElementImpl;
@@ -48,5 +51,11 @@ class DartDefaultFieldFormalOrDefaultFormal
   DartType get type => when(
         fromDefaultFieldFormalParameterElementImpl: (val) => val.type,
         fromDefaultParameterElementImpl: (val) => val.type,
+      );
+
+  EvaluationResultImpl? get evaluationResult => when(
+        fromDefaultFieldFormalParameterElementImpl: (val) =>
+            val.evaluationResult,
+        fromDefaultParameterElementImpl: (val) => val.evaluationResult,
       );
 }

@@ -40,6 +40,8 @@ SwidStaticConst _$SwidStaticConstFromJson(Map<String, dynamic> json) {
       return _$FromSwidStaticConstMapLiteralEntry.fromJson(json);
     case 'fromSwidStaticConstMapLiteral':
       return _$FromSwidStaticConstMapLiteral.fromJson(json);
+    case 'fromSwidStaticConstTopLevelVariableReference':
+      return _$FromSwidStaticConstTopLevelVariableReference.fromJson(json);
 
     default:
       throw FallThroughError();
@@ -146,6 +148,16 @@ class _$SwidStaticConstTearOff {
     );
   }
 
+  _$FromSwidStaticConstTopLevelVariableReference
+      fromSwidStaticConstTopLevelVariableReference(
+          {required SwidStaticConstTopLevelVariableReference
+              swidStaticConstTopLevelVariableReference}) {
+    return _$FromSwidStaticConstTopLevelVariableReference(
+      swidStaticConstTopLevelVariableReference:
+          swidStaticConstTopLevelVariableReference,
+    );
+  }
+
   SwidStaticConst fromJson(Map<String, Object> json) {
     return SwidStaticConst.fromJson(json);
   }
@@ -191,6 +203,10 @@ mixin _$SwidStaticConst {
     required TResult Function(
             SwidStaticConstMapLiteral swidStaticConstMapLiteral)
         fromSwidStaticConstMapLiteral,
+    required TResult Function(
+            SwidStaticConstTopLevelVariableReference
+                swidStaticConstTopLevelVariableReference)
+        fromSwidStaticConstTopLevelVariableReference,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -227,6 +243,10 @@ mixin _$SwidStaticConst {
         fromSwidStaticConstMapLiteralEntry,
     TResult Function(SwidStaticConstMapLiteral swidStaticConstMapLiteral)?
         fromSwidStaticConstMapLiteral,
+    TResult Function(
+            SwidStaticConstTopLevelVariableReference
+                swidStaticConstTopLevelVariableReference)?
+        fromSwidStaticConstTopLevelVariableReference,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -257,6 +277,9 @@ mixin _$SwidStaticConst {
         fromSwidStaticConstMapLiteralEntry,
     required TResult Function(_$FromSwidStaticConstMapLiteral value)
         fromSwidStaticConstMapLiteral,
+    required TResult Function(
+            _$FromSwidStaticConstTopLevelVariableReference value)
+        fromSwidStaticConstTopLevelVariableReference,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -283,6 +306,8 @@ mixin _$SwidStaticConst {
         fromSwidStaticConstMapLiteralEntry,
     TResult Function(_$FromSwidStaticConstMapLiteral value)?
         fromSwidStaticConstMapLiteral,
+    TResult Function(_$FromSwidStaticConstTopLevelVariableReference value)?
+        fromSwidStaticConstTopLevelVariableReference,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -421,6 +446,10 @@ class _$_$FromSwidBooleanLiteral implements _$FromSwidBooleanLiteral {
     required TResult Function(
             SwidStaticConstMapLiteral swidStaticConstMapLiteral)
         fromSwidStaticConstMapLiteral,
+    required TResult Function(
+            SwidStaticConstTopLevelVariableReference
+                swidStaticConstTopLevelVariableReference)
+        fromSwidStaticConstTopLevelVariableReference,
   }) {
     return fromSwidBooleanLiteral(swidBooleanLiteral);
   }
@@ -460,6 +489,10 @@ class _$_$FromSwidBooleanLiteral implements _$FromSwidBooleanLiteral {
         fromSwidStaticConstMapLiteralEntry,
     TResult Function(SwidStaticConstMapLiteral swidStaticConstMapLiteral)?
         fromSwidStaticConstMapLiteral,
+    TResult Function(
+            SwidStaticConstTopLevelVariableReference
+                swidStaticConstTopLevelVariableReference)?
+        fromSwidStaticConstTopLevelVariableReference,
     required TResult orElse(),
   }) {
     if (fromSwidBooleanLiteral != null) {
@@ -496,6 +529,9 @@ class _$_$FromSwidBooleanLiteral implements _$FromSwidBooleanLiteral {
         fromSwidStaticConstMapLiteralEntry,
     required TResult Function(_$FromSwidStaticConstMapLiteral value)
         fromSwidStaticConstMapLiteral,
+    required TResult Function(
+            _$FromSwidStaticConstTopLevelVariableReference value)
+        fromSwidStaticConstTopLevelVariableReference,
   }) {
     return fromSwidBooleanLiteral(this);
   }
@@ -525,6 +561,8 @@ class _$_$FromSwidBooleanLiteral implements _$FromSwidBooleanLiteral {
         fromSwidStaticConstMapLiteralEntry,
     TResult Function(_$FromSwidStaticConstMapLiteral value)?
         fromSwidStaticConstMapLiteral,
+    TResult Function(_$FromSwidStaticConstTopLevelVariableReference value)?
+        fromSwidStaticConstTopLevelVariableReference,
     required TResult orElse(),
   }) {
     if (fromSwidBooleanLiteral != null) {
@@ -668,6 +706,10 @@ class _$_$FromSwidStringLiteral implements _$FromSwidStringLiteral {
     required TResult Function(
             SwidStaticConstMapLiteral swidStaticConstMapLiteral)
         fromSwidStaticConstMapLiteral,
+    required TResult Function(
+            SwidStaticConstTopLevelVariableReference
+                swidStaticConstTopLevelVariableReference)
+        fromSwidStaticConstTopLevelVariableReference,
   }) {
     return fromSwidStringLiteral(swidStringLiteral);
   }
@@ -707,6 +749,10 @@ class _$_$FromSwidStringLiteral implements _$FromSwidStringLiteral {
         fromSwidStaticConstMapLiteralEntry,
     TResult Function(SwidStaticConstMapLiteral swidStaticConstMapLiteral)?
         fromSwidStaticConstMapLiteral,
+    TResult Function(
+            SwidStaticConstTopLevelVariableReference
+                swidStaticConstTopLevelVariableReference)?
+        fromSwidStaticConstTopLevelVariableReference,
     required TResult orElse(),
   }) {
     if (fromSwidStringLiteral != null) {
@@ -743,6 +789,9 @@ class _$_$FromSwidStringLiteral implements _$FromSwidStringLiteral {
         fromSwidStaticConstMapLiteralEntry,
     required TResult Function(_$FromSwidStaticConstMapLiteral value)
         fromSwidStaticConstMapLiteral,
+    required TResult Function(
+            _$FromSwidStaticConstTopLevelVariableReference value)
+        fromSwidStaticConstTopLevelVariableReference,
   }) {
     return fromSwidStringLiteral(this);
   }
@@ -772,6 +821,8 @@ class _$_$FromSwidStringLiteral implements _$FromSwidStringLiteral {
         fromSwidStaticConstMapLiteralEntry,
     TResult Function(_$FromSwidStaticConstMapLiteral value)?
         fromSwidStaticConstMapLiteral,
+    TResult Function(_$FromSwidStaticConstTopLevelVariableReference value)?
+        fromSwidStaticConstTopLevelVariableReference,
     required TResult orElse(),
   }) {
     if (fromSwidStringLiteral != null) {
@@ -916,6 +967,10 @@ class _$_$FromSwidIntegerLiteral implements _$FromSwidIntegerLiteral {
     required TResult Function(
             SwidStaticConstMapLiteral swidStaticConstMapLiteral)
         fromSwidStaticConstMapLiteral,
+    required TResult Function(
+            SwidStaticConstTopLevelVariableReference
+                swidStaticConstTopLevelVariableReference)
+        fromSwidStaticConstTopLevelVariableReference,
   }) {
     return fromSwidIntegerLiteral(swidIntegerLiteral);
   }
@@ -955,6 +1010,10 @@ class _$_$FromSwidIntegerLiteral implements _$FromSwidIntegerLiteral {
         fromSwidStaticConstMapLiteralEntry,
     TResult Function(SwidStaticConstMapLiteral swidStaticConstMapLiteral)?
         fromSwidStaticConstMapLiteral,
+    TResult Function(
+            SwidStaticConstTopLevelVariableReference
+                swidStaticConstTopLevelVariableReference)?
+        fromSwidStaticConstTopLevelVariableReference,
     required TResult orElse(),
   }) {
     if (fromSwidIntegerLiteral != null) {
@@ -991,6 +1050,9 @@ class _$_$FromSwidIntegerLiteral implements _$FromSwidIntegerLiteral {
         fromSwidStaticConstMapLiteralEntry,
     required TResult Function(_$FromSwidStaticConstMapLiteral value)
         fromSwidStaticConstMapLiteral,
+    required TResult Function(
+            _$FromSwidStaticConstTopLevelVariableReference value)
+        fromSwidStaticConstTopLevelVariableReference,
   }) {
     return fromSwidIntegerLiteral(this);
   }
@@ -1020,6 +1082,8 @@ class _$_$FromSwidIntegerLiteral implements _$FromSwidIntegerLiteral {
         fromSwidStaticConstMapLiteralEntry,
     TResult Function(_$FromSwidStaticConstMapLiteral value)?
         fromSwidStaticConstMapLiteral,
+    TResult Function(_$FromSwidStaticConstTopLevelVariableReference value)?
+        fromSwidStaticConstTopLevelVariableReference,
     required TResult orElse(),
   }) {
     if (fromSwidIntegerLiteral != null) {
@@ -1163,6 +1227,10 @@ class _$_$FromSwidDoubleLiteral implements _$FromSwidDoubleLiteral {
     required TResult Function(
             SwidStaticConstMapLiteral swidStaticConstMapLiteral)
         fromSwidStaticConstMapLiteral,
+    required TResult Function(
+            SwidStaticConstTopLevelVariableReference
+                swidStaticConstTopLevelVariableReference)
+        fromSwidStaticConstTopLevelVariableReference,
   }) {
     return fromDoubleLiteral(swidDoubleLiteral);
   }
@@ -1202,6 +1270,10 @@ class _$_$FromSwidDoubleLiteral implements _$FromSwidDoubleLiteral {
         fromSwidStaticConstMapLiteralEntry,
     TResult Function(SwidStaticConstMapLiteral swidStaticConstMapLiteral)?
         fromSwidStaticConstMapLiteral,
+    TResult Function(
+            SwidStaticConstTopLevelVariableReference
+                swidStaticConstTopLevelVariableReference)?
+        fromSwidStaticConstTopLevelVariableReference,
     required TResult orElse(),
   }) {
     if (fromDoubleLiteral != null) {
@@ -1238,6 +1310,9 @@ class _$_$FromSwidDoubleLiteral implements _$FromSwidDoubleLiteral {
         fromSwidStaticConstMapLiteralEntry,
     required TResult Function(_$FromSwidStaticConstMapLiteral value)
         fromSwidStaticConstMapLiteral,
+    required TResult Function(
+            _$FromSwidStaticConstTopLevelVariableReference value)
+        fromSwidStaticConstTopLevelVariableReference,
   }) {
     return fromDoubleLiteral(this);
   }
@@ -1267,6 +1342,8 @@ class _$_$FromSwidDoubleLiteral implements _$FromSwidDoubleLiteral {
         fromSwidStaticConstMapLiteralEntry,
     TResult Function(_$FromSwidStaticConstMapLiteral value)?
         fromSwidStaticConstMapLiteral,
+    TResult Function(_$FromSwidStaticConstTopLevelVariableReference value)?
+        fromSwidStaticConstTopLevelVariableReference,
     required TResult orElse(),
   }) {
     if (fromDoubleLiteral != null) {
@@ -1422,6 +1499,10 @@ class _$_$FromSwidStaticConstFunctionInvocation
     required TResult Function(
             SwidStaticConstMapLiteral swidStaticConstMapLiteral)
         fromSwidStaticConstMapLiteral,
+    required TResult Function(
+            SwidStaticConstTopLevelVariableReference
+                swidStaticConstTopLevelVariableReference)
+        fromSwidStaticConstTopLevelVariableReference,
   }) {
     return fromSwidStaticConstFunctionInvocation(staticConstFunctionInvocation);
   }
@@ -1461,6 +1542,10 @@ class _$_$FromSwidStaticConstFunctionInvocation
         fromSwidStaticConstMapLiteralEntry,
     TResult Function(SwidStaticConstMapLiteral swidStaticConstMapLiteral)?
         fromSwidStaticConstMapLiteral,
+    TResult Function(
+            SwidStaticConstTopLevelVariableReference
+                swidStaticConstTopLevelVariableReference)?
+        fromSwidStaticConstTopLevelVariableReference,
     required TResult orElse(),
   }) {
     if (fromSwidStaticConstFunctionInvocation != null) {
@@ -1498,6 +1583,9 @@ class _$_$FromSwidStaticConstFunctionInvocation
         fromSwidStaticConstMapLiteralEntry,
     required TResult Function(_$FromSwidStaticConstMapLiteral value)
         fromSwidStaticConstMapLiteral,
+    required TResult Function(
+            _$FromSwidStaticConstTopLevelVariableReference value)
+        fromSwidStaticConstTopLevelVariableReference,
   }) {
     return fromSwidStaticConstFunctionInvocation(this);
   }
@@ -1527,6 +1615,8 @@ class _$_$FromSwidStaticConstFunctionInvocation
         fromSwidStaticConstMapLiteralEntry,
     TResult Function(_$FromSwidStaticConstMapLiteral value)?
         fromSwidStaticConstMapLiteral,
+    TResult Function(_$FromSwidStaticConstTopLevelVariableReference value)?
+        fromSwidStaticConstTopLevelVariableReference,
     required TResult orElse(),
   }) {
     if (fromSwidStaticConstFunctionInvocation != null) {
@@ -1686,6 +1776,10 @@ class _$_$FromSwidStaticConstFieldReference
     required TResult Function(
             SwidStaticConstMapLiteral swidStaticConstMapLiteral)
         fromSwidStaticConstMapLiteral,
+    required TResult Function(
+            SwidStaticConstTopLevelVariableReference
+                swidStaticConstTopLevelVariableReference)
+        fromSwidStaticConstTopLevelVariableReference,
   }) {
     return fromSwidStaticConstFieldReference(swidStaticConstFieldReference);
   }
@@ -1725,6 +1819,10 @@ class _$_$FromSwidStaticConstFieldReference
         fromSwidStaticConstMapLiteralEntry,
     TResult Function(SwidStaticConstMapLiteral swidStaticConstMapLiteral)?
         fromSwidStaticConstMapLiteral,
+    TResult Function(
+            SwidStaticConstTopLevelVariableReference
+                swidStaticConstTopLevelVariableReference)?
+        fromSwidStaticConstTopLevelVariableReference,
     required TResult orElse(),
   }) {
     if (fromSwidStaticConstFieldReference != null) {
@@ -1761,6 +1859,9 @@ class _$_$FromSwidStaticConstFieldReference
         fromSwidStaticConstMapLiteralEntry,
     required TResult Function(_$FromSwidStaticConstMapLiteral value)
         fromSwidStaticConstMapLiteral,
+    required TResult Function(
+            _$FromSwidStaticConstTopLevelVariableReference value)
+        fromSwidStaticConstTopLevelVariableReference,
   }) {
     return fromSwidStaticConstFieldReference(this);
   }
@@ -1790,6 +1891,8 @@ class _$_$FromSwidStaticConstFieldReference
         fromSwidStaticConstMapLiteralEntry,
     TResult Function(_$FromSwidStaticConstMapLiteral value)?
         fromSwidStaticConstMapLiteral,
+    TResult Function(_$FromSwidStaticConstTopLevelVariableReference value)?
+        fromSwidStaticConstTopLevelVariableReference,
     required TResult orElse(),
   }) {
     if (fromSwidStaticConstFieldReference != null) {
@@ -1951,6 +2054,10 @@ class _$_$FromSwidStaticConstPrefixedExpression
     required TResult Function(
             SwidStaticConstMapLiteral swidStaticConstMapLiteral)
         fromSwidStaticConstMapLiteral,
+    required TResult Function(
+            SwidStaticConstTopLevelVariableReference
+                swidStaticConstTopLevelVariableReference)
+        fromSwidStaticConstTopLevelVariableReference,
   }) {
     return fromSwidStaticConstPrefixedExpression(
         swidStaticConstPrefixedExpression);
@@ -1991,6 +2098,10 @@ class _$_$FromSwidStaticConstPrefixedExpression
         fromSwidStaticConstMapLiteralEntry,
     TResult Function(SwidStaticConstMapLiteral swidStaticConstMapLiteral)?
         fromSwidStaticConstMapLiteral,
+    TResult Function(
+            SwidStaticConstTopLevelVariableReference
+                swidStaticConstTopLevelVariableReference)?
+        fromSwidStaticConstTopLevelVariableReference,
     required TResult orElse(),
   }) {
     if (fromSwidStaticConstPrefixedExpression != null) {
@@ -2028,6 +2139,9 @@ class _$_$FromSwidStaticConstPrefixedExpression
         fromSwidStaticConstMapLiteralEntry,
     required TResult Function(_$FromSwidStaticConstMapLiteral value)
         fromSwidStaticConstMapLiteral,
+    required TResult Function(
+            _$FromSwidStaticConstTopLevelVariableReference value)
+        fromSwidStaticConstTopLevelVariableReference,
   }) {
     return fromSwidStaticConstPrefixedExpression(this);
   }
@@ -2057,6 +2171,8 @@ class _$_$FromSwidStaticConstPrefixedExpression
         fromSwidStaticConstMapLiteralEntry,
     TResult Function(_$FromSwidStaticConstMapLiteral value)?
         fromSwidStaticConstMapLiteral,
+    TResult Function(_$FromSwidStaticConstTopLevelVariableReference value)?
+        fromSwidStaticConstTopLevelVariableReference,
     required TResult orElse(),
   }) {
     if (fromSwidStaticConstPrefixedExpression != null) {
@@ -2217,6 +2333,10 @@ class _$_$FromSwidStaticConstBinaryExpression
     required TResult Function(
             SwidStaticConstMapLiteral swidStaticConstMapLiteral)
         fromSwidStaticConstMapLiteral,
+    required TResult Function(
+            SwidStaticConstTopLevelVariableReference
+                swidStaticConstTopLevelVariableReference)
+        fromSwidStaticConstTopLevelVariableReference,
   }) {
     return fromSwidStaticConstBinaryExpression(swidStaticConstBinaryExpression);
   }
@@ -2256,6 +2376,10 @@ class _$_$FromSwidStaticConstBinaryExpression
         fromSwidStaticConstMapLiteralEntry,
     TResult Function(SwidStaticConstMapLiteral swidStaticConstMapLiteral)?
         fromSwidStaticConstMapLiteral,
+    TResult Function(
+            SwidStaticConstTopLevelVariableReference
+                swidStaticConstTopLevelVariableReference)?
+        fromSwidStaticConstTopLevelVariableReference,
     required TResult orElse(),
   }) {
     if (fromSwidStaticConstBinaryExpression != null) {
@@ -2293,6 +2417,9 @@ class _$_$FromSwidStaticConstBinaryExpression
         fromSwidStaticConstMapLiteralEntry,
     required TResult Function(_$FromSwidStaticConstMapLiteral value)
         fromSwidStaticConstMapLiteral,
+    required TResult Function(
+            _$FromSwidStaticConstTopLevelVariableReference value)
+        fromSwidStaticConstTopLevelVariableReference,
   }) {
     return fromSwidStaticConstBinaryExpression(this);
   }
@@ -2322,6 +2449,8 @@ class _$_$FromSwidStaticConstBinaryExpression
         fromSwidStaticConstMapLiteralEntry,
     TResult Function(_$FromSwidStaticConstMapLiteral value)?
         fromSwidStaticConstMapLiteral,
+    TResult Function(_$FromSwidStaticConstTopLevelVariableReference value)?
+        fromSwidStaticConstTopLevelVariableReference,
     required TResult orElse(),
   }) {
     if (fromSwidStaticConstBinaryExpression != null) {
@@ -2482,6 +2611,10 @@ class _$_$FromSwidStaticConstPrefixedIdentifier
     required TResult Function(
             SwidStaticConstMapLiteral swidStaticConstMapLiteral)
         fromSwidStaticConstMapLiteral,
+    required TResult Function(
+            SwidStaticConstTopLevelVariableReference
+                swidStaticConstTopLevelVariableReference)
+        fromSwidStaticConstTopLevelVariableReference,
   }) {
     return fromSwidStaticConstPrefixedIdentifier(staticConstPrefixedIdentifier);
   }
@@ -2521,6 +2654,10 @@ class _$_$FromSwidStaticConstPrefixedIdentifier
         fromSwidStaticConstMapLiteralEntry,
     TResult Function(SwidStaticConstMapLiteral swidStaticConstMapLiteral)?
         fromSwidStaticConstMapLiteral,
+    TResult Function(
+            SwidStaticConstTopLevelVariableReference
+                swidStaticConstTopLevelVariableReference)?
+        fromSwidStaticConstTopLevelVariableReference,
     required TResult orElse(),
   }) {
     if (fromSwidStaticConstPrefixedIdentifier != null) {
@@ -2558,6 +2695,9 @@ class _$_$FromSwidStaticConstPrefixedIdentifier
         fromSwidStaticConstMapLiteralEntry,
     required TResult Function(_$FromSwidStaticConstMapLiteral value)
         fromSwidStaticConstMapLiteral,
+    required TResult Function(
+            _$FromSwidStaticConstTopLevelVariableReference value)
+        fromSwidStaticConstTopLevelVariableReference,
   }) {
     return fromSwidStaticConstPrefixedIdentifier(this);
   }
@@ -2587,6 +2727,8 @@ class _$_$FromSwidStaticConstPrefixedIdentifier
         fromSwidStaticConstMapLiteralEntry,
     TResult Function(_$FromSwidStaticConstMapLiteral value)?
         fromSwidStaticConstMapLiteral,
+    TResult Function(_$FromSwidStaticConstTopLevelVariableReference value)?
+        fromSwidStaticConstTopLevelVariableReference,
     required TResult orElse(),
   }) {
     if (fromSwidStaticConstPrefixedIdentifier != null) {
@@ -2741,6 +2883,10 @@ class _$_$FromSwidStaticConstIdentifier
     required TResult Function(
             SwidStaticConstMapLiteral swidStaticConstMapLiteral)
         fromSwidStaticConstMapLiteral,
+    required TResult Function(
+            SwidStaticConstTopLevelVariableReference
+                swidStaticConstTopLevelVariableReference)
+        fromSwidStaticConstTopLevelVariableReference,
   }) {
     return fromSwidStaticConstIdentifier(staticConstIdentifier);
   }
@@ -2780,6 +2926,10 @@ class _$_$FromSwidStaticConstIdentifier
         fromSwidStaticConstMapLiteralEntry,
     TResult Function(SwidStaticConstMapLiteral swidStaticConstMapLiteral)?
         fromSwidStaticConstMapLiteral,
+    TResult Function(
+            SwidStaticConstTopLevelVariableReference
+                swidStaticConstTopLevelVariableReference)?
+        fromSwidStaticConstTopLevelVariableReference,
     required TResult orElse(),
   }) {
     if (fromSwidStaticConstIdentifier != null) {
@@ -2816,6 +2966,9 @@ class _$_$FromSwidStaticConstIdentifier
         fromSwidStaticConstMapLiteralEntry,
     required TResult Function(_$FromSwidStaticConstMapLiteral value)
         fromSwidStaticConstMapLiteral,
+    required TResult Function(
+            _$FromSwidStaticConstTopLevelVariableReference value)
+        fromSwidStaticConstTopLevelVariableReference,
   }) {
     return fromSwidStaticConstIdentifier(this);
   }
@@ -2845,6 +2998,8 @@ class _$_$FromSwidStaticConstIdentifier
         fromSwidStaticConstMapLiteralEntry,
     TResult Function(_$FromSwidStaticConstMapLiteral value)?
         fromSwidStaticConstMapLiteral,
+    TResult Function(_$FromSwidStaticConstTopLevelVariableReference value)?
+        fromSwidStaticConstTopLevelVariableReference,
     required TResult orElse(),
   }) {
     if (fromSwidStaticConstIdentifier != null) {
@@ -2995,6 +3150,10 @@ class _$_$FromSwidStaticConstListLiteral
     required TResult Function(
             SwidStaticConstMapLiteral swidStaticConstMapLiteral)
         fromSwidStaticConstMapLiteral,
+    required TResult Function(
+            SwidStaticConstTopLevelVariableReference
+                swidStaticConstTopLevelVariableReference)
+        fromSwidStaticConstTopLevelVariableReference,
   }) {
     return fromSwidStaticConstListLiteral(staticConstListLiteral);
   }
@@ -3034,6 +3193,10 @@ class _$_$FromSwidStaticConstListLiteral
         fromSwidStaticConstMapLiteralEntry,
     TResult Function(SwidStaticConstMapLiteral swidStaticConstMapLiteral)?
         fromSwidStaticConstMapLiteral,
+    TResult Function(
+            SwidStaticConstTopLevelVariableReference
+                swidStaticConstTopLevelVariableReference)?
+        fromSwidStaticConstTopLevelVariableReference,
     required TResult orElse(),
   }) {
     if (fromSwidStaticConstListLiteral != null) {
@@ -3070,6 +3233,9 @@ class _$_$FromSwidStaticConstListLiteral
         fromSwidStaticConstMapLiteralEntry,
     required TResult Function(_$FromSwidStaticConstMapLiteral value)
         fromSwidStaticConstMapLiteral,
+    required TResult Function(
+            _$FromSwidStaticConstTopLevelVariableReference value)
+        fromSwidStaticConstTopLevelVariableReference,
   }) {
     return fromSwidStaticConstListLiteral(this);
   }
@@ -3099,6 +3265,8 @@ class _$_$FromSwidStaticConstListLiteral
         fromSwidStaticConstMapLiteralEntry,
     TResult Function(_$FromSwidStaticConstMapLiteral value)?
         fromSwidStaticConstMapLiteral,
+    TResult Function(_$FromSwidStaticConstTopLevelVariableReference value)?
+        fromSwidStaticConstTopLevelVariableReference,
     required TResult orElse(),
   }) {
     if (fromSwidStaticConstListLiteral != null) {
@@ -3254,6 +3422,10 @@ class _$_$FromSwidStaticConstMapLiteralEntry
     required TResult Function(
             SwidStaticConstMapLiteral swidStaticConstMapLiteral)
         fromSwidStaticConstMapLiteral,
+    required TResult Function(
+            SwidStaticConstTopLevelVariableReference
+                swidStaticConstTopLevelVariableReference)
+        fromSwidStaticConstTopLevelVariableReference,
   }) {
     return fromSwidStaticConstMapLiteralEntry(swidStaticConstMapLiteralEntry);
   }
@@ -3293,6 +3465,10 @@ class _$_$FromSwidStaticConstMapLiteralEntry
         fromSwidStaticConstMapLiteralEntry,
     TResult Function(SwidStaticConstMapLiteral swidStaticConstMapLiteral)?
         fromSwidStaticConstMapLiteral,
+    TResult Function(
+            SwidStaticConstTopLevelVariableReference
+                swidStaticConstTopLevelVariableReference)?
+        fromSwidStaticConstTopLevelVariableReference,
     required TResult orElse(),
   }) {
     if (fromSwidStaticConstMapLiteralEntry != null) {
@@ -3329,6 +3505,9 @@ class _$_$FromSwidStaticConstMapLiteralEntry
         fromSwidStaticConstMapLiteralEntry,
     required TResult Function(_$FromSwidStaticConstMapLiteral value)
         fromSwidStaticConstMapLiteral,
+    required TResult Function(
+            _$FromSwidStaticConstTopLevelVariableReference value)
+        fromSwidStaticConstTopLevelVariableReference,
   }) {
     return fromSwidStaticConstMapLiteralEntry(this);
   }
@@ -3358,6 +3537,8 @@ class _$_$FromSwidStaticConstMapLiteralEntry
         fromSwidStaticConstMapLiteralEntry,
     TResult Function(_$FromSwidStaticConstMapLiteral value)?
         fromSwidStaticConstMapLiteral,
+    TResult Function(_$FromSwidStaticConstTopLevelVariableReference value)?
+        fromSwidStaticConstTopLevelVariableReference,
     required TResult orElse(),
   }) {
     if (fromSwidStaticConstMapLiteralEntry != null) {
@@ -3513,6 +3694,10 @@ class _$_$FromSwidStaticConstMapLiteral
     required TResult Function(
             SwidStaticConstMapLiteral swidStaticConstMapLiteral)
         fromSwidStaticConstMapLiteral,
+    required TResult Function(
+            SwidStaticConstTopLevelVariableReference
+                swidStaticConstTopLevelVariableReference)
+        fromSwidStaticConstTopLevelVariableReference,
   }) {
     return fromSwidStaticConstMapLiteral(swidStaticConstMapLiteral);
   }
@@ -3552,6 +3737,10 @@ class _$_$FromSwidStaticConstMapLiteral
         fromSwidStaticConstMapLiteralEntry,
     TResult Function(SwidStaticConstMapLiteral swidStaticConstMapLiteral)?
         fromSwidStaticConstMapLiteral,
+    TResult Function(
+            SwidStaticConstTopLevelVariableReference
+                swidStaticConstTopLevelVariableReference)?
+        fromSwidStaticConstTopLevelVariableReference,
     required TResult orElse(),
   }) {
     if (fromSwidStaticConstMapLiteral != null) {
@@ -3588,6 +3777,9 @@ class _$_$FromSwidStaticConstMapLiteral
         fromSwidStaticConstMapLiteralEntry,
     required TResult Function(_$FromSwidStaticConstMapLiteral value)
         fromSwidStaticConstMapLiteral,
+    required TResult Function(
+            _$FromSwidStaticConstTopLevelVariableReference value)
+        fromSwidStaticConstTopLevelVariableReference,
   }) {
     return fromSwidStaticConstMapLiteral(this);
   }
@@ -3617,6 +3809,8 @@ class _$_$FromSwidStaticConstMapLiteral
         fromSwidStaticConstMapLiteralEntry,
     TResult Function(_$FromSwidStaticConstMapLiteral value)?
         fromSwidStaticConstMapLiteral,
+    TResult Function(_$FromSwidStaticConstTopLevelVariableReference value)?
+        fromSwidStaticConstTopLevelVariableReference,
     required TResult orElse(),
   }) {
     if (fromSwidStaticConstMapLiteral != null) {
@@ -3644,5 +3838,292 @@ abstract class _$FromSwidStaticConstMapLiteral implements SwidStaticConst {
       throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$$FromSwidStaticConstMapLiteralCopyWith<_$FromSwidStaticConstMapLiteral>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$FromSwidStaticConstTopLevelVariableReferenceCopyWith<$Res> {
+  factory _$$FromSwidStaticConstTopLevelVariableReferenceCopyWith(
+          _$FromSwidStaticConstTopLevelVariableReference value,
+          $Res Function(_$FromSwidStaticConstTopLevelVariableReference) then) =
+      __$$FromSwidStaticConstTopLevelVariableReferenceCopyWithImpl<$Res>;
+  $Res call(
+      {SwidStaticConstTopLevelVariableReference
+          swidStaticConstTopLevelVariableReference});
+
+  $SwidStaticConstTopLevelVariableReferenceCopyWith<$Res>
+      get swidStaticConstTopLevelVariableReference;
+}
+
+/// @nodoc
+class __$$FromSwidStaticConstTopLevelVariableReferenceCopyWithImpl<$Res>
+    extends _$SwidStaticConstCopyWithImpl<$Res>
+    implements _$$FromSwidStaticConstTopLevelVariableReferenceCopyWith<$Res> {
+  __$$FromSwidStaticConstTopLevelVariableReferenceCopyWithImpl(
+      _$FromSwidStaticConstTopLevelVariableReference _value,
+      $Res Function(_$FromSwidStaticConstTopLevelVariableReference) _then)
+      : super(_value,
+            (v) => _then(v as _$FromSwidStaticConstTopLevelVariableReference));
+
+  @override
+  _$FromSwidStaticConstTopLevelVariableReference get _value =>
+      super._value as _$FromSwidStaticConstTopLevelVariableReference;
+
+  @override
+  $Res call({
+    Object? swidStaticConstTopLevelVariableReference = freezed,
+  }) {
+    return _then(_$FromSwidStaticConstTopLevelVariableReference(
+      swidStaticConstTopLevelVariableReference:
+          swidStaticConstTopLevelVariableReference == freezed
+              ? _value.swidStaticConstTopLevelVariableReference
+              : swidStaticConstTopLevelVariableReference // ignore: cast_nullable_to_non_nullable
+                  as SwidStaticConstTopLevelVariableReference,
+    ));
+  }
+
+  @override
+  $SwidStaticConstTopLevelVariableReferenceCopyWith<$Res>
+      get swidStaticConstTopLevelVariableReference {
+    return $SwidStaticConstTopLevelVariableReferenceCopyWith<$Res>(
+        _value.swidStaticConstTopLevelVariableReference, (value) {
+      return _then(
+          _value.copyWith(swidStaticConstTopLevelVariableReference: value));
+    });
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_$FromSwidStaticConstTopLevelVariableReference
+    implements _$FromSwidStaticConstTopLevelVariableReference {
+  const _$_$FromSwidStaticConstTopLevelVariableReference(
+      {required this.swidStaticConstTopLevelVariableReference});
+
+  factory _$_$FromSwidStaticConstTopLevelVariableReference.fromJson(
+          Map<String, dynamic> json) =>
+      _$_$_$FromSwidStaticConstTopLevelVariableReferenceFromJson(json);
+
+  @override
+  final SwidStaticConstTopLevelVariableReference
+      swidStaticConstTopLevelVariableReference;
+
+  @override
+  String toString() {
+    return 'SwidStaticConst.fromSwidStaticConstTopLevelVariableReference(swidStaticConstTopLevelVariableReference: $swidStaticConstTopLevelVariableReference)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _$FromSwidStaticConstTopLevelVariableReference &&
+            (identical(other.swidStaticConstTopLevelVariableReference,
+                    swidStaticConstTopLevelVariableReference) ||
+                const DeepCollectionEquality().equals(
+                    other.swidStaticConstTopLevelVariableReference,
+                    swidStaticConstTopLevelVariableReference)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality()
+          .hash(swidStaticConstTopLevelVariableReference);
+
+  @JsonKey(ignore: true)
+  @override
+  _$$FromSwidStaticConstTopLevelVariableReferenceCopyWith<
+          _$FromSwidStaticConstTopLevelVariableReference>
+      get copyWith =>
+          __$$FromSwidStaticConstTopLevelVariableReferenceCopyWithImpl<
+              _$FromSwidStaticConstTopLevelVariableReference>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(SwidBooleanLiteral swidBooleanLiteral)
+        fromSwidBooleanLiteral,
+    required TResult Function(SwidStringLiteral swidStringLiteral)
+        fromSwidStringLiteral,
+    required TResult Function(SwidIntegerLiteral swidIntegerLiteral)
+        fromSwidIntegerLiteral,
+    required TResult Function(SwidDoubleLiteral swidDoubleLiteral)
+        fromDoubleLiteral,
+    required TResult Function(
+            SwidStaticConstFunctionInvocation staticConstFunctionInvocation)
+        fromSwidStaticConstFunctionInvocation,
+    required TResult Function(
+            SwidStaticConstFieldReference swidStaticConstFieldReference)
+        fromSwidStaticConstFieldReference,
+    required TResult Function(
+            SwidStaticConstPrefixedExpression swidStaticConstPrefixedExpression)
+        fromSwidStaticConstPrefixedExpression,
+    required TResult Function(
+            SwidStaticConstBinaryExpression swidStaticConstBinaryExpression)
+        fromSwidStaticConstBinaryExpression,
+    required TResult Function(
+            SwidStaticConstPrefixedIdentifier staticConstPrefixedIdentifier)
+        fromSwidStaticConstPrefixedIdentifier,
+    required TResult Function(SwidStaticConstIdentifier staticConstIdentifier)
+        fromSwidStaticConstIdentifier,
+    required TResult Function(SwidStaticConstListLiteral staticConstListLiteral)
+        fromSwidStaticConstListLiteral,
+    required TResult Function(
+            SwidStaticConstMapLiteralEntry swidStaticConstMapLiteralEntry)
+        fromSwidStaticConstMapLiteralEntry,
+    required TResult Function(
+            SwidStaticConstMapLiteral swidStaticConstMapLiteral)
+        fromSwidStaticConstMapLiteral,
+    required TResult Function(
+            SwidStaticConstTopLevelVariableReference
+                swidStaticConstTopLevelVariableReference)
+        fromSwidStaticConstTopLevelVariableReference,
+  }) {
+    return fromSwidStaticConstTopLevelVariableReference(
+        swidStaticConstTopLevelVariableReference);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(SwidBooleanLiteral swidBooleanLiteral)?
+        fromSwidBooleanLiteral,
+    TResult Function(SwidStringLiteral swidStringLiteral)?
+        fromSwidStringLiteral,
+    TResult Function(SwidIntegerLiteral swidIntegerLiteral)?
+        fromSwidIntegerLiteral,
+    TResult Function(SwidDoubleLiteral swidDoubleLiteral)? fromDoubleLiteral,
+    TResult Function(
+            SwidStaticConstFunctionInvocation staticConstFunctionInvocation)?
+        fromSwidStaticConstFunctionInvocation,
+    TResult Function(
+            SwidStaticConstFieldReference swidStaticConstFieldReference)?
+        fromSwidStaticConstFieldReference,
+    TResult Function(
+            SwidStaticConstPrefixedExpression
+                swidStaticConstPrefixedExpression)?
+        fromSwidStaticConstPrefixedExpression,
+    TResult Function(
+            SwidStaticConstBinaryExpression swidStaticConstBinaryExpression)?
+        fromSwidStaticConstBinaryExpression,
+    TResult Function(
+            SwidStaticConstPrefixedIdentifier staticConstPrefixedIdentifier)?
+        fromSwidStaticConstPrefixedIdentifier,
+    TResult Function(SwidStaticConstIdentifier staticConstIdentifier)?
+        fromSwidStaticConstIdentifier,
+    TResult Function(SwidStaticConstListLiteral staticConstListLiteral)?
+        fromSwidStaticConstListLiteral,
+    TResult Function(
+            SwidStaticConstMapLiteralEntry swidStaticConstMapLiteralEntry)?
+        fromSwidStaticConstMapLiteralEntry,
+    TResult Function(SwidStaticConstMapLiteral swidStaticConstMapLiteral)?
+        fromSwidStaticConstMapLiteral,
+    TResult Function(
+            SwidStaticConstTopLevelVariableReference
+                swidStaticConstTopLevelVariableReference)?
+        fromSwidStaticConstTopLevelVariableReference,
+    required TResult orElse(),
+  }) {
+    if (fromSwidStaticConstTopLevelVariableReference != null) {
+      return fromSwidStaticConstTopLevelVariableReference(
+          swidStaticConstTopLevelVariableReference);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_$FromSwidBooleanLiteral value)
+        fromSwidBooleanLiteral,
+    required TResult Function(_$FromSwidStringLiteral value)
+        fromSwidStringLiteral,
+    required TResult Function(_$FromSwidIntegerLiteral value)
+        fromSwidIntegerLiteral,
+    required TResult Function(_$FromSwidDoubleLiteral value) fromDoubleLiteral,
+    required TResult Function(_$FromSwidStaticConstFunctionInvocation value)
+        fromSwidStaticConstFunctionInvocation,
+    required TResult Function(_$FromSwidStaticConstFieldReference value)
+        fromSwidStaticConstFieldReference,
+    required TResult Function(_$FromSwidStaticConstPrefixedExpression value)
+        fromSwidStaticConstPrefixedExpression,
+    required TResult Function(_$FromSwidStaticConstBinaryExpression value)
+        fromSwidStaticConstBinaryExpression,
+    required TResult Function(_$FromSwidStaticConstPrefixedIdentifier value)
+        fromSwidStaticConstPrefixedIdentifier,
+    required TResult Function(_$FromSwidStaticConstIdentifier value)
+        fromSwidStaticConstIdentifier,
+    required TResult Function(_$FromSwidStaticConstListLiteral value)
+        fromSwidStaticConstListLiteral,
+    required TResult Function(_$FromSwidStaticConstMapLiteralEntry value)
+        fromSwidStaticConstMapLiteralEntry,
+    required TResult Function(_$FromSwidStaticConstMapLiteral value)
+        fromSwidStaticConstMapLiteral,
+    required TResult Function(
+            _$FromSwidStaticConstTopLevelVariableReference value)
+        fromSwidStaticConstTopLevelVariableReference,
+  }) {
+    return fromSwidStaticConstTopLevelVariableReference(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$FromSwidBooleanLiteral value)? fromSwidBooleanLiteral,
+    TResult Function(_$FromSwidStringLiteral value)? fromSwidStringLiteral,
+    TResult Function(_$FromSwidIntegerLiteral value)? fromSwidIntegerLiteral,
+    TResult Function(_$FromSwidDoubleLiteral value)? fromDoubleLiteral,
+    TResult Function(_$FromSwidStaticConstFunctionInvocation value)?
+        fromSwidStaticConstFunctionInvocation,
+    TResult Function(_$FromSwidStaticConstFieldReference value)?
+        fromSwidStaticConstFieldReference,
+    TResult Function(_$FromSwidStaticConstPrefixedExpression value)?
+        fromSwidStaticConstPrefixedExpression,
+    TResult Function(_$FromSwidStaticConstBinaryExpression value)?
+        fromSwidStaticConstBinaryExpression,
+    TResult Function(_$FromSwidStaticConstPrefixedIdentifier value)?
+        fromSwidStaticConstPrefixedIdentifier,
+    TResult Function(_$FromSwidStaticConstIdentifier value)?
+        fromSwidStaticConstIdentifier,
+    TResult Function(_$FromSwidStaticConstListLiteral value)?
+        fromSwidStaticConstListLiteral,
+    TResult Function(_$FromSwidStaticConstMapLiteralEntry value)?
+        fromSwidStaticConstMapLiteralEntry,
+    TResult Function(_$FromSwidStaticConstMapLiteral value)?
+        fromSwidStaticConstMapLiteral,
+    TResult Function(_$FromSwidStaticConstTopLevelVariableReference value)?
+        fromSwidStaticConstTopLevelVariableReference,
+    required TResult orElse(),
+  }) {
+    if (fromSwidStaticConstTopLevelVariableReference != null) {
+      return fromSwidStaticConstTopLevelVariableReference(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_$FromSwidStaticConstTopLevelVariableReferenceToJson(this)
+      ..['runtimeType'] = 'fromSwidStaticConstTopLevelVariableReference';
+  }
+}
+
+abstract class _$FromSwidStaticConstTopLevelVariableReference
+    implements SwidStaticConst {
+  const factory _$FromSwidStaticConstTopLevelVariableReference(
+          {required SwidStaticConstTopLevelVariableReference
+              swidStaticConstTopLevelVariableReference}) =
+      _$_$FromSwidStaticConstTopLevelVariableReference;
+
+  factory _$FromSwidStaticConstTopLevelVariableReference.fromJson(
+          Map<String, dynamic> json) =
+      _$_$FromSwidStaticConstTopLevelVariableReference.fromJson;
+
+  SwidStaticConstTopLevelVariableReference
+      get swidStaticConstTopLevelVariableReference =>
+          throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$$FromSwidStaticConstTopLevelVariableReferenceCopyWith<
+          _$FromSwidStaticConstTopLevelVariableReference>
       get copyWith => throw _privateConstructorUsedError;
 }

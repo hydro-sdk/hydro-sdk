@@ -153,6 +153,8 @@ class TsClassVmDeclaration {
                                             optionalParameterNames: [],
                                             optionalParameterTypes: [],
                                             returnType: x.value.when<SwidType?>(
+                                              fromSwidStaticConstTopLevelVariableReference:
+                                                  (_) => null,
                                               fromSwidStaticConstMapLiteral:
                                                   (_) => null,
                                               fromSwidStaticConstMapLiteralEntry:

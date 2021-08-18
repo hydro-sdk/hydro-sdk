@@ -195,3 +195,21 @@ Map<String, dynamic> _$_$_$FromSwidStaticConstMapLiteralToJson(
     <String, dynamic>{
       'swidStaticConstMapLiteral': instance.swidStaticConstMapLiteral,
     };
+
+_$_$FromSwidStaticConstTopLevelVariableReference
+    _$_$_$FromSwidStaticConstTopLevelVariableReferenceFromJson(
+        Map<String, dynamic> json) {
+  return _$_$FromSwidStaticConstTopLevelVariableReference(
+    swidStaticConstTopLevelVariableReference:
+        SwidStaticConstTopLevelVariableReference.fromJson(
+            json['swidStaticConstTopLevelVariableReference']
+                as Map<String, dynamic>),
+  );
+}
+
+Map<String, dynamic> _$_$_$FromSwidStaticConstTopLevelVariableReferenceToJson(
+        _$_$FromSwidStaticConstTopLevelVariableReference instance) =>
+    <String, dynamic>{
+      'swidStaticConstTopLevelVariableReference':
+          instance.swidStaticConstTopLevelVariableReference,
+    };
