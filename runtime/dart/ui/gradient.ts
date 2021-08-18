@@ -1,4 +1,5 @@
 import { IList } from "../core/list";
+import { pi } from "../math/pi";
 import { IFloat64List } from "../typed_data/float64List";
 import { IColor } from "./color";
 import { IOffset } from "./offset";
@@ -84,7 +85,7 @@ export class Gradient implements IShader {
         colorStops: IList<number> | undefined,
         tileMode: TileMode = TileMode.clamp,
         startAngle: number = 0.0,
-        endAngle: number = math.pi * 2,
+        endAngle: number = pi * 2,
         matrix4?: IFloat64List | undefined
     ): IGradient {
         return dart.ui.gradientSweep(
