@@ -7,9 +7,12 @@ import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/util/cloneSwidType.dart';
 import 'package:hydro_sdk/swid/ir/util/isInexpressibleStaticConst.dart';
 import 'package:hydro_sdk/swid/transforms/ts/trailingReturnTypeKind.dart';
+import 'package:hydro_sdk/swid/transforms/ts/transformLiteralToTs.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformReturnTypeToTs.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformTypeDeclarationToTs.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformTypeFormalsToTs.dart';
+import 'package:hydro_sdk/swid/transforms/ts/util/makeDefaultInexpressibleFunctionInvocationFallback.dart';
+import 'package:hydro_sdk/swid/transforms/ts/util/makeDefaultStaticConstFieldReferenceScopeResolver.dart';
 
 String transformFunctionTypeToTs({
   required final SwidFunctionType swidFunctionType,
@@ -116,7 +119,20 @@ String transformFunctionTypeToTs({
           var initializer = swidFunctionType.positionalDefaultParameters.entries
               .firstWhereOrNull((x) => x.key == key);
           if (initializer != null) {
-            res += " = ${initializer.value.defaultValueCode}";
+            res += [
+              " = ",
+              transformLiteralToTs(
+                swidLiteral: initializer.value.value,
+                parentClass: parentClass,
+                inexpressibleFunctionInvocationFallback:
+                    makeDefaultInexpressibleFunctionInvocationFallback(
+                        parentClass: parentClass, name: initializer.key),
+                scopeResolver:
+                    makeDefaultStaticConstFieldReferenceScopeResolver(
+                  parentClass: parentClass,
+                ),
+              )
+            ].join("");
           }
         }
 

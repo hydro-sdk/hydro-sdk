@@ -31,6 +31,7 @@ String transformLiteralToTs({
           transformDoubleLiteralToTs(swidDoubleLiteral: val),
       fromSwidBooleanLiteral: (val) =>
           transformBooleanLiteralToTs(swidBooleanLiteral: val),
+      fromSwidStaticConstTopLevelVariableReference: (val) => val.identifier,
       fromSwidStaticConstIdentifier: (val) => [
         val.enclosingType.name,
         ".",
