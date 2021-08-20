@@ -18,9 +18,10 @@ class VMManagedEventSink extends VMManagedBox<EventSink<dynamic>> {
     table['addError'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.addError(
-          maybeUnBoxAndBuildArgument<Object>(luaCallerArguments[1],
+          maybeUnBoxAndBuildArgument<Object, dynamic>(luaCallerArguments[1],
               parentState: hydroState),
-          maybeUnBoxAndBuildArgument<StackTrace?>(luaCallerArguments[2],
+          maybeUnBoxAndBuildArgument<StackTrace?, dynamic>(
+              luaCallerArguments[2],
               parentState: hydroState));
       return [];
     });

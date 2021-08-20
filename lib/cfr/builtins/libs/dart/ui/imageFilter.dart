@@ -41,7 +41,8 @@ void loadImageFilter(
     return [
       maybeBoxObject<ImageFilter>(
           object: ImageFilter.matrix(
-              maybeUnBoxAndBuildArgument<Float64List>(luaCallerArguments[1],
+              maybeUnBoxAndBuildArgument<Float64List, dynamic>(
+                  luaCallerArguments[1],
                   parentState: hydroState),
               filterQuality: maybeUnBoxEnum(
                   values: FilterQuality.values,
@@ -55,10 +56,10 @@ void loadImageFilter(
     return [
       maybeBoxObject<ImageFilter>(
           object: ImageFilter.compose(
-              inner: maybeUnBoxAndBuildArgument<ImageFilter>(
+              inner: maybeUnBoxAndBuildArgument<ImageFilter, dynamic>(
                   luaCallerArguments[1]['inner'],
                   parentState: hydroState),
-              outer: maybeUnBoxAndBuildArgument<ImageFilter>(
+              outer: maybeUnBoxAndBuildArgument<ImageFilter, dynamic>(
                   luaCallerArguments[1]['outer'],
                   parentState: hydroState)),
           hydroState: hydroState,

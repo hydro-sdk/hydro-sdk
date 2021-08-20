@@ -30,11 +30,12 @@ void loadFunction({required HydroState hydroState, required HydroTable table}) {
       makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       Function.apply(
-          maybeUnBoxAndBuildArgument<Function>(luaCallerArguments[1],
+          maybeUnBoxAndBuildArgument<Function, dynamic>(luaCallerArguments[1],
               parentState: hydroState),
-          maybeUnBoxAndBuildArgument<List<dynamic>?>(luaCallerArguments[2],
+          maybeUnBoxAndBuildArgument<List<dynamic>?, dynamic>(
+              luaCallerArguments[2],
               parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Map<Symbol, dynamic>?>(
+          maybeUnBoxAndBuildArgument<Map<Symbol, dynamic>?, dynamic>(
               luaCallerArguments[3],
               parentState: hydroState)),
     ];

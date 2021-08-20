@@ -39,17 +39,20 @@ void loadGradient({required HydroState hydroState, required HydroTable table}) {
     return [
       maybeBoxObject<Gradient>(
           object: Gradient.linear(
-              maybeUnBoxAndBuildArgument<Offset>(luaCallerArguments[1],
+              maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[1],
                   parentState: hydroState),
-              maybeUnBoxAndBuildArgument<Offset>(luaCallerArguments[2],
+              maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[2],
                   parentState: hydroState),
-              maybeUnBoxAndBuildArgument<List<Color>>(luaCallerArguments[3],
+              maybeUnBoxAndBuildArgument<List<Color>, dynamic>(
+                  luaCallerArguments[3],
                   parentState: hydroState),
-              maybeUnBoxAndBuildArgument<List<double>?>(luaCallerArguments[4],
+              maybeUnBoxAndBuildArgument<List<double>?, dynamic>(
+                  luaCallerArguments[4],
                   parentState: hydroState),
               maybeUnBoxEnum(
                   values: TileMode.values, boxedEnum: luaCallerArguments[5]),
-              maybeUnBoxAndBuildArgument<Float64List?>(luaCallerArguments[6],
+              maybeUnBoxAndBuildArgument<Float64List?, dynamic>(
+                  luaCallerArguments[6],
                   parentState: hydroState)),
           hydroState: hydroState,
           table: HydroTable()),
@@ -60,18 +63,22 @@ void loadGradient({required HydroState hydroState, required HydroTable table}) {
     return [
       maybeBoxObject<Gradient>(
           object: Gradient.radial(
-              maybeUnBoxAndBuildArgument<Offset>(luaCallerArguments[1],
+              maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[1],
                   parentState: hydroState),
               luaCallerArguments[2]?.toDouble(),
-              maybeUnBoxAndBuildArgument<List<Color>>(luaCallerArguments[3],
+              maybeUnBoxAndBuildArgument<List<Color>, dynamic>(
+                  luaCallerArguments[3],
                   parentState: hydroState),
-              maybeUnBoxAndBuildArgument<List<double>?>(luaCallerArguments[4],
+              maybeUnBoxAndBuildArgument<List<double>?, dynamic>(
+                  luaCallerArguments[4],
                   parentState: hydroState),
               maybeUnBoxEnum(
                   values: TileMode.values, boxedEnum: luaCallerArguments[5]),
-              maybeUnBoxAndBuildArgument<Float64List?>(luaCallerArguments[6],
+              maybeUnBoxAndBuildArgument<Float64List?, dynamic>(
+                  luaCallerArguments[6],
                   parentState: hydroState),
-              maybeUnBoxAndBuildArgument<Offset?>(luaCallerArguments[7],
+              maybeUnBoxAndBuildArgument<Offset?, dynamic>(
+                  luaCallerArguments[7],
                   parentState: hydroState),
               luaCallerArguments[8]?.toDouble()),
           hydroState: hydroState,
@@ -83,17 +90,20 @@ void loadGradient({required HydroState hydroState, required HydroTable table}) {
     return [
       maybeBoxObject<Gradient>(
           object: Gradient.sweep(
-              maybeUnBoxAndBuildArgument<Offset>(luaCallerArguments[1],
+              maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[1],
                   parentState: hydroState),
-              maybeUnBoxAndBuildArgument<List<Color>>(luaCallerArguments[2],
+              maybeUnBoxAndBuildArgument<List<Color>, dynamic>(
+                  luaCallerArguments[2],
                   parentState: hydroState),
-              maybeUnBoxAndBuildArgument<List<double>?>(luaCallerArguments[3],
+              maybeUnBoxAndBuildArgument<List<double>?, dynamic>(
+                  luaCallerArguments[3],
                   parentState: hydroState),
               maybeUnBoxEnum(
                   values: TileMode.values, boxedEnum: luaCallerArguments[4]),
               luaCallerArguments[5]?.toDouble(),
               luaCallerArguments[6]?.toDouble(),
-              maybeUnBoxAndBuildArgument<Float64List?>(luaCallerArguments[7],
+              maybeUnBoxAndBuildArgument<Float64List?, dynamic>(
+                  luaCallerArguments[7],
                   parentState: hydroState)),
           hydroState: hydroState,
           table: HydroTable()),

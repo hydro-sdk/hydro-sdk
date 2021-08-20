@@ -11,21 +11,23 @@ class VMManagedStringSink extends VMManagedBox<StringSink> {
           hydroState: hydroState,
         ) {
     table['write'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.write(maybeUnBoxAndBuildArgument<Object?>(luaCallerArguments[1],
+      vmObject.write(maybeUnBoxAndBuildArgument<Object?, dynamic>(
+          luaCallerArguments[1],
           parentState: hydroState));
       return [];
     });
     table['writeAll'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.writeAll(
-          maybeUnBoxAndBuildArgument<Iterable<dynamic>>(luaCallerArguments[1],
+          maybeUnBoxAndBuildArgument<Iterable<dynamic>, dynamic>(
+              luaCallerArguments[1],
               parentState: hydroState),
           luaCallerArguments[2]);
       return [];
     });
     table['writeln'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.writeln(maybeUnBoxAndBuildArgument<Object?>(
+      vmObject.writeln(maybeUnBoxAndBuildArgument<Object?, dynamic>(
           luaCallerArguments[1],
           parentState: hydroState));
       return [];

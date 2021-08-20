@@ -13,7 +13,7 @@ void loadGestureDetector(
       GestureDetector(
         behavior: HitTestBehavior.values
             .firstWhere((x) => x.index == args[0]["behavior"]),
-        child: maybeUnBoxAndBuildArgument<Widget>(args[0]["child"],
+        child: maybeUnBoxAndBuildArgument<Widget,dynamic>(args[0]["child"],
             parentState: luaState),
         onTap: () {
           Closure closure = args[0]["onTap"];

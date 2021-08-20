@@ -14,7 +14,7 @@ class VMManagedIterableBase extends VMManagedBox<IterableBase<dynamic>> {
     table['contains'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
-        vmObject.contains(maybeUnBoxAndBuildArgument<Object?>(
+        vmObject.contains(maybeUnBoxAndBuildArgument<Object?, dynamic>(
             luaCallerArguments[1],
             parentState: hydroState)),
       ];
@@ -32,7 +32,7 @@ class VMManagedIterableBase extends VMManagedBox<IterableBase<dynamic>> {
       return [
         maybeBoxObject<Iterable>(
             object: vmObject.followedBy(
-                maybeUnBoxAndBuildArgument<Iterable<dynamic>>(
+                maybeUnBoxAndBuildArgument<Iterable<dynamic>, dynamic>(
                     luaCallerArguments[1],
                     parentState: hydroState)),
             hydroState: hydroState,
@@ -76,8 +76,8 @@ class VMManagedIterableBase extends VMManagedBox<IterableBase<dynamic>> {
       Closure unpackedf = luaCallerArguments[1];
       return [
         maybeBoxObject<Iterable>(
-            object: vmObject.expand(
-                (element) => maybeUnBoxAndBuildArgument<Iterable<dynamic>>(
+            object: vmObject.expand((element) =>
+                maybeUnBoxAndBuildArgument<Iterable<dynamic>, dynamic>(
                     unpackedf.dispatch(
                       [luaCallerArguments[0], element],
                       parentState: hydroState,
@@ -340,7 +340,7 @@ class RTManagedIterableBase extends IterableBase implements Box<IterableBase> {
     table['_dart_contains'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
-        super.contains(maybeUnBoxAndBuildArgument<Object?>(
+        super.contains(maybeUnBoxAndBuildArgument<Object?, dynamic>(
             luaCallerArguments[1],
             parentState: hydroState))
       ];
@@ -357,7 +357,7 @@ class RTManagedIterableBase extends IterableBase implements Box<IterableBase> {
       return [
         maybeBoxObject<Iterable>(
             object: super.followedBy(
-                maybeUnBoxAndBuildArgument<Iterable<dynamic>>(
+                maybeUnBoxAndBuildArgument<Iterable<dynamic>, dynamic>(
                     luaCallerArguments[1],
                     parentState: hydroState)),
             hydroState: hydroState,
@@ -404,8 +404,8 @@ class RTManagedIterableBase extends IterableBase implements Box<IterableBase> {
       Closure unpackedf = luaCallerArguments[1];
       return [
         maybeBoxObject<Iterable>(
-            object: super.expand(
-                (element) => maybeUnBoxAndBuildArgument<Iterable<dynamic>>(
+            object: super.expand((element) =>
+                maybeUnBoxAndBuildArgument<Iterable<dynamic>, dynamic>(
                     unpackedf.dispatch(
                       [luaCallerArguments[0], element],
                       parentState: hydroState,
@@ -647,7 +647,7 @@ class RTManagedIterableBase extends IterableBase implements Box<IterableBase> {
   @override
   Iterable<R> cast<R>() {
     Closure closure = table["cast"];
-    return maybeUnBoxAndBuildArgument<Iterable<R>>(
+    return maybeUnBoxAndBuildArgument<Iterable<R>, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -655,7 +655,7 @@ class RTManagedIterableBase extends IterableBase implements Box<IterableBase> {
   @override
   Iterable<dynamic> followedBy(Iterable other) {
     Closure closure = table["followedBy"];
-    return maybeUnBoxAndBuildArgument<Iterable<dynamic>>(
+    return maybeUnBoxAndBuildArgument<Iterable<dynamic>, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -663,7 +663,7 @@ class RTManagedIterableBase extends IterableBase implements Box<IterableBase> {
   @override
   Iterable<T> map<T>(f) {
     Closure closure = table["map"];
-    return maybeUnBoxAndBuildArgument<Iterable<T>>(
+    return maybeUnBoxAndBuildArgument<Iterable<T>, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -671,7 +671,7 @@ class RTManagedIterableBase extends IterableBase implements Box<IterableBase> {
   @override
   Iterable<dynamic> where(test) {
     Closure closure = table["where"];
-    return maybeUnBoxAndBuildArgument<Iterable<dynamic>>(
+    return maybeUnBoxAndBuildArgument<Iterable<dynamic>, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -679,7 +679,7 @@ class RTManagedIterableBase extends IterableBase implements Box<IterableBase> {
   @override
   Iterable<T> whereType<T>() {
     Closure closure = table["whereType"];
-    return maybeUnBoxAndBuildArgument<Iterable<T>>(
+    return maybeUnBoxAndBuildArgument<Iterable<T>, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -687,7 +687,7 @@ class RTManagedIterableBase extends IterableBase implements Box<IterableBase> {
   @override
   Iterable<T> expand<T>(f) {
     Closure closure = table["expand"];
-    return maybeUnBoxAndBuildArgument<Iterable<T>>(
+    return maybeUnBoxAndBuildArgument<Iterable<T>, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -731,7 +731,7 @@ class RTManagedIterableBase extends IterableBase implements Box<IterableBase> {
   @override
   List<dynamic> toList({bool growable = true}) {
     Closure closure = table["toList"];
-    return maybeUnBoxAndBuildArgument<List<dynamic>>(
+    return maybeUnBoxAndBuildArgument<List<dynamic>, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -739,7 +739,7 @@ class RTManagedIterableBase extends IterableBase implements Box<IterableBase> {
   @override
   Set<dynamic> toSet() {
     Closure closure = table["toSet"];
-    return maybeUnBoxAndBuildArgument<Set<dynamic>>(
+    return maybeUnBoxAndBuildArgument<Set<dynamic>, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -747,7 +747,7 @@ class RTManagedIterableBase extends IterableBase implements Box<IterableBase> {
   @override
   Iterable<dynamic> take(int count) {
     Closure closure = table["take"];
-    return maybeUnBoxAndBuildArgument<Iterable<dynamic>>(
+    return maybeUnBoxAndBuildArgument<Iterable<dynamic>, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -755,7 +755,7 @@ class RTManagedIterableBase extends IterableBase implements Box<IterableBase> {
   @override
   Iterable<dynamic> takeWhile(test) {
     Closure closure = table["takeWhile"];
-    return maybeUnBoxAndBuildArgument<Iterable<dynamic>>(
+    return maybeUnBoxAndBuildArgument<Iterable<dynamic>, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -763,7 +763,7 @@ class RTManagedIterableBase extends IterableBase implements Box<IterableBase> {
   @override
   Iterable<dynamic> skip(int count) {
     Closure closure = table["skip"];
-    return maybeUnBoxAndBuildArgument<Iterable<dynamic>>(
+    return maybeUnBoxAndBuildArgument<Iterable<dynamic>, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -771,7 +771,7 @@ class RTManagedIterableBase extends IterableBase implements Box<IterableBase> {
   @override
   Iterable<dynamic> skipWhile(test) {
     Closure closure = table["skipWhile"];
-    return maybeUnBoxAndBuildArgument<Iterable<dynamic>>(
+    return maybeUnBoxAndBuildArgument<Iterable<dynamic>, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -809,7 +809,7 @@ class RTManagedIterableBase extends IterableBase implements Box<IterableBase> {
   @override
   Iterator<dynamic> get iterator {
     Closure closure = table["getIterator"];
-    return maybeUnBoxAndBuildArgument<Iterator<dynamic>>(
+    return maybeUnBoxAndBuildArgument<Iterator<dynamic>, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -870,7 +870,8 @@ void loadIterableBase(
       makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       IterableBase.iterableToShortString(
-          maybeUnBoxAndBuildArgument<Iterable<dynamic>>(luaCallerArguments[1],
+          maybeUnBoxAndBuildArgument<Iterable<dynamic>, dynamic>(
+              luaCallerArguments[1],
               parentState: hydroState),
           luaCallerArguments[2],
           luaCallerArguments[3]),
@@ -880,7 +881,8 @@ void loadIterableBase(
       makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       IterableBase.iterableToFullString(
-          maybeUnBoxAndBuildArgument<Iterable<dynamic>>(luaCallerArguments[1],
+          maybeUnBoxAndBuildArgument<Iterable<dynamic>, dynamic>(
+              luaCallerArguments[1],
               parentState: hydroState),
           luaCallerArguments[2],
           luaCallerArguments[3]),

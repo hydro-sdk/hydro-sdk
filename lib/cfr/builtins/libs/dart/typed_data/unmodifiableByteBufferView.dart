@@ -379,7 +379,7 @@ class RTManagedUnmodifiableByteBufferView extends UnmodifiableByteBufferView
   @override
   Uint8List asUint8List([int offsetInBytes = 0, int? length]) {
     Closure closure = table["asUint8List"];
-    return maybeUnBoxAndBuildArgument<Uint8List>(
+    return maybeUnBoxAndBuildArgument<Uint8List, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -387,7 +387,7 @@ class RTManagedUnmodifiableByteBufferView extends UnmodifiableByteBufferView
   @override
   Int8List asInt8List([int offsetInBytes = 0, int? length]) {
     Closure closure = table["asInt8List"];
-    return maybeUnBoxAndBuildArgument<Int8List>(
+    return maybeUnBoxAndBuildArgument<Int8List, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -395,7 +395,7 @@ class RTManagedUnmodifiableByteBufferView extends UnmodifiableByteBufferView
   @override
   Uint8ClampedList asUint8ClampedList([int offsetInBytes = 0, int? length]) {
     Closure closure = table["asUint8ClampedList"];
-    return maybeUnBoxAndBuildArgument<Uint8ClampedList>(
+    return maybeUnBoxAndBuildArgument<Uint8ClampedList, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -403,7 +403,7 @@ class RTManagedUnmodifiableByteBufferView extends UnmodifiableByteBufferView
   @override
   Uint16List asUint16List([int offsetInBytes = 0, int? length]) {
     Closure closure = table["asUint16List"];
-    return maybeUnBoxAndBuildArgument<Uint16List>(
+    return maybeUnBoxAndBuildArgument<Uint16List, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -411,7 +411,7 @@ class RTManagedUnmodifiableByteBufferView extends UnmodifiableByteBufferView
   @override
   Int16List asInt16List([int offsetInBytes = 0, int? length]) {
     Closure closure = table["asInt16List"];
-    return maybeUnBoxAndBuildArgument<Int16List>(
+    return maybeUnBoxAndBuildArgument<Int16List, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -419,7 +419,7 @@ class RTManagedUnmodifiableByteBufferView extends UnmodifiableByteBufferView
   @override
   Uint32List asUint32List([int offsetInBytes = 0, int? length]) {
     Closure closure = table["asUint32List"];
-    return maybeUnBoxAndBuildArgument<Uint32List>(
+    return maybeUnBoxAndBuildArgument<Uint32List, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -427,7 +427,7 @@ class RTManagedUnmodifiableByteBufferView extends UnmodifiableByteBufferView
   @override
   Int32List asInt32List([int offsetInBytes = 0, int? length]) {
     Closure closure = table["asInt32List"];
-    return maybeUnBoxAndBuildArgument<Int32List>(
+    return maybeUnBoxAndBuildArgument<Int32List, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -435,7 +435,7 @@ class RTManagedUnmodifiableByteBufferView extends UnmodifiableByteBufferView
   @override
   Uint64List asUint64List([int offsetInBytes = 0, int? length]) {
     Closure closure = table["asUint64List"];
-    return maybeUnBoxAndBuildArgument<Uint64List>(
+    return maybeUnBoxAndBuildArgument<Uint64List, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -443,7 +443,7 @@ class RTManagedUnmodifiableByteBufferView extends UnmodifiableByteBufferView
   @override
   Int64List asInt64List([int offsetInBytes = 0, int? length]) {
     Closure closure = table["asInt64List"];
-    return maybeUnBoxAndBuildArgument<Int64List>(
+    return maybeUnBoxAndBuildArgument<Int64List, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -451,7 +451,7 @@ class RTManagedUnmodifiableByteBufferView extends UnmodifiableByteBufferView
   @override
   Int32x4List asInt32x4List([int offsetInBytes = 0, int? length]) {
     Closure closure = table["asInt32x4List"];
-    return maybeUnBoxAndBuildArgument<Int32x4List>(
+    return maybeUnBoxAndBuildArgument<Int32x4List, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -459,7 +459,7 @@ class RTManagedUnmodifiableByteBufferView extends UnmodifiableByteBufferView
   @override
   Float32List asFloat32List([int offsetInBytes = 0, int? length]) {
     Closure closure = table["asFloat32List"];
-    return maybeUnBoxAndBuildArgument<Float32List>(
+    return maybeUnBoxAndBuildArgument<Float32List, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -467,7 +467,7 @@ class RTManagedUnmodifiableByteBufferView extends UnmodifiableByteBufferView
   @override
   Float64List asFloat64List([int offsetInBytes = 0, int? length]) {
     Closure closure = table["asFloat64List"];
-    return maybeUnBoxAndBuildArgument<Float64List>(
+    return maybeUnBoxAndBuildArgument<Float64List, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -475,7 +475,7 @@ class RTManagedUnmodifiableByteBufferView extends UnmodifiableByteBufferView
   @override
   Float32x4List asFloat32x4List([int offsetInBytes = 0, int? length]) {
     Closure closure = table["asFloat32x4List"];
-    return maybeUnBoxAndBuildArgument<Float32x4List>(
+    return maybeUnBoxAndBuildArgument<Float32x4List, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -483,7 +483,7 @@ class RTManagedUnmodifiableByteBufferView extends UnmodifiableByteBufferView
   @override
   Float64x2List asFloat64x2List([int offsetInBytes = 0, int? length]) {
     Closure closure = table["asFloat64x2List"];
-    return maybeUnBoxAndBuildArgument<Float64x2List>(
+    return maybeUnBoxAndBuildArgument<Float64x2List, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -491,7 +491,7 @@ class RTManagedUnmodifiableByteBufferView extends UnmodifiableByteBufferView
   @override
   ByteData asByteData([int offsetInBytes = 0, int? length]) {
     Closure closure = table["asByteData"];
-    return maybeUnBoxAndBuildArgument<ByteData>(
+    return maybeUnBoxAndBuildArgument<ByteData, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -515,7 +515,7 @@ void loadUnmodifiableByteBufferView(
       makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       RTManagedUnmodifiableByteBufferView(
-          maybeUnBoxAndBuildArgument<ByteBuffer>(luaCallerArguments[1],
+          maybeUnBoxAndBuildArgument<ByteBuffer, dynamic>(luaCallerArguments[1],
               parentState: hydroState),
           table: luaCallerArguments[0],
           hydroState: hydroState)

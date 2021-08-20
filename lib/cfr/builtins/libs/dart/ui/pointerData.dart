@@ -244,7 +244,7 @@ void loadPointerData(
           size: luaCallerArguments[1]['size']?.toDouble(),
           synthesized: luaCallerArguments[1]['synthesized'],
           tilt: luaCallerArguments[1]['tilt']?.toDouble(),
-          timeStamp: maybeUnBoxAndBuildArgument<Duration>(
+          timeStamp: maybeUnBoxAndBuildArgument<Duration, dynamic>(
               luaCallerArguments[1]['timeStamp'],
               parentState: hydroState))
     ];

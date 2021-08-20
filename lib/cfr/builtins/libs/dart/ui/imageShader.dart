@@ -82,13 +82,14 @@ void loadImageShader(
       makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       RTManagedImageShader(
-          maybeUnBoxAndBuildArgument<Image>(luaCallerArguments[1],
+          maybeUnBoxAndBuildArgument<Image, dynamic>(luaCallerArguments[1],
               parentState: hydroState),
           maybeUnBoxEnum(
               values: TileMode.values, boxedEnum: luaCallerArguments[2]),
           maybeUnBoxEnum(
               values: TileMode.values, boxedEnum: luaCallerArguments[3]),
-          maybeUnBoxAndBuildArgument<Float64List>(luaCallerArguments[4],
+          maybeUnBoxAndBuildArgument<Float64List, dynamic>(
+              luaCallerArguments[4],
               parentState: hydroState),
           table: luaCallerArguments[0],
           hydroState: hydroState)

@@ -1,4 +1,5 @@
 import 'dart:core';
+import 'dart:developer';
 
 import 'package:hydro_sdk/cfr/runtimeSupport.dart';
 
@@ -21,7 +22,7 @@ class VMManagedMap extends VMManagedBox<Map<dynamic, dynamic>> {
     table['containsValue'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
-        vmObject.containsValue(maybeUnBoxAndBuildArgument<Object?>(
+        vmObject.containsValue(maybeUnBoxAndBuildArgument<Object?, dynamic>(
             luaCallerArguments[1],
             parentState: hydroState)),
       ];
@@ -29,7 +30,7 @@ class VMManagedMap extends VMManagedBox<Map<dynamic, dynamic>> {
     table['containsKey'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
-        vmObject.containsKey(maybeUnBoxAndBuildArgument<Object?>(
+        vmObject.containsKey(maybeUnBoxAndBuildArgument<Object?, dynamic>(
             luaCallerArguments[1],
             parentState: hydroState)),
       ];
@@ -48,7 +49,7 @@ class VMManagedMap extends VMManagedBox<Map<dynamic, dynamic>> {
       return [
         maybeBoxObject<Map>(
             object: vmObject.map((key, value) =>
-                maybeUnBoxAndBuildArgument<MapEntry<dynamic, dynamic>>(
+                maybeUnBoxAndBuildArgument<MapEntry<dynamic, dynamic>, dynamic>(
                     unpackedconvert.dispatch(
                       [luaCallerArguments[0], key, value],
                       parentState: hydroState,
@@ -60,10 +61,9 @@ class VMManagedMap extends VMManagedBox<Map<dynamic, dynamic>> {
     });
     table['addEntries'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.addEntries(
-          maybeUnBoxAndBuildArgument<Iterable<MapEntry<dynamic, dynamic>>>(
-              luaCallerArguments[1],
-              parentState: hydroState));
+      vmObject.addEntries(maybeUnBoxAndBuildArgument<
+          Iterable<MapEntry<dynamic, dynamic>>,
+          dynamic>(luaCallerArguments[1], parentState: hydroState));
       return [];
     });
     table['update'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -119,14 +119,15 @@ class VMManagedMap extends VMManagedBox<Map<dynamic, dynamic>> {
       ];
     });
     table['addAll'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.addAll(maybeUnBoxAndBuildArgument<Map<dynamic, dynamic>>(
-          luaCallerArguments[1],
-          parentState: hydroState));
+      vmObject.addAll(
+          maybeUnBoxAndBuildArgument<Map<dynamic, dynamic>, dynamic>(
+              luaCallerArguments[1],
+              parentState: hydroState));
       return [];
     });
     table['remove'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
-        vmObject.remove(maybeUnBoxAndBuildArgument<Object?>(
+        vmObject.remove(maybeUnBoxAndBuildArgument<Object?, dynamic>(
             luaCallerArguments[1],
             parentState: hydroState)),
       ];
@@ -197,9 +198,10 @@ void loadMap({required HydroState hydroState, required HydroTable table}) {
   table['mapFrom'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<Map>(
-          object: Map.from(maybeUnBoxAndBuildArgument<Map<dynamic, dynamic>>(
-              luaCallerArguments[1],
-              parentState: hydroState)),
+          object: Map.from(
+              maybeUnBoxAndBuildArgument<Map<dynamic, dynamic>, dynamic>(
+                  luaCallerArguments[1],
+                  parentState: hydroState)),
           hydroState: hydroState,
           table: HydroTable()),
     ];
@@ -207,9 +209,10 @@ void loadMap({required HydroState hydroState, required HydroTable table}) {
   table['mapOf'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<Map>(
-          object: Map.of(maybeUnBoxAndBuildArgument<Map<dynamic, dynamic>>(
-              luaCallerArguments[1],
-              parentState: hydroState)),
+          object: Map.of(
+              maybeUnBoxAndBuildArgument<Map<dynamic, dynamic>, dynamic>(
+                  luaCallerArguments[1],
+                  parentState: hydroState)),
           hydroState: hydroState,
           table: HydroTable()),
     ];
@@ -219,7 +222,7 @@ void loadMap({required HydroState hydroState, required HydroTable table}) {
     return [
       maybeBoxObject<Map>(
           object: Map.unmodifiable(
-              maybeUnBoxAndBuildArgument<Map<dynamic, dynamic>>(
+              maybeUnBoxAndBuildArgument<Map<dynamic, dynamic>, dynamic>(
                   luaCallerArguments[1],
                   parentState: hydroState)),
           hydroState: hydroState,
@@ -240,7 +243,7 @@ void loadMap({required HydroState hydroState, required HydroTable table}) {
     return [
       maybeBoxObject<Map>(
           object: Map.fromIterable(
-              maybeUnBoxAndBuildArgument<Iterable<dynamic>>(
+              maybeUnBoxAndBuildArgument<Iterable<dynamic>, dynamic>(
                   luaCallerArguments[1],
                   parentState: hydroState),
               key: unpackedkey != null
@@ -264,10 +267,10 @@ void loadMap({required HydroState hydroState, required HydroTable table}) {
     return [
       maybeBoxObject<Map>(
           object: Map.fromIterables(
-              maybeUnBoxAndBuildArgument<Iterable<dynamic>>(
+              maybeUnBoxAndBuildArgument<Iterable<dynamic>, dynamic>(
                   luaCallerArguments[1],
                   parentState: hydroState),
-              maybeUnBoxAndBuildArgument<Iterable<dynamic>>(
+              maybeUnBoxAndBuildArgument<Iterable<dynamic>, dynamic>(
                   luaCallerArguments[2],
                   parentState: hydroState)),
           hydroState: hydroState,
@@ -276,12 +279,16 @@ void loadMap({required HydroState hydroState, required HydroTable table}) {
   });
   table['mapFromEntries'] =
       makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    // printUnboxing = true;
+    final res = maybeUnBoxAndBuildArgument<Iterable<MapEntry<dynamic, dynamic>>,
+            MapEntry<dynamic, dynamic>>(luaCallerArguments[1],
+        parentState: hydroState);
+
+    // debugger();
+    print(luaCallerArguments);
     return [
       maybeBoxObject<Map>(
-          object: Map.fromEntries(
-              maybeUnBoxAndBuildArgument<Iterable<MapEntry<dynamic, dynamic>>>(
-                  luaCallerArguments[1],
-                  parentState: hydroState)),
+          object: Map.fromEntries(res),
           hydroState: hydroState,
           table: HydroTable()),
     ];
@@ -291,7 +298,7 @@ void loadMap({required HydroState hydroState, required HydroTable table}) {
     return [
       maybeBoxObject<Map>(
           object: Map.castFrom(
-              maybeUnBoxAndBuildArgument<Map<dynamic, dynamic>>(
+              maybeUnBoxAndBuildArgument<Map<dynamic, dynamic>, dynamic>(
                   luaCallerArguments[1],
                   parentState: hydroState)),
           hydroState: hydroState,

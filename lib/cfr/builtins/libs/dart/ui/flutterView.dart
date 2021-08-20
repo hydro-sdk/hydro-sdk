@@ -90,7 +90,8 @@ class VMManagedFlutterView extends VMManagedBox<FlutterView> {
       ];
     });
     table['render'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.render(maybeUnBoxAndBuildArgument<Scene>(luaCallerArguments[1],
+      vmObject.render(maybeUnBoxAndBuildArgument<Scene, dynamic>(
+          luaCallerArguments[1],
           parentState: hydroState));
       return [];
     });

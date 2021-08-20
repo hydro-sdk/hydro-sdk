@@ -51,7 +51,8 @@ class VMManagedInt32x4 extends VMManagedBox<Int32x4> {
       return [
         maybeBoxObject<Int32x4>(
             object: vmObject.shuffleMix(
-                maybeUnBoxAndBuildArgument<Int32x4>(luaCallerArguments[1],
+                maybeUnBoxAndBuildArgument<Int32x4, dynamic>(
+                    luaCallerArguments[1],
                     parentState: hydroState),
                 luaCallerArguments[2]),
             hydroState: hydroState,
@@ -154,9 +155,11 @@ class VMManagedInt32x4 extends VMManagedBox<Int32x4> {
       return [
         maybeBoxObject<Float32x4>(
             object: vmObject.select(
-                maybeUnBoxAndBuildArgument<Float32x4>(luaCallerArguments[1],
+                maybeUnBoxAndBuildArgument<Float32x4, dynamic>(
+                    luaCallerArguments[1],
                     parentState: hydroState),
-                maybeUnBoxAndBuildArgument<Float32x4>(luaCallerArguments[2],
+                maybeUnBoxAndBuildArgument<Float32x4, dynamic>(
+                    luaCallerArguments[2],
                     parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable()),
@@ -196,7 +199,8 @@ void loadInt32x4({required HydroState hydroState, required HydroTable table}) {
     return [
       maybeBoxObject<Int32x4>(
           object: Int32x4.fromFloat32x4Bits(
-              maybeUnBoxAndBuildArgument<Float32x4>(luaCallerArguments[1],
+              maybeUnBoxAndBuildArgument<Float32x4, dynamic>(
+                  luaCallerArguments[1],
                   parentState: hydroState)),
           hydroState: hydroState,
           table: HydroTable()),

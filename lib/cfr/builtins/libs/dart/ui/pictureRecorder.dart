@@ -73,7 +73,7 @@ class RTManagedPictureRecorder extends PictureRecorder
   @override
   Picture endRecording() {
     Closure closure = table["endRecording"];
-    return maybeUnBoxAndBuildArgument<Picture>(
+    return maybeUnBoxAndBuildArgument<Picture, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }

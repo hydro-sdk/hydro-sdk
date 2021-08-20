@@ -9,11 +9,11 @@ void loadPadding({required HydroState luaState, required HydroTable table}) {
   table["padding"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       Padding(
-        key: maybeUnBoxAndBuildArgument<Widget>(args[0]["key"],
+        key: maybeUnBoxAndBuildArgument<Widget, dynamic>(args[0]["key"],
             parentState: luaState),
-        padding: maybeUnBoxAndBuildArgument<Widget>(args[0]["padding"],
+        padding: maybeUnBoxAndBuildArgument<Widget, dynamic>(args[0]["padding"],
             parentState: luaState),
-        child: maybeUnBoxAndBuildArgument<Widget>(args[0]["child"],
+        child: maybeUnBoxAndBuildArgument<Widget, dynamic>(args[0]["child"],
             parentState: luaState),
       )
     ];

@@ -9,7 +9,7 @@ import 'package:hydro_sdk/hydroState.dart';
 
 void loadGridView({required HydroState luaState, required HydroTable table}) {
   table["gridViewCount"] = makeLuaDartFunc(func: (List<dynamic> args) {
-    var children = maybeUnBoxAndBuildArgument<Widget>(args[0]["children"],
+    var children = maybeUnBoxAndBuildArgument<Widget,dynamic>(args[0]["children"],
         parentState: luaState);
     return [
       GridView.count(
@@ -18,7 +18,7 @@ void loadGridView({required HydroState luaState, required HydroTable table}) {
             values: Axis.values, boxedEnum: args[0]["scrollDirection"]),
         reverse: args[0]["reverse"],
         primary: args[0]["primary"],
-        physics: maybeUnBoxAndBuildArgument<ScrollPhysics>(args[0]["physics"],
+        physics: maybeUnBoxAndBuildArgument<ScrollPhysics,dynamic>(args[0]["physics"],
             parentState: luaState),
         shrinkWrap: args[0]["shrinkWrap"],
         padding: args[0]["padding"],

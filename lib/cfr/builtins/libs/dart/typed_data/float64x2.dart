@@ -31,9 +31,11 @@ class VMManagedFloat64x2 extends VMManagedBox<Float64x2> {
       return [
         maybeBoxObject<Float64x2>(
             object: vmObject.clamp(
-                maybeUnBoxAndBuildArgument<Float64x2>(luaCallerArguments[1],
+                maybeUnBoxAndBuildArgument<Float64x2, dynamic>(
+                    luaCallerArguments[1],
                     parentState: hydroState),
-                maybeUnBoxAndBuildArgument<Float64x2>(luaCallerArguments[2],
+                maybeUnBoxAndBuildArgument<Float64x2, dynamic>(
+                    luaCallerArguments[2],
                     parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable()),
@@ -74,7 +76,7 @@ class VMManagedFloat64x2 extends VMManagedBox<Float64x2> {
     table['min'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Float64x2>(
-            object: vmObject.min(maybeUnBoxAndBuildArgument<Float64x2>(
+            object: vmObject.min(maybeUnBoxAndBuildArgument<Float64x2, dynamic>(
                 luaCallerArguments[1],
                 parentState: hydroState)),
             hydroState: hydroState,
@@ -84,7 +86,7 @@ class VMManagedFloat64x2 extends VMManagedBox<Float64x2> {
     table['max'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Float64x2>(
-            object: vmObject.max(maybeUnBoxAndBuildArgument<Float64x2>(
+            object: vmObject.max(maybeUnBoxAndBuildArgument<Float64x2, dynamic>(
                 luaCallerArguments[1],
                 parentState: hydroState)),
             hydroState: hydroState,
@@ -142,9 +144,10 @@ void loadFloat64x2(
       makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<Float64x2>(
-          object: Float64x2.fromFloat32x4(maybeUnBoxAndBuildArgument<Float32x4>(
-              luaCallerArguments[1],
-              parentState: hydroState)),
+          object: Float64x2.fromFloat32x4(
+              maybeUnBoxAndBuildArgument<Float32x4, dynamic>(
+                  luaCallerArguments[1],
+                  parentState: hydroState)),
           hydroState: hydroState,
           table: HydroTable()),
     ];

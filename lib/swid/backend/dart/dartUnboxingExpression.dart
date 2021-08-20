@@ -49,6 +49,12 @@ class DartUnboxingExpression {
                   "parentState": refer("hydroState")
                 }, [
                   TypeReference((t) => t..symbol = val.displayName),
+                  TypeReference(
+                    (t) => t
+                      ..symbol = val.typeArguments.isNotEmpty
+                          ? val.typeArguments.first.displayName
+                          : "dynamic",
+                  ),
                 ])
                 .accept(DartEmitter(
                   useNullSafetySyntax: true,

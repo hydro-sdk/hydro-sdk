@@ -31,13 +31,13 @@ class VMManagedPlatformConfiguration
         maybeBoxObject<PlatformConfiguration>(
             object: vmObject.copyWith(
                 accessibilityFeatures:
-                    maybeUnBoxAndBuildArgument<AccessibilityFeatures?>(
+                    maybeUnBoxAndBuildArgument<AccessibilityFeatures?, dynamic>(
                         luaCallerArguments[1]['accessibilityFeatures'],
                         parentState: hydroState),
                 alwaysUse24HourFormat: luaCallerArguments[1]
                     ['alwaysUse24HourFormat'],
                 defaultRouteName: luaCallerArguments[1]['defaultRouteName'],
-                locales: maybeUnBoxAndBuildArgument<List<Locale>?>(
+                locales: maybeUnBoxAndBuildArgument<List<Locale>?, dynamic>(
                     luaCallerArguments[1]['locales'],
                     parentState: hydroState),
                 platformBrightness: maybeUnBoxEnum(
@@ -102,13 +102,13 @@ class RTManagedPlatformConfiguration extends PlatformConfiguration
         maybeBoxObject<PlatformConfiguration>(
             object: super.copyWith(
                 accessibilityFeatures:
-                    maybeUnBoxAndBuildArgument<AccessibilityFeatures?>(
+                    maybeUnBoxAndBuildArgument<AccessibilityFeatures?, dynamic>(
                         luaCallerArguments[1]['accessibilityFeatures'],
                         parentState: hydroState),
                 alwaysUse24HourFormat: luaCallerArguments[1]
                     ['alwaysUse24HourFormat'],
                 defaultRouteName: luaCallerArguments[1]['defaultRouteName'],
-                locales: maybeUnBoxAndBuildArgument<List<Locale>?>(
+                locales: maybeUnBoxAndBuildArgument<List<Locale>?, dynamic>(
                     luaCallerArguments[1]['locales'],
                     parentState: hydroState),
                 platformBrightness: maybeUnBoxEnum(
@@ -139,7 +139,7 @@ class RTManagedPlatformConfiguration extends PlatformConfiguration
       bool? semanticsEnabled,
       double? textScaleFactor}) {
     Closure closure = table["copyWith"];
-    return maybeUnBoxAndBuildArgument<PlatformConfiguration>(
+    return maybeUnBoxAndBuildArgument<PlatformConfiguration, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -154,12 +154,12 @@ void loadPlatformConfiguration(
           table: luaCallerArguments[0],
           hydroState: hydroState,
           accessibilityFeatures:
-              maybeUnBoxAndBuildArgument<AccessibilityFeatures>(
+              maybeUnBoxAndBuildArgument<AccessibilityFeatures, dynamic>(
                   luaCallerArguments[1]['accessibilityFeatures'],
                   parentState: hydroState),
           alwaysUse24HourFormat: luaCallerArguments[1]['alwaysUse24HourFormat'],
           defaultRouteName: luaCallerArguments[1]['defaultRouteName'],
-          locales: maybeUnBoxAndBuildArgument<List<Locale>>(
+          locales: maybeUnBoxAndBuildArgument<List<Locale>, dynamic>(
               luaCallerArguments[1]['locales'],
               parentState: hydroState),
           platformBrightness: maybeUnBoxEnum(

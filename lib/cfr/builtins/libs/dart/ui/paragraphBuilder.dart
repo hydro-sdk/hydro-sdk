@@ -28,7 +28,7 @@ class VMManagedParagraphBuilder extends VMManagedBox<ParagraphBuilder> {
     });
     table['pushStyle'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.pushStyle(maybeUnBoxAndBuildArgument<TextStyle>(
+      vmObject.pushStyle(maybeUnBoxAndBuildArgument<TextStyle, dynamic>(
           luaCallerArguments[1],
           parentState: hydroState));
       return [];
@@ -95,7 +95,7 @@ class RTManagedParagraphBuilder extends ParagraphBuilder
     });
     table['_dart_pushStyle'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.pushStyle(maybeUnBoxAndBuildArgument<TextStyle>(
+      super.pushStyle(maybeUnBoxAndBuildArgument<TextStyle, dynamic>(
           luaCallerArguments[1],
           parentState: hydroState));
       return [];
@@ -149,7 +149,7 @@ class RTManagedParagraphBuilder extends ParagraphBuilder
   @override
   List<double> get placeholderScales {
     Closure closure = table["getPlaceholderScales"];
-    return maybeUnBoxAndBuildArgument<List<double>>(
+    return maybeUnBoxAndBuildArgument<List<double>, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -183,7 +183,7 @@ class RTManagedParagraphBuilder extends ParagraphBuilder
   @override
   Paragraph build() {
     Closure closure = table["build"];
-    return maybeUnBoxAndBuildArgument<Paragraph>(
+    return maybeUnBoxAndBuildArgument<Paragraph, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -195,7 +195,8 @@ void loadParagraphBuilder(
       makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       RTManagedParagraphBuilder(
-          maybeUnBoxAndBuildArgument<ParagraphStyle>(luaCallerArguments[1],
+          maybeUnBoxAndBuildArgument<ParagraphStyle, dynamic>(
+              luaCallerArguments[1],
               parentState: hydroState),
           table: luaCallerArguments[0],
           hydroState: hydroState)

@@ -79,14 +79,15 @@ void loadStrutStyle(
           table: luaCallerArguments[0],
           hydroState: hydroState,
           fontFamily: luaCallerArguments[1]['fontFamily'],
-          fontFamilyFallback: maybeUnBoxAndBuildArgument<List<String>?>(
-              luaCallerArguments[1]['fontFamilyFallback'],
-              parentState: hydroState),
+          fontFamilyFallback:
+              maybeUnBoxAndBuildArgument<List<String>?, dynamic>(
+                  luaCallerArguments[1]['fontFamilyFallback'],
+                  parentState: hydroState),
           fontSize: luaCallerArguments[1]['fontSize']?.toDouble(),
           fontStyle: maybeUnBoxEnum(
               values: FontStyle.values,
               boxedEnum: luaCallerArguments[1]['fontStyle']),
-          fontWeight: maybeUnBoxAndBuildArgument<FontWeight?>(
+          fontWeight: maybeUnBoxAndBuildArgument<FontWeight?, dynamic>(
               luaCallerArguments[1]['fontWeight'],
               parentState: hydroState),
           forceStrutHeight: luaCallerArguments[1]['forceStrutHeight'],

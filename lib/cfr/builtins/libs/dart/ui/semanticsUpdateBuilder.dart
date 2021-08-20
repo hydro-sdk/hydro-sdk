@@ -20,13 +20,13 @@ class VMManagedSemanticsUpdateBuilder
               values: TextDirection.values,
               boxedEnum: luaCallerArguments[1]['textDirection']),
           actions: luaCallerArguments[1]['actions'],
-          additionalActions: maybeUnBoxAndBuildArgument<Int32List>(
+          additionalActions: maybeUnBoxAndBuildArgument<Int32List, dynamic>(
               luaCallerArguments[1]['additionalActions'],
               parentState: hydroState),
-          childrenInHitTestOrder: maybeUnBoxAndBuildArgument<Int32List>(
+          childrenInHitTestOrder: maybeUnBoxAndBuildArgument<Int32List, dynamic>(
               luaCallerArguments[1]['childrenInHitTestOrder'],
               parentState: hydroState),
-          childrenInTraversalOrder: maybeUnBoxAndBuildArgument<Int32List>(
+          childrenInTraversalOrder: maybeUnBoxAndBuildArgument<Int32List, dynamic>(
               luaCallerArguments[1]['childrenInTraversalOrder'],
               parentState: hydroState),
           currentValueLength: luaCallerArguments[1]['currentValueLength'],
@@ -39,7 +39,7 @@ class VMManagedSemanticsUpdateBuilder
           label: luaCallerArguments[1]['label'],
           maxValueLength: luaCallerArguments[1]['maxValueLength'],
           platformViewId: luaCallerArguments[1]['platformViewId'],
-          rect: maybeUnBoxAndBuildArgument<Rect>(luaCallerArguments[1]['rect'],
+          rect: maybeUnBoxAndBuildArgument<Rect, dynamic>(luaCallerArguments[1]['rect'],
               parentState: hydroState),
           scrollChildren: luaCallerArguments[1]['scrollChildren'],
           scrollExtentMax: luaCallerArguments[1]['scrollExtentMax']?.toDouble(),
@@ -49,8 +49,7 @@ class VMManagedSemanticsUpdateBuilder
           textSelectionBase: luaCallerArguments[1]['textSelectionBase'],
           textSelectionExtent: luaCallerArguments[1]['textSelectionExtent'],
           thickness: luaCallerArguments[1]['thickness']?.toDouble(),
-          transform: maybeUnBoxAndBuildArgument<Float64List>(
-              luaCallerArguments[1]['transform'],
+          transform: maybeUnBoxAndBuildArgument<Float64List, dynamic>(luaCallerArguments[1]['transform'],
               parentState: hydroState),
           value: luaCallerArguments[1]['value']);
       return [];
@@ -97,13 +96,13 @@ class RTManagedSemanticsUpdateBuilder extends SemanticsUpdateBuilder
               values: TextDirection.values,
               boxedEnum: luaCallerArguments[1]['textDirection']),
           actions: luaCallerArguments[1]['actions'],
-          additionalActions: maybeUnBoxAndBuildArgument<Int32List>(
+          additionalActions: maybeUnBoxAndBuildArgument<Int32List, dynamic>(
               luaCallerArguments[1]['additionalActions'],
               parentState: hydroState),
-          childrenInHitTestOrder: maybeUnBoxAndBuildArgument<Int32List>(
+          childrenInHitTestOrder: maybeUnBoxAndBuildArgument<Int32List, dynamic>(
               luaCallerArguments[1]['childrenInHitTestOrder'],
               parentState: hydroState),
-          childrenInTraversalOrder: maybeUnBoxAndBuildArgument<Int32List>(
+          childrenInTraversalOrder: maybeUnBoxAndBuildArgument<Int32List, dynamic>(
               luaCallerArguments[1]['childrenInTraversalOrder'],
               parentState: hydroState),
           currentValueLength: luaCallerArguments[1]['currentValueLength'],
@@ -116,7 +115,7 @@ class RTManagedSemanticsUpdateBuilder extends SemanticsUpdateBuilder
           label: luaCallerArguments[1]['label'],
           maxValueLength: luaCallerArguments[1]['maxValueLength'],
           platformViewId: luaCallerArguments[1]['platformViewId'],
-          rect: maybeUnBoxAndBuildArgument<Rect>(luaCallerArguments[1]['rect'],
+          rect: maybeUnBoxAndBuildArgument<Rect, dynamic>(luaCallerArguments[1]['rect'],
               parentState: hydroState),
           scrollChildren: luaCallerArguments[1]['scrollChildren'],
           scrollExtentMax: luaCallerArguments[1]['scrollExtentMax']?.toDouble(),
@@ -126,8 +125,7 @@ class RTManagedSemanticsUpdateBuilder extends SemanticsUpdateBuilder
           textSelectionBase: luaCallerArguments[1]['textSelectionBase'],
           textSelectionExtent: luaCallerArguments[1]['textSelectionExtent'],
           thickness: luaCallerArguments[1]['thickness']?.toDouble(),
-          transform: maybeUnBoxAndBuildArgument<Float64List>(
-              luaCallerArguments[1]['transform'],
+          transform: maybeUnBoxAndBuildArgument<Float64List, dynamic>(luaCallerArguments[1]['transform'],
               parentState: hydroState),
           value: luaCallerArguments[1]['value']);
       return [];
@@ -198,7 +196,7 @@ class RTManagedSemanticsUpdateBuilder extends SemanticsUpdateBuilder
   @override
   SemanticsUpdate build() {
     Closure closure = table["build"];
-    return maybeUnBoxAndBuildArgument<SemanticsUpdate>(
+    return maybeUnBoxAndBuildArgument<SemanticsUpdate, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }

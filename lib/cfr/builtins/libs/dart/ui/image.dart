@@ -75,7 +75,7 @@ class VMManagedImage extends VMManagedBox<Image> {
     table['isCloneOf'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
-        vmObject.isCloneOf(maybeUnBoxAndBuildArgument<Image>(
+        vmObject.isCloneOf(maybeUnBoxAndBuildArgument<Image, dynamic>(
             luaCallerArguments[1],
             parentState: hydroState)),
       ];

@@ -15,9 +15,10 @@ class VMManagedFloat32x4 extends VMManagedBox<Float32x4> {
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Int32x4>(
-            object: vmObject.lessThan(maybeUnBoxAndBuildArgument<Float32x4>(
-                luaCallerArguments[1],
-                parentState: hydroState)),
+            object: vmObject.lessThan(
+                maybeUnBoxAndBuildArgument<Float32x4, dynamic>(
+                    luaCallerArguments[1],
+                    parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable()),
       ];
@@ -27,7 +28,8 @@ class VMManagedFloat32x4 extends VMManagedBox<Float32x4> {
       return [
         maybeBoxObject<Int32x4>(
             object: vmObject.lessThanOrEqual(
-                maybeUnBoxAndBuildArgument<Float32x4>(luaCallerArguments[1],
+                maybeUnBoxAndBuildArgument<Float32x4, dynamic>(
+                    luaCallerArguments[1],
                     parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable()),
@@ -37,9 +39,10 @@ class VMManagedFloat32x4 extends VMManagedBox<Float32x4> {
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Int32x4>(
-            object: vmObject.greaterThan(maybeUnBoxAndBuildArgument<Float32x4>(
-                luaCallerArguments[1],
-                parentState: hydroState)),
+            object: vmObject.greaterThan(
+                maybeUnBoxAndBuildArgument<Float32x4, dynamic>(
+                    luaCallerArguments[1],
+                    parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable()),
       ];
@@ -49,7 +52,8 @@ class VMManagedFloat32x4 extends VMManagedBox<Float32x4> {
       return [
         maybeBoxObject<Int32x4>(
             object: vmObject.greaterThanOrEqual(
-                maybeUnBoxAndBuildArgument<Float32x4>(luaCallerArguments[1],
+                maybeUnBoxAndBuildArgument<Float32x4, dynamic>(
+                    luaCallerArguments[1],
                     parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable()),
@@ -58,9 +62,10 @@ class VMManagedFloat32x4 extends VMManagedBox<Float32x4> {
     table['equal'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Int32x4>(
-            object: vmObject.equal(maybeUnBoxAndBuildArgument<Float32x4>(
-                luaCallerArguments[1],
-                parentState: hydroState)),
+            object: vmObject.equal(
+                maybeUnBoxAndBuildArgument<Float32x4, dynamic>(
+                    luaCallerArguments[1],
+                    parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable()),
       ];
@@ -69,9 +74,10 @@ class VMManagedFloat32x4 extends VMManagedBox<Float32x4> {
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Int32x4>(
-            object: vmObject.notEqual(maybeUnBoxAndBuildArgument<Float32x4>(
-                luaCallerArguments[1],
-                parentState: hydroState)),
+            object: vmObject.notEqual(
+                maybeUnBoxAndBuildArgument<Float32x4, dynamic>(
+                    luaCallerArguments[1],
+                    parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable()),
       ];
@@ -96,9 +102,11 @@ class VMManagedFloat32x4 extends VMManagedBox<Float32x4> {
       return [
         maybeBoxObject<Float32x4>(
             object: vmObject.clamp(
-                maybeUnBoxAndBuildArgument<Float32x4>(luaCallerArguments[1],
+                maybeUnBoxAndBuildArgument<Float32x4, dynamic>(
+                    luaCallerArguments[1],
                     parentState: hydroState),
-                maybeUnBoxAndBuildArgument<Float32x4>(luaCallerArguments[2],
+                maybeUnBoxAndBuildArgument<Float32x4, dynamic>(
+                    luaCallerArguments[2],
                     parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable()),
@@ -144,7 +152,8 @@ class VMManagedFloat32x4 extends VMManagedBox<Float32x4> {
       return [
         maybeBoxObject<Float32x4>(
             object: vmObject.shuffleMix(
-                maybeUnBoxAndBuildArgument<Float32x4>(luaCallerArguments[1],
+                maybeUnBoxAndBuildArgument<Float32x4, dynamic>(
+                    luaCallerArguments[1],
                     parentState: hydroState),
                 luaCallerArguments[2]),
             hydroState: hydroState,
@@ -186,7 +195,7 @@ class VMManagedFloat32x4 extends VMManagedBox<Float32x4> {
     table['min'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Float32x4>(
-            object: vmObject.min(maybeUnBoxAndBuildArgument<Float32x4>(
+            object: vmObject.min(maybeUnBoxAndBuildArgument<Float32x4, dynamic>(
                 luaCallerArguments[1],
                 parentState: hydroState)),
             hydroState: hydroState,
@@ -196,7 +205,7 @@ class VMManagedFloat32x4 extends VMManagedBox<Float32x4> {
     table['max'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Float32x4>(
-            object: vmObject.max(maybeUnBoxAndBuildArgument<Float32x4>(
+            object: vmObject.max(maybeUnBoxAndBuildArgument<Float32x4, dynamic>(
                 luaCallerArguments[1],
                 parentState: hydroState)),
             hydroState: hydroState,
@@ -275,9 +284,10 @@ void loadFloat32x4(
       makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<Float32x4>(
-          object: Float32x4.fromInt32x4Bits(maybeUnBoxAndBuildArgument<Int32x4>(
-              luaCallerArguments[1],
-              parentState: hydroState)),
+          object: Float32x4.fromInt32x4Bits(
+              maybeUnBoxAndBuildArgument<Int32x4, dynamic>(
+                  luaCallerArguments[1],
+                  parentState: hydroState)),
           hydroState: hydroState,
           table: HydroTable()),
     ];
@@ -286,9 +296,10 @@ void loadFloat32x4(
       makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<Float32x4>(
-          object: Float32x4.fromFloat64x2(maybeUnBoxAndBuildArgument<Float64x2>(
-              luaCallerArguments[1],
-              parentState: hydroState)),
+          object: Float32x4.fromFloat64x2(
+              maybeUnBoxAndBuildArgument<Float64x2, dynamic>(
+                  luaCallerArguments[1],
+                  parentState: hydroState)),
           hydroState: hydroState,
           table: HydroTable()),
     ];

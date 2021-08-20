@@ -48,13 +48,13 @@ void main() {
               makeLuaDartFunc(func: (List<dynamic> args) {
             return [
               MyCustomWidget(
-                key: maybeUnBoxAndBuildArgument<Key>(args[0]["key"],
+                key: maybeUnBoxAndBuildArgument<Key,dynamic>(args[0]["key"],
                     parentState: hydroState),
-                color: maybeUnBoxAndBuildArgument<Color>(args[0]["color"],
+                color: maybeUnBoxAndBuildArgument<Color,dynamic>(args[0]["color"],
                     parentState: hydroState),
-                icon: maybeUnBoxAndBuildArgument<Widget>(args[0]["icon"],
+                icon: maybeUnBoxAndBuildArgument<Widget,dynamic>(args[0]["icon"],
                     parentState: hydroState),
-                text: maybeUnBoxAndBuildArgument<Widget>(args[0]["text"],
+                text: maybeUnBoxAndBuildArgument<Widget,dynamic>(args[0]["text"],
                     parentState: hydroState),
                 mainAxisAlignment: maybeUnBoxEnum(
                     values: MainAxisAlignment.values,

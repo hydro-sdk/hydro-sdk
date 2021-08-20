@@ -24,13 +24,13 @@ class VMManagedClampingScrollPhysics
     table["applyTo"] = makeLuaDartFunc(func: (List<dynamic> args) {
       dynamic rawCaller = args[0];
       ClampingScrollPhysics? caller;
-      caller = maybeUnBoxAndBuildArgument<ClampingScrollPhysics>(
+      caller = maybeUnBoxAndBuildArgument<ClampingScrollPhysics,dynamic>(
         rawCaller,
         parentState: hydroState,
       );
       ScrollPhysics? ancestor;
       if (args.length >= 2) {
-        ancestor = maybeUnBoxAndBuildArgument<ScrollPhysics>(
+        ancestor = maybeUnBoxAndBuildArgument<ScrollPhysics,dynamic>(
           args[1],
           parentState: hydroState,
         );
@@ -64,7 +64,7 @@ void loadClampingScrollPhysics(
     HydroTable caller = args[0];
     ScrollPhysics? parent;
     if (args.length >= 2 && args[1] != null) {
-      parent = maybeUnBoxAndBuildArgument<ScrollPhysics>(args[1]["parent"],
+      parent = maybeUnBoxAndBuildArgument<ScrollPhysics,dynamic>(args[1]["parent"],
           parentState: hydroState);
     }
 

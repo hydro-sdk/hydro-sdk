@@ -69,7 +69,7 @@ class StatefulWidgetBoxState extends State<StatefulWidgetBox> {
       parentState: parentState!,
       resetEnclosingLexicalEnvironment: true,
     )[0];
-    return maybeUnBoxAndBuildArgument<Widget>(buildResult,
+    return maybeUnBoxAndBuildArgument<Widget,dynamic>(buildResult,
         parentState: parentState!);
   }
 }

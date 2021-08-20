@@ -30,6 +30,6 @@ Widget? managedBuild(
         "     (${managedBuild.proto?.debugSymbol?.symbolFullyQualifiedMangleName})\n";
     throw errMsg;
   }
-  return maybeUnBoxAndBuildArgument<Widget>(buildResult[0],
+  return maybeUnBoxAndBuildArgument<Widget,dynamic>(buildResult[0],
       parentState: hydroState);
 }

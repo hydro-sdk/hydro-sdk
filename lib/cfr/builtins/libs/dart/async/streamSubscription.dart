@@ -32,7 +32,7 @@ class VMManagedStreamSubscription
     });
     table['onError'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.onError(maybeUnBoxAndBuildArgument<Function?>(
+      vmObject.onError(maybeUnBoxAndBuildArgument<Function?, dynamic>(
           luaCallerArguments[1],
           parentState: hydroState));
       return [];
@@ -50,7 +50,7 @@ class VMManagedStreamSubscription
       return [];
     });
     table['pause'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.pause(maybeUnBoxAndBuildArgument<Future<void>?>(
+      vmObject.pause(maybeUnBoxAndBuildArgument<Future<void>?, dynamic>(
           luaCallerArguments[1],
           parentState: hydroState));
       return [];

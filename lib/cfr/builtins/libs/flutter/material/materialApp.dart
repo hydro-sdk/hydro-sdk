@@ -11,7 +11,7 @@ void loadMaterialApp(
     return [
       MaterialApp(
         initialRoute: args[0]["initialRoute"],
-        home: maybeUnBoxAndBuildArgument<Widget>(args[0]["home"],
+        home: maybeUnBoxAndBuildArgument<Widget,dynamic>(args[0]["home"],
             parentState: luaState),
         title: args[0]["title"],
       )

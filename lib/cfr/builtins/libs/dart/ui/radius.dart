@@ -57,9 +57,9 @@ void loadRadius({required HydroState hydroState, required HydroTable table}) {
   table['radiusLerp'] =
       makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     final returnValue = Radius.lerp(
-        maybeUnBoxAndBuildArgument<Radius?>(luaCallerArguments[1],
+        maybeUnBoxAndBuildArgument<Radius?, dynamic>(luaCallerArguments[1],
             parentState: hydroState),
-        maybeUnBoxAndBuildArgument<Radius?>(luaCallerArguments[2],
+        maybeUnBoxAndBuildArgument<Radius?, dynamic>(luaCallerArguments[2],
             parentState: hydroState),
         luaCallerArguments[3]?.toDouble());
     if (returnValue != null) {

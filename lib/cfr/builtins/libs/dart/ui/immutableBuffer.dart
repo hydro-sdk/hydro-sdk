@@ -35,7 +35,8 @@ void loadImmutableBuffer(
     return [
       maybeBoxObject<Future>(
           object: ImmutableBuffer.fromUint8List(
-              maybeUnBoxAndBuildArgument<Uint8List>(luaCallerArguments[1],
+              maybeUnBoxAndBuildArgument<Uint8List, dynamic>(
+                  luaCallerArguments[1],
                   parentState: hydroState)),
           hydroState: hydroState,
           table: HydroTable()),

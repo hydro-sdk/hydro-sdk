@@ -34,7 +34,7 @@ class VMManagedPathMetrics extends VMManagedBox<PathMetrics> {
       return [
         maybeBoxObject<Iterable>(
             object: vmObject.followedBy(
-                maybeUnBoxAndBuildArgument<Iterable<PathMetric>>(
+                maybeUnBoxAndBuildArgument<Iterable<PathMetric>, dynamic>(
                     luaCallerArguments[1],
                     parentState: hydroState)),
             hydroState: hydroState,
@@ -78,8 +78,8 @@ class VMManagedPathMetrics extends VMManagedBox<PathMetrics> {
       Closure unpackedf = luaCallerArguments[1];
       return [
         maybeBoxObject<Iterable>(
-            object: vmObject.expand(
-                (element) => maybeUnBoxAndBuildArgument<Iterable<dynamic>>(
+            object: vmObject.expand((element) =>
+                maybeUnBoxAndBuildArgument<Iterable<dynamic>, dynamic>(
                     unpackedf.dispatch(
                       [luaCallerArguments[0], element],
                       parentState: hydroState,
@@ -92,7 +92,7 @@ class VMManagedPathMetrics extends VMManagedBox<PathMetrics> {
     table['contains'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
-        vmObject.contains(maybeUnBoxAndBuildArgument<Object?>(
+        vmObject.contains(maybeUnBoxAndBuildArgument<Object?, dynamic>(
             luaCallerArguments[1],
             parentState: hydroState)),
       ];
@@ -110,8 +110,8 @@ class VMManagedPathMetrics extends VMManagedBox<PathMetrics> {
       Closure unpackedcombine = luaCallerArguments[1];
       return [
         maybeBoxObject<PathMetric>(
-            object: vmObject.reduce(
-                (value, element) => maybeUnBoxAndBuildArgument<PathMetric>(
+            object: vmObject.reduce((value, element) =>
+                maybeUnBoxAndBuildArgument<PathMetric, dynamic>(
                     unpackedcombine.dispatch(
                       [luaCallerArguments[0], value, element],
                       parentState: hydroState,
@@ -229,7 +229,7 @@ class VMManagedPathMetrics extends VMManagedBox<PathMetrics> {
                       parentState: hydroState,
                     )[0],
                 orElse: unpackedorElse != null
-                    ? () => maybeUnBoxAndBuildArgument<PathMetric>(
+                    ? () => maybeUnBoxAndBuildArgument<PathMetric, dynamic>(
                         unpackedorElse.dispatch(
                           [
                             luaCallerArguments[0],
@@ -254,7 +254,7 @@ class VMManagedPathMetrics extends VMManagedBox<PathMetrics> {
                       parentState: hydroState,
                     )[0],
                 orElse: unpackedorElse != null
-                    ? () => maybeUnBoxAndBuildArgument<PathMetric>(
+                    ? () => maybeUnBoxAndBuildArgument<PathMetric, dynamic>(
                         unpackedorElse.dispatch(
                           [
                             luaCallerArguments[0],
@@ -279,7 +279,7 @@ class VMManagedPathMetrics extends VMManagedBox<PathMetrics> {
                       parentState: hydroState,
                     )[0],
                 orElse: unpackedorElse != null
-                    ? () => maybeUnBoxAndBuildArgument<PathMetric>(
+                    ? () => maybeUnBoxAndBuildArgument<PathMetric, dynamic>(
                         unpackedorElse.dispatch(
                           [
                             luaCallerArguments[0],

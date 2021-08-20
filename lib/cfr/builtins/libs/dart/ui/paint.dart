@@ -33,7 +33,8 @@ class VMManagedPaint extends VMManagedBox<Paint> {
     });
     table['setColor'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.color = (maybeUnBoxAndBuildArgument<Color>(luaCallerArguments[1],
+      vmObject.color = (maybeUnBoxAndBuildArgument<Color, dynamic>(
+          luaCallerArguments[1],
           parentState: hydroState));
       return [];
     });
@@ -128,7 +129,7 @@ class VMManagedPaint extends VMManagedBox<Paint> {
     });
     table['setMaskFilter'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.maskFilter = (maybeUnBoxAndBuildArgument<MaskFilter?>(
+      vmObject.maskFilter = (maybeUnBoxAndBuildArgument<MaskFilter?, dynamic>(
           luaCallerArguments[1],
           parentState: hydroState));
       return [];
@@ -160,7 +161,7 @@ class VMManagedPaint extends VMManagedBox<Paint> {
     });
     table['setShader'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.shader = (maybeUnBoxAndBuildArgument<Shader?>(
+      vmObject.shader = (maybeUnBoxAndBuildArgument<Shader?, dynamic>(
           luaCallerArguments[1],
           parentState: hydroState));
       return [];
@@ -178,7 +179,7 @@ class VMManagedPaint extends VMManagedBox<Paint> {
     });
     table['setColorFilter'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.colorFilter = (maybeUnBoxAndBuildArgument<ColorFilter?>(
+      vmObject.colorFilter = (maybeUnBoxAndBuildArgument<ColorFilter?, dynamic>(
           luaCallerArguments[1],
           parentState: hydroState));
       return [];
@@ -196,7 +197,7 @@ class VMManagedPaint extends VMManagedBox<Paint> {
     });
     table['setImageFilter'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.imageFilter = (maybeUnBoxAndBuildArgument<ImageFilter?>(
+      vmObject.imageFilter = (maybeUnBoxAndBuildArgument<ImageFilter?, dynamic>(
           luaCallerArguments[1],
           parentState: hydroState));
       return [];
@@ -248,7 +249,8 @@ class RTManagedPaint extends Paint implements Box<Paint> {
     });
     table['_dart_setColor'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.color = (maybeUnBoxAndBuildArgument<Color>(luaCallerArguments[1],
+      super.color = (maybeUnBoxAndBuildArgument<Color, dynamic>(
+          luaCallerArguments[1],
           parentState: hydroState));
       return [];
     });
@@ -316,7 +318,7 @@ class RTManagedPaint extends Paint implements Box<Paint> {
     });
     table['_dart_setMaskFilter'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.maskFilter = (maybeUnBoxAndBuildArgument<MaskFilter?>(
+      super.maskFilter = (maybeUnBoxAndBuildArgument<MaskFilter?, dynamic>(
           luaCallerArguments[1],
           parentState: hydroState));
       return [];
@@ -337,7 +339,8 @@ class RTManagedPaint extends Paint implements Box<Paint> {
     });
     table['_dart_setShader'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.shader = (maybeUnBoxAndBuildArgument<Shader?>(luaCallerArguments[1],
+      super.shader = (maybeUnBoxAndBuildArgument<Shader?, dynamic>(
+          luaCallerArguments[1],
           parentState: hydroState));
       return [];
     });
@@ -347,7 +350,7 @@ class RTManagedPaint extends Paint implements Box<Paint> {
     });
     table['_dart_setColorFilter'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.colorFilter = (maybeUnBoxAndBuildArgument<ColorFilter?>(
+      super.colorFilter = (maybeUnBoxAndBuildArgument<ColorFilter?, dynamic>(
           luaCallerArguments[1],
           parentState: hydroState));
       return [];
@@ -358,7 +361,7 @@ class RTManagedPaint extends Paint implements Box<Paint> {
     });
     table['_dart_setImageFilter'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.imageFilter = (maybeUnBoxAndBuildArgument<ImageFilter?>(
+      super.imageFilter = (maybeUnBoxAndBuildArgument<ImageFilter?, dynamic>(
           luaCallerArguments[1],
           parentState: hydroState));
       return [];
@@ -399,7 +402,7 @@ class RTManagedPaint extends Paint implements Box<Paint> {
   @override
   Color get color {
     Closure closure = table["getColor"];
-    return maybeUnBoxAndBuildArgument<Color>(
+    return maybeUnBoxAndBuildArgument<Color, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -493,7 +496,7 @@ class RTManagedPaint extends Paint implements Box<Paint> {
   @override
   MaskFilter? get maskFilter {
     Closure closure = table["getMaskFilter"];
-    return maybeUnBoxAndBuildArgument<MaskFilter?>(
+    return maybeUnBoxAndBuildArgument<MaskFilter?, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -521,7 +524,7 @@ class RTManagedPaint extends Paint implements Box<Paint> {
   @override
   Shader? get shader {
     Closure closure = table["getShader"];
-    return maybeUnBoxAndBuildArgument<Shader?>(
+    return maybeUnBoxAndBuildArgument<Shader?, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -535,7 +538,7 @@ class RTManagedPaint extends Paint implements Box<Paint> {
   @override
   ColorFilter? get colorFilter {
     Closure closure = table["getColorFilter"];
-    return maybeUnBoxAndBuildArgument<ColorFilter?>(
+    return maybeUnBoxAndBuildArgument<ColorFilter?, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -549,7 +552,7 @@ class RTManagedPaint extends Paint implements Box<Paint> {
   @override
   ImageFilter? get imageFilter {
     Closure closure = table["getImageFilter"];
-    return maybeUnBoxAndBuildArgument<ImageFilter?>(
+    return maybeUnBoxAndBuildArgument<ImageFilter?, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }

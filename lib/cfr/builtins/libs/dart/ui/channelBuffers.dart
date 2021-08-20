@@ -17,7 +17,7 @@ class VMManagedChannelBuffers extends VMManagedBox<ChannelBuffers> {
       Closure unpackedcallback = luaCallerArguments[3];
       vmObject.push(
           luaCallerArguments[1],
-          maybeUnBoxAndBuildArgument<ByteData?>(luaCallerArguments[2],
+          maybeUnBoxAndBuildArgument<ByteData?, dynamic>(luaCallerArguments[2],
               parentState: hydroState),
           (data) => unpackedcallback.dispatch(
                 [luaCallerArguments[0], data],
@@ -47,19 +47,20 @@ class VMManagedChannelBuffers extends VMManagedBox<ChannelBuffers> {
         maybeBoxObject<Future>(
             object: vmObject.drain(
                 luaCallerArguments[1],
-                (data, callback) => maybeUnBoxAndBuildArgument<Future<void>>(
-                    unpackedcallback.dispatch(
-                      [luaCallerArguments[0], data, callback],
-                      parentState: hydroState,
-                    )[0],
-                    parentState: hydroState)),
+                (data, callback) =>
+                    maybeUnBoxAndBuildArgument<Future<void>, dynamic>(
+                        unpackedcallback.dispatch(
+                          [luaCallerArguments[0], data, callback],
+                          parentState: hydroState,
+                        )[0],
+                        parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable()),
       ];
     });
     table['handleMessage'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.handleMessage(maybeUnBoxAndBuildArgument<ByteData>(
+      vmObject.handleMessage(maybeUnBoxAndBuildArgument<ByteData, dynamic>(
           luaCallerArguments[1],
           parentState: hydroState));
       return [];
@@ -95,7 +96,7 @@ class RTManagedChannelBuffers extends ChannelBuffers
       Closure unpackedcallback = luaCallerArguments[3];
       super.push(
           luaCallerArguments[1],
-          maybeUnBoxAndBuildArgument<ByteData?>(luaCallerArguments[2],
+          maybeUnBoxAndBuildArgument<ByteData?, dynamic>(luaCallerArguments[2],
               parentState: hydroState),
           (data) => unpackedcallback.dispatch(
                 [luaCallerArguments[0], data],
@@ -126,19 +127,20 @@ class RTManagedChannelBuffers extends ChannelBuffers
         maybeBoxObject<Future>(
             object: super.drain(
                 luaCallerArguments[1],
-                (data, callback) => maybeUnBoxAndBuildArgument<Future<void>>(
-                    unpackedcallback.dispatch(
-                      [luaCallerArguments[0], data, callback],
-                      parentState: hydroState,
-                    )[0],
-                    parentState: hydroState)),
+                (data, callback) =>
+                    maybeUnBoxAndBuildArgument<Future<void>, dynamic>(
+                        unpackedcallback.dispatch(
+                          [luaCallerArguments[0], data, callback],
+                          parentState: hydroState,
+                        )[0],
+                        parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable())
       ];
     });
     table['_dart_handleMessage'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.handleMessage(maybeUnBoxAndBuildArgument<ByteData>(
+      super.handleMessage(maybeUnBoxAndBuildArgument<ByteData, dynamic>(
           luaCallerArguments[1],
           parentState: hydroState));
       return [];
@@ -182,7 +184,7 @@ class RTManagedChannelBuffers extends ChannelBuffers
   @override
   Future<void> drain(String name, callback) {
     Closure closure = table["drain"];
-    return maybeUnBoxAndBuildArgument<Future<void>>(
+    return maybeUnBoxAndBuildArgument<Future<void>, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }

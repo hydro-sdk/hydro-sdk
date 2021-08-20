@@ -51,19 +51,21 @@ void loadVertices({required HydroState hydroState, required HydroTable table}) {
       RTManagedVertices(
           maybeUnBoxEnum(
               values: VertexMode.values, boxedEnum: luaCallerArguments[1]),
-          maybeUnBoxAndBuildArgument<List<Offset>>(luaCallerArguments[2],
+          maybeUnBoxAndBuildArgument<List<Offset>, dynamic>(
+              luaCallerArguments[2],
               parentState: hydroState),
           table: luaCallerArguments[0],
           hydroState: hydroState,
-          colors: maybeUnBoxAndBuildArgument<List<Color>?>(
+          colors: maybeUnBoxAndBuildArgument<List<Color>?, dynamic>(
               luaCallerArguments[3]['colors'],
               parentState: hydroState),
-          indices: maybeUnBoxAndBuildArgument<List<int>?>(
+          indices: maybeUnBoxAndBuildArgument<List<int>?, dynamic>(
               luaCallerArguments[3]['indices'],
               parentState: hydroState),
-          textureCoordinates: maybeUnBoxAndBuildArgument<List<Offset>?>(
-              luaCallerArguments[3]['textureCoordinates'],
-              parentState: hydroState))
+          textureCoordinates:
+              maybeUnBoxAndBuildArgument<List<Offset>?, dynamic>(
+                  luaCallerArguments[3]['textureCoordinates'],
+                  parentState: hydroState))
     ];
   });
   table['verticesRaw'] =
@@ -73,15 +75,14 @@ void loadVertices({required HydroState hydroState, required HydroTable table}) {
           object: Vertices.raw(
               maybeUnBoxEnum(
                   values: VertexMode.values, boxedEnum: luaCallerArguments[1]),
-              maybeUnBoxAndBuildArgument<Float32List>(luaCallerArguments[2],
+              maybeUnBoxAndBuildArgument<Float32List, dynamic>(luaCallerArguments[2],
                   parentState: hydroState),
-              colors: maybeUnBoxAndBuildArgument<Int32List?>(
-                  luaCallerArguments[3]['colors'],
+              colors: maybeUnBoxAndBuildArgument<Int32List?, dynamic>(luaCallerArguments[3]['colors'],
                   parentState: hydroState),
-              indices: maybeUnBoxAndBuildArgument<Uint16List?>(
+              indices: maybeUnBoxAndBuildArgument<Uint16List?, dynamic>(
                   luaCallerArguments[3]['indices'],
                   parentState: hydroState),
-              textureCoordinates: maybeUnBoxAndBuildArgument<Float32List?>(
+              textureCoordinates: maybeUnBoxAndBuildArgument<Float32List?, dynamic>(
                   luaCallerArguments[3]['textureCoordinates'],
                   parentState: hydroState)),
           hydroState: hydroState,

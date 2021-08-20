@@ -10,20 +10,20 @@ void loadRawChip({required HydroState luaState, required HydroTable table}) {
   table["rawChip"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       RawChip(
-        key: maybeUnBoxAndBuildArgument<Key>(args[0]["key"],
+        key: maybeUnBoxAndBuildArgument<Key,dynamic>(args[0]["key"],
             parentState: luaState),
-        avatar: maybeUnBoxAndBuildArgument<Widget>(args[0]["avatar"],
+        avatar: maybeUnBoxAndBuildArgument<Widget,dynamic>(args[0]["avatar"],
             parentState: luaState),
-        label: maybeUnBoxAndBuildArgument<Widget>(args[0]["label"],
+        label: maybeUnBoxAndBuildArgument<Widget,dynamic>(args[0]["label"],
             parentState: luaState),
-        labelStyle: maybeUnBoxAndBuildArgument<TextStyle>(args[0]["labelStyle"],
+        labelStyle: maybeUnBoxAndBuildArgument<TextStyle,dynamic>(args[0]["labelStyle"],
             parentState: luaState),
-        padding: maybeUnBoxAndBuildArgument<EdgeInsets>(args[0]["padding"],
+        padding: maybeUnBoxAndBuildArgument<EdgeInsets,dynamic>(args[0]["padding"],
             parentState: luaState),
-        labelPadding: maybeUnBoxAndBuildArgument<EdgeInsets>(
+        labelPadding: maybeUnBoxAndBuildArgument<EdgeInsets,dynamic>(
             args[0]["labelPadding"],
             parentState: luaState),
-        deleteIcon: maybeUnBoxAndBuildArgument<Widget>(args[0]["deleteIcon"],
+        deleteIcon: maybeUnBoxAndBuildArgument<Widget,dynamic>(args[0]["deleteIcon"],
             parentState: luaState),
         onDeleted: args[0]["onDeleted"] != null
             ? () {
@@ -31,7 +31,7 @@ void loadRawChip({required HydroState luaState, required HydroTable table}) {
                 closure.dispatch([], parentState: luaState);
               }
             : null,
-        deleteIconColor: maybeUnBoxAndBuildArgument<Widget>(
+        deleteIconColor: maybeUnBoxAndBuildArgument<Widget,dynamic>(
             args[0]["deleteIconColor"],
             parentState: luaState),
         deleteButtonTooltipMessage: args[0]["deleteButtonTooltipMessage"],
@@ -51,33 +51,33 @@ void loadRawChip({required HydroState luaState, required HydroTable table}) {
         tapEnabled: args[0]["tapEnabled"],
         selected: args[0]["selected"],
         isEnabled: args[0]["isEnabled"],
-        disabledColor: maybeUnBoxAndBuildArgument<Widget>(
+        disabledColor: maybeUnBoxAndBuildArgument<Widget,dynamic>(
             args[0]["disabledColor"],
             parentState: luaState),
-        selectedColor: maybeUnBoxAndBuildArgument<Widget>(
+        selectedColor: maybeUnBoxAndBuildArgument<Widget,dynamic>(
             args[0]["selectedColor"],
             parentState: luaState),
         tooltip: args[0]["tooltip"],
         clipBehavior: maybeUnBoxEnum(
             values: Clip.values, boxedEnum: args[0]["clipBehavior"]),
         autofocus: args[0]["autofocus"],
-        backgroundColor: maybeUnBoxAndBuildArgument<Widget>(
+        backgroundColor: maybeUnBoxAndBuildArgument<Widget,dynamic>(
             args[0]["backgroundColor"],
             parentState: luaState),
         materialTapTargetSize: maybeUnBoxEnum(
             values: MaterialTapTargetSize.values,
             boxedEnum: args[0]["materialTapTargetSize"]),
         elevation: args[0]["elevation"],
-        shadowColor: maybeUnBoxAndBuildArgument<Widget>(args[0]["shadowColor"],
+        shadowColor: maybeUnBoxAndBuildArgument<Widget,dynamic>(args[0]["shadowColor"],
             parentState: luaState),
-        selectedShadowColor: maybeUnBoxAndBuildArgument<Widget>(
+        selectedShadowColor: maybeUnBoxAndBuildArgument<Widget,dynamic>(
             args[0]["selectedShadowColor"],
             parentState: luaState),
         showCheckmark: args[0]["showCheckmark"],
-        checkmarkColor: maybeUnBoxAndBuildArgument<Widget>(
+        checkmarkColor: maybeUnBoxAndBuildArgument<Widget,dynamic>(
             args[0]["checkmarkColor"],
             parentState: luaState),
-        avatarBorder: maybeUnBoxAndBuildArgument<ShapeBorder>(
+        avatarBorder: maybeUnBoxAndBuildArgument<ShapeBorder,dynamic>(
             args[0]["avatarBorder"],
             parentState: luaState),
       )

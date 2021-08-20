@@ -62,7 +62,8 @@ void loadImageDescriptor(
     return [
       maybeBoxObject<ImageDescriptor>(
           object: ImageDescriptor.raw(
-              maybeUnBoxAndBuildArgument<ImmutableBuffer>(luaCallerArguments[1],
+              maybeUnBoxAndBuildArgument<ImmutableBuffer, dynamic>(
+                  luaCallerArguments[1],
                   parentState: hydroState),
               rowBytes: luaCallerArguments[2]['rowBytes'],
               height: luaCallerArguments[2]['height'],
@@ -79,7 +80,8 @@ void loadImageDescriptor(
     return [
       maybeBoxObject<Future>(
           object: ImageDescriptor.encoded(
-              maybeUnBoxAndBuildArgument<ImmutableBuffer>(luaCallerArguments[1],
+              maybeUnBoxAndBuildArgument<ImmutableBuffer, dynamic>(
+                  luaCallerArguments[1],
                   parentState: hydroState)),
           hydroState: hydroState,
           table: HydroTable()),

@@ -61,7 +61,7 @@ void loadAlwaysStoppedAnimation({
         return [
           maybeBoxObject<AlwaysStoppedAnimation<Color>>(
               object: AlwaysStoppedAnimation<Color>(
-                  maybeUnBoxAndBuildArgument<Color>(args[1],
+                  maybeUnBoxAndBuildArgument<Color,dynamic>(args[1],
                       parentState: luaState)),
               hydroState: luaState,
               table: caller)

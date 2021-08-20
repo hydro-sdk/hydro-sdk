@@ -167,7 +167,7 @@ class VMManagedPlatformDispatcher extends VMManagedBox<PlatformDispatcher> {
       Closure? unpackedcallback = luaCallerArguments[3];
       vmObject.sendPlatformMessage(
           luaCallerArguments[1],
-          maybeUnBoxAndBuildArgument<ByteData?>(luaCallerArguments[2],
+          maybeUnBoxAndBuildArgument<ByteData?, dynamic>(luaCallerArguments[2],
               parentState: hydroState),
           unpackedcallback != null
               ? (data) => unpackedcallback.dispatch(
@@ -253,9 +253,10 @@ class VMManagedPlatformDispatcher extends VMManagedBox<PlatformDispatcher> {
     });
     table['updateSemantics'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.updateSemantics(maybeUnBoxAndBuildArgument<SemanticsUpdate>(
-          luaCallerArguments[1],
-          parentState: hydroState));
+      vmObject.updateSemantics(
+          maybeUnBoxAndBuildArgument<SemanticsUpdate, dynamic>(
+              luaCallerArguments[1],
+              parentState: hydroState));
       return [];
     });
     table['getLocale'] =
@@ -282,7 +283,8 @@ class VMManagedPlatformDispatcher extends VMManagedBox<PlatformDispatcher> {
     table['computePlatformResolvedLocale'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       final returnValue = vmObject.computePlatformResolvedLocale(
-          maybeUnBoxAndBuildArgument<List<Locale>>(luaCallerArguments[1],
+          maybeUnBoxAndBuildArgument<List<Locale>, dynamic>(
+              luaCallerArguments[1],
               parentState: hydroState));
       if (returnValue != null) {
         return [

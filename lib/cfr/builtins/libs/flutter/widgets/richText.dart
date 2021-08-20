@@ -9,9 +9,9 @@ void loadRichText({required HydroState luaState, required HydroTable table}) {
   table["richText"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       RichText(
-          key: maybeUnBoxAndBuildArgument<Widget>(args[0]["key"],
+          key: maybeUnBoxAndBuildArgument<Widget,dynamic>(args[0]["key"],
               parentState: luaState),
-          text: maybeUnBoxAndBuildArgument<Widget>(args[0]["text"],
+          text: maybeUnBoxAndBuildArgument<Widget,dynamic>(args[0]["text"],
               parentState: luaState),
           textAlign: maybeUnBoxEnum<TextAlign>(
               values: TextAlign.values, boxedEnum: args[0]["textAlign"])!,

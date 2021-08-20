@@ -35,7 +35,7 @@ class VMManagedFloat64List extends VMManagedBox<Float64List> {
       return [];
     });
     table['addAll'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.addAll(maybeUnBoxAndBuildArgument<Iterable<double>>(
+      vmObject.addAll(maybeUnBoxAndBuildArgument<Iterable<double>, dynamic>(
           luaCallerArguments[1],
           parentState: hydroState));
       return [];
@@ -52,7 +52,7 @@ class VMManagedFloat64List extends VMManagedBox<Float64List> {
     });
     table['shuffle'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.shuffle(maybeUnBoxAndBuildArgument<Random?>(
+      vmObject.shuffle(maybeUnBoxAndBuildArgument<Random?, dynamic>(
           luaCallerArguments[1],
           parentState: hydroState));
       return [];
@@ -107,20 +107,22 @@ class VMManagedFloat64List extends VMManagedBox<Float64List> {
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.insertAll(
           luaCallerArguments[1],
-          maybeUnBoxAndBuildArgument<Iterable<double>>(luaCallerArguments[2],
+          maybeUnBoxAndBuildArgument<Iterable<double>, dynamic>(
+              luaCallerArguments[2],
               parentState: hydroState));
       return [];
     });
     table['setAll'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.setAll(
           luaCallerArguments[1],
-          maybeUnBoxAndBuildArgument<Iterable<double>>(luaCallerArguments[2],
+          maybeUnBoxAndBuildArgument<Iterable<double>, dynamic>(
+              luaCallerArguments[2],
               parentState: hydroState));
       return [];
     });
     table['remove'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
-        vmObject.remove(maybeUnBoxAndBuildArgument<Object?>(
+        vmObject.remove(maybeUnBoxAndBuildArgument<Object?, dynamic>(
             luaCallerArguments[1],
             parentState: hydroState)),
       ];
@@ -170,7 +172,8 @@ class VMManagedFloat64List extends VMManagedBox<Float64List> {
       vmObject.setRange(
           luaCallerArguments[1],
           luaCallerArguments[2],
-          maybeUnBoxAndBuildArgument<Iterable<double>>(luaCallerArguments[3],
+          maybeUnBoxAndBuildArgument<Iterable<double>, dynamic>(
+              luaCallerArguments[3],
               parentState: hydroState),
           luaCallerArguments[4]);
       return [];
@@ -191,7 +194,8 @@ class VMManagedFloat64List extends VMManagedBox<Float64List> {
       vmObject.replaceRange(
           luaCallerArguments[1],
           luaCallerArguments[2],
-          maybeUnBoxAndBuildArgument<Iterable<double>>(luaCallerArguments[3],
+          maybeUnBoxAndBuildArgument<Iterable<double>, dynamic>(
+              luaCallerArguments[3],
               parentState: hydroState));
       return [];
     });
@@ -238,7 +242,7 @@ class VMManagedFloat64List extends VMManagedBox<Float64List> {
       return [
         maybeBoxObject<Iterable>(
             object: vmObject.followedBy(
-                maybeUnBoxAndBuildArgument<Iterable<double>>(
+                maybeUnBoxAndBuildArgument<Iterable<double>, dynamic>(
                     luaCallerArguments[1],
                     parentState: hydroState)),
             hydroState: hydroState,
@@ -282,8 +286,8 @@ class VMManagedFloat64List extends VMManagedBox<Float64List> {
       Closure unpackedf = luaCallerArguments[1];
       return [
         maybeBoxObject<Iterable>(
-            object: vmObject.expand(
-                (element) => maybeUnBoxAndBuildArgument<Iterable<dynamic>>(
+            object: vmObject.expand((element) =>
+                maybeUnBoxAndBuildArgument<Iterable<dynamic>, dynamic>(
                     unpackedf.dispatch(
                       [luaCallerArguments[0], element],
                       parentState: hydroState,
@@ -296,7 +300,7 @@ class VMManagedFloat64List extends VMManagedBox<Float64List> {
     table['contains'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
-        vmObject.contains(maybeUnBoxAndBuildArgument<Object?>(
+        vmObject.contains(maybeUnBoxAndBuildArgument<Object?, dynamic>(
             luaCallerArguments[1],
             parentState: hydroState)),
       ];
@@ -580,9 +584,10 @@ void loadFloat64List(
       makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<Float64List>(
-          object: Float64List.fromList(maybeUnBoxAndBuildArgument<List<double>>(
-              luaCallerArguments[1],
-              parentState: hydroState)),
+          object: Float64List.fromList(
+              maybeUnBoxAndBuildArgument<List<double>, dynamic>(
+                  luaCallerArguments[1],
+                  parentState: hydroState)),
           hydroState: hydroState,
           table: HydroTable()),
     ];
@@ -592,7 +597,8 @@ void loadFloat64List(
     return [
       maybeBoxObject<Float64List>(
           object: Float64List.view(
-              maybeUnBoxAndBuildArgument<ByteBuffer>(luaCallerArguments[1],
+              maybeUnBoxAndBuildArgument<ByteBuffer, dynamic>(
+                  luaCallerArguments[1],
                   parentState: hydroState),
               luaCallerArguments[2],
               luaCallerArguments[3]),
@@ -605,7 +611,8 @@ void loadFloat64List(
     return [
       maybeBoxObject<Float64List>(
           object: Float64List.sublistView(
-              maybeUnBoxAndBuildArgument<TypedData>(luaCallerArguments[1],
+              maybeUnBoxAndBuildArgument<TypedData, dynamic>(
+                  luaCallerArguments[1],
                   parentState: hydroState),
               luaCallerArguments[2],
               luaCallerArguments[3]),

@@ -39,7 +39,7 @@ void loadColorFilter(
     return [
       maybeBoxObject<ColorFilter>(
           object: ColorFilter.mode(
-              maybeUnBoxAndBuildArgument<Color>(luaCallerArguments[1],
+              maybeUnBoxAndBuildArgument<Color, dynamic>(luaCallerArguments[1],
                   parentState: hydroState),
               maybeUnBoxEnum(
                   values: BlendMode.values, boxedEnum: luaCallerArguments[2])),
@@ -51,9 +51,10 @@ void loadColorFilter(
       makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<ColorFilter>(
-          object: ColorFilter.matrix(maybeUnBoxAndBuildArgument<List<double>>(
-              luaCallerArguments[1],
-              parentState: hydroState)),
+          object: ColorFilter.matrix(
+              maybeUnBoxAndBuildArgument<List<double>, dynamic>(
+                  luaCallerArguments[1],
+                  parentState: hydroState)),
           hydroState: hydroState,
           table: HydroTable()),
     ];

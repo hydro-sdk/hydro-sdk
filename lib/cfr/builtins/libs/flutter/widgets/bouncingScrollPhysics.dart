@@ -24,11 +24,11 @@ class VMManagedBouncingScrollPhysics
     table["applyTo"] = makeLuaDartFunc(func: (List<dynamic> args) {
       dynamic rawCaller = args[0];
       BouncingScrollPhysics? caller;
-      caller = maybeUnBoxAndBuildArgument<BouncingScrollPhysics>(rawCaller,
+      caller = maybeUnBoxAndBuildArgument<BouncingScrollPhysics,dynamic>(rawCaller,
           parentState: hydroState);
       ScrollPhysics? ancestor;
       if (args.length >= 2) {
-        ancestor = maybeUnBoxAndBuildArgument<ScrollPhysics>(args[1],
+        ancestor = maybeUnBoxAndBuildArgument<ScrollPhysics,dynamic>(args[1],
             parentState: hydroState);
       }
 
@@ -62,7 +62,7 @@ void loadBouncingScrollPhysics({
     HydroTable caller = args[0];
     ScrollPhysics? parent;
     if (args.length >= 2 && args[1] != null) {
-      parent = maybeUnBoxAndBuildArgument<ScrollPhysics>(args[1]["parent"],
+      parent = maybeUnBoxAndBuildArgument<ScrollPhysics,dynamic>(args[1]["parent"],
           parentState: hydroState);
     }
 

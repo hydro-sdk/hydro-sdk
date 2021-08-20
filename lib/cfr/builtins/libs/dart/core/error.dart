@@ -51,7 +51,7 @@ class RTManagedError extends Error implements Box<Error> {
   @override
   StackTrace? get stackTrace {
     Closure closure = table["getStackTrace"];
-    return maybeUnBoxAndBuildArgument<StackTrace?>(
+    return maybeUnBoxAndBuildArgument<StackTrace?, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -66,7 +66,7 @@ void loadError({required HydroState hydroState, required HydroTable table}) {
   table['errorSafeToString'] =
       makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
-      Error.safeToString(maybeUnBoxAndBuildArgument<Object?>(
+      Error.safeToString(maybeUnBoxAndBuildArgument<Object?, dynamic>(
           luaCallerArguments[1],
           parentState: hydroState)),
     ];

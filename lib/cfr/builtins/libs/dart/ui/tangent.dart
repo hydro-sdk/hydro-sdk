@@ -68,9 +68,9 @@ void loadTangent({required HydroState hydroState, required HydroTable table}) {
   table['tangent'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       RTManagedTangent(
-          maybeUnBoxAndBuildArgument<Offset>(luaCallerArguments[1],
+          maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[1],
               parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Offset>(luaCallerArguments[2],
+          maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[2],
               parentState: hydroState),
           table: luaCallerArguments[0],
           hydroState: hydroState)
@@ -81,7 +81,7 @@ void loadTangent({required HydroState hydroState, required HydroTable table}) {
     return [
       maybeBoxObject<Tangent>(
           object: Tangent.fromAngle(
-              maybeUnBoxAndBuildArgument<Offset>(luaCallerArguments[1],
+              maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[1],
                   parentState: hydroState),
               luaCallerArguments[2]?.toDouble()),
           hydroState: hydroState,

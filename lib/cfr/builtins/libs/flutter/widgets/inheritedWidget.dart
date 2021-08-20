@@ -9,7 +9,7 @@ class InheritedWidgetBox extends InheritedWidget {
   final HydroState parentState;
   InheritedWidgetBox({required this.table, required this.parentState})
       : super(
-            child: maybeUnBoxAndBuildArgument<Widget>(table["child"],
+            child: maybeUnBoxAndBuildArgument<Widget,dynamic>(table["child"],
                 parentState: parentState));
 
   @override

@@ -11,7 +11,7 @@ void loadThemeOf({required HydroState luaState, required HydroTable table}) {
     return [
       maybeBoxObject<ThemeData>(
         object: Theme.of(
-          maybeUnBoxAndBuildArgument<BuildContext>(args[0],
+          maybeUnBoxAndBuildArgument<BuildContext,dynamic>(args[0],
               parentState: luaState),
         ),
         hydroState: luaState,

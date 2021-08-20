@@ -10,10 +10,10 @@ void loadOutlineInputBorder(
   table["outlineInputBorder"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       OutlineInputBorder(
-        borderSide: maybeUnBoxAndBuildArgument<BorderSide>(
+        borderSide: maybeUnBoxAndBuildArgument<BorderSide,dynamic>(
             args[0]["borderSide"],
             parentState: luaState),
-        borderRadius: maybeUnBoxAndBuildArgument<BorderRadius>(
+        borderRadius: maybeUnBoxAndBuildArgument<BorderRadius,dynamic>(
             args[0]["borderRadius"],
             parentState: luaState),
         gapPadding: args[0]["gapPadding"]?.toDouble(),

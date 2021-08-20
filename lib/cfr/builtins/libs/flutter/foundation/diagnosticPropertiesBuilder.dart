@@ -30,7 +30,7 @@ class VMManagedDiagnosticPropertiesBuilder
     });
     table['emptyBodyDescription'] = vmObject.emptyBodyDescription;
     table['add'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      vmObject.add(maybeUnBoxAndBuildArgument<DiagnosticsNode>(args[1],
+      vmObject.add(maybeUnBoxAndBuildArgument<DiagnosticsNode,dynamic>(args[1],
           parentState: hydroState));
       return [];
     });
@@ -60,7 +60,7 @@ class RTManagedDiagnosticPropertiesBuilder extends DiagnosticPropertiesBuilder
     });
     table['emptyBodyDescription'] = emptyBodyDescription;
     table['_dart_add'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      super.add(maybeUnBoxAndBuildArgument<DiagnosticsNode>(args[1],
+      super.add(maybeUnBoxAndBuildArgument<DiagnosticsNode,dynamic>(args[1],
           parentState: hydroState));
       return [];
     });
@@ -93,7 +93,7 @@ void loadDiagnosticPropertiesBuilder(
     return [
       maybeBoxObject<DiagnosticPropertiesBuilder>(
           object: DiagnosticPropertiesBuilder.fromProperties(
-              maybeUnBoxAndBuildArgument<List<DiagnosticsNode>>(args[1],
+              maybeUnBoxAndBuildArgument<List<DiagnosticsNode>,dynamic>(args[1],
                   parentState: hydroState)),
           hydroState: hydroState,
           table: HydroTable())

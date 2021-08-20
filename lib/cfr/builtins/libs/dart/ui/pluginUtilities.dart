@@ -24,7 +24,7 @@ void loadPluginUtilities(
   table['pluginUtilitiesGetCallbackHandle'] =
       makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     final returnValue = PluginUtilities.getCallbackHandle(
-        maybeUnBoxAndBuildArgument<Function>(luaCallerArguments[1],
+        maybeUnBoxAndBuildArgument<Function, dynamic>(luaCallerArguments[1],
             parentState: hydroState));
     if (returnValue != null) {
       return [
@@ -37,7 +37,8 @@ void loadPluginUtilities(
   table['pluginUtilitiesGetCallbackFromHandle'] =
       makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     final returnValue = PluginUtilities.getCallbackFromHandle(
-        maybeUnBoxAndBuildArgument<CallbackHandle>(luaCallerArguments[1],
+        maybeUnBoxAndBuildArgument<CallbackHandle, dynamic>(
+            luaCallerArguments[1],
             parentState: hydroState));
     if (returnValue != null) {
       return [

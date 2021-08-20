@@ -39,7 +39,7 @@ class VMManagedUnmodifiableByteDataView
       return [
         vmObject.getInt16(
             luaCallerArguments[1],
-            maybeUnBoxAndBuildArgument<Endian>(luaCallerArguments[2],
+            maybeUnBoxAndBuildArgument<Endian, dynamic>(luaCallerArguments[2],
                 parentState: hydroState)),
       ];
     });
@@ -48,7 +48,7 @@ class VMManagedUnmodifiableByteDataView
       vmObject.setInt16(
           luaCallerArguments[1],
           luaCallerArguments[2],
-          maybeUnBoxAndBuildArgument<Endian>(luaCallerArguments[3],
+          maybeUnBoxAndBuildArgument<Endian, dynamic>(luaCallerArguments[3],
               parentState: hydroState));
       return [];
     });
@@ -57,7 +57,7 @@ class VMManagedUnmodifiableByteDataView
       return [
         vmObject.getUint16(
             luaCallerArguments[1],
-            maybeUnBoxAndBuildArgument<Endian>(luaCallerArguments[2],
+            maybeUnBoxAndBuildArgument<Endian, dynamic>(luaCallerArguments[2],
                 parentState: hydroState)),
       ];
     });
@@ -66,7 +66,7 @@ class VMManagedUnmodifiableByteDataView
       vmObject.setUint16(
           luaCallerArguments[1],
           luaCallerArguments[2],
-          maybeUnBoxAndBuildArgument<Endian>(luaCallerArguments[3],
+          maybeUnBoxAndBuildArgument<Endian, dynamic>(luaCallerArguments[3],
               parentState: hydroState));
       return [];
     });
@@ -75,7 +75,7 @@ class VMManagedUnmodifiableByteDataView
       return [
         vmObject.getInt32(
             luaCallerArguments[1],
-            maybeUnBoxAndBuildArgument<Endian>(luaCallerArguments[2],
+            maybeUnBoxAndBuildArgument<Endian, dynamic>(luaCallerArguments[2],
                 parentState: hydroState)),
       ];
     });
@@ -84,7 +84,7 @@ class VMManagedUnmodifiableByteDataView
       vmObject.setInt32(
           luaCallerArguments[1],
           luaCallerArguments[2],
-          maybeUnBoxAndBuildArgument<Endian>(luaCallerArguments[3],
+          maybeUnBoxAndBuildArgument<Endian, dynamic>(luaCallerArguments[3],
               parentState: hydroState));
       return [];
     });
@@ -93,7 +93,7 @@ class VMManagedUnmodifiableByteDataView
       return [
         vmObject.getUint32(
             luaCallerArguments[1],
-            maybeUnBoxAndBuildArgument<Endian>(luaCallerArguments[2],
+            maybeUnBoxAndBuildArgument<Endian, dynamic>(luaCallerArguments[2],
                 parentState: hydroState)),
       ];
     });
@@ -102,7 +102,7 @@ class VMManagedUnmodifiableByteDataView
       vmObject.setUint32(
           luaCallerArguments[1],
           luaCallerArguments[2],
-          maybeUnBoxAndBuildArgument<Endian>(luaCallerArguments[3],
+          maybeUnBoxAndBuildArgument<Endian, dynamic>(luaCallerArguments[3],
               parentState: hydroState));
       return [];
     });
@@ -111,7 +111,7 @@ class VMManagedUnmodifiableByteDataView
       return [
         vmObject.getInt64(
             luaCallerArguments[1],
-            maybeUnBoxAndBuildArgument<Endian>(luaCallerArguments[2],
+            maybeUnBoxAndBuildArgument<Endian, dynamic>(luaCallerArguments[2],
                 parentState: hydroState)),
       ];
     });
@@ -120,7 +120,7 @@ class VMManagedUnmodifiableByteDataView
       vmObject.setInt64(
           luaCallerArguments[1],
           luaCallerArguments[2],
-          maybeUnBoxAndBuildArgument<Endian>(luaCallerArguments[3],
+          maybeUnBoxAndBuildArgument<Endian, dynamic>(luaCallerArguments[3],
               parentState: hydroState));
       return [];
     });
@@ -129,7 +129,7 @@ class VMManagedUnmodifiableByteDataView
       return [
         vmObject.getUint64(
             luaCallerArguments[1],
-            maybeUnBoxAndBuildArgument<Endian>(luaCallerArguments[2],
+            maybeUnBoxAndBuildArgument<Endian, dynamic>(luaCallerArguments[2],
                 parentState: hydroState)),
       ];
     });
@@ -138,7 +138,7 @@ class VMManagedUnmodifiableByteDataView
       vmObject.setUint64(
           luaCallerArguments[1],
           luaCallerArguments[2],
-          maybeUnBoxAndBuildArgument<Endian>(luaCallerArguments[3],
+          maybeUnBoxAndBuildArgument<Endian, dynamic>(luaCallerArguments[3],
               parentState: hydroState));
       return [];
     });
@@ -147,7 +147,7 @@ class VMManagedUnmodifiableByteDataView
       return [
         vmObject.getFloat32(
             luaCallerArguments[1],
-            maybeUnBoxAndBuildArgument<Endian>(luaCallerArguments[2],
+            maybeUnBoxAndBuildArgument<Endian, dynamic>(luaCallerArguments[2],
                 parentState: hydroState)),
       ];
     });
@@ -156,7 +156,7 @@ class VMManagedUnmodifiableByteDataView
       vmObject.setFloat32(
           luaCallerArguments[1],
           luaCallerArguments[2]?.toDouble(),
-          maybeUnBoxAndBuildArgument<Endian>(luaCallerArguments[3],
+          maybeUnBoxAndBuildArgument<Endian, dynamic>(luaCallerArguments[3],
               parentState: hydroState));
       return [];
     });
@@ -165,7 +165,7 @@ class VMManagedUnmodifiableByteDataView
       return [
         vmObject.getFloat64(
             luaCallerArguments[1],
-            maybeUnBoxAndBuildArgument<Endian>(luaCallerArguments[2],
+            maybeUnBoxAndBuildArgument<Endian, dynamic>(luaCallerArguments[2],
                 parentState: hydroState)),
       ];
     });
@@ -174,7 +174,7 @@ class VMManagedUnmodifiableByteDataView
       vmObject.setFloat64(
           luaCallerArguments[1],
           luaCallerArguments[2]?.toDouble(),
-          maybeUnBoxAndBuildArgument<Endian>(luaCallerArguments[3],
+          maybeUnBoxAndBuildArgument<Endian, dynamic>(luaCallerArguments[3],
               parentState: hydroState));
       return [];
     });
@@ -260,7 +260,7 @@ class RTManagedUnmodifiableByteDataView extends UnmodifiableByteDataView
       return [
         super.getInt16(
             luaCallerArguments[1],
-            maybeUnBoxAndBuildArgument<Endian>(luaCallerArguments[2],
+            maybeUnBoxAndBuildArgument<Endian, dynamic>(luaCallerArguments[2],
                 parentState: hydroState))
       ];
     });
@@ -269,7 +269,7 @@ class RTManagedUnmodifiableByteDataView extends UnmodifiableByteDataView
       super.setInt16(
           luaCallerArguments[1],
           luaCallerArguments[2],
-          maybeUnBoxAndBuildArgument<Endian>(luaCallerArguments[3],
+          maybeUnBoxAndBuildArgument<Endian, dynamic>(luaCallerArguments[3],
               parentState: hydroState));
       return [];
     });
@@ -278,7 +278,7 @@ class RTManagedUnmodifiableByteDataView extends UnmodifiableByteDataView
       return [
         super.getUint16(
             luaCallerArguments[1],
-            maybeUnBoxAndBuildArgument<Endian>(luaCallerArguments[2],
+            maybeUnBoxAndBuildArgument<Endian, dynamic>(luaCallerArguments[2],
                 parentState: hydroState))
       ];
     });
@@ -287,7 +287,7 @@ class RTManagedUnmodifiableByteDataView extends UnmodifiableByteDataView
       super.setUint16(
           luaCallerArguments[1],
           luaCallerArguments[2],
-          maybeUnBoxAndBuildArgument<Endian>(luaCallerArguments[3],
+          maybeUnBoxAndBuildArgument<Endian, dynamic>(luaCallerArguments[3],
               parentState: hydroState));
       return [];
     });
@@ -296,7 +296,7 @@ class RTManagedUnmodifiableByteDataView extends UnmodifiableByteDataView
       return [
         super.getInt32(
             luaCallerArguments[1],
-            maybeUnBoxAndBuildArgument<Endian>(luaCallerArguments[2],
+            maybeUnBoxAndBuildArgument<Endian, dynamic>(luaCallerArguments[2],
                 parentState: hydroState))
       ];
     });
@@ -305,7 +305,7 @@ class RTManagedUnmodifiableByteDataView extends UnmodifiableByteDataView
       super.setInt32(
           luaCallerArguments[1],
           luaCallerArguments[2],
-          maybeUnBoxAndBuildArgument<Endian>(luaCallerArguments[3],
+          maybeUnBoxAndBuildArgument<Endian, dynamic>(luaCallerArguments[3],
               parentState: hydroState));
       return [];
     });
@@ -314,7 +314,7 @@ class RTManagedUnmodifiableByteDataView extends UnmodifiableByteDataView
       return [
         super.getUint32(
             luaCallerArguments[1],
-            maybeUnBoxAndBuildArgument<Endian>(luaCallerArguments[2],
+            maybeUnBoxAndBuildArgument<Endian, dynamic>(luaCallerArguments[2],
                 parentState: hydroState))
       ];
     });
@@ -323,7 +323,7 @@ class RTManagedUnmodifiableByteDataView extends UnmodifiableByteDataView
       super.setUint32(
           luaCallerArguments[1],
           luaCallerArguments[2],
-          maybeUnBoxAndBuildArgument<Endian>(luaCallerArguments[3],
+          maybeUnBoxAndBuildArgument<Endian, dynamic>(luaCallerArguments[3],
               parentState: hydroState));
       return [];
     });
@@ -332,7 +332,7 @@ class RTManagedUnmodifiableByteDataView extends UnmodifiableByteDataView
       return [
         super.getInt64(
             luaCallerArguments[1],
-            maybeUnBoxAndBuildArgument<Endian>(luaCallerArguments[2],
+            maybeUnBoxAndBuildArgument<Endian, dynamic>(luaCallerArguments[2],
                 parentState: hydroState))
       ];
     });
@@ -341,7 +341,7 @@ class RTManagedUnmodifiableByteDataView extends UnmodifiableByteDataView
       super.setInt64(
           luaCallerArguments[1],
           luaCallerArguments[2],
-          maybeUnBoxAndBuildArgument<Endian>(luaCallerArguments[3],
+          maybeUnBoxAndBuildArgument<Endian, dynamic>(luaCallerArguments[3],
               parentState: hydroState));
       return [];
     });
@@ -350,7 +350,7 @@ class RTManagedUnmodifiableByteDataView extends UnmodifiableByteDataView
       return [
         super.getUint64(
             luaCallerArguments[1],
-            maybeUnBoxAndBuildArgument<Endian>(luaCallerArguments[2],
+            maybeUnBoxAndBuildArgument<Endian, dynamic>(luaCallerArguments[2],
                 parentState: hydroState))
       ];
     });
@@ -359,7 +359,7 @@ class RTManagedUnmodifiableByteDataView extends UnmodifiableByteDataView
       super.setUint64(
           luaCallerArguments[1],
           luaCallerArguments[2],
-          maybeUnBoxAndBuildArgument<Endian>(luaCallerArguments[3],
+          maybeUnBoxAndBuildArgument<Endian, dynamic>(luaCallerArguments[3],
               parentState: hydroState));
       return [];
     });
@@ -368,7 +368,7 @@ class RTManagedUnmodifiableByteDataView extends UnmodifiableByteDataView
       return [
         super.getFloat32(
             luaCallerArguments[1],
-            maybeUnBoxAndBuildArgument<Endian>(luaCallerArguments[2],
+            maybeUnBoxAndBuildArgument<Endian, dynamic>(luaCallerArguments[2],
                 parentState: hydroState))
       ];
     });
@@ -377,7 +377,7 @@ class RTManagedUnmodifiableByteDataView extends UnmodifiableByteDataView
       super.setFloat32(
           luaCallerArguments[1],
           luaCallerArguments[2]?.toDouble(),
-          maybeUnBoxAndBuildArgument<Endian>(luaCallerArguments[3],
+          maybeUnBoxAndBuildArgument<Endian, dynamic>(luaCallerArguments[3],
               parentState: hydroState));
       return [];
     });
@@ -386,7 +386,7 @@ class RTManagedUnmodifiableByteDataView extends UnmodifiableByteDataView
       return [
         super.getFloat64(
             luaCallerArguments[1],
-            maybeUnBoxAndBuildArgument<Endian>(luaCallerArguments[2],
+            maybeUnBoxAndBuildArgument<Endian, dynamic>(luaCallerArguments[2],
                 parentState: hydroState))
       ];
     });
@@ -395,7 +395,7 @@ class RTManagedUnmodifiableByteDataView extends UnmodifiableByteDataView
       super.setFloat64(
           luaCallerArguments[1],
           luaCallerArguments[2]?.toDouble(),
-          maybeUnBoxAndBuildArgument<Endian>(luaCallerArguments[3],
+          maybeUnBoxAndBuildArgument<Endian, dynamic>(luaCallerArguments[3],
               parentState: hydroState));
       return [];
     });
@@ -572,7 +572,7 @@ class RTManagedUnmodifiableByteDataView extends UnmodifiableByteDataView
   @override
   ByteBuffer get buffer {
     Closure closure = table["getBuffer"];
-    return maybeUnBoxAndBuildArgument<ByteBuffer>(
+    return maybeUnBoxAndBuildArgument<ByteBuffer, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -596,7 +596,7 @@ void loadUnmodifiableByteDataView(
       makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       RTManagedUnmodifiableByteDataView(
-          maybeUnBoxAndBuildArgument<ByteData>(luaCallerArguments[1],
+          maybeUnBoxAndBuildArgument<ByteData, dynamic>(luaCallerArguments[1],
               parentState: hydroState),
           table: luaCallerArguments[0],
           hydroState: hydroState)

@@ -12,9 +12,9 @@ void loadCupertinoContextMenuAction(
       makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       CupertinoContextMenuAction(
-        key: maybeUnBoxAndBuildArgument<Key>(args[0]["key"],
+        key: maybeUnBoxAndBuildArgument<Key,dynamic>(args[0]["key"],
             parentState: luaState),
-        child: maybeUnBoxAndBuildArgument<Widget>(args[0]["child"],
+        child: maybeUnBoxAndBuildArgument<Widget,dynamic>(args[0]["child"],
             parentState: luaState),
         isDefaultAction: args[0]["isDefaultAction"],
         isDestructiveAction: args[0]["isDestructiveAction"],
@@ -28,7 +28,7 @@ void loadCupertinoContextMenuAction(
             );
           }
         },
-        trailingIcon: maybeUnBoxAndBuildArgument<IconData>(
+        trailingIcon: maybeUnBoxAndBuildArgument<IconData,dynamic>(
             args[0]["trailingIcon"],
             parentState: luaState),
       )

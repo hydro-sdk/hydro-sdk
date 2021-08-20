@@ -109,15 +109,15 @@ void loadParagraphStyle(
           fontStyle: maybeUnBoxEnum(
               values: FontStyle.values,
               boxedEnum: luaCallerArguments[1]['fontStyle']),
-          fontWeight: maybeUnBoxAndBuildArgument<FontWeight?>(
+          fontWeight: maybeUnBoxAndBuildArgument<FontWeight?, dynamic>(
               luaCallerArguments[1]['fontWeight'],
               parentState: hydroState),
           height: luaCallerArguments[1]['height']?.toDouble(),
-          locale: maybeUnBoxAndBuildArgument<Locale?>(
+          locale: maybeUnBoxAndBuildArgument<Locale?, dynamic>(
               luaCallerArguments[1]['locale'],
               parentState: hydroState),
           maxLines: luaCallerArguments[1]['maxLines'],
-          strutStyle: maybeUnBoxAndBuildArgument<StrutStyle?>(
+          strutStyle: maybeUnBoxAndBuildArgument<StrutStyle?, dynamic>(
               luaCallerArguments[1]['strutStyle'],
               parentState: hydroState),
           textAlign: maybeUnBoxEnum(
@@ -126,9 +126,10 @@ void loadParagraphStyle(
           textDirection: maybeUnBoxEnum(
               values: TextDirection.values,
               boxedEnum: luaCallerArguments[1]['textDirection']),
-          textHeightBehavior: maybeUnBoxAndBuildArgument<TextHeightBehavior?>(
-              luaCallerArguments[1]['textHeightBehavior'],
-              parentState: hydroState))
+          textHeightBehavior:
+              maybeUnBoxAndBuildArgument<TextHeightBehavior?, dynamic>(
+                  luaCallerArguments[1]['textHeightBehavior'],
+                  parentState: hydroState))
     ];
   });
   registerBoxer<ParagraphStyle>(boxer: (

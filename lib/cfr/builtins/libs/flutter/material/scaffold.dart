@@ -9,14 +9,14 @@ void loadScaffold({required HydroState luaState, required HydroTable table}) {
   table["scaffold"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       Scaffold(
-        appBar: maybeUnBoxAndBuildArgument<Widget>(args[0]["appBar"],
+        appBar: maybeUnBoxAndBuildArgument<Widget,dynamic>(args[0]["appBar"],
             parentState: luaState),
-        body: maybeUnBoxAndBuildArgument<Widget>(args[0]["body"],
+        body: maybeUnBoxAndBuildArgument<Widget,dynamic>(args[0]["body"],
             parentState: luaState),
-        floatingActionButton: maybeUnBoxAndBuildArgument<Widget>(
+        floatingActionButton: maybeUnBoxAndBuildArgument<Widget,dynamic>(
             args[0]["floatingActionButton"],
             parentState: luaState),
-        backgroundColor: maybeUnBoxAndBuildArgument<Widget>(
+        backgroundColor: maybeUnBoxAndBuildArgument<Widget,dynamic>(
             args[0]["backgroundColor"],
             parentState: luaState),
       )

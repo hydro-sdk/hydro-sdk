@@ -132,7 +132,7 @@ class RTManagedInvocation extends Invocation implements Box<Invocation> {
   @override
   Symbol get memberName {
     Closure closure = table["getMemberName"];
-    return maybeUnBoxAndBuildArgument<Symbol>(
+    return maybeUnBoxAndBuildArgument<Symbol, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -140,7 +140,7 @@ class RTManagedInvocation extends Invocation implements Box<Invocation> {
   @override
   List<Type> get typeArguments {
     Closure closure = table["getTypeArguments"];
-    return maybeUnBoxAndBuildArgument<List<Type>>(
+    return maybeUnBoxAndBuildArgument<List<Type>, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -148,7 +148,7 @@ class RTManagedInvocation extends Invocation implements Box<Invocation> {
   @override
   List<dynamic> get positionalArguments {
     Closure closure = table["getPositionalArguments"];
-    return maybeUnBoxAndBuildArgument<List<dynamic>>(
+    return maybeUnBoxAndBuildArgument<List<dynamic>, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -156,7 +156,7 @@ class RTManagedInvocation extends Invocation implements Box<Invocation> {
   @override
   Map<Symbol, dynamic> get namedArguments {
     Closure closure = table["getNamedArguments"];
-    return maybeUnBoxAndBuildArgument<Map<Symbol, dynamic>>(
+    return maybeUnBoxAndBuildArgument<Map<Symbol, dynamic>, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -199,12 +199,12 @@ void loadInvocation(
     return [
       maybeBoxObject<Invocation>(
           object: Invocation.method(
-              maybeUnBoxAndBuildArgument<Symbol>(luaCallerArguments[1],
+              maybeUnBoxAndBuildArgument<Symbol, dynamic>(luaCallerArguments[1],
                   parentState: hydroState),
-              maybeUnBoxAndBuildArgument<Iterable<Object?>?>(
+              maybeUnBoxAndBuildArgument<Iterable<Object?>?, dynamic>(
                   luaCallerArguments[2],
                   parentState: hydroState),
-              maybeUnBoxAndBuildArgument<Map<Symbol, Object?>?>(
+              maybeUnBoxAndBuildArgument<Map<Symbol, Object?>?, dynamic>(
                   luaCallerArguments[3],
                   parentState: hydroState)),
           hydroState: hydroState,
@@ -216,14 +216,15 @@ void loadInvocation(
     return [
       maybeBoxObject<Invocation>(
           object: Invocation.genericMethod(
-              maybeUnBoxAndBuildArgument<Symbol>(luaCallerArguments[1],
+              maybeUnBoxAndBuildArgument<Symbol, dynamic>(luaCallerArguments[1],
                   parentState: hydroState),
-              maybeUnBoxAndBuildArgument<Iterable<Type>?>(luaCallerArguments[2],
+              maybeUnBoxAndBuildArgument<Iterable<Type>?, dynamic>(
+                  luaCallerArguments[2],
                   parentState: hydroState),
-              maybeUnBoxAndBuildArgument<Iterable<Object?>?>(
+              maybeUnBoxAndBuildArgument<Iterable<Object?>?, dynamic>(
                   luaCallerArguments[3],
                   parentState: hydroState),
-              maybeUnBoxAndBuildArgument<Map<Symbol, Object?>?>(
+              maybeUnBoxAndBuildArgument<Map<Symbol, Object?>?, dynamic>(
                   luaCallerArguments[4],
                   parentState: hydroState)),
           hydroState: hydroState,
@@ -234,7 +235,7 @@ void loadInvocation(
       makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<Invocation>(
-          object: Invocation.getter(maybeUnBoxAndBuildArgument<Symbol>(
+          object: Invocation.getter(maybeUnBoxAndBuildArgument<Symbol, dynamic>(
               luaCallerArguments[1],
               parentState: hydroState)),
           hydroState: hydroState,
@@ -246,9 +247,10 @@ void loadInvocation(
     return [
       maybeBoxObject<Invocation>(
           object: Invocation.setter(
-              maybeUnBoxAndBuildArgument<Symbol>(luaCallerArguments[1],
+              maybeUnBoxAndBuildArgument<Symbol, dynamic>(luaCallerArguments[1],
                   parentState: hydroState),
-              maybeUnBoxAndBuildArgument<Object?>(luaCallerArguments[2],
+              maybeUnBoxAndBuildArgument<Object?, dynamic>(
+                  luaCallerArguments[2],
                   parentState: hydroState)),
           hydroState: hydroState,
           table: HydroTable()),

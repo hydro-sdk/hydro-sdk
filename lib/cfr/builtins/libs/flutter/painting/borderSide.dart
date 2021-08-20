@@ -9,7 +9,7 @@ void loadBorderSide({required HydroState luaState, required HydroTable table}) {
   table["borderSide"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       BorderSide(
-          color: maybeUnBoxAndBuildArgument<Color>(args[0]["color"],
+          color: maybeUnBoxAndBuildArgument<Color,dynamic>(args[0]["color"],
               parentState: luaState),
           width: args[0]["width"]?.toDouble(),
           style: maybeUnBoxEnum(

@@ -19,7 +19,7 @@ void loadPopupMenuButton(
           Closure closure = args[0]["itemBuilder"];
           HydroTable? closureRes =
               closure.dispatch([context], parentState: luaState)[0];
-          return maybeUnBoxAndBuildArgument<Widget>(closureRes,
+          return maybeUnBoxAndBuildArgument<Widget,dynamic>(closureRes,
                   parentState: luaState)
               .map((x) => x.build(context))
               .toList()

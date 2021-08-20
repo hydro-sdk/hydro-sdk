@@ -23,7 +23,7 @@ class VMManagedListBase extends VMManagedBox<ListBase<dynamic>> {
       return [
         maybeBoxObject<Iterable>(
             object: vmObject.followedBy(
-                maybeUnBoxAndBuildArgument<Iterable<dynamic>>(
+                maybeUnBoxAndBuildArgument<Iterable<dynamic>, dynamic>(
                     luaCallerArguments[1],
                     parentState: hydroState)),
             hydroState: hydroState,
@@ -42,7 +42,7 @@ class VMManagedListBase extends VMManagedBox<ListBase<dynamic>> {
     table['contains'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
-        vmObject.contains(maybeUnBoxAndBuildArgument<Object?>(
+        vmObject.contains(maybeUnBoxAndBuildArgument<Object?, dynamic>(
             luaCallerArguments[1],
             parentState: hydroState)),
       ];
@@ -167,8 +167,8 @@ class VMManagedListBase extends VMManagedBox<ListBase<dynamic>> {
       Closure unpackedf = luaCallerArguments[1];
       return [
         maybeBoxObject<Iterable>(
-            object: vmObject.expand(
-                (element) => maybeUnBoxAndBuildArgument<Iterable<dynamic>>(
+            object: vmObject.expand((element) =>
+                maybeUnBoxAndBuildArgument<Iterable<dynamic>, dynamic>(
                     unpackedf.dispatch(
                       [luaCallerArguments[0], element],
                       parentState: hydroState,
@@ -262,14 +262,14 @@ class VMManagedListBase extends VMManagedBox<ListBase<dynamic>> {
       return [];
     });
     table['addAll'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.addAll(maybeUnBoxAndBuildArgument<Iterable<dynamic>>(
+      vmObject.addAll(maybeUnBoxAndBuildArgument<Iterable<dynamic>, dynamic>(
           luaCallerArguments[1],
           parentState: hydroState));
       return [];
     });
     table['remove'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
-        vmObject.remove(maybeUnBoxAndBuildArgument<Object?>(
+        vmObject.remove(maybeUnBoxAndBuildArgument<Object?, dynamic>(
             luaCallerArguments[1],
             parentState: hydroState)),
       ];
@@ -322,7 +322,7 @@ class VMManagedListBase extends VMManagedBox<ListBase<dynamic>> {
     });
     table['shuffle'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.shuffle(maybeUnBoxAndBuildArgument<Random?>(
+      vmObject.shuffle(maybeUnBoxAndBuildArgument<Random?, dynamic>(
           luaCallerArguments[1],
           parentState: hydroState));
       return [];
@@ -371,7 +371,8 @@ class VMManagedListBase extends VMManagedBox<ListBase<dynamic>> {
       vmObject.setRange(
           luaCallerArguments[1],
           luaCallerArguments[2],
-          maybeUnBoxAndBuildArgument<Iterable<dynamic>>(luaCallerArguments[3],
+          maybeUnBoxAndBuildArgument<Iterable<dynamic>, dynamic>(
+              luaCallerArguments[3],
               parentState: hydroState),
           luaCallerArguments[4]);
       return [];
@@ -381,7 +382,8 @@ class VMManagedListBase extends VMManagedBox<ListBase<dynamic>> {
       vmObject.replaceRange(
           luaCallerArguments[1],
           luaCallerArguments[2],
-          maybeUnBoxAndBuildArgument<Iterable<dynamic>>(luaCallerArguments[3],
+          maybeUnBoxAndBuildArgument<Iterable<dynamic>, dynamic>(
+              luaCallerArguments[3],
               parentState: hydroState));
       return [];
     });
@@ -389,7 +391,7 @@ class VMManagedListBase extends VMManagedBox<ListBase<dynamic>> {
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         vmObject.indexOf(
-            maybeUnBoxAndBuildArgument<Object?>(luaCallerArguments[1],
+            maybeUnBoxAndBuildArgument<Object?, dynamic>(luaCallerArguments[1],
                 parentState: hydroState),
             luaCallerArguments[2]),
       ];
@@ -410,7 +412,7 @@ class VMManagedListBase extends VMManagedBox<ListBase<dynamic>> {
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         vmObject.lastIndexOf(
-            maybeUnBoxAndBuildArgument<Object?>(luaCallerArguments[1],
+            maybeUnBoxAndBuildArgument<Object?, dynamic>(luaCallerArguments[1],
                 parentState: hydroState),
             luaCallerArguments[2]),
       ];
@@ -441,14 +443,16 @@ class VMManagedListBase extends VMManagedBox<ListBase<dynamic>> {
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.insertAll(
           luaCallerArguments[1],
-          maybeUnBoxAndBuildArgument<Iterable<dynamic>>(luaCallerArguments[2],
+          maybeUnBoxAndBuildArgument<Iterable<dynamic>, dynamic>(
+              luaCallerArguments[2],
               parentState: hydroState));
       return [];
     });
     table['setAll'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.setAll(
           luaCallerArguments[1],
-          maybeUnBoxAndBuildArgument<Iterable<dynamic>>(luaCallerArguments[2],
+          maybeUnBoxAndBuildArgument<Iterable<dynamic>, dynamic>(
+              luaCallerArguments[2],
               parentState: hydroState));
       return [];
     });
@@ -546,7 +550,7 @@ void loadListBase({required HydroState hydroState, required HydroTable table}) {
   table['listBaseListToString'] =
       makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
-      ListBase.listToString(maybeUnBoxAndBuildArgument<List<dynamic>>(
+      ListBase.listToString(maybeUnBoxAndBuildArgument<List<dynamic>, dynamic>(
           luaCallerArguments[1],
           parentState: hydroState)),
     ];

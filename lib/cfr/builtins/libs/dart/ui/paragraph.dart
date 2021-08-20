@@ -60,7 +60,7 @@ class VMManagedParagraph extends VMManagedBox<Paragraph> {
       ];
     });
     table['layout'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.layout(maybeUnBoxAndBuildArgument<ParagraphConstraints>(
+      vmObject.layout(maybeUnBoxAndBuildArgument<ParagraphConstraints, dynamic>(
           luaCallerArguments[1],
           parentState: hydroState));
       return [];
@@ -102,7 +102,8 @@ class VMManagedParagraph extends VMManagedBox<Paragraph> {
       return [
         maybeBoxObject<TextPosition>(
             object: vmObject.getPositionForOffset(
-                maybeUnBoxAndBuildArgument<Offset>(luaCallerArguments[1],
+                maybeUnBoxAndBuildArgument<Offset, dynamic>(
+                    luaCallerArguments[1],
                     parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable()),
@@ -113,7 +114,8 @@ class VMManagedParagraph extends VMManagedBox<Paragraph> {
       return [
         maybeBoxObject<TextRange>(
             object: vmObject.getWordBoundary(
-                maybeUnBoxAndBuildArgument<TextPosition>(luaCallerArguments[1],
+                maybeUnBoxAndBuildArgument<TextPosition, dynamic>(
+                    luaCallerArguments[1],
                     parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable()),
@@ -124,7 +126,8 @@ class VMManagedParagraph extends VMManagedBox<Paragraph> {
       return [
         maybeBoxObject<TextRange>(
             object: vmObject.getLineBoundary(
-                maybeUnBoxAndBuildArgument<TextPosition>(luaCallerArguments[1],
+                maybeUnBoxAndBuildArgument<TextPosition, dynamic>(
+                    luaCallerArguments[1],
                     parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable()),

@@ -38,7 +38,7 @@ class VMManagedByteData extends VMManagedBox<ByteData> {
       return [
         vmObject.getInt16(
             luaCallerArguments[1],
-            maybeUnBoxAndBuildArgument<Endian>(luaCallerArguments[2],
+            maybeUnBoxAndBuildArgument<Endian, dynamic>(luaCallerArguments[2],
                 parentState: hydroState)),
       ];
     });
@@ -47,7 +47,7 @@ class VMManagedByteData extends VMManagedBox<ByteData> {
       vmObject.setInt16(
           luaCallerArguments[1],
           luaCallerArguments[2],
-          maybeUnBoxAndBuildArgument<Endian>(luaCallerArguments[3],
+          maybeUnBoxAndBuildArgument<Endian, dynamic>(luaCallerArguments[3],
               parentState: hydroState));
       return [];
     });
@@ -56,7 +56,7 @@ class VMManagedByteData extends VMManagedBox<ByteData> {
       return [
         vmObject.getUint16(
             luaCallerArguments[1],
-            maybeUnBoxAndBuildArgument<Endian>(luaCallerArguments[2],
+            maybeUnBoxAndBuildArgument<Endian, dynamic>(luaCallerArguments[2],
                 parentState: hydroState)),
       ];
     });
@@ -65,7 +65,7 @@ class VMManagedByteData extends VMManagedBox<ByteData> {
       vmObject.setUint16(
           luaCallerArguments[1],
           luaCallerArguments[2],
-          maybeUnBoxAndBuildArgument<Endian>(luaCallerArguments[3],
+          maybeUnBoxAndBuildArgument<Endian, dynamic>(luaCallerArguments[3],
               parentState: hydroState));
       return [];
     });
@@ -74,7 +74,7 @@ class VMManagedByteData extends VMManagedBox<ByteData> {
       return [
         vmObject.getInt32(
             luaCallerArguments[1],
-            maybeUnBoxAndBuildArgument<Endian>(luaCallerArguments[2],
+            maybeUnBoxAndBuildArgument<Endian, dynamic>(luaCallerArguments[2],
                 parentState: hydroState)),
       ];
     });
@@ -83,7 +83,7 @@ class VMManagedByteData extends VMManagedBox<ByteData> {
       vmObject.setInt32(
           luaCallerArguments[1],
           luaCallerArguments[2],
-          maybeUnBoxAndBuildArgument<Endian>(luaCallerArguments[3],
+          maybeUnBoxAndBuildArgument<Endian, dynamic>(luaCallerArguments[3],
               parentState: hydroState));
       return [];
     });
@@ -92,7 +92,7 @@ class VMManagedByteData extends VMManagedBox<ByteData> {
       return [
         vmObject.getUint32(
             luaCallerArguments[1],
-            maybeUnBoxAndBuildArgument<Endian>(luaCallerArguments[2],
+            maybeUnBoxAndBuildArgument<Endian, dynamic>(luaCallerArguments[2],
                 parentState: hydroState)),
       ];
     });
@@ -101,7 +101,7 @@ class VMManagedByteData extends VMManagedBox<ByteData> {
       vmObject.setUint32(
           luaCallerArguments[1],
           luaCallerArguments[2],
-          maybeUnBoxAndBuildArgument<Endian>(luaCallerArguments[3],
+          maybeUnBoxAndBuildArgument<Endian, dynamic>(luaCallerArguments[3],
               parentState: hydroState));
       return [];
     });
@@ -110,7 +110,7 @@ class VMManagedByteData extends VMManagedBox<ByteData> {
       return [
         vmObject.getInt64(
             luaCallerArguments[1],
-            maybeUnBoxAndBuildArgument<Endian>(luaCallerArguments[2],
+            maybeUnBoxAndBuildArgument<Endian, dynamic>(luaCallerArguments[2],
                 parentState: hydroState)),
       ];
     });
@@ -119,7 +119,7 @@ class VMManagedByteData extends VMManagedBox<ByteData> {
       vmObject.setInt64(
           luaCallerArguments[1],
           luaCallerArguments[2],
-          maybeUnBoxAndBuildArgument<Endian>(luaCallerArguments[3],
+          maybeUnBoxAndBuildArgument<Endian, dynamic>(luaCallerArguments[3],
               parentState: hydroState));
       return [];
     });
@@ -128,7 +128,7 @@ class VMManagedByteData extends VMManagedBox<ByteData> {
       return [
         vmObject.getUint64(
             luaCallerArguments[1],
-            maybeUnBoxAndBuildArgument<Endian>(luaCallerArguments[2],
+            maybeUnBoxAndBuildArgument<Endian, dynamic>(luaCallerArguments[2],
                 parentState: hydroState)),
       ];
     });
@@ -137,7 +137,7 @@ class VMManagedByteData extends VMManagedBox<ByteData> {
       vmObject.setUint64(
           luaCallerArguments[1],
           luaCallerArguments[2],
-          maybeUnBoxAndBuildArgument<Endian>(luaCallerArguments[3],
+          maybeUnBoxAndBuildArgument<Endian, dynamic>(luaCallerArguments[3],
               parentState: hydroState));
       return [];
     });
@@ -146,7 +146,7 @@ class VMManagedByteData extends VMManagedBox<ByteData> {
       return [
         vmObject.getFloat32(
             luaCallerArguments[1],
-            maybeUnBoxAndBuildArgument<Endian>(luaCallerArguments[2],
+            maybeUnBoxAndBuildArgument<Endian, dynamic>(luaCallerArguments[2],
                 parentState: hydroState)),
       ];
     });
@@ -155,7 +155,7 @@ class VMManagedByteData extends VMManagedBox<ByteData> {
       vmObject.setFloat32(
           luaCallerArguments[1],
           luaCallerArguments[2]?.toDouble(),
-          maybeUnBoxAndBuildArgument<Endian>(luaCallerArguments[3],
+          maybeUnBoxAndBuildArgument<Endian, dynamic>(luaCallerArguments[3],
               parentState: hydroState));
       return [];
     });
@@ -164,7 +164,7 @@ class VMManagedByteData extends VMManagedBox<ByteData> {
       return [
         vmObject.getFloat64(
             luaCallerArguments[1],
-            maybeUnBoxAndBuildArgument<Endian>(luaCallerArguments[2],
+            maybeUnBoxAndBuildArgument<Endian, dynamic>(luaCallerArguments[2],
                 parentState: hydroState)),
       ];
     });
@@ -173,7 +173,7 @@ class VMManagedByteData extends VMManagedBox<ByteData> {
       vmObject.setFloat64(
           luaCallerArguments[1],
           luaCallerArguments[2]?.toDouble(),
-          maybeUnBoxAndBuildArgument<Endian>(luaCallerArguments[3],
+          maybeUnBoxAndBuildArgument<Endian, dynamic>(luaCallerArguments[3],
               parentState: hydroState));
       return [];
     });
@@ -239,7 +239,8 @@ void loadByteData({required HydroState hydroState, required HydroTable table}) {
     return [
       maybeBoxObject<ByteData>(
           object: ByteData.view(
-              maybeUnBoxAndBuildArgument<ByteBuffer>(luaCallerArguments[1],
+              maybeUnBoxAndBuildArgument<ByteBuffer, dynamic>(
+                  luaCallerArguments[1],
                   parentState: hydroState),
               luaCallerArguments[2],
               luaCallerArguments[3]),
@@ -252,7 +253,8 @@ void loadByteData({required HydroState hydroState, required HydroTable table}) {
     return [
       maybeBoxObject<ByteData>(
           object: ByteData.sublistView(
-              maybeUnBoxAndBuildArgument<TypedData>(luaCallerArguments[1],
+              maybeUnBoxAndBuildArgument<TypedData, dynamic>(
+                  luaCallerArguments[1],
                   parentState: hydroState),
               luaCallerArguments[2],
               luaCallerArguments[3]),

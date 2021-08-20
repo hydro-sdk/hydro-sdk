@@ -95,9 +95,9 @@ void loadFontWeight(
   table['fontWeightLerp'] =
       makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     final returnValue = FontWeight.lerp(
-        maybeUnBoxAndBuildArgument<FontWeight?>(luaCallerArguments[1],
+        maybeUnBoxAndBuildArgument<FontWeight?, dynamic>(luaCallerArguments[1],
             parentState: hydroState),
-        maybeUnBoxAndBuildArgument<FontWeight?>(luaCallerArguments[2],
+        maybeUnBoxAndBuildArgument<FontWeight?, dynamic>(luaCallerArguments[2],
             parentState: hydroState),
         luaCallerArguments[3]?.toDouble());
     if (returnValue != null) {

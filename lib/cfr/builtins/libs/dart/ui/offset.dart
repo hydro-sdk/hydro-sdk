@@ -199,7 +199,7 @@ class RTManagedOffset extends Offset implements Box<Offset> {
   @override
   Offset scale(double scaleX, double scaleY) {
     Closure closure = table["scale"];
-    return maybeUnBoxAndBuildArgument<Offset>(
+    return maybeUnBoxAndBuildArgument<Offset, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -207,7 +207,7 @@ class RTManagedOffset extends Offset implements Box<Offset> {
   @override
   Offset translate(double translateX, double translateY) {
     Closure closure = table["translate"];
-    return maybeUnBoxAndBuildArgument<Offset>(
+    return maybeUnBoxAndBuildArgument<Offset, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -258,9 +258,9 @@ void loadOffset({required HydroState hydroState, required HydroTable table}) {
   table['offsetLerp'] =
       makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     final returnValue = Offset.lerp(
-        maybeUnBoxAndBuildArgument<Offset?>(luaCallerArguments[1],
+        maybeUnBoxAndBuildArgument<Offset?, dynamic>(luaCallerArguments[1],
             parentState: hydroState),
-        maybeUnBoxAndBuildArgument<Offset?>(luaCallerArguments[2],
+        maybeUnBoxAndBuildArgument<Offset?, dynamic>(luaCallerArguments[2],
             parentState: hydroState),
         luaCallerArguments[3]?.toDouble());
     if (returnValue != null) {

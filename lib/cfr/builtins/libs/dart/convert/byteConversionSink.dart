@@ -14,7 +14,7 @@ class VMManagedByteConversionSink extends VMManagedBox<ByteConversionSink> {
     table['addSlice'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.addSlice(
-          maybeUnBoxAndBuildArgument<List<int>>(luaCallerArguments[1],
+          maybeUnBoxAndBuildArgument<List<int>, dynamic>(luaCallerArguments[1],
               parentState: hydroState),
           luaCallerArguments[2],
           luaCallerArguments[3],
@@ -22,7 +22,8 @@ class VMManagedByteConversionSink extends VMManagedBox<ByteConversionSink> {
       return [];
     });
     table['add'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.add(maybeUnBoxAndBuildArgument<List<int>>(luaCallerArguments[1],
+      vmObject.add(maybeUnBoxAndBuildArgument<List<int>, dynamic>(
+          luaCallerArguments[1],
           parentState: hydroState));
       return [];
     });
@@ -62,7 +63,7 @@ class RTManagedByteConversionSink extends ByteConversionSink
     table['_dart_addSlice'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       addSlice(
-          maybeUnBoxAndBuildArgument<List<int>>(luaCallerArguments[1],
+          maybeUnBoxAndBuildArgument<List<int>, dynamic>(luaCallerArguments[1],
               parentState: hydroState),
           luaCallerArguments[2],
           luaCallerArguments[3],
@@ -71,7 +72,7 @@ class RTManagedByteConversionSink extends ByteConversionSink
     });
     table['_dart_add'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      add(maybeUnBoxAndBuildArgument<List<int>>(luaCallerArguments[1],
+      add(maybeUnBoxAndBuildArgument<List<int>, dynamic>(luaCallerArguments[1],
           parentState: hydroState));
       return [];
     });
@@ -155,7 +156,8 @@ void loadByteConversionSink(
     return [
       maybeBoxObject<ByteConversionSink>(
           object: ByteConversionSink.from(
-              maybeUnBoxAndBuildArgument<Sink<List<int>>>(luaCallerArguments[1],
+              maybeUnBoxAndBuildArgument<Sink<List<int>>, dynamic>(
+                  luaCallerArguments[1],
                   parentState: hydroState)),
           hydroState: hydroState,
           table: HydroTable()),

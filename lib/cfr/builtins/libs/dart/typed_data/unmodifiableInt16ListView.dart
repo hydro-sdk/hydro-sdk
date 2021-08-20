@@ -18,9 +18,9 @@ class VMManagedUnmodifiableInt16ListView
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         vmObject.lastIndexOf(
-            maybeUnBoxAndBuildArgument<Object?>(luaCallerArguments[1],
+            maybeUnBoxAndBuildArgument<Object?, dynamic>(luaCallerArguments[1],
                 parentState: hydroState),
-            maybeUnBoxAndBuildArgument<int?>(luaCallerArguments[2],
+            maybeUnBoxAndBuildArgument<int?, dynamic>(luaCallerArguments[2],
                 parentState: hydroState)),
       ];
     });
@@ -28,7 +28,7 @@ class VMManagedUnmodifiableInt16ListView
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         vmObject.indexOf(
-            maybeUnBoxAndBuildArgument<Object?>(luaCallerArguments[1],
+            maybeUnBoxAndBuildArgument<Object?, dynamic>(luaCallerArguments[1],
                 parentState: hydroState),
             luaCallerArguments[2]),
       ];
@@ -56,7 +56,7 @@ class VMManagedUnmodifiableInt16ListView
       return [];
     });
     table['addAll'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.addAll(maybeUnBoxAndBuildArgument<Iterable<int>>(
+      vmObject.addAll(maybeUnBoxAndBuildArgument<Iterable<int>, dynamic>(
           luaCallerArguments[1],
           parentState: hydroState));
       return [];
@@ -73,7 +73,7 @@ class VMManagedUnmodifiableInt16ListView
     });
     table['shuffle'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.shuffle(maybeUnBoxAndBuildArgument<Random?>(
+      vmObject.shuffle(maybeUnBoxAndBuildArgument<Random?, dynamic>(
           luaCallerArguments[1],
           parentState: hydroState));
       return [];
@@ -114,20 +114,22 @@ class VMManagedUnmodifiableInt16ListView
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.insertAll(
           luaCallerArguments[1],
-          maybeUnBoxAndBuildArgument<Iterable<int>>(luaCallerArguments[2],
+          maybeUnBoxAndBuildArgument<Iterable<int>, dynamic>(
+              luaCallerArguments[2],
               parentState: hydroState));
       return [];
     });
     table['setAll'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.setAll(
           luaCallerArguments[1],
-          maybeUnBoxAndBuildArgument<Iterable<int>>(luaCallerArguments[2],
+          maybeUnBoxAndBuildArgument<Iterable<int>, dynamic>(
+              luaCallerArguments[2],
               parentState: hydroState));
       return [];
     });
     table['remove'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
-        vmObject.remove(maybeUnBoxAndBuildArgument<Object?>(
+        vmObject.remove(maybeUnBoxAndBuildArgument<Object?, dynamic>(
             luaCallerArguments[1],
             parentState: hydroState)),
       ];
@@ -177,7 +179,8 @@ class VMManagedUnmodifiableInt16ListView
       vmObject.setRange(
           luaCallerArguments[1],
           luaCallerArguments[2],
-          maybeUnBoxAndBuildArgument<Iterable<int>>(luaCallerArguments[3],
+          maybeUnBoxAndBuildArgument<Iterable<int>, dynamic>(
+              luaCallerArguments[3],
               parentState: hydroState),
           luaCallerArguments[4]);
       return [];
@@ -198,7 +201,8 @@ class VMManagedUnmodifiableInt16ListView
       vmObject.replaceRange(
           luaCallerArguments[1],
           luaCallerArguments[2],
-          maybeUnBoxAndBuildArgument<Iterable<int>>(luaCallerArguments[3],
+          maybeUnBoxAndBuildArgument<Iterable<int>, dynamic>(
+              luaCallerArguments[3],
               parentState: hydroState));
       return [];
     });
@@ -245,7 +249,8 @@ class VMManagedUnmodifiableInt16ListView
       return [
         maybeBoxObject<Iterable>(
             object: vmObject.followedBy(
-                maybeUnBoxAndBuildArgument<Iterable<int>>(luaCallerArguments[1],
+                maybeUnBoxAndBuildArgument<Iterable<int>, dynamic>(
+                    luaCallerArguments[1],
                     parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable()),
@@ -288,8 +293,8 @@ class VMManagedUnmodifiableInt16ListView
       Closure unpackedf = luaCallerArguments[1];
       return [
         maybeBoxObject<Iterable>(
-            object: vmObject.expand(
-                (element) => maybeUnBoxAndBuildArgument<Iterable<dynamic>>(
+            object: vmObject.expand((element) =>
+                maybeUnBoxAndBuildArgument<Iterable<dynamic>, dynamic>(
                     unpackedf.dispatch(
                       [luaCallerArguments[0], element],
                       parentState: hydroState,
@@ -302,7 +307,7 @@ class VMManagedUnmodifiableInt16ListView
     table['contains'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
-        vmObject.contains(maybeUnBoxAndBuildArgument<Object?>(
+        vmObject.contains(maybeUnBoxAndBuildArgument<Object?, dynamic>(
             luaCallerArguments[1],
             parentState: hydroState)),
       ];
@@ -586,9 +591,9 @@ class RTManagedUnmodifiableInt16ListView extends UnmodifiableInt16ListView
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         super.lastIndexOf(
-            maybeUnBoxAndBuildArgument<Object?>(luaCallerArguments[1],
+            maybeUnBoxAndBuildArgument<Object?, dynamic>(luaCallerArguments[1],
                 parentState: hydroState),
-            maybeUnBoxAndBuildArgument<int?>(luaCallerArguments[2],
+            maybeUnBoxAndBuildArgument<int?, dynamic>(luaCallerArguments[2],
                 parentState: hydroState))
       ];
     });
@@ -596,7 +601,7 @@ class RTManagedUnmodifiableInt16ListView extends UnmodifiableInt16ListView
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         super.indexOf(
-            maybeUnBoxAndBuildArgument<Object?>(luaCallerArguments[1],
+            maybeUnBoxAndBuildArgument<Object?, dynamic>(luaCallerArguments[1],
                 parentState: hydroState),
             luaCallerArguments[2])
       ];
@@ -624,7 +629,8 @@ class RTManagedUnmodifiableInt16ListView extends UnmodifiableInt16ListView
     });
     table['_dart_addAll'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      addAll(maybeUnBoxAndBuildArgument<Iterable<int>>(luaCallerArguments[1],
+      addAll(maybeUnBoxAndBuildArgument<Iterable<int>, dynamic>(
+          luaCallerArguments[1],
           parentState: hydroState));
       return [];
     });
@@ -641,7 +647,8 @@ class RTManagedUnmodifiableInt16ListView extends UnmodifiableInt16ListView
     });
     table['_dart_shuffle'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      shuffle(maybeUnBoxAndBuildArgument<Random?>(luaCallerArguments[1],
+      shuffle(maybeUnBoxAndBuildArgument<Random?, dynamic>(
+          luaCallerArguments[1],
           parentState: hydroState));
       return [];
     });
@@ -683,7 +690,8 @@ class RTManagedUnmodifiableInt16ListView extends UnmodifiableInt16ListView
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       insertAll(
           luaCallerArguments[1],
-          maybeUnBoxAndBuildArgument<Iterable<int>>(luaCallerArguments[2],
+          maybeUnBoxAndBuildArgument<Iterable<int>, dynamic>(
+              luaCallerArguments[2],
               parentState: hydroState));
       return [];
     });
@@ -691,14 +699,16 @@ class RTManagedUnmodifiableInt16ListView extends UnmodifiableInt16ListView
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       setAll(
           luaCallerArguments[1],
-          maybeUnBoxAndBuildArgument<Iterable<int>>(luaCallerArguments[2],
+          maybeUnBoxAndBuildArgument<Iterable<int>, dynamic>(
+              luaCallerArguments[2],
               parentState: hydroState));
       return [];
     });
     table['_dart_remove'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
-        remove(maybeUnBoxAndBuildArgument<Object?>(luaCallerArguments[1],
+        remove(maybeUnBoxAndBuildArgument<Object?, dynamic>(
+            luaCallerArguments[1],
             parentState: hydroState))
       ];
     });
@@ -742,7 +752,8 @@ class RTManagedUnmodifiableInt16ListView extends UnmodifiableInt16ListView
       setRange(
           luaCallerArguments[1],
           luaCallerArguments[2],
-          maybeUnBoxAndBuildArgument<Iterable<int>>(luaCallerArguments[3],
+          maybeUnBoxAndBuildArgument<Iterable<int>, dynamic>(
+              luaCallerArguments[3],
               parentState: hydroState),
           luaCallerArguments[4]);
       return [];
@@ -763,7 +774,8 @@ class RTManagedUnmodifiableInt16ListView extends UnmodifiableInt16ListView
       replaceRange(
           luaCallerArguments[1],
           luaCallerArguments[2],
-          maybeUnBoxAndBuildArgument<Iterable<int>>(luaCallerArguments[3],
+          maybeUnBoxAndBuildArgument<Iterable<int>, dynamic>(
+              luaCallerArguments[3],
               parentState: hydroState));
       return [];
     });
@@ -801,9 +813,10 @@ class RTManagedUnmodifiableInt16ListView extends UnmodifiableInt16ListView
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Iterable>(
-            object: super.followedBy(maybeUnBoxAndBuildArgument<Iterable<int>>(
-                luaCallerArguments[1],
-                parentState: hydroState)),
+            object: super.followedBy(
+                maybeUnBoxAndBuildArgument<Iterable<int>, dynamic>(
+                    luaCallerArguments[1],
+                    parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable())
       ];
@@ -848,8 +861,8 @@ class RTManagedUnmodifiableInt16ListView extends UnmodifiableInt16ListView
       Closure unpackedf = luaCallerArguments[1];
       return [
         maybeBoxObject<Iterable>(
-            object: super.expand(
-                (element) => maybeUnBoxAndBuildArgument<Iterable<dynamic>>(
+            object: super.expand((element) =>
+                maybeUnBoxAndBuildArgument<Iterable<dynamic>, dynamic>(
                     unpackedf.dispatch(
                       [luaCallerArguments[0], element],
                       parentState: hydroState,
@@ -862,7 +875,7 @@ class RTManagedUnmodifiableInt16ListView extends UnmodifiableInt16ListView
     table['_dart_contains'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
-        super.contains(maybeUnBoxAndBuildArgument<Object?>(
+        super.contains(maybeUnBoxAndBuildArgument<Object?, dynamic>(
             luaCallerArguments[1],
             parentState: hydroState))
       ];
@@ -1117,7 +1130,7 @@ class RTManagedUnmodifiableInt16ListView extends UnmodifiableInt16ListView
   @override
   Int16List sublist(int start, [int? end]) {
     Closure closure = table["sublist"];
-    return maybeUnBoxAndBuildArgument<Int16List>(
+    return maybeUnBoxAndBuildArgument<Int16List, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -1125,7 +1138,7 @@ class RTManagedUnmodifiableInt16ListView extends UnmodifiableInt16ListView
   @override
   List<R> cast<R>() {
     Closure closure = table["cast"];
-    return maybeUnBoxAndBuildArgument<List<R>>(
+    return maybeUnBoxAndBuildArgument<List<R>, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -1223,7 +1236,7 @@ class RTManagedUnmodifiableInt16ListView extends UnmodifiableInt16ListView
   @override
   Iterable<int> getRange(int start, int end) {
     Closure closure = table["getRange"];
-    return maybeUnBoxAndBuildArgument<Iterable<int>>(
+    return maybeUnBoxAndBuildArgument<Iterable<int>, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -1255,7 +1268,7 @@ class RTManagedUnmodifiableInt16ListView extends UnmodifiableInt16ListView
   @override
   Map<int, int> asMap() {
     Closure closure = table["asMap"];
-    return maybeUnBoxAndBuildArgument<Map<int, int>>(
+    return maybeUnBoxAndBuildArgument<Map<int, int>, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -1287,7 +1300,7 @@ class RTManagedUnmodifiableInt16ListView extends UnmodifiableInt16ListView
   @override
   Iterable<int> get reversed {
     Closure closure = table["getReversed"];
-    return maybeUnBoxAndBuildArgument<Iterable<int>>(
+    return maybeUnBoxAndBuildArgument<Iterable<int>, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -1295,7 +1308,7 @@ class RTManagedUnmodifiableInt16ListView extends UnmodifiableInt16ListView
   @override
   Iterable<int> followedBy(Iterable other) {
     Closure closure = table["followedBy"];
-    return maybeUnBoxAndBuildArgument<Iterable<int>>(
+    return maybeUnBoxAndBuildArgument<Iterable<int>, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -1303,7 +1316,7 @@ class RTManagedUnmodifiableInt16ListView extends UnmodifiableInt16ListView
   @override
   Iterable<T> map<T>(f) {
     Closure closure = table["map"];
-    return maybeUnBoxAndBuildArgument<Iterable<T>>(
+    return maybeUnBoxAndBuildArgument<Iterable<T>, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -1311,7 +1324,7 @@ class RTManagedUnmodifiableInt16ListView extends UnmodifiableInt16ListView
   @override
   Iterable<int> where(test) {
     Closure closure = table["where"];
-    return maybeUnBoxAndBuildArgument<Iterable<int>>(
+    return maybeUnBoxAndBuildArgument<Iterable<int>, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -1319,7 +1332,7 @@ class RTManagedUnmodifiableInt16ListView extends UnmodifiableInt16ListView
   @override
   Iterable<T> whereType<T>() {
     Closure closure = table["whereType"];
-    return maybeUnBoxAndBuildArgument<Iterable<T>>(
+    return maybeUnBoxAndBuildArgument<Iterable<T>, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -1327,7 +1340,7 @@ class RTManagedUnmodifiableInt16ListView extends UnmodifiableInt16ListView
   @override
   Iterable<T> expand<T>(f) {
     Closure closure = table["expand"];
-    return maybeUnBoxAndBuildArgument<Iterable<T>>(
+    return maybeUnBoxAndBuildArgument<Iterable<T>, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -1377,7 +1390,7 @@ class RTManagedUnmodifiableInt16ListView extends UnmodifiableInt16ListView
   @override
   List<int> toList({bool growable = true}) {
     Closure closure = table["toList"];
-    return maybeUnBoxAndBuildArgument<List<int>>(
+    return maybeUnBoxAndBuildArgument<List<int>, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -1385,7 +1398,7 @@ class RTManagedUnmodifiableInt16ListView extends UnmodifiableInt16ListView
   @override
   Set<int> toSet() {
     Closure closure = table["toSet"];
-    return maybeUnBoxAndBuildArgument<Set<int>>(
+    return maybeUnBoxAndBuildArgument<Set<int>, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -1393,7 +1406,7 @@ class RTManagedUnmodifiableInt16ListView extends UnmodifiableInt16ListView
   @override
   Iterable<int> take(int count) {
     Closure closure = table["take"];
-    return maybeUnBoxAndBuildArgument<Iterable<int>>(
+    return maybeUnBoxAndBuildArgument<Iterable<int>, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -1401,7 +1414,7 @@ class RTManagedUnmodifiableInt16ListView extends UnmodifiableInt16ListView
   @override
   Iterable<int> takeWhile(test) {
     Closure closure = table["takeWhile"];
-    return maybeUnBoxAndBuildArgument<Iterable<int>>(
+    return maybeUnBoxAndBuildArgument<Iterable<int>, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -1409,7 +1422,7 @@ class RTManagedUnmodifiableInt16ListView extends UnmodifiableInt16ListView
   @override
   Iterable<int> skip(int count) {
     Closure closure = table["skip"];
-    return maybeUnBoxAndBuildArgument<Iterable<int>>(
+    return maybeUnBoxAndBuildArgument<Iterable<int>, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -1417,7 +1430,7 @@ class RTManagedUnmodifiableInt16ListView extends UnmodifiableInt16ListView
   @override
   Iterable<int> skipWhile(test) {
     Closure closure = table["skipWhile"];
-    return maybeUnBoxAndBuildArgument<Iterable<int>>(
+    return maybeUnBoxAndBuildArgument<Iterable<int>, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -1455,7 +1468,7 @@ class RTManagedUnmodifiableInt16ListView extends UnmodifiableInt16ListView
   @override
   Iterator<int> get iterator {
     Closure closure = table["getIterator"];
-    return maybeUnBoxAndBuildArgument<Iterator<int>>(
+    return maybeUnBoxAndBuildArgument<Iterator<int>, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -1517,7 +1530,7 @@ class RTManagedUnmodifiableInt16ListView extends UnmodifiableInt16ListView
   @override
   ByteBuffer get buffer {
     Closure closure = table["getBuffer"];
-    return maybeUnBoxAndBuildArgument<ByteBuffer>(
+    return maybeUnBoxAndBuildArgument<ByteBuffer, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -1529,7 +1542,7 @@ void loadUnmodifiableInt16ListView(
       makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       RTManagedUnmodifiableInt16ListView(
-          maybeUnBoxAndBuildArgument<Int16List>(luaCallerArguments[1],
+          maybeUnBoxAndBuildArgument<Int16List, dynamic>(luaCallerArguments[1],
               parentState: hydroState),
           table: luaCallerArguments[0],
           hydroState: hydroState)

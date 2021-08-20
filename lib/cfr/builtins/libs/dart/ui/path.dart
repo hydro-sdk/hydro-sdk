@@ -110,7 +110,7 @@ class VMManagedPath extends VMManagedBox<Path> {
     });
     table['arcTo'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.arcTo(
-          maybeUnBoxAndBuildArgument<Rect>(luaCallerArguments[1],
+          maybeUnBoxAndBuildArgument<Rect, dynamic>(luaCallerArguments[1],
               parentState: hydroState),
           luaCallerArguments[2]?.toDouble(),
           luaCallerArguments[3]?.toDouble(),
@@ -120,11 +120,11 @@ class VMManagedPath extends VMManagedBox<Path> {
     table['arcToPoint'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.arcToPoint(
-          maybeUnBoxAndBuildArgument<Offset>(luaCallerArguments[1],
+          maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[1],
               parentState: hydroState),
           clockwise: luaCallerArguments[2]['clockwise'],
           largeArc: luaCallerArguments[2]['largeArc'],
-          radius: maybeUnBoxAndBuildArgument<Radius>(
+          radius: maybeUnBoxAndBuildArgument<Radius, dynamic>(
               luaCallerArguments[2]['radius'],
               parentState: hydroState),
           rotation: luaCallerArguments[2]['rotation']?.toDouble());
@@ -133,11 +133,11 @@ class VMManagedPath extends VMManagedBox<Path> {
     table['relativeArcToPoint'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.relativeArcToPoint(
-          maybeUnBoxAndBuildArgument<Offset>(luaCallerArguments[1],
+          maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[1],
               parentState: hydroState),
           clockwise: luaCallerArguments[2]['clockwise'],
           largeArc: luaCallerArguments[2]['largeArc'],
-          radius: maybeUnBoxAndBuildArgument<Radius>(
+          radius: maybeUnBoxAndBuildArgument<Radius, dynamic>(
               luaCallerArguments[2]['radius'],
               parentState: hydroState),
           rotation: luaCallerArguments[2]['rotation']?.toDouble());
@@ -145,19 +145,21 @@ class VMManagedPath extends VMManagedBox<Path> {
     });
     table['addRect'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.addRect(maybeUnBoxAndBuildArgument<Rect>(luaCallerArguments[1],
+      vmObject.addRect(maybeUnBoxAndBuildArgument<Rect, dynamic>(
+          luaCallerArguments[1],
           parentState: hydroState));
       return [];
     });
     table['addOval'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.addOval(maybeUnBoxAndBuildArgument<Rect>(luaCallerArguments[1],
+      vmObject.addOval(maybeUnBoxAndBuildArgument<Rect, dynamic>(
+          luaCallerArguments[1],
           parentState: hydroState));
       return [];
     });
     table['addArc'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.addArc(
-          maybeUnBoxAndBuildArgument<Rect>(luaCallerArguments[1],
+          maybeUnBoxAndBuildArgument<Rect, dynamic>(luaCallerArguments[1],
               parentState: hydroState),
           luaCallerArguments[2]?.toDouble(),
           luaCallerArguments[3]?.toDouble());
@@ -166,25 +168,27 @@ class VMManagedPath extends VMManagedBox<Path> {
     table['addPolygon'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.addPolygon(
-          maybeUnBoxAndBuildArgument<List<Offset>>(luaCallerArguments[1],
+          maybeUnBoxAndBuildArgument<List<Offset>, dynamic>(
+              luaCallerArguments[1],
               parentState: hydroState),
           luaCallerArguments[2]);
       return [];
     });
     table['addRRect'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.addRRect(maybeUnBoxAndBuildArgument<RRect>(luaCallerArguments[1],
+      vmObject.addRRect(maybeUnBoxAndBuildArgument<RRect, dynamic>(
+          luaCallerArguments[1],
           parentState: hydroState));
       return [];
     });
     table['addPath'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.addPath(
-          maybeUnBoxAndBuildArgument<Path>(luaCallerArguments[1],
+          maybeUnBoxAndBuildArgument<Path, dynamic>(luaCallerArguments[1],
               parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Offset>(luaCallerArguments[2],
+          maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[2],
               parentState: hydroState),
-          matrix4: maybeUnBoxAndBuildArgument<Float64List?>(
+          matrix4: maybeUnBoxAndBuildArgument<Float64List?, dynamic>(
               luaCallerArguments[3]['matrix4'],
               parentState: hydroState));
       return [];
@@ -192,11 +196,11 @@ class VMManagedPath extends VMManagedBox<Path> {
     table['extendWithPath'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.extendWithPath(
-          maybeUnBoxAndBuildArgument<Path>(luaCallerArguments[1],
+          maybeUnBoxAndBuildArgument<Path, dynamic>(luaCallerArguments[1],
               parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Offset>(luaCallerArguments[2],
+          maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[2],
               parentState: hydroState),
-          matrix4: maybeUnBoxAndBuildArgument<Float64List?>(
+          matrix4: maybeUnBoxAndBuildArgument<Float64List?, dynamic>(
               luaCallerArguments[3]['matrix4'],
               parentState: hydroState));
       return [];
@@ -212,7 +216,7 @@ class VMManagedPath extends VMManagedBox<Path> {
     table['contains'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
-        vmObject.contains(maybeUnBoxAndBuildArgument<Offset>(
+        vmObject.contains(maybeUnBoxAndBuildArgument<Offset, dynamic>(
             luaCallerArguments[1],
             parentState: hydroState)),
       ];
@@ -220,7 +224,7 @@ class VMManagedPath extends VMManagedBox<Path> {
     table['shift'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Path>(
-            object: vmObject.shift(maybeUnBoxAndBuildArgument<Offset>(
+            object: vmObject.shift(maybeUnBoxAndBuildArgument<Offset, dynamic>(
                 luaCallerArguments[1],
                 parentState: hydroState)),
             hydroState: hydroState,
@@ -231,9 +235,10 @@ class VMManagedPath extends VMManagedBox<Path> {
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Path>(
-            object: vmObject.transform(maybeUnBoxAndBuildArgument<Float64List>(
-                luaCallerArguments[1],
-                parentState: hydroState)),
+            object: vmObject.transform(
+                maybeUnBoxAndBuildArgument<Float64List, dynamic>(
+                    luaCallerArguments[1],
+                    parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable()),
       ];
@@ -369,7 +374,7 @@ class RTManagedPath extends Path implements Box<Path> {
     table['_dart_arcTo'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       super.arcTo(
-          maybeUnBoxAndBuildArgument<Rect>(luaCallerArguments[1],
+          maybeUnBoxAndBuildArgument<Rect, dynamic>(luaCallerArguments[1],
               parentState: hydroState),
           luaCallerArguments[2]?.toDouble(),
           luaCallerArguments[3]?.toDouble(),
@@ -379,11 +384,11 @@ class RTManagedPath extends Path implements Box<Path> {
     table['_dart_arcToPoint'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       super.arcToPoint(
-          maybeUnBoxAndBuildArgument<Offset>(luaCallerArguments[1],
+          maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[1],
               parentState: hydroState),
           clockwise: luaCallerArguments[2]['clockwise'],
           largeArc: luaCallerArguments[2]['largeArc'],
-          radius: maybeUnBoxAndBuildArgument<Radius>(
+          radius: maybeUnBoxAndBuildArgument<Radius, dynamic>(
               luaCallerArguments[2]['radius'],
               parentState: hydroState),
           rotation: luaCallerArguments[2]['rotation']?.toDouble());
@@ -392,11 +397,11 @@ class RTManagedPath extends Path implements Box<Path> {
     table['_dart_relativeArcToPoint'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       super.relativeArcToPoint(
-          maybeUnBoxAndBuildArgument<Offset>(luaCallerArguments[1],
+          maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[1],
               parentState: hydroState),
           clockwise: luaCallerArguments[2]['clockwise'],
           largeArc: luaCallerArguments[2]['largeArc'],
-          radius: maybeUnBoxAndBuildArgument<Radius>(
+          radius: maybeUnBoxAndBuildArgument<Radius, dynamic>(
               luaCallerArguments[2]['radius'],
               parentState: hydroState),
           rotation: luaCallerArguments[2]['rotation']?.toDouble());
@@ -404,20 +409,22 @@ class RTManagedPath extends Path implements Box<Path> {
     });
     table['_dart_addRect'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.addRect(maybeUnBoxAndBuildArgument<Rect>(luaCallerArguments[1],
+      super.addRect(maybeUnBoxAndBuildArgument<Rect, dynamic>(
+          luaCallerArguments[1],
           parentState: hydroState));
       return [];
     });
     table['_dart_addOval'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.addOval(maybeUnBoxAndBuildArgument<Rect>(luaCallerArguments[1],
+      super.addOval(maybeUnBoxAndBuildArgument<Rect, dynamic>(
+          luaCallerArguments[1],
           parentState: hydroState));
       return [];
     });
     table['_dart_addArc'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       super.addArc(
-          maybeUnBoxAndBuildArgument<Rect>(luaCallerArguments[1],
+          maybeUnBoxAndBuildArgument<Rect, dynamic>(luaCallerArguments[1],
               parentState: hydroState),
           luaCallerArguments[2]?.toDouble(),
           luaCallerArguments[3]?.toDouble());
@@ -426,25 +433,27 @@ class RTManagedPath extends Path implements Box<Path> {
     table['_dart_addPolygon'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       super.addPolygon(
-          maybeUnBoxAndBuildArgument<List<Offset>>(luaCallerArguments[1],
+          maybeUnBoxAndBuildArgument<List<Offset>, dynamic>(
+              luaCallerArguments[1],
               parentState: hydroState),
           luaCallerArguments[2]);
       return [];
     });
     table['_dart_addRRect'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.addRRect(maybeUnBoxAndBuildArgument<RRect>(luaCallerArguments[1],
+      super.addRRect(maybeUnBoxAndBuildArgument<RRect, dynamic>(
+          luaCallerArguments[1],
           parentState: hydroState));
       return [];
     });
     table['_dart_addPath'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       super.addPath(
-          maybeUnBoxAndBuildArgument<Path>(luaCallerArguments[1],
+          maybeUnBoxAndBuildArgument<Path, dynamic>(luaCallerArguments[1],
               parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Offset>(luaCallerArguments[2],
+          maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[2],
               parentState: hydroState),
-          matrix4: maybeUnBoxAndBuildArgument<Float64List?>(
+          matrix4: maybeUnBoxAndBuildArgument<Float64List?, dynamic>(
               luaCallerArguments[3]['matrix4'],
               parentState: hydroState));
       return [];
@@ -452,11 +461,11 @@ class RTManagedPath extends Path implements Box<Path> {
     table['_dart_extendWithPath'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       super.extendWithPath(
-          maybeUnBoxAndBuildArgument<Path>(luaCallerArguments[1],
+          maybeUnBoxAndBuildArgument<Path, dynamic>(luaCallerArguments[1],
               parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Offset>(luaCallerArguments[2],
+          maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[2],
               parentState: hydroState),
-          matrix4: maybeUnBoxAndBuildArgument<Float64List?>(
+          matrix4: maybeUnBoxAndBuildArgument<Float64List?, dynamic>(
               luaCallerArguments[3]['matrix4'],
               parentState: hydroState));
       return [];
@@ -474,7 +483,8 @@ class RTManagedPath extends Path implements Box<Path> {
     table['_dart_contains'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
-        super.contains(maybeUnBoxAndBuildArgument<Offset>(luaCallerArguments[1],
+        super.contains(maybeUnBoxAndBuildArgument<Offset, dynamic>(
+            luaCallerArguments[1],
             parentState: hydroState))
       ];
     });
@@ -482,7 +492,7 @@ class RTManagedPath extends Path implements Box<Path> {
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Path>(
-            object: super.shift(maybeUnBoxAndBuildArgument<Offset>(
+            object: super.shift(maybeUnBoxAndBuildArgument<Offset, dynamic>(
                 luaCallerArguments[1],
                 parentState: hydroState)),
             hydroState: hydroState,
@@ -493,9 +503,10 @@ class RTManagedPath extends Path implements Box<Path> {
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Path>(
-            object: super.transform(maybeUnBoxAndBuildArgument<Float64List>(
-                luaCallerArguments[1],
-                parentState: hydroState)),
+            object: super.transform(
+                maybeUnBoxAndBuildArgument<Float64List, dynamic>(
+                    luaCallerArguments[1],
+                    parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable())
       ];
@@ -693,7 +704,7 @@ class RTManagedPath extends Path implements Box<Path> {
   @override
   Path shift(Offset offset) {
     Closure closure = table["shift"];
-    return maybeUnBoxAndBuildArgument<Path>(
+    return maybeUnBoxAndBuildArgument<Path, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -701,7 +712,7 @@ class RTManagedPath extends Path implements Box<Path> {
   @override
   Path transform(Float64List matrix4) {
     Closure closure = table["transform"];
-    return maybeUnBoxAndBuildArgument<Path>(
+    return maybeUnBoxAndBuildArgument<Path, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -709,7 +720,7 @@ class RTManagedPath extends Path implements Box<Path> {
   @override
   Rect getBounds() {
     Closure closure = table["getBounds"];
-    return maybeUnBoxAndBuildArgument<Rect>(
+    return maybeUnBoxAndBuildArgument<Rect, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -717,7 +728,7 @@ class RTManagedPath extends Path implements Box<Path> {
   @override
   PathMetrics computeMetrics({bool forceClosed = false}) {
     Closure closure = table["computeMetrics"];
-    return maybeUnBoxAndBuildArgument<PathMetrics>(
+    return maybeUnBoxAndBuildArgument<PathMetrics, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -732,7 +743,7 @@ void loadPath({required HydroState hydroState, required HydroTable table}) {
   table['pathFrom'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<Path>(
-          object: Path.from(maybeUnBoxAndBuildArgument<Path>(
+          object: Path.from(maybeUnBoxAndBuildArgument<Path, dynamic>(
               luaCallerArguments[1],
               parentState: hydroState)),
           hydroState: hydroState,
@@ -747,9 +758,9 @@ void loadPath({required HydroState hydroState, required HydroTable table}) {
               maybeUnBoxEnum(
                   values: PathOperation.values,
                   boxedEnum: luaCallerArguments[1]),
-              maybeUnBoxAndBuildArgument<Path>(luaCallerArguments[2],
+              maybeUnBoxAndBuildArgument<Path, dynamic>(luaCallerArguments[2],
                   parentState: hydroState),
-              maybeUnBoxAndBuildArgument<Path>(luaCallerArguments[3],
+              maybeUnBoxAndBuildArgument<Path, dynamic>(luaCallerArguments[3],
                   parentState: hydroState)),
           hydroState: hydroState,
           table: HydroTable()),

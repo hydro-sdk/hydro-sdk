@@ -14,7 +14,7 @@ class VMManagedTextDecoration extends VMManagedBox<TextDecoration> {
     table['contains'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
-        vmObject.contains(maybeUnBoxAndBuildArgument<TextDecoration>(
+        vmObject.contains(maybeUnBoxAndBuildArgument<TextDecoration, dynamic>(
             luaCallerArguments[1],
             parentState: hydroState)),
       ];
@@ -83,7 +83,7 @@ void loadTextDecoration(
     return [
       maybeBoxObject<TextDecoration>(
           object: TextDecoration.combine(
-              maybeUnBoxAndBuildArgument<List<TextDecoration>>(
+              maybeUnBoxAndBuildArgument<List<TextDecoration>, dynamic>(
                   luaCallerArguments[1],
                   parentState: hydroState)),
           hydroState: hydroState,

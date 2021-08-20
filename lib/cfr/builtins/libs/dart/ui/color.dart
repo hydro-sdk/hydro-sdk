@@ -241,7 +241,7 @@ class RTManagedColor extends Color implements Box<Color> {
   @override
   Color withAlpha(int a) {
     Closure closure = table["withAlpha"];
-    return maybeUnBoxAndBuildArgument<Color>(
+    return maybeUnBoxAndBuildArgument<Color, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -249,7 +249,7 @@ class RTManagedColor extends Color implements Box<Color> {
   @override
   Color withOpacity(double opacity) {
     Closure closure = table["withOpacity"];
-    return maybeUnBoxAndBuildArgument<Color>(
+    return maybeUnBoxAndBuildArgument<Color, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -257,7 +257,7 @@ class RTManagedColor extends Color implements Box<Color> {
   @override
   Color withRed(int r) {
     Closure closure = table["withRed"];
-    return maybeUnBoxAndBuildArgument<Color>(
+    return maybeUnBoxAndBuildArgument<Color, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -265,7 +265,7 @@ class RTManagedColor extends Color implements Box<Color> {
   @override
   Color withGreen(int g) {
     Closure closure = table["withGreen"];
-    return maybeUnBoxAndBuildArgument<Color>(
+    return maybeUnBoxAndBuildArgument<Color, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -273,7 +273,7 @@ class RTManagedColor extends Color implements Box<Color> {
   @override
   Color withBlue(int b) {
     Closure closure = table["withBlue"];
-    return maybeUnBoxAndBuildArgument<Color>(
+    return maybeUnBoxAndBuildArgument<Color, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -327,9 +327,9 @@ void loadColor({required HydroState hydroState, required HydroTable table}) {
   table['colorLerp'] =
       makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     final returnValue = Color.lerp(
-        maybeUnBoxAndBuildArgument<Color?>(luaCallerArguments[1],
+        maybeUnBoxAndBuildArgument<Color?, dynamic>(luaCallerArguments[1],
             parentState: hydroState),
-        maybeUnBoxAndBuildArgument<Color?>(luaCallerArguments[2],
+        maybeUnBoxAndBuildArgument<Color?, dynamic>(luaCallerArguments[2],
             parentState: hydroState),
         luaCallerArguments[3]?.toDouble());
     if (returnValue != null) {
@@ -345,9 +345,9 @@ void loadColor({required HydroState hydroState, required HydroTable table}) {
     return [
       maybeBoxObject<Color>(
           object: Color.alphaBlend(
-              maybeUnBoxAndBuildArgument<Color>(luaCallerArguments[1],
+              maybeUnBoxAndBuildArgument<Color, dynamic>(luaCallerArguments[1],
                   parentState: hydroState),
-              maybeUnBoxAndBuildArgument<Color>(luaCallerArguments[2],
+              maybeUnBoxAndBuildArgument<Color, dynamic>(luaCallerArguments[2],
                   parentState: hydroState)),
           hydroState: hydroState,
           table: HydroTable()),
