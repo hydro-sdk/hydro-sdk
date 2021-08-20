@@ -1,25 +1,25 @@
-import { Color } from "./../../dart/ui/color";
+import { IColor } from "./../../dart/ui/color";
 
 export class CupertinoDynamicColor {
     public debugLabel: string;
-    public color: Color;
-    public darkColor: Color;
-    public highContrastColor: Color;
-    public darkHighContrastColor: Color;
-    public elevatedColor: Color;
-    public darkElevatedColor: Color;
-    public highContrastElevatedColor: Color;
-    public darkHighContrastElevatedColor: Color;
+    public color: IColor;
+    public darkColor: IColor;
+    public highContrastColor: IColor;
+    public darkHighContrastColor: IColor;
+    public elevatedColor: IColor;
+    public darkElevatedColor: IColor;
+    public highContrastElevatedColor: IColor;
+    public darkHighContrastElevatedColor: IColor;
     public constructor(props: {
         debugLabel?: string | undefined;
-        color: Color;
-        darkColor: Color;
-        highContrastColor: Color;
-        darkHighContrastColor: Color;
-        elevatedColor: Color;
-        darkElevatedColor: Color;
-        highContrastElevatedColor: Color;
-        darkHighContrastElevatedColor: Color;
+        color: IColor;
+        darkColor: IColor;
+        highContrastColor: IColor;
+        darkHighContrastColor: IColor;
+        elevatedColor: IColor;
+        darkElevatedColor: IColor;
+        highContrastElevatedColor: IColor;
+        darkHighContrastElevatedColor: IColor;
     }) {
         this.debugLabel = props.debugLabel ? props.debugLabel : "";
         this.color = props.color;
@@ -34,10 +34,10 @@ export class CupertinoDynamicColor {
 
     public static withBrightnessAndContrast(props: {
         debugLabel?: string | undefined;
-        color: Color;
-        darkColor: Color;
-        highContrastColor: Color;
-        darkHighContrastColor: Color;
+        color: IColor;
+        darkColor: IColor;
+        highContrastColor: IColor;
+        darkHighContrastColor: IColor;
     }): CupertinoDynamicColor {
         return new CupertinoDynamicColor({
             ...props,
@@ -50,8 +50,8 @@ export class CupertinoDynamicColor {
 
     public static withBrightness(props: {
         debugLabel?: string | undefined;
-        color: Color;
-        darkColor: Color;
+        color: IColor;
+        darkColor: IColor;
     }): CupertinoDynamicColor {
         return new CupertinoDynamicColor({
             ...props,
