@@ -1,4 +1,4 @@
-import { List } from "../../../runtime/dart/collection/list";
+import { List } from "../../../runtime/dart/core/list";
 import { BuildContext } from "../../../runtime/flutter/buildContext";
 import { AppBar } from "../../../runtime/flutter/material/appBar";
 import { CircularProgressIndicator } from "../../../runtime/flutter/material/circularProgressIndicator";
@@ -48,46 +48,46 @@ export class PokeGridScreen extends StatelessWidget {
             body: !pokeHub
                 ? new Center({ child: new CircularProgressIndicator() })
                 : ListView.create({
-                      children: List.fromArray([
-                          new Padding({
-                              padding: EdgeInsets.all(20),
-                              child: new TextFormField({
-                                  onChanged: (val) => {
-                                      if (textSearchService) {
-                                          textSearchService.updateSearchText(
-                                              val
-                                          );
-                                      }
-                                  },
-                              }),
-                          }),
-                          GridView.count({
-                              crossAxisCount: 2,
-                              shrinkWrap: true,
-                              physics: new NeverScrollableScrollPhysics(),
-                              children: List.fromArray(pokeHub.pokemon)
-                                  .where((poke) => {
-                                      if (textSearchService) {
-                                          const searchText =
-                                              textSearchService.getSearchText();
-                                          if (
-                                              searchText !== undefined &&
-                                              searchText != ""
-                                          ) {
-                                              if (
-                                                  textSearchService.getSearchText() !=
-                                                  poke.name.toLowerCase()
-                                              ) {
-                                                  return false;
-                                              }
-                                          }
-                                      }
-                                      return true;
-                                  })
-                                  .map((poke) => new PokeCard(poke)),
-                          }),
-                      ]),
-                  }),
+                    children: List.fromArray([
+                        new Padding({
+                            padding: EdgeInsets.all(20),
+                            child: new TextFormField({
+                                onChanged: (val) => {
+                                    if (textSearchService) {
+                                        textSearchService.updateSearchText(
+                                            val
+                                        );
+                                    }
+                                },
+                            }),
+                        }),
+                        GridView.count({
+                            crossAxisCount: 2,
+                            shrinkWrap: true,
+                            physics: new NeverScrollableScrollPhysics(),
+                            children: List.fromArray(pokeHub.pokemon)
+                                .where((poke) => {
+                                    if (textSearchService) {
+                                        const searchText =
+                                            textSearchService.getSearchText();
+                                        if (
+                                            searchText !== undefined &&
+                                            searchText != ""
+                                        ) {
+                                            if (
+                                                textSearchService.getSearchText() !=
+                                                poke.name.toLowerCase()
+                                            ) {
+                                                return false;
+                                            }
+                                        }
+                                    }
+                                    return true;
+                                })
+                                .map((poke) => new PokeCard(poke)).toList({ growable: true, }) as any,
+                        }),
+                    ]) as any,
+                }),
         });
     }
 }

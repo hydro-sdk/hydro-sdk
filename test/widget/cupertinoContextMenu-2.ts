@@ -1,4 +1,4 @@
-import { List } from "../../runtime/dart/collection/list";
+import { List } from "../../runtime/dart/core/list";
 import { double } from "../../runtime/dart/core/double";
 import { Animation } from "../../runtime/flutter/animation/animation";
 import { BuildContext } from "../../runtime/flutter/buildContext";
@@ -61,7 +61,7 @@ runApp(
                                     child: new Text("Action two"),
                                     onPressed: () => {},
                                 }),
-                            ]),
+                            ])as any,
                         }),
                     }),
                 }),

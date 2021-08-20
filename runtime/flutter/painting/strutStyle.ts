@@ -1,5 +1,5 @@
 import { JITAllocatingRTManagedBox } from "./../../syntheticBox";
-import { List } from "../../dart/collection/list";
+import { List } from "../../dart/core/list";
 import { Type } from "../../dart/core/type";
 import { FontStyle } from "../../dart/ui/fontStyle";
 import { FontWeight } from "../../dart/ui/fontWeight";
