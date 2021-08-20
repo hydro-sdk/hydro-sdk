@@ -146,7 +146,7 @@ dynamic maybeUnBoxAndBuildArgument<T, V extends dynamic>(
           .map((x) =>
               maybeUnBoxAndBuildArgument<T, V>(x, parentState: parentState))
           .toList()
-          .cast<V>();
+          .cast<T>();
     } else if (arg.arr.isEmpty) {
       return [].cast<T>();
     }
