@@ -16,7 +16,7 @@ assert(list.getLength() == 3);
 assert(list.getIsNotEmpty());
 assert(!list.getIsEmpty());
 
-list = list.map((e) => e + 1).toList({growable:true});
+list = list.map((e) => e + 1).toList({ growable: true });
 
 assert(list.elementAt(0) != undefined);
 assert(list.elementAt(0) == 1);

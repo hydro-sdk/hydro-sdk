@@ -1,4 +1,4 @@
-import { List,IList } from "../../dart/core/list";
+import { IList, List } from "../../dart/core/list";
 import { Type } from "../../dart/core/type";
 import { RuntimeBaseClass } from "../../runtimeBaseClass";
 import { BuildContext } from "./../buildContext";

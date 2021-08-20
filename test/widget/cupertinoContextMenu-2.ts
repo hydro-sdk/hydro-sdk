@@ -1,5 +1,5 @@
-import { List } from "../../runtime/dart/core/list";
 import { double } from "../../runtime/dart/core/double";
+import { List } from "../../runtime/dart/core/list";
 import { Animation } from "../../runtime/flutter/animation/animation";
 import { BuildContext } from "../../runtime/flutter/buildContext";
 import { CupertinoApp } from "../../runtime/flutter/cupertino/cupertinoApp";
@@ -61,7 +61,7 @@ runApp(
                                     child: new Text("Action two"),
                                     onPressed: () => {},
                                 }),
-                            ])as any,
+                            ]) as any,
                         }),
                     }),
                 }),
