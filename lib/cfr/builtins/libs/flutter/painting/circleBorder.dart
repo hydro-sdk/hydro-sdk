@@ -10,7 +10,7 @@ void loadCircleBorder(
   table["circleBorder"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       CircleBorder(
-          side: maybeUnBoxAndBuildArgument<BorderSide,dynamic>(args[0]["side"],
+          side: maybeUnBoxAndBuildArgument<BorderSide, dynamic>(args[0]["side"],
               parentState: luaState))
     ];
   });

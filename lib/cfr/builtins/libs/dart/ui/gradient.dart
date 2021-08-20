@@ -43,10 +43,10 @@ void loadGradient({required HydroState hydroState, required HydroTable table}) {
                   parentState: hydroState),
               maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[2],
                   parentState: hydroState),
-              maybeUnBoxAndBuildArgument<List<Color>, dynamic>(
+              maybeUnBoxAndBuildArgument<List<Color>, Color>(
                   luaCallerArguments[3],
                   parentState: hydroState),
-              maybeUnBoxAndBuildArgument<List<double>?, dynamic>(
+              maybeUnBoxAndBuildArgument<List<double>?, double>(
                   luaCallerArguments[4],
                   parentState: hydroState),
               maybeUnBoxEnum(
@@ -66,10 +66,10 @@ void loadGradient({required HydroState hydroState, required HydroTable table}) {
               maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[1],
                   parentState: hydroState),
               luaCallerArguments[2]?.toDouble(),
-              maybeUnBoxAndBuildArgument<List<Color>, dynamic>(
+              maybeUnBoxAndBuildArgument<List<Color>, Color>(
                   luaCallerArguments[3],
                   parentState: hydroState),
-              maybeUnBoxAndBuildArgument<List<double>?, dynamic>(
+              maybeUnBoxAndBuildArgument<List<double>?, double>(
                   luaCallerArguments[4],
                   parentState: hydroState),
               maybeUnBoxEnum(
@@ -92,10 +92,10 @@ void loadGradient({required HydroState hydroState, required HydroTable table}) {
           object: Gradient.sweep(
               maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[1],
                   parentState: hydroState),
-              maybeUnBoxAndBuildArgument<List<Color>, dynamic>(
+              maybeUnBoxAndBuildArgument<List<Color>, Color>(
                   luaCallerArguments[2],
                   parentState: hydroState),
-              maybeUnBoxAndBuildArgument<List<double>?, dynamic>(
+              maybeUnBoxAndBuildArgument<List<double>?, double>(
                   luaCallerArguments[3],
                   parentState: hydroState),
               maybeUnBoxEnum(

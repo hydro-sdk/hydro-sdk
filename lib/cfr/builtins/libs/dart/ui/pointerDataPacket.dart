@@ -53,7 +53,7 @@ void loadPointerDataPacket(
       RTManagedPointerDataPacket(
           table: luaCallerArguments[0],
           hydroState: hydroState,
-          data: maybeUnBoxAndBuildArgument<List<PointerData>, dynamic>(
+          data: maybeUnBoxAndBuildArgument<List<PointerData>, PointerData>(
               luaCallerArguments[1]['data'],
               parentState: hydroState))
     ];

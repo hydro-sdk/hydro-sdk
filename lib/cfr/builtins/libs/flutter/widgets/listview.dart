@@ -17,7 +17,8 @@ void loadListView({required HydroState luaState, required HydroTable table}) {
             values: Axis.values, boxedEnum: args[0]["scrollDirection"])!,
         reverse: args[0]["reverse"],
         primary: args[0]["primary"],
-        physics: maybeUnBoxAndBuildArgument<ScrollPhysics,dynamic>(args[0]["physics"],
+        physics: maybeUnBoxAndBuildArgument<ScrollPhysics, dynamic>(
+            args[0]["physics"],
             parentState: luaState),
         shrinkWrap: args[0]["shrinkWrap"],
         padding: maybeUnBoxAndBuildArgument(args[0]["padding"],
@@ -31,7 +32,8 @@ void loadListView({required HydroState luaState, required HydroTable table}) {
         dragStartBehavior: maybeUnBoxEnum<DragStartBehavior>(
             values: DragStartBehavior.values,
             boxedEnum: args[0]["dragStartBehavior"])!,
-        children: maybeUnBoxAndBuildArgument<Widget,dynamic>(args[0]["children"],
+        children: maybeUnBoxAndBuildArgument<Widget, dynamic>(
+            args[0]["children"],
             parentState: luaState),
         keyboardDismissBehavior:
             maybeUnBoxEnum<ScrollViewKeyboardDismissBehavior>(
@@ -49,7 +51,8 @@ void loadListView({required HydroState luaState, required HydroTable table}) {
             values: Axis.values, boxedEnum: args[0]["scrollDirection"])!,
         reverse: args[0]["reverse"],
         primary: args[0]["primary"],
-        physics: maybeUnBoxAndBuildArgument<ScrollPhysics,dynamic>(args[0]["physics"],
+        physics: maybeUnBoxAndBuildArgument<ScrollPhysics, dynamic>(
+            args[0]["physics"],
             parentState: luaState),
         shrinkWrap: args[0]["shrinkWrap"],
         padding: maybeUnBoxAndBuildArgument(args[0]["padding"],
@@ -75,7 +78,8 @@ void loadListView({required HydroState luaState, required HydroTable table}) {
             ),
             index
           ], parentState: luaState)[0];
-          return maybeUnBoxAndBuildArgument<Widget,dynamic>(res, parentState: luaState);
+          return maybeUnBoxAndBuildArgument<Widget, dynamic>(res,
+              parentState: luaState);
         },
       )
     ];

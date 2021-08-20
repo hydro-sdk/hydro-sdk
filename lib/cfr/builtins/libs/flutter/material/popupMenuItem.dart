@@ -11,7 +11,7 @@ void loadPopupMenuItem(
     return [
       PopupMenuItem(
         value: args[0]["value"],
-        child: maybeUnBoxAndBuildArgument<Widget,dynamic>(args[0]["child"],
+        child: maybeUnBoxAndBuildArgument<Widget, dynamic>(args[0]["child"],
             parentState: luaState),
       )
     ];

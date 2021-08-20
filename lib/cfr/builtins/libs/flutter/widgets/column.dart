@@ -17,7 +17,8 @@ void loadColumn({required HydroState luaState, required HydroTable table}) {
           crossAxisAlignment: maybeUnBoxEnum<CrossAxisAlignment>(
               values: CrossAxisAlignment.values,
               boxedEnum: args[0]["crossAxisAlignment"])!,
-          children: maybeUnBoxAndBuildArgument<Widget,dynamic>(args[0]["children"],
+          children: maybeUnBoxAndBuildArgument<Widget, dynamic>(
+              args[0]["children"],
               parentState: luaState))
     ];
   });

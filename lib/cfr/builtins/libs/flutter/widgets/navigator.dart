@@ -8,11 +8,11 @@ import 'package:hydro_sdk/hydroState.dart';
 void loadNavigator({required HydroState luaState, required HydroTable table}) {
   table["navigatorPush"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
-      maybeUnBoxAndBuildArgument<Widget,dynamic>(
+      maybeUnBoxAndBuildArgument<Widget, dynamic>(
           Navigator.push(
-              maybeUnBoxAndBuildArgument<BuildContext,dynamic>(args[0],
+              maybeUnBoxAndBuildArgument<BuildContext, dynamic>(args[0],
                   parentState: luaState),
-              maybeUnBoxAndBuildArgument<Route<Object>,dynamic>(args[1],
+              maybeUnBoxAndBuildArgument<Route<Object>, dynamic>(args[1],
                   parentState: luaState)),
           parentState: luaState)
     ];

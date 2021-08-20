@@ -62,14 +62,14 @@ class VMManagedSet extends VMManagedBox<Set<dynamic>> {
     });
     table['removeAll'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.removeAll(maybeUnBoxAndBuildArgument<Iterable<Object?>, dynamic>(
+      vmObject.removeAll(maybeUnBoxAndBuildArgument<Iterable<Object?>, Object?>(
           luaCallerArguments[1],
           parentState: hydroState));
       return [];
     });
     table['retainAll'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.retainAll(maybeUnBoxAndBuildArgument<Iterable<Object?>, dynamic>(
+      vmObject.retainAll(maybeUnBoxAndBuildArgument<Iterable<Object?>, Object?>(
           luaCallerArguments[1],
           parentState: hydroState));
       return [];
@@ -96,7 +96,7 @@ class VMManagedSet extends VMManagedBox<Set<dynamic>> {
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         vmObject.containsAll(
-            maybeUnBoxAndBuildArgument<Iterable<Object?>, dynamic>(
+            maybeUnBoxAndBuildArgument<Iterable<Object?>, Object?>(
                 luaCallerArguments[1],
                 parentState: hydroState)),
       ];
@@ -106,7 +106,7 @@ class VMManagedSet extends VMManagedBox<Set<dynamic>> {
       return [
         maybeBoxObject<Set>(
             object: vmObject.intersection(
-                maybeUnBoxAndBuildArgument<Set<Object?>, dynamic>(
+                maybeUnBoxAndBuildArgument<Set<Object?>, Object?>(
                     luaCallerArguments[1],
                     parentState: hydroState)),
             hydroState: hydroState,
@@ -129,7 +129,7 @@ class VMManagedSet extends VMManagedBox<Set<dynamic>> {
       return [
         maybeBoxObject<Set>(
             object: vmObject.difference(
-                maybeUnBoxAndBuildArgument<Set<Object?>, dynamic>(
+                maybeUnBoxAndBuildArgument<Set<Object?>, Object?>(
                     luaCallerArguments[1],
                     parentState: hydroState)),
             hydroState: hydroState,
@@ -491,7 +491,7 @@ void loadSet({required HydroState hydroState, required HydroTable table}) {
                   luaCallerArguments[1],
                   parentState: hydroState),
               newSet: unpackednewSet != null
-                  ? <R>() => maybeUnBoxAndBuildArgument<Set<R>, dynamic>(
+                  ? <R>() => maybeUnBoxAndBuildArgument<Set<R>, R>(
                       unpackednewSet.dispatch(
                         [
                           luaCallerArguments[0],

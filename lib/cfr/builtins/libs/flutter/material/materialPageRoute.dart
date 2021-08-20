@@ -15,7 +15,7 @@ void loadMaterialPageRoute(
             Closure closure = args[0]["builder"];
             var res =
                 closure.dispatch([null, context], parentState: luaState)[0];
-            return maybeUnBoxAndBuildArgument<Widget,dynamic>(res,
+            return maybeUnBoxAndBuildArgument<Widget, dynamic>(res,
                 parentState: luaState);
           },
           maintainState: args[0]["maintainState"],

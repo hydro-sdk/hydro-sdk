@@ -190,11 +190,9 @@ void loadShadow({required HydroState hydroState, required HydroTable table}) {
   table['shadowLerpList'] =
       makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     final returnValue = Shadow.lerpList(
-        maybeUnBoxAndBuildArgument<List<Shadow>?, dynamic>(
-            luaCallerArguments[1],
+        maybeUnBoxAndBuildArgument<List<Shadow>?, Shadow>(luaCallerArguments[1],
             parentState: hydroState),
-        maybeUnBoxAndBuildArgument<List<Shadow>?, dynamic>(
-            luaCallerArguments[2],
+        maybeUnBoxAndBuildArgument<List<Shadow>?, Shadow>(luaCallerArguments[2],
             parentState: hydroState),
         luaCallerArguments[3]?.toDouble());
     if (returnValue != null) {

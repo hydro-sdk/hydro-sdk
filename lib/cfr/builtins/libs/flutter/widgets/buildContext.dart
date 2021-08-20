@@ -28,7 +28,8 @@ class VMManagedBuildContext extends VMManagedBox<BuildContext> {
     table["ancestorInheritedElementForWidgetOfExactType"] =
         makeLuaDartFunc(func: (List<dynamic> args) {
       HydroTable? res;
-      BuildContext activeContext = maybeUnBoxAndBuildArgument<BuildContext,dynamic>(
+      BuildContext activeContext =
+          maybeUnBoxAndBuildArgument<BuildContext, dynamic>(
         args[0],
         parentState: hydroState,
       );

@@ -9,14 +9,14 @@ void loadAlign({required HydroState luaState, required HydroTable table}) {
   table["align"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       Align(
-        key: maybeUnBoxAndBuildArgument<Widget,dynamic>(args[0]["key"],
+        key: maybeUnBoxAndBuildArgument<Widget, dynamic>(args[0]["key"],
             parentState: luaState),
-        alignment: maybeUnBoxAndBuildArgument<AlignmentGeometry,dynamic>(
+        alignment: maybeUnBoxAndBuildArgument<AlignmentGeometry, dynamic>(
             args[0]["alignment"],
             parentState: luaState),
         widthFactor: args[0]["widthFactor"],
         heightFactor: args[0]["heightFactor"],
-        child: maybeUnBoxAndBuildArgument<Widget,dynamic>(args[0]["child"],
+        child: maybeUnBoxAndBuildArgument<Widget, dynamic>(args[0]["child"],
             parentState: luaState),
       )
     ];

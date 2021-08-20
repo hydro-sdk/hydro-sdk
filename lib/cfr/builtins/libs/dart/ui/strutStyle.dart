@@ -79,10 +79,9 @@ void loadStrutStyle(
           table: luaCallerArguments[0],
           hydroState: hydroState,
           fontFamily: luaCallerArguments[1]['fontFamily'],
-          fontFamilyFallback:
-              maybeUnBoxAndBuildArgument<List<String>?, dynamic>(
-                  luaCallerArguments[1]['fontFamilyFallback'],
-                  parentState: hydroState),
+          fontFamilyFallback: maybeUnBoxAndBuildArgument<List<String>?, String>(
+              luaCallerArguments[1]['fontFamilyFallback'],
+              parentState: hydroState),
           fontSize: luaCallerArguments[1]['fontSize']?.toDouble(),
           fontStyle: maybeUnBoxEnum(
               values: FontStyle.values,

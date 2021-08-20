@@ -35,7 +35,7 @@ class VMManagedUint32List extends VMManagedBox<Uint32List> {
       return [];
     });
     table['addAll'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.addAll(maybeUnBoxAndBuildArgument<Iterable<int>, dynamic>(
+      vmObject.addAll(maybeUnBoxAndBuildArgument<Iterable<int>, int>(
           luaCallerArguments[1],
           parentState: hydroState));
       return [];
@@ -105,16 +105,14 @@ class VMManagedUint32List extends VMManagedBox<Uint32List> {
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.insertAll(
           luaCallerArguments[1],
-          maybeUnBoxAndBuildArgument<Iterable<int>, dynamic>(
-              luaCallerArguments[2],
+          maybeUnBoxAndBuildArgument<Iterable<int>, int>(luaCallerArguments[2],
               parentState: hydroState));
       return [];
     });
     table['setAll'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.setAll(
           luaCallerArguments[1],
-          maybeUnBoxAndBuildArgument<Iterable<int>, dynamic>(
-              luaCallerArguments[2],
+          maybeUnBoxAndBuildArgument<Iterable<int>, int>(luaCallerArguments[2],
               parentState: hydroState));
       return [];
     });
@@ -170,8 +168,7 @@ class VMManagedUint32List extends VMManagedBox<Uint32List> {
       vmObject.setRange(
           luaCallerArguments[1],
           luaCallerArguments[2],
-          maybeUnBoxAndBuildArgument<Iterable<int>, dynamic>(
-              luaCallerArguments[3],
+          maybeUnBoxAndBuildArgument<Iterable<int>, int>(luaCallerArguments[3],
               parentState: hydroState),
           luaCallerArguments[4]);
       return [];
@@ -192,8 +189,7 @@ class VMManagedUint32List extends VMManagedBox<Uint32List> {
       vmObject.replaceRange(
           luaCallerArguments[1],
           luaCallerArguments[2],
-          maybeUnBoxAndBuildArgument<Iterable<int>, dynamic>(
-              luaCallerArguments[3],
+          maybeUnBoxAndBuildArgument<Iterable<int>, int>(luaCallerArguments[3],
               parentState: hydroState));
       return [];
     });
@@ -240,7 +236,7 @@ class VMManagedUint32List extends VMManagedBox<Uint32List> {
       return [
         maybeBoxObject<Iterable>(
             object: vmObject.followedBy(
-                maybeUnBoxAndBuildArgument<Iterable<int>, dynamic>(
+                maybeUnBoxAndBuildArgument<Iterable<int>, int>(
                     luaCallerArguments[1],
                     parentState: hydroState)),
             hydroState: hydroState,
@@ -583,8 +579,7 @@ void loadUint32List(
     return [
       maybeBoxObject<Uint32List>(
           object: Uint32List.fromList(
-              maybeUnBoxAndBuildArgument<List<int>, dynamic>(
-                  luaCallerArguments[1],
+              maybeUnBoxAndBuildArgument<List<int>, int>(luaCallerArguments[1],
                   parentState: hydroState)),
           hydroState: hydroState,
           table: HydroTable()),

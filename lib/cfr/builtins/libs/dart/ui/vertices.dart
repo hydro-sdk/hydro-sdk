@@ -51,21 +51,20 @@ void loadVertices({required HydroState hydroState, required HydroTable table}) {
       RTManagedVertices(
           maybeUnBoxEnum(
               values: VertexMode.values, boxedEnum: luaCallerArguments[1]),
-          maybeUnBoxAndBuildArgument<List<Offset>, dynamic>(
+          maybeUnBoxAndBuildArgument<List<Offset>, Offset>(
               luaCallerArguments[2],
               parentState: hydroState),
           table: luaCallerArguments[0],
           hydroState: hydroState,
-          colors: maybeUnBoxAndBuildArgument<List<Color>?, dynamic>(
+          colors: maybeUnBoxAndBuildArgument<List<Color>?, Color>(
               luaCallerArguments[3]['colors'],
               parentState: hydroState),
-          indices: maybeUnBoxAndBuildArgument<List<int>?, dynamic>(
+          indices: maybeUnBoxAndBuildArgument<List<int>?, int>(
               luaCallerArguments[3]['indices'],
               parentState: hydroState),
-          textureCoordinates:
-              maybeUnBoxAndBuildArgument<List<Offset>?, dynamic>(
-                  luaCallerArguments[3]['textureCoordinates'],
-                  parentState: hydroState))
+          textureCoordinates: maybeUnBoxAndBuildArgument<List<Offset>?, Offset>(
+              luaCallerArguments[3]['textureCoordinates'],
+              parentState: hydroState))
     ];
   });
   table['verticesRaw'] =

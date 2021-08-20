@@ -11,11 +11,11 @@ void loadText({required HydroState luaState, required HydroTable table}) {
       Text(
         args[0],
         key: args[1] != null
-            ? maybeUnBoxAndBuildArgument<Widget,dynamic>(args[1]["key"],
+            ? maybeUnBoxAndBuildArgument<Widget, dynamic>(args[1]["key"],
                 parentState: luaState)
             : null,
         style: args[1] != null
-            ? maybeUnBoxAndBuildArgument<TextStyle,dynamic>(args[1]["style"],
+            ? maybeUnBoxAndBuildArgument<TextStyle, dynamic>(args[1]["style"],
                 parentState: luaState)
             : null,
       )

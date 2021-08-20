@@ -48,7 +48,7 @@ class VMManagedChannelBuffers extends VMManagedBox<ChannelBuffers> {
             object: vmObject.drain(
                 luaCallerArguments[1],
                 (data, callback) =>
-                    maybeUnBoxAndBuildArgument<Future<void>, dynamic>(
+                    maybeUnBoxAndBuildArgument<Future<void>, void>(
                         unpackedcallback.dispatch(
                           [luaCallerArguments[0], data, callback],
                           parentState: hydroState,
@@ -128,7 +128,7 @@ class RTManagedChannelBuffers extends ChannelBuffers
             object: super.drain(
                 luaCallerArguments[1],
                 (data, callback) =>
-                    maybeUnBoxAndBuildArgument<Future<void>, dynamic>(
+                    maybeUnBoxAndBuildArgument<Future<void>, void>(
                         unpackedcallback.dispatch(
                           [luaCallerArguments[0], data, callback],
                           parentState: hydroState,
@@ -184,7 +184,7 @@ class RTManagedChannelBuffers extends ChannelBuffers
   @override
   Future<void> drain(String name, callback) {
     Closure closure = table["drain"];
-    return maybeUnBoxAndBuildArgument<Future<void>, dynamic>(
+    return maybeUnBoxAndBuildArgument<Future<void>, void>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }

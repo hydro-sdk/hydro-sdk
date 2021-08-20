@@ -138,7 +138,7 @@ class RTManagedDiagnosticableTree extends DiagnosticableTree
   DiagnosticsNode toDiagnosticsNode(
       {String? name, DiagnosticsTreeStyle? style}) {
     Closure closure = table["toDiagnosticsNode"];
-    return maybeUnBoxAndBuildArgument<DiagnosticsNode,dynamic>(
+    return maybeUnBoxAndBuildArgument<DiagnosticsNode, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }

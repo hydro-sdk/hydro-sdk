@@ -10,9 +10,9 @@ void loadSliverToBoxAdapter(
   table["sliverToBoxAdapter"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       SliverToBoxAdapter(
-        key: maybeUnBoxAndBuildArgument<Key,dynamic>(args[0]["key"],
+        key: maybeUnBoxAndBuildArgument<Key, dynamic>(args[0]["key"],
             parentState: luaState),
-        child: maybeUnBoxAndBuildArgument<Widget,dynamic>(args[0]["child"],
+        child: maybeUnBoxAndBuildArgument<Widget, dynamic>(args[0]["child"],
             parentState: luaState),
       )
     ];

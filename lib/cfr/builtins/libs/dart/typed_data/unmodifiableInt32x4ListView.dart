@@ -58,7 +58,7 @@ class VMManagedUnmodifiableInt32x4ListView
       return [];
     });
     table['addAll'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.addAll(maybeUnBoxAndBuildArgument<Iterable<Int32x4>, dynamic>(
+      vmObject.addAll(maybeUnBoxAndBuildArgument<Iterable<Int32x4>, Int32x4>(
           luaCallerArguments[1],
           parentState: hydroState));
       return [];
@@ -119,7 +119,7 @@ class VMManagedUnmodifiableInt32x4ListView
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.insertAll(
           luaCallerArguments[1],
-          maybeUnBoxAndBuildArgument<Iterable<Int32x4>, dynamic>(
+          maybeUnBoxAndBuildArgument<Iterable<Int32x4>, Int32x4>(
               luaCallerArguments[2],
               parentState: hydroState));
       return [];
@@ -127,7 +127,7 @@ class VMManagedUnmodifiableInt32x4ListView
     table['setAll'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.setAll(
           luaCallerArguments[1],
-          maybeUnBoxAndBuildArgument<Iterable<Int32x4>, dynamic>(
+          maybeUnBoxAndBuildArgument<Iterable<Int32x4>, Int32x4>(
               luaCallerArguments[2],
               parentState: hydroState));
       return [];
@@ -190,7 +190,7 @@ class VMManagedUnmodifiableInt32x4ListView
       vmObject.setRange(
           luaCallerArguments[1],
           luaCallerArguments[2],
-          maybeUnBoxAndBuildArgument<Iterable<Int32x4>, dynamic>(
+          maybeUnBoxAndBuildArgument<Iterable<Int32x4>, Int32x4>(
               luaCallerArguments[3],
               parentState: hydroState),
           luaCallerArguments[4]);
@@ -215,7 +215,7 @@ class VMManagedUnmodifiableInt32x4ListView
       vmObject.replaceRange(
           luaCallerArguments[1],
           luaCallerArguments[2],
-          maybeUnBoxAndBuildArgument<Iterable<Int32x4>, dynamic>(
+          maybeUnBoxAndBuildArgument<Iterable<Int32x4>, Int32x4>(
               luaCallerArguments[3],
               parentState: hydroState));
       return [];
@@ -267,7 +267,7 @@ class VMManagedUnmodifiableInt32x4ListView
       return [
         maybeBoxObject<Iterable>(
             object: vmObject.followedBy(
-                maybeUnBoxAndBuildArgument<Iterable<Int32x4>, dynamic>(
+                maybeUnBoxAndBuildArgument<Iterable<Int32x4>, Int32x4>(
                     luaCallerArguments[1],
                     parentState: hydroState)),
             hydroState: hydroState,
@@ -682,7 +682,7 @@ class RTManagedUnmodifiableInt32x4ListView extends UnmodifiableInt32x4ListView
     });
     table['_dart_addAll'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      addAll(maybeUnBoxAndBuildArgument<Iterable<Int32x4>, dynamic>(
+      addAll(maybeUnBoxAndBuildArgument<Iterable<Int32x4>, Int32x4>(
           luaCallerArguments[1],
           parentState: hydroState));
       return [];
@@ -746,7 +746,7 @@ class RTManagedUnmodifiableInt32x4ListView extends UnmodifiableInt32x4ListView
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       insertAll(
           luaCallerArguments[1],
-          maybeUnBoxAndBuildArgument<Iterable<Int32x4>, dynamic>(
+          maybeUnBoxAndBuildArgument<Iterable<Int32x4>, Int32x4>(
               luaCallerArguments[2],
               parentState: hydroState));
       return [];
@@ -755,7 +755,7 @@ class RTManagedUnmodifiableInt32x4ListView extends UnmodifiableInt32x4ListView
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       setAll(
           luaCallerArguments[1],
-          maybeUnBoxAndBuildArgument<Iterable<Int32x4>, dynamic>(
+          maybeUnBoxAndBuildArgument<Iterable<Int32x4>, Int32x4>(
               luaCallerArguments[2],
               parentState: hydroState));
       return [];
@@ -816,7 +816,7 @@ class RTManagedUnmodifiableInt32x4ListView extends UnmodifiableInt32x4ListView
       setRange(
           luaCallerArguments[1],
           luaCallerArguments[2],
-          maybeUnBoxAndBuildArgument<Iterable<Int32x4>, dynamic>(
+          maybeUnBoxAndBuildArgument<Iterable<Int32x4>, Int32x4>(
               luaCallerArguments[3],
               parentState: hydroState),
           luaCallerArguments[4]);
@@ -841,7 +841,7 @@ class RTManagedUnmodifiableInt32x4ListView extends UnmodifiableInt32x4ListView
       replaceRange(
           luaCallerArguments[1],
           luaCallerArguments[2],
-          maybeUnBoxAndBuildArgument<Iterable<Int32x4>, dynamic>(
+          maybeUnBoxAndBuildArgument<Iterable<Int32x4>, Int32x4>(
               luaCallerArguments[3],
               parentState: hydroState));
       return [];
@@ -885,7 +885,7 @@ class RTManagedUnmodifiableInt32x4ListView extends UnmodifiableInt32x4ListView
       return [
         maybeBoxObject<Iterable>(
             object: super.followedBy(
-                maybeUnBoxAndBuildArgument<Iterable<Int32x4>, dynamic>(
+                maybeUnBoxAndBuildArgument<Iterable<Int32x4>, Int32x4>(
                     luaCallerArguments[1],
                     parentState: hydroState)),
             hydroState: hydroState,
@@ -1239,7 +1239,7 @@ class RTManagedUnmodifiableInt32x4ListView extends UnmodifiableInt32x4ListView
   @override
   List<R> cast<R>() {
     Closure closure = table["cast"];
-    return maybeUnBoxAndBuildArgument<List<R>, dynamic>(
+    return maybeUnBoxAndBuildArgument<List<R>, R>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -1341,7 +1341,7 @@ class RTManagedUnmodifiableInt32x4ListView extends UnmodifiableInt32x4ListView
   @override
   Iterable<Int32x4> getRange(int start, int end) {
     Closure closure = table["getRange"];
-    return maybeUnBoxAndBuildArgument<Iterable<Int32x4>, dynamic>(
+    return maybeUnBoxAndBuildArgument<Iterable<Int32x4>, Int32x4>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -1373,7 +1373,7 @@ class RTManagedUnmodifiableInt32x4ListView extends UnmodifiableInt32x4ListView
   @override
   Map<int, Int32x4> asMap() {
     Closure closure = table["asMap"];
-    return maybeUnBoxAndBuildArgument<Map<int, Int32x4>, dynamic>(
+    return maybeUnBoxAndBuildArgument<Map<int, Int32x4>, int>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -1405,7 +1405,7 @@ class RTManagedUnmodifiableInt32x4ListView extends UnmodifiableInt32x4ListView
   @override
   Iterable<Int32x4> get reversed {
     Closure closure = table["getReversed"];
-    return maybeUnBoxAndBuildArgument<Iterable<Int32x4>, dynamic>(
+    return maybeUnBoxAndBuildArgument<Iterable<Int32x4>, Int32x4>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -1413,7 +1413,7 @@ class RTManagedUnmodifiableInt32x4ListView extends UnmodifiableInt32x4ListView
   @override
   Iterable<Int32x4> followedBy(Iterable other) {
     Closure closure = table["followedBy"];
-    return maybeUnBoxAndBuildArgument<Iterable<Int32x4>, dynamic>(
+    return maybeUnBoxAndBuildArgument<Iterable<Int32x4>, Int32x4>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -1421,7 +1421,7 @@ class RTManagedUnmodifiableInt32x4ListView extends UnmodifiableInt32x4ListView
   @override
   Iterable<T> map<T>(f) {
     Closure closure = table["map"];
-    return maybeUnBoxAndBuildArgument<Iterable<T>, dynamic>(
+    return maybeUnBoxAndBuildArgument<Iterable<T>, T>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -1429,7 +1429,7 @@ class RTManagedUnmodifiableInt32x4ListView extends UnmodifiableInt32x4ListView
   @override
   Iterable<Int32x4> where(test) {
     Closure closure = table["where"];
-    return maybeUnBoxAndBuildArgument<Iterable<Int32x4>, dynamic>(
+    return maybeUnBoxAndBuildArgument<Iterable<Int32x4>, Int32x4>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -1437,7 +1437,7 @@ class RTManagedUnmodifiableInt32x4ListView extends UnmodifiableInt32x4ListView
   @override
   Iterable<T> whereType<T>() {
     Closure closure = table["whereType"];
-    return maybeUnBoxAndBuildArgument<Iterable<T>, dynamic>(
+    return maybeUnBoxAndBuildArgument<Iterable<T>, T>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -1445,7 +1445,7 @@ class RTManagedUnmodifiableInt32x4ListView extends UnmodifiableInt32x4ListView
   @override
   Iterable<T> expand<T>(f) {
     Closure closure = table["expand"];
-    return maybeUnBoxAndBuildArgument<Iterable<T>, dynamic>(
+    return maybeUnBoxAndBuildArgument<Iterable<T>, T>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -1497,7 +1497,7 @@ class RTManagedUnmodifiableInt32x4ListView extends UnmodifiableInt32x4ListView
   @override
   List<Int32x4> toList({bool growable = true}) {
     Closure closure = table["toList"];
-    return maybeUnBoxAndBuildArgument<List<Int32x4>, dynamic>(
+    return maybeUnBoxAndBuildArgument<List<Int32x4>, Int32x4>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -1505,7 +1505,7 @@ class RTManagedUnmodifiableInt32x4ListView extends UnmodifiableInt32x4ListView
   @override
   Set<Int32x4> toSet() {
     Closure closure = table["toSet"];
-    return maybeUnBoxAndBuildArgument<Set<Int32x4>, dynamic>(
+    return maybeUnBoxAndBuildArgument<Set<Int32x4>, Int32x4>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -1513,7 +1513,7 @@ class RTManagedUnmodifiableInt32x4ListView extends UnmodifiableInt32x4ListView
   @override
   Iterable<Int32x4> take(int count) {
     Closure closure = table["take"];
-    return maybeUnBoxAndBuildArgument<Iterable<Int32x4>, dynamic>(
+    return maybeUnBoxAndBuildArgument<Iterable<Int32x4>, Int32x4>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -1521,7 +1521,7 @@ class RTManagedUnmodifiableInt32x4ListView extends UnmodifiableInt32x4ListView
   @override
   Iterable<Int32x4> takeWhile(test) {
     Closure closure = table["takeWhile"];
-    return maybeUnBoxAndBuildArgument<Iterable<Int32x4>, dynamic>(
+    return maybeUnBoxAndBuildArgument<Iterable<Int32x4>, Int32x4>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -1529,7 +1529,7 @@ class RTManagedUnmodifiableInt32x4ListView extends UnmodifiableInt32x4ListView
   @override
   Iterable<Int32x4> skip(int count) {
     Closure closure = table["skip"];
-    return maybeUnBoxAndBuildArgument<Iterable<Int32x4>, dynamic>(
+    return maybeUnBoxAndBuildArgument<Iterable<Int32x4>, Int32x4>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -1537,7 +1537,7 @@ class RTManagedUnmodifiableInt32x4ListView extends UnmodifiableInt32x4ListView
   @override
   Iterable<Int32x4> skipWhile(test) {
     Closure closure = table["skipWhile"];
-    return maybeUnBoxAndBuildArgument<Iterable<Int32x4>, dynamic>(
+    return maybeUnBoxAndBuildArgument<Iterable<Int32x4>, Int32x4>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -1583,7 +1583,7 @@ class RTManagedUnmodifiableInt32x4ListView extends UnmodifiableInt32x4ListView
   @override
   Iterator<Int32x4> get iterator {
     Closure closure = table["getIterator"];
-    return maybeUnBoxAndBuildArgument<Iterator<Int32x4>, dynamic>(
+    return maybeUnBoxAndBuildArgument<Iterator<Int32x4>, Int32x4>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }

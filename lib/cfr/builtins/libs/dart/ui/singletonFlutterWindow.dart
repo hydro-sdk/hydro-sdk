@@ -60,7 +60,7 @@ class VMManagedSingletonFlutterWindow
     table['computePlatformResolvedLocale'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       final returnValue = vmObject.computePlatformResolvedLocale(
-          maybeUnBoxAndBuildArgument<List<Locale>, dynamic>(
+          maybeUnBoxAndBuildArgument<List<Locale>, Locale>(
               luaCallerArguments[1],
               parentState: hydroState));
       if (returnValue != null) {

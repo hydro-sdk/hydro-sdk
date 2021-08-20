@@ -1,5 +1,4 @@
 import 'dart:core';
-import 'dart:developer';
 
 import 'package:hydro_sdk/cfr/runtimeSupport.dart';
 
@@ -62,8 +61,9 @@ class VMManagedMap extends VMManagedBox<Map<dynamic, dynamic>> {
     table['addEntries'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.addEntries(maybeUnBoxAndBuildArgument<
-          Iterable<MapEntry<dynamic, dynamic>>,
-          dynamic>(luaCallerArguments[1], parentState: hydroState));
+              Iterable<MapEntry<dynamic, dynamic>>,
+              MapEntry<dynamic, dynamic>>(luaCallerArguments[1],
+          parentState: hydroState));
       return [];
     });
     table['update'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -279,16 +279,12 @@ void loadMap({required HydroState hydroState, required HydroTable table}) {
   });
   table['mapFromEntries'] =
       makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-    // printUnboxing = true;
-    final res = maybeUnBoxAndBuildArgument<Iterable<MapEntry<dynamic, dynamic>>,
-            MapEntry<dynamic, dynamic>>(luaCallerArguments[1],
-        parentState: hydroState);
-
-    // debugger();
-    print(luaCallerArguments);
     return [
       maybeBoxObject<Map>(
-          object: Map.fromEntries(res),
+          object: Map.fromEntries(maybeUnBoxAndBuildArgument<
+                  Iterable<MapEntry<dynamic, dynamic>>,
+                  MapEntry<dynamic, dynamic>>(luaCallerArguments[1],
+              parentState: hydroState)),
           hydroState: hydroState,
           table: HydroTable()),
     ];

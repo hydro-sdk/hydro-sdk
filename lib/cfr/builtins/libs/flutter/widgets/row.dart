@@ -9,7 +9,7 @@ void loadRow({required HydroState luaState, required HydroTable table}) {
   table["row"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       Row(
-        key: maybeUnBoxAndBuildArgument<Widget,dynamic>(args[0]["key"],
+        key: maybeUnBoxAndBuildArgument<Widget, dynamic>(args[0]["key"],
             parentState: luaState),
         mainAxisAlignment: maybeUnBoxEnum<MainAxisAlignment>(
             values: MainAxisAlignment.values,
@@ -26,7 +26,8 @@ void loadRow({required HydroState luaState, required HydroTable table}) {
             boxedEnum: args[0]["verticalDirection"])!,
         textBaseline: maybeUnBoxEnum<TextBaseline>(
             values: TextBaseline.values, boxedEnum: args[0]["textBaseline"]),
-        children: maybeUnBoxAndBuildArgument<Widget,dynamic>(args[0]["children"],
+        children: maybeUnBoxAndBuildArgument<Widget, dynamic>(
+            args[0]["children"],
             parentState: luaState),
       )
     ];

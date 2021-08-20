@@ -244,7 +244,7 @@ class VMManagedCanvas extends VMManagedBox<Canvas> {
       vmObject.drawPoints(
           maybeUnBoxEnum(
               values: PointMode.values, boxedEnum: luaCallerArguments[1]),
-          maybeUnBoxAndBuildArgument<List<Offset>, dynamic>(
+          maybeUnBoxAndBuildArgument<List<Offset>, Offset>(
               luaCallerArguments[2],
               parentState: hydroState),
           maybeUnBoxAndBuildArgument<Paint, dynamic>(luaCallerArguments[3],
@@ -279,13 +279,12 @@ class VMManagedCanvas extends VMManagedBox<Canvas> {
       vmObject.drawAtlas(
           maybeUnBoxAndBuildArgument<Image, dynamic>(luaCallerArguments[1],
               parentState: hydroState),
-          maybeUnBoxAndBuildArgument<List<RSTransform>, dynamic>(
+          maybeUnBoxAndBuildArgument<List<RSTransform>, RSTransform>(
               luaCallerArguments[2],
               parentState: hydroState),
-          maybeUnBoxAndBuildArgument<List<Rect>, dynamic>(luaCallerArguments[3],
+          maybeUnBoxAndBuildArgument<List<Rect>, Rect>(luaCallerArguments[3],
               parentState: hydroState),
-          maybeUnBoxAndBuildArgument<List<Color>?, dynamic>(
-              luaCallerArguments[4],
+          maybeUnBoxAndBuildArgument<List<Color>?, Color>(luaCallerArguments[4],
               parentState: hydroState),
           maybeUnBoxEnum(
               values: BlendMode.values, boxedEnum: luaCallerArguments[5]),
@@ -581,7 +580,7 @@ class RTManagedCanvas extends Canvas implements Box<Canvas> {
       super.drawPoints(
           maybeUnBoxEnum(
               values: PointMode.values, boxedEnum: luaCallerArguments[1]),
-          maybeUnBoxAndBuildArgument<List<Offset>, dynamic>(
+          maybeUnBoxAndBuildArgument<List<Offset>, Offset>(
               luaCallerArguments[2],
               parentState: hydroState),
           maybeUnBoxAndBuildArgument<Paint, dynamic>(luaCallerArguments[3],
@@ -616,13 +615,12 @@ class RTManagedCanvas extends Canvas implements Box<Canvas> {
       super.drawAtlas(
           maybeUnBoxAndBuildArgument<Image, dynamic>(luaCallerArguments[1],
               parentState: hydroState),
-          maybeUnBoxAndBuildArgument<List<RSTransform>, dynamic>(
+          maybeUnBoxAndBuildArgument<List<RSTransform>, RSTransform>(
               luaCallerArguments[2],
               parentState: hydroState),
-          maybeUnBoxAndBuildArgument<List<Rect>, dynamic>(luaCallerArguments[3],
+          maybeUnBoxAndBuildArgument<List<Rect>, Rect>(luaCallerArguments[3],
               parentState: hydroState),
-          maybeUnBoxAndBuildArgument<List<Color>?, dynamic>(
-              luaCallerArguments[4],
+          maybeUnBoxAndBuildArgument<List<Color>?, Color>(luaCallerArguments[4],
               parentState: hydroState),
           maybeUnBoxEnum(
               values: BlendMode.values, boxedEnum: luaCallerArguments[5]),

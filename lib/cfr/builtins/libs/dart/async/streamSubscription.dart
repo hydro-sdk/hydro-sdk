@@ -50,7 +50,7 @@ class VMManagedStreamSubscription
       return [];
     });
     table['pause'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.pause(maybeUnBoxAndBuildArgument<Future<void>?, dynamic>(
+      vmObject.pause(maybeUnBoxAndBuildArgument<Future<void>?, void>(
           luaCallerArguments[1],
           parentState: hydroState));
       return [];

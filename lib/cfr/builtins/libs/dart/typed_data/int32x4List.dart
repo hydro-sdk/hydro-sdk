@@ -37,7 +37,7 @@ class VMManagedInt32x4List extends VMManagedBox<Int32x4List> {
       return [];
     });
     table['addAll'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.addAll(maybeUnBoxAndBuildArgument<Iterable<Int32x4>, dynamic>(
+      vmObject.addAll(maybeUnBoxAndBuildArgument<Iterable<Int32x4>, Int32x4>(
           luaCallerArguments[1],
           parentState: hydroState));
       return [];
@@ -116,7 +116,7 @@ class VMManagedInt32x4List extends VMManagedBox<Int32x4List> {
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.insertAll(
           luaCallerArguments[1],
-          maybeUnBoxAndBuildArgument<Iterable<Int32x4>, dynamic>(
+          maybeUnBoxAndBuildArgument<Iterable<Int32x4>, Int32x4>(
               luaCallerArguments[2],
               parentState: hydroState));
       return [];
@@ -124,7 +124,7 @@ class VMManagedInt32x4List extends VMManagedBox<Int32x4List> {
     table['setAll'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.setAll(
           luaCallerArguments[1],
-          maybeUnBoxAndBuildArgument<Iterable<Int32x4>, dynamic>(
+          maybeUnBoxAndBuildArgument<Iterable<Int32x4>, Int32x4>(
               luaCallerArguments[2],
               parentState: hydroState));
       return [];
@@ -187,7 +187,7 @@ class VMManagedInt32x4List extends VMManagedBox<Int32x4List> {
       vmObject.setRange(
           luaCallerArguments[1],
           luaCallerArguments[2],
-          maybeUnBoxAndBuildArgument<Iterable<Int32x4>, dynamic>(
+          maybeUnBoxAndBuildArgument<Iterable<Int32x4>, Int32x4>(
               luaCallerArguments[3],
               parentState: hydroState),
           luaCallerArguments[4]);
@@ -212,7 +212,7 @@ class VMManagedInt32x4List extends VMManagedBox<Int32x4List> {
       vmObject.replaceRange(
           luaCallerArguments[1],
           luaCallerArguments[2],
-          maybeUnBoxAndBuildArgument<Iterable<Int32x4>, dynamic>(
+          maybeUnBoxAndBuildArgument<Iterable<Int32x4>, Int32x4>(
               luaCallerArguments[3],
               parentState: hydroState));
       return [];
@@ -264,7 +264,7 @@ class VMManagedInt32x4List extends VMManagedBox<Int32x4List> {
       return [
         maybeBoxObject<Iterable>(
             object: vmObject.followedBy(
-                maybeUnBoxAndBuildArgument<Iterable<Int32x4>, dynamic>(
+                maybeUnBoxAndBuildArgument<Iterable<Int32x4>, Int32x4>(
                     luaCallerArguments[1],
                     parentState: hydroState)),
             hydroState: hydroState,
@@ -641,7 +641,7 @@ void loadInt32x4List(
     return [
       maybeBoxObject<Int32x4List>(
           object: Int32x4List.fromList(
-              maybeUnBoxAndBuildArgument<List<Int32x4>, dynamic>(
+              maybeUnBoxAndBuildArgument<List<Int32x4>, Int32x4>(
                   luaCallerArguments[1],
                   parentState: hydroState)),
           hydroState: hydroState,

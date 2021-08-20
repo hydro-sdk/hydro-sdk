@@ -35,7 +35,7 @@ class VMManagedFloat32List extends VMManagedBox<Float32List> {
       return [];
     });
     table['addAll'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.addAll(maybeUnBoxAndBuildArgument<Iterable<double>, dynamic>(
+      vmObject.addAll(maybeUnBoxAndBuildArgument<Iterable<double>, double>(
           luaCallerArguments[1],
           parentState: hydroState));
       return [];
@@ -107,7 +107,7 @@ class VMManagedFloat32List extends VMManagedBox<Float32List> {
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.insertAll(
           luaCallerArguments[1],
-          maybeUnBoxAndBuildArgument<Iterable<double>, dynamic>(
+          maybeUnBoxAndBuildArgument<Iterable<double>, double>(
               luaCallerArguments[2],
               parentState: hydroState));
       return [];
@@ -115,7 +115,7 @@ class VMManagedFloat32List extends VMManagedBox<Float32List> {
     table['setAll'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.setAll(
           luaCallerArguments[1],
-          maybeUnBoxAndBuildArgument<Iterable<double>, dynamic>(
+          maybeUnBoxAndBuildArgument<Iterable<double>, double>(
               luaCallerArguments[2],
               parentState: hydroState));
       return [];
@@ -172,7 +172,7 @@ class VMManagedFloat32List extends VMManagedBox<Float32List> {
       vmObject.setRange(
           luaCallerArguments[1],
           luaCallerArguments[2],
-          maybeUnBoxAndBuildArgument<Iterable<double>, dynamic>(
+          maybeUnBoxAndBuildArgument<Iterable<double>, double>(
               luaCallerArguments[3],
               parentState: hydroState),
           luaCallerArguments[4]);
@@ -194,7 +194,7 @@ class VMManagedFloat32List extends VMManagedBox<Float32List> {
       vmObject.replaceRange(
           luaCallerArguments[1],
           luaCallerArguments[2],
-          maybeUnBoxAndBuildArgument<Iterable<double>, dynamic>(
+          maybeUnBoxAndBuildArgument<Iterable<double>, double>(
               luaCallerArguments[3],
               parentState: hydroState));
       return [];
@@ -242,7 +242,7 @@ class VMManagedFloat32List extends VMManagedBox<Float32List> {
       return [
         maybeBoxObject<Iterable>(
             object: vmObject.followedBy(
-                maybeUnBoxAndBuildArgument<Iterable<double>, dynamic>(
+                maybeUnBoxAndBuildArgument<Iterable<double>, double>(
                     luaCallerArguments[1],
                     parentState: hydroState)),
             hydroState: hydroState,
@@ -585,7 +585,7 @@ void loadFloat32List(
     return [
       maybeBoxObject<Float32List>(
           object: Float32List.fromList(
-              maybeUnBoxAndBuildArgument<List<double>, dynamic>(
+              maybeUnBoxAndBuildArgument<List<double>, double>(
                   luaCallerArguments[1],
                   parentState: hydroState)),
           hydroState: hydroState,

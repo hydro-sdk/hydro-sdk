@@ -83,7 +83,7 @@ void loadTextDecoration(
     return [
       maybeBoxObject<TextDecoration>(
           object: TextDecoration.combine(
-              maybeUnBoxAndBuildArgument<List<TextDecoration>, dynamic>(
+              maybeUnBoxAndBuildArgument<List<TextDecoration>, TextDecoration>(
                   luaCallerArguments[1],
                   parentState: hydroState)),
           hydroState: hydroState,

@@ -10,7 +10,7 @@ void loadFlatButton({required HydroState luaState, required HydroTable table}) {
   table["flatButton"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       FlatButton(
-        child: maybeUnBoxAndBuildArgument<Widget,dynamic>(args[0]["child"],
+        child: maybeUnBoxAndBuildArgument<Widget, dynamic>(args[0]["child"],
             parentState: luaState),
         onPressed: () {
           Closure closure = args[0]["onPressed"];

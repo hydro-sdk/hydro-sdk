@@ -637,7 +637,7 @@ class RTManagedIterable extends Iterable implements Box<Iterable> {
   @override
   Iterable<R> cast<R>() {
     Closure closure = table["cast"];
-    return maybeUnBoxAndBuildArgument<Iterable<R>, dynamic>(
+    return maybeUnBoxAndBuildArgument<Iterable<R>, R>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -653,7 +653,7 @@ class RTManagedIterable extends Iterable implements Box<Iterable> {
   @override
   Iterable<T> map<T>(f) {
     Closure closure = table["map"];
-    return maybeUnBoxAndBuildArgument<Iterable<T>, dynamic>(
+    return maybeUnBoxAndBuildArgument<Iterable<T>, T>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -669,7 +669,7 @@ class RTManagedIterable extends Iterable implements Box<Iterable> {
   @override
   Iterable<T> whereType<T>() {
     Closure closure = table["whereType"];
-    return maybeUnBoxAndBuildArgument<Iterable<T>, dynamic>(
+    return maybeUnBoxAndBuildArgument<Iterable<T>, T>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -677,7 +677,7 @@ class RTManagedIterable extends Iterable implements Box<Iterable> {
   @override
   Iterable<T> expand<T>(f) {
     Closure closure = table["expand"];
-    return maybeUnBoxAndBuildArgument<Iterable<T>, dynamic>(
+    return maybeUnBoxAndBuildArgument<Iterable<T>, T>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }

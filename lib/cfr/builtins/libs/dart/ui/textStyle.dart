@@ -133,10 +133,10 @@ void loadTextStyle(
           decorationThickness:
               luaCallerArguments[1]['decorationThickness']?.toDouble(),
           fontFamily: luaCallerArguments[1]['fontFamily'],
-          fontFamilyFallback: maybeUnBoxAndBuildArgument<List<String>?, dynamic>(
+          fontFamilyFallback: maybeUnBoxAndBuildArgument<List<String>?, String>(
               luaCallerArguments[1]['fontFamilyFallback'],
               parentState: hydroState),
-          fontFeatures: maybeUnBoxAndBuildArgument<List<FontFeature>?, dynamic>(luaCallerArguments[1]['fontFeatures'], parentState: hydroState),
+          fontFeatures: maybeUnBoxAndBuildArgument<List<FontFeature>?, FontFeature>(luaCallerArguments[1]['fontFeatures'], parentState: hydroState),
           fontSize: luaCallerArguments[1]['fontSize']?.toDouble(),
           fontStyle: maybeUnBoxEnum(values: FontStyle.values, boxedEnum: luaCallerArguments[1]['fontStyle']),
           fontWeight: maybeUnBoxAndBuildArgument<FontWeight?, dynamic>(luaCallerArguments[1]['fontWeight'], parentState: hydroState),
@@ -144,7 +144,7 @@ void loadTextStyle(
           height: luaCallerArguments[1]['height']?.toDouble(),
           letterSpacing: luaCallerArguments[1]['letterSpacing']?.toDouble(),
           locale: maybeUnBoxAndBuildArgument<Locale?, dynamic>(luaCallerArguments[1]['locale'], parentState: hydroState),
-          shadows: maybeUnBoxAndBuildArgument<List<Shadow>?, dynamic>(luaCallerArguments[1]['shadows'], parentState: hydroState),
+          shadows: maybeUnBoxAndBuildArgument<List<Shadow>?, Shadow>(luaCallerArguments[1]['shadows'], parentState: hydroState),
           textBaseline: maybeUnBoxEnum(values: TextBaseline.values, boxedEnum: luaCallerArguments[1]['textBaseline']),
           wordSpacing: luaCallerArguments[1]['wordSpacing']?.toDouble())
     ];

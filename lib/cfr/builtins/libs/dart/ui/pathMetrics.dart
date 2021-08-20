@@ -34,7 +34,7 @@ class VMManagedPathMetrics extends VMManagedBox<PathMetrics> {
       return [
         maybeBoxObject<Iterable>(
             object: vmObject.followedBy(
-                maybeUnBoxAndBuildArgument<Iterable<PathMetric>, dynamic>(
+                maybeUnBoxAndBuildArgument<Iterable<PathMetric>, PathMetric>(
                     luaCallerArguments[1],
                     parentState: hydroState)),
             hydroState: hydroState,

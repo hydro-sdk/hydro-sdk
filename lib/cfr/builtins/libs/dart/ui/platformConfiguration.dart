@@ -37,7 +37,7 @@ class VMManagedPlatformConfiguration
                 alwaysUse24HourFormat: luaCallerArguments[1]
                     ['alwaysUse24HourFormat'],
                 defaultRouteName: luaCallerArguments[1]['defaultRouteName'],
-                locales: maybeUnBoxAndBuildArgument<List<Locale>?, dynamic>(
+                locales: maybeUnBoxAndBuildArgument<List<Locale>?, Locale>(
                     luaCallerArguments[1]['locales'],
                     parentState: hydroState),
                 platformBrightness: maybeUnBoxEnum(
@@ -108,7 +108,7 @@ class RTManagedPlatformConfiguration extends PlatformConfiguration
                 alwaysUse24HourFormat: luaCallerArguments[1]
                     ['alwaysUse24HourFormat'],
                 defaultRouteName: luaCallerArguments[1]['defaultRouteName'],
-                locales: maybeUnBoxAndBuildArgument<List<Locale>?, dynamic>(
+                locales: maybeUnBoxAndBuildArgument<List<Locale>?, Locale>(
                     luaCallerArguments[1]['locales'],
                     parentState: hydroState),
                 platformBrightness: maybeUnBoxEnum(
@@ -159,7 +159,7 @@ void loadPlatformConfiguration(
                   parentState: hydroState),
           alwaysUse24HourFormat: luaCallerArguments[1]['alwaysUse24HourFormat'],
           defaultRouteName: luaCallerArguments[1]['defaultRouteName'],
-          locales: maybeUnBoxAndBuildArgument<List<Locale>, dynamic>(
+          locales: maybeUnBoxAndBuildArgument<List<Locale>, Locale>(
               luaCallerArguments[1]['locales'],
               parentState: hydroState),
           platformBrightness: maybeUnBoxEnum(

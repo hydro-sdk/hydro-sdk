@@ -149,7 +149,7 @@ class RTManagedParagraphBuilder extends ParagraphBuilder
   @override
   List<double> get placeholderScales {
     Closure closure = table["getPlaceholderScales"];
-    return maybeUnBoxAndBuildArgument<List<double>, dynamic>(
+    return maybeUnBoxAndBuildArgument<List<double>, double>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }

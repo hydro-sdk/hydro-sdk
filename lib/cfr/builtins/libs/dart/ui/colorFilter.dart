@@ -52,7 +52,7 @@ void loadColorFilter(
     return [
       maybeBoxObject<ColorFilter>(
           object: ColorFilter.matrix(
-              maybeUnBoxAndBuildArgument<List<double>, dynamic>(
+              maybeUnBoxAndBuildArgument<List<double>, double>(
                   luaCallerArguments[1],
                   parentState: hydroState)),
           hydroState: hydroState,

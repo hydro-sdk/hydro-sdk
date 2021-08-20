@@ -56,7 +56,7 @@ class VMManagedUnmodifiableUint8ClampedListView
       return [];
     });
     table['addAll'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.addAll(maybeUnBoxAndBuildArgument<Iterable<int>, dynamic>(
+      vmObject.addAll(maybeUnBoxAndBuildArgument<Iterable<int>, int>(
           luaCallerArguments[1],
           parentState: hydroState));
       return [];
@@ -114,16 +114,14 @@ class VMManagedUnmodifiableUint8ClampedListView
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.insertAll(
           luaCallerArguments[1],
-          maybeUnBoxAndBuildArgument<Iterable<int>, dynamic>(
-              luaCallerArguments[2],
+          maybeUnBoxAndBuildArgument<Iterable<int>, int>(luaCallerArguments[2],
               parentState: hydroState));
       return [];
     });
     table['setAll'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.setAll(
           luaCallerArguments[1],
-          maybeUnBoxAndBuildArgument<Iterable<int>, dynamic>(
-              luaCallerArguments[2],
+          maybeUnBoxAndBuildArgument<Iterable<int>, int>(luaCallerArguments[2],
               parentState: hydroState));
       return [];
     });
@@ -179,8 +177,7 @@ class VMManagedUnmodifiableUint8ClampedListView
       vmObject.setRange(
           luaCallerArguments[1],
           luaCallerArguments[2],
-          maybeUnBoxAndBuildArgument<Iterable<int>, dynamic>(
-              luaCallerArguments[3],
+          maybeUnBoxAndBuildArgument<Iterable<int>, int>(luaCallerArguments[3],
               parentState: hydroState),
           luaCallerArguments[4]);
       return [];
@@ -201,8 +198,7 @@ class VMManagedUnmodifiableUint8ClampedListView
       vmObject.replaceRange(
           luaCallerArguments[1],
           luaCallerArguments[2],
-          maybeUnBoxAndBuildArgument<Iterable<int>, dynamic>(
-              luaCallerArguments[3],
+          maybeUnBoxAndBuildArgument<Iterable<int>, int>(luaCallerArguments[3],
               parentState: hydroState));
       return [];
     });
@@ -249,7 +245,7 @@ class VMManagedUnmodifiableUint8ClampedListView
       return [
         maybeBoxObject<Iterable>(
             object: vmObject.followedBy(
-                maybeUnBoxAndBuildArgument<Iterable<int>, dynamic>(
+                maybeUnBoxAndBuildArgument<Iterable<int>, int>(
                     luaCallerArguments[1],
                     parentState: hydroState)),
             hydroState: hydroState,
@@ -630,7 +626,7 @@ class RTManagedUnmodifiableUint8ClampedListView
     });
     table['_dart_addAll'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      addAll(maybeUnBoxAndBuildArgument<Iterable<int>, dynamic>(
+      addAll(maybeUnBoxAndBuildArgument<Iterable<int>, int>(
           luaCallerArguments[1],
           parentState: hydroState));
       return [];
@@ -691,8 +687,7 @@ class RTManagedUnmodifiableUint8ClampedListView
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       insertAll(
           luaCallerArguments[1],
-          maybeUnBoxAndBuildArgument<Iterable<int>, dynamic>(
-              luaCallerArguments[2],
+          maybeUnBoxAndBuildArgument<Iterable<int>, int>(luaCallerArguments[2],
               parentState: hydroState));
       return [];
     });
@@ -700,8 +695,7 @@ class RTManagedUnmodifiableUint8ClampedListView
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       setAll(
           luaCallerArguments[1],
-          maybeUnBoxAndBuildArgument<Iterable<int>, dynamic>(
-              luaCallerArguments[2],
+          maybeUnBoxAndBuildArgument<Iterable<int>, int>(luaCallerArguments[2],
               parentState: hydroState));
       return [];
     });
@@ -753,8 +747,7 @@ class RTManagedUnmodifiableUint8ClampedListView
       setRange(
           luaCallerArguments[1],
           luaCallerArguments[2],
-          maybeUnBoxAndBuildArgument<Iterable<int>, dynamic>(
-              luaCallerArguments[3],
+          maybeUnBoxAndBuildArgument<Iterable<int>, int>(luaCallerArguments[3],
               parentState: hydroState),
           luaCallerArguments[4]);
       return [];
@@ -775,8 +768,7 @@ class RTManagedUnmodifiableUint8ClampedListView
       replaceRange(
           luaCallerArguments[1],
           luaCallerArguments[2],
-          maybeUnBoxAndBuildArgument<Iterable<int>, dynamic>(
-              luaCallerArguments[3],
+          maybeUnBoxAndBuildArgument<Iterable<int>, int>(luaCallerArguments[3],
               parentState: hydroState));
       return [];
     });
@@ -815,7 +807,7 @@ class RTManagedUnmodifiableUint8ClampedListView
       return [
         maybeBoxObject<Iterable>(
             object: super.followedBy(
-                maybeUnBoxAndBuildArgument<Iterable<int>, dynamic>(
+                maybeUnBoxAndBuildArgument<Iterable<int>, int>(
                     luaCallerArguments[1],
                     parentState: hydroState)),
             hydroState: hydroState,
@@ -1139,7 +1131,7 @@ class RTManagedUnmodifiableUint8ClampedListView
   @override
   List<R> cast<R>() {
     Closure closure = table["cast"];
-    return maybeUnBoxAndBuildArgument<List<R>, dynamic>(
+    return maybeUnBoxAndBuildArgument<List<R>, R>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -1237,7 +1229,7 @@ class RTManagedUnmodifiableUint8ClampedListView
   @override
   Iterable<int> getRange(int start, int end) {
     Closure closure = table["getRange"];
-    return maybeUnBoxAndBuildArgument<Iterable<int>, dynamic>(
+    return maybeUnBoxAndBuildArgument<Iterable<int>, int>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -1269,7 +1261,7 @@ class RTManagedUnmodifiableUint8ClampedListView
   @override
   Map<int, int> asMap() {
     Closure closure = table["asMap"];
-    return maybeUnBoxAndBuildArgument<Map<int, int>, dynamic>(
+    return maybeUnBoxAndBuildArgument<Map<int, int>, int>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -1301,7 +1293,7 @@ class RTManagedUnmodifiableUint8ClampedListView
   @override
   Iterable<int> get reversed {
     Closure closure = table["getReversed"];
-    return maybeUnBoxAndBuildArgument<Iterable<int>, dynamic>(
+    return maybeUnBoxAndBuildArgument<Iterable<int>, int>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -1309,7 +1301,7 @@ class RTManagedUnmodifiableUint8ClampedListView
   @override
   Iterable<int> followedBy(Iterable other) {
     Closure closure = table["followedBy"];
-    return maybeUnBoxAndBuildArgument<Iterable<int>, dynamic>(
+    return maybeUnBoxAndBuildArgument<Iterable<int>, int>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -1317,7 +1309,7 @@ class RTManagedUnmodifiableUint8ClampedListView
   @override
   Iterable<T> map<T>(f) {
     Closure closure = table["map"];
-    return maybeUnBoxAndBuildArgument<Iterable<T>, dynamic>(
+    return maybeUnBoxAndBuildArgument<Iterable<T>, T>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -1325,7 +1317,7 @@ class RTManagedUnmodifiableUint8ClampedListView
   @override
   Iterable<int> where(test) {
     Closure closure = table["where"];
-    return maybeUnBoxAndBuildArgument<Iterable<int>, dynamic>(
+    return maybeUnBoxAndBuildArgument<Iterable<int>, int>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -1333,7 +1325,7 @@ class RTManagedUnmodifiableUint8ClampedListView
   @override
   Iterable<T> whereType<T>() {
     Closure closure = table["whereType"];
-    return maybeUnBoxAndBuildArgument<Iterable<T>, dynamic>(
+    return maybeUnBoxAndBuildArgument<Iterable<T>, T>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -1341,7 +1333,7 @@ class RTManagedUnmodifiableUint8ClampedListView
   @override
   Iterable<T> expand<T>(f) {
     Closure closure = table["expand"];
-    return maybeUnBoxAndBuildArgument<Iterable<T>, dynamic>(
+    return maybeUnBoxAndBuildArgument<Iterable<T>, T>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -1391,7 +1383,7 @@ class RTManagedUnmodifiableUint8ClampedListView
   @override
   List<int> toList({bool growable = true}) {
     Closure closure = table["toList"];
-    return maybeUnBoxAndBuildArgument<List<int>, dynamic>(
+    return maybeUnBoxAndBuildArgument<List<int>, int>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -1399,7 +1391,7 @@ class RTManagedUnmodifiableUint8ClampedListView
   @override
   Set<int> toSet() {
     Closure closure = table["toSet"];
-    return maybeUnBoxAndBuildArgument<Set<int>, dynamic>(
+    return maybeUnBoxAndBuildArgument<Set<int>, int>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -1407,7 +1399,7 @@ class RTManagedUnmodifiableUint8ClampedListView
   @override
   Iterable<int> take(int count) {
     Closure closure = table["take"];
-    return maybeUnBoxAndBuildArgument<Iterable<int>, dynamic>(
+    return maybeUnBoxAndBuildArgument<Iterable<int>, int>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -1415,7 +1407,7 @@ class RTManagedUnmodifiableUint8ClampedListView
   @override
   Iterable<int> takeWhile(test) {
     Closure closure = table["takeWhile"];
-    return maybeUnBoxAndBuildArgument<Iterable<int>, dynamic>(
+    return maybeUnBoxAndBuildArgument<Iterable<int>, int>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -1423,7 +1415,7 @@ class RTManagedUnmodifiableUint8ClampedListView
   @override
   Iterable<int> skip(int count) {
     Closure closure = table["skip"];
-    return maybeUnBoxAndBuildArgument<Iterable<int>, dynamic>(
+    return maybeUnBoxAndBuildArgument<Iterable<int>, int>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -1431,7 +1423,7 @@ class RTManagedUnmodifiableUint8ClampedListView
   @override
   Iterable<int> skipWhile(test) {
     Closure closure = table["skipWhile"];
-    return maybeUnBoxAndBuildArgument<Iterable<int>, dynamic>(
+    return maybeUnBoxAndBuildArgument<Iterable<int>, int>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -1469,7 +1461,7 @@ class RTManagedUnmodifiableUint8ClampedListView
   @override
   Iterator<int> get iterator {
     Closure closure = table["getIterator"];
-    return maybeUnBoxAndBuildArgument<Iterator<int>, dynamic>(
+    return maybeUnBoxAndBuildArgument<Iterator<int>, int>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }

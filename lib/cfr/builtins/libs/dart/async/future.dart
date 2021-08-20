@@ -39,7 +39,7 @@ class VMManagedFuture extends VMManagedBox<Future<List<dynamic>>> {
     table["then"] = makeLuaDartFunc(func: (List<dynamic> args) {
       dynamic rawCaller = args[0];
       Future<List<dynamic>>? caller;
-      caller = maybeUnBoxAndBuildArgument<Future<List<dynamic>>,dynamic>(
+      caller = maybeUnBoxAndBuildArgument<Future<List<dynamic>>, dynamic>(
         rawCaller,
         parentState: hydroState,
       );

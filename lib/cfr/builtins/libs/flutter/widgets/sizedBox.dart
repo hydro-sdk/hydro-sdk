@@ -9,11 +9,11 @@ void loadSizedBox({required HydroState luaState, required HydroTable table}) {
   table["sizedBox"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       SizedBox(
-        key: maybeUnBoxAndBuildArgument<Widget,dynamic>(args[0]["key"],
+        key: maybeUnBoxAndBuildArgument<Widget, dynamic>(args[0]["key"],
             parentState: luaState),
         width: args[0]["width"]?.toDouble(),
         height: args[0]["height"]?.toDouble(),
-        child: maybeUnBoxAndBuildArgument<Widget,dynamic>(args[0]["child"],
+        child: maybeUnBoxAndBuildArgument<Widget, dynamic>(args[0]["child"],
             parentState: luaState),
       )
     ];

@@ -35,7 +35,7 @@ void loadFunction({required HydroState hydroState, required HydroTable table}) {
           maybeUnBoxAndBuildArgument<List<dynamic>?, dynamic>(
               luaCallerArguments[2],
               parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Map<Symbol, dynamic>?, dynamic>(
+          maybeUnBoxAndBuildArgument<Map<Symbol, dynamic>?, Symbol>(
               luaCallerArguments[3],
               parentState: hydroState)),
     ];
