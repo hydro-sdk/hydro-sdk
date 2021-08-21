@@ -14,15 +14,17 @@ void loadCircularProgressIndicator(
     return [
       CircularProgressIndicator(
         key: arg != null
-            ? maybeUnBoxAndBuildArgument<Key>(arg["key"], parentState: luaState)
+            ? maybeUnBoxAndBuildArgument<Key, dynamic>(arg["key"],
+                parentState: luaState)
             : null,
         backgroundColor: arg != null
-            ? maybeUnBoxAndBuildArgument<Color>(arg["backgrounColor"],
+            ? maybeUnBoxAndBuildArgument<Color, dynamic>(arg["backgrounColor"],
                 parentState: luaState)
             : null,
         value: arg != null ? args[0]["value"] : null,
         valueColor: arg != null
-            ? maybeUnBoxAndBuildArgument<Animation<Color>>(arg["valueColor"],
+            ? maybeUnBoxAndBuildArgument<Animation<Color>, dynamic>(
+                arg["valueColor"],
                 parentState: luaState)
             : null,
         strokeWidth: arg != null ? arg["strokeWidth"]?.toDouble() : 4.0,

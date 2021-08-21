@@ -1,6 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:hydro_sdk/swid/backend/dart/dartBoxEnumReference.dart';
+import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
@@ -14,6 +15,7 @@ void main() {
             referenceName: "style",
             type: SwidType.fromSwidInterface(
                 swidInterface: SwidInterface(
+                    declarationModifiers: SwidDeclarationModifiers.empty(),
                     name: "TextStyle",
                     nullabilitySuffix: SwidNullabilitySuffix.none,
                     originalPackagePath: "",

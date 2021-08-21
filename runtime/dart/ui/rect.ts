@@ -64,7 +64,7 @@ export interface IRect {
 }
 export class Rect {
     public static zero = Rect.fromLTRB(0.0, 0.0, 0.0, 0.0);
-    private static _giantScalar = 1.0e9;
+    public static _giantScalar = 1.0e9;
     public static largest = Rect.fromLTRB(
         -Rect._giantScalar,
         -Rect._giantScalar,

@@ -45,24 +45,6 @@ declare const dart: {
         ) => void;
     };
 };
-const toListDefaultProps = {
-    growable: true,
-};
-const filledDefaultProps = {
-    growable: false,
-};
-const emptyDefaultProps = {
-    growable: false,
-};
-const fromDefaultProps = {
-    growable: true,
-};
-const ofDefaultProps = {
-    growable: true,
-};
-const generateDefaultProps = {
-    growable: true,
-};
 export interface IList<E> {
     cast: <R>() => IList<R>;
     setFirst: (value: E) => void;
@@ -199,6 +181,12 @@ export class List<E> implements IIterable<E>, IEfficientLengthIterable<E> {
     }
     public static unmodifiable<E>(elements: IIterable<any>): IList<E> {
         return dart.core.listUnmodifiable(elements);
+    }
+    public static fromArray<T>(array?: Array<T> | undefined): IList<T> {
+        if (array !== undefined) {
+            return List.from<T>(array as any, {}) as List<T>;
+        }
+        return List.from<T>([] as any, {}) as List<T>;
     }
     public static castFrom<S, T>(source: IList<S>): IList<T> {
         return dart.core.listCastFrom(source);
@@ -572,3 +560,21 @@ export class List<E> implements IIterable<E>, IEfficientLengthIterable<E> {
         return this._dart_getHashCode();
     }
 }
+const toListDefaultProps = {
+    growable: true,
+};
+const filledDefaultProps = {
+    growable: false,
+};
+const emptyDefaultProps = {
+    growable: false,
+};
+const fromDefaultProps = {
+    growable: true,
+};
+const ofDefaultProps = {
+    growable: true,
+};
+const generateDefaultProps = {
+    growable: true,
+};

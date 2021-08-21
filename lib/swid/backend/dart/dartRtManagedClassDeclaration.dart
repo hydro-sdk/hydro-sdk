@@ -24,15 +24,17 @@ import 'package:tuple/tuple.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartBindInstanceField.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartMethodInjectionImplementation.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartUnboxingExpression.dart';
+import 'package:hydro_sdk/swid/backend/dart/util/luaCallerArgumentsParameterName.dart';
 import 'package:hydro_sdk/swid/backend/dart/util/swidTypeToDartTypeReference.dart';
 import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
-import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/util/instantiateAllGenericsAsDynamic.dart';
 import 'package:hydro_sdk/swid/ir/util/isOperator.dart';
 import 'package:hydro_sdk/swid/transforms/dart/removeNullabilitySuffixFromTypeNames.dart';
+import 'package:hydro_sdk/swid/transforms/removeNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/transforms/transformAccessorName.dart';
 import 'package:hydro_sdk/swid/transforms/tstl/transformTstlMethodNames.dart';
 
@@ -40,7 +42,7 @@ class DartRTManagedClassDeclaration {
   final SwidClass swidClass;
 
   const DartRTManagedClassDeclaration({
-    required this.swidClass,
+    required final this.swidClass,
   });
 
   String toDartSource() => DartFormatter().format(Class((x) => x
@@ -82,9 +84,32 @@ class DartRTManagedClassDeclaration {
                                 fromSwidInterface: (val) => val.name,
                                 fromSwidClass: (val) => val.name,
                                 fromSwidDefaultFormalParameter: (val) =>
-                                    val.name,
+                                    val.staticType.name,
                                 fromSwidFunctionType: (val) => val.name))))
                     .toList())
+                ..requiredParameters
+                    .addAll(swidClass.constructorType!.optionalParameterNames
+                        .map(
+                          (x) => Parameter((k) => k
+                            ..name = removeNullabilitySuffix(
+                              str: x,
+                            )
+                            ..type = swidTypeToDartTypeReference(
+                              preserveTypeArguments: true,
+                              swidType: swidClass
+                                  .constructorType!.optionalParameterTypes
+                                  .elementAt(
+                                swidClass
+                                    .constructorType!.optionalParameterNames
+                                    .indexWhere(
+                                  (e) => e == x,
+                                ),
+                              ),
+                            )
+                            ..required = false
+                            ..named = false),
+                        )
+                        .toList())
                 ..optionalParameters.addAll(swidClass
                     .constructorType!.namedParameterTypes.entries
                     .map((x) => MapEntry(
@@ -95,7 +120,11 @@ class DartRTManagedClassDeclaration {
                     .toList()
                     .map((x) => Parameter((k) => k
                       ..name = x.key
-                      ..type = TypeReference((i) => i..symbol = x.value.when(fromSwidInterface: (val) => val.name, fromSwidClass: (val) => val.name, fromSwidDefaultFormalParameter: (val) => val.name, fromSwidFunctionType: (val) => val.name))
+                      ..type = swidTypeToDartTypeReference(
+                        preserveTypeArguments: true,
+                        swidType: x.value,
+                      )
+                      ..required = x.value.nullabilitySuffix == SwidNullabilitySuffix.none
                       ..named = true))
                     .toList())
                 ..optionalParameters.addAll([
@@ -112,11 +141,16 @@ class DartRTManagedClassDeclaration {
                 ])
                 ..initializers.addAll([
                   Code("super(" +
-                      swidClass.constructorType!.normalParameterNames
-                          .map((e) => e)
-                          .toList()
-                          .join(",") +
-                      (swidClass.constructorType!.normalParameterNames.length >=
+                      [
+                        ...swidClass.constructorType!.normalParameterNames,
+                        ...swidClass.constructorType!.optionalParameterNames,
+                      ].map((e) => e).toList().join(",") +
+                      ([
+                                ...swidClass
+                                    .constructorType!.normalParameterNames,
+                                ...swidClass
+                                    .constructorType!.optionalParameterNames,
+                              ].length >=
                               1
                           ? ","
                           : "") +
@@ -137,7 +171,7 @@ class DartRTManagedClassDeclaration {
                         "func": Method((x) => x
                           ..requiredParameters.addAll([
                             Parameter((i) => i
-                              ..name = "args"
+                              ..name = "$luaCallerArgumentsParameterName"
                               ..type = TypeReference(((j) => j
                                 ..symbol = "List"
                                 ..types.add(refer("dynamic")))))
@@ -192,7 +226,7 @@ class DartRTManagedClassDeclaration {
             .where((x) => !isOperator(
                   swidFunctionType: x,
                 ))
-            .where((x) => !x.swidDeclarationModifiers.hasProtected)
+            .where((x) => !x.declarationModifiers.hasProtected)
             .map((x) => transformAccessorName(
                   swidFunctionType: x,
                   removeSuffixes: true,
@@ -200,9 +234,9 @@ class DartRTManagedClassDeclaration {
                 ))
             .map((x) => Method((k) => k
               ..annotations.add(refer("override"))
-              ..type = x.swidDeclarationModifiers.isGetter
+              ..type = x.declarationModifiers.isGetter
                   ? MethodType.getter
-                  : x.swidDeclarationModifiers.isSetter
+                  : x.declarationModifiers.isSetter
                       ? MethodType.setter
                       : null
               ..types.addAll(
@@ -229,21 +263,27 @@ class DartRTManagedClassDeclaration {
                     .map((e) => Parameter((p) => p
                       ..name = e.key
                       ..defaultTo = (x.namedDefaults[e.key] != null
-                          ? Code(x.namedDefaults[e.key]!.name)
+                          ? Code(x.namedDefaults[e.key]!.defaultValueCode)
                           : null)
                       ..named = true
-                      ..type = swidTypeToDartTypeReference(swidType: e.value)))
+                      ..required = (x.namedDefaults[e.key] == null)
+                          ? e.value.nullabilitySuffix ==
+                              SwidNullabilitySuffix.none
+                          : false
+                      ..type = swidTypeToDartTypeReference(
+                        swidType: e.value,
+                      )))
                     .toList(),
                 ...x.positionalDefaultParameters.entries
                     .map(
                       (e) => Parameter((p) => p
                         ..name = e.key
                         ..type = swidTypeToDartTypeReference(
-                          swidType: e.value.value,
+                          swidType: e.value.staticType,
                         )
                         ..named = false
                         ..required = false
-                        ..defaultTo = Code(e.value.name)),
+                        ..defaultTo = Code(e.value.defaultValueCode)),
                     )
                     .toList(),
                 ...x.optionalParameterNames
@@ -252,9 +292,9 @@ class DartRTManagedClassDeclaration {
                             .firstWhereOrNull((k) => k.key == e) ==
                         null)
                     .map(
-                      (e) => ((
-                              {Tuple2<String, SwidType>?
-                                  optionalParameterType}) =>
+                      (e) => (({
+                        Tuple2<String, SwidType>? optionalParameterType,
+                      }) =>
                           Parameter((p) => p
                             ..name = optionalParameterType!.item1
                             ..type = swidTypeToDartTypeReference(

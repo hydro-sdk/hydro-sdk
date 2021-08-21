@@ -1,33 +1,42 @@
 import 'package:collection/collection.dart' show IterableExtension;
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'package:hydro_sdk/swid/ir/iSwidType.dart';
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstFieldDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
+import 'package:hydro_sdk/swid/ir/swidTypeMixin.dart';
+import 'package:hydro_sdk/swid/ir/util/conflictingInstanceMembers.dart';
+import 'package:hydro_sdk/swid/util/iCloneable.dart';
 
 part 'swidClass.freezed.dart';
 part 'swidClass.g.dart';
 
 @freezed
-class SwidClass with _$SwidClass {
+class SwidClass
+    with _$SwidClass, SwidTypeMixin<SwidClass>
+    implements ISwidType<SwidClass>, ICloneable<SwidClass> {
+  const SwidClass._();
+
   const factory SwidClass({
-    required String name,
-    required SwidNullabilitySuffix nullabilitySuffix,
-    required String originalPackagePath,
-    required SwidFunctionType? constructorType,
-    required List<SwidFunctionType> factoryConstructors,
-    required List<SwidFunctionType> staticMethods,
-    required List<SwidFunctionType> methods,
-    required List<SwidStaticConstFieldDeclaration> staticConstFieldDeclarations,
-    required Map<String, SwidType> instanceFieldDeclarations,
-    required SwidDeclarationModifiers swidDeclarationModifiers,
-    required List<SwidClass> mixedInClasses,
-    required List<SwidClass> implementedClasses,
-    required bool isMixin,
-    required List<SwidTypeFormal> typeFormals,
+    required final String name,
+    required final SwidNullabilitySuffix nullabilitySuffix,
+    required final String originalPackagePath,
+    required final SwidFunctionType? constructorType,
+    required final List<SwidFunctionType> factoryConstructors,
+    required final List<SwidFunctionType> staticMethods,
+    required final List<SwidFunctionType> methods,
+    required final List<SwidStaticConstFieldDeclaration>
+        staticConstFieldDeclarations,
+    required final Map<String, SwidType> instanceFieldDeclarations,
+    required final SwidDeclarationModifiers declarationModifiers,
+    required final List<SwidClass> mixedInClasses,
+    required final List<SwidClass> implementedClasses,
+    required final bool isMixin,
+    required final List<SwidTypeFormal> typeFormals,
     SwidClass? extendedClass,
   }) = _$Data;
 
@@ -35,7 +44,7 @@ class SwidClass with _$SwidClass {
       _$SwidClassFromJson(json);
 
   factory SwidClass.clone({
-    required SwidClass swidClass,
+    required final SwidClass swidClass,
     String? name,
     SwidNullabilitySuffix? nullabilitySuffix,
     String? originalPackagePath,
@@ -45,7 +54,7 @@ class SwidClass with _$SwidClass {
     List<SwidFunctionType>? methods,
     List<SwidStaticConstFieldDeclaration>? staticConstFieldDeclarations,
     Map<String, SwidType>? instanceFieldDeclarations,
-    SwidDeclarationModifiers? swidDeclarationModifiers,
+    SwidDeclarationModifiers? declarationModifiers,
     List<SwidClass>? mixedInClasses,
     List<SwidClass>? implementedClasses,
     bool? isMixin,
@@ -61,34 +70,59 @@ class SwidClass with _$SwidClass {
             ? constructorType
             : swidClass.constructorType != null
                 ? SwidFunctionType.clone(
-                    swidFunctionType: swidClass.constructorType)
+                    swidFunctionType: swidClass.constructorType!,
+                  )
                 : null,
         factoryConstructors: factoryConstructors ??
             List.from(swidClass.factoryConstructors
                 .map((x) => SwidFunctionType.clone(swidFunctionType: x))
                 .toList()),
         staticMethods: staticMethods ??
-            List.from(swidClass.staticMethods
-                .map((x) => SwidFunctionType.clone(swidFunctionType: x))
-                .toList()),
+            List.from(
+              swidClass.staticMethods
+                  .map(
+                    (x) => SwidFunctionType.clone(
+                      swidFunctionType: x,
+                    ),
+                  )
+                  .toList(),
+            ),
         methods: methods ??
-            List.from(swidClass.methods
-                .map((x) => SwidFunctionType.clone(swidFunctionType: x))
-                .toList()),
+            List.from(
+              swidClass.methods
+                  .map(
+                    (x) => SwidFunctionType.clone(
+                      swidFunctionType: x,
+                    ),
+                  )
+                  .toList(),
+            ),
         staticConstFieldDeclarations: staticConstFieldDeclarations ??
             List.from(swidClass.staticConstFieldDeclarations),
         instanceFieldDeclarations: instanceFieldDeclarations ??
             Map.from(swidClass.instanceFieldDeclarations),
-        swidDeclarationModifiers:
-            swidDeclarationModifiers ?? swidClass.swidDeclarationModifiers,
+        declarationModifiers:
+            declarationModifiers ?? swidClass.declarationModifiers,
         mixedInClasses: mixedInClasses ??
-            List.from(swidClass.mixedInClasses
-                .map((x) => SwidClass.clone(swidClass: x))
-                .toList()),
+            List.from(
+              swidClass.mixedInClasses
+                  .map(
+                    (x) => SwidClass.clone(
+                      swidClass: x,
+                    ),
+                  )
+                  .toList(),
+            ),
         implementedClasses: implementedClasses ??
-            List.from(swidClass.implementedClasses
-                .map((x) => SwidClass.clone(swidClass: x))
-                .toList()),
+            List.from(
+              swidClass.implementedClasses
+                  .map(
+                    (x) => SwidClass.clone(
+                      swidClass: x,
+                    ),
+                  )
+                  .toList(),
+            ),
         isMixin: isMixin ?? swidClass.isMixin,
         extendedClass: extendedClass ?? swidClass.extendedClass,
         typeFormals: typeFormals ?? List.from(swidClass.typeFormals),
@@ -104,7 +138,7 @@ class SwidClass with _$SwidClass {
         methods: [],
         staticConstFieldDeclarations: [],
         instanceFieldDeclarations: {},
-        swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+        declarationModifiers: SwidDeclarationModifiers.empty(),
         mixedInClasses: [],
         implementedClasses: [],
         extendedClass: null,
@@ -113,8 +147,8 @@ class SwidClass with _$SwidClass {
       );
 
   factory SwidClass.mergeDeclarations({
-    required SwidClass swidClass,
-    required SwidClass? superClass,
+    required final SwidClass swidClass,
+    required final SwidClass? superClass,
   }) =>
       superClass != null
           ? SwidClass.clone(
@@ -198,13 +232,13 @@ class SwidClass with _$SwidClass {
             );
 
   factory SwidClass.mergeSuperClasses({
-    required SwidClass swidClass,
+    required final SwidClass swidClass,
   }) =>
       (({
-        required SwidClass swidClassWithMergedInterfaces,
+        required final SwidClass swidClassWithMergedInterfaces,
       }) =>
           (({
-            required SwidClass swidClassWithMixinApplications,
+            required final SwidClass swidClassWithMixinApplications,
           }) =>
               swidClassWithMixinApplications.extendedClass != null
                   ? SwidClass.mergeDeclarations(
@@ -241,13 +275,11 @@ class SwidClass with _$SwidClass {
                 swidClass: swidClass,
               ),
       );
-}
 
-extension SwidClassMethods on SwidClass {
   bool isPureAbstract() =>
-      swidDeclarationModifiers.isAbstract &&
+      declarationModifiers.isAbstract &&
       (methods.isNotEmpty
-          ? methods.every((x) => x.swidDeclarationModifiers.isAbstract)
+          ? methods.every((x) => x.declarationModifiers.isAbstract)
           : false) &&
       staticMethods.isEmpty &&
       factoryConstructors.isEmpty &&
@@ -256,4 +288,97 @@ extension SwidClassMethods on SwidClass {
   bool isConstructible() => constructorType != null;
 
   String get displayName => SwidType.fromSwidClass(swidClass: this).displayName;
+
+  bool hasSyntheticAccessors() =>
+      methods.firstWhereOrNull(
+        (x) => x.declarationModifiers.isSynthetic,
+      ) !=
+      null;
+
+  List<SwidFunctionType> syntheticAccessors() => methods
+      .where(
+        (x) => x.declarationModifiers.isSynthetic,
+      )
+      .toList();
+
+  bool hasMixinApplicationThatConflictsWithSuperClassOrInterface() =>
+      implementedClasses.firstWhereOrNull((x) => mixedInClasses
+              .map(
+                (k) => (({
+                  required final ConflictingInstanceMembersResult
+                      conflictingInstanceMembersResult,
+                }) =>
+                    conflictingInstanceMembersResult
+                        .instanceFields.isNotEmpty ||
+                    conflictingInstanceMembersResult.methods.isNotEmpty)(
+                  conflictingInstanceMembersResult: conflictingInstanceMembers(
+                    first: SwidClass.mergeSuperClasses(
+                      swidClass: x,
+                    ),
+                    second: SwidClass.mergeSuperClasses(
+                      swidClass: k,
+                    ),
+                  ),
+                ),
+              )
+              .any((e) => e)) !=
+          null ||
+      (extendedClass != null &&
+          mixedInClasses
+              .map(
+                (k) => (({
+                  required final ConflictingInstanceMembersResult
+                      conflictingInstanceMembersResult,
+                }) =>
+                    conflictingInstanceMembersResult
+                        .instanceFields.isNotEmpty ||
+                    conflictingInstanceMembersResult.methods.isNotEmpty)(
+                  conflictingInstanceMembersResult: conflictingInstanceMembers(
+                    first: SwidClass.mergeSuperClasses(
+                      swidClass: extendedClass!,
+                    ),
+                    second: SwidClass.mergeSuperClasses(
+                      swidClass: k,
+                    ),
+                  ),
+                ),
+              )
+              .any((e) => e));
+
+  @override
+  SwidClass clone({
+    String? name,
+    SwidNullabilitySuffix? nullabilitySuffix,
+    String? originalPackagePath,
+    SwidFunctionType? constructorType,
+    List<SwidFunctionType>? factoryConstructors,
+    List<SwidFunctionType>? staticMethods,
+    List<SwidFunctionType>? methods,
+    List<SwidStaticConstFieldDeclaration>? staticConstFieldDeclarations,
+    Map<String, SwidType>? instanceFieldDeclarations,
+    SwidDeclarationModifiers? declarationModifiers,
+    List<SwidClass>? mixedInClasses,
+    List<SwidClass>? implementedClasses,
+    bool? isMixin,
+    SwidClass? extendedClass,
+    List<SwidTypeFormal>? typeFormals,
+  }) =>
+      SwidClass.clone(
+        swidClass: this,
+        name: name,
+        nullabilitySuffix: nullabilitySuffix,
+        originalPackagePath: originalPackagePath,
+        constructorType: constructorType,
+        factoryConstructors: factoryConstructors,
+        staticMethods: staticMethods,
+        methods: methods,
+        staticConstFieldDeclarations: staticConstFieldDeclarations,
+        instanceFieldDeclarations: instanceFieldDeclarations,
+        declarationModifiers: declarationModifiers,
+        mixedInClasses: mixedInClasses,
+        implementedClasses: implementedClasses,
+        isMixin: isMixin,
+        extendedClass: extendedClass,
+        typeFormals: typeFormals,
+      );
 }

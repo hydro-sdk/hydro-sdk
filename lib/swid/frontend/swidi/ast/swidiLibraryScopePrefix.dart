@@ -5,13 +5,13 @@ part 'swidiLibraryScopePrefix.freezed.dart';
 @freezed
 class SwidiLibraryScopePrefix with _$SwidiLibraryScopePrefix {
   const factory SwidiLibraryScopePrefix({
-    required String name,
+    required final String name,
   }) = _$SwidiLibraryScopePrefixCtor;
 
   static const empty = const SwidiLibraryScopePrefix(name: "");
 
   factory SwidiLibraryScopePrefix.clone({
-    required SwidiLibraryScopePrefix swidiLibraryScopePrefix,
+    required final SwidiLibraryScopePrefix swidiLibraryScopePrefix,
     String? name,
   }) =>
       SwidiLibraryScopePrefix(

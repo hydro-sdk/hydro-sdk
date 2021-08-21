@@ -15,8 +15,8 @@ class DartBoxList {
   final CodeKind codeKind;
 
   const DartBoxList({
-    required this.type,
-    required this.referenceName,
+    required final this.type,
+    required final this.referenceName,
     this.codeKind = CodeKind.statement,
   });
 

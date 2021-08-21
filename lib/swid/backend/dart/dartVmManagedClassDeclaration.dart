@@ -25,7 +25,7 @@ class DartVMManagedClassDeclaration {
   final SwidClass swidClass;
 
   const DartVMManagedClassDeclaration({
-    required this.swidClass,
+    required final this.swidClass,
   });
 
   String toDartSource() => DartFormatter().format(Class(
@@ -98,7 +98,7 @@ class DartVMManagedClassDeclaration {
                             ).toDartSource()))
                         .toList()),
                     ...(swidClass.methods
-                        .where((x) => !x.swidDeclarationModifiers.hasProtected)
+                        .where((x) => !x.declarationModifiers.hasProtected)
                         .where((x) => !isOperator(
                               swidFunctionType: x,
                             ))

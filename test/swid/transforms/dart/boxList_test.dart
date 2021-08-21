@@ -1,6 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:hydro_sdk/swid/backend/dart/dartBoxList.dart';
+import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
@@ -10,12 +11,14 @@ void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
     SwidInterface field = SwidInterface(
+      declarationModifiers: SwidDeclarationModifiers.empty(),
       name: "List<DiagnosticNode>",
       nullabilitySuffix: SwidNullabilitySuffix.none,
       originalPackagePath: "dart:core",
       typeArguments: [
         SwidType.fromSwidInterface(
             swidInterface: SwidInterface(
+          declarationModifiers: SwidDeclarationModifiers.empty(),
           name: "DiagnosticsNode",
           nullabilitySuffix: SwidNullabilitySuffix.none,
           originalPackagePath:

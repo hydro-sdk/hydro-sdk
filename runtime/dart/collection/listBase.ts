@@ -10,9 +10,6 @@ declare const dart: {
         listBaseListToString: (list: IList<any>) => string;
     };
 };
-const toListDefaultProps = {
-    growable: true,
-};
 export interface IListBase<E> {
     elementAt: (index: number) => E;
     followedBy: (other: IIterable<E>) => IIterable<E>;
@@ -463,3 +460,6 @@ export class ListBase<E>
         return this._dart_getHashCode();
     }
 }
+const toListDefaultProps = {
+    growable: true,
+};

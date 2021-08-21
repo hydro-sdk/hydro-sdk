@@ -18,6 +18,7 @@ void main() {
     //List<Map<String, Object?>> toJsonList (List<DiagnosticsNode>? nodes, DiagnosticsNode? parent, DiagnosticsSerializationDelegate delegate)
     expect(
         transformFunctionTypeToTs(
+            parentClass: null,
             trailingReturnTypeKind: TrailingReturnTypeKind.fatArrow,
             swidFunctionType: SwidFunctionType(
               isFactory: false,
@@ -25,13 +26,14 @@ void main() {
               name: "",
               nullabilitySuffix: SwidNullabilitySuffix.none,
               originalPackagePath: "",
-              swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+              declarationModifiers: SwidDeclarationModifiers.empty(),
               namedParameterTypes: {},
               namedDefaults: {},
               normalParameterNames: ["nodes", "parent", "delegate"],
               normalParameterTypes: [
                 SwidType.fromSwidInterface(
                     swidInterface: SwidInterface(
+                        declarationModifiers: SwidDeclarationModifiers.empty(),
                         name: "List<DiagnosticsNode>",
                         nullabilitySuffix: SwidNullabilitySuffix.question,
                         originalPackagePath: "",
@@ -40,6 +42,7 @@ void main() {
                         typeArguments: [
                       SwidType.fromSwidInterface(
                           swidInterface: SwidInterface(
+                        declarationModifiers: SwidDeclarationModifiers.empty(),
                         name: "DiagnosticsNode",
                         nullabilitySuffix: SwidNullabilitySuffix.none,
                         originalPackagePath: "",
@@ -50,6 +53,7 @@ void main() {
                     ])),
                 SwidType.fromSwidInterface(
                     swidInterface: SwidInterface(
+                  declarationModifiers: SwidDeclarationModifiers.empty(),
                   name: "DiagnosticsNode",
                   nullabilitySuffix: SwidNullabilitySuffix.question,
                   originalPackagePath: "",
@@ -59,6 +63,7 @@ void main() {
                 )),
                 SwidType.fromSwidInterface(
                     swidInterface: SwidInterface(
+                  declarationModifiers: SwidDeclarationModifiers.empty(),
                   name: "DiagnosticsSerializationDelegate",
                   nullabilitySuffix: SwidNullabilitySuffix.none,
                   originalPackagePath: "",
@@ -71,6 +76,7 @@ void main() {
               optionalParameterTypes: [],
               returnType: SwidType.fromSwidInterface(
                   swidInterface: SwidInterface(
+                      declarationModifiers: SwidDeclarationModifiers.empty(),
                       name: "List<Map<String, Object>>",
                       nullabilitySuffix: SwidNullabilitySuffix.none,
                       originalPackagePath: "dart:core",
@@ -79,6 +85,8 @@ void main() {
                       typeArguments: [
                     SwidType.fromSwidInterface(
                         swidInterface: SwidInterface(
+                            declarationModifiers:
+                                SwidDeclarationModifiers.empty(),
                             name: "Map<String,Object>",
                             nullabilitySuffix: SwidNullabilitySuffix.none,
                             originalPackagePath: "dart:core",
@@ -87,6 +95,8 @@ void main() {
                             typeArguments: [
                           SwidType.fromSwidInterface(
                               swidInterface: SwidInterface(
+                            declarationModifiers:
+                                SwidDeclarationModifiers.empty(),
                             name: "String",
                             nullabilitySuffix: SwidNullabilitySuffix.none,
                             originalPackagePath: "dart:core",
@@ -96,6 +106,8 @@ void main() {
                           )),
                           SwidType.fromSwidInterface(
                               swidInterface: SwidInterface(
+                            declarationModifiers:
+                                SwidDeclarationModifiers.empty(),
                             name: "Object",
                             nullabilitySuffix: SwidNullabilitySuffix.question,
                             originalPackagePath: "dart:core",
@@ -111,6 +123,7 @@ void main() {
     //List<Map<String, Object?>> toJsonList (List<DiagnosticsNode>? nodes, DiagnosticsNode? parent, DiagnosticsSerializationDelegate? delegate)
     expect(
         transformFunctionTypeToTs(
+            parentClass: null,
             trailingReturnTypeKind: TrailingReturnTypeKind.fatArrow,
             swidFunctionType: SwidFunctionType(
               isFactory: false,
@@ -118,13 +131,14 @@ void main() {
               typeFormals: [],
               nullabilitySuffix: SwidNullabilitySuffix.none,
               originalPackagePath: "",
-              swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+              declarationModifiers: SwidDeclarationModifiers.empty(),
               namedParameterTypes: {},
               namedDefaults: {},
               normalParameterNames: ["nodes", "parent", "delegate"],
               normalParameterTypes: [
                 SwidType.fromSwidInterface(
                     swidInterface: SwidInterface(
+                        declarationModifiers: SwidDeclarationModifiers.empty(),
                         name: "List<DiagnosticsNode>",
                         nullabilitySuffix: SwidNullabilitySuffix.question,
                         originalPackagePath: "",
@@ -133,6 +147,7 @@ void main() {
                         typeArguments: [
                       SwidType.fromSwidInterface(
                           swidInterface: SwidInterface(
+                        declarationModifiers: SwidDeclarationModifiers.empty(),
                         name: "DiagnosticsNode",
                         nullabilitySuffix: SwidNullabilitySuffix.none,
                         originalPackagePath: "",
@@ -143,6 +158,7 @@ void main() {
                     ])),
                 SwidType.fromSwidInterface(
                     swidInterface: SwidInterface(
+                  declarationModifiers: SwidDeclarationModifiers.empty(),
                   name: "DiagnosticsNode",
                   nullabilitySuffix: SwidNullabilitySuffix.question,
                   originalPackagePath: "",
@@ -152,6 +168,7 @@ void main() {
                 )),
                 SwidType.fromSwidInterface(
                     swidInterface: SwidInterface(
+                  declarationModifiers: SwidDeclarationModifiers.empty(),
                   name: "DiagnosticsSerializationDelegate",
                   nullabilitySuffix: SwidNullabilitySuffix.question,
                   originalPackagePath: "",
@@ -164,6 +181,7 @@ void main() {
               optionalParameterTypes: [],
               returnType: SwidType.fromSwidInterface(
                   swidInterface: SwidInterface(
+                      declarationModifiers: SwidDeclarationModifiers.empty(),
                       name: "List<Map<String, Object>>",
                       nullabilitySuffix: SwidNullabilitySuffix.none,
                       originalPackagePath: "dart:core",
@@ -172,6 +190,8 @@ void main() {
                       typeArguments: [
                     SwidType.fromSwidInterface(
                         swidInterface: SwidInterface(
+                            declarationModifiers:
+                                SwidDeclarationModifiers.empty(),
                             name: "Map<String,Object>",
                             nullabilitySuffix: SwidNullabilitySuffix.none,
                             originalPackagePath: "dart:core",
@@ -180,6 +200,8 @@ void main() {
                             typeArguments: [
                           SwidType.fromSwidInterface(
                               swidInterface: SwidInterface(
+                            declarationModifiers:
+                                SwidDeclarationModifiers.empty(),
                             name: "String",
                             nullabilitySuffix: SwidNullabilitySuffix.none,
                             originalPackagePath: "dart:core",
@@ -189,6 +211,8 @@ void main() {
                           )),
                           SwidType.fromSwidInterface(
                               swidInterface: SwidInterface(
+                            declarationModifiers:
+                                SwidDeclarationModifiers.empty(),
                             name: "Object",
                             nullabilitySuffix: SwidNullabilitySuffix.question,
                             originalPackagePath: "dart:core",
@@ -204,6 +228,7 @@ void main() {
     //List<Map<String, Object?>> toJsonList (List<DiagnosticsNode> nodes, DiagnosticsNode parent, DiagnosticsSerializationDelegate? delegate)
     expect(
         transformFunctionTypeToTs(
+            parentClass: null,
             trailingReturnTypeKind: TrailingReturnTypeKind.fatArrow,
             swidFunctionType: SwidFunctionType(
               isFactory: false,
@@ -211,13 +236,14 @@ void main() {
               typeFormals: [],
               nullabilitySuffix: SwidNullabilitySuffix.none,
               originalPackagePath: "",
-              swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+              declarationModifiers: SwidDeclarationModifiers.empty(),
               namedParameterTypes: {},
               namedDefaults: {},
               normalParameterNames: ["nodes", "parent", "delegate"],
               normalParameterTypes: [
                 SwidType.fromSwidInterface(
                     swidInterface: SwidInterface(
+                        declarationModifiers: SwidDeclarationModifiers.empty(),
                         name: "List<DiagnosticsNode>",
                         nullabilitySuffix: SwidNullabilitySuffix.none,
                         originalPackagePath: "",
@@ -226,6 +252,7 @@ void main() {
                         typeArguments: [
                       SwidType.fromSwidInterface(
                           swidInterface: SwidInterface(
+                        declarationModifiers: SwidDeclarationModifiers.empty(),
                         name: "DiagnosticsNode",
                         nullabilitySuffix: SwidNullabilitySuffix.none,
                         originalPackagePath: "",
@@ -236,6 +263,7 @@ void main() {
                     ])),
                 SwidType.fromSwidInterface(
                     swidInterface: SwidInterface(
+                  declarationModifiers: SwidDeclarationModifiers.empty(),
                   name: "DiagnosticsNode",
                   nullabilitySuffix: SwidNullabilitySuffix.none,
                   originalPackagePath: "",
@@ -245,6 +273,7 @@ void main() {
                 )),
                 SwidType.fromSwidInterface(
                     swidInterface: SwidInterface(
+                  declarationModifiers: SwidDeclarationModifiers.empty(),
                   name: "DiagnosticsSerializationDelegate",
                   nullabilitySuffix: SwidNullabilitySuffix.question,
                   originalPackagePath: "",
@@ -257,6 +286,7 @@ void main() {
               optionalParameterTypes: [],
               returnType: SwidType.fromSwidInterface(
                   swidInterface: SwidInterface(
+                      declarationModifiers: SwidDeclarationModifiers.empty(),
                       name: "List<Map<String, Object>>",
                       nullabilitySuffix: SwidNullabilitySuffix.none,
                       originalPackagePath: "dart:core",
@@ -265,6 +295,8 @@ void main() {
                       typeArguments: [
                     SwidType.fromSwidInterface(
                         swidInterface: SwidInterface(
+                            declarationModifiers:
+                                SwidDeclarationModifiers.empty(),
                             name: "Map<String,Object>",
                             nullabilitySuffix: SwidNullabilitySuffix.none,
                             originalPackagePath: "dart:core",
@@ -273,6 +305,8 @@ void main() {
                             typeArguments: [
                           SwidType.fromSwidInterface(
                               swidInterface: SwidInterface(
+                            declarationModifiers:
+                                SwidDeclarationModifiers.empty(),
                             name: "String",
                             nullabilitySuffix: SwidNullabilitySuffix.none,
                             originalPackagePath: "dart:core",
@@ -282,6 +316,8 @@ void main() {
                           )),
                           SwidType.fromSwidInterface(
                               swidInterface: SwidInterface(
+                            declarationModifiers:
+                                SwidDeclarationModifiers.empty(),
                             name: "Object",
                             nullabilitySuffix: SwidNullabilitySuffix.question,
                             originalPackagePath: "dart:core",

@@ -1,6 +1,3 @@
-declare const dart: {
-    ui: {};
-};
 export interface IAccessibilityFeatures {
     getAccessibleNavigation: () => boolean;
     getInvertColors: () => boolean;
@@ -12,12 +9,12 @@ export interface IAccessibilityFeatures {
     getHashCode: () => number;
 }
 export class AccessibilityFeatures {
-    private static _kAccessibleNavigation = 1 << 0;
-    private static _kInvertColorsIndex = 1 << 1;
-    private static _kDisableAnimationsIndex = 1 << 2;
-    private static _kBoldTextIndex = 1 << 3;
-    private static _kReduceMotionIndex = 1 << 4;
-    private static _kHighContrastIndex = 1 << 5;
+    public static _kAccessibleNavigation = 1 << 0;
+    public static _kInvertColorsIndex = 1 << 1;
+    public static _kDisableAnimationsIndex = 1 << 2;
+    public static _kBoldTextIndex = 1 << 3;
+    public static _kReduceMotionIndex = 1 << 4;
+    public static _kHighContrastIndex = 1 << 5;
     private readonly _dart_getAccessibleNavigation: () => boolean =
         undefined as any;
     private readonly _dart_getInvertColors: () => boolean = undefined as any;

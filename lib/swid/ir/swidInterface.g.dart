@@ -18,6 +18,8 @@ _$_$Data _$_$_$DataFromJson(Map<String, dynamic> json) {
     referenceDeclarationKind: _$enumDecode(
         _$SwidReferenceDeclarationKindEnumMap,
         json['referenceDeclarationKind']),
+    declarationModifiers: SwidDeclarationModifiers.fromJson(
+        json['declarationModifiers'] as Map<String, dynamic>),
   );
 }
 
@@ -29,6 +31,7 @@ Map<String, dynamic> _$_$_$DataToJson(_$_$Data instance) => <String, dynamic>{
       'typeArguments': instance.typeArguments,
       'referenceDeclarationKind': _$SwidReferenceDeclarationKindEnumMap[
           instance.referenceDeclarationKind],
+      'declarationModifiers': instance.declarationModifiers,
     };
 
 K _$enumDecode<K, V>(

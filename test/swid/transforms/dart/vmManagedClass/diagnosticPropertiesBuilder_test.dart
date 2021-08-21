@@ -36,8 +36,9 @@ class VMManagedDiagnosticPropertiesBuilder
       return x == vmObject.defaultDiagnosticsTreeStyle;
     });
     table[\'emptyBodyDescription\'] = vmObject.emptyBodyDescription;
-    table[\'add\'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      vmObject.add(maybeUnBoxAndBuildArgument<DiagnosticsNode>(args[1],
+    table[\'add\'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.add(maybeUnBoxAndBuildArgument<DiagnosticsNode, dynamic>(
+          luaCallerArguments[1],
           parentState: hydroState));
       return [];
     });

@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 
 import 'package:hydro_sdk/cfr/builtins/boxing/boxers.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/dart/core/list.dart';
 import 'package:hydro_sdk/cfr/vm/closure.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
 /// Attempt to unbox the given boxed enum into a value contained in values
+@optionalTypeArgs
 T? maybeUnBoxEnum<T>({
   required List<dynamic> values,
   required dynamic boxedEnum,
@@ -69,7 +71,7 @@ void registerUnBoxer({required UnBoxer unBoxer}) {
 /// Unbox the given arg for consumption by Dart code.
 /// The type parameter T is required to resolve the desired type that is being unboxed.
 /// If attempting to unbox a List<T>, only specify the type as T.
-dynamic maybeUnBoxAndBuildArgument<T>(
+dynamic maybeUnBoxAndBuildArgument<T, V extends dynamic>(
   dynamic arg, {
   BuildContext? context,
   required HydroState parentState,
@@ -87,7 +89,7 @@ dynamic maybeUnBoxAndBuildArgument<T>(
       parentState: parentState,
     );
     if (res != null) {
-      return maybeUnBoxAndBuildArgument<T>(res, parentState: parentState);
+      return maybeUnBoxAndBuildArgument<T, V>(res, parentState: parentState);
     }
   }
 
@@ -103,7 +105,7 @@ dynamic maybeUnBoxAndBuildArgument<T>(
       //(Effectively a this call) and unbox the result
       if (unwrap is Closure) {
         //unwrap is a table method
-        return maybeUnBoxAndBuildArgument<T>(
+        return maybeUnBoxAndBuildArgument<T, V>(
             unwrap.dispatch([
               arg.map,
               context != null
@@ -117,7 +119,7 @@ dynamic maybeUnBoxAndBuildArgument<T>(
             parentState: parentState);
       } else {
         //unwrap is a method on a box
-        return maybeUnBoxAndBuildArgument<T>(
+        return maybeUnBoxAndBuildArgument<T, V>(
             unwrap([
               arg.map,
               context != null
@@ -141,18 +143,25 @@ dynamic maybeUnBoxAndBuildArgument<T>(
         target = [arg.map[0], ...arg.arr];
       }
       return target
-          .map(
-              (x) => maybeUnBoxAndBuildArgument<T>(x, parentState: parentState))
+          .map((x) =>
+              maybeUnBoxAndBuildArgument<T, V>(x, parentState: parentState))
           .toList()
           .cast<T>();
     } else if (arg.arr.isEmpty) {
       return [].cast<T>();
     }
   } else if (arg is List) {
-    return maybeUnBoxAndBuildArgument<T>(HydroTable()..arr = arg,
+    return maybeUnBoxAndBuildArgument<T, V>(HydroTable()..arr = arg,
         parentState: parentState);
   } else if (arg is Box<T>) {
-    return maybeUnBoxAndBuildArgument<T>(arg.table, parentState: parentState);
+    return maybeUnBoxAndBuildArgument<T, V>(arg.table,
+        parentState: parentState);
+  } else if (arg is VMManagedList) {
+    return arg.vmObject
+        .map((x) =>
+            maybeUnBoxAndBuildArgument<T, V>(x, parentState: parentState))
+        .toList()
+        .cast<V>();
   }
 
   return arg;

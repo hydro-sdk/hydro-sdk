@@ -7,9 +7,9 @@ class TsTranslationUnit implements TranslationUnit {
   final List<TsIr?> ir;
 
   TsTranslationUnit({
-    required this.path,
-    required this.fileName,
-    required this.ir,
+    required final this.path,
+    required final this.fileName,
+    required final this.ir,
   });
 
   String toSource() => ir.map((x) => x!.toTsSource()).toList().join();

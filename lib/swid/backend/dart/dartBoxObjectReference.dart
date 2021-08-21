@@ -19,9 +19,9 @@ class DartBoxObjectReference {
   Expression? tableExpression;
 
   DartBoxObjectReference({
-    required this.type,
-    required this.objectReference,
-    required this.boxLists,
+    required final this.type,
+    required final this.objectReference,
+    required final this.boxLists,
     this.codeKind = CodeKind.statement,
     this.tableExpression,
   }) {
@@ -30,34 +30,42 @@ class DartBoxObjectReference {
     }
   }
 
-  Expression _boxObject() => refer("maybeBoxObject").call([], {
-        "object": boxLists &&
+  Expression _boxObject() => refer("maybeBoxObject").call(
+        [],
+        {
+          "object": boxLists &&
+                  isList(
+                      swidType:
+                          SwidType.fromSwidInterface(swidInterface: type)) &&
+                  !isPrimitiveMap(swidType: type.typeArguments.first)
+              ? CodeExpression(Code(DartBoxList(
+                  type: type,
+                  referenceName: objectReference
+                      .accept(DartEmitter(
+                        useNullSafetySyntax: true,
+                      ))
+                      .toString(),
+                  codeKind: CodeKind.expression,
+                ).toDartSource()))
+              : objectReference,
+          "hydroState": refer("hydroState"),
+          "table": tableExpression!,
+        },
+        type.name[0] != "_"
+            ? [
                 isList(
-                    swidType:
-                        SwidType.fromSwidInterface(swidInterface: type)) &&
-                !isPrimitiveMap(swidType: type.typeArguments.first)
-            ? CodeExpression(Code(DartBoxList(
-                type: type,
-                referenceName: objectReference
-                    .accept(DartEmitter(
-                      useNullSafetySyntax: true,
-                    ))
-                    .toString(),
-                codeKind: CodeKind.expression,
-              ).toDartSource()))
-            : objectReference,
-        "hydroState": refer("hydroState"),
-        "table": tableExpression!,
-      }, [
-        isList(swidType: SwidType.fromSwidInterface(swidInterface: type))
-            ? Reference("List<dynamic>")
-            : Reference([
-                removeTypeArguments(str: type.name),
-                type.nullabilitySuffix == SwidNullabilitySuffix.question
-                    ? "?"
-                    : "",
-              ].join())
-      ]);
+                        swidType:
+                            SwidType.fromSwidInterface(swidInterface: type))
+                    ? Reference("List<dynamic>")
+                    : Reference([
+                        removeTypeArguments(str: type.name),
+                        type.nullabilitySuffix == SwidNullabilitySuffix.question
+                            ? "?"
+                            : "",
+                      ].join())
+              ]
+            : [],
+      );
 
   String toDartSource() =>
       ((Expression? expression) => codeKind == CodeKind.statement

@@ -18,14 +18,14 @@ void main() {
             .toDartSource(),
         """
 void loadIconData({required HydroState hydroState, required HydroTable table}) {
-  table[\'iconData\'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table[\'iconData\'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
-      RTManagedIconData(args[1],
-          table: args[0],
+      RTManagedIconData(luaCallerArguments[1],
+          table: luaCallerArguments[0],
           hydroState: hydroState,
-          fontFamily: args[2][\'fontFamily\'],
-          fontPackage: args[2][\'fontPackage\'],
-          matchTextDirection: args[2][\'matchTextDirection\'])
+          fontFamily: luaCallerArguments[2][\'fontFamily\'],
+          fontPackage: luaCallerArguments[2][\'fontPackage\'],
+          matchTextDirection: luaCallerArguments[2][\'matchTextDirection\'])
     ];
   });
   registerBoxer<IconData>(boxer: (

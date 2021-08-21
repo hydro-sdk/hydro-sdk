@@ -25,7 +25,8 @@ class VMManagedTextStyle extends VMManagedBox<TextStyle> {
       return [
         maybeBoxObject<TextStyle>(
           object: vmObject.copyWith(
-              color: maybeUnBoxAndBuildArgument<Color>(args[1]["color"],
+              color: maybeUnBoxAndBuildArgument<Color, dynamic>(
+                  args[1]["color"],
                   parentState: hydroState)),
           hydroState: hydroState,
           table: HydroTable(),
@@ -36,7 +37,8 @@ class VMManagedTextStyle extends VMManagedBox<TextStyle> {
       return [
         maybeBoxObject<TextStyle>(
           object: vmObject.apply(
-              color: maybeUnBoxAndBuildArgument<Color>(args[1]["color"],
+              color: maybeUnBoxAndBuildArgument<Color, dynamic>(
+                  args[1]["color"],
                   parentState: hydroState),
               fontWeightDelta: args[1]["fontWeightDelta"] != null
                   ? args[1]["fontWeightDelta"]
@@ -69,9 +71,9 @@ void loadTextStyle({
     return [
       TextStyle(
           fontSize: args[0]["fontSize"]?.toDouble(),
-          color: maybeUnBoxAndBuildArgument<Color>(args[0]["color"],
+          color: maybeUnBoxAndBuildArgument<Color, dynamic>(args[0]["color"],
               parentState: luaState),
-          fontWeight: maybeUnBoxAndBuildArgument<FontWeight>(
+          fontWeight: maybeUnBoxAndBuildArgument<FontWeight, dynamic>(
               args[0]["fontWeight"],
               parentState: luaState))
     ];

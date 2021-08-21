@@ -1,4 +1,4 @@
-import { List } from "../../dart/collection/list";
+import { List } from "../../dart/core/list";
 import { Type } from "../../dart/core/type";
 import { RuntimeBaseClass } from "../../runtimeBaseClass";
 import { Key } from "../foundation/key";
@@ -8,7 +8,7 @@ import { ContextMenuPreviewBuilder } from "./contextMenuPreviewBuilder";
 
 export interface CupertinoContextMenuProps {
     key?: Key | undefined;
-    actions: List<Widget>;
+    actions: Array<Widget>;
     child: Widget;
     previewBuilder?: ContextMenuPreviewBuilder | undefined;
 }

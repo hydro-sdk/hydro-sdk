@@ -29,7 +29,7 @@ void main() {
           name: "first",
           nullabilitySuffix: SwidNullabilitySuffix.none,
           originalPackagePath: "dart:core",
-          swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+          declarationModifiers: SwidDeclarationModifiers.empty(),
           namedParameterTypes: {},
           namedDefaults: {},
           normalParameterNames: [],
@@ -38,6 +38,7 @@ void main() {
           optionalParameterTypes: [],
           returnType: SwidType.fromSwidInterface(
               swidInterface: SwidInterface(
+            declarationModifiers: SwidDeclarationModifiers.empty(),
             name: "E",
             nullabilitySuffix: SwidNullabilitySuffix.none,
             originalPackagePath: "dart:core",
@@ -52,7 +53,7 @@ void main() {
           name: "iterator",
           nullabilitySuffix: SwidNullabilitySuffix.none,
           originalPackagePath: "dart:core",
-          swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+          declarationModifiers: SwidDeclarationModifiers.empty(),
           namedParameterTypes: {},
           namedDefaults: {},
           normalParameterNames: [],
@@ -61,12 +62,14 @@ void main() {
           optionalParameterTypes: [],
           returnType: SwidType.fromSwidInterface(
               swidInterface: SwidInterface(
+            declarationModifiers: SwidDeclarationModifiers.empty(),
             name: "Iterator<E>",
             nullabilitySuffix: SwidNullabilitySuffix.none,
             originalPackagePath: "dart:core",
             typeArguments: [
               SwidType.fromSwidInterface(
                   swidInterface: SwidInterface(
+                declarationModifiers: SwidDeclarationModifiers.empty(),
                 name: "E",
                 nullabilitySuffix: SwidNullabilitySuffix.none,
                 originalPackagePath: "dart:core",
@@ -83,7 +86,7 @@ void main() {
       ],
       staticConstFieldDeclarations: [],
       instanceFieldDeclarations: {},
-      swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+      declarationModifiers: SwidDeclarationModifiers.empty(),
       mixedInClasses: [],
       implementedClasses: [],
       extendedClass: null,

@@ -10,15 +10,15 @@ part "swidInstantiableGeneric.g.dart";
 @freezed
 class SwidInstantiableGeneric with _$SwidInstantiableGeneric {
   const factory SwidInstantiableGeneric.fromSwidClass({
-    required SwidClass swidClass,
+    required final SwidClass swidClass,
   }) = _$SwidInstantiableGenericFromSwidClass;
 
   const factory SwidInstantiableGeneric.fromSwidInterface({
-    required SwidInterface swidInterface,
+    required final SwidInterface swidInterface,
   }) = _$SwidInstantiableGenericFromSwidInterface;
 
   const factory SwidInstantiableGeneric.fromSwidFunctionType({
-    required SwidFunctionType swidFunctionType,
+    required final SwidFunctionType swidFunctionType,
   }) = _$SwidInstantiableGenericFromSwidFunctionType;
 
   factory SwidInstantiableGeneric.fromJson(Map<String, dynamic> json) =>

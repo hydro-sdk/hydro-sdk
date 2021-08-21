@@ -15,7 +15,7 @@ void loadSafeArea({required HydroState luaState, required HydroTable table}) {
         right: args[0]["right"],
         maintainBottomViewPadding: args[0]["maintainBottomViewPadding"],
         minimum: args[0]["minimum"],
-        child: maybeUnBoxAndBuildArgument<Widget>(args[0]["child"],
+        child: maybeUnBoxAndBuildArgument<Widget, dynamic>(args[0]["child"],
             parentState: luaState),
       )
     ];

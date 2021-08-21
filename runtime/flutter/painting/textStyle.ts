@@ -1,13 +1,13 @@
 import { Type } from "../../dart/core/type";
 import { Color } from "../../dart/ui/color";
-import { FontWeight } from "../../dart/ui/fontWeight";
+import { IFontWeight } from "../../dart/ui/fontWeight";
 import { RuntimeBaseClass } from "../../runtimeBaseClass";
 import { JITAllocatingRTManagedBox } from "../../syntheticBox";
 
 export interface TextStyleProps {
     fontSize?: number | undefined;
     color?: Color | undefined;
-    fontWeight?: FontWeight | undefined;
+    fontWeight?: IFontWeight | undefined;
 }
 
 declare const flutter: {

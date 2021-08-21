@@ -1,14 +1,16 @@
 import { IEfficientLengthIterable } from "../_internal/efficientLengthIterable";
 import { IUnmodifiableListBase } from "../_internal/unmodifiableListBase";
+import { IUnmodifiableListMixin } from "../_internal/unmodifiableListMixin";
+import { IListMixin } from "../collection/listMixin";
 import { IIterable } from "../core/iterable";
 import { IIterator } from "../core/iterator";
 import { IList } from "../core/list";
 import { ISet } from "../core/set";
 import { IRandom } from "../math/random";
+import { I_TypedFloatList } from "./_typedFloatList";
+import { I_UnmodifiableListMixin } from "./_unmodifiableListMixin";
 import { IByteBuffer } from "./byteBuffer";
 import { IFloat64List } from "./float64List";
-import { I_TypedFloatList } from "./typedFloatList";
-import { I_UnmodifiableListMixin } from "./unmodifiableListMixin";
 declare const dart: {
     typed_data: {
         unmodifiableFloat64ListView: (
@@ -17,9 +19,6 @@ declare const dart: {
             list: IFloat64List
         ) => IUnmodifiableFloat64ListView;
     };
-};
-const toListDefaultProps = {
-    growable: true,
 };
 export interface IUnmodifiableFloat64ListView {
     lastIndexOf: (
@@ -120,8 +119,49 @@ export interface IUnmodifiableFloat64ListView {
 }
 export class UnmodifiableFloat64ListView
     implements
-        IUnmodifiableListBase<number>,
+        Omit<
+            IUnmodifiableListBase<number>,
+            | "sublist"
+            | "length"
+            | "setAll"
+            | "add"
+            | "insertAll"
+            | "remove"
+            | "sort"
+            | "shuffle"
+            | "clear"
+            | "setRange"
+            | "removeRange"
+            | "replaceRange"
+            | "fillRange"
+            | "length="
+            | "first="
+            | "last="
+            | "cast"
+            | "indexOf"
+            | "indexWhere"
+            | "lastIndexWhere"
+            | "lastIndexOf"
+            | "getRange"
+            | "asMap"
+            | "reversed"
+            | "map"
+            | "whereType"
+            | "contains"
+            | "forEach"
+            | "reduce"
+            | "join"
+            | "toList"
+            | "takeWhile"
+            | "skipWhile"
+            | "toString"
+            | "iterator"
+            | "isEmpty"
+            | "isNotEmpty"
+        >,
         I_UnmodifiableListMixin<number, IFloat64List, IFloat64List>,
+        IUnmodifiableListMixin<number>,
+        IListMixin<number>,
         IFloat64List,
         IList<number>,
         I_TypedFloatList,
@@ -515,3 +555,6 @@ export class UnmodifiableFloat64ListView
         return this._dart_getBuffer();
     }
 }
+const toListDefaultProps = {
+    growable: true,
+};

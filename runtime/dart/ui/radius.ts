@@ -1,24 +1,43 @@
-import { RuntimeBaseClass } from "./../../runtimeBaseClass";
-import { Type } from "./../core/type";
-
 declare const dart: {
     ui: {
-        radiusElliptical: (this: void, x: number, y: number) => Radius;
+        radiusCircular: (radius: number) => IRadius;
+        radiusElliptical: (x: number, y: number) => IRadius;
+        radiusLerp: (
+            a: IRadius | undefined,
+            b: IRadius | undefined,
+            t: number
+        ) => IRadius | undefined;
     };
 };
-
-export interface IRadius {}
-
-export class Radius implements RuntimeBaseClass {
-    public readonly internalRuntimeType = new Type(Radius);
-
-    public static elliptical(x: number, y: number) {
+export interface IRadius {
+    x: number;
+    y: number;
+    getHashCode: () => number;
+    toString: () => string;
+}
+export class Radius {
+    public static zero = Radius.circular(0.0);
+    public readonly x: number = undefined as any;
+    public readonly y: number = undefined as any;
+    public static circular(radius: number): IRadius {
+        return dart.ui.radiusCircular(radius);
+    }
+    public static elliptical(x: number, y: number): IRadius {
         return dart.ui.radiusElliptical(x, y);
     }
-
-    public static circular(radius: number): Radius {
-        return Radius.elliptical(radius, radius);
+    public static lerp(
+        a: IRadius | undefined,
+        b: IRadius | undefined,
+        t: number
+    ): IRadius | undefined {
+        return dart.ui.radiusLerp(a, b, t);
     }
-
-    public static zero: Radius = Radius.circular(0.0);
+    private readonly _dart_getHashCode: () => number = undefined as any;
+    private readonly _dart_toString: () => string = undefined as any;
+    public getHashCode(): number {
+        return this._dart_getHashCode();
+    }
+    public toString(): string {
+        return this._dart_toString();
+    }
 }

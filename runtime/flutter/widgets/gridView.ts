@@ -1,4 +1,4 @@
-import { List } from "../../dart/collection/list";
+import { List } from "../../dart/core/list";
 import { Type } from "../../dart/core/type";
 import { RuntimeBaseClass } from "../../runtimeBaseClass";
 import { Key } from "./../foundation/key";

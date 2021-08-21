@@ -1,14 +1,16 @@
 import { IEfficientLengthIterable } from "../_internal/efficientLengthIterable";
 import { IUnmodifiableListBase } from "../_internal/unmodifiableListBase";
+import { IUnmodifiableListMixin } from "../_internal/unmodifiableListMixin";
+import { IListMixin } from "../collection/listMixin";
 import { IIterable } from "../core/iterable";
 import { IIterator } from "../core/iterator";
 import { IList } from "../core/list";
 import { ISet } from "../core/set";
 import { IRandom } from "../math/random";
+import { I_TypedIntList } from "./_typedIntList";
+import { I_UnmodifiableListMixin } from "./_unmodifiableListMixin";
 import { IByteBuffer } from "./byteBuffer";
 import { IInt32List } from "./int32List";
-import { I_TypedIntList } from "./typedIntList";
-import { I_UnmodifiableListMixin } from "./unmodifiableListMixin";
 declare const dart: {
     typed_data: {
         unmodifiableInt32ListView: (
@@ -17,9 +19,6 @@ declare const dart: {
             list: IInt32List
         ) => IUnmodifiableInt32ListView;
     };
-};
-const toListDefaultProps = {
-    growable: true,
 };
 export interface IUnmodifiableInt32ListView {
     lastIndexOf: (
@@ -120,8 +119,49 @@ export interface IUnmodifiableInt32ListView {
 }
 export class UnmodifiableInt32ListView
     implements
-        IUnmodifiableListBase<number>,
+        Omit<
+            IUnmodifiableListBase<number>,
+            | "sublist"
+            | "length"
+            | "setAll"
+            | "add"
+            | "insertAll"
+            | "remove"
+            | "sort"
+            | "shuffle"
+            | "clear"
+            | "setRange"
+            | "removeRange"
+            | "replaceRange"
+            | "fillRange"
+            | "length="
+            | "first="
+            | "last="
+            | "cast"
+            | "indexOf"
+            | "indexWhere"
+            | "lastIndexWhere"
+            | "lastIndexOf"
+            | "getRange"
+            | "asMap"
+            | "reversed"
+            | "map"
+            | "whereType"
+            | "contains"
+            | "forEach"
+            | "reduce"
+            | "join"
+            | "toList"
+            | "takeWhile"
+            | "skipWhile"
+            | "toString"
+            | "iterator"
+            | "isEmpty"
+            | "isNotEmpty"
+        >,
         I_UnmodifiableListMixin<number, IInt32List, IInt32List>,
+        IUnmodifiableListMixin<number>,
+        IListMixin<number>,
         IInt32List,
         IList<number>,
         I_TypedIntList,
@@ -515,3 +555,6 @@ export class UnmodifiableInt32ListView
         return this._dart_getBuffer();
     }
 }
+const toListDefaultProps = {
+    growable: true,
+};

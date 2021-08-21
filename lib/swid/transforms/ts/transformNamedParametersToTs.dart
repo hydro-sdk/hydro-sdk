@@ -3,10 +3,10 @@ import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformLiteralToTs.dart';
 
 String transformNamedParametersToTs({
-  required Map<String, SwidStaticConst>? namedParameters,
-  required SwidClass parentClass,
-  required String inexpressibleFunctionInvocationFallback,
-  required SwidStaticConstFieldReferenceScopeResolver scopeResolver,
+  required final Map<String, SwidStaticConst>? namedParameters,
+  required final SwidClass? parentClass,
+  required final String inexpressibleFunctionInvocationFallback,
+  required final SwidStaticConstFieldReferenceScopeResolver scopeResolver,
 }) =>
     namedParameters != null && namedParameters.keys.isNotEmpty
         ? "{ " +

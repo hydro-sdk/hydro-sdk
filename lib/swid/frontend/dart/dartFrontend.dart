@@ -12,16 +12,18 @@ import 'package:hydro_sdk/swid/frontend/dart/surveyor/driver.dart';
 import 'package:hydro_sdk/swid/frontend/dart/surveyor/visitors.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidClassFromDartClassOrMixinOrClassTypAliasDeclaration.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidDeclarationModifiersFromClassDeclaration.dart';
+import 'package:hydro_sdk/swid/frontend/dart/swidTopLevelStaticConstFieldDeclarationFromTopLevelVariableDeclaration.dart';
 import 'package:hydro_sdk/swid/frontend/swidFrontend.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidEnum.dart';
 import 'package:hydro_sdk/swid/ir/swidIr.dart';
+import 'package:hydro_sdk/swid/ir/swidTopLevelStaticConstFieldDeclaration.dart';
 
 class SwidDartFrontend extends SwidFrontend {
   final List<String> inputs;
 
   const SwidDartFrontend({
-    required this.inputs,
+    required final this.inputs,
   }) : super(
           inputs: inputs,
         );
@@ -50,11 +52,21 @@ class SwidDartFrontend extends SwidFrontend {
     return [
       ...((driver.visitor as _SwidVisitor)
           .enums
-          .map((x) => SwidIr.fromSwidEnum(swidEnum: x))
+          .map((x) => SwidIr.fromSwidEnum(
+                swidEnum: x,
+              ))
           .toList()),
       ...((driver.visitor as _SwidVisitor)
           .classes
-          .map((x) => SwidIr.fromSwidClass(swidClass: x))
+          .map((x) => SwidIr.fromSwidClass(
+                swidClass: x,
+              ))
+          .toList()),
+      ...((driver.visitor as _SwidVisitor)
+          .topLevelStaticConstFieldDeclarations
+          .map((x) => SwidIr.fromSwidTopLevelStaticConstFieldDeclaration(
+                swidTopLevelStaticConstFieldDeclaration: x,
+              ))
           .toList()),
     ];
   }
@@ -71,6 +83,8 @@ class _SwidVisitor extends RecursiveAstVisitor
   List<String> reports = <String>[];
   List<SwidEnum> enums = [];
   List<SwidClass> classes = [];
+  List<SwidTopLevelStaticConstFieldDeclaration>
+      topLevelStaticConstFieldDeclarations = [];
 
   @override
   void visitEnumDeclaration(EnumDeclaration node) {
@@ -97,6 +111,12 @@ class _SwidVisitor extends RecursiveAstVisitor
 
   @override
   void visitClassDeclaration(ClassDeclaration node) {
+    if (node.name.name == "FontWeight") {
+      print(node.name.name);
+      File("test/swid/res/FontWeight.json")
+          .writeAsStringSync(json.encode(classes.last.toJson()));
+    }
+
     if (node.nativeClause == null) {
       var res = swidClassFromDartClassOrMixinOrClassTypAliasDeclaration(
           dartClassOrMixinOrClassTypAliasDeclaration:
@@ -104,10 +124,11 @@ class _SwidVisitor extends RecursiveAstVisitor
                   classDeclaration: node));
 
       res = SwidClass.clone(
-          swidClass: res,
-          swidDeclarationModifiers:
-              swidDeclarationModifiersFromClassDeclaration(
-                  classDeclaration: node));
+        swidClass: res,
+        declarationModifiers: swidDeclarationModifiersFromClassDeclaration(
+          classDeclaration: node,
+        ),
+      );
       classes.add(res);
     }
 
@@ -249,6 +270,12 @@ class _SwidVisitor extends RecursiveAstVisitor
           .writeAsStringSync(json.encode(classes.last.toJson()));
     }
 
+    if (node.name.name == "SemanticsAction") {
+      print(node.name.name);
+      File("test/swid/res/SemanticsAction.json")
+          .writeAsStringSync(json.encode(classes.last.toJson()));
+    }
+
     super.visitClassDeclaration(node);
   }
 
@@ -273,6 +300,21 @@ class _SwidVisitor extends RecursiveAstVisitor
     }
 
     return super.visitClassTypeAlias(node);
+  }
+
+  @override
+  void visitCompilationUnit(CompilationUnit node) {
+    topLevelStaticConstFieldDeclarations.addAll(node.childEntities
+        .whereType<TopLevelVariableDeclaration>()
+        .where((x) =>
+            x.childEntities.whereType<VariableDeclarationList>().first.isConst)
+        .map((x) =>
+            swidTopLevelStaticConstFieldDeclarationFromTopLevelVariableDeclaration(
+              topLevelVariableDeclaration: x,
+            ))
+        .toList());
+
+    return super.visitCompilationUnit(node);
   }
 
   @override

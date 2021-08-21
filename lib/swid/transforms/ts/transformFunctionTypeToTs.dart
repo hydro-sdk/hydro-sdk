@@ -1,17 +1,23 @@
 import 'package:collection/collection.dart' show IterableExtension;
 
+import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/util/cloneSwidType.dart';
+import 'package:hydro_sdk/swid/ir/util/isInexpressibleStaticConst.dart';
 import 'package:hydro_sdk/swid/transforms/ts/trailingReturnTypeKind.dart';
+import 'package:hydro_sdk/swid/transforms/ts/transformLiteralToTs.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformReturnTypeToTs.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformTypeDeclarationToTs.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformTypeFormalsToTs.dart';
+import 'package:hydro_sdk/swid/transforms/ts/util/makeDefaultInexpressibleFunctionInvocationFallback.dart';
+import 'package:hydro_sdk/swid/transforms/ts/util/makeDefaultStaticConstFieldReferenceScopeResolver.dart';
 
 String transformFunctionTypeToTs({
-  required SwidFunctionType swidFunctionType,
-  required TrailingReturnTypeKind trailingReturnTypeKind,
+  required final SwidFunctionType swidFunctionType,
+  required final SwidClass? parentClass,
+  required final TrailingReturnTypeKind trailingReturnTypeKind,
   TrailingReturnTypeKind nestedTrailingReturnTypeKind =
       TrailingReturnTypeKind.fatArrow,
   bool emitTrailingReturnType = true,
@@ -36,7 +42,7 @@ String transformFunctionTypeToTs({
     ]);
   }
 
-  var shouldEmitPositionalAsOptional = ({required String argName}) =>
+  var shouldEmitPositionalAsOptional = ({required final String argName}) =>
       normalTypes.entries
               .takeWhile((x) =>
                   x.value!.nullabilitySuffix == SwidNullabilitySuffix.question)
@@ -53,11 +59,19 @@ String transformFunctionTypeToTs({
               .firstWhereOrNull((x) => x.key == argName) !=
           null);
 
+  int normalAnonymousTypesSeen = 0;
   normalTypes.forEach((key, value) {
     value!.when(
       fromSwidClass: (_) => null,
       fromSwidFunctionType: (val) {
-        res += "$key";
+        if (key.trim().isNotEmpty) {
+          res += "$key";
+        } else {
+          normalAnonymousTypesSeen++;
+          res += "_";
+          res +=
+              List.generate(normalAnonymousTypesSeen, (index) => "_").join("");
+        }
         if (shouldEmitPositionalAsOptional(argName: key)) {
           res +=
               "${val.nullabilitySuffix == SwidNullabilitySuffix.question ? "?" : ""}";
@@ -65,6 +79,7 @@ String transformFunctionTypeToTs({
 
         res += " : ";
         res += transformFunctionTypeToTs(
+          parentClass: parentClass,
           swidFunctionType: val,
           trailingReturnTypeKind: nestedTrailingReturnTypeKind,
           nestedTrailingReturnTypeKind: nestedTrailingReturnTypeKind,
@@ -73,7 +88,14 @@ String transformFunctionTypeToTs({
         return null;
       },
       fromSwidInterface: (val) {
-        res += key;
+        if (key.trim().isNotEmpty) {
+          res += "$key";
+        } else {
+          normalAnonymousTypesSeen++;
+          res += "_";
+          res +=
+              List.generate(normalAnonymousTypesSeen, (index) => "_").join("");
+        }
         if (shouldEmitPositionalAsOptional(argName: key)) {
           res +=
               "${val.nullabilitySuffix == SwidNullabilitySuffix.question ? "?" : ""}";
@@ -81,13 +103,36 @@ String transformFunctionTypeToTs({
 
         res += ": " +
             transformTypeDeclarationToTs(
-                swidType: SwidType.fromSwidInterface(swidInterface: val));
+              parentClass: parentClass,
+              swidType: SwidType.fromSwidInterface(
+                swidInterface: val,
+              ),
+              emitDefaultFormalsAsOptionalNamed:
+                  emitDefaultFormalsAsOptionalNamed,
+              emitTopLevelInitializersForOptionalPositionals:
+                  emitInitializersForOptionalPositionals,
+              emitTrailingReturnType: emitTrailingReturnType,
+              nestedTrailingReturnTypeKind: nestedTrailingReturnTypeKind,
+            );
 
         if (emitInitializersForOptionalPositionals) {
           var initializer = swidFunctionType.positionalDefaultParameters.entries
               .firstWhereOrNull((x) => x.key == key);
           if (initializer != null) {
-            res += " = ${initializer.value.name}";
+            res += [
+              " = ",
+              transformLiteralToTs(
+                swidLiteral: initializer.value.value,
+                parentClass: parentClass,
+                inexpressibleFunctionInvocationFallback:
+                    makeDefaultInexpressibleFunctionInvocationFallback(
+                        parentClass: parentClass, name: initializer.key),
+                scopeResolver:
+                    makeDefaultStaticConstFieldReferenceScopeResolver(
+                  parentClass: parentClass,
+                ),
+              )
+            ].join("");
           }
         }
 
@@ -111,8 +156,23 @@ String transformFunctionTypeToTs({
     res += " props : { ";
 
     swidFunctionType.namedParameterTypes.entries.forEach((x) {
-      res +=
-          "${x.key}${x.value.nullabilitySuffix == SwidNullabilitySuffix.question || (emitDefaultFormalsAsOptionalNamed && swidFunctionType.namedDefaults[x.key] != null) ? "?" : ""} : ${transformTypeDeclarationToTs(swidType: x.value)}, ";
+      res += [
+        " ",
+        x.key,
+        x.value.nullabilitySuffix == SwidNullabilitySuffix.question ||
+                (emitDefaultFormalsAsOptionalNamed &&
+                    swidFunctionType.namedDefaults[x.key] != null &&
+                    !isInexpressibleStaticConst(
+                      parentClass: parentClass,
+                      staticConst: swidFunctionType.namedDefaults[x.key]!.value,
+                    ))
+            ? "?"
+            : "",
+        " : ",
+        transformTypeDeclarationToTs(
+            parentClass: parentClass, swidType: x.value),
+        ",",
+      ].join("");
     });
     res += "}";
   }

@@ -16,10 +16,18 @@ void main() {
         DartLoadNamespaceSymbolDeclaration(swidClass: keyClass).toDartSource(),
         """
 void loadKey({required HydroState hydroState, required HydroTable table}) {
-  table[\'key\'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table[\'key\'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<Key>(
-          object: Key(args[1]), hydroState: hydroState, table: args[0])
+          object: Key(luaCallerArguments[1]),
+          hydroState: hydroState,
+          table: luaCallerArguments[0])
+    ];
+  });
+  table[\'keyEmpty\'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    return [
+      maybeBoxObject<Key>(
+          object: Key.empty(), hydroState: hydroState, table: HydroTable()),
     ];
   });
   registerBoxer<Key>(boxer: (

@@ -16,7 +16,9 @@ import 'package:hydro_sdk/swid/backend/dart/dartBoxingProcedure.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartFunctionSelfBindingInvocation.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartStaticMethodNamespaceSymbolDeclaration.dart';
+import 'package:hydro_sdk/swid/backend/dart/dartUnpackClosures.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartVmManagedClassBoxerRegistrant.dart';
+import 'package:hydro_sdk/swid/backend/dart/util/luaCallerArgumentsParameterName.dart';
 import 'package:hydro_sdk/swid/backend/dart/util/luaDartBinding.dart';
 import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
@@ -30,7 +32,7 @@ class DartLoadNamespaceSymbolDeclaration {
   final SwidClass swidClass;
 
   const DartLoadNamespaceSymbolDeclaration({
-    required this.swidClass,
+    required final this.swidClass,
   });
 
   String toDartSource() => DartFormatter().format(Method((m) => m
@@ -57,10 +59,17 @@ class DartLoadNamespaceSymbolDeclaration {
                     luaDartBinding(
                       code: Block.of(
                         [
+                          Code(
+                            DartUnpackClosures(
+                              swidFunctionType: swidClass.constructorType!,
+                            ).toDartSource(),
+                          ),
                           literalList(
                             [
                               Code(
                                 DartFunctionSelfBindingInvocation(
+                                        useClosureUnpackNameForUnboxingIdentifiers:
+                                            true,
                                         argumentBoxingProcedure:
                                             DartBoxingProcedure.unbox,
                                         returnValueBoxingProcedure: !swidClass
@@ -71,16 +80,16 @@ class DartLoadNamespaceSymbolDeclaration {
                                             .constructorType!.isFactory,
                                         swidFunctionType: SwidFunctionType.clone(
                                             swidFunctionType:
-                                                swidClass.constructorType,
+                                                swidClass.constructorType!,
                                             name: !swidClass
                                                     .constructorType!.isFactory
                                                 ? "RTManaged${swidClass.name}"
                                                 : swidClass.name),
-                                        returnValueBoxingTableExpression:
-                                            swidClass.constructorType!.isFactory
-                                                ? refer("args")
-                                                    .index(literalNum(0))
-                                                : null)
+                                        returnValueBoxingTableExpression: swidClass
+                                                .constructorType!.isFactory
+                                            ? refer("$luaCallerArgumentsParameterName")
+                                                .index(literalNum(0))
+                                            : null)
                                     .toDartSource(),
                               ),
                             ],

@@ -5,7 +5,7 @@ import 'package:hydro_sdk/swid/backend/util/barrelMember.dart';
 import 'package:hydro_sdk/swid/backend/util/barrelSpec.dart';
 import 'package:hydro_sdk/swid/transforms/transformPackageUri.dart';
 
-List<BarrelMember> _extractMembers({required BarrelSpec spec}) =>
+List<BarrelMember> _extractMembers({required final BarrelSpec spec}) =>
     ((List<List<BarrelMember>> members) =>
         members.isNotEmpty
             ? members.reduce((value, element) => [...value, ...element])
@@ -18,7 +18,7 @@ List<BarrelMember> _extractMembers({required BarrelSpec spec}) =>
             ))
         .toList());
 
-List<BarrelSpec> _groupMembers({required List<BarrelMember> members}) =>
+List<BarrelSpec> _groupMembers({required final List<BarrelMember> members}) =>
     members.fold<List<BarrelSpec>>(
       <BarrelSpec>[],
       (previousValue, element) => previousValue.firstWhereOrNull((x) =>
@@ -80,7 +80,7 @@ List<BarrelSpec> _groupMembers({required List<BarrelMember> members}) =>
                 ])),
     );
 
-BarrelSpec resolveBarrelSpecs({required List<BarrelMember> members}) {
+BarrelSpec resolveBarrelSpecs({required final List<BarrelMember> members}) {
   return _groupMembers(members: members).reduce((value, element) =>
       BarrelSpec.clone(
           barrelSpec: value,

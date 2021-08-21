@@ -1,7 +1,20 @@
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiGrammarDefinition.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiAnnotationListParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiAnnotationParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiClassParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstBooleanFalseParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstBooleanParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstBooleanTrueParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstFunctionInvocationParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstMapParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstNamedParameterListParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstNamedParameterParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstNumberParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstParameterListParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstPositionalParameterListParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstStringParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiDeclarationWithConstValueParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiFunctionDeclarationNamedParameterParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiFunctionDeclarationOptionalParameterParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiFunctionDeclarationParameterListParser.dart';
@@ -10,6 +23,12 @@ import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiFunctionDeclarationPos
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiLibraryScopePrefixParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiReferenceDeclarationPrefixParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiSimpleDeclarationParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiStaticFunctionDeclarationParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiTypeArgumentListParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiTypeFormalListDeclarationParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiTypeFormalListParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiTypeFormalParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiTypeListParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiTypeParser.dart';
 
 class SwidiParser extends SwidiGrammarDefinition
@@ -17,14 +36,33 @@ class SwidiParser extends SwidiGrammarDefinition
         SwidiClassParser,
         SwidiReferenceDeclarationPrefixParser,
         SwidiLibraryScopePrefixParser,
-        SwidiTypeParser,
         SwidiConstNumberParser,
+        SwidiConstStringParser,
+        SwidiConstBooleanFalseParser,
+        SwidiConstBooleanTrueParser,
+        SwidiConstBooleanParser,
         SwidiConstParser,
+        SwidiConstPositionalParameterListParser,
+        SwidiConstNamedParameterParser,
+        SwidiConstParameterListParser,
+        SwidiConstNamedParameterListParser,
+        SwidiConstFunctionInvocationParser,
+        SwidiConstMapParser,
+        SwidiAnnotationParser,
+        SwidiAnnotationListParser,
+        SwidiTypeParser,
+        SwidiTypeListParser,
+        SwidiTypeArgumentListParser,
         SwidiSimpleDeclarationParser,
+        SwidiDeclarationWithConstValueParser,
+        SwidiTypeFormalParser,
+        SwidiTypeFormalListParser,
+        SwidiTypeFormalListDeclarationParser,
         SwidiFunctionDeclarationOptionalParameterParser,
         SwidiFunctionDeclarationPositionalParameterParser,
         SwidiFunctionDeclarationNamedParameterParser,
         SwidiFunctionDeclarationParameterListParser,
-        SwidiFunctionDeclarationParser {
+        SwidiFunctionDeclarationParser,
+        SwidiStaticFunctionDeclarationParser {
   const SwidiParser();
 }

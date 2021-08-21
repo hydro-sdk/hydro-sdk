@@ -17,6 +17,7 @@ void main() {
             name: "IconData",
             libraryScopePrefix: SwidiLibraryScopePrefix.empty,
             methods: [],
+            staticMethods: [],
           )
         ]);
   }, tags: "swid");

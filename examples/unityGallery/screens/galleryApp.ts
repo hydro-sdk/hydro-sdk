@@ -1,4 +1,4 @@
-import { List } from "../../../runtime/dart/collection/list";
+import { List } from "../../../runtime/dart/core/list";
 import { FontWeight } from "../../../runtime/dart/ui/fontWeight";
 import { Radius } from "../../../runtime/dart/ui/radius";
 import { BuildContext } from "../../../runtime/flutter/buildContext";
@@ -168,10 +168,10 @@ export class GalleryApp extends StatelessWidget {
                                                     );
                                                 },
                                             }),
-                                        ]),
+                                        ]) as any,
                                     }),
                                 }),
-                            ]),
+                            ]) as any,
                         }),
                     ],
                 }),

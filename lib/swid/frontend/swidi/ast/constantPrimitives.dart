@@ -9,6 +9,8 @@ import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiPositionalParameter.dart'
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiReferenceDeclarationPrefix.dart';
 
 const swidiUnknownInterface = const SwidiInterface(
+  typeArguments: [],
+  annotations: [],
   name: "Unknown",
   libraryScopePrefix: SwidiLibraryScopePrefix.empty,
   referenceDeclarationPrefix: SwidiReferenceDeclarationPrefix.empty,

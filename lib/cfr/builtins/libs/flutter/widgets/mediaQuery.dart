@@ -47,7 +47,7 @@ void loadMediaQuery({
   table["mediaQueryOf"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       maybeBoxObject(
-        object: MediaQuery.of(maybeUnBoxAndBuildArgument<BuildContext>(
+        object: MediaQuery.of(maybeUnBoxAndBuildArgument<BuildContext, dynamic>(
           args[0],
           parentState: luaState,
         )),

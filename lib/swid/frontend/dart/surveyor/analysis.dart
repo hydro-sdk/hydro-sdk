@@ -6,7 +6,7 @@
 //
 //      https://www.apache.org/licenses/LICENSE-2.0
 //
-//  Unless required by applicable law or agreed to in writing, software
+//  Unless required final by applicable law or agreed to in writing, software
 //  distributed under the License is distributed on an "AS IS" BASIS,
 //  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //  See the License for the specific language governing permissions and
@@ -199,14 +199,14 @@ class CLIError implements Comparable<CLIError> {
   String? correction;
 
   CLIError({
-    required this.severity,
-    required this.sourcePath,
-    required this.offset,
-    required this.line,
-    required this.column,
-    required this.message,
-    required this.errorCode,
-    required this.correction,
+    required final this.severity,
+    required final this.sourcePath,
+    required final this.offset,
+    required final this.line,
+    required final this.column,
+    required final this.message,
+    required final this.errorCode,
+    required final this.correction,
   });
 
   @override

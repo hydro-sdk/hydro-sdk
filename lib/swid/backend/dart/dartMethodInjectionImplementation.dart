@@ -16,27 +16,25 @@ class DartMethodInjectionImplementation {
   final SwidFunctionType swidFunctionType;
 
   const DartMethodInjectionImplementation({
-    required this.swidFunctionType,
+    required final this.swidFunctionType,
   });
 
-  String? _methodInvocation() =>
-      (swidFunctionType.swidDeclarationModifiers.isGetter
-          ? (!swidFunctionType.swidDeclarationModifiers.isAbstract
-                  ? "super."
-                  : "") +
-              swidFunctionType.name +
-              (!swidFunctionType.swidDeclarationModifiers.isGetter ? "()" : "")
-          : DartFunctionSelfBindingInvocation(
-                  argumentBoxingProcedure: DartBoxingProcedure.unbox,
-                  returnValueBoxingProcedure: DartBoxingProcedure.box,
-                  swidFunctionType: SwidFunctionType.clone(
-                    swidFunctionType: swidFunctionType,
-                    name: !swidFunctionType.swidDeclarationModifiers.isAbstract
-                        ? "super.${swidFunctionType.name}"
-                        : null,
-                  ),
-                  emitTableBindingPrefix: false)
-              .toDartSource());
+  String? _methodInvocation() => (swidFunctionType.declarationModifiers.isGetter
+      ? (!swidFunctionType.declarationModifiers.isAbstract ? "super." : "") +
+          swidFunctionType.name +
+          (!swidFunctionType.declarationModifiers.isGetter ? "()" : "")
+      : DartFunctionSelfBindingInvocation(
+              argumentBoxingProcedure: DartBoxingProcedure.unbox,
+              returnValueBoxingProcedure: DartBoxingProcedure.box,
+              useClosureUnpackNameForUnboxingIdentifiers: true,
+              swidFunctionType: SwidFunctionType.clone(
+                swidFunctionType: swidFunctionType,
+                name: !swidFunctionType.declarationModifiers.isAbstract
+                    ? "super.${swidFunctionType.name}"
+                    : null,
+              ),
+              emitTableBindingPrefix: false)
+          .toDartSource());
 
   Block _nonVoidBody() => Block.of([
         Code(

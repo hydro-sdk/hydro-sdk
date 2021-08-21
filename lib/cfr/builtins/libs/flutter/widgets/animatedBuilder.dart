@@ -12,12 +12,12 @@ void loadAnimatedBuilder(
   table["animatedBuilder"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       AnimatedBuilder(
-        animation: maybeUnBoxAndBuildArgument<ChangeNotifier>(
+        animation: maybeUnBoxAndBuildArgument<ChangeNotifier, dynamic>(
             args[0]["animation"],
             parentState: luaState),
         builder: (BuildContext context, Widget? child) {
           Closure closure = args[0]["builder"];
-          var res = maybeUnBoxAndBuildArgument<Widget>(
+          var res = maybeUnBoxAndBuildArgument<Widget, dynamic>(
               closure.dispatch([
                 maybeBoxObject(
                   object: context,

@@ -22,7 +22,7 @@ class VMManagedDiagnosticsSerializationDelegate
       return [
         maybeBoxObject<Map>(
             object: vmObject.additionalNodeProperties(
-                maybeUnBoxAndBuildArgument<DiagnosticsNode>(args[1],
+                maybeUnBoxAndBuildArgument<DiagnosticsNode, dynamic>(args[1],
                     parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable())
@@ -33,9 +33,11 @@ class VMManagedDiagnosticsSerializationDelegate
         maybeBoxObject<List<dynamic>>(
             object: vmObject
                 .filterChildren(
-                    maybeUnBoxAndBuildArgument<List<DiagnosticsNode>>(args[1],
+                    maybeUnBoxAndBuildArgument<List<DiagnosticsNode>, dynamic>(
+                        args[1],
                         parentState: hydroState),
-                    maybeUnBoxAndBuildArgument<DiagnosticsNode>(args[2],
+                    maybeUnBoxAndBuildArgument<DiagnosticsNode, dynamic>(
+                        args[2],
                         parentState: hydroState))
                 .map((x) => maybeBoxObject<DiagnosticsNode>(
                     object: x, hydroState: hydroState, table: HydroTable()))
@@ -49,9 +51,11 @@ class VMManagedDiagnosticsSerializationDelegate
         maybeBoxObject<List<dynamic>>(
             object: vmObject
                 .filterProperties(
-                    maybeUnBoxAndBuildArgument<List<DiagnosticsNode>>(args[1],
+                    maybeUnBoxAndBuildArgument<List<DiagnosticsNode>, dynamic>(
+                        args[1],
                         parentState: hydroState),
-                    maybeUnBoxAndBuildArgument<DiagnosticsNode>(args[2],
+                    maybeUnBoxAndBuildArgument<DiagnosticsNode, dynamic>(
+                        args[2],
                         parentState: hydroState))
                 .map((x) => maybeBoxObject<DiagnosticsNode>(
                     object: x, hydroState: hydroState, table: HydroTable()))
@@ -65,9 +69,11 @@ class VMManagedDiagnosticsSerializationDelegate
         maybeBoxObject<List<dynamic>>(
             object: vmObject
                 .truncateNodesList(
-                    maybeUnBoxAndBuildArgument<List<DiagnosticsNode>>(args[1],
+                    maybeUnBoxAndBuildArgument<List<DiagnosticsNode>, dynamic>(
+                        args[1],
                         parentState: hydroState),
-                    maybeUnBoxAndBuildArgument<DiagnosticsNode>(args[2],
+                    maybeUnBoxAndBuildArgument<DiagnosticsNode, dynamic>(
+                        args[2],
                         parentState: hydroState))
                 .map((x) => maybeBoxObject<DiagnosticsNode>(
                     object: x, hydroState: hydroState, table: HydroTable()))
@@ -80,7 +86,7 @@ class VMManagedDiagnosticsSerializationDelegate
       return [
         maybeBoxObject<DiagnosticsSerializationDelegate>(
             object: vmObject.delegateForNode(
-                maybeUnBoxAndBuildArgument<DiagnosticsNode>(args[1],
+                maybeUnBoxAndBuildArgument<DiagnosticsNode, dynamic>(args[1],
                     parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable())

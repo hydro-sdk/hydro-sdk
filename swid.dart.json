@@ -9,7 +9,8 @@
         ],
         "allowList": {
             "packagePaths": [
-                "dart:typed_data"
+                "dart:typed_data",
+                "dart:ui"
             ],
             "classNames": [
                 "Random",
@@ -68,12 +69,28 @@
                 "ListBase",
                 "_UnmodifiableListMixin",
                 "UnmodifiableListMixin",
-                "ListMixin"
+                "ListMixin",
+                "StackTrace",
+                "Map",
+                "MapEntry",
+                "Function",
+                "Symbol",
+                "Error",
+                "EventSink",
+                "FutureOr",
+                "StreamSubscription",
+                "Exception",
+                "Sink",
+                "ByteConversionSink",
+                "StringSink",
+                "ChunkedConversionSink"
             ]
         },
         "denyList": {
             "packagePaths": [],
-            "classNames": []
+            "classNames": [
+                "IsolateNameServer"
+            ]
         },
         "tsEmitOptions": {
             "prefixPaths": [

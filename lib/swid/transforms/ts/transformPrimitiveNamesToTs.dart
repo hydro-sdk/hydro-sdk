@@ -8,7 +8,7 @@ import 'package:hydro_sdk/swid/transforms/ts/mapPrimitiveSwidTypeNameToPrimitive
 import 'package:hydro_sdk/swid/transforms/ts/transformPrimitiveFunctionTypeNamesToTs.dart';
 
 SwidType transformPrimitiveNamesToTs({
-  required SwidType swidType,
+  required final SwidType swidType,
 }) =>
     swidType.when(
       fromSwidFunctionType: (val) => SwidType.fromSwidFunctionType(

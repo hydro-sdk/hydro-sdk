@@ -32,7 +32,7 @@ void main() {
           name: "",
           nullabilitySuffix: SwidNullabilitySuffix.none,
           originalPackagePath: "",
-          swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+          declarationModifiers: SwidDeclarationModifiers.empty(),
           namedParameterTypes: {},
           namedDefaults: {},
           normalParameterNames: [],
@@ -41,12 +41,14 @@ void main() {
           optionalParameterTypes: [],
           returnType: SwidType.fromSwidInterface(
             swidInterface: SwidInterface(
+              declarationModifiers: SwidDeclarationModifiers.empty(),
               name: "Iterable<E>",
               nullabilitySuffix: SwidNullabilitySuffix.none,
               originalPackagePath: "dart:core",
               typeArguments: [
                 SwidType.fromSwidInterface(
                   swidInterface: SwidInterface(
+                      declarationModifiers: SwidDeclarationModifiers.empty(),
                       name: "E",
                       nullabilitySuffix: SwidNullabilitySuffix.none,
                       originalPackagePath: "dart:core",
@@ -69,7 +71,7 @@ void main() {
             name: "map",
             nullabilitySuffix: SwidNullabilitySuffix.none,
             originalPackagePath: "dart:core",
-            swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+            declarationModifiers: SwidDeclarationModifiers.empty(),
             namedParameterTypes: {},
             namedDefaults: {},
             normalParameterNames: ["f"],
@@ -79,13 +81,15 @@ void main() {
                     name: "",
                     nullabilitySuffix: SwidNullabilitySuffix.none,
                     originalPackagePath: "",
-                    swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+                    declarationModifiers: SwidDeclarationModifiers.empty(),
                     namedParameterTypes: {},
                     namedDefaults: {},
                     normalParameterNames: ["e"],
                     normalParameterTypes: [
                       SwidType.fromSwidInterface(
                           swidInterface: SwidInterface(
+                              declarationModifiers:
+                                  SwidDeclarationModifiers.empty(),
                               name: "E",
                               nullabilitySuffix: SwidNullabilitySuffix.none,
                               originalPackagePath: "dart:core",
@@ -98,6 +102,7 @@ void main() {
                     optionalParameterTypes: [],
                     returnType: SwidType.fromSwidInterface(
                         swidInterface: SwidInterface(
+                      declarationModifiers: SwidDeclarationModifiers.empty(),
                       name: "T",
                       nullabilitySuffix: SwidNullabilitySuffix.none,
                       originalPackagePath: "dart:core",
@@ -113,12 +118,14 @@ void main() {
             optionalParameterTypes: [],
             returnType: SwidType.fromSwidInterface(
               swidInterface: SwidInterface(
+                declarationModifiers: SwidDeclarationModifiers.empty(),
                 name: "Iterable<T>",
                 nullabilitySuffix: SwidNullabilitySuffix.none,
                 originalPackagePath: "dart:core",
                 typeArguments: [
                   SwidType.fromSwidInterface(
                     swidInterface: SwidInterface(
+                      declarationModifiers: SwidDeclarationModifiers.empty(),
                       name: "T",
                       nullabilitySuffix: SwidNullabilitySuffix.none,
                       originalPackagePath: "dart:core",
@@ -144,7 +151,7 @@ void main() {
         ],
         staticConstFieldDeclarations: [],
         instanceFieldDeclarations: {},
-        swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+        declarationModifiers: SwidDeclarationModifiers.empty(),
         mixedInClasses: [],
         extendedClass: null,
         isMixin: false,
@@ -164,6 +171,7 @@ void main() {
               swidInstantiableGeneric:
                   SwidInstantiableGeneric.fromSwidInterface(
                 swidInterface: SwidInterface(
+                  declarationModifiers: SwidDeclarationModifiers.empty(),
                   name: "dynamic",
                   nullabilitySuffix: SwidNullabilitySuffix.none,
                   originalPackagePath: "",
@@ -189,16 +197,16 @@ class VMManagedIterable extends VMManagedBox<Iterable<dynamic>> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table[\'map\'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      Closure f = args[1];
+    table[\'map\'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      Closure unpackedf = luaCallerArguments[1];
       return [
         maybeBoxObject<Iterable>(
-            object: vmObject.map((e) => f.dispatch(
-                  [args[0], e],
+            object: vmObject.map((e) => unpackedf.dispatch(
+                  [luaCallerArguments[0], e],
                   parentState: hydroState,
                 )[0]),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
   }

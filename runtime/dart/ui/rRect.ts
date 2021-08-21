@@ -52,18 +52,6 @@ declare const dart: {
         ) => IRRect | undefined;
     };
 };
-const fromLTRBAndCornersDefaultProps = {
-    bottomLeft: Radius.zero,
-    bottomRight: Radius.zero,
-    topLeft: Radius.zero,
-    topRight: Radius.zero,
-};
-const fromRectAndCornersDefaultProps = {
-    bottomLeft: Radius.zero,
-    bottomRight: Radius.zero,
-    topLeft: Radius.zero,
-    topRight: Radius.zero,
-};
 export interface IRRect {
     left: number;
     top: number;
@@ -310,3 +298,15 @@ export class RRect {
         return this._dart_toString();
     }
 }
+const fromLTRBAndCornersDefaultProps = {
+    bottomLeft: Radius.zero,
+    bottomRight: Radius.zero,
+    topLeft: Radius.zero,
+    topRight: Radius.zero,
+};
+const fromRectAndCornersDefaultProps = {
+    bottomLeft: Radius.zero,
+    bottomRight: Radius.zero,
+    topLeft: Radius.zero,
+    topRight: Radius.zero,
+};

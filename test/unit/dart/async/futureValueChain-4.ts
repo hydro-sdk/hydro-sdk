@@ -1,5 +1,6 @@
 import { Future } from "../../../../runtime/dart/async/future";
-import { List } from "../../../../runtime/dart/collection/list";
+import { IIterable } from "../../../../runtime/dart/core/iterable";
+import { IList, List } from "../../../../runtime/dart/core/list";
 declare const assert: (this: void, arg: boolean, message?: string) => void;
 
 Future.value()
@@ -14,7 +15,7 @@ Future.value()
         assert(n1 == 5);
         return [0, 1, 2];
     })
-    .then((a1: Array<number>): Future<List<number>> => {
+    .then((a1: Array<number>): Future<IIterable<number>> => {
         assert(a1 != undefined);
         assert(a1[0] == 0);
         assert(a1[1] == 1);
@@ -35,9 +36,9 @@ Future.value()
             }
         );
     })
-    .then((l2: Future<List<number>>) => {
+    .then((l2: Future<IIterable<number>>) => {
         assert(l2 != undefined);
-        l2.then((l3: List<number>) => {
+        l2.then((l3: IIterable<number>) => {
             assert(l3 != undefined);
             assert(l3.elementAt(0) == 3);
             assert(l3.elementAt(1) == 4);

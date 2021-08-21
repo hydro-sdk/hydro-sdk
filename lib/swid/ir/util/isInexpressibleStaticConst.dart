@@ -3,16 +3,18 @@ import 'package:collection/collection.dart' show IterableExtension;
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstFieldDeclaration.dart';
-import 'package:hydro_sdk/swid/ir/swidType.dart';
 
-bool isInexpressibleStaticConst(
-        {required SwidClass parentClass,
-        required SwidStaticConst staticConst}) =>
+bool isInexpressibleStaticConst({
+  required final SwidClass? parentClass,
+  required final SwidStaticConst staticConst,
+}) =>
     staticConst.when(
       fromSwidBooleanLiteral: (_) => false,
       fromSwidStringLiteral: (_) => false,
       fromSwidIntegerLiteral: (_) => false,
       fromDoubleLiteral: (_) => false,
+      fromSwidStaticConstIdentifier: (_) => false,
+      fromSwidStaticConstTopLevelVariableReference: (_) => false,
       fromSwidStaticConstFunctionInvocation: (val) =>
           val.value[0] == "_" ||
           val.staticType.displayName[0] == "_" ||
@@ -34,20 +36,50 @@ bool isInexpressibleStaticConst(
                           staticConst: declarationOnParent.value,
                         )
                       : false)(
-              declarationOnParent: parentClass.staticConstFieldDeclarations
+              declarationOnParent: parentClass?.staticConstFieldDeclarations
                   .firstWhereOrNull((x) => x.name == val.name)),
       fromSwidStaticConstPrefixedExpression: (val) =>
           isInexpressibleStaticConst(
-              parentClass: parentClass, staticConst: val.expression),
+        parentClass: parentClass,
+        staticConst: val.expression,
+      ),
       fromSwidStaticConstBinaryExpression: (val) =>
           isInexpressibleStaticConst(
-              parentClass: parentClass, staticConst: val.leftOperand) ||
+            parentClass: parentClass,
+            staticConst: val.leftOperand,
+          ) ||
           isInexpressibleStaticConst(
-              parentClass: parentClass, staticConst: val.rightOperand),
+            parentClass: parentClass,
+            staticConst: val.rightOperand,
+          ),
       fromSwidStaticConstPrefixedIdentifier: (val) =>
           isInexpressibleStaticConst(
-              parentClass: parentClass,
-              staticConst: SwidStaticConst.fromSwidStaticConstFieldReference(
-                  swidStaticConstFieldReference:
-                      val.staticConstFieldReference)),
+        parentClass: parentClass,
+        staticConst: SwidStaticConst.fromSwidStaticConstFieldReference(
+          swidStaticConstFieldReference: val.staticConstFieldReference,
+        ),
+      ),
+      fromSwidStaticConstListLiteral: (val) => val.elements.any(
+        (x) => isInexpressibleStaticConst(
+          parentClass: parentClass,
+          staticConst: x,
+        ),
+      ),
+      fromSwidStaticConstMapLiteralEntry: (val) =>
+          isInexpressibleStaticConst(
+            parentClass: parentClass,
+            staticConst: val.key,
+          ) ||
+          isInexpressibleStaticConst(
+            parentClass: parentClass,
+            staticConst: val.value,
+          ),
+      fromSwidStaticConstMapLiteral: (val) => val.elements.any(
+        (x) => isInexpressibleStaticConst(
+          parentClass: parentClass,
+          staticConst: SwidStaticConst.fromSwidStaticConstMapLiteralEntry(
+            swidStaticConstMapLiteralEntry: x,
+          ),
+        ),
+      ),
     );

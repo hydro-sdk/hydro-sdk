@@ -10,11 +10,29 @@ part 'swidStaticConstPrefixedIdentifier.g.dart';
 class SwidStaticConstPrefixedIdentifier
     with _$SwidStaticConstPrefixedIdentifier {
   const factory SwidStaticConstPrefixedIdentifier({
-    required SwidInterface prefix,
-    required SwidStaticConstFieldReference staticConstFieldReference,
+    required final SwidInterface prefix,
+    required final SwidStaticConstFieldReference staticConstFieldReference,
   }) = _$Data;
 
   factory SwidStaticConstPrefixedIdentifier.fromJson(
           Map<String, dynamic> json) =>
       _$SwidStaticConstPrefixedIdentifierFromJson(json);
+
+  factory SwidStaticConstPrefixedIdentifier.clone({
+    required final SwidStaticConstPrefixedIdentifier
+        swidStaticConstPrefixedIdentifier,
+    SwidInterface? prefix,
+    SwidStaticConstFieldReference? staticConstFieldReference,
+  }) =>
+      SwidStaticConstPrefixedIdentifier(
+        prefix: prefix ??
+            SwidInterface.clone(
+              swidType: swidStaticConstPrefixedIdentifier.prefix,
+            ),
+        staticConstFieldReference: staticConstFieldReference ??
+            SwidStaticConstFieldReference.clone(
+              swidStaticConstFieldReference:
+                  swidStaticConstPrefixedIdentifier.staticConstFieldReference,
+            ),
+      );
 }

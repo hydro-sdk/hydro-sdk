@@ -11,6 +11,7 @@ class SwidiClass with _$SwidiClass {
     required String name,
     required SwidiLibraryScopePrefix libraryScopePrefix,
     required List<SwidiFunctionDeclaration> methods,
+    required List<SwidiFunctionDeclaration> staticMethods,
   }) = _$SwidiClassCtor;
 
   factory SwidiClass.clone({
@@ -18,6 +19,7 @@ class SwidiClass with _$SwidiClass {
     String? name,
     SwidiLibraryScopePrefix? libraryScopePrefix,
     List<SwidiFunctionDeclaration>? methods,
+    List<SwidiFunctionDeclaration>? staticMethods,
   }) =>
       SwidiClass(
         name: name ?? swidiClass.name,
@@ -28,6 +30,16 @@ class SwidiClass with _$SwidiClass {
         methods: methods ??
             List.from(
               swidiClass.methods
+                  .map(
+                    (x) => SwidiFunctionDeclaration.clone(
+                      swidiFunctionDeclaration: x,
+                    ),
+                  )
+                  .toList(),
+            ),
+        staticMethods: staticMethods ??
+            List.from(
+              swidiClass.staticMethods
                   .map(
                     (x) => SwidiFunctionDeclaration.clone(
                       swidiFunctionDeclaration: x,

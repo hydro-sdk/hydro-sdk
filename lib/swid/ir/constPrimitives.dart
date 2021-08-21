@@ -11,14 +11,14 @@ import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
 
 bool _isConstPrimitive({
-  required SwidType swidType,
-  required SwidType constPrimitive,
+  required final SwidType swidType,
+  required final SwidType constPrimitive,
 }) =>
     swidType.name == constPrimitive.name &&
     swidType.originalPackagePath == constPrimitive.originalPackagePath;
 
 bool isDartObject({
-  required SwidType swidType,
+  required final SwidType swidType,
 }) =>
     _isConstPrimitive(
       swidType: swidType,
@@ -34,7 +34,7 @@ bool isDartObject({
     );
 
 bool isClassDartObject({
-  required SwidClass swidClass,
+  required final SwidClass swidClass,
 }) =>
     isDartObject(
       swidType: SwidType.fromSwidClass(
@@ -42,12 +42,43 @@ bool isClassDartObject({
       ),
     );
 
+const emptyDeclarationModifiers = const SwidDeclarationModifiers(
+  ignoredTransforms: [],
+  ignoredAnalyses: [],
+  overridenTransforms: [],
+  isAbstract: false,
+  isGetter: false,
+  isOperator: false,
+  isSetter: false,
+  isStatic: false,
+  isSynthetic: false,
+  hasAlwaysThrows: false,
+  hasDeprecated: false,
+  hasFactory: false,
+  hasImplicitReturnType: false,
+  hasIsTest: false,
+  hasIsTestGroup: false,
+  hasJS: false,
+  hasLiteral: false,
+  hasMustCallSuper: false,
+  hasNonVirtual: false,
+  hasOptionalTypeArgs: false,
+  hasOverride: false,
+  hasProtected: false,
+  hasRequired: false,
+  hasSealed: false,
+  hasVisibleForTemplate: false,
+  hasVisibleForTesting: false,
+  isPublic: true,
+);
+
 const dartObject = const SwidInterface(
   name: "Object",
   nullabilitySuffix: SwidNullabilitySuffix.none,
   originalPackagePath: "dart:core",
   typeArguments: [],
   referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
+  declarationModifiers: emptyDeclarationModifiers,
 );
 
 const dartNullableObject = const SwidInterface(
@@ -56,10 +87,11 @@ const dartNullableObject = const SwidInterface(
   originalPackagePath: "dart:core",
   typeArguments: [],
   referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
+  declarationModifiers: emptyDeclarationModifiers,
 );
 
 bool isDartType({
-  required SwidType swidType,
+  required final SwidType swidType,
 }) =>
     _isConstPrimitive(
       swidType: swidType,
@@ -75,7 +107,7 @@ bool isDartType({
     );
 
 bool isClassDartType({
-  required SwidClass swidClass,
+  required final SwidClass swidClass,
 }) =>
     isDartType(
       swidType: SwidType.fromSwidClass(
@@ -89,6 +121,7 @@ const dartType = const SwidInterface(
   originalPackagePath: "dart:core",
   typeArguments: [],
   referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
+  declarationModifiers: emptyDeclarationModifiers,
 );
 
 const dartNullableType = const SwidInterface(
@@ -97,6 +130,7 @@ const dartNullableType = const SwidInterface(
   originalPackagePath: "dart:core",
   typeArguments: [],
   referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
+  declarationModifiers: emptyDeclarationModifiers,
 );
 
 const dartDouble = const SwidInterface(
@@ -105,6 +139,7 @@ const dartDouble = const SwidInterface(
   originalPackagePath: "dart:core",
   typeArguments: [],
   referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
+  declarationModifiers: emptyDeclarationModifiers,
 );
 
 const dartInt = const SwidInterface(
@@ -113,6 +148,7 @@ const dartInt = const SwidInterface(
   originalPackagePath: "dart:core",
   typeArguments: [],
   referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
+  declarationModifiers: emptyDeclarationModifiers,
 );
 
 const dartNullableInt = const SwidInterface(
@@ -121,6 +157,7 @@ const dartNullableInt = const SwidInterface(
   originalPackagePath: "dart:core",
   typeArguments: [],
   referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
+  declarationModifiers: emptyDeclarationModifiers,
 );
 
 const dartNum = const SwidInterface(
@@ -129,6 +166,7 @@ const dartNum = const SwidInterface(
   originalPackagePath: "dart:core",
   typeArguments: [],
   referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
+  declarationModifiers: emptyDeclarationModifiers,
 );
 
 const dartNullableNum = const SwidInterface(
@@ -137,6 +175,7 @@ const dartNullableNum = const SwidInterface(
   originalPackagePath: "dart:core",
   typeArguments: [],
   referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
+  declarationModifiers: emptyDeclarationModifiers,
 );
 
 const dartDynamic = const SwidInterface(
@@ -144,6 +183,7 @@ const dartDynamic = const SwidInterface(
   nullabilitySuffix: SwidNullabilitySuffix.none,
   originalPackagePath: "",
   referenceDeclarationKind: SwidReferenceDeclarationKind.dynamicType,
+  declarationModifiers: emptyDeclarationModifiers,
   typeArguments: [],
 );
 
@@ -152,6 +192,7 @@ const dartVoid = const SwidInterface(
   nullabilitySuffix: SwidNullabilitySuffix.none,
   originalPackagePath: "",
   referenceDeclarationKind: SwidReferenceDeclarationKind.voidType,
+  declarationModifiers: emptyDeclarationModifiers,
   typeArguments: [],
 );
 
@@ -160,6 +201,7 @@ const dartUnknownInterface = const SwidInterface(
   nullabilitySuffix: SwidNullabilitySuffix.none,
   originalPackagePath: "",
   referenceDeclarationKind: SwidReferenceDeclarationKind.unknown,
+  declarationModifiers: emptyDeclarationModifiers,
   typeArguments: [],
 );
 
@@ -177,32 +219,7 @@ const dartUnknownClass = const SwidClass(
   methods: [],
   staticConstFieldDeclarations: [],
   instanceFieldDeclarations: {},
-  swidDeclarationModifiers: SwidDeclarationModifiers(
-    isAbstract: false,
-    isGetter: false,
-    isOperator: false,
-    isSetter: false,
-    isStatic: false,
-    isSynthetic: false,
-    hasAlwaysThrows: false,
-    hasDeprecated: false,
-    hasFactory: false,
-    hasImplicitReturnType: false,
-    hasIsTest: false,
-    hasIsTestGroup: false,
-    hasJS: false,
-    hasLiteral: false,
-    hasMustCallSuper: false,
-    hasNonVirtual: false,
-    hasOptionalTypeArgs: false,
-    hasOverride: false,
-    hasProtected: false,
-    hasRequired: false,
-    hasSealed: false,
-    hasVisibleForTemplate: false,
-    hasVisibleForTesting: false,
-    isPublic: true,
-  ),
+  declarationModifiers: emptyDeclarationModifiers,
   mixedInClasses: [],
   implementedClasses: [],
   isMixin: false,
@@ -213,32 +230,7 @@ const dartUnknownFunction = const SwidFunctionType(
   name: "Unknown",
   nullabilitySuffix: SwidNullabilitySuffix.none,
   originalPackagePath: "",
-  swidDeclarationModifiers: SwidDeclarationModifiers(
-    isAbstract: false,
-    isGetter: false,
-    isOperator: false,
-    isSetter: false,
-    isStatic: false,
-    isSynthetic: false,
-    hasAlwaysThrows: false,
-    hasDeprecated: false,
-    hasFactory: false,
-    hasImplicitReturnType: false,
-    hasIsTest: false,
-    hasIsTestGroup: false,
-    hasJS: false,
-    hasLiteral: false,
-    hasMustCallSuper: false,
-    hasNonVirtual: false,
-    hasOptionalTypeArgs: false,
-    hasOverride: false,
-    hasProtected: false,
-    hasRequired: false,
-    hasSealed: false,
-    hasVisibleForTemplate: false,
-    hasVisibleForTesting: false,
-    isPublic: true,
-  ),
+  declarationModifiers: emptyDeclarationModifiers,
   namedParameterTypes: {},
   namedDefaults: {},
   normalParameterNames: [],
@@ -258,10 +250,11 @@ const dartUnkownTypeFormal = const SwidTypeFormal(
 );
 
 const dartUnknownDefaultFormalParameter = const SwidDefaultFormalParameter(
-  name: "Unknown",
   nullabilitySuffix: SwidNullabilitySuffix.none,
   originalPackagePath: "",
-  value: dartUnknownType,
+  defaultValueCode: "Unknown",
+  value: dartUnknownConst,
+  staticType: dartUnknownType,
 );
 
 const dartUnkownDefaultFormalParameterEntry = const MapEntry(

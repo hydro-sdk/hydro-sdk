@@ -4,9 +4,9 @@ import { IIterator } from "../core/iterator";
 import { IList } from "../core/list";
 import { ISet } from "../core/set";
 import { IRandom } from "../math/random";
+import { I_TypedIntList } from "./_typedIntList";
 import { IByteBuffer } from "./byteBuffer";
 import { ITypedData } from "./typedData";
-import { I_TypedIntList } from "./typedIntList";
 declare const dart: {
     typed_data: {
         uint32List: (
@@ -26,9 +26,6 @@ declare const dart: {
             end?: number | undefined
         ) => IUint32List;
     };
-};
-const toListDefaultProps = {
-    growable: true,
 };
 export interface IUint32List {
     sublist: (start: number, end?: number | undefined) => IUint32List;
@@ -528,3 +525,6 @@ export class Uint32List
         return this._dart_getBuffer();
     }
 }
+const toListDefaultProps = {
+    growable: true,
+};

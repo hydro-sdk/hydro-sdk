@@ -390,12 +390,20 @@ async function readSdkPackage({ directory }: { directory: string }): Promise<
                 "The profile to use for compilation"
             ).makeOptionMandatory()
         )
+        .addOption(
+            new Option(
+                "--skip-sdk-tools-check",
+                "Skip downloading missing SDK tools"
+            )
+        )
         .action(async (options) => {
             const hydroc = new Hydroc({
                 sdkToolsVersion: options.toolsVersion ?? sdkPackage.version,
             });
 
-            await hydroc.downloadMissingSdkTools();
+            if (!options.skipSdkToolsCheck) {
+                await hydroc.downloadMissingSdkTools();
+            }
 
             await new Promise((resolve, reject) => {
                 const ts2hc = hydroc.ts2hc({

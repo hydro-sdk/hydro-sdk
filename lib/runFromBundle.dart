@@ -73,7 +73,7 @@ class _RunFromBundle extends State<RunFromBundle>
       future: res,
       builder: (BuildContext context, AsyncSnapshot<CoroutineResult> snapshot) {
         if (snapshot.hasData) {
-          return maybeUnBoxAndBuildArgument<Widget>(
+          return maybeUnBoxAndBuildArgument<Widget, dynamic>(
               luaState.context!.env["hydro"]["globalBuildResult"].dispatch([
                 ...args,
               ], parentState: luaState)[0],

@@ -3,6 +3,8 @@ import 'package:code_builder/code_builder.dart'
 
 import 'package:tuple/tuple.dart';
 
+import 'package:hydro_sdk/swid/backend/dart/util/luaCallerArgumentsParameterName.dart';
+import 'package:hydro_sdk/swid/backend/dart/util/unpackedClosureName.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
@@ -11,7 +13,7 @@ class DartUnpackClosures {
   final SwidFunctionType swidFunctionType;
 
   const DartUnpackClosures({
-    required this.swidFunctionType,
+    required final this.swidFunctionType,
   });
 
   String toDartSource() => ([
@@ -49,8 +51,8 @@ class DartUnpackClosures {
         ]
             .map(
               (x) => (({
-                String? parameterName,
-                required SwidType parameterType,
+                required final String parameterName,
+                required final SwidType parameterType,
                 int? argIndex,
               }) =>
                   parameterType.when(
@@ -62,9 +64,11 @@ class DartUnpackClosures {
                       (val.nullabilitySuffix == SwidNullabilitySuffix.question
                           ? "? "
                           : " "),
-                      parameterName,
+                      unpackedClosureName(
+                        str: parameterName,
+                      ),
                       "=",
-                      refer("args")
+                      refer("$luaCallerArgumentsParameterName")
                           .index(literalNum(argIndex!))
                           .statement
                           .accept(DartEmitter(
@@ -85,8 +89,8 @@ class DartUnpackClosures {
         ]
             .map(
               (x) => (({
-                String? parameterName,
-                required SwidType parameterType,
+                required final String parameterName,
+                required final SwidType parameterType,
               }) =>
                   parameterType.when(
                     fromSwidInterface: (_) => "",
@@ -97,19 +101,20 @@ class DartUnpackClosures {
                       (val.nullabilitySuffix == SwidNullabilitySuffix.question
                           ? "? "
                           : " "),
-                      parameterName,
+                      unpackedClosureName(
+                        str: parameterName,
+                      ),
                       "=",
-                      refer("args")
+                      refer("$luaCallerArgumentsParameterName")
                           .index(literalNum(
                               swidFunctionType.normalParameterNames.length + 1))
-                          .index(literalString(parameterName!))
+                          .index(literalString(parameterName))
                           .statement
                           .accept(DartEmitter(
                             useNullSafetySyntax: true,
                           ))
                           .toString(),
-                    ]..removeWhere((x) => x == null))
-                        .join(""),
+                    ]).join(""),
                   ))(
                 parameterName: x.key,
                 parameterType: x.value,

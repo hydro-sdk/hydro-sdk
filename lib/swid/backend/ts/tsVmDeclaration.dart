@@ -8,16 +8,16 @@ part 'tsVmDeclaration.g.dart';
 @freezed
 class TsVmDeclaration with _$TsVmDeclaration {
   factory TsVmDeclaration({
-    required String name,
-    required List<SwidFunctionType?> methods,
-    required List<TsVmDeclaration> children,
+    required final String name,
+    required final List<SwidFunctionType?> methods,
+    required final List<TsVmDeclaration> children,
   }) = _$Data;
 
   factory TsVmDeclaration.fromJson(Map<String, dynamic> json) =>
       _$TsVmDeclarationFromJson(json);
 
   factory TsVmDeclaration.clone({
-    required TsVmDeclaration tsVmDeclaration,
+    required final TsVmDeclaration tsVmDeclaration,
     String? name,
     List<SwidFunctionType?>? methods,
     List<TsVmDeclaration>? children,

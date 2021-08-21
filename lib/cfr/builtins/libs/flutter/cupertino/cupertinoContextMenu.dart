@@ -12,16 +12,16 @@ void loadCupertinoContextMenu(
   table["cupertinoContextMenu"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       CupertinoContextMenu(
-        key: maybeUnBoxAndBuildArgument<Key>(args[0]["key"],
+        key: maybeUnBoxAndBuildArgument<Key, dynamic>(args[0]["key"],
             parentState: luaState),
-        actions: maybeUnBoxAndBuildArgument<Widget>(args[0]["actions"],
+        actions: maybeUnBoxAndBuildArgument<Widget, dynamic>(args[0]["actions"],
             parentState: luaState),
-        child: maybeUnBoxAndBuildArgument<Widget>(args[0]["child"],
+        child: maybeUnBoxAndBuildArgument<Widget, dynamic>(args[0]["child"],
             parentState: luaState),
         previewBuilder: args[0]["previewBuilder"] != null
             ? (context, animation, child) {
                 Closure closure = args[0]["previewBuilder"];
-                return maybeUnBoxAndBuildArgument<Widget>(
+                return maybeUnBoxAndBuildArgument<Widget, dynamic>(
                     closure.dispatch(
                       [
                         maybeBoxObject<BuildContext>(

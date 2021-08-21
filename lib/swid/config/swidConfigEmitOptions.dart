@@ -11,11 +11,11 @@ part 'swidConfigEmitOptions.g.dart';
 @freezed
 class SwidConfigEmitOptions with _$SwidConfigEmitOptions {
   const factory SwidConfigEmitOptions({
-    required SwidConfigTsEmitOptions tsEmitOptions,
-    required SwidConfigDartEmitOptions dartEmitOptions,
-    required List<String> prefixPaths,
-    required SwidConfigAllowList allowList,
-    required SwidConfigDenyList denyList,
+    required final SwidConfigTsEmitOptions tsEmitOptions,
+    required final SwidConfigDartEmitOptions dartEmitOptions,
+    required final List<String> prefixPaths,
+    required final SwidConfigAllowList allowList,
+    required final SwidConfigDenyList denyList,
   }) = _$SwidConfigEmitOptionsCtor;
 
   factory SwidConfigEmitOptions.fromJson(Map<String, dynamic> json) =>

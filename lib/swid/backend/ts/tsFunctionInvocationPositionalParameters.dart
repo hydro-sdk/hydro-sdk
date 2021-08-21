@@ -7,7 +7,7 @@ part 'tsFunctionInvocationPositionalParameters.g.dart';
 class TsFunctionInvocationPositionalParameters
     with _$TsFunctionInvocationPositionalParameters {
   factory TsFunctionInvocationPositionalParameters(
-      {required List<String?> positionalReferences}) = _$Data;
+      {required final List<String?> positionalReferences}) = _$Data;
 
   factory TsFunctionInvocationPositionalParameters.fromJson(
           Map<String, dynamic> json) =>

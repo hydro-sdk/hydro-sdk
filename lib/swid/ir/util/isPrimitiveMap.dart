@@ -2,7 +2,7 @@ import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/util/isPrimitive.dart';
 import 'package:hydro_sdk/swid/transforms/removeTypeArguments.dart';
 
-bool isPrimitiveMap({required SwidType swidType}) => swidType.when(
+bool isPrimitiveMap({required final SwidType swidType}) => swidType.when(
       fromSwidInterface: (val) =>
           val.originalPackagePath == "dart:core" &&
           removeTypeArguments(

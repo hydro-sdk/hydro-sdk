@@ -7,11 +7,11 @@ part 'swidiOptionalParameter.freezed.dart';
 @freezed
 class SwidiOptionalParameter with _$SwidiOptionalParameter {
   const factory SwidiOptionalParameter({
-    required SwidiDeclaration declaration,
+    required final SwidiDeclaration declaration,
   }) = _$SwidiOptionalParameterCtor;
 
   factory SwidiOptionalParameter.clone({
-    required SwidiOptionalParameter? swidiOptionalParameter,
+    required final SwidiOptionalParameter? swidiOptionalParameter,
     SwidiDeclaration? declaration,
   }) =>
       SwidiOptionalParameter(

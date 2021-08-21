@@ -27,9 +27,6 @@ declare const dart: {
         ) => IFloat64x2List;
     };
 };
-const toListDefaultProps = {
-    growable: true,
-};
 export interface IFloat64x2List {
     sublist: (start: number, end?: number | undefined) => IFloat64x2List;
     cast: <R>() => IList<R>;
@@ -553,3 +550,6 @@ export class Float64x2List
         return this._dart_getBuffer();
     }
 }
+const toListDefaultProps = {
+    growable: true,
+};

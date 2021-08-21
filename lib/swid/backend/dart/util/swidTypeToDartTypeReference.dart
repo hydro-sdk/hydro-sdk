@@ -6,23 +6,31 @@ import 'package:hydro_sdk/swid/transforms/dart/removeNullabilitySuffixFromTypeNa
 import 'package:hydro_sdk/swid/transforms/removeTypeArguments.dart';
 
 TypeReference swidTypeToDartTypeReference({
-  required SwidType swidType,
+  required final SwidType swidType,
+  bool preserveTypeArguments = false,
 }) =>
-    TypeReference((t) => t
-      ..symbol = removeTypeArguments(
-        str: removeNullabilitySuffixFromTypeNames(
-          swidType: swidType,
-        ).name,
-      ).isNotEmpty
-          ? [
-              removeTypeArguments(
-                str: removeNullabilitySuffixFromTypeNames(
-                  swidType: swidType,
-                ).name,
-              ),
-              swidType.nullabilitySuffix == SwidNullabilitySuffix.question
-                  ? "?"
-                  : "",
-            ].join("")
-          : ""
-      ..isNullable = false);
+    (({
+      required final String name,
+    }) =>
+        TypeReference(
+          (t) => t
+            ..symbol = name.isNotEmpty
+                ? [
+                    name,
+                    swidType.nullabilitySuffix == SwidNullabilitySuffix.question
+                        ? "?"
+                        : "",
+                  ].join("")
+                : ""
+            ..isNullable = false,
+        ))(
+      name: preserveTypeArguments
+          ? removeNullabilitySuffixFromTypeNames(
+              swidType: swidType,
+            ).name
+          : removeTypeArguments(
+              str: removeNullabilitySuffixFromTypeNames(
+                swidType: swidType,
+              ).name,
+            ),
+    );

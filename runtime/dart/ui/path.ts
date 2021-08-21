@@ -1,4 +1,3 @@
-import { double } from "../core/double";
 import { IList } from "../core/list";
 import { IFloat64List } from "../typed_data/float64List";
 import { IOffset } from "./offset";
@@ -18,21 +17,6 @@ declare const dart: {
             path2: IPath
         ) => IPath;
     };
-};
-const arcToPointDefaultProps = {
-    clockwise: true,
-    largeArc: false,
-    radius: Radius.zero,
-    rotation: 0.0,
-};
-const relativeArcToPointDefaultProps = {
-    clockwise: true,
-    largeArc: false,
-    radius: Radius.zero,
-    rotation: 0.0,
-};
-const computeMetricsDefaultProps = {
-    forceClosed: false,
 };
 export interface IPath {
     getFillType: () => PathFillType;
@@ -411,3 +395,18 @@ export class Path {
         });
     }
 }
+const arcToPointDefaultProps = {
+    clockwise: true,
+    largeArc: false,
+    radius: Radius.zero,
+    rotation: 0.0,
+};
+const relativeArcToPointDefaultProps = {
+    clockwise: true,
+    largeArc: false,
+    radius: Radius.zero,
+    rotation: 0.0,
+};
+const computeMetricsDefaultProps = {
+    forceClosed: false,
+};

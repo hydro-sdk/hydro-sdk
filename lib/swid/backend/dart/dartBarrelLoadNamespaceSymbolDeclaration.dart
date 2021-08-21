@@ -12,7 +12,7 @@ class DartBarrelLoadNamespaceSymbolDeclaration {
   final BarrelSpec barrelSpec;
 
   DartBarrelLoadNamespaceSymbolDeclaration({
-    required this.barrelSpec,
+    required final this.barrelSpec,
   });
   String toDartSource() => DartFormatter().format(Method((m) => m
         ..name = "load${barrelSpec.name}"

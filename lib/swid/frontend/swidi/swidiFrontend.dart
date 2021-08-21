@@ -8,8 +8,8 @@ class SwidiFrontend extends SwidFrontend {
   final InputResolver inputResolver;
 
   SwidiFrontend({
-    required this.inputs,
-    required this.inputResolver,
+    required final this.inputs,
+    required final this.inputResolver,
   }) : super(
           inputs: inputs,
         );

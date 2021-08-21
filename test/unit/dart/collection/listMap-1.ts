@@ -1,8 +1,8 @@
-import { List } from "../../../../runtime/dart/collection/list";
+import { IList, List } from "../../../../runtime/dart/core/list";
 declare const assert: (this: void, arg: boolean, message?: string) => void;
 
 let arr: Array<number> = [0, 1, 2];
-let list: List<number> = List.fromArray(arr);
+let list: IList<number> = List.fromArray(arr);
 
 assert(list.elementAt(0) != undefined);
 assert(list.elementAt(0) == arr[0]);
@@ -16,7 +16,7 @@ assert(list.getLength() == 3);
 assert(list.getIsNotEmpty());
 assert(!list.getIsEmpty());
 
-list = list.map((e) => e + 1);
+list = list.map((e) => e + 1).toList({ growable: true });
 
 assert(list.elementAt(0) != undefined);
 assert(list.elementAt(0) == 1);

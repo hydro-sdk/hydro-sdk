@@ -11,7 +11,7 @@ void loadStack({required HydroState luaState, required HydroTable table}) {
   table["stack"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       Stack(
-        key: maybeUnBoxAndBuildArgument<Widget>(args[0]["key"],
+        key: maybeUnBoxAndBuildArgument<Widget, dynamic>(args[0]["key"],
             parentState: luaState),
         textDirection: TextDirection.values
             .firstWhereOrNull((x) => x.index == args[0]["textDirection"]),
@@ -19,7 +19,8 @@ void loadStack({required HydroState luaState, required HydroTable table}) {
             StackFit.values.firstWhereOrNull((x) => x.index == args[0]["fit"])!,
         overflow: Overflow.values
             .firstWhereOrNull((x) => x.index == args[0]["overflow"])!,
-        children: maybeUnBoxAndBuildArgument<Widget>(args[0]["children"],
+        children: maybeUnBoxAndBuildArgument<Widget, dynamic>(
+            args[0]["children"],
             parentState: luaState),
       )
     ];

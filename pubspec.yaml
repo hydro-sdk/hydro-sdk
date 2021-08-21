@@ -9,7 +9,7 @@ dependencies:
   cupertino_icons: ^1.0.3
   http: ^0.13.3
   json_serializable: ^4.1.3
-  petitparser: ^4.1.0
+  petitparser: 4.1.0
   recase: ^4.0.0
   tuple: ^2.0.0
   flutter: 
@@ -31,6 +31,7 @@ dependencies:
   watcher: ^1.0.0
   glob: 2.0.1
   path_provider: null
+  quiver: 3.0.1
 dev_dependencies: 
   import_sorter: null
   build_runner: null

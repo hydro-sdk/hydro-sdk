@@ -28,7 +28,8 @@ AlwaysStoppedAnimation? translateRTTIToAlwaysStoppedAnimation(
       break;
     case RuntimeTypes.Color:
       return AlwaysStoppedAnimation<Color?>(
-          maybeUnBoxAndBuildArgument<Color>(value, parentState: luaState));
+          maybeUnBoxAndBuildArgument<Color, dynamic>(value,
+              parentState: luaState));
     case RuntimeTypes.double:
       break;
   }

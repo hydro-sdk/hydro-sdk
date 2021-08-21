@@ -24,15 +24,15 @@ import 'package:hydro_sdk/swid/ir/util/propagateUnsatisfiedTypeParameters.dart';
 import 'package:hydro_sdk/swid/ir/util/rewriteClassReferencestoInterfaceReferencesInClass.dart';
 
 TsTranslationUnit produceTsTranslationUnitFromSwidClass({
-  required SwidClass swidClass,
-  required String baseFileName,
-  required String path,
-  required List<String> prefixPaths,
+  required final SwidClass swidClass,
+  required final String baseFileName,
+  required final String path,
+  required final List<String> prefixPaths,
 }) =>
     (({
-      required SwidClass swidClass,
-      required SwidClass swidClassWithInterfaceReferences,
-      required SwidClass unMergedSwidClassWithInterfaceReferences,
+      required final SwidClass swidClass,
+      required final SwidClass swidClassWithInterfaceReferences,
+      required final SwidClass unMergedSwidClassWithInterfaceReferences,
     }) =>
         TsTranslationUnit(
             path: prefixPaths.join(p.separator) + p.separator + path,
@@ -46,96 +46,143 @@ TsTranslationUnit produceTsTranslationUnitFromSwidClass({
                         swidClass.staticMethods.isNotEmpty ||
                         swidClass.factoryConstructors.isNotEmpty)
                 ? ([
-                    TsIr.fromTsLinebreak(tsLinebreak: TsLinebreak()),
+                    TsIr.fromTsLinebreak(
+                      tsLinebreak: TsLinebreak(),
+                    ),
                     ...tsImportBlock(
-                        swidClass:
-                            SwidClass.mergeSuperClasses(swidClass: swidClass),
-                        prefixPaths: prefixPaths),
+                      swidClass: SwidClass.mergeSuperClasses(
+                        swidClass: swidClass,
+                      ),
+                      prefixPaths: prefixPaths,
+                    ),
                     TsIr.fromTsClassVmDeclaration(
-                        tsClassVmDeclaration: TsClassVmDeclaration(
-                            swidClass: propagateUnsatisfiedTypeParameters(
-                                swidClass: swidClass))),
+                      tsClassVmDeclaration: TsClassVmDeclaration(
+                        swidClass: propagateUnsatisfiedTypeParameters(
+                          swidClass: swidClass,
+                        ),
+                      ),
+                    ),
+                    TsIr.fromTsInterface(
+                      tsInterface: TsInterface.fromSwidClass(
+                        emitSuperInterfaceExtensions: false,
+                        swidClass: SwidClass.clone(
+                          swidClass: swidClassWithInterfaceReferences,
+                          name: "I${swidClassWithInterfaceReferences.name}",
+                          methods: tsClassMethodInjectionCandidates(
+                            swidFunctionTypes:
+                                swidClassWithInterfaceReferences.methods,
+                          ),
+                        ),
+                      ),
+                    ),
+                    TsIr.fromTsClassPreamble(
+                      tsClassPreamble: TsClassPreamble(
+                        swidClass: swidClassWithInterfaceReferences,
+                      ),
+                    ),
+                    TsIr.fromTsClassStaticConstFieldDeclarations(
+                      tsClassStaticConstFieldDeclarations:
+                          TsClassStaticConstFieldDeclarations(
+                        swidClass: swidClass,
+                      ),
+                    ),
+                    TsIr.fromTsClassInstanceFieldDeclarations(
+                      tsClassInstanceFieldDeclarations:
+                          TsClassInstanceFieldDeclarations(
+                        swidClass:
+                            rewriteClassReferencesToInterfaceReferencesInClass(
+                          swidClass: SwidClass.mergeSuperClasses(
+                            swidClass: swidClass,
+                          ),
+                        ),
+                      ),
+                    ),
+                    TsIr.fromTsClassConstructorImplementation(
+                      tsClassConstructorImplementation:
+                          TsClassConstructorImplementation(
+                        swidClass:
+                            rewriteClassReferencesToInterfaceReferencesInClass(
+                          swidClass: swidClass,
+                        ),
+                      ),
+                    ),
+                    ...((SwidClass propagatedClass) => ([
+                          ...[
+                            ...propagatedClass.factoryConstructors,
+                            ...propagatedClass.staticMethods,
+                          ]
+                              .map(
+                                (x) =>
+                                    TsIr.fromTsClassStaticMethodImplementation(
+                                  tsClassStaticMethodImplementation:
+                                      TsClassStaticMethodImplementation(
+                                    swidClass: propagatedClass,
+                                    swidFunctionType: x,
+                                  ),
+                                ),
+                              )
+                              .toList(),
+                        ]))(
+                      propagateUnsatisfiedTypeParameters(
+                        swidClass: swidClass,
+                      ),
+                    ),
+                    TsIr.fromTsClassMethodInjectionFieldDeclarations(
+                      tsClassMethodInjectionFieldDeclarations:
+                          TsClassMethodInjectionFieldDeclarations(
+                        swidClass: SwidClass.mergeSuperClasses(
+                          swidClass: swidClass,
+                        ),
+                      ),
+                    ),
+                    TsIr.fromTsClassMethodDeclarations(
+                      tsClassMethodDeclarations: TsClassMethodDeclarations(
+                        swidClass: SwidClass.mergeSuperClasses(
+                          swidClass: swidClass,
+                        ),
+                      ),
+                    ),
+                    TsIr.fromTsClassPostamble(
+                      tsClassPostamble: TsClassPostamble(
+                        swidClass: swidClass,
+                      ),
+                    ),
                     swidClass.constructorType != null
                         ? TsIr.fromTsFunctionDefaultNamedProps(
                             tsFunctionDefaultNamedProps:
                                 TsFunctionDefaultNamedProps(
-                                    swidFunctionType: SwidFunctionType.clone(
-                                        swidFunctionType:
-                                            swidClass.constructorType,
-                                        name: swidClass.name)),
+                              swidFunctionType: SwidFunctionType.clone(
+                                swidFunctionType: swidClass.constructorType!,
+                                name: swidClass.name,
+                              ),
+                            ),
                           )
                         : null,
                     ...([
-                      ...SwidClass.mergeSuperClasses(swidClass: swidClass)
-                          .methods,
+                      ...SwidClass.mergeSuperClasses(
+                        swidClass: swidClass,
+                      ).methods,
                       ...swidClass.factoryConstructors,
                       ...swidClass.staticMethods,
-                    ].map((x) => TsIr.fromTsFunctionDefaultNamedProps(
+                    ].map(
+                      (x) => TsIr.fromTsFunctionDefaultNamedProps(
                         tsFunctionDefaultNamedProps:
-                            TsFunctionDefaultNamedProps(swidFunctionType: x)))),
-                    TsIr.fromTsInterface(
-                        tsInterface: TsInterface.fromSwidClass(
-                            emitSuperInterfaceExtensions: false,
-                            swidClass: SwidClass.clone(
-                                swidClass: swidClassWithInterfaceReferences,
-                                name:
-                                    "I${swidClassWithInterfaceReferences.name}",
-                                methods: tsClassMethodInjectionCandidates(
-                                    swidFunctionTypes:
-                                        swidClassWithInterfaceReferences
-                                            .methods)))),
-                    TsIr.fromTsClassPreamble(
-                        tsClassPreamble: TsClassPreamble(
-                            swidClass: swidClassWithInterfaceReferences)),
-                    TsIr.fromTsClassStaticConstFieldDeclarations(
-                        tsClassStaticConstFieldDeclarations:
-                            TsClassStaticConstFieldDeclarations(
-                                swidClass: swidClass)),
-                    TsIr.fromTsClassInstanceFieldDeclarations(
-                        tsClassInstanceFieldDeclarations:
-                            TsClassInstanceFieldDeclarations(
-                                swidClass:
-                                    rewriteClassReferencesToInterfaceReferencesInClass(
-                                        swidClass: SwidClass.mergeSuperClasses(
-                                            swidClass: swidClass)))),
-                    TsIr.fromTsClassConstructorImplementation(
-                        tsClassConstructorImplementation:
-                            TsClassConstructorImplementation(
-                                swidClass:
-                                    rewriteClassReferencesToInterfaceReferencesInClass(
-                                        swidClass: swidClass))),
-                    ...((SwidClass propagatedClass) => ([
-                              ...[
-                                ...propagatedClass.factoryConstructors,
-                                ...propagatedClass.staticMethods,
-                              ]
-                                  .map((x) => TsIr
-                                      .fromTsClassStaticMethodImplementation(
-                                          tsClassStaticMethodImplementation:
-                                              TsClassStaticMethodImplementation(
-                                                  swidClass: propagatedClass,
-                                                  swidFunctionType: x)))
-                                  .toList()
-                            ]))(
-                        propagateUnsatisfiedTypeParameters(
-                            swidClass: swidClass)),
-                    TsIr.fromTsClassMethodInjectionFieldDeclarations(
-                        tsClassMethodInjectionFieldDeclarations:
-                            TsClassMethodInjectionFieldDeclarations(
-                                swidClass: SwidClass.mergeSuperClasses(
-                                    swidClass: swidClass))),
-                    TsIr.fromTsClassMethodDeclarations(
-                        tsClassMethodDeclarations: TsClassMethodDeclarations(
-                            swidClass: SwidClass.mergeSuperClasses(
-                                swidClass: swidClass))),
-                    TsIr.fromTsClassPostamble(
-                        tsClassPostamble:
-                            TsClassPostamble(swidClass: swidClass))
-                  ]..removeWhere((x) => x == null))
+                            TsFunctionDefaultNamedProps(
+                          swidFunctionType: x,
+                        ),
+                      ),
+                    )),
+                  ]..removeWhere(
+                    (x) => x == null,
+                  ))
                 : [
-                    TsIr.fromTsLinebreak(tsLinebreak: TsLinebreak()),
+                    TsIr.fromTsLinebreak(
+                      tsLinebreak: TsLinebreak(),
+                    ),
                     ...tsImportBlock(
-                        swidClass: swidClass, prefixPaths: prefixPaths),
+                      swidClass: swidClass,
+                      prefixPaths: prefixPaths,
+                    ),
                     TsIr.fromTsInterface(
                       tsInterface: TsInterface.fromSwidClass(
                         emitSuperInterfaceExtensions: true,
@@ -152,9 +199,13 @@ TsTranslationUnit produceTsTranslationUnitFromSwidClass({
                       ),
                     ),
                   ]))(
-      swidClass: prepareClassForTranslationUnit(swidClass: swidClass).item1,
-      swidClassWithInterfaceReferences:
-          prepareClassForTranslationUnit(swidClass: swidClass).item3,
-      unMergedSwidClassWithInterfaceReferences:
-          prepareClassForTranslationUnit(swidClass: swidClass).item2,
+      swidClass: prepareClassForTranslationUnit(
+        swidClass: swidClass,
+      ).item1,
+      swidClassWithInterfaceReferences: prepareClassForTranslationUnit(
+        swidClass: swidClass,
+      ).item3,
+      unMergedSwidClassWithInterfaceReferences: prepareClassForTranslationUnit(
+        swidClass: swidClass,
+      ).item2,
     );

@@ -9,7 +9,7 @@ class TsClassMethodInjectionFieldDeclarations {
   final SwidClass swidClass;
 
   const TsClassMethodInjectionFieldDeclarations({
-    required this.swidClass,
+    required final this.swidClass,
   });
 
   String toTsSource() => (swidClass.methods.isNotEmpty)
@@ -25,6 +25,7 @@ class TsClassMethodInjectionFieldDeclarations {
                         .toTsSource() +
                     ": " +
                     transformFunctionTypeToTs(
+                      parentClass: swidClass,
                       swidFunctionType:
                           rewriteClassReferencesToInterfaceReferencesInFunction(
                         swidFunctionType: x,

@@ -16,8 +16,11 @@ void main() {
     expect(iconDataClass.instanceFieldDeclarations.length, 4);
     expect(
         transformTypeDeclarationToTs(
-            swidType: SwidType.fromSwidFunctionType(
-                swidFunctionType: iconDataClass.constructorType!)),
-        "(codePoint: number, props : { fontFamily : string, fontPackage : string, matchTextDirection : boolean, }) => IconData");
+          swidType: SwidType.fromSwidFunctionType(
+            swidFunctionType: iconDataClass.constructorType!,
+          ),
+          parentClass: null,
+        ),
+        "(codePoint: number, props : {  fontFamily? : string | undefined, fontPackage? : string | undefined, matchTextDirection : boolean,}) => IconData");
   }, tags: "swid");
 }

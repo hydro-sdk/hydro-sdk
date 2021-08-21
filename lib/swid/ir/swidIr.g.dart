@@ -31,3 +31,22 @@ Map<String, dynamic> _$_$_$SwidIrFromSwidEnumToJson(
     <String, dynamic>{
       'swidEnum': instance.swidEnum,
     };
+
+_$_$SwidIrFromSwidTopLevelStaticConstFieldDeclaration
+    _$_$_$SwidIrFromSwidTopLevelStaticConstFieldDeclarationFromJson(
+        Map<String, dynamic> json) {
+  return _$_$SwidIrFromSwidTopLevelStaticConstFieldDeclaration(
+    swidTopLevelStaticConstFieldDeclaration:
+        SwidTopLevelStaticConstFieldDeclaration.fromJson(
+            json['swidTopLevelStaticConstFieldDeclaration']
+                as Map<String, dynamic>),
+  );
+}
+
+Map<String, dynamic>
+    _$_$_$SwidIrFromSwidTopLevelStaticConstFieldDeclarationToJson(
+            _$_$SwidIrFromSwidTopLevelStaticConstFieldDeclaration instance) =>
+        <String, dynamic>{
+          'swidTopLevelStaticConstFieldDeclaration':
+              instance.swidTopLevelStaticConstFieldDeclaration,
+        };

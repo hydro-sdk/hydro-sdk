@@ -1,7 +1,7 @@
 import { IIterable } from "../core/iterable";
 import { IList } from "../core/list";
 import { IRandom } from "../math/random";
-export interface IUnmodifiableListMixin<E> {
+export interface IUnmodifiableListMixin<E> extends IList<E> {
     setLength: (newLength: number) => void;
     setFirst: (element: E) => void;
     setLast: (element: E) => void;

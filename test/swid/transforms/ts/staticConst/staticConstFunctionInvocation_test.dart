@@ -1,6 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidIntegerLiteral.dart';
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
@@ -18,6 +19,7 @@ void main() {
         value: "IconData",
         staticType: SwidType.fromSwidInterface(
             swidInterface: SwidInterface(
+          declarationModifiers: SwidDeclarationModifiers.empty(),
           name: "IconData",
           nullabilitySuffix: SwidNullabilitySuffix.none,
           originalPackagePath: "package:flutter/widgets.dart",
@@ -42,6 +44,7 @@ void main() {
         value: "IconData",
         staticType: SwidType.fromSwidInterface(
             swidInterface: SwidInterface(
+          declarationModifiers: SwidDeclarationModifiers.empty(),
           name: "IconData",
           nullabilitySuffix: SwidNullabilitySuffix.none,
           originalPackagePath: "package:flutter/widgets.dart",
@@ -72,6 +75,7 @@ void main() {
         value: "IconData",
         staticType: SwidType.fromSwidInterface(
             swidInterface: SwidInterface(
+          declarationModifiers: SwidDeclarationModifiers.empty(),
           name: "IconData",
           nullabilitySuffix: SwidNullabilitySuffix.none,
           originalPackagePath: "package:flutter/widgets.dart",
@@ -100,6 +104,7 @@ void main() {
         value: "IconData",
         staticType: SwidType.fromSwidInterface(
             swidInterface: SwidInterface(
+          declarationModifiers: SwidDeclarationModifiers.empty(),
           name: "IconData",
           nullabilitySuffix: SwidNullabilitySuffix.none,
           originalPackagePath: "package:flutter/widgets.dart",

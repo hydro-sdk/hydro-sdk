@@ -6,32 +6,69 @@ import 'package:hydro_sdk/swid/backend/ts/tsResolvedImport.dart';
 import 'package:hydro_sdk/swid/backend/ts/tsir.dart';
 import 'package:hydro_sdk/swid/backend/ts/util/resolveDependencyInformation.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
+import 'package:hydro_sdk/swid/ir/swidInterface.dart';
+import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
+import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/util/collectAllReferences.dart';
 import 'package:hydro_sdk/swid/ir/util/collectAllStaticConstReferences.dart';
+import 'package:hydro_sdk/swid/ir/util/hasStaticConstMap.dart';
 import 'package:hydro_sdk/swid/ir/util/narrowSwidInterfaceByReferenceDeclaration.dart';
 
 List<TsIr> tsImportBlock({
-  required SwidClass swidClass,
-  required List<String> prefixPaths,
+  required final SwidClass swidClass,
+  required final List<String> prefixPaths,
 }) {
   List<Tuple2<List<String>, String>> symbolModulePairs =
       resolveDependencyInformation(
-          dependencies: collectAllReferences(
-                  swidType: SwidType.fromSwidClass(swidClass: swidClass))
-              .where((x) => narrowSwidInterfaceByReferenceDeclaration(
-                    swidInterface: x,
-                    onPrimitive: (_) => false,
-                    onClass: (_) => true,
-                    onEnum: (_) => true,
-                    onVoid: (_) => false,
-                    onTypeParameter: (_) => false,
-                    onDynamic: (_) => false,
-                    onUnknown: (_) => false,
-                  ))
-              .toList(),
-          importer: SwidType.fromSwidClass(swidClass: swidClass),
-          prefixPaths: prefixPaths);
+    dependencies: [
+      ...collectAllReferences(
+        swidType: SwidType.fromSwidClass(
+          swidClass: swidClass,
+        ),
+      ),
+      ...(hasStaticConstMap(
+        swidType: SwidType.fromSwidClass(
+          swidClass: swidClass,
+        ),
+      )
+          ? [
+              SwidInterface(
+                name: "Iterable",
+                nullabilitySuffix: SwidNullabilitySuffix.none,
+                originalPackagePath: "dart:core",
+                typeArguments: [],
+                referenceDeclarationKind:
+                    SwidReferenceDeclarationKind.classElement,
+                declarationModifiers: SwidDeclarationModifiers.empty(),
+              ),
+              SwidInterface(
+                name: "MapEntry",
+                nullabilitySuffix: SwidNullabilitySuffix.none,
+                originalPackagePath: "dart:core",
+                typeArguments: [],
+                referenceDeclarationKind:
+                    SwidReferenceDeclarationKind.classElement,
+                declarationModifiers: SwidDeclarationModifiers.empty(),
+              )
+            ]
+          : <SwidInterface>[])
+    ]
+        .where((x) => narrowSwidInterfaceByReferenceDeclaration(
+              swidInterface: x,
+              onPrimitive: (_) => false,
+              onClass: (_) => true,
+              onEnum: (_) => true,
+              onVoid: (_) => false,
+              onTypeParameter: (_) => false,
+              onDynamic: (_) => false,
+              onUnknown: (_) => false,
+            ))
+        .toList(),
+    importer: SwidType.fromSwidClass(swidClass: swidClass),
+    prefixPaths: prefixPaths,
+  );
 
   List<Tuple2<List<String>, String>> staticConstSymbolModulePairs =
       resolveDependencyInformation(
@@ -63,6 +100,22 @@ List<TsIr> tsImportBlock({
             ])
           : symbolModulePairs
               .add(Tuple2<List<String>, String>(x.item1, x.item2)));
+
+  symbolModulePairs = symbolModulePairs
+      .map((x) => Tuple2(
+            x.item1.fold<List<String>>(
+              <String>[],
+              (prev, element) =>
+                  prev.firstWhereOrNull((k) => k == element) == null
+                      ? [
+                          ...prev,
+                          element,
+                        ]
+                      : prev,
+            ),
+            x.item2,
+          ))
+      .toList();
 
   var res = symbolModulePairs
       .map((x) => [

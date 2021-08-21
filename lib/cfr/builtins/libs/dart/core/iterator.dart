@@ -1,12 +1,6 @@
 import 'dart:core';
 
-import 'package:hydro_sdk/cfr/builtins/boxing/boxers.dart';
-import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
-import 'package:hydro_sdk/cfr/builtins/boxing/unboxers.dart';
-import 'package:hydro_sdk/cfr/vm/closure.dart';
-import 'package:hydro_sdk/cfr/vm/context.dart';
-import 'package:hydro_sdk/cfr/vm/table.dart';
-import 'package:hydro_sdk/hydroState.dart';
+import 'package:hydro_sdk/cfr/runtimeSupport.dart';
 
 class VMManagedIterator extends VMManagedBox<Iterator<dynamic>> {
   VMManagedIterator(
@@ -16,11 +10,17 @@ class VMManagedIterator extends VMManagedBox<Iterator<dynamic>> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['moveNext'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject.moveNext()];
+    table['moveNext'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        vmObject.moveNext(),
+      ];
     });
-    table['getCurrent'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject.current];
+    table['getCurrent'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        vmObject.current,
+      ];
     });
   }
 

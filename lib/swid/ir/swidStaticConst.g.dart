@@ -138,3 +138,78 @@ Map<String, dynamic> _$_$_$FromSwidStaticConstPrefixedIdentifierToJson(
     <String, dynamic>{
       'staticConstPrefixedIdentifier': instance.staticConstPrefixedIdentifier,
     };
+
+_$_$FromSwidStaticConstIdentifier _$_$_$FromSwidStaticConstIdentifierFromJson(
+    Map<String, dynamic> json) {
+  return _$_$FromSwidStaticConstIdentifier(
+    staticConstIdentifier: SwidStaticConstIdentifier.fromJson(
+        json['staticConstIdentifier'] as Map<String, dynamic>),
+  );
+}
+
+Map<String, dynamic> _$_$_$FromSwidStaticConstIdentifierToJson(
+        _$_$FromSwidStaticConstIdentifier instance) =>
+    <String, dynamic>{
+      'staticConstIdentifier': instance.staticConstIdentifier,
+    };
+
+_$_$FromSwidStaticConstListLiteral _$_$_$FromSwidStaticConstListLiteralFromJson(
+    Map<String, dynamic> json) {
+  return _$_$FromSwidStaticConstListLiteral(
+    staticConstListLiteral: SwidStaticConstListLiteral.fromJson(
+        json['staticConstListLiteral'] as Map<String, dynamic>),
+  );
+}
+
+Map<String, dynamic> _$_$_$FromSwidStaticConstListLiteralToJson(
+        _$_$FromSwidStaticConstListLiteral instance) =>
+    <String, dynamic>{
+      'staticConstListLiteral': instance.staticConstListLiteral,
+    };
+
+_$_$FromSwidStaticConstMapLiteralEntry
+    _$_$_$FromSwidStaticConstMapLiteralEntryFromJson(
+        Map<String, dynamic> json) {
+  return _$_$FromSwidStaticConstMapLiteralEntry(
+    swidStaticConstMapLiteralEntry: SwidStaticConstMapLiteralEntry.fromJson(
+        json['swidStaticConstMapLiteralEntry'] as Map<String, dynamic>),
+  );
+}
+
+Map<String, dynamic> _$_$_$FromSwidStaticConstMapLiteralEntryToJson(
+        _$_$FromSwidStaticConstMapLiteralEntry instance) =>
+    <String, dynamic>{
+      'swidStaticConstMapLiteralEntry': instance.swidStaticConstMapLiteralEntry,
+    };
+
+_$_$FromSwidStaticConstMapLiteral _$_$_$FromSwidStaticConstMapLiteralFromJson(
+    Map<String, dynamic> json) {
+  return _$_$FromSwidStaticConstMapLiteral(
+    swidStaticConstMapLiteral: SwidStaticConstMapLiteral.fromJson(
+        json['swidStaticConstMapLiteral'] as Map<String, dynamic>),
+  );
+}
+
+Map<String, dynamic> _$_$_$FromSwidStaticConstMapLiteralToJson(
+        _$_$FromSwidStaticConstMapLiteral instance) =>
+    <String, dynamic>{
+      'swidStaticConstMapLiteral': instance.swidStaticConstMapLiteral,
+    };
+
+_$_$FromSwidStaticConstTopLevelVariableReference
+    _$_$_$FromSwidStaticConstTopLevelVariableReferenceFromJson(
+        Map<String, dynamic> json) {
+  return _$_$FromSwidStaticConstTopLevelVariableReference(
+    swidStaticConstTopLevelVariableReference:
+        SwidStaticConstTopLevelVariableReference.fromJson(
+            json['swidStaticConstTopLevelVariableReference']
+                as Map<String, dynamic>),
+  );
+}
+
+Map<String, dynamic> _$_$_$FromSwidStaticConstTopLevelVariableReferenceToJson(
+        _$_$FromSwidStaticConstTopLevelVariableReference instance) =>
+    <String, dynamic>{
+      'swidStaticConstTopLevelVariableReference':
+          instance.swidStaticConstTopLevelVariableReference,
+    };

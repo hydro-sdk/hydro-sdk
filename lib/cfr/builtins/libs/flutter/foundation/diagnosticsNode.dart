@@ -28,7 +28,7 @@ class VMManagedDiagnosticsNode extends VMManagedBox<DiagnosticsNode> {
       return [
         vmObject.toDescription(
             parentConfiguration:
-                maybeUnBoxAndBuildArgument<TextTreeConfiguration>(
+                maybeUnBoxAndBuildArgument<TextTreeConfiguration, dynamic>(
                     args[1]['parentConfiguration'],
                     parentState: hydroState))
       ];
@@ -95,7 +95,7 @@ class VMManagedDiagnosticsNode extends VMManagedBox<DiagnosticsNode> {
             minLevel: maybeUnBoxEnum(
                 values: DiagnosticLevel.values, boxedEnum: args[1]['minLevel']),
             parentConfiguration:
-                maybeUnBoxAndBuildArgument<TextTreeConfiguration>(
+                maybeUnBoxAndBuildArgument<TextTreeConfiguration, dynamic>(
                     args[1]['parentConfiguration'],
                     parentState: hydroState))
       ];
@@ -106,7 +106,7 @@ class VMManagedDiagnosticsNode extends VMManagedBox<DiagnosticsNode> {
             minLevel: maybeUnBoxEnum(
                 values: DiagnosticLevel.values, boxedEnum: args[1]['minLevel']),
             parentConfiguration:
-                maybeUnBoxAndBuildArgument<TextTreeConfiguration>(
+                maybeUnBoxAndBuildArgument<TextTreeConfiguration, dynamic>(
                     args[1]['parentConfiguration'],
                     parentState: hydroState),
             prefixLineOne: args[1]['prefixLineOne'],
@@ -153,7 +153,7 @@ class RTManagedDiagnosticsNode extends DiagnosticsNode
       return [
         toDescription(
             parentConfiguration:
-                maybeUnBoxAndBuildArgument<TextTreeConfiguration>(
+                maybeUnBoxAndBuildArgument<TextTreeConfiguration, dynamic>(
                     args[1]['parentConfiguration'],
                     parentState: hydroState))
       ];
@@ -213,7 +213,7 @@ class RTManagedDiagnosticsNode extends DiagnosticsNode
             minLevel: maybeUnBoxEnum(
                 values: DiagnosticLevel.values, boxedEnum: args[1]['minLevel']),
             parentConfiguration:
-                maybeUnBoxAndBuildArgument<TextTreeConfiguration>(
+                maybeUnBoxAndBuildArgument<TextTreeConfiguration, dynamic>(
                     args[1]['parentConfiguration'],
                     parentState: hydroState))
       ];
@@ -224,7 +224,7 @@ class RTManagedDiagnosticsNode extends DiagnosticsNode
             minLevel: maybeUnBoxEnum(
                 values: DiagnosticLevel.values, boxedEnum: args[1]['minLevel']),
             parentConfiguration:
-                maybeUnBoxAndBuildArgument<TextTreeConfiguration>(
+                maybeUnBoxAndBuildArgument<TextTreeConfiguration, dynamic>(
                     args[1]['parentConfiguration'],
                     parentState: hydroState),
             prefixLineOne: args[1]['prefixLineOne'],
@@ -268,7 +268,7 @@ class RTManagedDiagnosticsNode extends DiagnosticsNode
   @override
   Object? get value {
     Closure closure = table!["getValue"];
-    return maybeUnBoxAndBuildArgument<Object>(
+    return maybeUnBoxAndBuildArgument<Object, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -294,7 +294,7 @@ class RTManagedDiagnosticsNode extends DiagnosticsNode
   @override
   List<DiagnosticsNode> getProperties() {
     Closure closure = table!["getProperties"];
-    return maybeUnBoxAndBuildArgument<List>(
+    return maybeUnBoxAndBuildArgument<List, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -302,7 +302,7 @@ class RTManagedDiagnosticsNode extends DiagnosticsNode
   @override
   List<DiagnosticsNode> getChildren() {
     Closure closure = table!["getChildren"];
-    return maybeUnBoxAndBuildArgument<List>(
+    return maybeUnBoxAndBuildArgument<List, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -360,13 +360,13 @@ void loadDiagnosticsNode(
     return [
       maybeBoxObject<List<dynamic>>(
           object: DiagnosticsNode.toJsonList(
-              maybeUnBoxAndBuildArgument<List<DiagnosticsNode>>(args[1],
+              maybeUnBoxAndBuildArgument<List<DiagnosticsNode>, dynamic>(
+                  args[1],
                   parentState: hydroState),
-              maybeUnBoxAndBuildArgument<DiagnosticsNode>(args[2],
+              maybeUnBoxAndBuildArgument<DiagnosticsNode, dynamic>(args[2],
                   parentState: hydroState),
-              maybeUnBoxAndBuildArgument<DiagnosticsSerializationDelegate>(
-                  args[3],
-                  parentState: hydroState)),
+              maybeUnBoxAndBuildArgument<DiagnosticsSerializationDelegate,
+                  dynamic>(args[3], parentState: hydroState)),
           hydroState: hydroState,
           table: HydroTable())
     ];

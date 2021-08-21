@@ -18,15 +18,15 @@ part 'dartClassOrMixinOrClassTypAliasDeclaration.freezed.dart';
 class DartClassOrMixinOrClassTypAliasDeclaration
     with _$DartClassOrMixinOrClassTypAliasDeclaration {
   const factory DartClassOrMixinOrClassTypAliasDeclaration.fromClassDeclaration({
-    required ClassDeclaration classDeclaration,
+    required final ClassDeclaration classDeclaration,
   }) = _$DartClassOrMixinOrClassTypAliasDeclarationFromClassDeclaration;
 
   const factory DartClassOrMixinOrClassTypAliasDeclaration.fromMixinDeclaration({
-    required MixinDeclaration mixinDeclaration,
+    required final MixinDeclaration mixinDeclaration,
   }) = _$DartClassOrMixinOrClassTypAliasDeclarationFromMixinDeclaration;
 
   const factory DartClassOrMixinOrClassTypAliasDeclaration.fromClassTypeAlias({
-    required ClassTypeAlias classTypeAlias,
+    required final ClassTypeAlias classTypeAlias,
   }) = _$DartClassOrMixinOrClassTypAliasDeclarationFromClassTypeAlias;
 }
 

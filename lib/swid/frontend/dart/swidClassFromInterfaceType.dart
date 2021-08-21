@@ -18,7 +18,7 @@ import 'package:analyzer/dart/element/type.dart'
     show InterfaceType, TypeParameterType;
 
 SwidClass swidClassFromInterfaceType({
-  required InterfaceType interfaceType,
+  required final InterfaceType interfaceType,
   /*
       This is a hack to break cycles in self-referencing class declarations (declarations that look like CRTP).
       Should probably use an inheritance manager of some sort similar to package:analyzer.
@@ -40,8 +40,8 @@ SwidClass swidClassFromInterfaceType({
             .where((x) => !x.isStatic)
             .map(
               (x) => (({
-                required SwidFunctionType baseClassMethod,
-                required SwidFunctionType childClassMethod,
+                required final SwidFunctionType baseClassMethod,
+                required final SwidFunctionType childClassMethod,
               }) =>
                   SwidFunctionType.clone(
                       swidFunctionType: childClassMethod,
@@ -49,17 +49,19 @@ SwidClass swidClassFromInterfaceType({
                         ..addAll(childClassMethod.namedDefaults)))(
                 baseClassMethod: swidFunctionTypeFromFunctionType(
                   functionType: x.declaration.type,
-                  swidDeclarationModifiers: SwidDeclarationModifiers.clone(
-                    swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+                  declarationModifiers: SwidDeclarationModifiers.clone(
+                    declarationModifiers: SwidDeclarationModifiers.empty(),
                     isAbstract: x.isAbstract,
+                    isSynthetic: x.isSynthetic,
                   ),
                   name: x.declaration.displayName,
                 ),
                 childClassMethod: swidFunctionTypeFromFunctionType(
                   functionType: x.type,
-                  swidDeclarationModifiers: SwidDeclarationModifiers.clone(
-                    swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+                  declarationModifiers: SwidDeclarationModifiers.clone(
+                    declarationModifiers: SwidDeclarationModifiers.empty(),
                     isAbstract: x.isAbstract,
+                    isSynthetic: x.isSynthetic,
                   ),
                   name: x.declaration.displayName,
                 ),
@@ -77,8 +79,14 @@ SwidClass swidClassFromInterfaceType({
       ],
       staticConstFieldDeclarations: [],
       instanceFieldDeclarations: {},
-      swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
-      mixedInClasses: [],
+      declarationModifiers: SwidDeclarationModifiers.empty(),
+      mixedInClasses: interfaceType.mixins
+          .map(
+            (x) => swidClassFromInterfaceType(
+              interfaceType: x,
+            ),
+          )
+          .toList(),
       implementedClasses: interfaceType.interfaces
           .map((x) => swidClassFromInterfaceType(
                 interfaceType: x,

@@ -9,12 +9,12 @@ part "swidInstantiatedGeneric.g.dart";
 @freezed
 class SwidInstantiatedGeneric with _$SwidInstantiatedGeneric {
   const factory SwidInstantiatedGeneric({
-    required SwidInstantiableGeneric instantiableGeneric,
-    required SwidReferenceDeclarationKind referenceDeclarationKind,
+    required final SwidInstantiableGeneric instantiableGeneric,
+    required final SwidReferenceDeclarationKind referenceDeclarationKind,
   }) = _$SwidInstantiatedGenericCtor;
 
   factory SwidInstantiatedGeneric.fromSwidInstantiableGeneric(
-          {required SwidInstantiableGeneric swidInstantiableGeneric}) =>
+          {required final SwidInstantiableGeneric swidInstantiableGeneric}) =>
       swidInstantiableGeneric.when(
         fromSwidClass: (val) => SwidInstantiatedGeneric(
           instantiableGeneric:

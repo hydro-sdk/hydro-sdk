@@ -4,8 +4,8 @@ import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/transforms/transformPackageUri.dart';
 
 String resolveTsImportsPaths({
-  required SwidType importee,
-  required SwidType importer,
+  required final SwidType importee,
+  required final SwidType importer,
   List<String> prefixPaths = const [],
 }) =>
     path.relative(

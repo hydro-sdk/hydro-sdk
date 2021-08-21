@@ -1,13 +1,7 @@
 import 'dart:core';
 import 'dart:ui';
 
-import 'package:hydro_sdk/cfr/builtins/boxing/boxers.dart';
-import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
-import 'package:hydro_sdk/cfr/builtins/boxing/unboxers.dart';
-import 'package:hydro_sdk/cfr/vm/closure.dart';
-import 'package:hydro_sdk/cfr/vm/context.dart';
-import 'package:hydro_sdk/cfr/vm/table.dart';
-import 'package:hydro_sdk/hydroState.dart';
+import 'package:hydro_sdk/cfr/runtimeSupport.dart';
 
 class VMManagedAccessibilityFeatures
     extends VMManagedBox<AccessibilityFeatures> {
@@ -19,29 +13,52 @@ class VMManagedAccessibilityFeatures
           hydroState: hydroState,
         ) {
     table['getAccessibleNavigation'] =
-        makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject.accessibleNavigation];
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        vmObject.accessibleNavigation,
+      ];
     });
-    table['getInvertColors'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject.invertColors];
+    table['getInvertColors'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        vmObject.invertColors,
+      ];
     });
-    table['getDisableAnimations'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject.disableAnimations];
+    table['getDisableAnimations'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        vmObject.disableAnimations,
+      ];
     });
-    table['getBoldText'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject.boldText];
+    table['getBoldText'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        vmObject.boldText,
+      ];
     });
-    table['getReduceMotion'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject.reduceMotion];
+    table['getReduceMotion'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        vmObject.reduceMotion,
+      ];
     });
-    table['getHighContrast'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject.highContrast];
+    table['getHighContrast'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        vmObject.highContrast,
+      ];
     });
-    table['toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject.toString()];
+    table['toString'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        vmObject.toString(),
+      ];
     });
-    table['getHashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject.hashCode];
+    table['getHashCode'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        vmObject.hashCode,
+      ];
     });
   }
 

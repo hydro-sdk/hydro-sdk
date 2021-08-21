@@ -27,7 +27,7 @@ void main() {
       implementedClasses: [],
       staticConstFieldDeclarations: [],
       instanceFieldDeclarations: {},
-      swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+      declarationModifiers: SwidDeclarationModifiers.empty(),
       mixedInClasses: [],
       extendedClass: null,
       isMixin: false,
@@ -41,6 +41,7 @@ void main() {
                 value: "IconData",
                 staticType: SwidType.fromSwidInterface(
                     swidInterface: SwidInterface(
+                  declarationModifiers: SwidDeclarationModifiers.empty(),
                   name: "IconData",
                   nullabilitySuffix: SwidNullabilitySuffix.none,
                   originalPackagePath: "package:flutter/widgets.dart",

@@ -6,7 +6,7 @@ import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 
 SwidType cloneSwidType({
-  required SwidType swidType,
+  required final SwidType swidType,
   SwidNullabilitySuffix? swidNullabilitySuffix,
 }) =>
     swidType.map(
@@ -21,7 +21,7 @@ SwidType cloneSwidType({
       fromSwidDefaultFormalParameter: (val) =>
           SwidType.fromSwidDefaultFormalParameter(
               swidDefaultFormalParameter: SwidDefaultFormalParameter.clone(
-        swidType: val.swidDefaultFormalParameter,
+        swidDefaultFormalParameter: val.swidDefaultFormalParameter,
       )),
       fromSwidFunctionType: (val) => SwidType.fromSwidFunctionType(
           swidFunctionType: SwidFunctionType.clone(

@@ -1,7 +1,12 @@
+import 'package:collection/collection.dart' show IterableExtension;
+
 import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/swidDefaultFormalParameter.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
+import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
+import 'package:hydro_sdk/swid/ir/swidStaticConstListLiteral.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/util/isPrimitive.dart';
@@ -12,21 +17,25 @@ import 'package:hydro_sdk/swid/ir/util/rewriteClassReferencestoInterfaceReferenc
 import 'package:hydro_sdk/swid/transforms/removeNullabilitySuffix.dart';
 
 String rewriteReferenceName({
-  required SwidType swidType,
+  required final SwidType swidType,
 }) =>
-    isDartObject(swidType: swidType)
-        ? "Object"
-        : isDartType(swidType: swidType)
-            ? "Type"
-            : [
-                "I",
-                removeNullabilitySuffix(
-                  str: swidType.name,
-                )
-              ].join("");
+    swidType.declarationModifiers.ignoredTransforms
+                .firstWhereOrNull((x) => x == "referenceRewriting") ==
+            null
+        ? isDartObject(swidType: swidType)
+            ? "Object"
+            : isDartType(swidType: swidType)
+                ? "Type"
+                : [
+                    "I",
+                    removeNullabilitySuffix(
+                      str: swidType.name,
+                    )
+                  ].join("")
+        : swidType.name;
 
 SwidType rewriteClassReferencesToInterfaceReferences({
-  required SwidType swidType,
+  required final SwidType swidType,
 }) =>
     swidType.when(
       fromSwidInterface: (val) => isPrimitiveMap(
@@ -161,24 +170,96 @@ SwidType rewriteClassReferencesToInterfaceReferences({
                     ))
                 .toList()),
       ),
-      fromSwidDefaultFormalParameter: (_) => dartUnknownType,
+      fromSwidDefaultFormalParameter: (val) =>
+          SwidType.fromSwidDefaultFormalParameter(
+        swidDefaultFormalParameter: SwidDefaultFormalParameter.clone(
+          swidDefaultFormalParameter: val,
+          value: val.value.when(
+            fromSwidStaticConstTopLevelVariableReference: (val) =>
+                SwidStaticConst.fromSwidStaticConstTopLevelVariableReference(
+              swidStaticConstTopLevelVariableReference: val,
+            ),
+            fromSwidBooleanLiteral: (val) =>
+                SwidStaticConst.fromSwidBooleanLiteral(
+              swidBooleanLiteral: val,
+            ),
+            fromSwidStringLiteral: (val) =>
+                SwidStaticConst.fromSwidStringLiteral(
+              swidStringLiteral: val,
+            ),
+            fromSwidIntegerLiteral: (val) =>
+                SwidStaticConst.fromSwidIntegerLiteral(
+              swidIntegerLiteral: val,
+            ),
+            fromDoubleLiteral: (val) => SwidStaticConst.fromDoubleLiteral(
+              swidDoubleLiteral: val,
+            ),
+            fromSwidStaticConstFunctionInvocation: (val) =>
+                SwidStaticConst.fromSwidStaticConstFunctionInvocation(
+              staticConstFunctionInvocation: val,
+            ),
+            fromSwidStaticConstFieldReference: (val) =>
+                SwidStaticConst.fromSwidStaticConstFieldReference(
+              swidStaticConstFieldReference: val,
+            ),
+            fromSwidStaticConstPrefixedExpression: (val) =>
+                SwidStaticConst.fromSwidStaticConstPrefixedExpression(
+              swidStaticConstPrefixedExpression: val,
+            ),
+            fromSwidStaticConstBinaryExpression: (val) =>
+                SwidStaticConst.fromSwidStaticConstBinaryExpression(
+              swidStaticConstBinaryExpression: val,
+            ),
+            fromSwidStaticConstPrefixedIdentifier: (val) =>
+                SwidStaticConst.fromSwidStaticConstPrefixedIdentifier(
+              staticConstPrefixedIdentifier: val,
+            ),
+            fromSwidStaticConstIdentifier: (val) =>
+                SwidStaticConst.fromSwidStaticConstIdentifier(
+              staticConstIdentifier: val,
+            ),
+            fromSwidStaticConstListLiteral: (val) =>
+                SwidStaticConst.fromSwidStaticConstListLiteral(
+              staticConstListLiteral: SwidStaticConstListLiteral.clone(
+                swidStaticConstListLiteral: val,
+                staticType: rewriteClassReferencesToInterfaceReferences(
+                  swidType: val.staticType,
+                ),
+              ),
+            ),
+            fromSwidStaticConstMapLiteralEntry: (val) =>
+                SwidStaticConst.fromSwidStaticConstMapLiteralEntry(
+              swidStaticConstMapLiteralEntry: val.clone(),
+            ),
+            fromSwidStaticConstMapLiteral: (val) =>
+                SwidStaticConst.fromSwidStaticConstMapLiteral(
+              swidStaticConstMapLiteral: val.clone(
+                staticType: rewriteClassReferencesToInterfaceReferences(
+                  swidType: val.staticType,
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
       fromSwidFunctionType: (val) => SwidType.fromSwidFunctionType(
         swidFunctionType: SwidFunctionType.clone(
-            swidFunctionType: val,
-            returnType: rewriteClassReferencesToInterfaceReferences(
-              swidType: val.returnType,
-            ),
-            normalParameterTypes: val.normalParameterTypes
-                .map((x) => rewriteClassReferencesToInterfaceReferences(
-                      swidType: x,
-                    ))
-                .toList(),
-            optionalParameterTypes: val.optionalParameterTypes
-                .map((x) => rewriteClassReferencesToInterfaceReferences(
-                      swidType: x,
-                    ))
-                .toList(),
-            namedParameterTypes: Map.fromEntries(val.namedParameterTypes.entries
+          swidFunctionType: val,
+          returnType: rewriteClassReferencesToInterfaceReferences(
+            swidType: val.returnType,
+          ),
+          normalParameterTypes: val.normalParameterTypes
+              .map((x) => rewriteClassReferencesToInterfaceReferences(
+                    swidType: x,
+                  ))
+              .toList(),
+          optionalParameterTypes: val.optionalParameterTypes
+              .map((x) => rewriteClassReferencesToInterfaceReferences(
+                    swidType: x,
+                  ))
+              .toList(),
+          namedParameterTypes: Map.fromEntries(
+            val.namedParameterTypes.entries
                 .map(
                   (x) => MapEntry(
                     x.key,
@@ -187,6 +268,83 @@ SwidType rewriteClassReferencesToInterfaceReferences({
                     ),
                   ),
                 )
-                .toList())),
+                .toList(),
+          ),
+          namedDefaults: val.namedDefaults.map(
+            (key, value) => MapEntry(
+              key,
+              SwidDefaultFormalParameter.clone(
+                swidDefaultFormalParameter: value,
+                value: value.value.when(
+                  fromSwidStaticConstTopLevelVariableReference: (val) =>
+                      SwidStaticConst
+                          .fromSwidStaticConstTopLevelVariableReference(
+                    swidStaticConstTopLevelVariableReference: val,
+                  ),
+                  fromSwidBooleanLiteral: (val) =>
+                      SwidStaticConst.fromSwidBooleanLiteral(
+                    swidBooleanLiteral: val,
+                  ),
+                  fromSwidStringLiteral: (val) =>
+                      SwidStaticConst.fromSwidStringLiteral(
+                    swidStringLiteral: val,
+                  ),
+                  fromSwidIntegerLiteral: (val) =>
+                      SwidStaticConst.fromSwidIntegerLiteral(
+                    swidIntegerLiteral: val,
+                  ),
+                  fromDoubleLiteral: (val) => SwidStaticConst.fromDoubleLiteral(
+                    swidDoubleLiteral: val,
+                  ),
+                  fromSwidStaticConstFunctionInvocation: (val) =>
+                      SwidStaticConst.fromSwidStaticConstFunctionInvocation(
+                    staticConstFunctionInvocation: val,
+                  ),
+                  fromSwidStaticConstFieldReference: (val) =>
+                      SwidStaticConst.fromSwidStaticConstFieldReference(
+                    swidStaticConstFieldReference: val,
+                  ),
+                  fromSwidStaticConstPrefixedExpression: (val) =>
+                      SwidStaticConst.fromSwidStaticConstPrefixedExpression(
+                    swidStaticConstPrefixedExpression: val,
+                  ),
+                  fromSwidStaticConstBinaryExpression: (val) =>
+                      SwidStaticConst.fromSwidStaticConstBinaryExpression(
+                    swidStaticConstBinaryExpression: val,
+                  ),
+                  fromSwidStaticConstPrefixedIdentifier: (val) =>
+                      SwidStaticConst.fromSwidStaticConstPrefixedIdentifier(
+                    staticConstPrefixedIdentifier: val,
+                  ),
+                  fromSwidStaticConstIdentifier: (val) =>
+                      SwidStaticConst.fromSwidStaticConstIdentifier(
+                    staticConstIdentifier: val,
+                  ),
+                  fromSwidStaticConstListLiteral: (val) =>
+                      SwidStaticConst.fromSwidStaticConstListLiteral(
+                    staticConstListLiteral: SwidStaticConstListLiteral.clone(
+                      swidStaticConstListLiteral: val,
+                      staticType: rewriteClassReferencesToInterfaceReferences(
+                        swidType: val.staticType,
+                      ),
+                    ),
+                  ),
+                  fromSwidStaticConstMapLiteralEntry: (val) =>
+                      SwidStaticConst.fromSwidStaticConstMapLiteralEntry(
+                    swidStaticConstMapLiteralEntry: val,
+                  ),
+                  fromSwidStaticConstMapLiteral: (val) =>
+                      SwidStaticConst.fromSwidStaticConstMapLiteral(
+                    swidStaticConstMapLiteral: val.clone(
+                      staticType: rewriteClassReferencesToInterfaceReferences(
+                        swidType: val.staticType,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
       ),
     );

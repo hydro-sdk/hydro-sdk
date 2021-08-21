@@ -32,7 +32,7 @@ void main() {
           name: "",
           nullabilitySuffix: SwidNullabilitySuffix.none,
           originalPackagePath: "",
-          swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+          declarationModifiers: SwidDeclarationModifiers.empty(),
           namedParameterTypes: {},
           namedDefaults: {},
           normalParameterNames: [],
@@ -41,12 +41,14 @@ void main() {
           optionalParameterTypes: [],
           returnType: SwidType.fromSwidInterface(
             swidInterface: SwidInterface(
+              declarationModifiers: SwidDeclarationModifiers.empty(),
               name: "Iterable<E>",
               nullabilitySuffix: SwidNullabilitySuffix.none,
               originalPackagePath: "dart:core",
               typeArguments: [
                 SwidType.fromSwidInterface(
                   swidInterface: SwidInterface(
+                      declarationModifiers: SwidDeclarationModifiers.empty(),
                       name: "E",
                       nullabilitySuffix: SwidNullabilitySuffix.none,
                       originalPackagePath: "dart:core",
@@ -69,14 +71,14 @@ void main() {
             name: "firstWhere",
             nullabilitySuffix: SwidNullabilitySuffix.none,
             originalPackagePath: "dart:core",
-            swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+            declarationModifiers: SwidDeclarationModifiers.empty(),
             namedParameterTypes: {
               "orElse": SwidType.fromSwidFunctionType(
                 swidFunctionType: SwidFunctionType(
                   name: "",
                   nullabilitySuffix: SwidNullabilitySuffix.question,
                   originalPackagePath: "",
-                  swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+                  declarationModifiers: SwidDeclarationModifiers.empty(),
                   namedParameterTypes: {},
                   namedDefaults: {},
                   normalParameterNames: [],
@@ -85,6 +87,7 @@ void main() {
                   optionalParameterTypes: [],
                   returnType: SwidType.fromSwidInterface(
                       swidInterface: SwidInterface(
+                    declarationModifiers: SwidDeclarationModifiers.empty(),
                     name: "E",
                     nullabilitySuffix: SwidNullabilitySuffix.none,
                     originalPackagePath: "dart:core",
@@ -105,13 +108,14 @@ void main() {
                   name: "",
                   nullabilitySuffix: SwidNullabilitySuffix.none,
                   originalPackagePath: "",
-                  swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+                  declarationModifiers: SwidDeclarationModifiers.empty(),
                   namedParameterTypes: {},
                   namedDefaults: {},
                   normalParameterNames: ["element"],
                   normalParameterTypes: [
                     SwidType.fromSwidInterface(
                       swidInterface: SwidInterface(
+                        declarationModifiers: SwidDeclarationModifiers.empty(),
                         name: "E",
                         nullabilitySuffix: SwidNullabilitySuffix.none,
                         originalPackagePath: "dart:core",
@@ -125,6 +129,7 @@ void main() {
                   optionalParameterTypes: [],
                   returnType: SwidType.fromSwidInterface(
                     swidInterface: SwidInterface(
+                      declarationModifiers: SwidDeclarationModifiers.empty(),
                       name: "bool",
                       nullabilitySuffix: SwidNullabilitySuffix.none,
                       originalPackagePath: "dart:core",
@@ -142,6 +147,7 @@ void main() {
             optionalParameterTypes: [],
             returnType: SwidType.fromSwidInterface(
               swidInterface: SwidInterface(
+                declarationModifiers: SwidDeclarationModifiers.empty(),
                 name: "E",
                 nullabilitySuffix: SwidNullabilitySuffix.none,
                 originalPackagePath: "dart:core",
@@ -156,7 +162,7 @@ void main() {
         ],
         staticConstFieldDeclarations: [],
         instanceFieldDeclarations: {},
-        swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+        declarationModifiers: SwidDeclarationModifiers.empty(),
         mixedInClasses: [],
         extendedClass: null,
         isMixin: false,
@@ -176,6 +182,7 @@ void main() {
               swidInstantiableGeneric:
                   SwidInstantiableGeneric.fromSwidInterface(
                 swidInterface: SwidInterface(
+                  declarationModifiers: SwidDeclarationModifiers.empty(),
                   name: "dynamic",
                   nullabilitySuffix: SwidNullabilitySuffix.none,
                   originalPackagePath: "",
@@ -201,23 +208,24 @@ class VMManagedIterable extends VMManagedBox<Iterable<dynamic>> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table[\'firstWhere\'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      Closure test = args[1];
-      Closure? orElse = args[2][\'orElse\'];
+    table[\'firstWhere\'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      Closure unpackedtest = luaCallerArguments[1];
+      Closure? unpackedorElse = luaCallerArguments[2][\'orElse\'];
       return [
         vmObject.firstWhere(
-            (element) => test.dispatch(
-                  [args[0], element],
+            (element) => unpackedtest.dispatch(
+                  [luaCallerArguments[0], element],
                   parentState: hydroState,
                 )[0],
-            orElse: orElse != null
-                ? () => orElse.dispatch(
+            orElse: unpackedorElse != null
+                ? () => unpackedorElse.dispatch(
                       [
-                        args[0],
+                        luaCallerArguments[0],
                       ],
                       parentState: hydroState,
                     )[0]
-                : null)
+                : null),
       ];
     });
   }

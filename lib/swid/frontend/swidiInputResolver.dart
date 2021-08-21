@@ -10,7 +10,7 @@ class SwidiInputResolver extends InputResolver {
 
   @override
   Future<ResolvedInput> resolveInput({
-    required String input,
+    required final String input,
   }) async =>
       ResolvedInput.fromList(
           list: await Future.wait(

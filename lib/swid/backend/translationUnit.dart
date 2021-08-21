@@ -2,7 +2,7 @@ abstract class TranslationUnit {
   final String path;
   final String fileName;
 
-  TranslationUnit({required this.path, required this.fileName});
+  TranslationUnit({required final this.path, required final this.fileName});
 
   String toSource();
 }

@@ -1,4 +1,4 @@
-import { IList } from "./../../dart/collection/list";
+import { IList } from "./../../dart/core/list";
 import { DiagnosticLevel } from "./diagnosticLevel";
 import { IDiagnosticsSerializationDelegate } from "./diagnosticsSerializationDelegate";
 import { DiagnosticsTreeStyle } from "./diagnosticsTreeStyle";

@@ -1,10 +1,14 @@
 import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
+import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
+import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
+import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
+import 'package:hydro_sdk/swid/ir/util/isInexpressibleStaticConst.dart';
 
 List<SwidInterface> collectReferencesFromStaticConst({
-  required SwidStaticConst swidStaticConst,
+  required final SwidStaticConst swidStaticConst,
 }) =>
     ([
       ...swidStaticConst.when<List<SwidInterface>>(
@@ -12,6 +16,15 @@ List<SwidInterface> collectReferencesFromStaticConst({
         fromSwidStringLiteral: (_) => [],
         fromSwidIntegerLiteral: (_) => [],
         fromDoubleLiteral: (_) => [],
+        fromSwidStaticConstIdentifier: (_) => [],
+        fromSwidStaticConstTopLevelVariableReference: (val) => [
+          val.topLevelReference.when(
+            fromSwidInterface: (val) => val,
+            fromSwidClass: (_) => dartUnknownInterface,
+            fromSwidDefaultFormalParameter: (_) => dartUnknownInterface,
+            fromSwidFunctionType: (_) => dartUnknownInterface,
+          ),
+        ].where((x) => x != dartUnknownInterface).toList(),
         fromSwidStaticConstFunctionInvocation: (val) => [
           ...((List<List<SwidInterface>> elements) => elements.isNotEmpty
               ? elements.reduce((value, element) => [
@@ -33,10 +46,20 @@ List<SwidInterface> collectReferencesFromStaticConst({
                     swidStaticConst: x.value,
                   ))
               .toList()),
+          ...([
+            val.staticType.when(
+              fromSwidInterface: (val) => val,
+              fromSwidClass: (_) => dartUnknownInterface,
+              fromSwidDefaultFormalParameter: (_) => dartUnknownInterface,
+              fromSwidFunctionType: (_) => dartUnknownInterface,
+            )
+          ]..removeWhere((x) => x == dartUnknownInterface))
         ],
         fromSwidStaticConstFieldReference: (_) => [],
         fromSwidStaticConstPrefixedExpression: (val) =>
-            collectReferencesFromStaticConst(swidStaticConst: val.expression),
+            collectReferencesFromStaticConst(
+          swidStaticConst: val.expression,
+        ),
         fromSwidStaticConstBinaryExpression: (val) => [
           ...(collectReferencesFromStaticConst(swidStaticConst: val.leftOperand)
             ..removeWhere((x) => x == dartUnknownInterface)),
@@ -46,6 +69,75 @@ List<SwidInterface> collectReferencesFromStaticConst({
         ],
         fromSwidStaticConstPrefixedIdentifier: (val) => [
           val.prefix,
+        ],
+        fromSwidStaticConstListLiteral: (val) => [
+          ...((List<List<SwidInterface>> elements) => elements.isNotEmpty
+              ? elements.reduce((value, element) => [
+                    ...value,
+                    ...element,
+                  ])
+              : <SwidInterface>[])(val.elements
+              .map((x) => collectReferencesFromStaticConst(
+                    swidStaticConst: x,
+                  )..removeWhere((x) => x == dartUnknownInterface))
+              .toList()),
+          SwidInterface(
+            name: "List",
+            nullabilitySuffix: SwidNullabilitySuffix.none,
+            originalPackagePath: "dart:core",
+            typeArguments: [],
+            referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
+            declarationModifiers: SwidDeclarationModifiers.empty(),
+          )
+        ],
+        fromSwidStaticConstMapLiteralEntry: (val) => [
+          ...(collectReferencesFromStaticConst(
+            swidStaticConst: val.key,
+          )..removeWhere((x) => x == dartUnknownInterface)),
+          ...(collectReferencesFromStaticConst(
+            swidStaticConst: val.value,
+          )..removeWhere((x) => x == dartUnknownInterface)),
+          SwidInterface(
+            name: "MapEntry",
+            nullabilitySuffix: SwidNullabilitySuffix.none,
+            originalPackagePath: "dart:core",
+            typeArguments: [],
+            referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
+            declarationModifiers: SwidDeclarationModifiers.empty(),
+          )
+        ],
+        fromSwidStaticConstMapLiteral: (val) => [
+          ...((List<List<SwidInterface>> elements) => elements.isNotEmpty
+              ? elements.reduce((value, element) => [
+                    ...value,
+                    ...element,
+                  ])
+              : <SwidInterface>[])(
+            val.elements
+                .map((x) => collectReferencesFromStaticConst(
+                      swidStaticConst:
+                          SwidStaticConst.fromSwidStaticConstMapLiteralEntry(
+                        swidStaticConstMapLiteralEntry: x,
+                      ),
+                    )..removeWhere((x) => x == dartUnknownInterface))
+                .toList(),
+          ),
+          SwidInterface(
+            name: "List",
+            nullabilitySuffix: SwidNullabilitySuffix.none,
+            originalPackagePath: "dart:core",
+            typeArguments: [],
+            referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
+            declarationModifiers: SwidDeclarationModifiers.empty(),
+          ),
+          SwidInterface(
+            name: "Map",
+            nullabilitySuffix: SwidNullabilitySuffix.none,
+            originalPackagePath: "dart:core",
+            typeArguments: [],
+            referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
+            declarationModifiers: SwidDeclarationModifiers.empty(),
+          ),
         ],
       )
     ]
@@ -66,7 +158,7 @@ List<SwidInterface> collectReferencesFromStaticConst({
       ..removeWhere((x) => x == dartUnknownInterface);
 
 List<SwidInterface> collectAllStaticConstReferences({
-  required SwidType swidType,
+  required final SwidType swidType,
 }) =>
     ([
       ...swidType.when<List<SwidInterface>>(
@@ -125,12 +217,14 @@ List<SwidInterface> collectAllStaticConstReferences({
         ])
           ..removeWhere(((x) => x == dartUnknownInterface)),
         fromSwidDefaultFormalParameter: (val) => ([
-          val.value.when(
-            fromSwidInterface: (val) => val,
-            fromSwidClass: (_) => dartUnknownInterface,
-            fromSwidDefaultFormalParameter: (_) => dartUnknownInterface,
-            fromSwidFunctionType: (_) => dartUnknownInterface,
+          ...(!isInexpressibleStaticConst(
+            parentClass: null,
+            staticConst: val.value,
           )
+              ? collectReferencesFromStaticConst(
+                  swidStaticConst: val.value,
+                )
+              : []),
         ]..removeWhere((x) => x == dartUnknownInterface)),
         fromSwidFunctionType: (val) => ([
           ...((List<List<SwidInterface>> elements) => elements.isNotEmpty

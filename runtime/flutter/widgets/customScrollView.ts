@@ -1,4 +1,4 @@
-import { List } from "../../dart/collection/list";
+import { IList, List } from "../../dart/core/list";
 import { Type } from "../../dart/core/type";
 import { RuntimeBaseClass } from "../../runtimeBaseClass";
 import { Key } from "./../foundation/key";
@@ -18,7 +18,7 @@ export interface CustomScrollViewProps {
     center?: Key | undefined;
     anchor?: number | undefined;
     cacheExtent?: number | undefined;
-    slivers?: List<Widget> | undefined;
+    slivers?: IList<Widget> | undefined;
     semanticChildCount?: number | undefined;
     dragStartBehavior?: DragStartBehavior | undefined;
 }
@@ -59,7 +59,7 @@ export class CustomScrollView
         }
 
         if (this.props.slivers === undefined) {
-            this.props.slivers = List.fromArray([]);
+            this.props.slivers = List.fromArray<Widget>([]);
         }
 
         if (this.props.dragStartBehavior === undefined) {

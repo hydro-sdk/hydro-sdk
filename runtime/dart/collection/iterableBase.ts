@@ -20,9 +20,6 @@ declare const dart: {
         ) => string;
     };
 };
-const toListDefaultProps = {
-    growable: true,
-};
 export interface IIterableBase<E> {
     contains: (element?: Object | undefined) => boolean;
     cast: <R>() => IIterable<R>;
@@ -270,3 +267,6 @@ export class IterableBase<E> implements IIterable<E> {
         return this._dart_getHashCode();
     }
 }
+const toListDefaultProps = {
+    growable: true,
+};

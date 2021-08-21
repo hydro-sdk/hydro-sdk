@@ -6,8 +6,31 @@ part of 'swidDeclarationModifiers.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+_$_$StringTupleCtor _$_$_$StringTupleCtorFromJson(Map<String, dynamic> json) {
+  return _$_$StringTupleCtor(
+    item1: json['item1'] as String,
+    item2: json['item2'] as String,
+  );
+}
+
+Map<String, dynamic> _$_$_$StringTupleCtorToJson(
+        _$_$StringTupleCtor instance) =>
+    <String, dynamic>{
+      'item1': instance.item1,
+      'item2': instance.item2,
+    };
+
 _$_$Data _$_$_$DataFromJson(Map<String, dynamic> json) {
   return _$_$Data(
+    ignoredTransforms: (json['ignoredTransforms'] as List<dynamic>)
+        .map((e) => e as String)
+        .toList(),
+    ignoredAnalyses: (json['ignoredAnalyses'] as List<dynamic>)
+        .map((e) => e as String)
+        .toList(),
+    overridenTransforms: (json['overridenTransforms'] as List<dynamic>)
+        .map((e) => StringTuple.fromJson(e as Map<String, dynamic>))
+        .toList(),
     isAbstract: json['isAbstract'] as bool,
     isGetter: json['isGetter'] as bool,
     isOperator: json['isOperator'] as bool,
@@ -36,6 +59,9 @@ _$_$Data _$_$_$DataFromJson(Map<String, dynamic> json) {
 }
 
 Map<String, dynamic> _$_$_$DataToJson(_$_$Data instance) => <String, dynamic>{
+      'ignoredTransforms': instance.ignoredTransforms,
+      'ignoredAnalyses': instance.ignoredAnalyses,
+      'overridenTransforms': instance.overridenTransforms,
       'isAbstract': instance.isAbstract,
       'isGetter': instance.isGetter,
       'isOperator': instance.isOperator,

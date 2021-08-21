@@ -12,35 +12,21 @@ import 'package:hydro_sdk/swid/transforms/transformPackageUri.dart';
 import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';
 
 List<DartTranslationUnit> produceDartTranslationUnitsFromBarrelSpec({
-  required String packageName,
-  required List<String> prefixPaths,
-  required BarrelSpec barrelSpec,
+  required final String packageName,
+  required final List<String> prefixPaths,
+  required final BarrelSpec barrelSpec,
 }) =>
     [
       DartTranslationUnit(
           path: prefixPaths.join(p.separator) + p.separator + barrelSpec.path,
           fileName: barrelSpec.name + ".dart",
           ir: [
-            DartIr.fromDartImportStatement(
-                dartImportStatement:
-                    DartImportStatement(path: "package:meta/meta.dart")),
             DartIr.fromDartLinebreak(dartLinebreak: DartLinebreak()),
             DartIr.fromDartImportStatement(
-                dartImportStatement: DartImportStatement(
-                    path: "package:hydro_sdk/cfr/vm/table.dart")),
-            DartIr.fromDartLinebreak(dartLinebreak: DartLinebreak()),
-            DartIr.fromDartImportStatement(
-                dartImportStatement: DartImportStatement(
-                    path: "package:hydro_sdk/hydroState.dart")),
-            DartIr.fromDartLinebreak(dartLinebreak: DartLinebreak()),
-            ...(barrelSpec.isTopLevel()
-                ? [
-                    DartIr.fromDartImportStatement(
-                        dartImportStatement: DartImportStatement(
-                            path: "package:hydro_sdk/cfr/vm/context.dart")),
-                    DartIr.fromDartLinebreak(dartLinebreak: DartLinebreak()),
-                  ]
-                : []),
+              dartImportStatement: DartImportStatement(
+                path: "package:hydro_sdk/cfr/runtimeSupport.dart",
+              ),
+            ),
             ...barrelSpec.members
                 .map((x) => x.when(
                         fromSwidClass: (val) =>

@@ -7,9 +7,9 @@ part 'swidEnum.g.dart';
 @freezed
 class SwidEnum with _$SwidEnum {
   const factory SwidEnum({
-    required String originalPackagePath,
-    required String identifier,
-    required List<String> children,
+    required final String originalPackagePath,
+    required final String identifier,
+    required final List<String> children,
   }) = _$Data;
 
   factory SwidEnum.fromJson(Map<String, dynamic> json) =>

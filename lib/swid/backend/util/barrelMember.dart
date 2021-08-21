@@ -8,11 +8,11 @@ part 'barrelMember.freezed.dart';
 
 @freezed
 class BarrelMember with _$BarrelMember {
-  factory BarrelMember.fromSwidClass({required SwidClass swidClass}) =
+  factory BarrelMember.fromSwidClass({required final SwidClass swidClass}) =
       _$FromSwidClass;
-  factory BarrelMember.fromSwidEnum({required SwidEnum swidEnum}) =
+  factory BarrelMember.fromSwidEnum({required final SwidEnum swidEnum}) =
       _$FromSwidEnum;
-  factory BarrelMember.fromBarrelSpec({required BarrelSpec barrelSpec}) =
+  factory BarrelMember.fromBarrelSpec({required final BarrelSpec barrelSpec}) =
       _$FromBarrelSpec;
 }
 

@@ -9,7 +9,7 @@ enum SwidClassTypeFormalClosureKind {
 }
 
 List<SwidTypeFormal> unsatisfiedTypeParameters({
-  required SwidType swidType,
+  required final SwidType swidType,
   SwidClassTypeFormalClosureKind classTypeFormalClosureKind =
       SwidClassTypeFormalClosureKind.kNoCloseOverTypeFormalsInStaticMembers,
   List<SwidTypeFormal> ancestorTypeFormals = const [],

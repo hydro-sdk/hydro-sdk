@@ -17,10 +17,11 @@ void main() {
             swidFunctionType: diagnosticsNodeClass.methods
                 .firstWhere((x) => x.name == "isFiltered")).toDartSource(),
         """
-table['_dart_isFiltered'] = makeLuaDartFunc(func: (List<dynamic> args) {
+table[\'_dart_isFiltered\'] =
+    makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
   return [
-    super.isFiltered(
-        maybeUnBoxEnum(values: DiagnosticLevel.values, boxedEnum: args[1]))
+    super.isFiltered(maybeUnBoxEnum(
+        values: DiagnosticLevel.values, boxedEnum: luaCallerArguments[1]))
   ];
 });""");
   }, tags: "swid");

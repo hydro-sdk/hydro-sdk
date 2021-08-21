@@ -5,7 +5,7 @@ import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 SwidDeclarationModifiers swidDeclarationModifiersFromClassDeclaration(
         {required ClassDeclaration classDeclaration}) =>
     SwidDeclarationModifiers.clone(
-      swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+      declarationModifiers: SwidDeclarationModifiers.empty(),
       isAbstract: classDeclaration.isAbstract,
       isSynthetic: classDeclaration.isSynthetic,
     );

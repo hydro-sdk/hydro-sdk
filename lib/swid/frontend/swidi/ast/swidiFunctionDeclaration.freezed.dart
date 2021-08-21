@@ -21,13 +21,17 @@ class _$SwidiFunctionDeclarationTearOff {
       required SwidiInterface returnType,
       required List<SwidiPositionalParameter> positionalParameters,
       required List<SwidiOptionalParameter> optionalParameters,
-      required List<SwidiNamedParameter> namedParameters}) {
+      required List<SwidiNamedParameter> namedParameters,
+      required List<SwidiTypeFormal> typeFormals,
+      required SwidiConst shortHandOverride}) {
     return _$SwidiFunctionDeclarationCtor(
       name: name,
       returnType: returnType,
       positionalParameters: positionalParameters,
       optionalParameters: optionalParameters,
       namedParameters: namedParameters,
+      typeFormals: typeFormals,
+      shortHandOverride: shortHandOverride,
     );
   }
 }
@@ -45,6 +49,8 @@ mixin _$SwidiFunctionDeclaration {
       throw _privateConstructorUsedError;
   List<SwidiNamedParameter> get namedParameters =>
       throw _privateConstructorUsedError;
+  List<SwidiTypeFormal> get typeFormals => throw _privateConstructorUsedError;
+  SwidiConst get shortHandOverride => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SwidiFunctionDeclarationCopyWith<SwidiFunctionDeclaration> get copyWith =>
@@ -61,9 +67,12 @@ abstract class $SwidiFunctionDeclarationCopyWith<$Res> {
       SwidiInterface returnType,
       List<SwidiPositionalParameter> positionalParameters,
       List<SwidiOptionalParameter> optionalParameters,
-      List<SwidiNamedParameter> namedParameters});
+      List<SwidiNamedParameter> namedParameters,
+      List<SwidiTypeFormal> typeFormals,
+      SwidiConst shortHandOverride});
 
   $SwidiInterfaceCopyWith<$Res> get returnType;
+  $SwidiConstCopyWith<$Res> get shortHandOverride;
 }
 
 /// @nodoc
@@ -82,6 +91,8 @@ class _$SwidiFunctionDeclarationCopyWithImpl<$Res>
     Object? positionalParameters = freezed,
     Object? optionalParameters = freezed,
     Object? namedParameters = freezed,
+    Object? typeFormals = freezed,
+    Object? shortHandOverride = freezed,
   }) {
     return _then(_value.copyWith(
       name: name == freezed
@@ -104,6 +115,14 @@ class _$SwidiFunctionDeclarationCopyWithImpl<$Res>
           ? _value.namedParameters
           : namedParameters // ignore: cast_nullable_to_non_nullable
               as List<SwidiNamedParameter>,
+      typeFormals: typeFormals == freezed
+          ? _value.typeFormals
+          : typeFormals // ignore: cast_nullable_to_non_nullable
+              as List<SwidiTypeFormal>,
+      shortHandOverride: shortHandOverride == freezed
+          ? _value.shortHandOverride
+          : shortHandOverride // ignore: cast_nullable_to_non_nullable
+              as SwidiConst,
     ));
   }
 
@@ -111,6 +130,13 @@ class _$SwidiFunctionDeclarationCopyWithImpl<$Res>
   $SwidiInterfaceCopyWith<$Res> get returnType {
     return $SwidiInterfaceCopyWith<$Res>(_value.returnType, (value) {
       return _then(_value.copyWith(returnType: value));
+    });
+  }
+
+  @override
+  $SwidiConstCopyWith<$Res> get shortHandOverride {
+    return $SwidiConstCopyWith<$Res>(_value.shortHandOverride, (value) {
+      return _then(_value.copyWith(shortHandOverride: value));
     });
   }
 }
@@ -128,10 +154,14 @@ abstract class _$$SwidiFunctionDeclarationCtorCopyWith<$Res>
       SwidiInterface returnType,
       List<SwidiPositionalParameter> positionalParameters,
       List<SwidiOptionalParameter> optionalParameters,
-      List<SwidiNamedParameter> namedParameters});
+      List<SwidiNamedParameter> namedParameters,
+      List<SwidiTypeFormal> typeFormals,
+      SwidiConst shortHandOverride});
 
   @override
   $SwidiInterfaceCopyWith<$Res> get returnType;
+  @override
+  $SwidiConstCopyWith<$Res> get shortHandOverride;
 }
 
 /// @nodoc
@@ -154,6 +184,8 @@ class __$$SwidiFunctionDeclarationCtorCopyWithImpl<$Res>
     Object? positionalParameters = freezed,
     Object? optionalParameters = freezed,
     Object? namedParameters = freezed,
+    Object? typeFormals = freezed,
+    Object? shortHandOverride = freezed,
   }) {
     return _then(_$SwidiFunctionDeclarationCtor(
       name: name == freezed
@@ -176,6 +208,14 @@ class __$$SwidiFunctionDeclarationCtorCopyWithImpl<$Res>
           ? _value.namedParameters
           : namedParameters // ignore: cast_nullable_to_non_nullable
               as List<SwidiNamedParameter>,
+      typeFormals: typeFormals == freezed
+          ? _value.typeFormals
+          : typeFormals // ignore: cast_nullable_to_non_nullable
+              as List<SwidiTypeFormal>,
+      shortHandOverride: shortHandOverride == freezed
+          ? _value.shortHandOverride
+          : shortHandOverride // ignore: cast_nullable_to_non_nullable
+              as SwidiConst,
     ));
   }
 }
@@ -189,7 +229,9 @@ class _$_$SwidiFunctionDeclarationCtor
       required this.returnType,
       required this.positionalParameters,
       required this.optionalParameters,
-      required this.namedParameters});
+      required this.namedParameters,
+      required this.typeFormals,
+      required this.shortHandOverride});
 
   @override
   final String name;
@@ -201,10 +243,14 @@ class _$_$SwidiFunctionDeclarationCtor
   final List<SwidiOptionalParameter> optionalParameters;
   @override
   final List<SwidiNamedParameter> namedParameters;
+  @override
+  final List<SwidiTypeFormal> typeFormals;
+  @override
+  final SwidiConst shortHandOverride;
 
   @override
   String toString() {
-    return 'SwidiFunctionDeclaration(name: $name, returnType: $returnType, positionalParameters: $positionalParameters, optionalParameters: $optionalParameters, namedParameters: $namedParameters)';
+    return 'SwidiFunctionDeclaration(name: $name, returnType: $returnType, positionalParameters: $positionalParameters, optionalParameters: $optionalParameters, namedParameters: $namedParameters, typeFormals: $typeFormals, shortHandOverride: $shortHandOverride)';
   }
 
   @override
@@ -224,7 +270,13 @@ class _$_$SwidiFunctionDeclarationCtor
                     .equals(other.optionalParameters, optionalParameters)) &&
             (identical(other.namedParameters, namedParameters) ||
                 const DeepCollectionEquality()
-                    .equals(other.namedParameters, namedParameters)));
+                    .equals(other.namedParameters, namedParameters)) &&
+            (identical(other.typeFormals, typeFormals) ||
+                const DeepCollectionEquality()
+                    .equals(other.typeFormals, typeFormals)) &&
+            (identical(other.shortHandOverride, shortHandOverride) ||
+                const DeepCollectionEquality()
+                    .equals(other.shortHandOverride, shortHandOverride)));
   }
 
   @override
@@ -234,7 +286,9 @@ class _$_$SwidiFunctionDeclarationCtor
       const DeepCollectionEquality().hash(returnType) ^
       const DeepCollectionEquality().hash(positionalParameters) ^
       const DeepCollectionEquality().hash(optionalParameters) ^
-      const DeepCollectionEquality().hash(namedParameters);
+      const DeepCollectionEquality().hash(namedParameters) ^
+      const DeepCollectionEquality().hash(typeFormals) ^
+      const DeepCollectionEquality().hash(shortHandOverride);
 
   @JsonKey(ignore: true)
   @override
@@ -250,7 +304,9 @@ abstract class _$SwidiFunctionDeclarationCtor
           required SwidiInterface returnType,
           required List<SwidiPositionalParameter> positionalParameters,
           required List<SwidiOptionalParameter> optionalParameters,
-          required List<SwidiNamedParameter> namedParameters}) =
+          required List<SwidiNamedParameter> namedParameters,
+          required List<SwidiTypeFormal> typeFormals,
+          required SwidiConst shortHandOverride}) =
       _$_$SwidiFunctionDeclarationCtor;
 
   @override
@@ -266,6 +322,10 @@ abstract class _$SwidiFunctionDeclarationCtor
   @override
   List<SwidiNamedParameter> get namedParameters =>
       throw _privateConstructorUsedError;
+  @override
+  List<SwidiTypeFormal> get typeFormals => throw _privateConstructorUsedError;
+  @override
+  SwidiConst get shortHandOverride => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$SwidiFunctionDeclarationCtorCopyWith<_$SwidiFunctionDeclarationCtor>

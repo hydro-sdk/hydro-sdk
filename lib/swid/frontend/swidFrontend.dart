@@ -4,7 +4,7 @@ abstract class SwidFrontend {
   final List<String> inputs;
 
   const SwidFrontend({
-    required this.inputs,
+    required final this.inputs,
   });
 
   Future<List<SwidIr>> produceIr();

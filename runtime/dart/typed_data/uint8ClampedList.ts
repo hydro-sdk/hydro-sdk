@@ -4,9 +4,9 @@ import { IIterator } from "../core/iterator";
 import { IList } from "../core/list";
 import { ISet } from "../core/set";
 import { IRandom } from "../math/random";
+import { I_TypedIntList } from "./_typedIntList";
 import { IByteBuffer } from "./byteBuffer";
 import { ITypedData } from "./typedData";
-import { I_TypedIntList } from "./typedIntList";
 declare const dart: {
     typed_data: {
         uint8ClampedList: (
@@ -28,9 +28,6 @@ declare const dart: {
             end?: number | undefined
         ) => IUint8ClampedList;
     };
-};
-const toListDefaultProps = {
-    growable: true,
 };
 export interface IUint8ClampedList {
     sublist: (start: number, end?: number | undefined) => IUint8ClampedList;
@@ -534,3 +531,6 @@ export class Uint8ClampedList
         return this._dart_getBuffer();
     }
 }
+const toListDefaultProps = {
+    growable: true,
+};

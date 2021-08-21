@@ -1,6 +1,5 @@
-import { List } from "../../dart/collection/list";
+import { IList, List } from "../../dart/core/list";
 import { Type } from "../../dart/core/type";
-import { pauseInDebugger } from "../../dart/developer/debugger";
 import { RuntimeBaseClass } from "../../runtimeBaseClass";
 import { Key } from "./../foundation/key";
 import { Widget } from "../widget";
@@ -13,7 +12,7 @@ export interface SliverGridCountProps {
     mainAxisSpacing?: number | undefined;
     crossAxisSpacing?: number | undefined;
     childAspectRatio?: number | undefined;
-    children?: List<Widget> | undefined;
+    children?: IList<Widget> | undefined;
 }
 
 export interface SliverGridExtentProps {
@@ -23,7 +22,7 @@ export interface SliverGridExtentProps {
     mainAxisSpacing?: number | undefined;
     crossAxisSpacing?: number | undefined;
     childAspectRatio?: number | undefined;
-    children?: List<Widget> | undefined;
+    children?: IList<Widget> | undefined;
 }
 
 type SliverGridProps = SliverGridCountProps | SliverGridExtentProps;
@@ -64,7 +63,7 @@ export class SliverGrid extends StatelessWidget implements RuntimeBaseClass {
         }
 
         if (props.children === undefined) {
-            props.children = List.fromArray([]);
+            props.children = List.fromArray<Widget>([]);
         }
 
         return new SliverGrid({
@@ -92,7 +91,7 @@ export class SliverGrid extends StatelessWidget implements RuntimeBaseClass {
         }
 
         if (props.children === undefined) {
-            props.children = List.fromArray([]);
+            props.children = List.fromArray<Widget>([]);
         }
 
         return new SliverGrid({

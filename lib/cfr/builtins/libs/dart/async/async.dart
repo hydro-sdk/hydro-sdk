@@ -1,11 +1,12 @@
+import 'package:hydro_sdk/cfr/builtins/libs/dart/async/eventSink.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/async/future.dart';
-import 'package:hydro_sdk/cfr/vm/table.dart';
-import 'package:hydro_sdk/hydroState.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/dart/async/streamSubscription.dart';
+import 'package:hydro_sdk/cfr/runtimeSupport.dart';
 
-void loadAsync({required HydroTable table, required HydroState hydroState}) {
-  var _async = HydroTable();
-
-  table["async"] = _async;
-
-  loadFuture(table: _async, hydroState: hydroState);
+void loadasync({required HydroState hydroState, required HydroTable table}) {
+  final async = HydroTable();
+  table['async'] = async;
+  loadStreamSubscription(table: async, hydroState: hydroState);
+  loadEventSink(table: async, hydroState: hydroState);
+  loadFuture(hydroState: hydroState, table: async);
 }

@@ -24,7 +24,6 @@ class _$SwidFunctionTypeTearOff {
       {required String name,
       required SwidNullabilitySuffix nullabilitySuffix,
       required String originalPackagePath,
-      required SwidDeclarationModifiers swidDeclarationModifiers,
       required Map<String, SwidType> namedParameterTypes,
       required Map<String, SwidDefaultFormalParameter> namedDefaults,
       required List<String> normalParameterNames,
@@ -33,12 +32,12 @@ class _$SwidFunctionTypeTearOff {
       required List<SwidType> optionalParameterTypes,
       required SwidType returnType,
       required bool isFactory,
-      required List<SwidTypeFormal> typeFormals}) {
+      required List<SwidTypeFormal> typeFormals,
+      required SwidDeclarationModifiers declarationModifiers}) {
     return _$Data(
       name: name,
       nullabilitySuffix: nullabilitySuffix,
       originalPackagePath: originalPackagePath,
-      swidDeclarationModifiers: swidDeclarationModifiers,
       namedParameterTypes: namedParameterTypes,
       namedDefaults: namedDefaults,
       normalParameterNames: normalParameterNames,
@@ -48,6 +47,7 @@ class _$SwidFunctionTypeTearOff {
       returnType: returnType,
       isFactory: isFactory,
       typeFormals: typeFormals,
+      declarationModifiers: declarationModifiers,
     );
   }
 
@@ -65,8 +65,6 @@ mixin _$SwidFunctionType {
   SwidNullabilitySuffix get nullabilitySuffix =>
       throw _privateConstructorUsedError;
   String get originalPackagePath => throw _privateConstructorUsedError;
-  SwidDeclarationModifiers get swidDeclarationModifiers =>
-      throw _privateConstructorUsedError;
   Map<String, SwidType> get namedParameterTypes =>
       throw _privateConstructorUsedError;
   Map<String, SwidDefaultFormalParameter> get namedDefaults =>
@@ -79,6 +77,8 @@ mixin _$SwidFunctionType {
   SwidType get returnType => throw _privateConstructorUsedError;
   bool get isFactory => throw _privateConstructorUsedError;
   List<SwidTypeFormal> get typeFormals => throw _privateConstructorUsedError;
+  SwidDeclarationModifiers get declarationModifiers =>
+      throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -95,7 +95,6 @@ abstract class $SwidFunctionTypeCopyWith<$Res> {
       {String name,
       SwidNullabilitySuffix nullabilitySuffix,
       String originalPackagePath,
-      SwidDeclarationModifiers swidDeclarationModifiers,
       Map<String, SwidType> namedParameterTypes,
       Map<String, SwidDefaultFormalParameter> namedDefaults,
       List<String> normalParameterNames,
@@ -104,10 +103,11 @@ abstract class $SwidFunctionTypeCopyWith<$Res> {
       List<SwidType> optionalParameterTypes,
       SwidType returnType,
       bool isFactory,
-      List<SwidTypeFormal> typeFormals});
+      List<SwidTypeFormal> typeFormals,
+      SwidDeclarationModifiers declarationModifiers});
 
-  $SwidDeclarationModifiersCopyWith<$Res> get swidDeclarationModifiers;
   $SwidTypeCopyWith<$Res> get returnType;
+  $SwidDeclarationModifiersCopyWith<$Res> get declarationModifiers;
 }
 
 /// @nodoc
@@ -124,7 +124,6 @@ class _$SwidFunctionTypeCopyWithImpl<$Res>
     Object? name = freezed,
     Object? nullabilitySuffix = freezed,
     Object? originalPackagePath = freezed,
-    Object? swidDeclarationModifiers = freezed,
     Object? namedParameterTypes = freezed,
     Object? namedDefaults = freezed,
     Object? normalParameterNames = freezed,
@@ -134,6 +133,7 @@ class _$SwidFunctionTypeCopyWithImpl<$Res>
     Object? returnType = freezed,
     Object? isFactory = freezed,
     Object? typeFormals = freezed,
+    Object? declarationModifiers = freezed,
   }) {
     return _then(_value.copyWith(
       name: name == freezed
@@ -148,10 +148,6 @@ class _$SwidFunctionTypeCopyWithImpl<$Res>
           ? _value.originalPackagePath
           : originalPackagePath // ignore: cast_nullable_to_non_nullable
               as String,
-      swidDeclarationModifiers: swidDeclarationModifiers == freezed
-          ? _value.swidDeclarationModifiers
-          : swidDeclarationModifiers // ignore: cast_nullable_to_non_nullable
-              as SwidDeclarationModifiers,
       namedParameterTypes: namedParameterTypes == freezed
           ? _value.namedParameterTypes
           : namedParameterTypes // ignore: cast_nullable_to_non_nullable
@@ -188,21 +184,25 @@ class _$SwidFunctionTypeCopyWithImpl<$Res>
           ? _value.typeFormals
           : typeFormals // ignore: cast_nullable_to_non_nullable
               as List<SwidTypeFormal>,
+      declarationModifiers: declarationModifiers == freezed
+          ? _value.declarationModifiers
+          : declarationModifiers // ignore: cast_nullable_to_non_nullable
+              as SwidDeclarationModifiers,
     ));
-  }
-
-  @override
-  $SwidDeclarationModifiersCopyWith<$Res> get swidDeclarationModifiers {
-    return $SwidDeclarationModifiersCopyWith<$Res>(
-        _value.swidDeclarationModifiers, (value) {
-      return _then(_value.copyWith(swidDeclarationModifiers: value));
-    });
   }
 
   @override
   $SwidTypeCopyWith<$Res> get returnType {
     return $SwidTypeCopyWith<$Res>(_value.returnType, (value) {
       return _then(_value.copyWith(returnType: value));
+    });
+  }
+
+  @override
+  $SwidDeclarationModifiersCopyWith<$Res> get declarationModifiers {
+    return $SwidDeclarationModifiersCopyWith<$Res>(_value.declarationModifiers,
+        (value) {
+      return _then(_value.copyWith(declarationModifiers: value));
     });
   }
 }
@@ -217,7 +217,6 @@ abstract class _$$DataCopyWith<$Res>
       {String name,
       SwidNullabilitySuffix nullabilitySuffix,
       String originalPackagePath,
-      SwidDeclarationModifiers swidDeclarationModifiers,
       Map<String, SwidType> namedParameterTypes,
       Map<String, SwidDefaultFormalParameter> namedDefaults,
       List<String> normalParameterNames,
@@ -226,12 +225,13 @@ abstract class _$$DataCopyWith<$Res>
       List<SwidType> optionalParameterTypes,
       SwidType returnType,
       bool isFactory,
-      List<SwidTypeFormal> typeFormals});
+      List<SwidTypeFormal> typeFormals,
+      SwidDeclarationModifiers declarationModifiers});
 
   @override
-  $SwidDeclarationModifiersCopyWith<$Res> get swidDeclarationModifiers;
-  @override
   $SwidTypeCopyWith<$Res> get returnType;
+  @override
+  $SwidDeclarationModifiersCopyWith<$Res> get declarationModifiers;
 }
 
 /// @nodoc
@@ -248,7 +248,6 @@ class __$$DataCopyWithImpl<$Res> extends _$SwidFunctionTypeCopyWithImpl<$Res>
     Object? name = freezed,
     Object? nullabilitySuffix = freezed,
     Object? originalPackagePath = freezed,
-    Object? swidDeclarationModifiers = freezed,
     Object? namedParameterTypes = freezed,
     Object? namedDefaults = freezed,
     Object? normalParameterNames = freezed,
@@ -258,6 +257,7 @@ class __$$DataCopyWithImpl<$Res> extends _$SwidFunctionTypeCopyWithImpl<$Res>
     Object? returnType = freezed,
     Object? isFactory = freezed,
     Object? typeFormals = freezed,
+    Object? declarationModifiers = freezed,
   }) {
     return _then(_$Data(
       name: name == freezed
@@ -272,10 +272,6 @@ class __$$DataCopyWithImpl<$Res> extends _$SwidFunctionTypeCopyWithImpl<$Res>
           ? _value.originalPackagePath
           : originalPackagePath // ignore: cast_nullable_to_non_nullable
               as String,
-      swidDeclarationModifiers: swidDeclarationModifiers == freezed
-          ? _value.swidDeclarationModifiers
-          : swidDeclarationModifiers // ignore: cast_nullable_to_non_nullable
-              as SwidDeclarationModifiers,
       namedParameterTypes: namedParameterTypes == freezed
           ? _value.namedParameterTypes
           : namedParameterTypes // ignore: cast_nullable_to_non_nullable
@@ -312,18 +308,21 @@ class __$$DataCopyWithImpl<$Res> extends _$SwidFunctionTypeCopyWithImpl<$Res>
           ? _value.typeFormals
           : typeFormals // ignore: cast_nullable_to_non_nullable
               as List<SwidTypeFormal>,
+      declarationModifiers: declarationModifiers == freezed
+          ? _value.declarationModifiers
+          : declarationModifiers // ignore: cast_nullable_to_non_nullable
+              as SwidDeclarationModifiers,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$_$Data implements _$Data {
+class _$_$Data extends _$Data {
   const _$_$Data(
       {required this.name,
       required this.nullabilitySuffix,
       required this.originalPackagePath,
-      required this.swidDeclarationModifiers,
       required this.namedParameterTypes,
       required this.namedDefaults,
       required this.normalParameterNames,
@@ -332,7 +331,9 @@ class _$_$Data implements _$Data {
       required this.optionalParameterTypes,
       required this.returnType,
       required this.isFactory,
-      required this.typeFormals});
+      required this.typeFormals,
+      required this.declarationModifiers})
+      : super._();
 
   factory _$_$Data.fromJson(Map<String, dynamic> json) =>
       _$_$_$DataFromJson(json);
@@ -343,8 +344,6 @@ class _$_$Data implements _$Data {
   final SwidNullabilitySuffix nullabilitySuffix;
   @override
   final String originalPackagePath;
-  @override
-  final SwidDeclarationModifiers swidDeclarationModifiers;
   @override
   final Map<String, SwidType> namedParameterTypes;
   @override
@@ -363,10 +362,12 @@ class _$_$Data implements _$Data {
   final bool isFactory;
   @override
   final List<SwidTypeFormal> typeFormals;
+  @override
+  final SwidDeclarationModifiers declarationModifiers;
 
   @override
   String toString() {
-    return 'SwidFunctionType(name: $name, nullabilitySuffix: $nullabilitySuffix, originalPackagePath: $originalPackagePath, swidDeclarationModifiers: $swidDeclarationModifiers, namedParameterTypes: $namedParameterTypes, namedDefaults: $namedDefaults, normalParameterNames: $normalParameterNames, normalParameterTypes: $normalParameterTypes, optionalParameterNames: $optionalParameterNames, optionalParameterTypes: $optionalParameterTypes, returnType: $returnType, isFactory: $isFactory, typeFormals: $typeFormals)';
+    return 'SwidFunctionType(name: $name, nullabilitySuffix: $nullabilitySuffix, originalPackagePath: $originalPackagePath, namedParameterTypes: $namedParameterTypes, namedDefaults: $namedDefaults, normalParameterNames: $normalParameterNames, normalParameterTypes: $normalParameterTypes, optionalParameterNames: $optionalParameterNames, optionalParameterTypes: $optionalParameterTypes, returnType: $returnType, isFactory: $isFactory, typeFormals: $typeFormals, declarationModifiers: $declarationModifiers)';
   }
 
   @override
@@ -381,11 +382,6 @@ class _$_$Data implements _$Data {
             (identical(other.originalPackagePath, originalPackagePath) ||
                 const DeepCollectionEquality()
                     .equals(other.originalPackagePath, originalPackagePath)) &&
-            (identical(
-                    other.swidDeclarationModifiers, swidDeclarationModifiers) ||
-                const DeepCollectionEquality().equals(
-                    other.swidDeclarationModifiers,
-                    swidDeclarationModifiers)) &&
             (identical(other.namedParameterTypes, namedParameterTypes) ||
                 const DeepCollectionEquality()
                     .equals(other.namedParameterTypes, namedParameterTypes)) &&
@@ -412,7 +408,10 @@ class _$_$Data implements _$Data {
                     .equals(other.isFactory, isFactory)) &&
             (identical(other.typeFormals, typeFormals) ||
                 const DeepCollectionEquality()
-                    .equals(other.typeFormals, typeFormals)));
+                    .equals(other.typeFormals, typeFormals)) &&
+            (identical(other.declarationModifiers, declarationModifiers) ||
+                const DeepCollectionEquality()
+                    .equals(other.declarationModifiers, declarationModifiers)));
   }
 
   @override
@@ -421,7 +420,6 @@ class _$_$Data implements _$Data {
       const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(nullabilitySuffix) ^
       const DeepCollectionEquality().hash(originalPackagePath) ^
-      const DeepCollectionEquality().hash(swidDeclarationModifiers) ^
       const DeepCollectionEquality().hash(namedParameterTypes) ^
       const DeepCollectionEquality().hash(namedDefaults) ^
       const DeepCollectionEquality().hash(normalParameterNames) ^
@@ -430,7 +428,8 @@ class _$_$Data implements _$Data {
       const DeepCollectionEquality().hash(optionalParameterTypes) ^
       const DeepCollectionEquality().hash(returnType) ^
       const DeepCollectionEquality().hash(isFactory) ^
-      const DeepCollectionEquality().hash(typeFormals);
+      const DeepCollectionEquality().hash(typeFormals) ^
+      const DeepCollectionEquality().hash(declarationModifiers);
 
   @JsonKey(ignore: true)
   @override
@@ -443,12 +442,11 @@ class _$_$Data implements _$Data {
   }
 }
 
-abstract class _$Data implements SwidFunctionType {
+abstract class _$Data extends SwidFunctionType {
   const factory _$Data(
       {required String name,
       required SwidNullabilitySuffix nullabilitySuffix,
       required String originalPackagePath,
-      required SwidDeclarationModifiers swidDeclarationModifiers,
       required Map<String, SwidType> namedParameterTypes,
       required Map<String, SwidDefaultFormalParameter> namedDefaults,
       required List<String> normalParameterNames,
@@ -457,7 +455,9 @@ abstract class _$Data implements SwidFunctionType {
       required List<SwidType> optionalParameterTypes,
       required SwidType returnType,
       required bool isFactory,
-      required List<SwidTypeFormal> typeFormals}) = _$_$Data;
+      required List<SwidTypeFormal> typeFormals,
+      required SwidDeclarationModifiers declarationModifiers}) = _$_$Data;
+  const _$Data._() : super._();
 
   factory _$Data.fromJson(Map<String, dynamic> json) = _$_$Data.fromJson;
 
@@ -468,9 +468,6 @@ abstract class _$Data implements SwidFunctionType {
       throw _privateConstructorUsedError;
   @override
   String get originalPackagePath => throw _privateConstructorUsedError;
-  @override
-  SwidDeclarationModifiers get swidDeclarationModifiers =>
-      throw _privateConstructorUsedError;
   @override
   Map<String, SwidType> get namedParameterTypes =>
       throw _privateConstructorUsedError;
@@ -492,6 +489,9 @@ abstract class _$Data implements SwidFunctionType {
   bool get isFactory => throw _privateConstructorUsedError;
   @override
   List<SwidTypeFormal> get typeFormals => throw _privateConstructorUsedError;
+  @override
+  SwidDeclarationModifiers get declarationModifiers =>
+      throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$DataCopyWith<_$Data> get copyWith => throw _privateConstructorUsedError;

@@ -20,7 +20,7 @@ void loadPainting({required HydroState luaState, required HydroTable table}) {
 
   loadTextStyle(luaState: luaState, table: painting);
   loadEdgeInsets(painting);
-  loadBorderRadius(painting);
+  loadBorderRadius(hydroState: luaState, table: painting);
   loadNetworkImage(painting);
   loadAlignment(painting);
   loadBoxDecoration(luaState: luaState, table: painting);

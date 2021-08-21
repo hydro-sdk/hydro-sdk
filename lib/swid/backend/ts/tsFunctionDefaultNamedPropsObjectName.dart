@@ -4,7 +4,7 @@ import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';
 class TsFunctionDefaultNamedPropsObjectName {
   final SwidFunctionType? swidFunctionType;
 
-  TsFunctionDefaultNamedPropsObjectName({required this.swidFunctionType});
+  TsFunctionDefaultNamedPropsObjectName({required final this.swidFunctionType});
 
   String toTsSource() =>
       "${transformToCamelCase(str: swidFunctionType!.name)}DefaultProps";

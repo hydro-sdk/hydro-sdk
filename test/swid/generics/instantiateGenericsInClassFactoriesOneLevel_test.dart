@@ -18,22 +18,24 @@ void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
     var iterable = SwidClass(
+      declarationModifiers: SwidDeclarationModifiers.empty(),
       name: "Iterable",
       nullabilitySuffix: SwidNullabilitySuffix.none,
       originalPackagePath: "dart:core",
       constructorType: null,
       factoryConstructors: [
         SwidFunctionType(
+          declarationModifiers: SwidDeclarationModifiers.empty(),
           name: "generate",
           nullabilitySuffix: SwidNullabilitySuffix.none,
           originalPackagePath: "",
-          swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
           namedParameterTypes: {},
           namedDefaults: {},
           normalParameterNames: ["count"],
           normalParameterTypes: [
             SwidType.fromSwidInterface(
               swidInterface: SwidInterface(
+                declarationModifiers: SwidDeclarationModifiers.empty(),
                 name: "int",
                 nullabilitySuffix: SwidNullabilitySuffix.none,
                 originalPackagePath: "dart:core",
@@ -50,13 +52,14 @@ void main() {
                 name: "",
                 nullabilitySuffix: SwidNullabilitySuffix.question,
                 originalPackagePath: "",
-                swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+                declarationModifiers: SwidDeclarationModifiers.empty(),
                 namedParameterTypes: {},
                 namedDefaults: {},
                 normalParameterNames: ["index"],
                 normalParameterTypes: [
                   SwidType.fromSwidInterface(
                     swidInterface: SwidInterface(
+                      declarationModifiers: SwidDeclarationModifiers.empty(),
                       name: "int",
                       nullabilitySuffix: SwidNullabilitySuffix.none,
                       originalPackagePath: "dart:core",
@@ -70,6 +73,7 @@ void main() {
                 optionalParameterTypes: [],
                 returnType: SwidType.fromSwidInterface(
                   swidInterface: SwidInterface(
+                    declarationModifiers: SwidDeclarationModifiers.empty(),
                     name: "E",
                     nullabilitySuffix: SwidNullabilitySuffix.none,
                     originalPackagePath: "dart:core",
@@ -85,12 +89,14 @@ void main() {
           ],
           returnType: SwidType.fromSwidInterface(
             swidInterface: SwidInterface(
+              declarationModifiers: SwidDeclarationModifiers.empty(),
               name: "Iterable<E>",
               nullabilitySuffix: SwidNullabilitySuffix.none,
               originalPackagePath: "dart:core",
               typeArguments: [
                 SwidType.fromSwidInterface(
                   swidInterface: SwidInterface(
+                    declarationModifiers: SwidDeclarationModifiers.empty(),
                     name: "E",
                     nullabilitySuffix: SwidNullabilitySuffix.none,
                     originalPackagePath: "dart:core",
@@ -112,7 +118,6 @@ void main() {
       methods: [],
       staticConstFieldDeclarations: [],
       instanceFieldDeclarations: {},
-      swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
       mixedInClasses: [],
       implementedClasses: [],
       extendedClass: null,

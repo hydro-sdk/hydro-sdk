@@ -9,7 +9,7 @@ import 'package:code_builder/code_builder.dart'
         CodeExpression,
         Code;
 
-import 'package:hydro_sdk/swid/ir/swidInterface.dart';
+import 'package:hydro_sdk/swid/backend/dart/util/luaCallerArgumentsParameterName.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
@@ -21,8 +21,8 @@ class DartUnboxingExpression {
   final String identifierName;
 
   const DartUnboxingExpression({
-    required this.swidType,
-    required this.expression,
+    required final this.swidType,
+    required final this.expression,
     this.identifierName = "",
   });
 
@@ -49,6 +49,12 @@ class DartUnboxingExpression {
                   "parentState": refer("hydroState")
                 }, [
                   TypeReference((t) => t..symbol = val.displayName),
+                  TypeReference(
+                    (t) => t
+                      ..symbol = val.typeArguments.isNotEmpty
+                          ? val.typeArguments.first.displayName
+                          : "dynamic",
+                  ),
                 ])
                 .accept(DartEmitter(
                   useNullSafetySyntax: true,
@@ -115,7 +121,7 @@ class DartUnboxingExpression {
                       Code(
                         ([
                           identifierName,
-                          ".dispatch([args[0],",
+                          ".dispatch([$luaCallerArgumentsParameterName[0],",
                           val.normalParameterNames
                               .map((x) => x)
                               .toList()

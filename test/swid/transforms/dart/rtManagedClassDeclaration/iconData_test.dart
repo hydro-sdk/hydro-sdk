@@ -18,9 +18,9 @@ void main() {
         """
 class RTManagedIconData extends IconData implements Box<IconData> {
   RTManagedIconData(int codePoint,
-      {String fontFamily,
-      String fontPackage,
-      bool matchTextDirection,
+      {String? fontFamily,
+      String? fontPackage,
+      required bool matchTextDirection,
       required this.table,
       required this.hydroState})
       : super(codePoint,
@@ -28,17 +28,19 @@ class RTManagedIconData extends IconData implements Box<IconData> {
             fontPackage: fontPackage,
             matchTextDirection: matchTextDirection) {
     table[\'vmObject\'] = vmObject;
-    table[\'unwrap\'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table[\'unwrap\'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [unwrap()];
     });
     table[\'codePoint\'] = codePoint;
     table[\'fontFamily\'] = fontFamily;
     table[\'fontPackage\'] = fontPackage;
     table[\'matchTextDirection\'] = matchTextDirection;
-    table[\'_dart_getHashCode\'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table[\'_dart_getHashCode\'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.hashCode];
     });
-    table[\'_dart_toString\'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table[\'_dart_toString\'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.toString()];
     });
   }

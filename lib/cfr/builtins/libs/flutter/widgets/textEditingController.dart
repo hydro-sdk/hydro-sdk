@@ -25,7 +25,7 @@ class VMManagedTextEditingController
     table["getText"] = makeLuaDartFunc(func: (List<dynamic> args) {
       dynamic rawCaller = args[0];
       return [
-        maybeUnBoxAndBuildArgument<TextEditingController>(
+        maybeUnBoxAndBuildArgument<TextEditingController, dynamic>(
           rawCaller,
           parentState: hydroState,
         ).text
@@ -34,7 +34,7 @@ class VMManagedTextEditingController
 
     table["setText"] = makeLuaDartFunc(func: (List<dynamic> args) {
       dynamic rawCaller = args[0];
-      maybeUnBoxAndBuildArgument<TextEditingController>(
+      maybeUnBoxAndBuildArgument<TextEditingController, dynamic>(
         rawCaller,
         parentState: hydroState,
       ).text = args[1];
@@ -45,7 +45,7 @@ class VMManagedTextEditingController
       dynamic rawCaller = args[0];
       return [
         maybeBoxObject<TextEditingValue>(
-            object: maybeUnBoxAndBuildArgument<TextEditingController>(
+            object: maybeUnBoxAndBuildArgument<TextEditingController, dynamic>(
               rawCaller,
               parentState: hydroState,
             ).value,
@@ -56,10 +56,10 @@ class VMManagedTextEditingController
 
     table["setValue"] = makeLuaDartFunc(func: (List<dynamic> args) {
       dynamic rawCaller = args[0];
-      maybeUnBoxAndBuildArgument<TextEditingController>(
+      maybeUnBoxAndBuildArgument<TextEditingController, dynamic>(
         rawCaller,
         parentState: hydroState,
-      ).value = maybeUnBoxAndBuildArgument<TextEditingValue>(
+      ).value = maybeUnBoxAndBuildArgument<TextEditingValue, dynamic>(
         args[1],
         parentState: hydroState,
       );

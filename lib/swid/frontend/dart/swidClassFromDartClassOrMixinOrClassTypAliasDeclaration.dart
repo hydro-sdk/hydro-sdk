@@ -30,7 +30,7 @@ import 'package:analyzer/src/dart/ast/ast.dart'
     show ConstructorDeclarationImpl, MethodDeclarationImpl;
 
 SwidClass swidClassFromDartClassOrMixinOrClassTypAliasDeclaration({
-  required DartClassOrMixinOrClassTypAliasDeclaration
+  required final DartClassOrMixinOrClassTypAliasDeclaration
       dartClassOrMixinOrClassTypAliasDeclaration,
 }) {
   final List<ConstructorDeclarationImpl> constructors =
@@ -60,31 +60,30 @@ SwidClass swidClassFromDartClassOrMixinOrClassTypAliasDeclaration({
       .cast<MethodDeclarationImpl>()
       .map((x) => swidFunctionTypeFromFunctionType(
           functionType: x.declaredElement!.type,
-          swidDeclarationModifiers: narrowModifierProducer(
+          declarationModifiers: narrowModifierProducer(
               element: x.declaredElement,
               onExecutablElement: (val) =>
                   swidDeclarationModifiersFromExecutableElement(
                       executableElement: val),
               onPropertyAccessorElement: (val) =>
                   swidDeclarationModifiersFromPropertyAccessorElement(
-                      propertyAccessorElement: val))!))
+                    propertyAccessorElement: val,
+                  ))!))
       .toList()
       .cast<SwidFunctionType>();
   return SwidClass(
       name: dartClassOrMixinOrClassTypAliasDeclaration.name.name,
       isMixin: dartClassOrMixinOrClassTypAliasDeclaration.isMixin,
       nullabilitySuffix: SwidNullabilitySuffix.none,
-      swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
-      originalPackagePath: dartClassOrMixinOrClassTypAliasDeclaration
-              .declaredElement?.librarySource.uri
-              .toString() ??
+      declarationModifiers: SwidDeclarationModifiers.empty(),
+      originalPackagePath: dartClassOrMixinOrClassTypAliasDeclaration.declaredElement?.librarySource.uri.toString() ??
           "",
       constructorType: constructorDeclarationImpl != null
           ? SwidFunctionType.clone(
               swidFunctionType: swidFunctionTypeFromFunctionType(
-                  swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
-                  functionType:
-                      constructorDeclarationImpl.declaredElement!.type),
+                declarationModifiers: SwidDeclarationModifiers.empty(),
+                functionType: constructorDeclarationImpl.declaredElement!.type,
+              ),
               isFactory: constructorDeclarationImpl.factoryKeyword != null,
             )
           : null,
@@ -93,23 +92,25 @@ SwidClass swidClassFromDartClassOrMixinOrClassTypAliasDeclaration({
           .toList()
           .map((x) => SwidFunctionType.clone(
                 swidFunctionType: swidFunctionTypeFromFunctionType(
-                    functionType: x.declaredElement!.type,
-                    name: x.name!.name,
-                    swidDeclarationModifiers: SwidDeclarationModifiers.empty()),
+                  functionType: x.declaredElement!.type,
+                  name: x.name!.name,
+                  declarationModifiers: SwidDeclarationModifiers.empty(),
+                ),
                 isFactory: true,
               ))
           .toList(),
-      methods:
-          methods.where((x) => !x.swidDeclarationModifiers.isStatic).toList(),
+      methods: methods.where((x) => !x.declarationModifiers.isStatic).toList(),
       staticMethods:
-          methods.where((x) => x.swidDeclarationModifiers.isStatic).toList(),
+          methods.where((x) => x.declarationModifiers.isStatic).toList(),
       mixedInClasses: dartClassOrMixinOrClassTypAliasDeclaration.withClause != null
           ? dartClassOrMixinOrClassTypAliasDeclaration.withClause!.mixinTypes
               .map((x) => swidClassFromInterfaceType(
                   interfaceType: x.type as InterfaceType))
               .toList()
           : [],
-      extendedClass: dartClassOrMixinOrClassTypAliasDeclaration.superClass != null && dartClassOrMixinOrClassTypAliasDeclaration.superClass!.type is InterfaceType
+      extendedClass: dartClassOrMixinOrClassTypAliasDeclaration.superClass != null &&
+              dartClassOrMixinOrClassTypAliasDeclaration.superClass!.type
+                  is InterfaceType
           ? swidClassFromInterfaceType(
               interfaceType: dartClassOrMixinOrClassTypAliasDeclaration.superClass!.type
                   as InterfaceType)

@@ -6,8 +6,8 @@ part 'swidConfigAllowList.g.dart';
 @freezed
 class SwidConfigAllowList with _$SwidConfigAllowList {
   const factory SwidConfigAllowList({
-    required List<String> classNames,
-    required List<String> packagePaths,
+    required final List<String> classNames,
+    required final List<String> packagePaths,
   }) = _$SwidConfigAllowListCtor;
 
   factory SwidConfigAllowList.fromJson(Map<String, dynamic> json) =>

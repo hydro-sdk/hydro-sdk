@@ -2,10 +2,12 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidDefaultFormalParameter.dart';
+import 'package:hydro_sdk/swid/ir/swidDoubleLiteral.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
+import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/transforms/ts/trailingReturnTypeKind.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformFunctionTypeToTs.dart';
@@ -18,15 +20,21 @@ void main() {
       typeFormals: [],
       nullabilitySuffix: SwidNullabilitySuffix.none,
       originalPackagePath: "",
-      swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+      declarationModifiers: SwidDeclarationModifiers.empty(),
       namedParameterTypes: {},
       namedDefaults: {
         "distance": SwidDefaultFormalParameter(
-            name: "1.0",
+            defaultValueCode: "1.0",
             nullabilitySuffix: SwidNullabilitySuffix.none,
             originalPackagePath: "dart:ui",
-            value: SwidType.fromSwidInterface(
+            value: SwidStaticConst.fromDoubleLiteral(
+              swidDoubleLiteral: SwidDoubleLiteral(
+                value: "1.0",
+              ),
+            ),
+            staticType: SwidType.fromSwidInterface(
                 swidInterface: SwidInterface(
+              declarationModifiers: SwidDeclarationModifiers.empty(),
               name: "double",
               nullabilitySuffix: SwidNullabilitySuffix.none,
               originalPackagePath: "dart:core",
@@ -39,6 +47,7 @@ void main() {
       normalParameterTypes: [
         SwidType.fromSwidInterface(
             swidInterface: SwidInterface(
+          declarationModifiers: SwidDeclarationModifiers.empty(),
           name: "double",
           nullabilitySuffix: SwidNullabilitySuffix.none,
           originalPackagePath: "dart:core",
@@ -50,6 +59,7 @@ void main() {
       optionalParameterTypes: [
         SwidType.fromSwidInterface(
             swidInterface: SwidInterface(
+          declarationModifiers: SwidDeclarationModifiers.empty(),
           name: "double",
           nullabilitySuffix: SwidNullabilitySuffix.none,
           originalPackagePath: "dart:core",
@@ -59,6 +69,7 @@ void main() {
       ],
       returnType: SwidType.fromSwidInterface(
           swidInterface: SwidInterface(
+              declarationModifiers: SwidDeclarationModifiers.empty(),
               name: "Offset",
               nullabilitySuffix: SwidNullabilitySuffix.none,
               originalPackagePath: "dart:ui",
@@ -70,6 +81,7 @@ void main() {
     //no configuration
     expect(
         transformFunctionTypeToTs(
+          parentClass: null,
           swidFunctionType: fromDirection,
           trailingReturnTypeKind: TrailingReturnTypeKind.fatArrow,
         ),
@@ -78,6 +90,7 @@ void main() {
     //with initializers
     expect(
         transformFunctionTypeToTs(
+          parentClass: null,
           swidFunctionType: fromDirection,
           trailingReturnTypeKind: TrailingReturnTypeKind.fatArrow,
           emitInitializersForOptionalPositionals: true,

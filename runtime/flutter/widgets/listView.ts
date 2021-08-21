@@ -1,4 +1,4 @@
-import { List } from "../../dart/collection/list";
+import { IList, List } from "../../dart/core/list";
 import { Type } from "../../dart/core/type";
 import { RuntimeBaseClass } from "../../runtimeBaseClass";
 import { BuildContext } from "./../buildContext";
@@ -25,7 +25,7 @@ export interface ListviewRegularProps {
     addRepaintBoundaries?: boolean | undefined;
     addSemanticIndexes?: boolean | undefined;
     cacheExtent?: number | undefined;
-    children?: List<Widget> | undefined;
+    children?: IList<Widget> | undefined;
     semanticChildCount?: number | undefined;
     dragStartBehavior?: DragStartBehavior | undefined;
     keyboardDismissBehavior?: ScrollViewKeyboardDismissBehavior | undefined;
@@ -109,7 +109,7 @@ export class ListView extends StatelessWidget implements RuntimeBaseClass {
         }
 
         if (props.children === undefined) {
-            props.children = List.fromArray([]);
+            props.children = List.fromArray<Widget>([]);
         }
 
         if (props.dragStartBehavior === undefined) {

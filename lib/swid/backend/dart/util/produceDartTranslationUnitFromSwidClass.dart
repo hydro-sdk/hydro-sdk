@@ -18,13 +18,13 @@ import 'package:hydro_sdk/swid/ir/util/collectAllReferences.dart';
 import 'package:hydro_sdk/swid/ir/util/instantiateAllGenericsAsDynamic.dart';
 
 DartTranslationUnit? produceDartTranslationUnitFromSwidClass({
-  required SwidClass swidClass,
-  required String baseFileName,
-  required String path,
-  required List<String> prefixPaths,
+  required final SwidClass swidClass,
+  required final String baseFileName,
+  required final String path,
+  required final List<String> prefixPaths,
 }) =>
     (({
-      required SwidClass swidClass,
+      required final SwidClass swidClass,
     }) =>
         requiresDartClassTranslationUnit(swidClass: swidClass)
             ? DartTranslationUnit(
@@ -32,7 +32,9 @@ DartTranslationUnit? produceDartTranslationUnitFromSwidClass({
                 fileName: "$baseFileName.dart",
                 ir: [
                   DartIr.fromDartLinebreak(dartLinebreak: DartLinebreak()),
-                  ...(({required List<DartImportStatement> importStatements}) =>
+                  ...((
+                          {required final List<DartImportStatement>
+                              importStatements}) =>
                       importStatements
                           .fold<List<DartImportStatement>>(
                               <DartImportStatement>[],
@@ -58,22 +60,8 @@ DartTranslationUnit? produceDartTranslationUnitFromSwidClass({
                         .toList(),
                     DartImportStatement(path: swidClass.originalPackagePath),
                     DartImportStatement(
-                        path:
-                            "package:hydro_sdk/cfr/builtins/boxing/boxers.dart"),
-                    DartImportStatement(
-                        path:
-                            "package:hydro_sdk/cfr/builtins/boxing/boxes.dart"),
-                    DartImportStatement(
-                        path:
-                            "package:hydro_sdk/cfr/builtins/boxing/unboxers.dart"),
-                    DartImportStatement(
-                        path: "package:hydro_sdk/cfr/vm/closure.dart"),
-                    DartImportStatement(
-                        path: "package:hydro_sdk/cfr/vm/context.dart"),
-                    DartImportStatement(
-                        path: "package:hydro_sdk/cfr/vm/table.dart"),
-                    DartImportStatement(
-                        path: "package:hydro_sdk/hydroState.dart"),
+                      path: "package:hydro_sdk/cfr/runtimeSupport.dart",
+                    ),
                   ]),
                   DartIr.fromVMManagedClassDeclaration(
                     vmManagedClassDeclaration: DartVMManagedClassDeclaration(

@@ -6,13 +6,15 @@ import 'package:analyzer/dart/ast/ast.dart'
         SimpleStringLiteral,
         DoubleLiteral,
         BinaryExpression,
+        SimpleIdentifier,
         IntegerLiteral;
-import 'package:analyzer/src/dart/element/element.dart'
-    show ConstFieldElementImpl;
 
+import 'package:analyzer/dart/element/type.dart' show InterfaceType;
 import 'package:collection/collection.dart' show IterableExtension;
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'package:hydro_sdk/swid/frontend/dart/extractStaticConstFromSyntacticEntity.dart';
+import 'package:hydro_sdk/swid/frontend/dart/swidClassFromInterfaceType.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidDoubleLiteralFromDoubleLiteral.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidIntegerLiteralFromIntegerLiteral.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidStaticConstBinaryExpressionFromBinaryExpression.dart';
@@ -21,15 +23,17 @@ import 'package:hydro_sdk/swid/frontend/dart/swidStringLiteralFromSimpleStringLi
 import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstFieldDeclaration.dart';
+import 'package:hydro_sdk/swid/ir/swidStaticConstIdentifier.dart';
+import 'package:hydro_sdk/swid/ir/swidType.dart';
 
 SwidStaticConstFieldDeclaration
-    swidStaticConstFieldDeclarationFromVariableDeclarationList(
-        {required VariableDeclarationList variableDeclarationList}) {
+    swidStaticConstFieldDeclarationFromVariableDeclarationList({
+  required final VariableDeclarationList variableDeclarationList,
+}) {
   assert(variableDeclarationList.isConst);
   assert(!variableDeclarationList.isLate);
   VariableDeclaration declaration = variableDeclarationList.childEntities
       .firstWhere((x) => x is VariableDeclaration) as VariableDeclaration;
-  assert(declaration.declaredElement is ConstFieldElementImpl);
   assert(declaration.declaredElement!.isConst);
   assert(declaration.declaredElement!.isStatic);
   assert(!declaration.declaredElement!.isLate);
@@ -88,6 +92,52 @@ SwidStaticConstFieldDeclaration
                                             .firstWhereOrNull(
                                                 (x) => x is IntegerLiteral)
                                         as IntegerLiteral))
-                        : dartUnknownConst,
+                        : declaration.childEntities.firstWhereOrNull((x) =>
+                                    x is SimpleIdentifier &&
+                                    !x.inDeclarationContext()) !=
+                                null
+                            ? (({
+                                required final SimpleIdentifier?
+                                    simpleIdentifier,
+                              }) =>
+                                simpleIdentifier?.unParenthesized.staticType is InterfaceType
+                                    ? SwidStaticConst.fromSwidStaticConstIdentifier(
+                                        staticConstIdentifier:
+                                            SwidStaticConstIdentifier(
+                                          identifier: simpleIdentifier!.name,
+                                          enclosingType: SwidType.fromSwidClass(
+                                            swidClass:
+                                                swidClassFromInterfaceType(
+                                              interfaceType: simpleIdentifier
+                                                  .unParenthesized
+                                                  .staticType as InterfaceType,
+                                            ),
+                                          ),
+                                        ),
+                                      )
+                                    : dartUnknownConst)(
+                                simpleIdentifier:
+                                    declaration.childEntities.firstWhereOrNull(
+                                  (x) =>
+                                      x is SimpleIdentifier &&
+                                      !x.inDeclarationContext(),
+                                ) as SimpleIdentifier?,
+                              )
+                            : (({
+                                required final List<SwidStaticConst>
+                                    childStaticConsts,
+                              }) =>
+                                childStaticConsts.isNotEmpty ? childStaticConsts.first : dartUnknownConst)(
+                                childStaticConsts: <SwidStaticConst>[
+                                  ...declaration.childEntities
+                                      .map((x) =>
+                                          extractStaticConstFromSyntacticEntity(
+                                            syntacticEntity: x,
+                                          ))
+                                      .toList()
+                                        ..removeWhere(
+                                            (x) => x == dartUnknownConst),
+                                ],
+                              ),
   );
 }

@@ -1,4 +1,5 @@
-String mapPrimitiveSwidTypeNameToPrimitiveTsTypeName({required String str}) =>
+String mapPrimitiveSwidTypeNameToPrimitiveTsTypeName(
+        {required final String str}) =>
     str == "String" || str == "String*" || str == "String?"
         ? "string"
         : str == "bool" || str == "bool*" || str == "bool?"

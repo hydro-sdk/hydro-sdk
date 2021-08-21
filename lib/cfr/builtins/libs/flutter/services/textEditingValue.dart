@@ -23,16 +23,16 @@ class VMManagedTextEditingValue extends VMManagedBox<TextEditingValue> {
     table["copyWith"] = makeLuaDartFunc(func: (List<dynamic> args) {
       dynamic rawCaller = args[0];
       TextEditingValue? caller;
-      caller = maybeUnBoxAndBuildArgument<TextEditingValue>(rawCaller,
+      caller = maybeUnBoxAndBuildArgument<TextEditingValue, dynamic>(rawCaller,
           parentState: hydroState);
       return [
         maybeBoxObject(
             object: caller!.copyWith(
                 text: args[1]["text"],
-                selection: maybeUnBoxAndBuildArgument<TextSelection>(
+                selection: maybeUnBoxAndBuildArgument<TextSelection, dynamic>(
                     args[1]["selection"],
                     parentState: hydroState),
-                composing: maybeUnBoxAndBuildArgument<TextRange>(
+                composing: maybeUnBoxAndBuildArgument<TextRange, dynamic>(
                     args[1]["composing"],
                     parentState: hydroState)),
             hydroState: hydroState,
@@ -59,10 +59,10 @@ void loadTextEditingValue(
       maybeBoxObject<TextEditingValue>(
           object: TextEditingValue(
             text: args[1]["text"],
-            selection: maybeUnBoxAndBuildArgument<TextSelection>(
+            selection: maybeUnBoxAndBuildArgument<TextSelection, dynamic>(
                 args[1]["selection"],
                 parentState: luaState),
-            composing: maybeUnBoxAndBuildArgument<TextRange>(
+            composing: maybeUnBoxAndBuildArgument<TextRange, dynamic>(
                 args[1]["textRange"],
                 parentState: luaState),
           ),

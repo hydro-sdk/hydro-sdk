@@ -12,6 +12,177 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+StringTuple _$StringTupleFromJson(Map<String, dynamic> json) {
+  return _$StringTupleCtor.fromJson(json);
+}
+
+/// @nodoc
+class _$StringTupleTearOff {
+  const _$StringTupleTearOff();
+
+  _$StringTupleCtor call({required String item1, required String item2}) {
+    return _$StringTupleCtor(
+      item1: item1,
+      item2: item2,
+    );
+  }
+
+  StringTuple fromJson(Map<String, Object> json) {
+    return StringTuple.fromJson(json);
+  }
+}
+
+/// @nodoc
+const $StringTuple = _$StringTupleTearOff();
+
+/// @nodoc
+mixin _$StringTuple {
+  String get item1 => throw _privateConstructorUsedError;
+  String get item2 => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $StringTupleCopyWith<StringTuple> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $StringTupleCopyWith<$Res> {
+  factory $StringTupleCopyWith(
+          StringTuple value, $Res Function(StringTuple) then) =
+      _$StringTupleCopyWithImpl<$Res>;
+  $Res call({String item1, String item2});
+}
+
+/// @nodoc
+class _$StringTupleCopyWithImpl<$Res> implements $StringTupleCopyWith<$Res> {
+  _$StringTupleCopyWithImpl(this._value, this._then);
+
+  final StringTuple _value;
+  // ignore: unused_field
+  final $Res Function(StringTuple) _then;
+
+  @override
+  $Res call({
+    Object? item1 = freezed,
+    Object? item2 = freezed,
+  }) {
+    return _then(_value.copyWith(
+      item1: item1 == freezed
+          ? _value.item1
+          : item1 // ignore: cast_nullable_to_non_nullable
+              as String,
+      item2: item2 == freezed
+          ? _value.item2
+          : item2 // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$$StringTupleCtorCopyWith<$Res>
+    implements $StringTupleCopyWith<$Res> {
+  factory _$$StringTupleCtorCopyWith(
+          _$StringTupleCtor value, $Res Function(_$StringTupleCtor) then) =
+      __$$StringTupleCtorCopyWithImpl<$Res>;
+  @override
+  $Res call({String item1, String item2});
+}
+
+/// @nodoc
+class __$$StringTupleCtorCopyWithImpl<$Res>
+    extends _$StringTupleCopyWithImpl<$Res>
+    implements _$$StringTupleCtorCopyWith<$Res> {
+  __$$StringTupleCtorCopyWithImpl(
+      _$StringTupleCtor _value, $Res Function(_$StringTupleCtor) _then)
+      : super(_value, (v) => _then(v as _$StringTupleCtor));
+
+  @override
+  _$StringTupleCtor get _value => super._value as _$StringTupleCtor;
+
+  @override
+  $Res call({
+    Object? item1 = freezed,
+    Object? item2 = freezed,
+  }) {
+    return _then(_$StringTupleCtor(
+      item1: item1 == freezed
+          ? _value.item1
+          : item1 // ignore: cast_nullable_to_non_nullable
+              as String,
+      item2: item2 == freezed
+          ? _value.item2
+          : item2 // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_$StringTupleCtor extends _$StringTupleCtor {
+  const _$_$StringTupleCtor({required this.item1, required this.item2})
+      : super._();
+
+  factory _$_$StringTupleCtor.fromJson(Map<String, dynamic> json) =>
+      _$_$_$StringTupleCtorFromJson(json);
+
+  @override
+  final String item1;
+  @override
+  final String item2;
+
+  @override
+  String toString() {
+    return 'StringTuple(item1: $item1, item2: $item2)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _$StringTupleCtor &&
+            (identical(other.item1, item1) ||
+                const DeepCollectionEquality().equals(other.item1, item1)) &&
+            (identical(other.item2, item2) ||
+                const DeepCollectionEquality().equals(other.item2, item2)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(item1) ^
+      const DeepCollectionEquality().hash(item2);
+
+  @JsonKey(ignore: true)
+  @override
+  _$$StringTupleCtorCopyWith<_$StringTupleCtor> get copyWith =>
+      __$$StringTupleCtorCopyWithImpl<_$StringTupleCtor>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_$StringTupleCtorToJson(this);
+  }
+}
+
+abstract class _$StringTupleCtor extends StringTuple {
+  const factory _$StringTupleCtor(
+      {required String item1, required String item2}) = _$_$StringTupleCtor;
+  const _$StringTupleCtor._() : super._();
+
+  factory _$StringTupleCtor.fromJson(Map<String, dynamic> json) =
+      _$_$StringTupleCtor.fromJson;
+
+  @override
+  String get item1 => throw _privateConstructorUsedError;
+  @override
+  String get item2 => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  _$$StringTupleCtorCopyWith<_$StringTupleCtor> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
 SwidDeclarationModifiers _$SwidDeclarationModifiersFromJson(
     Map<String, dynamic> json) {
   return _$Data.fromJson(json);
@@ -22,7 +193,10 @@ class _$SwidDeclarationModifiersTearOff {
   const _$SwidDeclarationModifiersTearOff();
 
   _$Data call(
-      {required bool isAbstract,
+      {required List<String> ignoredTransforms,
+      required List<String> ignoredAnalyses,
+      required List<StringTuple> overridenTransforms,
+      required bool isAbstract,
       required bool isGetter,
       required bool isOperator,
       required bool isSetter,
@@ -47,6 +221,9 @@ class _$SwidDeclarationModifiersTearOff {
       required bool hasVisibleForTesting,
       required bool isPublic}) {
     return _$Data(
+      ignoredTransforms: ignoredTransforms,
+      ignoredAnalyses: ignoredAnalyses,
+      overridenTransforms: overridenTransforms,
       isAbstract: isAbstract,
       isGetter: isGetter,
       isOperator: isOperator,
@@ -84,6 +261,10 @@ const $SwidDeclarationModifiers = _$SwidDeclarationModifiersTearOff();
 
 /// @nodoc
 mixin _$SwidDeclarationModifiers {
+  List<String> get ignoredTransforms => throw _privateConstructorUsedError;
+  List<String> get ignoredAnalyses => throw _privateConstructorUsedError;
+  List<StringTuple> get overridenTransforms =>
+      throw _privateConstructorUsedError;
   bool get isAbstract => throw _privateConstructorUsedError;
   bool get isGetter => throw _privateConstructorUsedError;
   bool get isOperator => throw _privateConstructorUsedError;
@@ -121,7 +302,10 @@ abstract class $SwidDeclarationModifiersCopyWith<$Res> {
           $Res Function(SwidDeclarationModifiers) then) =
       _$SwidDeclarationModifiersCopyWithImpl<$Res>;
   $Res call(
-      {bool isAbstract,
+      {List<String> ignoredTransforms,
+      List<String> ignoredAnalyses,
+      List<StringTuple> overridenTransforms,
+      bool isAbstract,
       bool isGetter,
       bool isOperator,
       bool isSetter,
@@ -158,6 +342,9 @@ class _$SwidDeclarationModifiersCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? ignoredTransforms = freezed,
+    Object? ignoredAnalyses = freezed,
+    Object? overridenTransforms = freezed,
     Object? isAbstract = freezed,
     Object? isGetter = freezed,
     Object? isOperator = freezed,
@@ -184,6 +371,18 @@ class _$SwidDeclarationModifiersCopyWithImpl<$Res>
     Object? isPublic = freezed,
   }) {
     return _then(_value.copyWith(
+      ignoredTransforms: ignoredTransforms == freezed
+          ? _value.ignoredTransforms
+          : ignoredTransforms // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      ignoredAnalyses: ignoredAnalyses == freezed
+          ? _value.ignoredAnalyses
+          : ignoredAnalyses // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      overridenTransforms: overridenTransforms == freezed
+          ? _value.overridenTransforms
+          : overridenTransforms // ignore: cast_nullable_to_non_nullable
+              as List<StringTuple>,
       isAbstract: isAbstract == freezed
           ? _value.isAbstract
           : isAbstract // ignore: cast_nullable_to_non_nullable
@@ -291,7 +490,10 @@ abstract class _$$DataCopyWith<$Res>
       __$$DataCopyWithImpl<$Res>;
   @override
   $Res call(
-      {bool isAbstract,
+      {List<String> ignoredTransforms,
+      List<String> ignoredAnalyses,
+      List<StringTuple> overridenTransforms,
+      bool isAbstract,
       bool isGetter,
       bool isOperator,
       bool isSetter,
@@ -329,6 +531,9 @@ class __$$DataCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? ignoredTransforms = freezed,
+    Object? ignoredAnalyses = freezed,
+    Object? overridenTransforms = freezed,
     Object? isAbstract = freezed,
     Object? isGetter = freezed,
     Object? isOperator = freezed,
@@ -355,6 +560,18 @@ class __$$DataCopyWithImpl<$Res>
     Object? isPublic = freezed,
   }) {
     return _then(_$Data(
+      ignoredTransforms: ignoredTransforms == freezed
+          ? _value.ignoredTransforms
+          : ignoredTransforms // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      ignoredAnalyses: ignoredAnalyses == freezed
+          ? _value.ignoredAnalyses
+          : ignoredAnalyses // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      overridenTransforms: overridenTransforms == freezed
+          ? _value.overridenTransforms
+          : overridenTransforms // ignore: cast_nullable_to_non_nullable
+              as List<StringTuple>,
       isAbstract: isAbstract == freezed
           ? _value.isAbstract
           : isAbstract // ignore: cast_nullable_to_non_nullable
@@ -459,7 +676,10 @@ class __$$DataCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_$Data implements _$Data {
   const _$_$Data(
-      {required this.isAbstract,
+      {required this.ignoredTransforms,
+      required this.ignoredAnalyses,
+      required this.overridenTransforms,
+      required this.isAbstract,
       required this.isGetter,
       required this.isOperator,
       required this.isSetter,
@@ -487,6 +707,12 @@ class _$_$Data implements _$Data {
   factory _$_$Data.fromJson(Map<String, dynamic> json) =>
       _$_$_$DataFromJson(json);
 
+  @override
+  final List<String> ignoredTransforms;
+  @override
+  final List<String> ignoredAnalyses;
+  @override
+  final List<StringTuple> overridenTransforms;
   @override
   final bool isAbstract;
   @override
@@ -538,13 +764,22 @@ class _$_$Data implements _$Data {
 
   @override
   String toString() {
-    return 'SwidDeclarationModifiers(isAbstract: $isAbstract, isGetter: $isGetter, isOperator: $isOperator, isSetter: $isSetter, isStatic: $isStatic, isSynthetic: $isSynthetic, hasAlwaysThrows: $hasAlwaysThrows, hasDeprecated: $hasDeprecated, hasFactory: $hasFactory, hasImplicitReturnType: $hasImplicitReturnType, hasIsTest: $hasIsTest, hasIsTestGroup: $hasIsTestGroup, hasJS: $hasJS, hasLiteral: $hasLiteral, hasMustCallSuper: $hasMustCallSuper, hasNonVirtual: $hasNonVirtual, hasOptionalTypeArgs: $hasOptionalTypeArgs, hasOverride: $hasOverride, hasProtected: $hasProtected, hasRequired: $hasRequired, hasSealed: $hasSealed, hasVisibleForTemplate: $hasVisibleForTemplate, hasVisibleForTesting: $hasVisibleForTesting, isPublic: $isPublic)';
+    return 'SwidDeclarationModifiers(ignoredTransforms: $ignoredTransforms, ignoredAnalyses: $ignoredAnalyses, overridenTransforms: $overridenTransforms, isAbstract: $isAbstract, isGetter: $isGetter, isOperator: $isOperator, isSetter: $isSetter, isStatic: $isStatic, isSynthetic: $isSynthetic, hasAlwaysThrows: $hasAlwaysThrows, hasDeprecated: $hasDeprecated, hasFactory: $hasFactory, hasImplicitReturnType: $hasImplicitReturnType, hasIsTest: $hasIsTest, hasIsTestGroup: $hasIsTestGroup, hasJS: $hasJS, hasLiteral: $hasLiteral, hasMustCallSuper: $hasMustCallSuper, hasNonVirtual: $hasNonVirtual, hasOptionalTypeArgs: $hasOptionalTypeArgs, hasOverride: $hasOverride, hasProtected: $hasProtected, hasRequired: $hasRequired, hasSealed: $hasSealed, hasVisibleForTemplate: $hasVisibleForTemplate, hasVisibleForTesting: $hasVisibleForTesting, isPublic: $isPublic)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _$Data &&
+            (identical(other.ignoredTransforms, ignoredTransforms) ||
+                const DeepCollectionEquality()
+                    .equals(other.ignoredTransforms, ignoredTransforms)) &&
+            (identical(other.ignoredAnalyses, ignoredAnalyses) ||
+                const DeepCollectionEquality()
+                    .equals(other.ignoredAnalyses, ignoredAnalyses)) &&
+            (identical(other.overridenTransforms, overridenTransforms) ||
+                const DeepCollectionEquality()
+                    .equals(other.overridenTransforms, overridenTransforms)) &&
             (identical(other.isAbstract, isAbstract) ||
                 const DeepCollectionEquality()
                     .equals(other.isAbstract, isAbstract)) &&
@@ -601,15 +836,9 @@ class _$_$Data implements _$Data {
             (identical(other.hasProtected, hasProtected) ||
                 const DeepCollectionEquality()
                     .equals(other.hasProtected, hasProtected)) &&
-            (identical(other.hasRequired, hasRequired) ||
-                const DeepCollectionEquality()
-                    .equals(other.hasRequired, hasRequired)) &&
-            (identical(other.hasSealed, hasSealed) ||
-                const DeepCollectionEquality()
-                    .equals(other.hasSealed, hasSealed)) &&
-            (identical(other.hasVisibleForTemplate, hasVisibleForTemplate) ||
-                const DeepCollectionEquality()
-                    .equals(other.hasVisibleForTemplate, hasVisibleForTemplate)) &&
+            (identical(other.hasRequired, hasRequired) || const DeepCollectionEquality().equals(other.hasRequired, hasRequired)) &&
+            (identical(other.hasSealed, hasSealed) || const DeepCollectionEquality().equals(other.hasSealed, hasSealed)) &&
+            (identical(other.hasVisibleForTemplate, hasVisibleForTemplate) || const DeepCollectionEquality().equals(other.hasVisibleForTemplate, hasVisibleForTemplate)) &&
             (identical(other.hasVisibleForTesting, hasVisibleForTesting) || const DeepCollectionEquality().equals(other.hasVisibleForTesting, hasVisibleForTesting)) &&
             (identical(other.isPublic, isPublic) || const DeepCollectionEquality().equals(other.isPublic, isPublic)));
   }
@@ -617,6 +846,9 @@ class _$_$Data implements _$Data {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(ignoredTransforms) ^
+      const DeepCollectionEquality().hash(ignoredAnalyses) ^
+      const DeepCollectionEquality().hash(overridenTransforms) ^
       const DeepCollectionEquality().hash(isAbstract) ^
       const DeepCollectionEquality().hash(isGetter) ^
       const DeepCollectionEquality().hash(isOperator) ^
@@ -655,7 +887,10 @@ class _$_$Data implements _$Data {
 
 abstract class _$Data implements SwidDeclarationModifiers {
   const factory _$Data(
-      {required bool isAbstract,
+      {required List<String> ignoredTransforms,
+      required List<String> ignoredAnalyses,
+      required List<StringTuple> overridenTransforms,
+      required bool isAbstract,
       required bool isGetter,
       required bool isOperator,
       required bool isSetter,
@@ -682,6 +917,13 @@ abstract class _$Data implements SwidDeclarationModifiers {
 
   factory _$Data.fromJson(Map<String, dynamic> json) = _$_$Data.fromJson;
 
+  @override
+  List<String> get ignoredTransforms => throw _privateConstructorUsedError;
+  @override
+  List<String> get ignoredAnalyses => throw _privateConstructorUsedError;
+  @override
+  List<StringTuple> get overridenTransforms =>
+      throw _privateConstructorUsedError;
   @override
   bool get isAbstract => throw _privateConstructorUsedError;
   @override

@@ -12,9 +12,6 @@ declare const dart: {
         iterableCastFrom: <S, T>(source: IIterable<S>) => IIterable<T>;
     };
 };
-const toListDefaultProps = {
-    growable: true,
-};
 export interface IIterable<E> {
     getIterator: () => IIterator<E>;
     cast: <R>() => IIterable<R>;
@@ -247,3 +244,6 @@ export class Iterable<E> {
         return this._dart_toString();
     }
 }
+const toListDefaultProps = {
+    growable: true,
+};
