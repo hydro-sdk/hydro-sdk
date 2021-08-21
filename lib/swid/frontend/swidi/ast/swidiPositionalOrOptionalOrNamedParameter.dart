@@ -30,9 +30,7 @@ class SwidiPositionalOrOptionalOrNamedParameter
         ),
         fromSwidiNamedParameter: (val) =>
             SwidiPositionalOrOptionalOrNamedParameter.fromSwidiNamedParameter(
-          namedParameter: SwidiNamedParameter.clone(
-            swidiNamedParameter: val,
-          ),
+          namedParameter: val.clone(),
         ),
       );
 

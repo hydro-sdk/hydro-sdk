@@ -15,9 +15,7 @@ class SwidiPositionalParameter with _$SwidiPositionalParameter {
     SwidiDeclaration? declaration,
   }) =>
       SwidiPositionalParameter(
-        declaration: declaration ??
-            SwidiDeclaration.clone(
-              swidiDeclaration: swidiPositionalParameter.declaration,
-            ),
+        declaration:
+            declaration ?? swidiPositionalParameter.declaration.clone(),
       );
 }

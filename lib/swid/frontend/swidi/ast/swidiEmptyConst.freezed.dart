@@ -17,7 +17,7 @@ class _$SwidiEmptyConstTearOff {
   const _$SwidiEmptyConstTearOff();
 
   _$SwidiEmptyConstCtor call() {
-    return const _$SwidiEmptyConstCtor();
+    return _$SwidiEmptyConstCtor();
   }
 }
 
@@ -65,8 +65,8 @@ class __$$SwidiEmptyConstCtorCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_$SwidiEmptyConstCtor implements _$SwidiEmptyConstCtor {
-  const _$_$SwidiEmptyConstCtor();
+class _$_$SwidiEmptyConstCtor extends _$SwidiEmptyConstCtor {
+  _$_$SwidiEmptyConstCtor() : super._();
 
   @override
   String toString() {
@@ -82,6 +82,7 @@ class _$_$SwidiEmptyConstCtor implements _$SwidiEmptyConstCtor {
   int get hashCode => runtimeType.hashCode;
 }
 
-abstract class _$SwidiEmptyConstCtor implements SwidiEmptyConst {
-  const factory _$SwidiEmptyConstCtor() = _$_$SwidiEmptyConstCtor;
+abstract class _$SwidiEmptyConstCtor extends SwidiEmptyConst {
+  factory _$SwidiEmptyConstCtor() = _$_$SwidiEmptyConstCtor;
+  _$SwidiEmptyConstCtor._() : super._();
 }

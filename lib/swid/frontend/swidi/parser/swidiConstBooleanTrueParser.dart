@@ -11,5 +11,5 @@ mixin SwidiConstBooleanTrueParser on SwidiConstGrammarDefinition
         IConstBooleanTrueParser<Parser<SwidiConstBooleanTrue>> {
   @override
   Parser<SwidiConstBooleanTrue> constBooleanTrue() =>
-      super.constBooleanTrue().map((x) => const SwidiConstBooleanTrue());
+      super.constBooleanTrue().map((x) => SwidiConstBooleanTrue());
 }

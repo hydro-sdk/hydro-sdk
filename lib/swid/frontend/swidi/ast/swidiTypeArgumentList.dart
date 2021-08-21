@@ -19,9 +19,9 @@ class SwidiTypeArgumentList with _$SwidiTypeArgumentList {
       SwidiTypeArgumentList(
         typeList: typeList ??
             swidiTypeArgumentList.typeList
-                .map((x) => SwidiInterface.clone(
-                      swidiInterface: x,
-                    ))
+                .map(
+                  (x) => x.clone(),
+                )
                 .toList(),
       );
 }

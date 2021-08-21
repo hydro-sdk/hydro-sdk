@@ -13,7 +13,7 @@ class SwidiTypeFormal with _$SwidiTypeFormal {
     required final SwidiInterface bound,
   }) = _$SwidiTypeFormalCtor;
 
-  static const empty = const SwidiTypeFormal(
+  static final empty = SwidiTypeFormal(
     name: "",
     bound: SwidiInterface.empty,
   );
@@ -25,9 +25,6 @@ class SwidiTypeFormal with _$SwidiTypeFormal {
   }) =>
       SwidiTypeFormal(
         name: name ?? swidiTypeFormal.name,
-        bound: bound ??
-            SwidiInterface.clone(
-              swidiInterface: swidiTypeFormal.bound,
-            ),
+        bound: bound ?? swidiTypeFormal.bound.clone(),
       );
 }

@@ -130,8 +130,7 @@ class __$$SwidiConstNamedParameterCtorCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_$SwidiConstNamedParameterCtor extends _$SwidiConstNamedParameterCtor {
-  const _$_$SwidiConstNamedParameterCtor(
-      {required this.name, required this.value})
+  _$_$SwidiConstNamedParameterCtor({required this.name, required this.value})
       : super._();
 
   @override
@@ -168,10 +167,10 @@ class _$_$SwidiConstNamedParameterCtor extends _$SwidiConstNamedParameterCtor {
 }
 
 abstract class _$SwidiConstNamedParameterCtor extends SwidiConstNamedParameter {
-  const factory _$SwidiConstNamedParameterCtor(
+  factory _$SwidiConstNamedParameterCtor(
       {required String name,
       required SwidiConst value}) = _$_$SwidiConstNamedParameterCtor;
-  const _$SwidiConstNamedParameterCtor._() : super._();
+  _$SwidiConstNamedParameterCtor._() : super._();
 
   @override
   String get name => throw _privateConstructorUsedError;

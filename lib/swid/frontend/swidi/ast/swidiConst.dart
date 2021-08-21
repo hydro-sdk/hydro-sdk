@@ -7,38 +7,44 @@ import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConstMap.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConstNumber.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConstString.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiEmptyConst.dart';
+import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
+import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
 
 part 'swidiConst.freezed.dart';
 
 @freezed
-class SwidiConst with _$SwidiConst {
-  const SwidiConst._();
+class SwidiConst
+    with
+        _$SwidiConst,
+        HashKeyMixin<SwidiConst>,
+        HashComparableMixin<SwidiConst> {
+  SwidiConst._();
 
-  const factory SwidiConst.fromSwidiEmptyConst({
+  factory SwidiConst.fromSwidiEmptyConst({
     required final SwidiEmptyConst swidiEmptyConst,
   }) = _$SwidiConstFromSwidiEmptyConst;
 
-  const factory SwidiConst.fromSwidiConstNumber({
+  factory SwidiConst.fromSwidiConstNumber({
     required final SwidiConstNumber swidiConstNumber,
   }) = _$SwidiConstFromSwidiConstNumber;
 
-  const factory SwidiConst.fromSwidiConstString({
+  factory SwidiConst.fromSwidiConstString({
     required final SwidiConstString swidiConstString,
   }) = _$SwidiConstFromSwidiConstString;
 
-  const factory SwidiConst.fromSwidiConstFunctionInvocation({
+  factory SwidiConst.fromSwidiConstFunctionInvocation({
     required final SwidiConstFunctionInvocation swidiConstFunctionInvocation,
   }) = _$SwidiConstFromSwidiConstFunctionInvocation;
 
-  const factory SwidiConst.fromSwidiConstMap({
+  factory SwidiConst.fromSwidiConstMap({
     required final SwidiConstMap swidiConstMap,
   }) = _$SwidiConstFromSwidiConstMap;
 
-  const factory SwidiConst.fromSwidiConstBoolean({
+  factory SwidiConst.fromSwidiConstBoolean({
     required final SwidiConstBoolean swidiConstBoolean,
   }) = _$SwidiConstFromSwidiConstBoolean;
 
-  factory SwidiConst.clone({
+  factory SwidiConst._clone({
     required final SwidiConst swidiConst,
   }) =>
       swidiConst.when(
@@ -46,20 +52,14 @@ class SwidiConst with _$SwidiConst {
           swidiEmptyConst: swidiEmptyConst,
         ),
         fromSwidiConstNumber: (val) => SwidiConst.fromSwidiConstNumber(
-          swidiConstNumber: SwidiConstNumber.clone(
-            swidiConstNumber: val,
-          ),
+          swidiConstNumber: val.clone(),
         ),
         fromSwidiConstString: (val) => SwidiConst.fromSwidiConstString(
-          swidiConstString: SwidiConstString.clone(
-            swidiConstString: val,
-          ),
+          swidiConstString: val.clone(),
         ),
         fromSwidiConstFunctionInvocation: (val) =>
             SwidiConst.fromSwidiConstFunctionInvocation(
-          swidiConstFunctionInvocation: SwidiConstFunctionInvocation.clone(
-            swidiConstFunctionInvocation: val,
-          ),
+          swidiConstFunctionInvocation: val.clone(),
         ),
         fromSwidiConstMap: (val) => SwidiConst.fromSwidiConstMap(
           swidiConstMap: SwidiConstMap.clone(
@@ -69,5 +69,10 @@ class SwidiConst with _$SwidiConst {
         fromSwidiConstBoolean: (val) => SwidiConst.fromSwidiConstBoolean(
           swidiConstBoolean: val,
         ),
+      );
+
+  @override
+  SwidiConst clone() => SwidiConst._clone(
+        swidiConst: this,
       );
 }

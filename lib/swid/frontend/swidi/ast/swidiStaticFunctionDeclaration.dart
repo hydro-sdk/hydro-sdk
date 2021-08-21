@@ -19,9 +19,6 @@ class SwidiStaticFunctionDeclaration with _$SwidiStaticFunctionDeclaration {
   }) =>
       SwidiStaticFunctionDeclaration(
         functionDeclaration: functionDeclaration ??
-            SwidiFunctionDeclaration.clone(
-              swidiFunctionDeclaration:
-                  swidiStaticFunctionDeclaration.functionDeclaration,
-            ),
+            swidiStaticFunctionDeclaration.functionDeclaration.clone(),
       );
 }

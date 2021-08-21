@@ -24,16 +24,12 @@ class SwidiClass with _$SwidiClass {
       SwidiClass(
         name: name ?? swidiClass.name,
         libraryScopePrefix: libraryScopePrefix ??
-            SwidiLibraryScopePrefix.clone(
-              swidiLibraryScopePrefix: swidiClass.libraryScopePrefix,
-            ),
+            swidiClass.libraryScopePrefix.clone(),
         methods: methods ??
             List.from(
               swidiClass.methods
                   .map(
-                    (x) => SwidiFunctionDeclaration.clone(
-                      swidiFunctionDeclaration: x,
-                    ),
+                    (x) => x.clone(),
                   )
                   .toList(),
             ),
@@ -41,9 +37,7 @@ class SwidiClass with _$SwidiClass {
             List.from(
               swidiClass.staticMethods
                   .map(
-                    (x) => SwidiFunctionDeclaration.clone(
-                      swidiFunctionDeclaration: x,
-                    ),
+                    (x) => x.clone(),
                   )
                   .toList(),
             ),

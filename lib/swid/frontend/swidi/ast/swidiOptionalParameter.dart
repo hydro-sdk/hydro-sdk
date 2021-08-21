@@ -11,13 +11,10 @@ class SwidiOptionalParameter with _$SwidiOptionalParameter {
   }) = _$SwidiOptionalParameterCtor;
 
   factory SwidiOptionalParameter.clone({
-    required final SwidiOptionalParameter? swidiOptionalParameter,
+    required final SwidiOptionalParameter swidiOptionalParameter,
     SwidiDeclaration? declaration,
   }) =>
       SwidiOptionalParameter(
-        declaration: declaration ??
-            SwidiDeclaration.clone(
-              swidiDeclaration: swidiOptionalParameter!.declaration,
-            ),
+        declaration: declaration ?? swidiOptionalParameter.declaration.clone(),
       );
 }

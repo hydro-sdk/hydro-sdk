@@ -104,7 +104,7 @@ class __$$SwidiConstMapCtorCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_$SwidiConstMapCtor extends _$SwidiConstMapCtor {
-  const _$_$SwidiConstMapCtor({required this.entries}) : super._();
+  _$_$SwidiConstMapCtor({required this.entries}) : super._();
 
   @override
   final List<Tuple2<SwidiConst, SwidiConst>> entries;
@@ -133,10 +133,10 @@ class _$_$SwidiConstMapCtor extends _$SwidiConstMapCtor {
 }
 
 abstract class _$SwidiConstMapCtor extends SwidiConstMap {
-  const factory _$SwidiConstMapCtor(
+  factory _$SwidiConstMapCtor(
           {required List<Tuple2<SwidiConst, SwidiConst>> entries}) =
       _$_$SwidiConstMapCtor;
-  const _$SwidiConstMapCtor._() : super._();
+  _$SwidiConstMapCtor._() : super._();
 
   @override
   List<Tuple2<SwidiConst, SwidiConst>> get entries =>

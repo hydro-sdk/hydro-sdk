@@ -104,8 +104,8 @@ class __$$SwidiLibraryScopePrefixCtorCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_$SwidiLibraryScopePrefixCtor implements _$SwidiLibraryScopePrefixCtor {
-  const _$_$SwidiLibraryScopePrefixCtor({required this.name});
+class _$_$SwidiLibraryScopePrefixCtor extends _$SwidiLibraryScopePrefixCtor {
+  _$_$SwidiLibraryScopePrefixCtor({required this.name}) : super._();
 
   @override
   final String name;
@@ -134,10 +134,10 @@ class _$_$SwidiLibraryScopePrefixCtor implements _$SwidiLibraryScopePrefixCtor {
           _$SwidiLibraryScopePrefixCtor>(this, _$identity);
 }
 
-abstract class _$SwidiLibraryScopePrefixCtor
-    implements SwidiLibraryScopePrefix {
-  const factory _$SwidiLibraryScopePrefixCtor({required String name}) =
+abstract class _$SwidiLibraryScopePrefixCtor extends SwidiLibraryScopePrefix {
+  factory _$SwidiLibraryScopePrefixCtor({required String name}) =
       _$_$SwidiLibraryScopePrefixCtor;
+  _$SwidiLibraryScopePrefixCtor._() : super._();
 
   @override
   String get name => throw _privateConstructorUsedError;

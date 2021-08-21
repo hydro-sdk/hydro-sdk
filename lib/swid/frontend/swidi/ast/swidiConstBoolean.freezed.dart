@@ -141,7 +141,7 @@ class __$$SwidiConstBooleanFromSwidiConstBooleanTrueCopyWithImpl<$Res>
 
 class _$_$SwidiConstBooleanFromSwidiConstBooleanTrue
     extends _$SwidiConstBooleanFromSwidiConstBooleanTrue {
-  const _$_$SwidiConstBooleanFromSwidiConstBooleanTrue(
+  _$_$SwidiConstBooleanFromSwidiConstBooleanTrue(
       {required this.swidiConstBooleanTrue})
       : super._();
 
@@ -232,10 +232,10 @@ class _$_$SwidiConstBooleanFromSwidiConstBooleanTrue
 
 abstract class _$SwidiConstBooleanFromSwidiConstBooleanTrue
     extends SwidiConstBoolean {
-  const factory _$SwidiConstBooleanFromSwidiConstBooleanTrue(
+  factory _$SwidiConstBooleanFromSwidiConstBooleanTrue(
           {required SwidiConstBooleanTrue swidiConstBooleanTrue}) =
       _$_$SwidiConstBooleanFromSwidiConstBooleanTrue;
-  const _$SwidiConstBooleanFromSwidiConstBooleanTrue._() : super._();
+  _$SwidiConstBooleanFromSwidiConstBooleanTrue._() : super._();
 
   SwidiConstBooleanTrue get swidiConstBooleanTrue =>
       throw _privateConstructorUsedError;
@@ -295,7 +295,7 @@ class __$$SwidiConstBooleanFromSwidiConstBooleanFalseCopyWithImpl<$Res>
 
 class _$_$SwidiConstBooleanFromSwidiConstBooleanFalse
     extends _$SwidiConstBooleanFromSwidiConstBooleanFalse {
-  const _$_$SwidiConstBooleanFromSwidiConstBooleanFalse(
+  _$_$SwidiConstBooleanFromSwidiConstBooleanFalse(
       {required this.swidiConstBooleanFalse})
       : super._();
 
@@ -386,10 +386,10 @@ class _$_$SwidiConstBooleanFromSwidiConstBooleanFalse
 
 abstract class _$SwidiConstBooleanFromSwidiConstBooleanFalse
     extends SwidiConstBoolean {
-  const factory _$SwidiConstBooleanFromSwidiConstBooleanFalse(
+  factory _$SwidiConstBooleanFromSwidiConstBooleanFalse(
           {required SwidiConstBooleanFalse swidiConstBooleanFalse}) =
       _$_$SwidiConstBooleanFromSwidiConstBooleanFalse;
-  const _$SwidiConstBooleanFromSwidiConstBooleanFalse._() : super._();
+  _$SwidiConstBooleanFromSwidiConstBooleanFalse._() : super._();
 
   SwidiConstBooleanFalse get swidiConstBooleanFalse =>
       throw _privateConstructorUsedError;

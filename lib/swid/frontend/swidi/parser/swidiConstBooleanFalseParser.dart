@@ -11,5 +11,5 @@ mixin SwidiConstBooleanFalseParser on SwidiConstGrammarDefinition
         IConstBooleanFalseParser<Parser<SwidiConstBooleanFalse>> {
   @override
   Parser<SwidiConstBooleanFalse> constBooleanFalse() =>
-      super.constBooleanFalse().map((x) => const SwidiConstBooleanFalse());
+      super.constBooleanFalse().map((x) => SwidiConstBooleanFalse());
 }

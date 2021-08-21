@@ -125,7 +125,7 @@ class __$$SwidiConstParameterListCtorCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_$SwidiConstParameterListCtor extends _$SwidiConstParameterListCtor {
-  const _$_$SwidiConstParameterListCtor(
+  _$_$SwidiConstParameterListCtor(
       {required this.positionalParameters, required this.namedParameters})
       : super._();
 
@@ -165,11 +165,11 @@ class _$_$SwidiConstParameterListCtor extends _$SwidiConstParameterListCtor {
 }
 
 abstract class _$SwidiConstParameterListCtor extends SwidiConstParameterList {
-  const factory _$SwidiConstParameterListCtor(
+  factory _$SwidiConstParameterListCtor(
           {required List<SwidiConst> positionalParameters,
           required List<SwidiConstNamedParameter> namedParameters}) =
       _$_$SwidiConstParameterListCtor;
-  const _$SwidiConstParameterListCtor._() : super._();
+  _$SwidiConstParameterListCtor._() : super._();
 
   @override
   List<SwidiConst> get positionalParameters =>

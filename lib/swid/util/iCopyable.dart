@@ -3,8 +3,8 @@ import 'package:meta/meta.dart';
 
 @immutable
 @optionalTypeArgs
-abstract class ICopyable<T extends Object> implements ICloneable<T> {
+abstract class ICopyable<T extends Object,U extends Object> implements ICloneable<T> {
   const ICopyable();
 
-  T get copyWith;
+  U get copyWith;
 }

@@ -4,14 +4,23 @@ import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiAnnotation.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiLibraryScopePrefix.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiReferenceDeclarationPrefix.dart';
+import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
+import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
+import 'package:hydro_sdk/swid/util/iCopyable.dart';
 
 part 'swidiInterface.freezed.dart';
 
 @freezed
-class SwidiInterface with _$SwidiInterface {
-  const SwidiInterface._();
+class SwidiInterface
+    with
+        _$SwidiInterface,
+        HashKeyMixin<SwidiInterface>,
+        HashComparableMixin<SwidiInterface>
+    implements
+        ICopyable<SwidiInterface, $SwidiInterfaceCopyWith<SwidiInterface>> {
+  SwidiInterface._();
 
-  const factory SwidiInterface({
+  factory SwidiInterface({
     required final String name,
     required final SwidiLibraryScopePrefix libraryScopePrefix,
     required final SwidiReferenceDeclarationPrefix referenceDeclarationPrefix,
@@ -20,7 +29,7 @@ class SwidiInterface with _$SwidiInterface {
     required final List<SwidiAnnotation> annotations,
   }) = _$SwidiInterfaceCtor;
 
-  static const empty = const SwidiInterface(
+  static final empty = SwidiInterface(
     name: "",
     libraryScopePrefix: SwidiLibraryScopePrefix.empty,
     referenceDeclarationPrefix: SwidiReferenceDeclarationPrefix.empty,
@@ -29,43 +38,53 @@ class SwidiInterface with _$SwidiInterface {
     annotations: [],
   );
 
-  factory SwidiInterface.clone({
+  factory SwidiInterface._clone({
     required final SwidiInterface swidiInterface,
-    String? name,
-    SwidiLibraryScopePrefix? libraryScopePrefix,
-    SwidiReferenceDeclarationPrefix? referenceDeclarationPrefix,
-    SwidiNullabilitySuffix? nullabilitySuffix,
-    List<SwidiInterface>? typeArguments,
-    List<SwidiAnnotation>? annotations,
+    final String? name,
+    final SwidiLibraryScopePrefix? libraryScopePrefix,
+    final SwidiReferenceDeclarationPrefix? referenceDeclarationPrefix,
+    final SwidiNullabilitySuffix? nullabilitySuffix,
+    final List<SwidiInterface>? typeArguments,
+    final List<SwidiAnnotation>? annotations,
   }) =>
       SwidiInterface(
         name: name ?? swidiInterface.name,
-        libraryScopePrefix: libraryScopePrefix ??
-            SwidiLibraryScopePrefix.clone(
-              swidiLibraryScopePrefix: swidiInterface.libraryScopePrefix,
-            ),
+        libraryScopePrefix:
+            libraryScopePrefix ?? swidiInterface.libraryScopePrefix.clone(),
         referenceDeclarationPrefix: referenceDeclarationPrefix ??
-            SwidiReferenceDeclarationPrefix.clone(
-              swidiReferenceDeclarationPrefix:
-                  swidiInterface.referenceDeclarationPrefix,
-            ),
+            swidiInterface.referenceDeclarationPrefix.clone(),
         nullabilitySuffix:
             nullabilitySuffix ?? swidiInterface.nullabilitySuffix,
         typeArguments: typeArguments ??
             swidiInterface.typeArguments
                 .map(
-                  (x) => SwidiInterface.clone(
-                    swidiInterface: x,
-                  ),
+                  (x) => x.clone(),
                 )
                 .toList(),
         annotations: annotations ??
             swidiInterface.annotations
                 .map(
-                  (x) => SwidiAnnotation.clone(
-                    swidiAnnotation: x,
-                  ),
+                  (x) => x.clone(),
                 )
                 .toList(),
+      );
+
+  @override
+  SwidiInterface clone({
+    final String? name,
+    final SwidiLibraryScopePrefix? libraryScopePrefix,
+    final SwidiReferenceDeclarationPrefix? referenceDeclarationPrefix,
+    final SwidiNullabilitySuffix? nullabilitySuffix,
+    final List<SwidiInterface>? typeArguments,
+    final List<SwidiAnnotation>? annotations,
+  }) =>
+      SwidiInterface._clone(
+        swidiInterface: this,
+        name: name,
+        libraryScopePrefix: libraryScopePrefix,
+        referenceDeclarationPrefix: referenceDeclarationPrefix,
+        nullabilitySuffix: nullabilitySuffix,
+        typeArguments: typeArguments,
+        annotations: annotations,
       );
 }
