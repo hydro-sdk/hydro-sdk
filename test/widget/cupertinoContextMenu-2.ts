@@ -52,7 +52,7 @@ runApp(
                                         ),
                                     }),
                                 }),
-                            actions: List.fromArray([
+                            actions: [
                                 new CupertinoContextMenuAction({
                                     child: new Text("Action one"),
                                     onPressed: () => {},
@@ -61,7 +61,7 @@ runApp(
                                     child: new Text("Action two"),
                                     onPressed: () => {},
                                 }),
-                            ]) as any,
+                            ],
                         }),
                     }),
                 }),
