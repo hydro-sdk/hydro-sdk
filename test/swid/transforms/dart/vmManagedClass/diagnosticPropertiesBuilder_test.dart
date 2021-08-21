@@ -37,7 +37,7 @@ class VMManagedDiagnosticPropertiesBuilder
     });
     table[\'emptyBodyDescription\'] = vmObject.emptyBodyDescription;
     table[\'add\'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.add(maybeUnBoxAndBuildArgument<DiagnosticsNode>(
+      vmObject.add(maybeUnBoxAndBuildArgument<DiagnosticsNode, dynamic>(
           luaCallerArguments[1],
           parentState: hydroState));
       return [];

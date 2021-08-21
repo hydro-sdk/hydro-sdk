@@ -54,15 +54,14 @@ void loadDiagnosticsNode(
     return [
       maybeBoxObject<List<dynamic>>(
           object: DiagnosticsNode.toJsonList(
-              maybeUnBoxAndBuildArgument<List<DiagnosticsNode>?>(
-                  luaCallerArguments[1],
+              maybeUnBoxAndBuildArgument<List<DiagnosticsNode>?,
+                      DiagnosticsNode>(luaCallerArguments[1],
                   parentState: hydroState),
-              maybeUnBoxAndBuildArgument<DiagnosticsNode?>(
+              maybeUnBoxAndBuildArgument<DiagnosticsNode?, dynamic>(
                   luaCallerArguments[2],
                   parentState: hydroState),
-              maybeUnBoxAndBuildArgument<DiagnosticsSerializationDelegate>(
-                  luaCallerArguments[3],
-                  parentState: hydroState)),
+              maybeUnBoxAndBuildArgument<DiagnosticsSerializationDelegate,
+                  dynamic>(luaCallerArguments[3], parentState: hydroState)),
           hydroState: hydroState,
           table: HydroTable()),
     ];

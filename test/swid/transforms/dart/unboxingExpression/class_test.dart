@@ -24,6 +24,6 @@ void main() {
                   SwidReferenceDeclarationKind.classElement,
             )),
             expression: refer("foo").call([])).toDartSource(),
-        "maybeUnBoxAndBuildArgument<Offset>(foo(), parentState: hydroState)");
+        "maybeUnBoxAndBuildArgument<Offset, dynamic>(foo(), parentState: hydroState)");
   }, tags: "swid");
 }

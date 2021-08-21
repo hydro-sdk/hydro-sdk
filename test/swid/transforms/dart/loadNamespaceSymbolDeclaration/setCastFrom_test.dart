@@ -168,8 +168,8 @@ Closure? unpackednewSet=luaCallerArguments  [
 2
 ]  [
 \'newSet\'
-];return [maybeBoxObject<Set>(object: Set.castFrom(maybeUnBoxAndBuildArgument<Set<dynamic>>(luaCallerArguments  [
+];return [maybeBoxObject<Set>(object: Set.castFrom(maybeUnBoxAndBuildArgument<Set<dynamic>, dynamic>(luaCallerArguments  [
 1
-], parentState: hydroState), newSet: unpackednewSet != null ? <R>() => maybeUnBoxAndBuildArgument<Set<R>>(unpackednewSet.dispatch([luaCallerArguments[0],],parentState:hydroState,)[0], parentState: hydroState) : null ), hydroState: hydroState, table: HydroTable()),]; } );""");
+], parentState: hydroState), newSet: unpackednewSet != null ? <R>() => maybeUnBoxAndBuildArgument<Set<R>, R>(unpackednewSet.dispatch([luaCallerArguments[0],],parentState:hydroState,)[0], parentState: hydroState) : null ), hydroState: hydroState, table: HydroTable()),]; } );""");
   }, tags: "swid");
 }
