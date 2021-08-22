@@ -1,6 +1,8 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConst.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiDeclaration.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiEmptyConst.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiInterface.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiLibraryScopePrefix.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiNullabilitySuffix.dart';
@@ -69,28 +71,31 @@ void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
     parserTestHarness(
-        input: const ParserTestHarnessInput.fromList(inputs: ["(void foo,)"]),
-        parser: const BasicFunctionParameterListParser().build(
-            start: const BasicFunctionParameterListParser()
-                .functionDeclarationParameterList),
-        result: const [
-          SwidiPositionalOrOptionalOrNamedParameter
-              .fromSwidiPositionalParameter(
-            positionalParameter: SwidiPositionalParameter(
-              declaration: SwidiDeclaration(
-                name: "foo",
-                type: SwidiInterface(
-                  annotations: [],
-                  typeArguments: [],
-                  name: "void",
-                  libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                  referenceDeclarationPrefix:
-                      SwidiReferenceDeclarationPrefix.empty,
-                  nullabilitySuffix: SwidiNullabilitySuffix.none,
-                ),
+      input: const ParserTestHarnessInput.fromList(inputs: ["(void foo,)"]),
+      parser: const BasicFunctionParameterListParser().build(
+          start: const BasicFunctionParameterListParser()
+              .functionDeclarationParameterList),
+      result: [
+        SwidiPositionalOrOptionalOrNamedParameter.fromSwidiPositionalParameter(
+          positionalParameter: SwidiPositionalParameter(
+            declaration: SwidiDeclaration(
+              defaultConstValue: SwidiConst.fromSwidiEmptyConst(
+                swidiEmptyConst: SwidiEmptyConst(),
+              ),
+              name: "foo",
+              type: SwidiInterface(
+                annotations: [],
+                typeArguments: [],
+                name: "void",
+                libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                referenceDeclarationPrefix:
+                    SwidiReferenceDeclarationPrefix.empty,
+                nullabilitySuffix: SwidiNullabilitySuffix.none,
               ),
             ),
-          )
-        ]);
+          ),
+        )
+      ],
+    );
   }, tags: "swid");
 }

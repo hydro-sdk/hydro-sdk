@@ -183,10 +183,10 @@ class __$$SwidiPositionalOrOptionalParameterFromSwidiPositionalParameterCopyWith
 /// @nodoc
 
 class _$_$SwidiPositionalOrOptionalParameterFromSwidiPositionalParameter
-    implements
-        _$SwidiPositionalOrOptionalParameterFromSwidiPositionalParameter {
-  const _$_$SwidiPositionalOrOptionalParameterFromSwidiPositionalParameter(
-      {required this.positionalParameter});
+    extends _$SwidiPositionalOrOptionalParameterFromSwidiPositionalParameter {
+  _$_$SwidiPositionalOrOptionalParameterFromSwidiPositionalParameter(
+      {required this.positionalParameter})
+      : super._();
 
   @override
   final SwidiPositionalParameter positionalParameter;
@@ -293,10 +293,12 @@ class _$_$SwidiPositionalOrOptionalParameterFromSwidiPositionalParameter
 }
 
 abstract class _$SwidiPositionalOrOptionalParameterFromSwidiPositionalParameter
-    implements SwidiPositionalOrOptionalOrNamedParameter {
-  const factory _$SwidiPositionalOrOptionalParameterFromSwidiPositionalParameter(
+    extends SwidiPositionalOrOptionalOrNamedParameter {
+  factory _$SwidiPositionalOrOptionalParameterFromSwidiPositionalParameter(
           {required SwidiPositionalParameter positionalParameter}) =
       _$_$SwidiPositionalOrOptionalParameterFromSwidiPositionalParameter;
+  _$SwidiPositionalOrOptionalParameterFromSwidiPositionalParameter._()
+      : super._();
 
   SwidiPositionalParameter get positionalParameter =>
       throw _privateConstructorUsedError;
@@ -367,9 +369,10 @@ class __$$SwidiPositionalOrOptionalParameterFromSwidiOptionalParameterCopyWithIm
 /// @nodoc
 
 class _$_$SwidiPositionalOrOptionalParameterFromSwidiOptionalParameter
-    implements _$SwidiPositionalOrOptionalParameterFromSwidiOptionalParameter {
-  const _$_$SwidiPositionalOrOptionalParameterFromSwidiOptionalParameter(
-      {required this.optionalParameter});
+    extends _$SwidiPositionalOrOptionalParameterFromSwidiOptionalParameter {
+  _$_$SwidiPositionalOrOptionalParameterFromSwidiOptionalParameter(
+      {required this.optionalParameter})
+      : super._();
 
   @override
   final SwidiOptionalParameter optionalParameter;
@@ -476,10 +479,12 @@ class _$_$SwidiPositionalOrOptionalParameterFromSwidiOptionalParameter
 }
 
 abstract class _$SwidiPositionalOrOptionalParameterFromSwidiOptionalParameter
-    implements SwidiPositionalOrOptionalOrNamedParameter {
-  const factory _$SwidiPositionalOrOptionalParameterFromSwidiOptionalParameter(
+    extends SwidiPositionalOrOptionalOrNamedParameter {
+  factory _$SwidiPositionalOrOptionalParameterFromSwidiOptionalParameter(
           {required SwidiOptionalParameter optionalParameter}) =
       _$_$SwidiPositionalOrOptionalParameterFromSwidiOptionalParameter;
+  _$SwidiPositionalOrOptionalParameterFromSwidiOptionalParameter._()
+      : super._();
 
   SwidiOptionalParameter get optionalParameter =>
       throw _privateConstructorUsedError;
@@ -550,10 +555,10 @@ class __$$SwidiPositionalOrOptionalOrNamedParameterFromSwidiNamedParameterCopyWi
 /// @nodoc
 
 class _$_$SwidiPositionalOrOptionalOrNamedParameterFromSwidiNamedParameter
-    implements
-        _$SwidiPositionalOrOptionalOrNamedParameterFromSwidiNamedParameter {
-  const _$_$SwidiPositionalOrOptionalOrNamedParameterFromSwidiNamedParameter(
-      {required this.namedParameter});
+    extends _$SwidiPositionalOrOptionalOrNamedParameterFromSwidiNamedParameter {
+  _$_$SwidiPositionalOrOptionalOrNamedParameterFromSwidiNamedParameter(
+      {required this.namedParameter})
+      : super._();
 
   @override
   final SwidiNamedParameter namedParameter;
@@ -660,10 +665,12 @@ class _$_$SwidiPositionalOrOptionalOrNamedParameterFromSwidiNamedParameter
 }
 
 abstract class _$SwidiPositionalOrOptionalOrNamedParameterFromSwidiNamedParameter
-    implements SwidiPositionalOrOptionalOrNamedParameter {
-  const factory _$SwidiPositionalOrOptionalOrNamedParameterFromSwidiNamedParameter(
+    extends SwidiPositionalOrOptionalOrNamedParameter {
+  factory _$SwidiPositionalOrOptionalOrNamedParameterFromSwidiNamedParameter(
           {required SwidiNamedParameter namedParameter}) =
       _$_$SwidiPositionalOrOptionalOrNamedParameterFromSwidiNamedParameter;
+  _$SwidiPositionalOrOptionalOrNamedParameterFromSwidiNamedParameter._()
+      : super._();
 
   SwidiNamedParameter get namedParameter => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)

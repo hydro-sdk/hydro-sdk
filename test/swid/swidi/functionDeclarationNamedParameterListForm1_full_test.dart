@@ -31,7 +31,7 @@ void main() {
       ]),
       parser: const SwidiParser().build(),
       result: [
-        const SwidiClass(
+         SwidiClass(
           name: "IconData",
           libraryScopePrefix: SwidiLibraryScopePrefix.empty,
           staticMethods: [],
@@ -56,6 +56,9 @@ void main() {
               namedParameters: [
                 SwidiNamedParameter(
                   declaration: SwidiDeclaration(
+                    defaultConstValue: SwidiConst.fromSwidiEmptyConst(
+                      swidiEmptyConst: SwidiEmptyConst(),
+                    ),
                     name: "bar",
                     type: SwidiInterface(
                       annotations: [],
@@ -90,7 +93,7 @@ void main() {
       ]),
       parser: const SwidiParser().build(),
       result: [
-        const SwidiClass(
+         SwidiClass(
           name: "IconData",
           libraryScopePrefix: SwidiLibraryScopePrefix.empty,
           staticMethods: [],
@@ -115,6 +118,9 @@ void main() {
               namedParameters: [
                 SwidiNamedParameter(
                   declaration: SwidiDeclaration(
+                    defaultConstValue: SwidiConst.fromSwidiEmptyConst(
+                      swidiEmptyConst: SwidiEmptyConst(),
+                    ),
                     name: "bar",
                     type: SwidiInterface(
                       annotations: [],

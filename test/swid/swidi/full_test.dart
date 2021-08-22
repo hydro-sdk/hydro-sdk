@@ -47,7 +47,7 @@ void main() {
       ]),
       parser: const SwidiParser().build(),
       result: [
-        const SwidiClass(
+        SwidiClass(
           name: "IconData",
           libraryScopePrefix: SwidiLibraryScopePrefix(
               name: "package:flutter/src/widgets/icon_data.dart"),
@@ -71,35 +71,48 @@ void main() {
               optionalParameters: [],
               positionalParameters: [
                 SwidiPositionalParameter(
-                    declaration: SwidiDeclaration(
-                        name: "bar",
-                        type: SwidiInterface(
-                          annotations: [],
-                          typeArguments: [],
-                          name: "int",
-                          libraryScopePrefix:
-                              SwidiLibraryScopePrefix(name: "dart:core"),
-                          referenceDeclarationPrefix:
-                              SwidiReferenceDeclarationPrefix(name: "class"),
-                          nullabilitySuffix: SwidiNullabilitySuffix.none,
-                        ))),
+                  declaration: SwidiDeclaration(
+                    defaultConstValue: SwidiConst.fromSwidiEmptyConst(
+                      swidiEmptyConst: SwidiEmptyConst(),
+                    ),
+                    name: "bar",
+                    type: SwidiInterface(
+                      annotations: [],
+                      typeArguments: [],
+                      name: "int",
+                      libraryScopePrefix:
+                          SwidiLibraryScopePrefix(name: "dart:core"),
+                      referenceDeclarationPrefix:
+                          SwidiReferenceDeclarationPrefix(name: "class"),
+                      nullabilitySuffix: SwidiNullabilitySuffix.none,
+                    ),
+                  ),
+                ),
               ],
               namedParameters: [
                 SwidiNamedParameter(
-                    declaration: SwidiDeclaration(
-                        name: "baz",
-                        type: SwidiInterface(
-                          annotations: [],
-                          typeArguments: [],
-                          name: "int",
-                          libraryScopePrefix:
-                              SwidiLibraryScopePrefix(name: "dart:core"),
-                          referenceDeclarationPrefix:
-                              SwidiReferenceDeclarationPrefix(name: "class"),
-                          nullabilitySuffix: SwidiNullabilitySuffix.none,
-                        ))),
+                  declaration: SwidiDeclaration(
+                    defaultConstValue: SwidiConst.fromSwidiEmptyConst(
+                      swidiEmptyConst: SwidiEmptyConst(),
+                    ),
+                    name: "baz",
+                    type: SwidiInterface(
+                      annotations: [],
+                      typeArguments: [],
+                      name: "int",
+                      libraryScopePrefix:
+                          SwidiLibraryScopePrefix(name: "dart:core"),
+                      referenceDeclarationPrefix:
+                          SwidiReferenceDeclarationPrefix(name: "class"),
+                      nullabilitySuffix: SwidiNullabilitySuffix.none,
+                    ),
+                  ),
+                ),
                 SwidiNamedParameter(
                   declaration: SwidiDeclaration(
+                    defaultConstValue: SwidiConst.fromSwidiEmptyConst(
+                      swidiEmptyConst: SwidiEmptyConst(),
+                    ),
                     name: "qux",
                     type: SwidiInterface(
                       annotations: [],
@@ -133,7 +146,7 @@ class "package:flutter/src/widgets/icon_data.dart"::IconData {
 """,
       ),
       parser: const SwidiParser().build(),
-      result: const [
+      result: [
         SwidiClass(
           name: "IconData",
           libraryScopePrefix: SwidiLibraryScopePrefix(
@@ -227,7 +240,7 @@ class "dart:core"::List {
 """,
       ),
       parser: const SwidiParser().build(),
-      result: const [
+      result: [
         SwidiClass(
           name: "List",
           libraryScopePrefix: SwidiLibraryScopePrefix(
@@ -266,6 +279,9 @@ class "dart:core"::List {
               optionalParameters: [
                 SwidiOptionalParameter(
                   declaration: SwidiDeclaration(
+                    defaultConstValue: SwidiConst.fromSwidiEmptyConst(
+                      swidiEmptyConst: SwidiEmptyConst(),
+                    ),
                     name: "array",
                     type: SwidiInterface(
                       name: "Array?",
@@ -363,7 +379,7 @@ class "dart:core"::List {
 """,
       ),
       parser: const SwidiParser().build(),
-      result: const [
+      result: [
         SwidiClass(
           name: "List",
           libraryScopePrefix: SwidiLibraryScopePrefix(
@@ -417,6 +433,9 @@ class "dart:core"::List {
               optionalParameters: [
                 SwidiOptionalParameter(
                   declaration: SwidiDeclaration(
+                    defaultConstValue: SwidiConst.fromSwidiEmptyConst(
+                      swidiEmptyConst: SwidiEmptyConst(),
+                    ),
                     name: "array",
                     type: SwidiInterface(
                       name: "Array?",
@@ -514,7 +533,7 @@ class "dart:core"::List {
 """,
       ),
       parser: const SwidiParser().build(),
-      result: const [
+      result: [
         SwidiClass(
           name: "List",
           libraryScopePrefix: SwidiLibraryScopePrefix(
@@ -567,6 +586,9 @@ class "dart:core"::List {
               optionalParameters: [
                 SwidiOptionalParameter(
                   declaration: SwidiDeclaration(
+                    defaultConstValue: SwidiConst.fromSwidiEmptyConst(
+                      swidiEmptyConst: SwidiEmptyConst(),
+                    ),
                     name: "array",
                     type: SwidiInterface(
                       name: "Array?",

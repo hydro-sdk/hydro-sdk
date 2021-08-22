@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiEmptyConst.dart';
 import 'package:tuple/tuple.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiClass.dart';
@@ -34,7 +35,7 @@ void foo(int bar,int baz)->@"foo";
       ]),
       parser: const SwidiParser().build(),
       result: [
-        const SwidiClass(
+         SwidiClass(
           name: "IconData",
           libraryScopePrefix: SwidiLibraryScopePrefix.empty,
           staticMethods: [],
@@ -61,6 +62,9 @@ void foo(int bar,int baz)->@"foo";
               positionalParameters: [
                 SwidiPositionalParameter(
                   declaration: SwidiDeclaration(
+                    defaultConstValue: SwidiConst.fromSwidiEmptyConst(
+                      swidiEmptyConst: SwidiEmptyConst(),
+                    ),
                     name: "bar",
                     type: SwidiInterface(
                       annotations: [],
@@ -75,6 +79,9 @@ void foo(int bar,int baz)->@"foo";
                 ),
                 SwidiPositionalParameter(
                   declaration: SwidiDeclaration(
+                    defaultConstValue: SwidiConst.fromSwidiEmptyConst(
+                      swidiEmptyConst: SwidiEmptyConst(),
+                    ),
                     name: "baz",
                     type: SwidiInterface(
                       annotations: [],
@@ -104,7 +111,7 @@ class IconData {
 """),
       parser: const SwidiParser().build(),
       result: [
-        const SwidiClass(
+         SwidiClass(
           name: "IconData",
           libraryScopePrefix: SwidiLibraryScopePrefix.empty,
           staticMethods: [],
@@ -158,7 +165,7 @@ class IconData {
 """),
       parser: const SwidiParser().build(),
       result: [
-        const SwidiClass(
+         SwidiClass(
           name: "IconData",
           libraryScopePrefix: SwidiLibraryScopePrefix.empty,
           staticMethods: [],

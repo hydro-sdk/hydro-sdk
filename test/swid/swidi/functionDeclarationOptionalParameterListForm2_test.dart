@@ -1,6 +1,8 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConst.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiDeclaration.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiEmptyConst.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiInterface.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiLibraryScopePrefix.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiNullabilitySuffix.dart';
@@ -74,10 +76,13 @@ void main() {
         parser: const BasicFunctionParameterListParser().build(
             start: const BasicFunctionParameterListParser()
                 .functionDeclarationParameterList),
-        result: const [
+        result: [
           SwidiPositionalOrOptionalOrNamedParameter.fromSwidiOptionalParameter(
             optionalParameter: SwidiOptionalParameter(
               declaration: SwidiDeclaration(
+                defaultConstValue: SwidiConst.fromSwidiEmptyConst(
+                      swidiEmptyConst: SwidiEmptyConst(),
+                    ),
                 name: "foo",
                 type: SwidiInterface(
                   annotations: [],
@@ -94,6 +99,9 @@ void main() {
           SwidiPositionalOrOptionalOrNamedParameter.fromSwidiOptionalParameter(
             optionalParameter: SwidiOptionalParameter(
               declaration: SwidiDeclaration(
+                defaultConstValue: SwidiConst.fromSwidiEmptyConst(
+                      swidiEmptyConst: SwidiEmptyConst(),
+                    ),
                 name: "bar",
                 type: SwidiInterface(
                   annotations: [],
@@ -110,6 +118,9 @@ void main() {
           SwidiPositionalOrOptionalOrNamedParameter.fromSwidiOptionalParameter(
             optionalParameter: SwidiOptionalParameter(
               declaration: SwidiDeclaration(
+                defaultConstValue: SwidiConst.fromSwidiEmptyConst(
+                      swidiEmptyConst: SwidiEmptyConst(),
+                    ),
                 name: "baz",
                 type: SwidiInterface(
                   annotations: [],
@@ -123,7 +134,7 @@ void main() {
               ),
             ),
           )
-        ]);
+        ],);
 
     parserTestHarness(
         input: const ParserTestHarnessInput.fromList(
@@ -131,10 +142,13 @@ void main() {
         parser: const BasicFunctionParameterListParser().build(
             start: const BasicFunctionParameterListParser()
                 .functionDeclarationParameterList),
-        result: const [
+        result: [
           SwidiPositionalOrOptionalOrNamedParameter.fromSwidiOptionalParameter(
             optionalParameter: SwidiOptionalParameter(
               declaration: SwidiDeclaration(
+                defaultConstValue: SwidiConst.fromSwidiEmptyConst(
+                      swidiEmptyConst: SwidiEmptyConst(),
+                    ),
                 name: "foo",
                 type: SwidiInterface(
                   annotations: [],
@@ -151,6 +165,9 @@ void main() {
           SwidiPositionalOrOptionalOrNamedParameter.fromSwidiOptionalParameter(
             optionalParameter: SwidiOptionalParameter(
               declaration: SwidiDeclaration(
+                defaultConstValue: SwidiConst.fromSwidiEmptyConst(
+                      swidiEmptyConst: SwidiEmptyConst(),
+                    ),
                 name: "bar",
                 type: SwidiInterface(
                   annotations: [],
@@ -167,6 +184,9 @@ void main() {
           SwidiPositionalOrOptionalOrNamedParameter.fromSwidiOptionalParameter(
             optionalParameter: SwidiOptionalParameter(
               declaration: SwidiDeclaration(
+                defaultConstValue: SwidiConst.fromSwidiEmptyConst(
+                      swidiEmptyConst: SwidiEmptyConst(),
+                    ),
                 name: "baz",
                 type: SwidiInterface(
                   annotations: [],
@@ -180,6 +200,6 @@ void main() {
               ),
             ),
           )
-        ]);
+        ],);
   }, tags: "swid");
 }

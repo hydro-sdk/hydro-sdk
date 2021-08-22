@@ -50,7 +50,7 @@ void main() {
       input: const ParserTestHarnessInput.fromString(input: "false"),
       parser: const SimpleConstBooleanParser()
           .build(start: const SimpleConstBooleanParser().constBoolean),
-      result: const SwidiConstBoolean.fromSwidiConstBooleanFalse(
+      result:  SwidiConstBoolean.fromSwidiConstBooleanFalse(
         swidiConstBooleanFalse: SwidiConstBooleanFalse(),
       ),
     );
@@ -59,7 +59,7 @@ void main() {
       input: const ParserTestHarnessInput.fromString(input: "false"),
       parser: const SimpleConstParser()
           .build(start: const SimpleConstParser().lexicalConst),
-      result: const SwidiConst.fromSwidiConstBoolean(
+      result:  SwidiConst.fromSwidiConstBoolean(
         swidiConstBoolean: SwidiConstBoolean.fromSwidiConstBooleanFalse(
           swidiConstBooleanFalse: SwidiConstBooleanFalse(),
         ),

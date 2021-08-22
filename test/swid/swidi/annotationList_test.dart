@@ -52,7 +52,7 @@ void main() {
       ]),
       parser: const SimpleAnnotationListParser()
           .build(start: const SimpleAnnotationListParser().annotationList),
-      result: const SwidiAnnotationList(
+      result:  SwidiAnnotationList(
         annotationList: [
           SwidiAnnotation(
             value: SwidiConst.fromSwidiConstString(
@@ -72,7 +72,7 @@ void main() {
       ]),
       parser: const SimpleAnnotationListParser()
           .build(start: const SimpleAnnotationListParser().annotationList),
-      result: const SwidiAnnotationList(
+      result:  SwidiAnnotationList(
         annotationList: [
           SwidiAnnotation(
             value: SwidiConst.fromSwidiConstString(
@@ -103,7 +103,7 @@ void main() {
       ]),
       parser: const SimpleAnnotationListParser()
           .build(start: const SimpleAnnotationListParser().annotationList),
-      result: const SwidiAnnotationList(
+      result:  SwidiAnnotationList(
         annotationList: [
           SwidiAnnotation(
             value: SwidiConst.fromSwidiConstString(
@@ -129,7 +129,7 @@ void main() {
       ),
       parser: const SimpleAnnotationListParser()
           .build(start: const SimpleAnnotationListParser().annotationList),
-      result: const SwidiAnnotationList(
+      result:  SwidiAnnotationList(
         annotationList: [
           SwidiAnnotation(
             value: SwidiConst.fromSwidiConstFunctionInvocation(

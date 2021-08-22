@@ -1,6 +1,8 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConst.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiDeclaration.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiEmptyConst.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiInterface.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiLibraryScopePrefix.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiNullabilitySuffix.dart';
@@ -62,7 +64,10 @@ void main() {
       input: const ParserTestHarnessInput.fromString(input: "void foo"),
       parser: const SimpleDeclarationParser()
           .build(start: const SimpleDeclarationParser().simpleDeclaration),
-      result: const SwidiDeclaration(
+      result: SwidiDeclaration(
+        defaultConstValue: SwidiConst.fromSwidiEmptyConst(
+          swidiEmptyConst: SwidiEmptyConst(),
+        ),
         type: SwidiInterface(
           annotations: [],
           typeArguments: [],
@@ -79,7 +84,10 @@ void main() {
       input: const ParserTestHarnessInput.fromString(input: "int foo"),
       parser: const SimpleDeclarationParser()
           .build(start: const SimpleDeclarationParser().simpleDeclaration),
-      result: const SwidiDeclaration(
+      result: SwidiDeclaration(
+        defaultConstValue: SwidiConst.fromSwidiEmptyConst(
+          swidiEmptyConst: SwidiEmptyConst(),
+        ),
         type: SwidiInterface(
           annotations: [],
           typeArguments: [],
@@ -96,7 +104,10 @@ void main() {
       input: const ParserTestHarnessInput.fromString(input: "int? foo"),
       parser: const SimpleDeclarationParser()
           .build(start: const SimpleDeclarationParser().simpleDeclaration),
-      result: const SwidiDeclaration(
+      result: SwidiDeclaration(
+        defaultConstValue: SwidiConst.fromSwidiEmptyConst(
+          swidiEmptyConst: SwidiEmptyConst(),
+        ),
         type: SwidiInterface(
           annotations: [],
           typeArguments: [],

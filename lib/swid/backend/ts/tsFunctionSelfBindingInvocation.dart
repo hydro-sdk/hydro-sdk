@@ -1,4 +1,3 @@
-import 'package:collection/collection.dart' show IterableExtension;
 
 import 'package:hydro_sdk/swid/backend/ts/tsFunctionDefaultNamedPropsObjectName.dart';
 import 'package:hydro_sdk/swid/backend/ts/tsFunctionInvocation.dart';

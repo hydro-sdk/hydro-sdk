@@ -60,7 +60,7 @@ void main() {
       input: const ParserTestHarnessInput.fromString(input: "T extends int"),
       parser: const SimpleTypeFormalParser()
           .build(start: const SimpleTypeFormalParser().typeFormal),
-      result: const SwidiTypeFormal(
+      result: SwidiTypeFormal(
         name: "T",
         bound: SwidiInterface(
           annotations: [],
@@ -78,7 +78,7 @@ void main() {
           input: 'Element extends "dart:core"::class::Object?'),
       parser: const SimpleTypeFormalParser()
           .build(start: const SimpleTypeFormalParser().typeFormal),
-      result: const SwidiTypeFormal(
+      result: SwidiTypeFormal(
         name: "Element",
         bound: SwidiInterface(
           annotations: [],

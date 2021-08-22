@@ -1,27 +1,46 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiTypeFormal.dart';
+import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
+import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
+import 'package:hydro_sdk/swid/util/iCopyable.dart';
 
 part 'swidiTypeFormalList.freezed.dart';
 
 @freezed
-class SwidiTypeFormalList with _$SwidiTypeFormalList {
-  const SwidiTypeFormalList._();
+class SwidiTypeFormalList
+    with
+        _$SwidiTypeFormalList,
+        HashKeyMixin<SwidiTypeFormalList>,
+        HashComparableMixin<SwidiTypeFormalList>
+    implements
+        ICopyable<SwidiTypeFormalList,
+            $SwidiTypeFormalListCopyWith<SwidiTypeFormalList>> {
+  SwidiTypeFormalList._();
 
-  const factory SwidiTypeFormalList({
+  factory SwidiTypeFormalList({
     required final List<SwidiTypeFormal> typeFormalList,
   }) = _$SwidiTypeFormalListCtorl;
 
-  factory SwidiTypeFormalList.clone({
+  factory SwidiTypeFormalList._clone({
     required final SwidiTypeFormalList swidiTypeFormalList,
-    List<SwidiTypeFormal>? typeFormalList,
+    final List<SwidiTypeFormal>? typeFormalList,
   }) =>
       SwidiTypeFormalList(
         typeFormalList: typeFormalList ??
             swidiTypeFormalList.typeFormalList
-                .map((x) => SwidiTypeFormal.clone(
-                      swidiTypeFormal: x,
-                    ))
+                .map(
+                  (x) => x.clone(),
+                )
                 .toList(),
+      );
+
+  @override
+  SwidiTypeFormalList clone({
+    final List<SwidiTypeFormal>? typeFormalList,
+  }) =>
+      SwidiTypeFormalList._clone(
+        swidiTypeFormalList: this,
+        typeFormalList: typeFormalList,
       );
 }
