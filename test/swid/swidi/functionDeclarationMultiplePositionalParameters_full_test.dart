@@ -17,83 +17,81 @@ void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
     parserTestHarness(
-      input: const ParserTestHarnessInput.fromList(inputs: [
-        """
+        input: const ParserTestHarnessInput.fromList(inputs: [
+          """
   class IconData {
     void foo(int bar,int baz);
   }
     """,
-        """
+          """
   class IconData {
     void foo(int bar,int baz,);
   }
     """,
-      ]),
-      parser: const SwidiParser().build(),
-      result: [
-        SwidiClass(
-          name: "IconData",
-          libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-          staticMethods: [],
-          methods: [
-            SwidiFunctionDeclaration(
-              shortHandOverride: SwidiConst.fromSwidiEmptyConst(
-                swidiEmptyConst: SwidiEmptyConst(),
-              ),
-              typeFormals: [],
-              name: "foo",
-              returnType: SwidiInterface(
-                annotations: [],
-                typeArguments: [],
-                name: "void",
-                libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                referenceDeclarationPrefix:
-                    SwidiReferenceDeclarationPrefix.empty,
-                nullabilitySuffix: SwidiNullabilitySuffix.none,
-              ),
-              optionalParameters: [],
-              namedParameters: [],
-              positionalParameters: [
-                SwidiPositionalParameter(
-                  declaration: SwidiDeclaration(
-                    defaultConstValue: SwidiConst.fromSwidiEmptyConst(
-                      swidiEmptyConst: SwidiEmptyConst(),
-                    ),
-                    name: "bar",
-                    type: SwidiInterface(
-                      annotations: [],
-                      typeArguments: [],
-                      name: "int",
-                      libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                      referenceDeclarationPrefix:
-                          SwidiReferenceDeclarationPrefix.empty,
-                      nullabilitySuffix: SwidiNullabilitySuffix.none,
-                    ),
+        ]),
+        parser: const SwidiParser().build(),
+        result: [
+          SwidiClass(
+              name: "IconData",
+              libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+              staticMethods: [],
+              methods: [
+                SwidiFunctionDeclaration(
+                  shortHandOverride: SwidiConst.fromSwidiEmptyConst(
+                    swidiEmptyConst: SwidiEmptyConst(),
                   ),
-                ),
-                SwidiPositionalParameter(
-                  declaration: SwidiDeclaration(
-                    defaultConstValue: SwidiConst.fromSwidiEmptyConst(
-                      swidiEmptyConst: SwidiEmptyConst(),
-                    ),
-                    name: "baz",
-                    type: SwidiInterface(
-                      annotations: [],
-                      typeArguments: [],
-                      name: "int",
-                      libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                      referenceDeclarationPrefix:
-                          SwidiReferenceDeclarationPrefix.empty,
-                      nullabilitySuffix: SwidiNullabilitySuffix.none,
-                    ),
+                  typeFormals: [],
+                  name: "foo",
+                  returnType: SwidiInterface(
+                    annotations: [],
+                    typeArguments: [],
+                    name: "void",
+                    libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                    referenceDeclarationPrefix:
+                        SwidiReferenceDeclarationPrefix.empty,
+                    nullabilitySuffix: SwidiNullabilitySuffix.none,
                   ),
+                  optionalParameters: [],
+                  namedParameters: [],
+                  positionalParameters: [
+                    SwidiPositionalParameter(
+                      declaration: SwidiDeclaration(
+                        defaultConstValue: SwidiConst.fromSwidiEmptyConst(
+                          swidiEmptyConst: SwidiEmptyConst(),
+                        ),
+                        name: "bar",
+                        type: SwidiInterface(
+                          annotations: [],
+                          typeArguments: [],
+                          name: "int",
+                          libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                          referenceDeclarationPrefix:
+                              SwidiReferenceDeclarationPrefix.empty,
+                          nullabilitySuffix: SwidiNullabilitySuffix.none,
+                        ),
+                      ),
+                    ),
+                    SwidiPositionalParameter(
+                      declaration: SwidiDeclaration(
+                        defaultConstValue: SwidiConst.fromSwidiEmptyConst(
+                          swidiEmptyConst: SwidiEmptyConst(),
+                        ),
+                        name: "baz",
+                        type: SwidiInterface(
+                          annotations: [],
+                          typeArguments: [],
+                          name: "int",
+                          libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                          referenceDeclarationPrefix:
+                              SwidiReferenceDeclarationPrefix.empty,
+                          nullabilitySuffix: SwidiNullabilitySuffix.none,
+                        ),
+                      ),
+                    )
+                  ],
                 )
-              ],
-            )
-          ],
-        ),
-      ],
-    );
+              ]),
+        ]);
 
     parserTestHarness(
       input: const ParserTestHarnessInput.fromList(inputs: [
@@ -292,20 +290,22 @@ void main() {
               namedParameters: [],
               positionalParameters: [
                 SwidiPositionalParameter(
-                    declaration: SwidiDeclaration(
-                        defaultConstValue: SwidiConst.fromSwidiEmptyConst(
-                          swidiEmptyConst: SwidiEmptyConst(),
-                        ),
-                        name: "bar",
-                        type: SwidiInterface(
-                          annotations: [],
-                          typeArguments: [],
-                          name: "int?",
-                          libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                          referenceDeclarationPrefix:
-                              SwidiReferenceDeclarationPrefix.empty,
-                          nullabilitySuffix: SwidiNullabilitySuffix.question,
-                        ))),
+                  declaration: SwidiDeclaration(
+                    defaultConstValue: SwidiConst.fromSwidiEmptyConst(
+                      swidiEmptyConst: SwidiEmptyConst(),
+                    ),
+                    name: "bar",
+                    type: SwidiInterface(
+                      annotations: [],
+                      typeArguments: [],
+                      name: "int?",
+                      libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                      referenceDeclarationPrefix:
+                          SwidiReferenceDeclarationPrefix.empty,
+                      nullabilitySuffix: SwidiNullabilitySuffix.question,
+                    ),
+                  ),
+                ),
                 SwidiPositionalParameter(
                   declaration: SwidiDeclaration(
                     defaultConstValue: SwidiConst.fromSwidiEmptyConst(
