@@ -50,9 +50,7 @@ class SwidiFunctionDeclaration
             List.from(
               swidiFunctionDeclaration.positionalParameters
                   .map(
-                    (x) => SwidiPositionalParameter.clone(
-                      swidiPositionalParameter: x,
-                    ),
+                    (x) => x.clone(),
                   )
                   .toList(),
             ),
@@ -60,9 +58,7 @@ class SwidiFunctionDeclaration
             List.from(
               swidiFunctionDeclaration.optionalParameters
                   .map(
-                    (x) => SwidiOptionalParameter.clone(
-                      swidiOptionalParameter: x,
-                    ),
+                    (x) => x.clone(),
                   )
                   .toList(),
             ),
@@ -77,9 +73,9 @@ class SwidiFunctionDeclaration
         typeFormals: typeFormals ??
             List.from(
               swidiFunctionDeclaration.typeFormals
-                  .map((x) => SwidiTypeFormal.clone(
-                        swidiTypeFormal: x,
-                      ))
+                  .map(
+                    (x) => x.clone(),
+                  )
                   .toList(),
             ),
         shortHandOverride: shortHandOverride ??

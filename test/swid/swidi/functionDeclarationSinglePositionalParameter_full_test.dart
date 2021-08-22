@@ -31,45 +31,50 @@ void main() {
       ]),
       parser: const SwidiParser().build(),
       result: [
-        const SwidiClass(
-            name: "IconData",
-            libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-            staticMethods: [],
-            methods: [
-              SwidiFunctionDeclaration(
-                  shortHandOverride: SwidiConst.fromSwidiEmptyConst(
-                    swidiEmptyConst: SwidiEmptyConst(),
+        SwidiClass(
+          name: "IconData",
+          libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+          staticMethods: [],
+          methods: [
+            SwidiFunctionDeclaration(
+              shortHandOverride: SwidiConst.fromSwidiEmptyConst(
+                swidiEmptyConst: SwidiEmptyConst(),
+              ),
+              typeFormals: [],
+              name: "foo",
+              returnType: SwidiInterface(
+                annotations: [],
+                typeArguments: [],
+                name: "void",
+                libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                referenceDeclarationPrefix:
+                    SwidiReferenceDeclarationPrefix.empty,
+                nullabilitySuffix: SwidiNullabilitySuffix.none,
+              ),
+              optionalParameters: [],
+              namedParameters: [],
+              positionalParameters: [
+                SwidiPositionalParameter(
+                  declaration: SwidiDeclaration(
+                    defaultConstValue: SwidiConst.fromSwidiEmptyConst(
+                      swidiEmptyConst: SwidiEmptyConst(),
+                    ),
+                    name: "bar",
+                    type: SwidiInterface(
+                      annotations: [],
+                      typeArguments: [],
+                      name: "int",
+                      libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                      referenceDeclarationPrefix:
+                          SwidiReferenceDeclarationPrefix.empty,
+                      nullabilitySuffix: SwidiNullabilitySuffix.none,
+                    ),
                   ),
-                  typeFormals: [],
-                  name: "foo",
-                  returnType: SwidiInterface(
-                    annotations: [],
-                    typeArguments: [],
-                    name: "void",
-                    libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                    referenceDeclarationPrefix:
-                        SwidiReferenceDeclarationPrefix.empty,
-                    nullabilitySuffix: SwidiNullabilitySuffix.none,
-                  ),
-                  optionalParameters: [],
-                  namedParameters: [],
-                  positionalParameters: [
-                    SwidiPositionalParameter(
-                      declaration: SwidiDeclaration(
-                        name: "bar",
-                        type: SwidiInterface(
-                          annotations: [],
-                          typeArguments: [],
-                          name: "int",
-                          libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                          referenceDeclarationPrefix:
-                              SwidiReferenceDeclarationPrefix.empty,
-                          nullabilitySuffix: SwidiNullabilitySuffix.none,
-                        ),
-                      ),
-                    )
-                  ])
-            ]),
+                )
+              ],
+            )
+          ],
+        ),
       ],
     );
   }, tags: "swid");

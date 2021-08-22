@@ -80,7 +80,7 @@ void main() {
           const ParserTestHarnessInput.fromString(input: "class IconData {}"),
       parser: const BasicClassParser()
           .build(start: const BasicClassParser().classDefinition),
-      result: const SwidiClass(
+      result:  SwidiClass(
         name: "IconData",
         libraryScopePrefix: SwidiLibraryScopePrefix.empty,
         methods: [],

@@ -104,7 +104,7 @@ class __$$SwidiTypeArgumentListCtorCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_$SwidiTypeArgumentListCtor extends _$SwidiTypeArgumentListCtor {
-  const _$_$SwidiTypeArgumentListCtor({required this.typeList}) : super._();
+  _$_$SwidiTypeArgumentListCtor({required this.typeList}) : super._();
 
   @override
   final List<SwidiInterface> typeList;
@@ -135,9 +135,9 @@ class _$_$SwidiTypeArgumentListCtor extends _$SwidiTypeArgumentListCtor {
 }
 
 abstract class _$SwidiTypeArgumentListCtor extends SwidiTypeArgumentList {
-  const factory _$SwidiTypeArgumentListCtor(
+  factory _$SwidiTypeArgumentListCtor(
       {required List<SwidiInterface> typeList}) = _$_$SwidiTypeArgumentListCtor;
-  const _$SwidiTypeArgumentListCtor._() : super._();
+  _$SwidiTypeArgumentListCtor._() : super._();
 
   @override
   List<SwidiInterface> get typeList => throw _privateConstructorUsedError;

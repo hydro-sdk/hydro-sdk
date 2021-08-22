@@ -164,12 +164,13 @@ class __$$SwidiClassCtorCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_$SwidiClassCtor implements _$SwidiClassCtor {
-  const _$_$SwidiClassCtor(
+class _$_$SwidiClassCtor extends _$SwidiClassCtor {
+  _$_$SwidiClassCtor(
       {required this.name,
       required this.libraryScopePrefix,
       required this.methods,
-      required this.staticMethods});
+      required this.staticMethods})
+      : super._();
 
   @override
   final String name;
@@ -216,13 +217,14 @@ class _$_$SwidiClassCtor implements _$SwidiClassCtor {
       __$$SwidiClassCtorCopyWithImpl<_$SwidiClassCtor>(this, _$identity);
 }
 
-abstract class _$SwidiClassCtor implements SwidiClass {
-  const factory _$SwidiClassCtor(
+abstract class _$SwidiClassCtor extends SwidiClass {
+  factory _$SwidiClassCtor(
           {required String name,
           required SwidiLibraryScopePrefix libraryScopePrefix,
           required List<SwidiFunctionDeclaration> methods,
           required List<SwidiFunctionDeclaration> staticMethods}) =
       _$_$SwidiClassCtor;
+  _$SwidiClassCtor._() : super._();
 
   @override
   String get name => throw _privateConstructorUsedError;

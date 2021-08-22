@@ -116,8 +116,8 @@ class __$$SwidiOptionalParameterCtorCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_$SwidiOptionalParameterCtor implements _$SwidiOptionalParameterCtor {
-  const _$_$SwidiOptionalParameterCtor({required this.declaration});
+class _$_$SwidiOptionalParameterCtor extends _$SwidiOptionalParameterCtor {
+  _$_$SwidiOptionalParameterCtor({required this.declaration}) : super._();
 
   @override
   final SwidiDeclaration declaration;
@@ -147,9 +147,10 @@ class _$_$SwidiOptionalParameterCtor implements _$SwidiOptionalParameterCtor {
           _$SwidiOptionalParameterCtor>(this, _$identity);
 }
 
-abstract class _$SwidiOptionalParameterCtor implements SwidiOptionalParameter {
-  const factory _$SwidiOptionalParameterCtor(
+abstract class _$SwidiOptionalParameterCtor extends SwidiOptionalParameter {
+  factory _$SwidiOptionalParameterCtor(
       {required SwidiDeclaration declaration}) = _$_$SwidiOptionalParameterCtor;
+  _$SwidiOptionalParameterCtor._() : super._();
 
   @override
   SwidiDeclaration get declaration => throw _privateConstructorUsedError;

@@ -57,7 +57,7 @@ void main() {
       input: const ParserTestHarnessInput.fromString(input: "void"),
       parser:
           const SimpleTypeParser().build(start: const SimpleTypeParser().type),
-      result: const SwidiInterface(
+      result: SwidiInterface(
         annotations: [],
         typeArguments: [],
         name: "void",
@@ -71,7 +71,7 @@ void main() {
       input: const ParserTestHarnessInput.fromString(input: "void?"),
       parser:
           const SimpleTypeParser().build(start: const SimpleTypeParser().type),
-      result: const SwidiInterface(
+      result:  SwidiInterface(
         annotations: [],
         typeArguments: [],
         name: "void?",
@@ -85,7 +85,7 @@ void main() {
       input: const ParserTestHarnessInput.fromString(input: '"dart:core"::int'),
       parser:
           const SimpleTypeParser().build(start: const SimpleTypeParser().type),
-      result: const SwidiInterface(
+      result:  SwidiInterface(
         annotations: [],
         typeArguments: [],
         name: "int",
@@ -100,7 +100,7 @@ void main() {
           const ParserTestHarnessInput.fromString(input: '"dart:core"::int?'),
       parser:
           const SimpleTypeParser().build(start: const SimpleTypeParser().type),
-      result: const SwidiInterface(
+      result:  SwidiInterface(
         annotations: [],
         typeArguments: [],
         name: "int?",
@@ -114,7 +114,7 @@ void main() {
       input: const ParserTestHarnessInput.fromString(input: 'type::int?'),
       parser:
           const SimpleTypeParser().build(start: const SimpleTypeParser().type),
-      result: const SwidiInterface(
+      result:  SwidiInterface(
         annotations: [],
         typeArguments: [],
         name: "int?",
@@ -129,7 +129,7 @@ void main() {
       input: const ParserTestHarnessInput.fromString(input: 'enum::int'),
       parser:
           const SimpleTypeParser().build(start: const SimpleTypeParser().type),
-      result: const SwidiInterface(
+      result:  SwidiInterface(
         annotations: [],
         typeArguments: [],
         name: "int",
@@ -145,7 +145,7 @@ void main() {
           input: '"dart:core"::class::int?'),
       parser:
           const SimpleTypeParser().build(start: const SimpleTypeParser().type),
-      result: const SwidiInterface(
+      result:  SwidiInterface(
         annotations: [],
         typeArguments: [],
         name: "int?",
