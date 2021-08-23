@@ -4,6 +4,10 @@ import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiClass.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionDeclaration.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiInterface.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/validation/swidiValidationError.dart';
+import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsAnalysisMixin.dart';
+import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
+import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
 
 part 'validateSwidiClass.freezed.dart';
 
@@ -327,3 +331,36 @@ SwidiClassValidationState validateSwidiClass({
                 ),
           )
         : const SwidiClassValidationState.valid();
+
+@freezed
+class ValidateSwidiClass
+    with
+        _$ValidateSwidiClass,
+        HashKeyMixin<ValidateSwidiClass>,
+        HashComparableMixin<ValidateSwidiClass>,
+        SwarsAnalysisMixin<
+            ValidateSwidiClass,
+            $ValidateSwidiClassCopyWith<ValidateSwidiClass>,
+            SwidiClassValidationState> {
+  ValidateSwidiClass._();
+
+  factory ValidateSwidiClass({
+    required final SwidiClass swidiClass,
+  }) = _$ValidateSwidiClassCtor;
+
+  @override
+  ValidateSwidiClass clone({
+    final SwidiClass? swidiClass,
+  }) =>
+      ValidateSwidiClass(
+        swidiClass: swidiClass ?? this.swidiClass.clone(),
+      );
+
+  @override
+  SwidiClassValidationState analyze({
+    required final ISwarsPipeline pipeline,
+  }) =>
+      validateSwidiClass(
+        swidiClass: swidiClass,
+      );
+}
