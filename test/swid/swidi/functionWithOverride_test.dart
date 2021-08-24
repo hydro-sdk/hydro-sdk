@@ -1,5 +1,4 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiEmptyConst.dart';
 import 'package:tuple/tuple.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiClass.dart';
@@ -8,6 +7,7 @@ import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConstMap.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConstNumber.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConstString.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiDeclaration.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiEmptyConst.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionDeclaration.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiInterface.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiLibraryScopePrefix.dart';
@@ -35,7 +35,7 @@ void foo(int bar,int baz)->@"foo";
       ]),
       parser: const SwidiParser().build(),
       result: [
-         SwidiClass(
+        SwidiClass(
           name: "IconData",
           libraryScopePrefix: SwidiLibraryScopePrefix.empty,
           staticMethods: [],
@@ -111,7 +111,7 @@ class IconData {
 """),
       parser: const SwidiParser().build(),
       result: [
-         SwidiClass(
+        SwidiClass(
           name: "IconData",
           libraryScopePrefix: SwidiLibraryScopePrefix.empty,
           staticMethods: [],
@@ -165,7 +165,7 @@ class IconData {
 """),
       parser: const SwidiParser().build(),
       result: [
-         SwidiClass(
+        SwidiClass(
           name: "IconData",
           libraryScopePrefix: SwidiLibraryScopePrefix.empty,
           staticMethods: [],

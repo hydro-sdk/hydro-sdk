@@ -31,7 +31,7 @@ void main() {
       ]),
       parser: const SwidiParser().build(),
       result: [
-         SwidiClass(
+        SwidiClass(
           name: "IconData",
           libraryScopePrefix: SwidiLibraryScopePrefix.empty,
           staticMethods: [],
@@ -93,7 +93,7 @@ void main() {
       ]),
       parser: const SwidiParser().build(),
       result: [
-         SwidiClass(
+        SwidiClass(
           name: "IconData",
           libraryScopePrefix: SwidiLibraryScopePrefix.empty,
           staticMethods: [],

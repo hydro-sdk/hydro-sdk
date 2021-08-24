@@ -48,7 +48,7 @@ void main() {
       ]),
       parser: const SimpleConstParameterListParser().build(
           start: const SimpleConstParameterListParser().constParameterList),
-      result:  SwidiConstParameterList(
+      result: SwidiConstParameterList(
         positionalParameters: [],
         namedParameters: [
           SwidiConstNamedParameter(
@@ -70,7 +70,7 @@ void main() {
       ]),
       parser: const SimpleConstParameterListParser().build(
           start: const SimpleConstParameterListParser().constParameterList),
-      result:  SwidiConstParameterList(
+      result: SwidiConstParameterList(
         positionalParameters: [
           SwidiConst.fromSwidiConstNumber(
             swidiConstNumber: SwidiConstNumber(
@@ -89,7 +89,7 @@ void main() {
       ]),
       parser: const SimpleConstParameterListParser().build(
           start: const SimpleConstParameterListParser().constParameterList),
-      result:  SwidiConstParameterList(
+      result: SwidiConstParameterList(
         positionalParameters: [
           SwidiConst.fromSwidiConstNumber(
             swidiConstNumber: SwidiConstNumber(

@@ -45,7 +45,7 @@ void main() {
       parser: const SimpleConstFunctionInvocationParser().build(
           start: const SimpleConstFunctionInvocationParser()
               .constFunctionInvocation),
-      result:  SwidiConstFunctionInvocation(
+      result: SwidiConstFunctionInvocation(
         value: "myFunction",
         positionalParameters: [],
         namedParameters: {
@@ -65,7 +65,7 @@ void main() {
       parser: const SimpleConstFunctionInvocationParser().build(
           start: const SimpleConstFunctionInvocationParser()
               .constFunctionInvocation),
-      result:  SwidiConstFunctionInvocation(
+      result: SwidiConstFunctionInvocation(
         value: "myFunction",
         positionalParameters: [],
         namedParameters: {
@@ -85,7 +85,7 @@ void main() {
       parser: const SimpleConstFunctionInvocationParser().build(
           start: const SimpleConstFunctionInvocationParser()
               .constFunctionInvocation),
-      result:  SwidiConstFunctionInvocation(
+      result: SwidiConstFunctionInvocation(
         value: "myFunction",
         positionalParameters: [],
         namedParameters: {
@@ -105,7 +105,7 @@ void main() {
       parser: const SimpleConstFunctionInvocationParser().build(
           start: const SimpleConstFunctionInvocationParser()
               .constFunctionInvocation),
-      result:  SwidiConstFunctionInvocation(
+      result: SwidiConstFunctionInvocation(
         value: "myFunction",
         positionalParameters: [],
         namedParameters: {
@@ -126,7 +126,7 @@ void main() {
       parser: const SimpleConstFunctionInvocationParser().build(
           start: const SimpleConstFunctionInvocationParser()
               .constFunctionInvocation),
-      result:  SwidiConstFunctionInvocation(
+      result: SwidiConstFunctionInvocation(
         value: "myFunction",
         positionalParameters: [
           SwidiConst.fromSwidiConstNumber(
@@ -147,7 +147,7 @@ void main() {
       parser: const SimpleConstFunctionInvocationParser().build(
           start: const SimpleConstFunctionInvocationParser()
               .constFunctionInvocation),
-      result:  SwidiConstFunctionInvocation(
+      result: SwidiConstFunctionInvocation(
         value: "myFunction",
         positionalParameters: [
           SwidiConst.fromSwidiConstNumber(

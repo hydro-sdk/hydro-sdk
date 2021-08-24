@@ -104,7 +104,7 @@ mixin SwidiFunctionDeclarationParser
           }) =>
               consts.isNotEmpty
                   ? consts.first
-                  :  SwidiConst.fromSwidiEmptyConst(
+                  : SwidiConst.fromSwidiEmptyConst(
                       swidiEmptyConst: SwidiEmptyConst(),
                     ))(
             consts: collectTokens<SwidiConst>(x),

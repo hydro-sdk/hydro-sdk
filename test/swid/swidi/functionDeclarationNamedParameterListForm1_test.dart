@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConst.dart';
 
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConst.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiDeclaration.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiEmptyConst.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiInterface.dart';
@@ -77,13 +77,12 @@ void main() {
             start: const BasicFunctionParameterListParser()
                 .functionDeclarationParameterList),
         result: [
-           SwidiPositionalOrOptionalOrNamedParameter
-              .fromSwidiNamedParameter(
+          SwidiPositionalOrOptionalOrNamedParameter.fromSwidiNamedParameter(
             namedParameter: SwidiNamedParameter(
               declaration: SwidiDeclaration(
                 defaultConstValue: SwidiConst.fromSwidiEmptyConst(
-                      swidiEmptyConst: SwidiEmptyConst(),
-                    ),
+                  swidiEmptyConst: SwidiEmptyConst(),
+                ),
                 name: "foo",
                 type: SwidiInterface(
                   annotations: [],

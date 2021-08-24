@@ -83,7 +83,7 @@ void main() {
             input: 'void foo<T extends "dart:core"::class::Object?>();'),
         parser: const BasicFunctionDeclarationParser().build(
             start: const BasicFunctionDeclarationParser().functionDeclaration),
-        result:  SwidiFunctionDeclaration(
+        result: SwidiFunctionDeclaration(
           shortHandOverride: SwidiConst.fromSwidiEmptyConst(
             swidiEmptyConst: SwidiEmptyConst(),
           ),

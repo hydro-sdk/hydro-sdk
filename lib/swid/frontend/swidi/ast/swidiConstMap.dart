@@ -1,10 +1,10 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
-import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
-import 'package:hydro_sdk/swid/util/iCopyable.dart';
 import 'package:tuple/tuple.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConst.dart';
+import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
+import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
+import 'package:hydro_sdk/swid/util/iCopyable.dart';
 
 part 'swidiConstMap.freezed.dart';
 

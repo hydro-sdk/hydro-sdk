@@ -77,7 +77,7 @@ void main() {
           start: const BasicFunctionParameterListParser()
               .functionDeclarationParameterList),
       result: [
-         SwidiPositionalOrOptionalOrNamedParameter.fromSwidiNamedParameter(
+        SwidiPositionalOrOptionalOrNamedParameter.fromSwidiNamedParameter(
           namedParameter: SwidiNamedParameter(
             declaration: SwidiDeclaration(
               name: "foo",

@@ -47,7 +47,7 @@ void main() {
       ]),
       parser: const SimpleAnnotationParser()
           .build(start: const SimpleAnnotationParser().annotation),
-      result:  SwidiAnnotation(
+      result: SwidiAnnotation(
         value: SwidiConst.fromSwidiConstString(
           swidiConstString: SwidiConstString(
             value: "foo",

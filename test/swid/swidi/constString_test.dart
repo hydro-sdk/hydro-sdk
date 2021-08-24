@@ -46,7 +46,7 @@ void main() {
       input: const ParserTestHarnessInput.fromString(input: '@"abc"'),
       parser: const SimpleConstStringParser()
           .build(start: const SimpleConstStringParser().constString),
-      result:  SwidiConstString(
+      result: SwidiConstString(
         value: "abc",
       ),
     );
@@ -55,7 +55,7 @@ void main() {
       input: const ParserTestHarnessInput.fromString(input: '@"abc"'),
       parser: const SimpleConstParser()
           .build(start: const SimpleConstParser().lexicalConst),
-      result:  SwidiConst.fromSwidiConstString(
+      result: SwidiConst.fromSwidiConstString(
           swidiConstString: SwidiConstString(
         value: "abc",
       )),

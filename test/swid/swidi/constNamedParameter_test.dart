@@ -45,7 +45,7 @@ void main() {
       ]),
       parser: const SimpleConstNamedParameterParser().build(
           start: const SimpleConstNamedParameterParser().constNamedParameter),
-      result:  SwidiConstNamedParameter(
+      result: SwidiConstNamedParameter(
         name: "foo",
         value: SwidiConst.fromSwidiConstNumber(
           swidiConstNumber: SwidiConstNumber(

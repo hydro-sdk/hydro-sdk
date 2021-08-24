@@ -1,6 +1,7 @@
+import 'package:meta/meta.dart';
+
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsTerm.dart';
-import 'package:meta/meta.dart';
 
 class CachingPipeline<T extends Object> implements ISwarsPipeline<T> {
   CachingPipeline();

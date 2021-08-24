@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiInterface.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/validation/swidiValidationError.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/validation/validateSwidiClass.dart';

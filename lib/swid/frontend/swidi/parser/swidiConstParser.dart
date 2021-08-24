@@ -63,7 +63,7 @@ mixin SwidiConstParser
           );
         }
 
-        return  SwidiConst.fromSwidiEmptyConst(
+        return SwidiConst.fromSwidiEmptyConst(
           swidiEmptyConst: SwidiEmptyConst(),
         );
       });

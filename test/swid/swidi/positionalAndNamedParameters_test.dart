@@ -403,8 +403,8 @@ void main() {
                   SwidiPositionalParameter(
                     declaration: SwidiDeclaration(
                       defaultConstValue: SwidiConst.fromSwidiEmptyConst(
-                      swidiEmptyConst: SwidiEmptyConst(),
-                    ),
+                        swidiEmptyConst: SwidiEmptyConst(),
+                      ),
                       name: "bar",
                       type: SwidiInterface(
                         annotations: [],
@@ -422,8 +422,8 @@ void main() {
                   SwidiNamedParameter(
                     declaration: SwidiDeclaration(
                       defaultConstValue: SwidiConst.fromSwidiEmptyConst(
-                      swidiEmptyConst: SwidiEmptyConst(),
-                    ),
+                        swidiEmptyConst: SwidiEmptyConst(),
+                      ),
                       name: "baz",
                       type: SwidiInterface(
                         annotations: [],

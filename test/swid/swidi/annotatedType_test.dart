@@ -62,7 +62,7 @@ void main() {
       ),
       parser:
           const SimpleTypeParser().build(start: const SimpleTypeParser().type),
-      result:  SwidiInterface(
+      result: SwidiInterface(
         name: "void",
         libraryScopePrefix: SwidiLibraryScopePrefix.empty,
         referenceDeclarationPrefix: SwidiReferenceDeclarationPrefix.empty,

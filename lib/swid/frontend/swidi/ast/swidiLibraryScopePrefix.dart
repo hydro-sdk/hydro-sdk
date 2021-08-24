@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
 import 'package:hydro_sdk/swid/util/iCopyable.dart';
@@ -15,7 +16,7 @@ class SwidiLibraryScopePrefix
         ICopyable<SwidiLibraryScopePrefix,
             $SwidiLibraryScopePrefixCopyWith<SwidiLibraryScopePrefix>> {
   SwidiLibraryScopePrefix._();
-  
+
   factory SwidiLibraryScopePrefix({
     required final String name,
   }) = _$SwidiLibraryScopePrefixCtor;

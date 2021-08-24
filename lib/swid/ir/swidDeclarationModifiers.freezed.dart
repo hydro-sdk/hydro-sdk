@@ -673,8 +673,8 @@ class __$$DataCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_$Data implements _$Data {
-  const _$_$Data(
+class _$_$Data extends _$Data {
+  _$_$Data(
       {required this.ignoredTransforms,
       required this.ignoredAnalyses,
       required this.overridenTransforms,
@@ -701,7 +701,8 @@ class _$_$Data implements _$Data {
       required this.hasSealed,
       required this.hasVisibleForTemplate,
       required this.hasVisibleForTesting,
-      required this.isPublic});
+      required this.isPublic})
+      : super._();
 
   factory _$_$Data.fromJson(Map<String, dynamic> json) =>
       _$_$_$DataFromJson(json);
@@ -884,8 +885,8 @@ class _$_$Data implements _$Data {
   }
 }
 
-abstract class _$Data implements SwidDeclarationModifiers {
-  const factory _$Data(
+abstract class _$Data extends SwidDeclarationModifiers {
+  factory _$Data(
       {required List<String> ignoredTransforms,
       required List<String> ignoredAnalyses,
       required List<StringTuple> overridenTransforms,
@@ -913,6 +914,7 @@ abstract class _$Data implements SwidDeclarationModifiers {
       required bool hasVisibleForTemplate,
       required bool hasVisibleForTesting,
       required bool isPublic}) = _$_$Data;
+  _$Data._() : super._();
 
   factory _$Data.fromJson(Map<String, dynamic> json) = _$_$Data.fromJson;
 

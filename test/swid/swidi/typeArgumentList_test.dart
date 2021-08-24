@@ -85,7 +85,7 @@ void main() {
           input: '<"dart:core"::class::int?, int>'),
       parser: const SimpleTypeArgumentListParser()
           .build(start: const SimpleTypeArgumentListParser().typeArguments),
-      result:  SwidiTypeArgumentList(
+      result: SwidiTypeArgumentList(
         typeList: [
           SwidiInterface(
             annotations: [],
@@ -117,7 +117,7 @@ void main() {
               '<"dart:collection"::class::List<void::void?> , dynamic::int>'),
       parser: const SimpleTypeArgumentListParser()
           .build(start: const SimpleTypeArgumentListParser().typeArguments),
-      result:  SwidiTypeArgumentList(
+      result: SwidiTypeArgumentList(
         typeList: [
           SwidiInterface(
             annotations: [],
