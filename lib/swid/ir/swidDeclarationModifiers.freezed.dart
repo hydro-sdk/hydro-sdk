@@ -122,8 +122,7 @@ class __$$StringTupleCtorCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_$StringTupleCtor extends _$StringTupleCtor {
-  const _$_$StringTupleCtor({required this.item1, required this.item2})
-      : super._();
+  _$_$StringTupleCtor({required this.item1, required this.item2}) : super._();
 
   factory _$_$StringTupleCtor.fromJson(Map<String, dynamic> json) =>
       _$_$_$StringTupleCtorFromJson(json);
@@ -166,9 +165,9 @@ class _$_$StringTupleCtor extends _$StringTupleCtor {
 }
 
 abstract class _$StringTupleCtor extends StringTuple {
-  const factory _$StringTupleCtor(
-      {required String item1, required String item2}) = _$_$StringTupleCtor;
-  const _$StringTupleCtor._() : super._();
+  factory _$StringTupleCtor({required String item1, required String item2}) =
+      _$_$StringTupleCtor;
+  _$StringTupleCtor._() : super._();
 
   factory _$StringTupleCtor.fromJson(Map<String, dynamic> json) =
       _$_$StringTupleCtor.fromJson;

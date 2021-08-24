@@ -90,9 +90,7 @@ class SwidStaticConst with _$SwidStaticConst {
   }) =>
       swidStaticConst.when(
         fromSwidBooleanLiteral: (val) => SwidStaticConst.fromSwidBooleanLiteral(
-          swidBooleanLiteral: SwidBooleanLiteral.clone(
-            swidBooleanLiteral: val,
-          ),
+          swidBooleanLiteral: val.clone(),
         ),
         fromSwidStringLiteral: (val) => SwidStaticConst.fromSwidStringLiteral(
           swidStringLiteral: SwidStringLiteral.clone(

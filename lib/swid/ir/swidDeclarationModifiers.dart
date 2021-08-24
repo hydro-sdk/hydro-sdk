@@ -1,20 +1,29 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
+import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
+import 'package:hydro_sdk/swid/util/iCopyable.dart';
 
 part 'swidDeclarationModifiers.freezed.dart';
 part 'swidDeclarationModifiers.g.dart';
 
 @freezed
-class StringTuple with _$StringTuple {
-  const StringTuple._();
+class StringTuple
+    with
+        _$StringTuple,
+        HashKeyMixin<StringTuple>,
+        HashComparableMixin<StringTuple>
+    implements ICopyable<StringTuple, $StringTupleCopyWith<StringTuple>> {
+  StringTuple._();
 
-  const factory StringTuple({
+  factory StringTuple({
     required final String item1,
     required final String item2,
   }) = _$StringTupleCtor;
-  factory StringTuple.clone({
+
+  factory StringTuple._clone({
     required final StringTuple stringTuple,
-    String? item1,
-    String? item2,
+    final String? item1,
+    final String? item2,
   }) =>
       StringTuple(
         item1: item1 ?? stringTuple.item1,
@@ -23,6 +32,17 @@ class StringTuple with _$StringTuple {
 
   factory StringTuple.fromJson(Map<String, dynamic> json) =>
       _$StringTupleFromJson(json);
+
+  @override
+  StringTuple clone({
+    final String? item1,
+    final String? item2,
+  }) =>
+      StringTuple._clone(
+        stringTuple: this,
+        item1: item1,
+        item2: item2,
+      );
 }
 
 @freezed
@@ -98,9 +118,7 @@ class SwidDeclarationModifiers with _$SwidDeclarationModifiers {
         overridenTransforms: overridenTransforms ??
             declarationModifiers.overridenTransforms
                 .map(
-                  (x) => StringTuple.clone(
-                    stringTuple: x,
-                  ),
+                  (x) => x.clone(),
                 )
                 .toList(),
         isAbstract: isAbstract ?? declarationModifiers.isAbstract,
