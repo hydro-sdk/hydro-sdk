@@ -8,8 +8,10 @@ class CachingPipeline<T extends Object> implements ISwarsPipeline<T> {
   CachingPipeline._({
     required final List<ISwarsTerm<dynamic, dynamic, dynamic>> terms,
     required final Map<String, Map<int, dynamic>> results,
+    required final Map<String, Map<int, int>> cacheHits,
   })   : _terms = terms,
-        _results = results;
+        _results = results,
+        _cacheHits = cacheHits;
 
   List<ISwarsTerm<dynamic, dynamic, dynamic>> _terms = [];
 
@@ -78,5 +80,20 @@ class CachingPipeline<T extends Object> implements ISwarsPipeline<T> {
       CachingPipeline._(
         terms: terms,
         results: _results,
+        cacheHits: _cacheHits,
       );
+
+  @override
+  V reduceFromTerm<V extends Object>(
+      covariant ISwarsTerm<Object, Object, V> term) {
+    final ISwarsPipeline<V> pipeline = fromTerms<V, Object, Object, V>(
+      terms: [
+        term,
+      ],
+    );
+
+    final res = pipeline.reduce();
+
+    return res.first;
+  }
 }

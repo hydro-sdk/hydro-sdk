@@ -12,5 +12,9 @@ abstract class ISwarsPipeline<T extends Object> {
     required covariant final List<ISwarsTerm<U, K, L>> terms,
   });
 
+  V reduceFromTerm<V extends Object>(
+    covariant final ISwarsTerm<dynamic, dynamic, V> term,
+  );
+
   List<T> reduce();
 }

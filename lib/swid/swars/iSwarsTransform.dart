@@ -9,6 +9,6 @@ abstract class ISwarsTransform<T extends Object, U extends Object,
   const ISwarsTransform();
 
   V transform({
-    required covariant final ISwarsPipeline<dynamic>? pipeline,
+    required covariant final ISwarsPipeline<dynamic> pipeline,
   });
 }

@@ -16,6 +16,6 @@ abstract class ISwarsTerm<T extends Object, U extends Object, V extends Object>
   });
 
   V call({
-    required covariant final ISwarsPipeline<dynamic>? pipeline,
+    required covariant final ISwarsPipeline<dynamic> pipeline,
   });
 }

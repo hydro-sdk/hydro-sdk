@@ -47,6 +47,9 @@ class "package:flutter/src/widgets/icon_data.dart"::IconData {
         ));
 
     expect(pipeline.cacheGroupExistsInCache("validateSwidiClass"), true);
+    //The below two are called by validateSwidiClass. They should therefore exist in the cache as well
+    expect(pipeline.cacheGroupExistsInCache("validateSwidiClassMethod"), true);
+    expect(pipeline.cacheGroupExistsInCache("validateSwidiType"), true);
     expect(
         pipeline.hashKeyExistsInCacheGroup(
           cacheGroup: "validateSwidiClass",
@@ -84,5 +87,14 @@ class "package:flutter/src/widgets/icon_data.dart"::IconData {
         pipeline.getCacheHitsForCacheGroup(
             "validateSwidiClass")[validateSwidiClassHashKey],
         2);
+    //If validateSwidiClass was reused, none of its dependencies should have been used
+    expect(
+        pipeline.getCacheHitsForCacheGroup(
+            "validateSwidiClassMethod")[validateSwidiClassHashKey],
+        null);
+    expect(
+        pipeline.getCacheHitsForCacheGroup(
+            "validateSwidiType")[validateSwidiClassHashKey],
+        null);
   }, tags: "swid");
 }

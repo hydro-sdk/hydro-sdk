@@ -9,7 +9,7 @@ mixin SwarsAnalysisMixin<T extends Object, U extends Object, V extends Object>
   @nonVirtual
   @override
   V call({
-    required covariant final ISwarsPipeline<dynamic>? pipeline,
+    required covariant final ISwarsPipeline<dynamic> pipeline,
   }) =>
       analyze(
         pipeline: pipeline,
