@@ -349,6 +349,9 @@ class ValidateSwidiClass
   }) = _$ValidateSwidiClassCtor;
 
   @override
+  String get cacheGroup => "validateSwidiClass";
+
+  @override
   ValidateSwidiClass clone({
     final SwidiClass? swidiClass,
   }) =>

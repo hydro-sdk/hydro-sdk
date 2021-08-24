@@ -9,7 +9,11 @@ import 'package:meta/meta.dart';
 @optionalTypeArgs
 abstract class ISwarsTerm<T extends Object, U extends Object, V extends Object>
     implements ICloneable<T>, ICopyable<T, U>, IHashKey, IHashComparable {
-  const ISwarsTerm();
+  final String cacheGroup;
+
+  const ISwarsTerm({
+    required final this.cacheGroup,
+  });
 
   V call({
     required covariant final ISwarsPipeline<dynamic>? pipeline,

@@ -17,6 +17,15 @@ class "package:flutter/src/widgets/icon_data.dart"::IconData {
   }
 """;
 
+    final validateSwidiClassHashKey = ValidateSwidiClass(
+      swidiClass: const SwidiParser()
+          .build()
+          .parse(input)
+          .value
+          .cast<SwidiClass>()
+          .first,
+    ).hashKey;
+
     final pipeline = CachingPipeline<SwidiClassValidationState>()
       ..add(
         term: ValidateSwidiClass(
@@ -36,5 +45,44 @@ class "package:flutter/src/widgets/icon_data.dart"::IconData {
         const SwidiClassValidationState.invalid(
           swidiValidationError: SwidiValidationError.e15,
         ));
+
+    expect(pipeline.cacheGroupExistsInCache("validateSwidiClass"), true);
+    expect(
+        pipeline.hashKeyExistsInCacheGroup(
+          cacheGroup: "validateSwidiClass",
+          hashKey: ValidateSwidiClass(
+            swidiClass: const SwidiParser()
+                .build()
+                .parse(input)
+                .value
+                .cast<SwidiClass>()
+                .first,
+          ).hashKey,
+        ),
+        true);
+
+    expect(
+        pipeline.getCacheHitsForCacheGroup(
+            "validateSwidiClass")[validateSwidiClassHashKey],
+        null);
+
+    pipeline
+      ..add(
+        term: ValidateSwidiClass(
+          swidiClass: const SwidiParser()
+              .build()
+              .parse(input)
+              .value
+              .cast<SwidiClass>()
+              .first,
+        ),
+      );
+
+    pipeline.reduce();
+
+    expect(
+        pipeline.getCacheHitsForCacheGroup(
+            "validateSwidiClass")[validateSwidiClassHashKey],
+        2);
   }, tags: "swid");
 }
