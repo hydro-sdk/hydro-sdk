@@ -319,7 +319,7 @@ class __$$DataCopyWithImpl<$Res> extends _$SwidFunctionTypeCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_$Data extends _$Data {
-  const _$_$Data(
+  _$_$Data(
       {required this.name,
       required this.nullabilitySuffix,
       required this.originalPackagePath,
@@ -443,7 +443,7 @@ class _$_$Data extends _$Data {
 }
 
 abstract class _$Data extends SwidFunctionType {
-  const factory _$Data(
+  factory _$Data(
       {required String name,
       required SwidNullabilitySuffix nullabilitySuffix,
       required String originalPackagePath,
@@ -457,7 +457,7 @@ abstract class _$Data extends SwidFunctionType {
       required bool isFactory,
       required List<SwidTypeFormal> typeFormals,
       required SwidDeclarationModifiers declarationModifiers}) = _$_$Data;
-  const _$Data._() : super._();
+  _$Data._() : super._();
 
   factory _$Data.fromJson(Map<String, dynamic> json) = _$_$Data.fromJson;
 

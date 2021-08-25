@@ -3,24 +3,45 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
+import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
+import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
 
 part "swidInstantiableGeneric.freezed.dart";
 part "swidInstantiableGeneric.g.dart";
 
 @freezed
-class SwidInstantiableGeneric with _$SwidInstantiableGeneric {
-  const factory SwidInstantiableGeneric.fromSwidClass({
+class SwidInstantiableGeneric
+    with
+        _$SwidInstantiableGeneric,
+        HashKeyMixin<SwidInstantiableGeneric>,
+        HashComparableMixin<SwidInstantiableGeneric> {
+  SwidInstantiableGeneric._();
+  factory SwidInstantiableGeneric.fromSwidClass({
     required final SwidClass swidClass,
   }) = _$SwidInstantiableGenericFromSwidClass;
 
-  const factory SwidInstantiableGeneric.fromSwidInterface({
+  factory SwidInstantiableGeneric.fromSwidInterface({
     required final SwidInterface swidInterface,
   }) = _$SwidInstantiableGenericFromSwidInterface;
 
-  const factory SwidInstantiableGeneric.fromSwidFunctionType({
+  factory SwidInstantiableGeneric.fromSwidFunctionType({
     required final SwidFunctionType swidFunctionType,
   }) = _$SwidInstantiableGenericFromSwidFunctionType;
 
   factory SwidInstantiableGeneric.fromJson(Map<String, dynamic> json) =>
       _$SwidInstantiableGenericFromJson(json);
+
+  @override
+  SwidInstantiableGeneric clone() => when(
+        fromSwidClass: (val) => SwidInstantiableGeneric.fromSwidClass(
+          swidClass: val.clone(),
+        ),
+        fromSwidInterface: (val) => SwidInstantiableGeneric.fromSwidInterface(
+          swidInterface: val.clone(),
+        ),
+        fromSwidFunctionType: (val) =>
+            SwidInstantiableGeneric.fromSwidFunctionType(
+          swidFunctionType: val.clone(),
+        ),
+      );
 }

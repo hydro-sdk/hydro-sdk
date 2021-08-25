@@ -153,9 +153,9 @@ class __$$DataCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_$Data implements _$Data {
-  const _$_$Data(
-      {required this.prefix, required this.staticConstFieldReference});
+class _$_$Data extends _$Data {
+  _$_$Data({required this.prefix, required this.staticConstFieldReference})
+      : super._();
 
   factory _$_$Data.fromJson(Map<String, dynamic> json) =>
       _$_$_$DataFromJson(json);
@@ -200,11 +200,12 @@ class _$_$Data implements _$Data {
   }
 }
 
-abstract class _$Data implements SwidStaticConstPrefixedIdentifier {
-  const factory _$Data(
+abstract class _$Data extends SwidStaticConstPrefixedIdentifier {
+  factory _$Data(
           {required SwidInterface prefix,
           required SwidStaticConstFieldReference staticConstFieldReference}) =
       _$_$Data;
+  _$Data._() : super._();
 
   factory _$Data.fromJson(Map<String, dynamic> json) = _$_$Data.fromJson;
 

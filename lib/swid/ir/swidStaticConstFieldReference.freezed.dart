@@ -110,8 +110,8 @@ class __$$DataCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_$Data implements _$Data {
-  const _$_$Data({required this.name});
+class _$_$Data extends _$Data {
+  _$_$Data({required this.name}) : super._();
 
   factory _$_$Data.fromJson(Map<String, dynamic> json) =>
       _$_$_$DataFromJson(json);
@@ -147,8 +147,9 @@ class _$_$Data implements _$Data {
   }
 }
 
-abstract class _$Data implements SwidStaticConstFieldReference {
-  const factory _$Data({required String name}) = _$_$Data;
+abstract class _$Data extends SwidStaticConstFieldReference {
+  factory _$Data({required String name}) = _$_$Data;
+  _$Data._() : super._();
 
   factory _$Data.fromJson(Map<String, dynamic> json) = _$_$Data.fromJson;
 

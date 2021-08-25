@@ -140,9 +140,10 @@ class __$$SwidStaticConstIdentifierCtorCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_$SwidStaticConstIdentifierCtor
-    implements _$SwidStaticConstIdentifierCtor {
-  const _$_$SwidStaticConstIdentifierCtor(
-      {required this.identifier, required this.enclosingType});
+    extends _$SwidStaticConstIdentifierCtor {
+  _$_$SwidStaticConstIdentifierCtor(
+      {required this.identifier, required this.enclosingType})
+      : super._();
 
   factory _$_$SwidStaticConstIdentifierCtor.fromJson(
           Map<String, dynamic> json) =>
@@ -189,10 +190,11 @@ class _$_$SwidStaticConstIdentifierCtor
 }
 
 abstract class _$SwidStaticConstIdentifierCtor
-    implements SwidStaticConstIdentifier {
-  const factory _$SwidStaticConstIdentifierCtor(
+    extends SwidStaticConstIdentifier {
+  factory _$SwidStaticConstIdentifierCtor(
       {required String identifier,
       required SwidType enclosingType}) = _$_$SwidStaticConstIdentifierCtor;
+  _$SwidStaticConstIdentifierCtor._() : super._();
 
   factory _$SwidStaticConstIdentifierCtor.fromJson(Map<String, dynamic> json) =
       _$_$SwidStaticConstIdentifierCtor.fromJson;

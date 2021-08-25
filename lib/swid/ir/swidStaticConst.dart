@@ -14,70 +14,78 @@ import 'package:hydro_sdk/swid/ir/swidStaticConstPrefixedExpression.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstPrefixedIdentifier.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstTopLevelVariableReference.dart';
 import 'package:hydro_sdk/swid/ir/swidStringLiteral.dart';
+import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
+import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
 
 part 'swidStaticConst.freezed.dart';
 part 'swidStaticConst.g.dart';
 
 @freezed
-class SwidStaticConst with _$SwidStaticConst {
-  const factory SwidStaticConst.fromSwidBooleanLiteral({
+class SwidStaticConst
+    with
+        _$SwidStaticConst,
+        HashKeyMixin<SwidStaticConst>,
+        HashComparableMixin<SwidStaticConst> {
+  SwidStaticConst._();
+
+  factory SwidStaticConst.fromSwidBooleanLiteral({
     required final SwidBooleanLiteral swidBooleanLiteral,
   }) = _$FromSwidBooleanLiteral;
 
-  const factory SwidStaticConst.fromSwidStringLiteral({
+  factory SwidStaticConst.fromSwidStringLiteral({
     required final SwidStringLiteral swidStringLiteral,
   }) = _$FromSwidStringLiteral;
 
-  const factory SwidStaticConst.fromSwidIntegerLiteral({
+  factory SwidStaticConst.fromSwidIntegerLiteral({
     required final SwidIntegerLiteral swidIntegerLiteral,
   }) = _$FromSwidIntegerLiteral;
 
-  const factory SwidStaticConst.fromDoubleLiteral({
+  factory SwidStaticConst.fromDoubleLiteral({
     required final SwidDoubleLiteral swidDoubleLiteral,
   }) = _$FromSwidDoubleLiteral;
 
-  const factory SwidStaticConst.fromSwidStaticConstFunctionInvocation({
+  factory SwidStaticConst.fromSwidStaticConstFunctionInvocation({
     required final SwidStaticConstFunctionInvocation
         staticConstFunctionInvocation,
   }) = _$FromSwidStaticConstFunctionInvocation;
 
-  const factory SwidStaticConst.fromSwidStaticConstFieldReference({
+  factory SwidStaticConst.fromSwidStaticConstFieldReference({
     required final SwidStaticConstFieldReference swidStaticConstFieldReference,
   }) = _$FromSwidStaticConstFieldReference;
 
-  const factory SwidStaticConst.fromSwidStaticConstPrefixedExpression({
+  factory SwidStaticConst.fromSwidStaticConstPrefixedExpression({
     required final SwidStaticConstPrefixedExpression
         swidStaticConstPrefixedExpression,
   }) = _$FromSwidStaticConstPrefixedExpression;
 
-  const factory SwidStaticConst.fromSwidStaticConstBinaryExpression({
+  factory SwidStaticConst.fromSwidStaticConstBinaryExpression({
     required final SwidStaticConstBinaryExpression
         swidStaticConstBinaryExpression,
   }) = _$FromSwidStaticConstBinaryExpression;
 
-  const factory SwidStaticConst.fromSwidStaticConstPrefixedIdentifier({
+  factory SwidStaticConst.fromSwidStaticConstPrefixedIdentifier({
     required final SwidStaticConstPrefixedIdentifier
         staticConstPrefixedIdentifier,
   }) = _$FromSwidStaticConstPrefixedIdentifier;
 
-  const factory SwidStaticConst.fromSwidStaticConstIdentifier({
+  factory SwidStaticConst.fromSwidStaticConstIdentifier({
     required final SwidStaticConstIdentifier staticConstIdentifier,
   }) = _$FromSwidStaticConstIdentifier;
 
-  const factory SwidStaticConst.fromSwidStaticConstListLiteral({
+  factory SwidStaticConst.fromSwidStaticConstListLiteral({
     required final SwidStaticConstListLiteral staticConstListLiteral,
   }) = _$FromSwidStaticConstListLiteral;
 
-  const factory SwidStaticConst.fromSwidStaticConstMapLiteralEntry({
+  factory SwidStaticConst.fromSwidStaticConstMapLiteralEntry({
     required final SwidStaticConstMapLiteralEntry
         swidStaticConstMapLiteralEntry,
   }) = _$FromSwidStaticConstMapLiteralEntry;
 
-  const factory SwidStaticConst.fromSwidStaticConstMapLiteral({
+  factory SwidStaticConst.fromSwidStaticConstMapLiteral({
     required final SwidStaticConstMapLiteral swidStaticConstMapLiteral,
   }) = _$FromSwidStaticConstMapLiteral;
 
-  const factory SwidStaticConst.fromSwidStaticConstTopLevelVariableReference({
+  factory SwidStaticConst.fromSwidStaticConstTopLevelVariableReference({
     required final SwidStaticConstTopLevelVariableReference
         swidStaticConstTopLevelVariableReference,
   }) = _$FromSwidStaticConstTopLevelVariableReference;
@@ -168,5 +176,10 @@ class SwidStaticConst with _$SwidStaticConst {
             swidStaticConstTopLevelVariableReference: val,
           ),
         ),
+      );
+
+  @override
+  SwidStaticConst clone() => SwidStaticConst.clone(
+        swidStaticConst: this,
       );
 }

@@ -1,13 +1,27 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
+import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
+import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
+import 'package:hydro_sdk/swid/util/iCopyable.dart';
 
 part 'swidStaticConstFieldDeclaration.freezed.dart';
 part 'swidStaticConstFieldDeclaration.g.dart';
 
 @freezed
-class SwidStaticConstFieldDeclaration with _$SwidStaticConstFieldDeclaration {
-  const factory SwidStaticConstFieldDeclaration({
+class SwidStaticConstFieldDeclaration
+    with
+        _$SwidStaticConstFieldDeclaration,
+        HashKeyMixin<SwidStaticConstFieldDeclaration>,
+        HashComparableMixin<SwidStaticConstFieldDeclaration>
+    implements
+        ICopyable<
+            SwidStaticConstFieldDeclaration,
+            $SwidStaticConstFieldDeclarationCopyWith<
+                SwidStaticConstFieldDeclaration>> {
+  SwidStaticConstFieldDeclaration._();
+
+  factory SwidStaticConstFieldDeclaration({
     required final String name,
     required final SwidStaticConst value,
   }) = _$Data;
@@ -18,13 +32,24 @@ class SwidStaticConstFieldDeclaration with _$SwidStaticConstFieldDeclaration {
   factory SwidStaticConstFieldDeclaration.clone({
     required final SwidStaticConstFieldDeclaration
         swidStaticConstFieldDeclaration,
-    String? name,
-    SwidStaticConst? value,
+    final String? name,
+    final SwidStaticConst? value,
   }) =>
       SwidStaticConstFieldDeclaration(
         name: name ?? swidStaticConstFieldDeclaration.name,
         value: SwidStaticConst.clone(
           swidStaticConst: value ?? swidStaticConstFieldDeclaration.value,
         ),
+      );
+
+  @override
+  SwidStaticConstFieldDeclaration clone({
+    final String? name,
+    final SwidStaticConst? value,
+  }) =>
+      SwidStaticConstFieldDeclaration.clone(
+        swidStaticConstFieldDeclaration: this,
+        name: name,
+        value: value,
       );
 }

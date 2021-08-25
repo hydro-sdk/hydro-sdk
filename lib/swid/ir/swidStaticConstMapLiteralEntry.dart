@@ -1,18 +1,27 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
-import 'package:hydro_sdk/swid/util/iCloneable.dart';
+import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
+import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
+import 'package:hydro_sdk/swid/util/iCopyable.dart';
 
 part 'swidStaticConstMapLiteralEntry.freezed.dart';
 part 'swidStaticConstMapLiteralEntry.g.dart';
 
 @freezed
 class SwidStaticConstMapLiteralEntry
-    with _$SwidStaticConstMapLiteralEntry
-    implements ICloneable<SwidStaticConstMapLiteralEntry> {
-  const SwidStaticConstMapLiteralEntry._();
+    with
+        _$SwidStaticConstMapLiteralEntry,
+        HashKeyMixin<SwidStaticConstMapLiteralEntry>,
+        HashComparableMixin<SwidStaticConstMapLiteralEntry>
+    implements
+        ICopyable<
+            SwidStaticConstMapLiteralEntry,
+            $SwidStaticConstMapLiteralEntryCopyWith<
+                SwidStaticConstMapLiteralEntry>> {
+   SwidStaticConstMapLiteralEntry._();
 
-  const factory SwidStaticConstMapLiteralEntry({
+   factory SwidStaticConstMapLiteralEntry({
     required final SwidStaticConst key,
     required final SwidStaticConst value,
   }) = _$SwidStaticConstMapLiteralEntryCtor;

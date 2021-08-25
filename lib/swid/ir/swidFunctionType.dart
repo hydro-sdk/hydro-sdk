@@ -1,8 +1,10 @@
 import 'package:collection/collection.dart' show IterableExtension;
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
+import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
+import 'package:hydro_sdk/swid/util/iCopyable.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import 'package:hydro_sdk/swid/ir/iSwidType.dart';
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidDefaultFormalParameter.dart';
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
@@ -12,18 +14,23 @@ import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeMixin.dart';
 import 'package:hydro_sdk/swid/ir/util/cloneSwidType.dart';
-import 'package:hydro_sdk/swid/util/iCloneable.dart';
 
 part 'swidFunctionType.freezed.dart';
 part 'swidFunctionType.g.dart';
 
 @freezed
 class SwidFunctionType
-    with _$SwidFunctionType, SwidTypeMixin<SwidFunctionType>
-    implements ISwidType<SwidFunctionType>, ICloneable<SwidFunctionType> {
-  const SwidFunctionType._();
+    with
+        _$SwidFunctionType,
+        SwidTypeMixin<SwidFunctionType>,
+        HashKeyMixin<SwidFunctionType>,
+        HashComparableMixin<SwidFunctionType>
+    implements
+        ICopyable<SwidFunctionType,
+            $SwidFunctionTypeCopyWith<SwidFunctionType>> {
+  SwidFunctionType._();
 
-  const factory SwidFunctionType({
+  factory SwidFunctionType({
     required final String name,
     required final SwidNullabilitySuffix nullabilitySuffix,
     required final String originalPackagePath,
@@ -85,19 +92,19 @@ class SwidFunctionType
 
   factory SwidFunctionType.clone({
     required final SwidFunctionType swidFunctionType,
-    String? name,
-    SwidNullabilitySuffix? nullabilitySuffix,
-    String? originalPackagePath,
-    Map<String, SwidType>? namedParameterTypes,
-    Map<String, SwidDefaultFormalParameter>? namedDefaults,
-    List<String>? normalParameterNames,
-    List<SwidType>? normalParameterTypes,
-    List<String>? optionalParameterNames,
-    List<SwidType>? optionalParameterTypes,
-    SwidType? returnType,
-    bool? isFactory,
-    List<SwidTypeFormal>? typeFormals,
-    SwidDeclarationModifiers? declarationModifiers,
+    final String? name,
+    final SwidNullabilitySuffix? nullabilitySuffix,
+    final String? originalPackagePath,
+    final Map<String, SwidType>? namedParameterTypes,
+    final Map<String, SwidDefaultFormalParameter>? namedDefaults,
+    final List<String>? normalParameterNames,
+    final List<SwidType>? normalParameterTypes,
+    final List<String>? optionalParameterNames,
+    final List<SwidType>? optionalParameterTypes,
+    final SwidType? returnType,
+    final bool? isFactory,
+    final List<SwidTypeFormal>? typeFormals,
+    final SwidDeclarationModifiers? declarationModifiers,
   }) =>
       SwidFunctionType(
         name: name ?? swidFunctionType.name,
@@ -152,19 +159,19 @@ class SwidFunctionType
 
   @override
   SwidFunctionType clone({
-    String? name,
-    SwidNullabilitySuffix? nullabilitySuffix,
-    String? originalPackagePath,
-    Map<String, SwidType>? namedParameterTypes,
-    Map<String, SwidDefaultFormalParameter>? namedDefaults,
-    List<String>? normalParameterNames,
-    List<SwidType>? normalParameterTypes,
-    List<String>? optionalParameterNames,
-    List<SwidType>? optionalParameterTypes,
-    SwidType? returnType,
-    bool? isFactory,
-    List<SwidTypeFormal>? typeFormals,
-    SwidDeclarationModifiers? declarationModifiers,
+    final String? name,
+    final SwidNullabilitySuffix? nullabilitySuffix,
+    final String? originalPackagePath,
+    final Map<String, SwidType>? namedParameterTypes,
+    final Map<String, SwidDefaultFormalParameter>? namedDefaults,
+    final List<String>? normalParameterNames,
+    final List<SwidType>? normalParameterTypes,
+    final List<String>? optionalParameterNames,
+    final List<SwidType>? optionalParameterTypes,
+    final SwidType? returnType,
+    final bool? isFactory,
+    final List<SwidTypeFormal>? typeFormals,
+    final SwidDeclarationModifiers? declarationModifiers,
   }) =>
       SwidFunctionType.clone(
         swidFunctionType: this,

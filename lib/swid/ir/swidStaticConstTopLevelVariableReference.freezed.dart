@@ -147,7 +147,7 @@ class __$$SwidStaticConstTopLevelVariableReferenceCtorCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_$SwidStaticConstTopLevelVariableReferenceCtor
     extends _$SwidStaticConstTopLevelVariableReferenceCtor {
-  const _$_$SwidStaticConstTopLevelVariableReferenceCtor(
+  _$_$SwidStaticConstTopLevelVariableReferenceCtor(
       {required this.identifier, required this.topLevelReference})
       : super._();
 
@@ -199,10 +199,10 @@ class _$_$SwidStaticConstTopLevelVariableReferenceCtor
 
 abstract class _$SwidStaticConstTopLevelVariableReferenceCtor
     extends SwidStaticConstTopLevelVariableReference {
-  const factory _$SwidStaticConstTopLevelVariableReferenceCtor(
+  factory _$SwidStaticConstTopLevelVariableReferenceCtor(
           {required String identifier, required SwidType topLevelReference}) =
       _$_$SwidStaticConstTopLevelVariableReferenceCtor;
-  const _$SwidStaticConstTopLevelVariableReferenceCtor._() : super._();
+  _$SwidStaticConstTopLevelVariableReferenceCtor._() : super._();
 
   factory _$SwidStaticConstTopLevelVariableReferenceCtor.fromJson(
           Map<String, dynamic> json) =

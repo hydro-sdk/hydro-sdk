@@ -1,4 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
+import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import 'package:hydro_sdk/swid/ir/iSwidType.dart';
@@ -8,34 +10,36 @@ import 'package:hydro_sdk/swid/ir/swidDefaultFormalParameter.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
-import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeMixin.dart';
 import 'package:hydro_sdk/swid/transforms/removeNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/transforms/removeTypeArguments.dart';
-import 'package:hydro_sdk/swid/util/iCloneable.dart';
 
 part 'swidType.freezed.dart';
 part 'swidType.g.dart';
 
 @freezed
 class SwidType
-    with _$SwidType, SwidTypeMixin<SwidType>
-    implements ICloneable<SwidType>, ISwidType<SwidType> {
-  const SwidType._();
+    with
+        _$SwidType,
+        SwidTypeMixin<SwidType>,
+        HashKeyMixin<SwidType>,
+        HashComparableMixin<SwidType>
+    implements ISwidType<SwidType> {
+  SwidType._();
 
-  const factory SwidType.fromSwidInterface({
+  factory SwidType.fromSwidInterface({
     required final SwidInterface swidInterface,
   }) = _$FromSwidInterface;
 
-  const factory SwidType.fromSwidClass({
+  factory SwidType.fromSwidClass({
     required final SwidClass swidClass,
   }) = _$FromSwidClass;
 
-  const factory SwidType.fromSwidDefaultFormalParameter({
+  factory SwidType.fromSwidDefaultFormalParameter({
     required final SwidDefaultFormalParameter swidDefaultFormalParameter,
   }) = _$FromSwidDefaultFormalParameter;
 
-  const factory SwidType.fromSwidFunctionType({
+  factory SwidType.fromSwidFunctionType({
     required final SwidFunctionType swidFunctionType,
   }) = _$FromSwidFunctionType;
 

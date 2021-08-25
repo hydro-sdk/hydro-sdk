@@ -1,11 +1,23 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
+import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
+import 'package:hydro_sdk/swid/util/iCopyable.dart';
 
 part 'swidStringLiteral.freezed.dart';
 part 'swidStringLiteral.g.dart';
 
 @freezed
-class SwidStringLiteral with _$SwidStringLiteral {
-  const factory SwidStringLiteral({
+class SwidStringLiteral
+    with
+        _$SwidStringLiteral,
+        HashKeyMixin<SwidStringLiteral>,
+        HashComparableMixin<SwidStringLiteral>
+    implements
+        ICopyable<SwidStringLiteral,
+            $SwidStringLiteralCopyWith<SwidStringLiteral>> {
+  SwidStringLiteral._();
+
+  factory SwidStringLiteral({
     required final String value,
   }) = _$Data;
 
@@ -14,9 +26,18 @@ class SwidStringLiteral with _$SwidStringLiteral {
 
   factory SwidStringLiteral.clone({
     required final SwidStringLiteral swidStringLiteral,
-    String? value,
+    final String? value,
   }) =>
       SwidStringLiteral(
         value: value ?? swidStringLiteral.value,
+      );
+
+  @override
+  SwidStringLiteral clone({
+    final String? value,
+  }) =>
+      SwidStringLiteral.clone(
+        swidStringLiteral: this,
+        value: value,
       );
 }
