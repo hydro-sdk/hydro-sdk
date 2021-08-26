@@ -9,6 +9,8 @@ mixin SwarsAnalysisMixin<T extends Object, U extends Object, V extends Object>
     implements ISwarsAnalysis<T, U, V> {
   @nonVirtual
   @override
+  @pragma('vm:prefer-inline')
+  @pragma('dart2js:tryInline')
   V call({
     required covariant final ISwarsPipeline<dynamic> pipeline,
   }) =>

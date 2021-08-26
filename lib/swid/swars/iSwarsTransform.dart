@@ -9,6 +9,8 @@ abstract class ISwarsTransform<T extends Object, U extends Object,
     V extends Object> implements ISwarsTerm<T, U, V> {
   const ISwarsTransform();
 
+  @pragma('vm:prefer-inline')
+  @pragma('dart2js:tryInline')
   V transform({
     required covariant final ISwarsPipeline<dynamic> pipeline,
   });

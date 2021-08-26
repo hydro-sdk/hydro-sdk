@@ -16,6 +16,8 @@ abstract class ISwarsTerm<T extends Object, U extends Object, V extends Object>
     required final this.cacheGroup,
   });
 
+  @pragma('vm:prefer-inline')
+  @pragma('dart2js:tryInline')
   V call({
     required covariant final ISwarsPipeline<dynamic> pipeline,
   });
