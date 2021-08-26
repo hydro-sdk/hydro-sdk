@@ -8,74 +8,121 @@ import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/util/narrowSwidInterfaceByReferenceDeclaration.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
+import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
+import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
 
-class DartBoxList {
-  final SwidInterface type;
-  final String referenceName;
-  final CodeKind codeKind;
+part 'dartBoxList.freezed.dart';
 
-  const DartBoxList({
-    required final this.type,
-    required final this.referenceName,
-    this.codeKind = CodeKind.statement,
-  });
+@freezed
+class DartBoxList
+    with
+        _$DartBoxList,
+        HashKeyMixin<DartBoxList>,
+        HashComparableMixin<DartBoxList>,
+        SwarsTransformMixin<DartBoxList, $DartBoxListCopyWith<DartBoxList>,
+            String> {
+  DartBoxList._();
 
-  String _boxList() =>
+  factory DartBoxList({
+    required final SwidInterface type,
+    required final String referenceName,
+    @Default(CodeKind.statement) final CodeKind codeKind,
+  }) = _$DartBoxListCtor;
+
+  @override
+  String get cacheGroup => "dartBoxList";
+
+  @override
+  DartBoxList clone({
+    final SwidInterface? type,
+    final String? referenceName,
+    final CodeKind? codeKind,
+  }) =>
+      DartBoxList(
+        type: type ?? this.type.clone(),
+        referenceName: referenceName ?? this.referenceName,
+        codeKind: codeKind ?? this.codeKind,
+      );
+
+  String _boxList({
+    required final ISwarsPipeline pipeline,
+  }) =>
       ((Expression expression) => codeKind == CodeKind.statement
               ? expression.statement
               : codeKind == CodeKind.expression
                   ? expression.expression
                   : null)(refer(referenceName)
               .property("map")
-              .call([
-                Method((m) => m
-                  ..requiredParameters.addAll([
-                    Parameter((p) => p..name = "x"),
-                  ])
-                  ..lambda = true
-                  ..body = Block.of([
-                    Code(
-                      narrowSwidInterfaceByReferenceDeclaration(
-                        swidInterface: type.typeArguments.first.when(
-                          fromSwidInterface: (val) => val,
-                          fromSwidClass: (_) => dartUnknownInterface,
-                          fromSwidDefaultFormalParameter: (_) =>
-                              dartUnknownInterface,
-                          fromSwidFunctionType: (_) => dartUnknownInterface,
-                        ),
-                        onPrimitive: (_) => "",
-                        onClass: (val) => DartBoxObjectReference(
-                          type: val,
-                          boxLists: true,
-                          objectReference: refer("x"),
-                          codeKind: CodeKind.expression,
-                        ).toDartSource(),
-                        onEnum: (val) => DartBoxEnumReference(
-                                type: SwidType.fromSwidInterface(
-                                    swidInterface: val),
+              .call(
+                [
+                  Method(
+                    (m) => m
+                      ..requiredParameters.addAll([
+                        Parameter((p) => p..name = "x"),
+                      ])
+                      ..lambda = true
+                      ..body = Block.of(
+                        [
+                          Code(
+                            narrowSwidInterfaceByReferenceDeclaration(
+                              swidInterface: type.typeArguments.first.when(
+                                fromSwidInterface: (val) => val,
+                                fromSwidClass: (_) => dartUnknownInterface,
+                                fromSwidDefaultFormalParameter: (_) =>
+                                    dartUnknownInterface,
+                                fromSwidFunctionType: (_) =>
+                                    dartUnknownInterface,
+                              ),
+                              onPrimitive: (_) => "",
+                              onClass: (val) => DartBoxObjectReference(
+                                type: val,
+                                boxLists: true,
+                                objectReference: refer("x"),
                                 codeKind: CodeKind.expression,
-                                referenceName: refer("x")
-                                    .accept(DartEmitter(
-                                      useNullSafetySyntax: true,
-                                    ))
-                                    .toString())
-                            .toDartSource(),
-                        onVoid: (_) => "",
-                        onTypeParameter: (_) => "",
-                        onDynamic: (_) => "",
-                        onUnknown: (_) => "",
+                              ).toDartSource(),
+                              onEnum: (val) => pipeline.reduceFromTerm(
+                                DartBoxEnumReference(
+                                  type: SwidType.fromSwidInterface(
+                                      swidInterface: val),
+                                  codeKind: CodeKind.expression,
+                                  referenceName: refer("x")
+                                      .accept(
+                                        DartEmitter(
+                                          useNullSafetySyntax: true,
+                                        ),
+                                      )
+                                      .toString(),
+                                ),
+                              ),
+                              onVoid: (_) => "",
+                              onTypeParameter: (_) => "",
+                              onDynamic: (_) => "",
+                              onUnknown: (_) => "",
+                            ),
+                          ),
+                        ],
                       ),
-                    )
-                  ])).closure.expression
-              ], {})
+                  ).closure.expression
+                ],
+                {},
+              )
               .property("toList")
               .call([]))!
-          .accept(DartEmitter(
-            useNullSafetySyntax: true,
-          ))
+          .accept(
+            DartEmitter(
+              useNullSafetySyntax: true,
+            ),
+          )
           .toString();
 
-  String toDartSource() => narrowSwidInterfaceByReferenceDeclaration(
+  @override
+  String transform({
+    required final ISwarsPipeline pipeline,
+  }) =>
+      narrowSwidInterfaceByReferenceDeclaration(
         swidInterface: type.typeArguments.first.when(
           fromSwidInterface: (val) => val,
           fromSwidClass: (_) => dartUnknownInterface,
@@ -83,8 +130,12 @@ class DartBoxList {
           fromSwidFunctionType: (_) => dartUnknownInterface,
         ),
         onPrimitive: (_) => referenceName,
-        onClass: (_) => _boxList(),
-        onEnum: (_) => _boxList(),
+        onClass: (_) => _boxList(
+          pipeline: pipeline,
+        ),
+        onEnum: (_) => _boxList(
+          pipeline: pipeline,
+        ),
         onVoid: (_) => referenceName,
         onDynamic: (_) => referenceName,
         onTypeParameter: (_) => referenceName,

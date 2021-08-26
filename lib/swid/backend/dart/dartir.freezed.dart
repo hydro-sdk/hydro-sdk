@@ -392,6 +392,9 @@ abstract class _$$FromDartBarrelLoadNamespaceSymbolDeclarationCopyWith<$Res> {
   $Res call(
       {DartBarrelLoadNamespaceSymbolDeclaration
           dartBarrelLoadNamespaceSymbolDeclaration});
+
+  $DartBarrelLoadNamespaceSymbolDeclarationCopyWith<$Res>
+      get dartBarrelLoadNamespaceSymbolDeclaration;
 }
 
 /// @nodoc
@@ -419,6 +422,16 @@ class __$$FromDartBarrelLoadNamespaceSymbolDeclarationCopyWithImpl<$Res>
               : dartBarrelLoadNamespaceSymbolDeclaration // ignore: cast_nullable_to_non_nullable
                   as DartBarrelLoadNamespaceSymbolDeclaration,
     ));
+  }
+
+  @override
+  $DartBarrelLoadNamespaceSymbolDeclarationCopyWith<$Res>
+      get dartBarrelLoadNamespaceSymbolDeclaration {
+    return $DartBarrelLoadNamespaceSymbolDeclarationCopyWith<$Res>(
+        _value.dartBarrelLoadNamespaceSymbolDeclaration, (value) {
+      return _then(
+          _value.copyWith(dartBarrelLoadNamespaceSymbolDeclaration: value));
+    });
   }
 }
 
@@ -703,6 +716,8 @@ abstract class _$$FromDartBindInstanceFieldCopyWith<$Res> {
           $Res Function(_$FromDartBindInstanceField) then) =
       __$$FromDartBindInstanceFieldCopyWithImpl<$Res>;
   $Res call({DartBindInstanceField dartBindInstanceField});
+
+  $DartBindInstanceFieldCopyWith<$Res> get dartBindInstanceField;
 }
 
 /// @nodoc
@@ -727,6 +742,14 @@ class __$$FromDartBindInstanceFieldCopyWithImpl<$Res>
           : dartBindInstanceField // ignore: cast_nullable_to_non_nullable
               as DartBindInstanceField,
     ));
+  }
+
+  @override
+  $DartBindInstanceFieldCopyWith<$Res> get dartBindInstanceField {
+    return $DartBindInstanceFieldCopyWith<$Res>(_value.dartBindInstanceField,
+        (value) {
+      return _then(_value.copyWith(dartBindInstanceField: value));
+    });
   }
 }
 
@@ -997,6 +1020,8 @@ abstract class _$$FromDartBindInstanceFieldDirectCopyWith<$Res> {
           $Res Function(_$FromDartBindInstanceFieldDirect) then) =
       __$$FromDartBindInstanceFieldDirectCopyWithImpl<$Res>;
   $Res call({DartBindInstanceFieldDirect dartBindInstanceFieldDirect});
+
+  $DartBindInstanceFieldDirectCopyWith<$Res> get dartBindInstanceFieldDirect;
 }
 
 /// @nodoc
@@ -1022,6 +1047,14 @@ class __$$FromDartBindInstanceFieldDirectCopyWithImpl<$Res>
           : dartBindInstanceFieldDirect // ignore: cast_nullable_to_non_nullable
               as DartBindInstanceFieldDirect,
     ));
+  }
+
+  @override
+  $DartBindInstanceFieldDirectCopyWith<$Res> get dartBindInstanceFieldDirect {
+    return $DartBindInstanceFieldDirectCopyWith<$Res>(
+        _value.dartBindInstanceFieldDirect, (value) {
+      return _then(_value.copyWith(dartBindInstanceFieldDirect: value));
+    });
   }
 }
 
@@ -1295,6 +1328,8 @@ abstract class _$$FromDartBoxEnumReferenceCopyWith<$Res> {
           $Res Function(_$FromDartBoxEnumReference) then) =
       __$$FromDartBoxEnumReferenceCopyWithImpl<$Res>;
   $Res call({DartBoxEnumReference dartBoxEnumReference});
+
+  $DartBoxEnumReferenceCopyWith<$Res> get dartBoxEnumReference;
 }
 
 /// @nodoc
@@ -1319,6 +1354,14 @@ class __$$FromDartBoxEnumReferenceCopyWithImpl<$Res>
           : dartBoxEnumReference // ignore: cast_nullable_to_non_nullable
               as DartBoxEnumReference,
     ));
+  }
+
+  @override
+  $DartBoxEnumReferenceCopyWith<$Res> get dartBoxEnumReference {
+    return $DartBoxEnumReferenceCopyWith<$Res>(_value.dartBoxEnumReference,
+        (value) {
+      return _then(_value.copyWith(dartBoxEnumReference: value));
+    });
   }
 }
 
@@ -1589,6 +1632,8 @@ abstract class _$$FromDartBoxListCopyWith<$Res> {
           _$FromDartBoxList value, $Res Function(_$FromDartBoxList) then) =
       __$$FromDartBoxListCopyWithImpl<$Res>;
   $Res call({DartBoxList dartBoxList});
+
+  $DartBoxListCopyWith<$Res> get dartBoxList;
 }
 
 /// @nodoc
@@ -1611,6 +1656,13 @@ class __$$FromDartBoxListCopyWithImpl<$Res> extends _$DartIrCopyWithImpl<$Res>
           : dartBoxList // ignore: cast_nullable_to_non_nullable
               as DartBoxList,
     ));
+  }
+
+  @override
+  $DartBoxListCopyWith<$Res> get dartBoxList {
+    return $DartBoxListCopyWith<$Res>(_value.dartBoxList, (value) {
+      return _then(_value.copyWith(dartBoxList: value));
+    });
   }
 }
 
@@ -1877,6 +1929,8 @@ abstract class _$$FromDartBoxObjectReferenceCopyWith<$Res> {
           $Res Function(_$FromDartBoxObjectReference) then) =
       __$$FromDartBoxObjectReferenceCopyWithImpl<$Res>;
   $Res call({DartBoxObjectReference dartBoxObjectReference});
+
+  $DartBoxObjectReferenceCopyWith<$Res> get dartBoxObjectReference;
 }
 
 /// @nodoc
@@ -1902,6 +1956,14 @@ class __$$FromDartBoxObjectReferenceCopyWithImpl<$Res>
           : dartBoxObjectReference // ignore: cast_nullable_to_non_nullable
               as DartBoxObjectReference,
     ));
+  }
+
+  @override
+  $DartBoxObjectReferenceCopyWith<$Res> get dartBoxObjectReference {
+    return $DartBoxObjectReferenceCopyWith<$Res>(_value.dartBoxObjectReference,
+        (value) {
+      return _then(_value.copyWith(dartBoxObjectReference: value));
+    });
   }
 }
 

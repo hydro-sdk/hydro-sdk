@@ -2,22 +2,54 @@ import 'package:code_builder/code_builder.dart'
     show DartEmitter, refer, literalString;
 
 import 'package:dart_style/dart_style.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
+import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
+import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
 
-class DartBindInstanceFieldDirect {
-  final String instanceFieldName;
-  final String tableKey;
+part 'dartBindInstanceFieldDirect.freezed.dart';
 
-  DartBindInstanceFieldDirect({
-    required final this.instanceFieldName,
-    required final this.tableKey,
-  });
+@freezed
+class DartBindInstanceFieldDirect
+    with
+        _$DartBindInstanceFieldDirect,
+        HashKeyMixin<DartBindInstanceFieldDirect>,
+        HashComparableMixin<DartBindInstanceFieldDirect>,
+        SwarsTransformMixin<
+            DartBindInstanceFieldDirect,
+            $DartBindInstanceFieldDirectCopyWith<DartBindInstanceFieldDirect>,
+            String> {
+  DartBindInstanceFieldDirect._();
 
-  String toDartSource() => DartFormatter().formatStatement(refer("table")
-      .index(literalString(tableKey))
-      .assign(refer(instanceFieldName))
-      .statement
-      .accept(DartEmitter(
-        useNullSafetySyntax: true,
-      ))
-      .toString());
+  factory DartBindInstanceFieldDirect({
+    required final String instanceFieldName,
+    required final String tableKey,
+  }) = _$DartBindInstanceFieldDirectCtor;
+
+  @override
+  String get cacheGroup => "dartBindInstanceFieldDirect";
+
+  @override
+  DartBindInstanceFieldDirect clone({
+    final String? instanceFieldName,
+    final String? tableKey,
+  }) =>
+      DartBindInstanceFieldDirect(
+        instanceFieldName: instanceFieldName ?? this.instanceFieldName,
+        tableKey: tableKey ?? this.tableKey,
+      );
+
+  @override
+  String transform({
+    required final ISwarsPipeline pipeline,
+  }) =>
+      DartFormatter().formatStatement(refer("table")
+          .index(literalString(tableKey))
+          .assign(refer(instanceFieldName))
+          .statement
+          .accept(DartEmitter(
+            useNullSafetySyntax: true,
+          ))
+          .toString());
 }

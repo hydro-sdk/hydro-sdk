@@ -5,19 +5,50 @@ import 'package:hydro_sdk/swid/backend/dart/dartBoxObjectReference.dart';
 import 'package:hydro_sdk/swid/backend/dart/util/codeKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/util/narrowSwidInterfaceByReferenceDeclaration.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
+import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
+import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
 
-class DartBoxingExpression {
-  final SwidType swidType;
-  final Expression expression;
-  final Expression? tableExpression;
+part 'dartBoxingExpression.freezed.dart';
 
-  const DartBoxingExpression({
-    required final this.swidType,
-    required final this.expression,
-    this.tableExpression,
-  });
+@freezed
+class DartBoxingExpression
+    with
+        _$DartBoxingExpression,
+        HashKeyMixin<DartBoxingExpression>,
+        HashComparableMixin<DartBoxingExpression>,
+        SwarsTransformMixin<DartBoxingExpression,
+            $DartBoxingExpressionCopyWith<DartBoxingExpression>, String> {
+  DartBoxingExpression._();
 
-  String toDartSource() => swidType.when(
+  factory DartBoxingExpression({
+    required final SwidType swidType,
+    required final Expression expression,
+    final Expression? tableExpression,
+  }) = _$DartBoxingExpressionCtor;
+
+  @override
+  String get cacheGroup => "dartBoxingExpression";
+
+  @override
+  DartBoxingExpression clone({
+    final SwidType? swidType,
+    final Expression? expression,
+    final Expression? tableExpression,
+  }) =>
+      DartBoxingExpression(
+        swidType: swidType ?? this.swidType.clone(),
+        expression: expression ?? this.expression,
+        tableExpression: tableExpression ?? this.tableExpression,
+      );
+
+  @override
+  String transform({
+    required final ISwarsPipeline pipeline,
+  }) =>
+      swidType.when(
         fromSwidInterface: (val) => narrowSwidInterfaceByReferenceDeclaration(
           swidInterface: val,
           onPrimitive: (_) => expression
@@ -37,15 +68,19 @@ class DartBoxingExpression {
             codeKind: CodeKind.expression,
             tableExpression: tableExpression,
           ).toDartSource(),
-          onEnum: (val) => DartBoxEnumReference(
-                  type: SwidType.fromSwidInterface(swidInterface: val),
-                  codeKind: CodeKind.expression,
-                  referenceName: expression
-                      .accept(DartEmitter(
-                        useNullSafetySyntax: true,
-                      ))
-                      .toString())
-              .toDartSource(),
+          onEnum: (val) => pipeline.reduceFromTerm(
+            DartBoxEnumReference(
+              type: SwidType.fromSwidInterface(swidInterface: val),
+              codeKind: CodeKind.expression,
+              referenceName: expression
+                  .accept(
+                    DartEmitter(
+                      useNullSafetySyntax: true,
+                    ),
+                  )
+                  .toString(),
+            ),
+          ),
           onVoid: (_) => expression
               .accept(DartEmitter(
                 useNullSafetySyntax: true,
@@ -65,9 +100,11 @@ class DartBoxingExpression {
         fromSwidClass: (_) => "",
         fromSwidDefaultFormalParameter: (_) => "",
         fromSwidFunctionType: (_) => expression
-            .accept(DartEmitter(
-              useNullSafetySyntax: true,
-            ))
+            .accept(
+              DartEmitter(
+                useNullSafetySyntax: true,
+              ),
+            )
             .toString(),
       );
 }

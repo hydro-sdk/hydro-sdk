@@ -3,19 +3,49 @@ import 'package:code_builder/code_builder.dart'
 
 import 'package:hydro_sdk/swid/backend/dart/util/codeKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
+import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
+import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
 
-class DartBoxEnumReference {
-  final SwidType? type;
-  final String referenceName;
-  final CodeKind codeKind;
+part 'dartBoxEnumReference.freezed.dart';
 
-  const DartBoxEnumReference({
-    required final this.type,
-    required final this.referenceName,
-    this.codeKind = CodeKind.statement,
-  });
+@freezed
+class DartBoxEnumReference
+    with
+        _$DartBoxEnumReference,
+        HashKeyMixin<DartBoxEnumReference>,
+        HashComparableMixin<DartBoxEnumReference>,
+        SwarsTransformMixin<DartBoxEnumReference,
+            $DartBoxEnumReferenceCopyWith<DartBoxEnumReference>, String> {
+  DartBoxEnumReference._();
 
-  String toDartSource() =>
+  factory DartBoxEnumReference({
+    required final SwidType? type,
+    required final String referenceName,
+    @Default(CodeKind.statement) final CodeKind codeKind,
+  }) = _$DartBoxEnumReferenceCtor;
+
+  @override
+  String get cacheGroup => "dartBoxEnumReference";
+
+  @override
+  DartBoxEnumReference clone({
+    final SwidType? type,
+    final String? referenceName,
+    final CodeKind? codeKind,
+  }) =>
+      DartBoxEnumReference(
+        type: type ?? this.type?.clone(),
+        referenceName: referenceName ?? this.referenceName,
+        codeKind: codeKind ?? this.codeKind,
+      );
+
+  @override
+  String transform({
+    required final ISwarsPipeline pipeline,
+  }) =>
       ((Expression expression) => codeKind == CodeKind.statement
                   ? expression.statement
                   : codeKind == CodeKind.expression
