@@ -1,8 +1,8 @@
 import 'package:code_builder/code_builder.dart'
     show DartEmitter, Parameter, refer, literalString, Method, Code;
-import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:dart_style/dart_style.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/backend/util/barrelSpec.dart';
 import 'package:hydro_sdk/swid/backend/util/requiresDartClassTranslationUnit.dart';

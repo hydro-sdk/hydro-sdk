@@ -1,6 +1,8 @@
 import 'package:code_builder/code_builder.dart'
     show DartEmitter, Expression, refer, Method, Parameter, Block, Code;
 
+import 'package:freezed_annotation/freezed_annotation.dart';
+
 import 'package:hydro_sdk/swid/backend/dart/dartBoxEnumReference.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartBoxObjectReference.dart';
 import 'package:hydro_sdk/swid/backend/dart/util/codeKind.dart';
@@ -8,7 +10,6 @@ import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/util/narrowSwidInterfaceByReferenceDeclaration.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';

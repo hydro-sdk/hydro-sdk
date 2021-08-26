@@ -1,6 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:code_builder/code_builder.dart'
-    show Code, CodeExpression, DartEmitter, refer, literalString;
 
 import 'package:hydro_sdk/swid/backend/dart/dartBindInstanceFieldDirect.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartBoxEnumReference.dart';
@@ -11,6 +9,9 @@ import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
+
+import 'package:code_builder/code_builder.dart'
+    show Code, CodeExpression, DartEmitter, refer, literalString;
 
 part 'dartBindInstanceField.freezed.dart';
 

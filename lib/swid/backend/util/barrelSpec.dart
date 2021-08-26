@@ -1,9 +1,9 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
-import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
 import 'package:path/path.dart' as p;
 
 import 'package:hydro_sdk/swid/backend/util/barrelMember.dart';
+import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
+import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
 
 part 'barrelSpec.freezed.dart';
 
