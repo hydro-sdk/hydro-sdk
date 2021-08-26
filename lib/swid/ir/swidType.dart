@@ -1,6 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
-import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import 'package:hydro_sdk/swid/ir/iSwidType.dart';
@@ -13,6 +11,8 @@ import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeMixin.dart';
 import 'package:hydro_sdk/swid/transforms/removeNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/transforms/removeTypeArguments.dart';
+import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
+import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
 
 part 'swidType.freezed.dart';
 part 'swidType.g.dart';

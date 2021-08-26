@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
 import 'package:hydro_sdk/swid/util/iCopyable.dart';
@@ -38,7 +39,8 @@ class SwidStaticConstFieldReference
   SwidStaticConstFieldReference clone({
     final String? name,
   }) =>
-      SwidStaticConstFieldReference.clone(swidStaticConstFieldReference: this,
+      SwidStaticConstFieldReference.clone(
+        swidStaticConstFieldReference: this,
         name: name,
       );
 }

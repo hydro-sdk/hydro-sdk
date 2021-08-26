@@ -18,9 +18,9 @@ class SwidStaticConstMapLiteral
     implements
         ICopyable<SwidStaticConstMapLiteral,
             $SwidStaticConstMapLiteralCopyWith<SwidStaticConstMapLiteral>> {
-   SwidStaticConstMapLiteral._();
+  SwidStaticConstMapLiteral._();
 
-   factory SwidStaticConstMapLiteral({
+  factory SwidStaticConstMapLiteral({
     required final List<SwidStaticConstMapLiteralEntry> elements,
     required final SwidType staticType,
   }) = _$SwidStaticConstMapLiteralCtor;

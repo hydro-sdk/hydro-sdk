@@ -1,8 +1,5 @@
 import 'package:collection/collection.dart' show IterableExtension;
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
-import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
-import 'package:hydro_sdk/swid/util/iCopyable.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
@@ -14,6 +11,9 @@ import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeMixin.dart';
 import 'package:hydro_sdk/swid/ir/util/cloneSwidType.dart';
+import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
+import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
+import 'package:hydro_sdk/swid/util/iCopyable.dart';
 
 part 'swidFunctionType.freezed.dart';
 part 'swidFunctionType.g.dart';

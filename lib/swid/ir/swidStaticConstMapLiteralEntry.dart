@@ -19,9 +19,9 @@ class SwidStaticConstMapLiteralEntry
             SwidStaticConstMapLiteralEntry,
             $SwidStaticConstMapLiteralEntryCopyWith<
                 SwidStaticConstMapLiteralEntry>> {
-   SwidStaticConstMapLiteralEntry._();
+  SwidStaticConstMapLiteralEntry._();
 
-   factory SwidStaticConstMapLiteralEntry({
+  factory SwidStaticConstMapLiteralEntry({
     required final SwidStaticConst key,
     required final SwidStaticConst value,
   }) = _$SwidStaticConstMapLiteralEntryCtor;
