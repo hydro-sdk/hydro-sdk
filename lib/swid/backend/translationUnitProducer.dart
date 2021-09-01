@@ -1,5 +1,4 @@
 import 'package:collection/collection.dart';
-import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:path/path.dart' as p;
 
 import 'package:hydro_sdk/swid/backend/dart/util/produceDartTranslationUnitFromSwidClass.dart';
@@ -12,6 +11,7 @@ import 'package:hydro_sdk/swid/backend/ts/util/produceTsTranslationUnitFromSwidT
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidEnum.dart';
 import 'package:hydro_sdk/swid/ir/swidTopLevelStaticConstFieldDeclaration.dart';
+import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 
 class TranslationUnitProducer {
   final List<String> tsPrefixPaths;

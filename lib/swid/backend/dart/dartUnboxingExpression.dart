@@ -9,11 +9,12 @@ import 'package:code_builder/code_builder.dart'
         CodeExpression,
         Code;
 
+import 'package:freezed_annotation/freezed_annotation.dart';
+
 import 'package:hydro_sdk/swid/backend/dart/util/luaCallerArgumentsParameterName.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/util/narrowSwidInterfaceByReferenceDeclaration.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
@@ -34,7 +35,7 @@ class DartUnboxingExpression
   factory DartUnboxingExpression({
     required final SwidType swidType,
     required final Expression expression,
-    @Default("")  final String? identifierName,
+    @Default("") final String? identifierName,
   }) = _$DartUnboxingExpressionCtor;
 
   @override

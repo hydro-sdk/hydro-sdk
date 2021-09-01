@@ -14,8 +14,9 @@ void main() {
         json.decode(File("test/swid/res/Key.json").readAsStringSync()));
 
     expect(
-      CachingPipeline().reduceFromTerm(
-        DartLoadNamespaceSymbolDeclaration(swidClass: keyClass),),
+        CachingPipeline().reduceFromTerm(
+          DartLoadNamespaceSymbolDeclaration(swidClass: keyClass),
+        ),
         """
 void loadKey({required HydroState hydroState, required HydroTable table}) {
   table[\'key\'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {

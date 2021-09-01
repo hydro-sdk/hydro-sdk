@@ -1,4 +1,5 @@
 import 'package:collection/collection.dart' show IterableExtension;
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/backend/dart/dartMethodBindingImplementation.dart';
 import 'package:hydro_sdk/swid/backend/dart/util/luaDartBinding.dart';
@@ -8,13 +9,11 @@ import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
 import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';
 import 'package:hydro_sdk/swid/transforms/transformToPascalCase.dart';
+import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
+import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
 
 import 'package:code_builder/code_builder.dart'
     show refer, literalString, Code, DartEmitter;
-
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
-import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
 
 part 'dartStaticMethodNamespaceSymbolDeclaration.freezed.dart';
 

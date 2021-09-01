@@ -1,9 +1,7 @@
 import 'dart:convert';
-import 'dart:developer';
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:hydro_sdk/swid/backend/dart/dartBindInstanceFieldDirect.dart';
 
 import 'package:hydro_sdk/swid/backend/dart/dartRtManagedClassDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
@@ -25,7 +23,7 @@ void main() {
         swidClass: iconDataClass,
       ),
     );
-    
+
     expect(iconDataClass.instanceFieldDeclarations.length, 4);
     expect(res, """
 class RTManagedIconData extends IconData implements Box<IconData> {
