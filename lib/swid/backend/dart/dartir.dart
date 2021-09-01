@@ -19,99 +19,157 @@ import 'package:hydro_sdk/swid/backend/dart/dartUnpackClosures.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartVmManagedClassBoxerRegistrant.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartVmManagedClassDeclaration.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartVmManagedClassMethodInjectionImplementation.dart';
+import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 
 part 'dartir.freezed.dart';
 
 @freezed
 class DartIr with _$DartIr {
-  factory DartIr.fromDartBarrelLoadNamespaceSymbolDeclaration(
-          {required final DartBarrelLoadNamespaceSymbolDeclaration
-              dartBarrelLoadNamespaceSymbolDeclaration}) =
-      _$FromDartBarrelLoadNamespaceSymbolDeclaration;
-  factory DartIr.fromDartBindInstanceField(
-          {required final DartBindInstanceField dartBindInstanceField}) =
-      _$FromDartBindInstanceField;
-  factory DartIr.fromDartBindInstanceFieldDirect(
-      {required final DartBindInstanceFieldDirect
-          dartBindInstanceFieldDirect}) = _$FromDartBindInstanceFieldDirect;
-  factory DartIr.fromDartBoxEnumReference(
-          {required final DartBoxEnumReference dartBoxEnumReference}) =
-      _$FromDartBoxEnumReference;
-  factory DartIr.fromDartBoxList({required final DartBoxList dartBoxList}) =
-      _$FromDartBoxList;
-  factory DartIr.fromDartBoxObjectReference(
-          {required final DartBoxObjectReference dartBoxObjectReference}) =
-      _$FromDartBoxObjectReference;
-  factory DartIr.fromDartImportStatement(
-          {required final DartImportStatement dartImportStatement}) =
-      _$FromDartImportStatement;
-  factory DartIr.fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
-          {required final DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-              dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration}) =
-      _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration;
-  factory DartIr.fromDartFunctionSelfBindingInvocation(
-          {required final DartFunctionSelfBindingInvocation
-              dartFunctionSelfBindingInvocation}) =
-      _$FromDartFunctionSelfBindingInvocation;
-  factory DartIr.fromDartLinebreak(
-      {required final DartLinebreak dartLinebreak}) = _$FromDartLinebreak;
-  factory DartIr.fromDartUnboxingExpression(
-          {required final DartUnboxingExpression dartUnboxingExpression}) =
-      _$FromDartUnboxingExpression;
-  factory DartIr.fromDartUnpackClosures(
-          {required final DartUnpackClosures dartUnpackClosures}) =
-      _$FromDartUnpackClosures;
-  factory DartIr.fromDartVMManagedClassBoxerRegistrant(
-          {required final DartVMManagedClassBoxerRegistrant
-              dartVMManagedClassBoxerRegistrant}) =
-      $FromDartVMManagedClassBoxerRegistrant;
-  factory DartIr.fromLoadNamepsaceSymbolDeclaration(
-          {required final DartLoadNamespaceSymbolDeclaration
-              loadNamespaceSymbolDeclaration}) =
-      _$FromLoadNamespaceSymbolDeclaration;
-  factory DartIr.fromMethodInjectionImplementation(
-      {required final DartMethodInjectionImplementation
-          methodInjectionImplementation}) = _$FromMethodInjectionImplementation;
-  factory DartIr.fromRTManagedClassDeclaration(
-      {required final DartRTManagedClassDeclaration
-          rtManagedClassDeclaration}) = _$FromRTManagedClassDeclaration;
-  factory DartIr.fromDartStaticMethodNamespaceSymbolDeclaration(
-          {required final DartStaticMethodNamespaceSymbolDeclaration
-              staticMethodNamespaceSymbolDeclaration}) =
-      _$FromDartStaticMethodNamespaceSymbolDeclaration;
-  factory DartIr.fromVMManagedClassDeclaration(
-      {required final DartVMManagedClassDeclaration
-          vmManagedClassDeclaration}) = _$FromVMManagedClassDeclaration;
-  factory DartIr.fromVMManagedClassMethodInjectionImplementation(
-          {required final DartVMManagedClassMethodInjectionImplementation
-              vmManagedClassMethodInjectionImplementation}) =
-      _$FromVMManagedClassMethodInjectionImplementation;
-}
+  DartIr._();
 
-extension DartIrMethods on DartIr {
-  String? toDartSource() => when(
-        fromDartBarrelLoadNamespaceSymbolDeclaration: (val) =>
-            val.toDartSource(),
-        fromDartBindInstanceField: (val) => val.toDartSource(),
-        fromDartBindInstanceFieldDirect: (val) => val.toDartSource(),
-        fromDartBoxEnumReference: (val) => val.toDartSource(),
-        fromDartBoxList: (val) => val.toDartSource(),
-        fromDartBoxObjectReference: (val) => val.toDartSource(),
-        fromDartImportStatement: (val) => val.toDartSource(),
+  factory DartIr.fromDartBarrelLoadNamespaceSymbolDeclaration({
+    required final DartBarrelLoadNamespaceSymbolDeclaration
+        dartBarrelLoadNamespaceSymbolDeclaration,
+  }) = _$FromDartBarrelLoadNamespaceSymbolDeclaration;
+
+  factory DartIr.fromDartBindInstanceField({
+    required final DartBindInstanceField dartBindInstanceField,
+  }) = _$FromDartBindInstanceField;
+
+  factory DartIr.fromDartBindInstanceFieldDirect({
+    required final DartBindInstanceFieldDirect dartBindInstanceFieldDirect,
+  }) = _$FromDartBindInstanceFieldDirect;
+
+  factory DartIr.fromDartBoxEnumReference({
+    required final DartBoxEnumReference dartBoxEnumReference,
+  }) = _$FromDartBoxEnumReference;
+
+  factory DartIr.fromDartBoxList({
+    required final DartBoxList dartBoxList,
+  }) = _$FromDartBoxList;
+
+  factory DartIr.fromDartBoxObjectReference({
+    required final DartBoxObjectReference dartBoxObjectReference,
+  }) = _$FromDartBoxObjectReference;
+
+  factory DartIr.fromDartImportStatement({
+    required final DartImportStatement dartImportStatement,
+  }) = _$FromDartImportStatement;
+
+  factory DartIr.fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration({
+    required final DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
+        dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+  }) = _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration;
+
+  factory DartIr.fromDartFunctionSelfBindingInvocation({
+    required final DartFunctionSelfBindingInvocation
+        dartFunctionSelfBindingInvocation,
+  }) = _$FromDartFunctionSelfBindingInvocation;
+
+  factory DartIr.fromDartLinebreak({
+    required final DartLinebreak dartLinebreak,
+  }) = _$FromDartLinebreak;
+
+  factory DartIr.fromDartUnboxingExpression({
+    required final DartUnboxingExpression dartUnboxingExpression,
+  }) = _$FromDartUnboxingExpression;
+
+  factory DartIr.fromDartUnpackClosures({
+    required final DartUnpackClosures dartUnpackClosures,
+  }) = _$FromDartUnpackClosures;
+
+  factory DartIr.fromDartVMManagedClassBoxerRegistrant({
+    required final DartVMManagedClassBoxerRegistrant
+        dartVMManagedClassBoxerRegistrant,
+  }) = $FromDartVMManagedClassBoxerRegistrant;
+
+  factory DartIr.fromLoadNamepsaceSymbolDeclaration({
+    required final DartLoadNamespaceSymbolDeclaration
+        loadNamespaceSymbolDeclaration,
+  }) = _$FromLoadNamespaceSymbolDeclaration;
+
+  factory DartIr.fromMethodInjectionImplementation({
+    required final DartMethodInjectionImplementation
+        methodInjectionImplementation,
+  }) = _$FromMethodInjectionImplementation;
+
+  factory DartIr.fromRTManagedClassDeclaration({
+    required final DartRTManagedClassDeclaration rtManagedClassDeclaration,
+  }) = _$FromRTManagedClassDeclaration;
+
+  factory DartIr.fromDartStaticMethodNamespaceSymbolDeclaration({
+    required final DartStaticMethodNamespaceSymbolDeclaration
+        staticMethodNamespaceSymbolDeclaration,
+  }) = _$FromDartStaticMethodNamespaceSymbolDeclaration;
+
+  factory DartIr.fromVMManagedClassDeclaration({
+    required final DartVMManagedClassDeclaration vmManagedClassDeclaration,
+  }) = _$FromVMManagedClassDeclaration;
+
+  factory DartIr.fromVMManagedClassMethodInjectionImplementation({
+    required final DartVMManagedClassMethodInjectionImplementation
+        vmManagedClassMethodInjectionImplementation,
+  }) = _$FromVMManagedClassMethodInjectionImplementation;
+
+  String transform({
+    required ISwarsPipeline pipeline,
+  }) =>
+      when(
+        fromDartBarrelLoadNamespaceSymbolDeclaration: (val) => val.transform(
+          pipeline: pipeline,
+        ),
+        fromDartBindInstanceField: (val) => val.transform(
+          pipeline: pipeline,
+        ),
+        fromDartBindInstanceFieldDirect: (val) => val.transform(
+          pipeline: pipeline,
+        ),
+        fromDartBoxEnumReference: (val) => val.transform(
+          pipeline: pipeline,
+        ),
+        fromDartBoxList: (val) => val.transform(
+          pipeline: pipeline,
+        ),
+        fromDartBoxObjectReference: (val) => val.transform(
+          pipeline: pipeline,
+        ),
+        fromDartImportStatement: (val) => val.transform(
+          pipeline: pipeline,
+        ),
         fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration:
-            (val) => val.toDartSource(),
-        fromDartFunctionSelfBindingInvocation: (val) => val.toDartSource(),
+            (val) => val.transform(
+          pipeline: pipeline,
+        ),
+        fromDartFunctionSelfBindingInvocation: (val) => val.transform(
+          pipeline: pipeline,
+        ),
         fromDartLinebreak: (val) => val.toDartSource(),
-        fromDartUnboxingExpression: (val) => val.toDartSource(),
-        fromDartUnpackClosures: (val) => val.toDartSource(),
-        fromDartVMManagedClassBoxerRegistrant: (val) => val.toDartSource(),
-        fromLoadNamepsaceSymbolDeclaration: (val) => val.toDartSource(),
-        fromMethodInjectionImplementation: (val) => val.toDartSource(),
-        fromRTManagedClassDeclaration: (val) => val.toDartSource(),
-        fromDartStaticMethodNamespaceSymbolDeclaration: (val) =>
-            val.toDartSource(),
-        fromVMManagedClassDeclaration: (val) => val.toDartSource(),
-        fromVMManagedClassMethodInjectionImplementation: (val) =>
-            val.toDartSource(),
+        fromDartUnboxingExpression: (val) => val.transform(
+          pipeline: pipeline,
+        ),
+        fromDartUnpackClosures: (val) => val.transform(
+          pipeline: pipeline,
+        ),
+        fromDartVMManagedClassBoxerRegistrant: (val) => val.transform(
+          pipeline: pipeline,
+        ),
+        fromLoadNamepsaceSymbolDeclaration: (val) => val.transform(
+          pipeline: pipeline,
+        ),
+        fromMethodInjectionImplementation: (val) => val.transform(
+          pipeline: pipeline,
+        ),
+        fromRTManagedClassDeclaration: (val) => val.transform(
+          pipeline: pipeline,
+        ),
+        fromDartStaticMethodNamespaceSymbolDeclaration: (val) => val.transform(
+          pipeline: pipeline,
+        ),
+        fromVMManagedClassDeclaration: (val) => val.transform(
+          pipeline: pipeline,
+        ),
+        fromVMManagedClassMethodInjectionImplementation: (val) => val.transform(
+          pipeline: pipeline,
+        ),
       );
 }

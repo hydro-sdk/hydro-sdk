@@ -15,6 +15,7 @@ import 'package:hydro_sdk/swid/frontend/swidi/swidiFrontend.dart';
 import 'package:hydro_sdk/swid/frontend/swidiInputResolver.dart';
 import 'package:hydro_sdk/swid/ir/swidIr.dart';
 import 'package:hydro_sdk/swid/ir/util/fixupNullability.dart';
+import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
 import 'package:hydro_sdk/swid/transforms/transformPackageUri.dart';
 import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';
 
@@ -36,6 +37,8 @@ void main(List<String> args) async {
     inputs: config.interfaces,
     inputResolver: const SwidiInputResolver(),
   );
+
+  final pipeline = CachingPipeline();
 
   final ir = SwidIr.merge(
       ir: [await swidiFrontend.produceIr(), await dartFrontend.produceIr()]);
@@ -74,16 +77,22 @@ void main(List<String> args) async {
 
   for (var i = 0; i != enums.length; ++i) {
     await Future.forEach(
-        TranslationUnitProducer(
-          prefixPaths: ["runtime"],
-          path: transformPackageUri(
-            packageUri: enums[i].originalPackagePath,
-          ),
-          baseFileName: "${transformToCamelCase(str: enums[i].identifier)}",
-          tsPrefixPaths: ["runtime"],
-          dartPrefixPaths: [],
-        ).produceFromSwidEnum(swidEnum: enums[i]),
-        (dynamic x) => writeTranslationUnit(translationUnit: x));
+      TranslationUnitProducer(
+        pipeline: pipeline,
+        prefixPaths: ["runtime"],
+        path: transformPackageUri(
+          packageUri: enums[i].originalPackagePath,
+        ),
+        baseFileName: "${transformToCamelCase(str: enums[i].identifier)}",
+        tsPrefixPaths: ["runtime"],
+        dartPrefixPaths: [],
+      ).produceFromSwidEnum(
+        swidEnum: enums[i],
+      ),
+      (dynamic x) => writeTranslationUnit(
+        translationUnit: x,
+      ),
+    );
   }
   print(irClasses.length);
   final classes = irClasses
@@ -102,44 +111,63 @@ void main(List<String> args) async {
       .toList();
   for (var i = 0; i != classes.length; ++i) {
     await Future.forEach(
-        TranslationUnitProducer(
-          prefixPaths: config.emitOptions.prefixPaths,
-          path: transformPackageUri(
-            packageUri: classes[i].originalPackagePath,
-          ),
-          baseFileName: "${transformToCamelCase(str: classes[i].name)}",
-          tsPrefixPaths: config.emitOptions.tsEmitOptions.prefixPaths,
-          dartPrefixPaths: config.emitOptions.dartEmitOptions.prefixPaths,
-        ).produceFromSwidClass(
-            swidClass: fixupNullability(swidClass: classes[i])),
-        (dynamic x) => writeTranslationUnit(translationUnit: x));
+      TranslationUnitProducer(
+        pipeline: pipeline,
+        prefixPaths: config.emitOptions.prefixPaths,
+        path: transformPackageUri(
+          packageUri: classes[i].originalPackagePath,
+        ),
+        baseFileName: "${transformToCamelCase(str: classes[i].name)}",
+        tsPrefixPaths: config.emitOptions.tsEmitOptions.prefixPaths,
+        dartPrefixPaths: config.emitOptions.dartEmitOptions.prefixPaths,
+      ).produceFromSwidClass(
+        swidClass: fixupNullability(
+          swidClass: classes[i],
+        ),
+      ),
+      (dynamic x) => writeTranslationUnit(
+        translationUnit: x,
+      ),
+    );
   }
 
   for (var i = 0; i != topLevelDeclarations.length; ++i) {
     await Future.forEach(
-        TranslationUnitProducer(
-          prefixPaths: config.emitOptions.prefixPaths,
-          path: transformPackageUri(
-            packageUri: topLevelDeclarations[i].originalPackagePath,
-          ),
-          baseFileName:
-              "${transformToCamelCase(str: topLevelDeclarations[i].declaration.name)}",
-          tsPrefixPaths: config.emitOptions.tsEmitOptions.prefixPaths,
-          dartPrefixPaths: config.emitOptions.dartEmitOptions.prefixPaths,
-        ).produceFromSwidTopLevelStaticConstFieldDeclaration(
-          swidTopLevelStaticConstFieldDeclaration: topLevelDeclarations[i],
+      TranslationUnitProducer(
+        pipeline: pipeline,
+        prefixPaths: config.emitOptions.prefixPaths,
+        path: transformPackageUri(
+          packageUri: topLevelDeclarations[i].originalPackagePath,
         ),
-        (dynamic x) => writeTranslationUnit(translationUnit: x));
+        baseFileName:
+            "${transformToCamelCase(str: topLevelDeclarations[i].declaration.name)}",
+        tsPrefixPaths: config.emitOptions.tsEmitOptions.prefixPaths,
+        dartPrefixPaths: config.emitOptions.dartEmitOptions.prefixPaths,
+      ).produceFromSwidTopLevelStaticConstFieldDeclaration(
+        swidTopLevelStaticConstFieldDeclaration: topLevelDeclarations[i],
+      ),
+      (dynamic x) => writeTranslationUnit(
+        translationUnit: x,
+      ),
+    );
   }
 
   await Future.forEach(
-      produceDartTranslationUnitsFromBarrelSpec(
-        packageName: config.emitOptions.dartEmitOptions.hostPackageName,
-        prefixPaths: config.emitOptions.dartEmitOptions.prefixPaths,
-        barrelSpec: resolveBarrelSpecs(
-            members: classes
-                .map((x) => BarrelMember.fromSwidClass(swidClass: x))
-                .toList()),
-      ),
-      (dynamic x) => writeTranslationUnit(translationUnit: x));
+    produceDartTranslationUnitsFromBarrelSpec(
+      pipeline: pipeline,
+      packageName: config.emitOptions.dartEmitOptions.hostPackageName,
+      prefixPaths: config.emitOptions.dartEmitOptions.prefixPaths,
+      barrelSpec: resolveBarrelSpecs(
+          members: classes
+              .map(
+                (x) => BarrelMember.fromSwidClass(
+                  swidClass: x,
+                ),
+              )
+              .toList()),
+    ),
+    (dynamic x) => writeTranslationUnit(
+      translationUnit: x,
+    ),
+  );
 }

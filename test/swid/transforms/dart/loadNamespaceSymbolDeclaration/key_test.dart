@@ -5,6 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'package:hydro_sdk/swid/backend/dart/dartLoadNamespaceSymbolDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
+import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
@@ -13,7 +14,8 @@ void main() {
         json.decode(File("test/swid/res/Key.json").readAsStringSync()));
 
     expect(
-        DartLoadNamespaceSymbolDeclaration(swidClass: keyClass).toDartSource(),
+      CachingPipeline().reduceFromTerm(
+        DartLoadNamespaceSymbolDeclaration(swidClass: keyClass),),
         """
 void loadKey({required HydroState hydroState, required HydroTable table}) {
   table[\'key\'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {

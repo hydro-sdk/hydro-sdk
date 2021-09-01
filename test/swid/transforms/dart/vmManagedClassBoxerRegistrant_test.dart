@@ -8,6 +8,7 @@ import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
+import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
@@ -53,7 +54,10 @@ void main() {
       mixedInClasses: [],
     ));
 
-    expect(ir.toDartSource(),
+    expect(
+        CachingPipeline().reduceFromTerm(
+          ir,
+        ),
         """registerBoxer<fooClass>(boxer: ({required fooClass vmObject, required HydroState hydroState, required HydroTable table}) { return  VMManagedfooClass(vmObject: vmObject, hydroState: hydroState, table: table); } );""");
   }, tags: "swid");
 }

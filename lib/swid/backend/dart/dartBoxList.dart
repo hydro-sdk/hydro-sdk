@@ -78,12 +78,15 @@ class DartBoxList
                                     dartUnknownInterface,
                               ),
                               onPrimitive: (_) => "",
-                              onClass: (val) => DartBoxObjectReference(
-                                type: val,
-                                boxLists: true,
-                                objectReference: refer("x"),
-                                codeKind: CodeKind.expression,
-                              ).toDartSource(),
+                              onClass: (val) => pipeline.reduceFromTerm(
+                                DartBoxObjectReference(
+                                  type: val,
+                                  boxLists: true,
+                                  tableExpression: null,
+                                  objectReference: refer("x"),
+                                  codeKind: CodeKind.expression,
+                                ),
+                              ),
                               onEnum: (val) => pipeline.reduceFromTerm(
                                 DartBoxEnumReference(
                                   type: SwidType.fromSwidInterface(

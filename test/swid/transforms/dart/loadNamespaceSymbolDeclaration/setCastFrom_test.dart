@@ -11,6 +11,7 @@ import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/util/instantiateAllGenericsAsDynamic.dart';
+import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
@@ -150,16 +151,18 @@ void main() {
     );
 
     expect(
-        DartStaticMethodNamespaceSymbolDeclaration(
-          swidClass: set,
-          swidFunctionType: instantiateAllGenericsAsDynamic(
-                  swidType:
-                      SwidType.fromSwidFunctionType(swidFunctionType: castFrom))
-              .maybeWhen(
-            fromSwidFunctionType: (val) => val,
-            orElse: () => dartUnknownFunction,
+        CachingPipeline().reduceFromTerm(
+          DartStaticMethodNamespaceSymbolDeclaration(
+            swidClass: set,
+            swidFunctionType: instantiateAllGenericsAsDynamic(
+                    swidType: SwidType.fromSwidFunctionType(
+                        swidFunctionType: castFrom))
+                .maybeWhen(
+              fromSwidFunctionType: (val) => val,
+              orElse: () => dartUnknownFunction,
+            ),
           ),
-        ).toDartSource(),
+        ),
         """
 table  [
 \'setCastFrom\'

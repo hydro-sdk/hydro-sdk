@@ -1,3 +1,4 @@
+import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:path/path.dart' as p;
 
 import 'package:hydro_sdk/swid/backend/dart/dartBarrelLoadNamespaceSymbolDeclaration.dart';
@@ -5,7 +6,6 @@ import 'package:hydro_sdk/swid/backend/dart/dartImportStatement.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartLinebreak.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartTranslationUnit.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartir.dart';
-import 'package:hydro_sdk/swid/backend/util/barrelMember.dart';
 import 'package:hydro_sdk/swid/backend/util/barrelSpec.dart';
 import 'package:hydro_sdk/swid/backend/util/requiresDartClassTranslationUnit.dart';
 import 'package:hydro_sdk/swid/transforms/transformPackageUri.dart';
@@ -15,9 +15,11 @@ List<DartTranslationUnit> produceDartTranslationUnitsFromBarrelSpec({
   required final String packageName,
   required final List<String> prefixPaths,
   required final BarrelSpec barrelSpec,
+  required final ISwarsPipeline pipeline,
 }) =>
     [
       DartTranslationUnit(
+          pipeline: pipeline,
           path: prefixPaths.join(p.separator) + p.separator + barrelSpec.path,
           fileName: barrelSpec.name + ".dart",
           ir: [
@@ -84,6 +86,7 @@ List<DartTranslationUnit> produceDartTranslationUnitsFromBarrelSpec({
             .where((x) => x!.name != "_internal")
             .map(
               (x) => produceDartTranslationUnitsFromBarrelSpec(
+                pipeline: pipeline,
                 packageName: packageName,
                 prefixPaths: prefixPaths,
                 barrelSpec: x!,

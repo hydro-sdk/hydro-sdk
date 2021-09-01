@@ -7,6 +7,7 @@ import 'package:hydro_sdk/swid/backend/util/resolveBarrelSpecs.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
+import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
@@ -119,8 +120,9 @@ void main() {
     expect(barrelSpec.isTopLevel(), true);
 
     expect(
-        DartBarrelLoadNamespaceSymbolDeclaration(barrelSpec: barrelSpec)
-            .toDartSource(),
+        CachingPipeline().reduceFromTerm(
+          DartBarrelLoadNamespaceSymbolDeclaration(barrelSpec: barrelSpec),
+        ),
         """
 void loaddart({required HydroState hydroState, required Context context}) {
   final dart = HydroTable();

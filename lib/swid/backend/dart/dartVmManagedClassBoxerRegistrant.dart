@@ -3,47 +3,106 @@ import 'package:code_builder/code_builder.dart'
 
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 
-class DartVMManagedClassBoxerRegistrant {
-  final SwidClass swidClass;
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
+import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
+import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
 
-  DartVMManagedClassBoxerRegistrant({required final this.swidClass});
+part 'dartVmManagedClassBoxerRegistrant.freezed.dart';
 
-  String toDartSource() => refer("registerBoxer")
-      .call([], {
-        "boxer": Method((m) => m
-          ..optionalParameters.addAll([
-            Parameter((p) => p
-              ..named = true
-              ..required = true
-              ..name = "vmObject"
-              ..type = TypeReference((t) => t..symbol = swidClass.name)),
-            Parameter((p) => p
-              ..named = true
-              ..required = true
-              ..name = "hydroState"
-              ..type = TypeReference((t) => t..symbol = "HydroState")),
-            Parameter((p) => p
-              ..named = true
-              ..required = true
-              ..name = "table"
-              ..type = TypeReference((t) => t..symbol = "HydroTable")),
-          ])
-          ..body = Block.of([
-            refer("VMManaged${swidClass.name}")
-                .call([], {
-                  "vmObject": refer("vmObject"),
-                  "hydroState": refer("hydroState"),
-                  "table": refer("table"),
-                })
-                .returned
-                .statement
-          ])).closure
-      }, [
-        TypeReference((t) => t..symbol = swidClass.name),
-      ])
-      .statement
-      .accept(DartEmitter(
-        useNullSafetySyntax: true,
-      ))
-      .toString();
+@freezed
+class DartVMManagedClassBoxerRegistrant
+    with
+        _$DartVMManagedClassBoxerRegistrant,
+        HashKeyMixin<DartVMManagedClassBoxerRegistrant>,
+        HashComparableMixin<DartVMManagedClassBoxerRegistrant>,
+        SwarsTransformMixin<
+            DartVMManagedClassBoxerRegistrant,
+            $DartVMManagedClassBoxerRegistrantCopyWith<
+                DartVMManagedClassBoxerRegistrant>,
+            String> {
+  DartVMManagedClassBoxerRegistrant._();
+
+  factory DartVMManagedClassBoxerRegistrant({
+    required final SwidClass swidClass,
+  }) = _$DartVMManagedClassBoxerRegistrantCtor;
+
+  @override
+  String get cacheGroup => "dartVMManagedClassBoxerRegistrant";
+
+  @override
+  DartVMManagedClassBoxerRegistrant clone({
+    final SwidClass? swidClass,
+  }) =>
+      DartVMManagedClassBoxerRegistrant(
+        swidClass: swidClass ?? this.swidClass.clone(),
+      );
+
+  @override
+  String transform({
+    required final ISwarsPipeline pipeline,
+  }) =>
+      refer("registerBoxer")
+          .call(
+            [],
+            {
+              "boxer": Method(
+                (m) => m
+                  ..optionalParameters.addAll(
+                    [
+                      Parameter(
+                        (p) => p
+                          ..named = true
+                          ..required = true
+                          ..name = "vmObject"
+                          ..type = TypeReference(
+                            (t) => t..symbol = swidClass.name,
+                          ),
+                      ),
+                      Parameter(
+                        (p) => p
+                          ..named = true
+                          ..required = true
+                          ..name = "hydroState"
+                          ..type = TypeReference(
+                            (t) => t..symbol = "HydroState",
+                          ),
+                      ),
+                      Parameter(
+                        (p) => p
+                          ..named = true
+                          ..required = true
+                          ..name = "table"
+                          ..type = TypeReference(
+                            (t) => t..symbol = "HydroTable",
+                          ),
+                      ),
+                    ],
+                  )
+                  ..body = Block.of(
+                    [
+                      refer("VMManaged${swidClass.name}")
+                          .call([], {
+                            "vmObject": refer("vmObject"),
+                            "hydroState": refer("hydroState"),
+                            "table": refer("table"),
+                          })
+                          .returned
+                          .statement,
+                    ],
+                  ),
+              ).closure
+            },
+            [
+              TypeReference((t) => t..symbol = swidClass.name),
+            ],
+          )
+          .statement
+          .accept(
+            DartEmitter(
+              useNullSafetySyntax: true,
+            ),
+          )
+          .toString();
 }

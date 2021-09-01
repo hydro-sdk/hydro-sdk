@@ -1,21 +1,33 @@
 import 'dart:convert';
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
+import 'package:hydro_sdk/swid/backend/dart/dartBindInstanceFieldDirect.dart';
 
 import 'package:hydro_sdk/swid/backend/dart/dartRtManagedClassDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
+import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
     var iconDataClass = SwidClass.fromJson(
-        json.decode(File("test/swid/res/IconData.json").readAsStringSync()));
+      json.decode(
+        File("test/swid/res/IconData.json").readAsStringSync(),
+      ),
+    );
 
+    final pipeline = CachingPipeline();
+
+    final res = pipeline.reduceFromTerm(
+      DartRTManagedClassDeclaration(
+        swidClass: iconDataClass,
+      ),
+    );
+    
     expect(iconDataClass.instanceFieldDeclarations.length, 4);
-    expect(
-        DartRTManagedClassDeclaration(swidClass: iconDataClass).toDartSource(),
-        """
+    expect(res, """
 class RTManagedIconData extends IconData implements Box<IconData> {
   RTManagedIconData(int codePoint,
       {String? fontFamily,

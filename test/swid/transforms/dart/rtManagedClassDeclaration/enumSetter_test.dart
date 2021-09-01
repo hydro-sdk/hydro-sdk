@@ -8,6 +8,7 @@ import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
+import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
@@ -93,7 +94,13 @@ void main() {
         mixedInClasses: [],
         extendedClass: null,
         isMixin: false);
-    expect(DartRTManagedClassDeclaration(swidClass: ast).toDartSource(), """
+    expect(
+        CachingPipeline().reduceFromTerm(
+          DartRTManagedClassDeclaration(
+            swidClass: ast,
+          ),
+        ),
+        """
 class RTManagedPath extends Path implements Box<Path> {
   RTManagedPath({required this.table, required this.hydroState}) : super() {
     table[\'vmObject\'] = vmObject;

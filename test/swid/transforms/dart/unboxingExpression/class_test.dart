@@ -7,23 +7,28 @@ import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
+import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
     expect(
-        DartUnboxingExpression(
+        CachingPipeline().reduceFromTerm(
+          DartUnboxingExpression(
             swidType: SwidType.fromSwidInterface(
-                swidInterface: SwidInterface(
-              declarationModifiers: SwidDeclarationModifiers.empty(),
-              name: "Offset",
-              nullabilitySuffix: SwidNullabilitySuffix.none,
-              originalPackagePath: "dart:ui",
-              typeArguments: [],
-              referenceDeclarationKind:
-                  SwidReferenceDeclarationKind.classElement,
-            )),
-            expression: refer("foo").call([])).toDartSource(),
+              swidInterface: SwidInterface(
+                declarationModifiers: SwidDeclarationModifiers.empty(),
+                name: "Offset",
+                nullabilitySuffix: SwidNullabilitySuffix.none,
+                originalPackagePath: "dart:ui",
+                typeArguments: [],
+                referenceDeclarationKind:
+                    SwidReferenceDeclarationKind.classElement,
+              ),
+            ),
+            expression: refer("foo").call([]),
+          ),
+        ),
         "maybeUnBoxAndBuildArgument<Offset, dynamic>(foo(), parentState: hydroState)");
   }, tags: "swid");
 }

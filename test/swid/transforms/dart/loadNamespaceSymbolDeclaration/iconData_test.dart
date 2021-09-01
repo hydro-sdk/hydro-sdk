@@ -5,6 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'package:hydro_sdk/swid/backend/dart/dartLoadNamespaceSymbolDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
+import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
@@ -14,8 +15,9 @@ void main() {
 
     expect(iconDataClass.instanceFieldDeclarations.length, 4);
     expect(
-        DartLoadNamespaceSymbolDeclaration(swidClass: iconDataClass)
-            .toDartSource(),
+        CachingPipeline().reduceFromTerm(
+          DartLoadNamespaceSymbolDeclaration(swidClass: iconDataClass),
+        ),
         """
 void loadIconData({required HydroState hydroState, required HydroTable table}) {
   table[\'iconData\'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {

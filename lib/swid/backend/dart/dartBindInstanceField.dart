@@ -67,11 +67,22 @@ class DartBindInstanceField
           ),
           onClass: (val) => refer("table")
               .index(literalString(tableKey))
-              .assign(CodeExpression(Code(DartBoxObjectReference(
-                      type: val,
-                      boxLists: false,
-                      objectReference: CodeExpression(Code(instanceFieldName)))
-                  .toDartSource())))
+              .assign(
+                CodeExpression(
+                  Code(
+                    pipeline.reduceFromTerm(
+                      DartBoxObjectReference(
+                        type: val,
+                        boxLists: false,
+                        tableExpression: null,
+                        objectReference: CodeExpression(
+                          Code(instanceFieldName),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              )
               .accept(DartEmitter(
                 useNullSafetySyntax: true,
               ))

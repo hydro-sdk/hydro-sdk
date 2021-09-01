@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
@@ -71,6 +73,8 @@ class CachingPipeline<T extends Object> implements ISwarsPipeline<T> {
   }) =>
       _terms.add(term);
 
+  @pragma('vm:prefer-inline')
+  @pragma('dart2js:tryInline')
   List<T> reduce() => _terms
       .map((x) => _callTerm(
             term: x,
@@ -103,6 +107,8 @@ class CachingPipeline<T extends Object> implements ISwarsPipeline<T> {
 
     final res = pipeline.reduce();
 
+    debugger();
+    print("");
     return res.first;
   }
 }

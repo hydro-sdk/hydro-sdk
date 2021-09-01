@@ -1,4 +1,5 @@
 import 'package:collection/collection.dart';
+import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:path/path.dart' as p;
 
 import 'package:hydro_sdk/swid/backend/dart/util/produceDartTranslationUnitFromSwidClass.dart';
@@ -18,6 +19,7 @@ class TranslationUnitProducer {
   final String path;
   final String baseFileName;
   final List<String> prefixPaths;
+  final ISwarsPipeline pipeline;
 
   TranslationUnitProducer({
     required final this.tsPrefixPaths,
@@ -25,6 +27,7 @@ class TranslationUnitProducer {
     required final this.path,
     required final this.baseFileName,
     required final this.prefixPaths,
+    required final this.pipeline,
   });
 
   List<TranslationUnit> produceFromSwidEnum({
@@ -59,6 +62,7 @@ class TranslationUnitProducer {
           baseFileName: baseFileName,
           path: path,
           prefixPaths: dartPrefixPaths,
+          pipeline: pipeline,
         ),
       ].whereNotNull().toList();
 

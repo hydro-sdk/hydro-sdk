@@ -5,6 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'package:hydro_sdk/swid/backend/dart/dartVmManagedClassDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
+import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
@@ -14,9 +15,10 @@ void main() {
             .readAsStringSync()));
 
     expect(
-        DartVMManagedClassDeclaration(
-                swidClass: diagnosticPropertiesBuilderClass)
-            .toDartSource(),
+        CachingPipeline().reduceFromTerm(
+          DartVMManagedClassDeclaration(
+              swidClass: diagnosticPropertiesBuilderClass),
+        ),
         """
 class VMManagedDiagnosticPropertiesBuilder
     extends VMManagedBox<DiagnosticPropertiesBuilder> {

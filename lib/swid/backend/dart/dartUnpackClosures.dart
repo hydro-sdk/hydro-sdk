@@ -1,5 +1,9 @@
 import 'package:code_builder/code_builder.dart'
     show DartEmitter, refer, literalString, literalNum;
+import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
+import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
+import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
 
 import 'package:tuple/tuple.dart';
 
@@ -8,15 +12,40 @@ import 'package:hydro_sdk/swid/backend/dart/util/unpackedClosureName.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-class DartUnpackClosures {
-  final SwidFunctionType swidFunctionType;
+part 'dartUnpackClosures.freezed.dart';
 
-  const DartUnpackClosures({
-    required final this.swidFunctionType,
-  });
+@freezed
+class DartUnpackClosures
+    with
+        _$DartUnpackClosures,
+        HashKeyMixin<DartUnpackClosures>,
+        HashComparableMixin<DartUnpackClosures>,
+        SwarsTransformMixin<DartUnpackClosures,
+            $DartUnpackClosuresCopyWith<DartUnpackClosures>, String> {
+  DartUnpackClosures._();
 
-  String toDartSource() => ([
+  factory DartUnpackClosures({
+    required final SwidFunctionType swidFunctionType,
+  }) = _$DartUnpackClosuresCtor;
+
+  @override
+  String get cacheGroup => "dartUnpackClosures";
+
+  @override
+  DartUnpackClosures clone({
+    final SwidFunctionType? swidFunctionType,
+  }) =>
+      DartUnpackClosures(
+        swidFunctionType: swidFunctionType ?? this.swidFunctionType.clone(),
+      );
+
+  @override
+  String transform({
+    required final ISwarsPipeline pipeline,
+  }) =>
+      ([
         ...([
           ...swidFunctionType.normalParameterNames
               .map(

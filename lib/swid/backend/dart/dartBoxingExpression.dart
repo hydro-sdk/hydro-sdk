@@ -61,13 +61,15 @@ class DartBoxingExpression
                 useNullSafetySyntax: true,
               ))
               .toString(),
-          onClass: (val) => DartBoxObjectReference(
-            type: val,
-            objectReference: expression,
-            boxLists: true,
-            codeKind: CodeKind.expression,
-            tableExpression: tableExpression,
-          ).toDartSource(),
+          onClass: (val) => pipeline.reduceFromTerm(
+            DartBoxObjectReference(
+              type: val,
+              objectReference: expression,
+              boxLists: true,
+              codeKind: CodeKind.expression,
+              tableExpression: tableExpression,
+            ),
+          ),
           onEnum: (val) => pipeline.reduceFromTerm(
             DartBoxEnumReference(
               type: SwidType.fromSwidInterface(swidInterface: val),

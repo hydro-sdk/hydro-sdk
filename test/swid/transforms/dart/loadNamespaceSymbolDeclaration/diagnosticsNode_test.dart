@@ -5,6 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'package:hydro_sdk/swid/backend/dart/dartLoadNamespaceSymbolDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
+import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
@@ -13,8 +14,9 @@ void main() {
         .decode(File("test/swid/res/DiagnosticsNode.json").readAsStringSync()));
 
     expect(
-        DartLoadNamespaceSymbolDeclaration(swidClass: diagnosticsNode)
-            .toDartSource(),
+        CachingPipeline().reduceFromTerm(
+          DartLoadNamespaceSymbolDeclaration(swidClass: diagnosticsNode),
+        ),
         """
 void loadDiagnosticsNode(
     {required HydroState hydroState, required HydroTable table}) {

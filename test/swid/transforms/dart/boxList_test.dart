@@ -6,6 +6,7 @@ import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
+import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
@@ -30,7 +31,10 @@ void main() {
       referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
     );
 
-    expect(DartBoxList(type: field, referenceName: "properties").toDartSource(),
+    expect(
+        CachingPipeline().reduceFromTerm(
+          DartBoxList(type: field, referenceName: "properties"),
+        ),
         "properties.map((x) => maybeBoxObject<DiagnosticsNode>(object: x, hydroState: hydroState, table: HydroTable())).toList();");
   }, tags: "swid");
 }
