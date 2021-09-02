@@ -6,10 +6,12 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartRtManagedClassDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
+import '"../../../../../../../bin/swid.reflectable.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
+    initializeReflectable();
     var iconDataClass = SwidClass.fromJson(
       json.decode(
         File("test/swid/res/IconData.json").readAsStringSync(),

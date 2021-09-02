@@ -8,6 +8,7 @@ import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
+import 'package:hydro_sdk/swid/util/iHashKey.dart';
 
 part 'dartBindInstanceFieldDirect.freezed.dart';
 
@@ -20,7 +21,9 @@ class DartBindInstanceFieldDirect
         SwarsTransformMixin<
             DartBindInstanceFieldDirect,
             $DartBindInstanceFieldDirectCopyWith<DartBindInstanceFieldDirect>,
-            String> {
+            String>
+    implements
+        IHashKey {
   DartBindInstanceFieldDirect._();
 
   factory DartBindInstanceFieldDirect({
