@@ -49,6 +49,13 @@ class SwidiConstFunctionInvocation
       );
 
   @override
+  List<int> get hashableParts => [
+        ...value.hashableParts,
+        ...positionalParameters.hashableParts,
+        ...namedParameters.hashableParts,
+      ];
+
+  @override
   SwidiConstFunctionInvocation clone({
     final String? value,
     final List<SwidiConst>? positionalParameters,

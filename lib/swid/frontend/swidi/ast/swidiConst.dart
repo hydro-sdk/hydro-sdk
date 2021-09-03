@@ -72,6 +72,16 @@ class SwidiConst
       );
 
   @override
+  List<int> get hashableParts => when(
+        fromSwidiEmptyConst: (val) => val.hashableParts,
+        fromSwidiConstNumber: (val) => val.hashableParts,
+        fromSwidiConstString: (val) => val.hashableParts,
+        fromSwidiConstFunctionInvocation: (val) => val.hashableParts,
+        fromSwidiConstMap: (val) => val.hashableParts,
+        fromSwidiConstBoolean: (val) => val.hashableParts,
+      );
+
+  @override
   SwidiConst clone() => SwidiConst._clone(
         swidiConst: this,
       );

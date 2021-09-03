@@ -47,6 +47,12 @@ class SwidStaticConstMapLiteralEntry
       );
 
   @override
+  List<int> get hashableParts => [
+        ...key.hashableParts,
+        ...value.hashableParts,
+      ];
+
+  @override
   SwidStaticConstMapLiteralEntry clone({
     final SwidStaticConst? key,
     final SwidStaticConst? value,

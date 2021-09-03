@@ -42,6 +42,13 @@ class DartUnboxingExpression
   String get cacheGroup => "dartUnboxingExpression";
 
   @override
+  List<int> get hashableParts => [
+        ...swidType.hashableParts,
+        expression.hashCode,
+        ...identifierName?.hashableParts ?? [],
+      ];
+
+  @override
   DartUnboxingExpression clone({
     final SwidType? swidType,
     final Expression? expression,

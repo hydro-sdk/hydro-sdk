@@ -30,6 +30,11 @@ class SwidiAnnotation
       );
 
   @override
+  List<int> get hashableParts => [
+        ...value.hashableParts,
+      ];
+
+  @override
   SwidiAnnotation clone({
     final SwidiConst? value,
   }) =>

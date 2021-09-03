@@ -37,6 +37,13 @@ class SwidiPositionalOrOptionalOrNamedParameter
         ),
       );
 
+  @override
+  List<int> get hashableParts => when(
+        fromSwidiPositionalParameter: (val) => val.hashableParts,
+        fromSwidiOptionalParameter: (val) => val.hashableParts,
+        fromSwidiNamedParameter: (val) => val.hashableParts,
+      );
+
   factory SwidiPositionalOrOptionalOrNamedParameter.fromSwidiPositionalParameter({
     required final SwidiPositionalParameter positionalParameter,
   }) = _$SwidiPositionalOrOptionalParameterFromSwidiPositionalParameter;

@@ -32,6 +32,11 @@ class SwidiLibraryScopePrefix
       );
 
   @override
+  List<int> get hashableParts => [
+        ...name.hashableParts,
+      ];
+
+  @override
   SwidiLibraryScopePrefix clone({
     final String? name,
   }) =>

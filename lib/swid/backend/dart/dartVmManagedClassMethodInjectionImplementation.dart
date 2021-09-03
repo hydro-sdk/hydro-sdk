@@ -36,6 +36,11 @@ class DartVMManagedClassMethodInjectionImplementation
   String get cacheGroup => "dartVMManagedClassMethodInjectionImplementation";
 
   @override
+  List<int> get hashableParts => [
+    ...swidFunctionType.hashableParts,
+  ];
+
+  @override
   DartVMManagedClassMethodInjectionImplementation clone({
     final SwidFunctionType? swidFunctionType,
     final String? tableKey,

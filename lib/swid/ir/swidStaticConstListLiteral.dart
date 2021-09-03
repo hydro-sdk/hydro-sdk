@@ -49,6 +49,12 @@ class SwidStaticConstListLiteral
       );
 
   @override
+  List<int> get hashableParts => [
+        ...elements.hashableParts,
+        ...staticType.hashableParts,
+      ];
+
+  @override
   SwidStaticConstListLiteral clone({
     final List<SwidStaticConst>? elements,
     final SwidType? staticType,

@@ -70,6 +70,16 @@ class SwidiInterface
       );
 
   @override
+  List<int> get hashableParts => [
+        ...name.hashableParts,
+        ...libraryScopePrefix.hashableParts,
+        ...referenceDeclarationPrefix.hashableParts,
+        nullabilitySuffix.index,
+        ...typeArguments.hashableParts,
+        ...annotations.hashableParts,
+      ];
+
+  @override
   SwidiInterface clone({
     final String? name,
     final SwidiLibraryScopePrefix? libraryScopePrefix,

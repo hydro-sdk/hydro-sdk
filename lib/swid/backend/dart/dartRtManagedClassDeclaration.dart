@@ -65,6 +65,11 @@ class DartRTManagedClassDeclaration
   String get cacheGroup => "dartRTManagedClassDeclaration";
 
   @override
+  List<int> get hashableParts => [
+        ...swidClass.hashableParts,
+      ];
+
+  @override
   DartRTManagedClassDeclaration clone({
     final SwidClass? swidClass,
   }) =>

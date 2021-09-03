@@ -16,5 +16,8 @@ class SwidiConstBooleanTrue
   factory SwidiConstBooleanTrue() = _$SwidiConstBooleanTrueCtor;
 
   @override
+  List<int> get hashableParts => [1];
+
+  @override
   SwidiConstBooleanTrue clone() => SwidiConstBooleanTrue();
 }

@@ -41,6 +41,12 @@ class SwidStaticConstIdentifier
       );
 
   @override
+  List<int> get hashableParts => [
+        ...identifier.hashableParts,
+        ...enclosingType.hashableParts,
+      ];
+
+  @override
   SwidStaticConstIdentifier clone({
     final String? identifier,
     final SwidType? enclosingType,

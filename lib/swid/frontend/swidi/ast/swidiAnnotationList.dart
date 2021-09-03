@@ -36,6 +36,11 @@ class SwidiAnnotationList
       );
 
   @override
+  List<int> get hashableParts => [
+        ...annotationList.hashableParts,
+      ];
+
+  @override
   SwidiAnnotationList clone({
     final List<SwidiAnnotation>? annotationList,
   }) =>

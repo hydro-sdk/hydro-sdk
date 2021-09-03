@@ -33,6 +33,11 @@ class SwidDoubleLiteral
       );
 
   @override
+  List<int> get hashableParts => [
+        ...value.hashableParts,
+      ];
+
+  @override
   SwidDoubleLiteral clone({
     final String? value,
   }) =>

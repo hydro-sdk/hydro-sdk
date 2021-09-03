@@ -45,6 +45,25 @@ class SwidClass
     SwidClass? extendedClass,
   }) = _$Data;
 
+  @override
+  List<int> get hashableParts => [
+        ...name.hashableParts,
+        nullabilitySuffix.index,
+        ...originalPackagePath.hashableParts,
+        ...constructorType?.hashableParts ?? [],
+        ...factoryConstructors.hashableParts,
+        ...staticMethods.hashableParts,
+        ...methods.hashableParts,
+        ...staticConstFieldDeclarations.hashableParts,
+        ...instanceFieldDeclarations.hashableParts,
+        ...declarationModifiers.hashableParts,
+        ...mixedInClasses.hashableParts,
+        ...implementedClasses.hashableParts,
+        ...isMixin.hashableParts,
+        ...typeFormals.hashableParts,
+        ...extendedClass?.hashableParts ?? [],
+      ];
+
   factory SwidClass.fromJson(Map<String, dynamic> json) =>
       _$SwidClassFromJson(json);
 

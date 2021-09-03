@@ -134,6 +134,23 @@ class SwidFunctionType
         typeFormals: typeFormals ?? List.from(swidFunctionType.typeFormals),
       );
 
+  @override
+  List<int> get hashableParts => [
+        ...name.hashableParts,
+        nullabilitySuffix.index,
+        ...originalPackagePath.hashableParts,
+        ...namedParameterTypes.hashableParts,
+        ...namedDefaults.hashableParts,
+        ...normalParameterNames.hashableParts,
+        ...normalParameterTypes.hashableParts,
+        ...optionalParameterNames.hashableParts,
+        ...optionalParameterTypes.hashableParts,
+        ...returnType.hashableParts,
+        ...isFactory.hashableParts,
+        ...typeFormals.hashableParts,
+        ...declarationModifiers.hashableParts,
+      ];
+
   Map<String, SwidDefaultFormalParameter> get namedDefaultParameters =>
       Map.fromEntries(
         ([

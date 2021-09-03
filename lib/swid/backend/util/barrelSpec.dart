@@ -34,6 +34,13 @@ class BarrelSpec
       );
 
   @override
+  List<int> get hashableParts => [
+        ...path.codeUnits,
+        ...name.codeUnits,
+        ...members.hashableParts,
+      ];
+
+  @override
   BarrelSpec clone({
     final String? path,
     final String? name,

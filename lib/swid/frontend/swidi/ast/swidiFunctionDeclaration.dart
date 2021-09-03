@@ -83,6 +83,17 @@ class SwidiFunctionDeclaration
       );
 
   @override
+  List<int> get hashableParts => [
+        ...name.hashableParts,
+        ...returnType.hashableParts,
+        ...positionalParameters.hashableParts,
+        ...optionalParameters.hashableParts,
+        ...namedParameters.hashableParts,
+        ...typeFormals.hashableParts,
+        ...shortHandOverride.hashableParts,
+      ];
+
+  @override
   SwidiFunctionDeclaration clone({
     final String? name,
     final SwidiInterface? returnType,

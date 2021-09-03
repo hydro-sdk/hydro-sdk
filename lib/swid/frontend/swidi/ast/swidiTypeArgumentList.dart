@@ -36,6 +36,11 @@ class SwidiTypeArgumentList
       );
 
   @override
+  List<int> get hashableParts => [
+        ...typeList.hashableParts,
+      ];
+
+  @override
   SwidiTypeArgumentList clone({
     final List<SwidiInterface>? typeList,
   }) =>

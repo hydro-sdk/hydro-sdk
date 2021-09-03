@@ -45,6 +45,12 @@ class SwidStaticConstPrefixedExpression
       );
 
   @override
+  List<int> get hashableParts => [
+        ...prefix.hashableParts,
+        ...expression.hashableParts,
+      ];
+
+  @override
   SwidStaticConstPrefixedExpression clone({
     final String? prefix,
     final SwidStaticConst? expression,

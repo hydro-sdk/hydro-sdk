@@ -33,6 +33,13 @@ class DartBoxingExpression
   String get cacheGroup => "dartBoxingExpression";
 
   @override
+  List<int> get hashableParts => [
+        ...swidType.hashableParts,
+        expression.hashCode,
+        tableExpression?.hashCode ?? 0,
+      ];
+
+  @override
   DartBoxingExpression clone({
     final SwidType? swidType,
     final Expression? expression,

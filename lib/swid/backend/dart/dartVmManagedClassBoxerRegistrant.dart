@@ -32,6 +32,11 @@ class DartVMManagedClassBoxerRegistrant
   String get cacheGroup => "dartVMManagedClassBoxerRegistrant";
 
   @override
+  List<int> get hashableParts => [
+        ...swidClass.hashableParts,
+      ];
+
+  @override
   DartVMManagedClassBoxerRegistrant clone({
     final SwidClass? swidClass,
   }) =>

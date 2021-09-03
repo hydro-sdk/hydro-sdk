@@ -41,6 +41,11 @@ class SwidiConstPositionalParameterList
       );
 
   @override
+  List<int> get hashableParts => [
+        ...parameters.hashableParts,
+      ];
+
+  @override
   SwidiConstPositionalParameterList clone({
     final List<SwidiConst>? parameters,
   }) =>

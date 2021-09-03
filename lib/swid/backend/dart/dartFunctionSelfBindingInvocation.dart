@@ -49,6 +49,16 @@ class DartFunctionSelfBindingInvocation
   String get cacheGroup => "dartFunctionSelfBindingInvocation";
 
   @override
+  List<int> get hashableParts => [
+        ...swidFunctionType.hashableParts,
+        argumentBoxingProcedure.index,
+        returnValueBoxingProcedure.index,
+        ...emitTableBindingPrefix.hashableParts,
+        ...useClosureUnpackNameForUnboxingIdentifiers.hashableParts,
+        returnValueBoxingTableExpression.hashCode,
+      ];
+
+  @override
   DartFunctionSelfBindingInvocation clone({
     final SwidFunctionType? swidFunctionType,
     final DartBoxingProcedure? argumentBoxingProcedure,

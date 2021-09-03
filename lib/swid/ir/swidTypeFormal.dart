@@ -57,6 +57,14 @@ class SwidTypeFormalValue
   factory SwidTypeFormalValue.fromJson(Map<String, dynamic> json) =>
       _$SwidTypeFormalValueFromJson(json);
 
+  @override
+  List<int> get hashableParts => when(
+        fromString: (val) => val.hashableParts,
+        fromSwidClass: (val) => val.hashableParts,
+        fromSwidInterface: (val) => val.hashableParts,
+        fromSwidFunctionType: (val) => val.hashableParts,
+      );
+
   String get name => when(
         fromString: (val) => val,
         fromSwidClass: (val) => val.name,
@@ -110,6 +118,12 @@ class SwidTypeFormal
         swidReferenceDeclarationKind: swidReferenceDeclarationKind ??
             swidTypeFormal.swidReferenceDeclarationKind,
       );
+
+  @override
+  List<int> get hashableParts => [
+        ...value.hashableParts,
+        swidReferenceDeclarationKind.index,
+      ];
 
   @override
   SwidTypeFormal clone({

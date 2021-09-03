@@ -35,6 +35,13 @@ class DartBindInstanceField
   String get cacheGroup => "dartBindInstanceField";
 
   @override
+  List<int> get hashableParts => [
+        ...instanceFieldName.codeUnits,
+        ...tableKey.codeUnits,
+        ...instanceField.hashableParts,
+      ];
+
+  @override
   DartBindInstanceField clone({
     final String? instanceFieldName,
     final String? tableKey,

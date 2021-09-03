@@ -43,6 +43,15 @@ class DartBoxObjectReference
   String get cacheGroup => "dartBoxObjectReference";
 
   @override
+  List<int> get hashableParts => [
+        ...type.hashableParts,
+        objectReference.hashCode,
+        ...boxLists.hashableParts,
+        codeKind.index,
+        tableExpression.hashCode,
+      ];
+
+  @override
   DartBoxObjectReference clone({
     final SwidInterface? type,
     final Expression? objectReference,

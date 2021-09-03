@@ -51,6 +51,14 @@ class SwidiClass
       );
 
   @override
+  List<int> get hashableParts => [
+        ...name.hashableParts,
+        ...libraryScopePrefix.hashableParts,
+        ...methods.hashableParts,
+        ...staticMethods.hashableParts,
+      ];
+
+  @override
   SwidiClass clone({
     final String? name,
     final SwidiLibraryScopePrefix? libraryScopePrefix,

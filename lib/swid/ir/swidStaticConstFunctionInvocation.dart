@@ -72,6 +72,15 @@ class SwidStaticConstFunctionInvocation
             swidStaticConstFunctionInvocation.isConstructorInvocation,
       );
 
+      @override
+      List<int> get hashableParts => [
+        ...value.hashableParts,
+        ...staticType.hashableParts,
+        ...normalParameters.hashableParts,
+        ...namedParameters.hashableParts,
+        ...isConstructorInvocation.hashableParts,
+      ];
+
   @override
   SwidStaticConstFunctionInvocation clone({
     final String? value,

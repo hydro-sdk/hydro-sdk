@@ -30,6 +30,11 @@ class ValidateSwidiType
   String get cacheGroup => "validateSwidiType";
 
   @override
+  List<int> get hashableParts => [
+        ...swidiInterface.hashableParts,
+      ];
+
+  @override
   ValidateSwidiType clone({
     final SwidiInterface? swidiInterface,
   }) =>

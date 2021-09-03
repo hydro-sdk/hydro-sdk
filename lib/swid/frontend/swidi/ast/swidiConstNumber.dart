@@ -30,6 +30,11 @@ class SwidiConstNumber
       );
 
   @override
+  List<int> get hashableParts => [
+        ...value.hashableParts,
+      ];
+
+  @override
   SwidiConstNumber clone({
     final String? value,
   }) =>

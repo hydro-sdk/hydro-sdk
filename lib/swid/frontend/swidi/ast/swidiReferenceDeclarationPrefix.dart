@@ -35,6 +35,11 @@ class SwidiReferenceDeclarationPrefix
       );
 
   @override
+  List<int> get hashableParts => [
+        ...name.hashableParts,
+      ];
+
+  @override
   SwidiReferenceDeclarationPrefix clone({
     final String? name,
   }) =>

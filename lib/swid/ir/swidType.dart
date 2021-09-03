@@ -74,6 +74,14 @@ class SwidType
       );
 
   @override
+  List<int> get hashableParts => when(
+        fromSwidInterface: (val) => val.hashableParts,
+        fromSwidClass: (val) => val.hashableParts,
+        fromSwidDefaultFormalParameter: (val) => val.hashableParts,
+        fromSwidFunctionType: (val) => val.hashableParts,
+      );
+
+  @override
   SwidType clone() => SwidType.clone(
         swidType: this,
       );

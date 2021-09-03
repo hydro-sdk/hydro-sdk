@@ -36,6 +36,11 @@ class SwidiTypeFormalList
       );
 
   @override
+  List<int> get hashableParts => [
+        ...typeFormalList.hashableParts,
+      ];
+
+  @override
   SwidiTypeFormalList clone({
     final List<SwidiTypeFormal>? typeFormalList,
   }) =>

@@ -37,6 +37,13 @@ class DartBoxList
   String get cacheGroup => "dartBoxList";
 
   @override
+  List<int> get hashableParts => [
+    ...type.hashableParts,
+    ...referenceName.hashableParts,
+  ]
+  ;
+
+  @override
   DartBoxList clone({
     final SwidInterface? type,
     final String? referenceName,

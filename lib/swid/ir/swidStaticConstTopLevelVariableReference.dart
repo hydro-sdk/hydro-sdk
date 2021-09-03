@@ -47,6 +47,12 @@ class SwidStaticConstTopLevelVariableReference
       );
 
   @override
+  List<int> get hashableParts => [
+        ...identifier.hashableParts,
+        ...topLevelReference.hashableParts,
+      ];
+
+  @override
   SwidStaticConstTopLevelVariableReference clone({
     final String? identifier,
     final SwidType? topLevelReference,

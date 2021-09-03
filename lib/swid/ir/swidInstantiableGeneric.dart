@@ -32,6 +32,13 @@ class SwidInstantiableGeneric
       _$SwidInstantiableGenericFromJson(json);
 
   @override
+  List<int> get hashableParts => when(
+        fromSwidClass: (val) => val.hashableParts,
+        fromSwidInterface: (val) => val.hashableParts,
+        fromSwidFunctionType: (val) => val.hashableParts,
+      );
+
+  @override
   SwidInstantiableGeneric clone() => when(
         fromSwidClass: (val) => SwidInstantiableGeneric.fromSwidClass(
           swidClass: val.clone(),

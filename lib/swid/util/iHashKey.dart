@@ -4,5 +4,8 @@ import 'package:meta/meta.dart';
 abstract class IHashKey {
   const IHashKey();
 
-  int get hashKey;
+  String get hashKey;
+
+  List<int> get hashableParts;
 }
+

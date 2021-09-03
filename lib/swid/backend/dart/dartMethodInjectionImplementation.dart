@@ -40,6 +40,11 @@ class DartMethodInjectionImplementation
   String get cacheGroup => "dartMethodInjectionImplementation";
 
   @override
+  List<int> get hashableParts => [
+        ...swidFunctionType.hashableParts,
+      ];
+
+  @override
   DartMethodInjectionImplementation clone({
     final SwidFunctionType? swidFunctionType,
   }) =>

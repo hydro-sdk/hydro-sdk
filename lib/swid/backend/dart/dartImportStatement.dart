@@ -25,6 +25,11 @@ class DartImportStatement
   String get cacheGroup => "dartImportStatement";
 
   @override
+  List<int> get hashableParts => [
+        ...path.hashableParts,
+      ];
+
+  @override
   DartImportStatement clone({
     final String? path,
   }) =>

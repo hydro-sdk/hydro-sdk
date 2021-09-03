@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
@@ -10,17 +8,17 @@ class CachingPipeline<T extends Object> implements ISwarsPipeline<T> {
 
   CachingPipeline._({
     required final List<ISwarsTerm<dynamic, dynamic, dynamic>> terms,
-    required final Map<String, Map<int, dynamic>> results,
-    required final Map<String, Map<int, int>> cacheHits,
+    required final Map<String, Map<String, dynamic>> results,
+    required final Map<String, Map<String, int>> cacheHits,
   })   : _terms = terms,
         _results = results,
         _cacheHits = cacheHits;
 
   List<ISwarsTerm<dynamic, dynamic, dynamic>> _terms = [];
 
-  Map<String, Map<int, dynamic>> _results = {};
+  Map<String, Map<String, dynamic>> _results = {};
 
-  Map<String, Map<int, int>> _cacheHits = {};
+  Map<String, Map<String, int>> _cacheHits = {};
 
   @pragma('vm:prefer-inline')
   @pragma('dart2js:tryInline')
@@ -45,7 +43,7 @@ class CachingPipeline<T extends Object> implements ISwarsPipeline<T> {
     return res;
   }
 
-  Map<int, int> getCacheHitsForCacheGroup(final String cacheGroup) =>
+  Map<String, int> getCacheHitsForCacheGroup(final String cacheGroup) =>
       Map.fromEntries(
         _cacheHits[cacheGroup]!
             .entries
@@ -60,7 +58,7 @@ class CachingPipeline<T extends Object> implements ISwarsPipeline<T> {
   @visibleForTesting
   bool hashKeyExistsInCacheGroup({
     required final String cacheGroup,
-    required final int hashKey,
+    required final String hashKey,
   }) =>
       _results.containsKey(cacheGroup) &&
       _results[cacheGroup]!.containsKey(hashKey);
@@ -107,8 +105,6 @@ class CachingPipeline<T extends Object> implements ISwarsPipeline<T> {
 
     final res = pipeline.reduce();
 
-    debugger();
-    print("");
     return res.first;
   }
 }

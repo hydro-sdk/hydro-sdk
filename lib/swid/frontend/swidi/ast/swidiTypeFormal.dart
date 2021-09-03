@@ -38,6 +38,12 @@ class SwidiTypeFormal
       );
 
   @override
+  List<int> get hashableParts => [
+        ...name.hashableParts,
+        ...bound.hashableParts,
+      ];
+
+  @override
   SwidiTypeFormal clone({
     final String? name,
     final SwidiInterface? bound,

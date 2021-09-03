@@ -34,6 +34,11 @@ class SwidIntegerLiteral
       );
 
   @override
+  List<int> get hashableParts => [
+        ...value.hashableParts,
+      ];
+
+  @override
   SwidIntegerLiteral clone({
     final String? value,
   }) =>

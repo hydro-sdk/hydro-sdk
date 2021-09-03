@@ -34,6 +34,11 @@ class SwidBooleanLiteral
       );
 
   @override
+  List<int> get hashableParts => [
+        ...value.hashableParts,
+      ];
+
+  @override
   SwidBooleanLiteral clone() => SwidBooleanLiteral._clone(
         swidBooleanLiteral: this,
         value: value,

@@ -43,6 +43,12 @@ class SwidStaticConstFieldDeclaration
       );
 
   @override
+  List<int> get hashableParts => [
+        ...name.hashableParts,
+        ...value.hashableParts,
+      ];
+
+  @override
   SwidStaticConstFieldDeclaration clone({
     final String? name,
     final SwidStaticConst? value,

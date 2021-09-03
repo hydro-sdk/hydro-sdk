@@ -38,6 +38,11 @@ class SwidiConstMap
       );
 
   @override
+  List<int> get hashableParts => [
+        ...entries.hashableParts,
+      ];
+
+  @override
   SwidiConstMap clone({
     final List<Tuple2<SwidiConst, SwidiConst>>? entries,
   }) =>

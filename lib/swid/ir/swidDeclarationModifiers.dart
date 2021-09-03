@@ -31,6 +31,12 @@ class StringTuple
         item2: item2 ?? stringTuple.item2,
       );
 
+  @override
+  List<int> get hashableParts => [
+        ...item1.hashableParts,
+        ...item2.hashableParts,
+      ];
+
   factory StringTuple.fromJson(Map<String, dynamic> json) =>
       _$StringTupleFromJson(json);
 
@@ -86,6 +92,37 @@ class SwidDeclarationModifiers
     required final bool hasVisibleForTesting,
     required final bool isPublic,
   }) = _$Data;
+
+  @override
+  List<int> get hashableParts => [
+        ...ignoredTransforms.hashableParts,
+        ...ignoredAnalyses.hashableParts,
+        ...overridenTransforms.hashableParts,
+        ...isAbstract.hashableParts,
+        ...isGetter.hashableParts,
+        ...isOperator.hashableParts,
+        ...isSetter.hashableParts,
+        ...isStatic.hashableParts,
+        ...isSynthetic.hashableParts,
+        ...hasAlwaysThrows.hashableParts,
+        ...hasDeprecated.hashableParts,
+        ...hasFactory.hashableParts,
+        ...hasImplicitReturnType.hashableParts,
+        ...hasIsTest.hashableParts,
+        ...hasIsTestGroup.hashableParts,
+        ...hasJS.hashableParts,
+        ...hasLiteral.hashableParts,
+        ...hasMustCallSuper.hashableParts,
+        ...hasNonVirtual.hashableParts,
+        ...hasOptionalTypeArgs.hashableParts,
+        ...hasOverride.hashableParts,
+        ...hasProtected.hashableParts,
+        ...hasRequired.hashableParts,
+        ...hasSealed.hashableParts,
+        ...hasVisibleForTemplate.hashableParts,
+        ...hasVisibleForTesting.hashableParts,
+        ...isPublic.hashableParts,
+      ];
 
   factory SwidDeclarationModifiers.fromJson(Map<String, dynamic> json) =>
       _$SwidDeclarationModifiersFromJson(json);

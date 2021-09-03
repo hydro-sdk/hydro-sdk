@@ -32,6 +32,11 @@ class SwidiPositionalParameter
       );
 
   @override
+  List<int> get hashableParts => [
+        ...declaration.hashableParts,
+      ];
+
+  @override
   SwidiPositionalParameter clone({
     final SwidiDeclaration? declaration,
   }) =>

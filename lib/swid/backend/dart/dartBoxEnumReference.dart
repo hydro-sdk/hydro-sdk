@@ -32,6 +32,12 @@ class DartBoxEnumReference
   String get cacheGroup => "dartBoxEnumReference";
 
   @override
+  List<int> get hashableParts => [
+        ...type?.hashableParts ?? [],
+        ...referenceName.codeUnits,
+      ];
+
+  @override
   DartBoxEnumReference clone({
     final SwidType? type,
     final String? referenceName,

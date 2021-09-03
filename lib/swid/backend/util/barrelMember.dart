@@ -29,6 +29,13 @@ class BarrelMember
   }) = _$FromBarrelSpec;
 
   @override
+  List<int> get hashableParts => when(
+        fromSwidClass: (val) => val.hashableParts,
+        fromSwidEnum: (val) => val.hashableParts,
+        fromBarrelSpec: (val) => val.hashableParts,
+      );
+
+  @override
   BarrelMember clone() => when(
         fromSwidClass: (val) => BarrelMember.fromSwidClass(
           swidClass: val.clone(),

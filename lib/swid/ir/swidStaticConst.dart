@@ -179,6 +179,25 @@ class SwidStaticConst
       );
 
   @override
+  List<int> get hashableParts => when(
+        fromSwidBooleanLiteral: (val) => val.hashableParts,
+        fromSwidStringLiteral: (val) => val.hashableParts,
+        fromSwidIntegerLiteral: (val) => val.hashableParts,
+        fromDoubleLiteral: (val) => val.hashableParts,
+        fromSwidStaticConstFunctionInvocation: (val) => val.hashableParts,
+        fromSwidStaticConstFieldReference: (val) => val.hashableParts,
+        fromSwidStaticConstPrefixedExpression: (val) => val.hashableParts,
+        fromSwidStaticConstBinaryExpression: (val) => val.hashableParts,
+        fromSwidStaticConstPrefixedIdentifier: (val) => val.hashableParts,
+        fromSwidStaticConstIdentifier: (val) => val.hashableParts,
+        fromSwidStaticConstListLiteral: (val) => val.hashableParts,
+        fromSwidStaticConstMapLiteralEntry: (val) => val.hashableParts,
+        fromSwidStaticConstMapLiteral: (val) => val.hashableParts,
+        fromSwidStaticConstTopLevelVariableReference: (val) =>
+            val.hashableParts,
+      );
+
+  @override
   SwidStaticConst clone() => SwidStaticConst.clone(
         swidStaticConst: this,
       );

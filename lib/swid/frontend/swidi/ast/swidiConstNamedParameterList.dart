@@ -40,6 +40,11 @@ class SwidiConstNamedParameterList
       );
 
   @override
+  List<int> get hashableParts => [
+        ...parameters.hashableParts,
+      ];
+
+  @override
   SwidiConstNamedParameterList clone({
     final List<SwidiConstNamedParameter>? parameters,
   }) =>

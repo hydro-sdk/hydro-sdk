@@ -52,6 +52,12 @@ class DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
       "dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration";
 
   @override
+  List<int> get hashableParts => [
+        ...swidClass.hashableParts,
+        ...swidStaticConstFieldDeclaration.hashableParts,
+      ];
+
+  @override
   DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration clone({
     final SwidClass? swidClass,
     final SwidStaticConstFieldDeclaration? swidStaticConstFieldDeclaration,

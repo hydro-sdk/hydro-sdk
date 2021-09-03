@@ -70,6 +70,16 @@ class SwidInterface
         referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
       );
 
+  @override
+  List<int> get hashableParts => [
+        ...name.hashableParts,
+        nullabilitySuffix.index,
+        ...originalPackagePath.hashableParts,
+        ...typeArguments.hashableParts,
+        referenceDeclarationKind.index,
+        ...declarationModifiers.hashableParts,
+      ];
+
   String get displayName =>
       SwidType.fromSwidInterface(swidInterface: this).displayName;
 

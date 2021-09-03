@@ -39,6 +39,12 @@ class DartStaticMethodNamespaceSymbolDeclaration
   String get cacheGroup => "dartStaticMethodNamespaceSymbolDeclaration";
 
   @override
+  List<int> get hashableParts => [
+        ...swidClass.hashableParts,
+        ...swidFunctionType.hashableParts,
+      ];
+
+  @override
   DartStaticMethodNamespaceSymbolDeclaration clone({
     final SwidClass? swidClass,
     final SwidFunctionType? swidFunctionType,

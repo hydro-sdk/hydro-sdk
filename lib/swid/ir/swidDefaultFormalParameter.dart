@@ -61,6 +61,15 @@ class SwidDefaultFormalParameter
       );
 
   @override
+  List<int> get hashableParts => [
+        nullabilitySuffix.index,
+        ...originalPackagePath.hashableParts,
+        ...staticType.hashableParts,
+        ...value.hashableParts,
+        ...defaultValueCode.hashableParts,
+      ];
+
+  @override
   String get name => staticType.name;
 
   @override

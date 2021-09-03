@@ -34,6 +34,12 @@ class SwidiConstNamedParameter
       );
 
   @override
+  List<int> get hashableParts => [
+        ...name.hashableParts,
+        ...value.hashableParts,
+      ];
+
+  @override
   SwidiConstNamedParameter clone({
     final String? name,
     final SwidiConst? value,

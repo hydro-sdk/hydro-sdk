@@ -35,6 +35,11 @@ class SwidiStaticFunctionDeclaration
       );
 
   @override
+  List<int> get hashableParts => [
+        ...functionDeclaration.hashableParts,
+      ];
+
+  @override
   SwidiStaticFunctionDeclaration clone({
     final SwidiFunctionDeclaration? functionDeclaration,
   }) =>
