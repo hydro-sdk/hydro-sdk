@@ -37,8 +37,8 @@ class DartVMManagedClassMethodInjectionImplementation
 
   @override
   List<int> get hashableParts => [
-    ...swidFunctionType.hashableParts,
-  ];
+        ...swidFunctionType.hashableParts,
+      ];
 
   @override
   DartVMManagedClassMethodInjectionImplementation clone({

@@ -1,7 +1,7 @@
-import 'package:meta/meta.dart';
-import 'package:tuple/tuple.dart';
 import 'package:convert/convert.dart';
 import 'package:crypto/crypto.dart';
+import 'package:meta/meta.dart';
+import 'package:tuple/tuple.dart';
 
 import 'package:hydro_sdk/swid/util/iCloneable.dart';
 import 'package:hydro_sdk/swid/util/iHashKey.dart';

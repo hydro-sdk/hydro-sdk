@@ -31,7 +31,7 @@ class SwidiOptionalParameter
       );
 
   @override
-      List<int> get hashableParts => [
+  List<int> get hashableParts => [
         ...declaration.hashableParts,
       ];
 

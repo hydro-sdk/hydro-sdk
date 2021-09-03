@@ -8,4 +8,3 @@ abstract class IHashKey {
 
   List<int> get hashableParts;
 }
-

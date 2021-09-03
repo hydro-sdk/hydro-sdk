@@ -38,10 +38,9 @@ class DartBoxList
 
   @override
   List<int> get hashableParts => [
-    ...type.hashableParts,
-    ...referenceName.hashableParts,
-  ]
-  ;
+        ...type.hashableParts,
+        ...referenceName.hashableParts,
+      ];
 
   @override
   DartBoxList clone({

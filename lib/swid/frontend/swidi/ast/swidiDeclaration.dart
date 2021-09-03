@@ -38,8 +38,8 @@ class SwidiDeclaration
             defaultConstValue ?? swidiDeclaration.defaultConstValue.clone(),
       );
 
-      @override
-      List<int> get hashableParts => [
+  @override
+  List<int> get hashableParts => [
         ...name.hashableParts,
         ...type.hashableParts,
         ...defaultConstValue.hashableParts,
