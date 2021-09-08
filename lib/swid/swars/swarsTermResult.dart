@@ -1,7 +1,8 @@
 import 'dart:convert';
 
-import 'package:hydro_sdk/swid/util/iJsonTransformable.dart';
 import 'package:meta/meta.dart';
+
+import 'package:hydro_sdk/swid/util/iJsonTransformable.dart';
 
 abstract class ISwarsTermResult<T extends Object> {
   const ISwarsTermResult();

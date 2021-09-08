@@ -1,8 +1,8 @@
-import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsTerm.dart';
+import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 
 @immutable
 @optionalTypeArgs
