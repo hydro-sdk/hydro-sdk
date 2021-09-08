@@ -17,10 +17,12 @@ import 'package:hydro_sdk/swid/backend/dart/util/luaCallerArgumentsParameterName
 import 'package:hydro_sdk/swid/backend/dart/util/unpackedClosureName.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsNonUniqueTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
+import 'package:hydro_sdk/swid/util/unHashableMixin.dart';
 
 part 'dartFunctionSelfBindingInvocation.freezed.dart';
 
@@ -30,6 +32,12 @@ class DartFunctionSelfBindingInvocation
         _$DartFunctionSelfBindingInvocation,
         HashKeyMixin<DartFunctionSelfBindingInvocation>,
         HashComparableMixin<DartFunctionSelfBindingInvocation>,
+        UnhashableMixin<DartFunctionSelfBindingInvocation>,
+        SwarsNonUniqueTermMixin<
+            DartFunctionSelfBindingInvocation,
+            $DartFunctionSelfBindingInvocationCopyWith<
+                DartFunctionSelfBindingInvocation>,
+            String>,
         SwarsTransformMixin<
             DartFunctionSelfBindingInvocation,
             $DartFunctionSelfBindingInvocationCopyWith<
@@ -45,19 +53,6 @@ class DartFunctionSelfBindingInvocation
     required final bool useClosureUnpackNameForUnboxingIdentifiers,
     required final Expression? returnValueBoxingTableExpression,
   }) = _$DartFunctionSelfBindingInvocationCtor;
-
-  @override
-  String get cacheGroup => "dartFunctionSelfBindingInvocation";
-
-  @override
-  List<int> get hashableParts => [
-        ...swidFunctionType.hashableParts,
-        argumentBoxingProcedure.index,
-        returnValueBoxingProcedure.index,
-        ...emitTableBindingPrefix.hashableParts,
-        ...useClosureUnpackNameForUnboxingIdentifiers.hashableParts,
-        returnValueBoxingTableExpression.hashCode,
-      ];
 
   @override
   DartFunctionSelfBindingInvocation clone({

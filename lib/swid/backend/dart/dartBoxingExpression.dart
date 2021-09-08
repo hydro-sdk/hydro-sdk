@@ -7,10 +7,12 @@ import 'package:hydro_sdk/swid/backend/dart/util/codeKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/util/narrowSwidInterfaceByReferenceDeclaration.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsNonUniqueTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
+import 'package:hydro_sdk/swid/util/unHashableMixin.dart';
 
 part 'dartBoxingExpression.freezed.dart';
 
@@ -20,6 +22,9 @@ class DartBoxingExpression
         _$DartBoxingExpression,
         HashKeyMixin<DartBoxingExpression>,
         HashComparableMixin<DartBoxingExpression>,
+        UnhashableMixin<DartBoxingExpression>,
+        SwarsNonUniqueTermMixin<DartBoxingExpression,
+            $DartBoxingExpressionCopyWith<DartBoxingExpression>, String>,
         SwarsTransformMixin<DartBoxingExpression,
             $DartBoxingExpressionCopyWith<DartBoxingExpression>, String> {
   DartBoxingExpression._();
@@ -29,16 +34,6 @@ class DartBoxingExpression
     required final Expression expression,
     final Expression? tableExpression,
   }) = _$DartBoxingExpressionCtor;
-
-  @override
-  String get cacheGroup => "dartBoxingExpression";
-
-  @override
-  List<int> get hashableParts => [
-        ...swidType.hashableParts,
-        expression.hashCode,
-        tableExpression?.hashCode ?? 0,
-      ];
 
   @override
   DartBoxingExpression clone({

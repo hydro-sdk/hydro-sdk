@@ -16,10 +16,12 @@ import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/util/narrowSwidInterfaceByReferenceDeclaration.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsNonUniqueTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
+import 'package:hydro_sdk/swid/util/unHashableMixin.dart';
 
 part 'dartUnboxingExpression.freezed.dart';
 
@@ -29,6 +31,9 @@ class DartUnboxingExpression
         _$DartUnboxingExpression,
         HashKeyMixin<DartUnboxingExpression>,
         HashComparableMixin<DartUnboxingExpression>,
+        UnhashableMixin<DartUnboxingExpression>,
+        SwarsNonUniqueTermMixin<DartUnboxingExpression,
+            $DartUnboxingExpressionCopyWith<DartUnboxingExpression>, String>,
         SwarsTransformMixin<DartUnboxingExpression,
             $DartUnboxingExpressionCopyWith<DartUnboxingExpression>, String> {
   DartUnboxingExpression._();
@@ -38,16 +43,6 @@ class DartUnboxingExpression
     required final Expression expression,
     @Default("") final String? identifierName,
   }) = _$DartUnboxingExpressionCtor;
-
-  @override
-  String get cacheGroup => "dartUnboxingExpression";
-
-  @override
-  List<int> get hashableParts => [
-        ...swidType.hashableParts,
-        expression.hashCode,
-        ...identifierName?.hashableParts ?? [],
-      ];
 
   @override
   DartUnboxingExpression clone({

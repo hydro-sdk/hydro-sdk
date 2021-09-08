@@ -12,11 +12,13 @@ import 'package:hydro_sdk/swid/ir/util/isList.dart';
 import 'package:hydro_sdk/swid/ir/util/isPrimitiveMap.dart';
 import 'package:hydro_sdk/swid/ir/util/narrowSwidInterfaceByReferenceDeclaration.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsNonUniqueTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
 import 'package:hydro_sdk/swid/transforms/removeTypeArguments.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
+import 'package:hydro_sdk/swid/util/unHashableMixin.dart';
 
 part 'dartBoxObjectReference.freezed.dart';
 
@@ -26,6 +28,9 @@ class DartBoxObjectReference
         _$DartBoxObjectReference,
         HashKeyMixin<DartBoxObjectReference>,
         HashComparableMixin<DartBoxObjectReference>,
+        UnhashableMixin<DartBoxObjectReference>,
+        SwarsNonUniqueTermMixin<DartBoxObjectReference,
+            $DartBoxObjectReferenceCopyWith<DartBoxObjectReference>, String>,
         SwarsTransformMixin<DartBoxObjectReference,
             $DartBoxObjectReferenceCopyWith<DartBoxObjectReference>, String> {
   DartBoxObjectReference._();
@@ -39,18 +44,6 @@ class DartBoxObjectReference
   }) = _$DartBoxObjectReferenceCtor;
 
   static _defaultTableExpression() => refer("HydroTable").call([]);
-
-  @override
-  String get cacheGroup => "dartBoxObjectReference";
-
-  @override
-  List<int> get hashableParts => [
-        ...type.hashableParts,
-        objectReference.hashCode,
-        ...boxLists.hashableParts,
-        codeKind.index,
-        tableExpression.hashCode,
-      ];
 
   @override
   DartBoxObjectReference clone({
