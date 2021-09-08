@@ -2,7 +2,6 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'package:hydro_sdk/swid/backend/dart/dartBarrelLoadNamespaceSymbolDeclaration.dart';
 import 'package:hydro_sdk/swid/backend/util/barrelMember.dart';
-import 'package:hydro_sdk/swid/backend/util/barrelSpec.dart';
 import 'package:hydro_sdk/swid/backend/util/resolveBarrelSpecs.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';

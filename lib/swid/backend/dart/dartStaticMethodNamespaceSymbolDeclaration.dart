@@ -6,6 +6,7 @@ import 'package:hydro_sdk/swid/backend/dart/util/luaDartBinding.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
 import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';
 import 'package:hydro_sdk/swid/transforms/transformToPascalCase.dart';
@@ -88,20 +89,23 @@ class DartStaticMethodNamespaceSymbolDeclaration
           : Code("");
 
   @override
-  String transform({
+  ISwarsTermResult<String> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      swidFunctionType.declarationModifiers.ignoredTransforms.firstWhereOrNull(
-                  (x) => x == "dartStaticMethodNamespaceSymbolDeclaration") ==
-              null
-          ? toCode(
-              pipeline: pipeline,
-            )
-              .accept(
-                DartEmitter(
-                  useNullSafetySyntax: true,
-                ),
+      SwarsTermResult.fromString(
+        swidFunctionType.declarationModifiers.ignoredTransforms
+                    .firstWhereOrNull((x) =>
+                        x == "dartStaticMethodNamespaceSymbolDeclaration") ==
+                null
+            ? toCode(
+                pipeline: pipeline,
               )
-              .toString()
-          : "";
+                .accept(
+                  DartEmitter(
+                    useNullSafetySyntax: true,
+                  ),
+                )
+                .toString()
+            : "",
+      );
 }

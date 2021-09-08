@@ -20,6 +20,7 @@ import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/util/isOperator.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
 import 'package:hydro_sdk/swid/transforms/dart/removeNullabilitySuffixFromTypeNames.dart';
 import 'package:hydro_sdk/swid/transforms/transformAccessorName.dart';
@@ -62,128 +63,130 @@ class DartVMManagedClassDeclaration
       );
 
   @override
-  String transform({
+  ISwarsTermResult<String> transform({
     required ISwarsPipeline pipeline,
   }) =>
-      DartFormatter().format(
-        Class(
-          (c) => c
-            ..name = "VMManaged${swidClass.name}"
-            ..extend = TypeReference(
-              (t) => t
-                ..symbol = "VMManagedBox"
-                ..types.addAll(
-                  [
-                    TypeReference(
-                      (t) => t
-                        ..symbol = removeNullabilitySuffixFromTypeNames(
-                          swidType: SwidType.fromSwidClass(
-                            swidClass: swidClass,
-                          ),
-                        ).displayName,
-                    ),
-                  ],
-                ),
-            )
-            ..fields.addAll([
-              Field(
-                (k) => k
-                  ..modifier = FieldModifier.final$
-                  ..type = TypeReference((i) => i..symbol = "HydroTable")
-                  ..name = "table",
-              ),
-              Field(
-                (k) => k
-                  ..modifier = FieldModifier.final$
-                  ..type = TypeReference((i) => i..symbol = "HydroState")
-                  ..name = "hydroState",
-              ),
-              Field(
-                (k) => k
-                  ..modifier = FieldModifier.final$
-                  ..type = TypeReference((i) => i..symbol = swidClass.name)
-                  ..name = "vmObject",
-              ),
-            ])
-            ..constructors.add(
-              Constructor(
-                (c) => c
-                  ..optionalParameters.addAll(
+      SwarsTermResult.fromString(
+        DartFormatter().format(
+          Class(
+            (c) => c
+              ..name = "VMManaged${swidClass.name}"
+              ..extend = TypeReference(
+                (t) => t
+                  ..symbol = "VMManagedBox"
+                  ..types.addAll(
                     [
-                      Parameter((p) => p
-                        ..required = true
-                        ..toThis = true
-                        ..named = true
-                        ..name = "table"),
-                      Parameter((p) => p
-                        ..required = true
-                        ..toThis = true
-                        ..named = true
-                        ..name = "vmObject"),
-                      Parameter((p) => p
-                        ..required = true
-                        ..toThis = true
-                        ..named = true
-                        ..name = "hydroState"),
+                      TypeReference(
+                        (t) => t
+                          ..symbol = removeNullabilitySuffixFromTypeNames(
+                            swidType: SwidType.fromSwidClass(
+                              swidClass: swidClass,
+                            ),
+                          ).displayName,
+                      ),
                     ],
-                  )
-                  ..initializers.addAll(
-                    [
-                      Code("""super(
+                  ),
+              )
+              ..fields.addAll([
+                Field(
+                  (k) => k
+                    ..modifier = FieldModifier.final$
+                    ..type = TypeReference((i) => i..symbol = "HydroTable")
+                    ..name = "table",
+                ),
+                Field(
+                  (k) => k
+                    ..modifier = FieldModifier.final$
+                    ..type = TypeReference((i) => i..symbol = "HydroState")
+                    ..name = "hydroState",
+                ),
+                Field(
+                  (k) => k
+                    ..modifier = FieldModifier.final$
+                    ..type = TypeReference((i) => i..symbol = swidClass.name)
+                    ..name = "vmObject",
+                ),
+              ])
+              ..constructors.add(
+                Constructor(
+                  (c) => c
+                    ..optionalParameters.addAll(
+                      [
+                        Parameter((p) => p
+                          ..required = true
+                          ..toThis = true
+                          ..named = true
+                          ..name = "table"),
+                        Parameter((p) => p
+                          ..required = true
+                          ..toThis = true
+                          ..named = true
+                          ..name = "vmObject"),
+                        Parameter((p) => p
+                          ..required = true
+                          ..toThis = true
+                          ..named = true
+                          ..name = "hydroState"),
+                      ],
+                    )
+                    ..initializers.addAll(
+                      [
+                        Code("""super(
           table: table,
           vmObject: vmObject,
           hydroState: hydroState,
         )""")
-                    ],
-                  )
-                  ..body = Block.of(
-                    [
-                      ...(swidClass.instanceFieldDeclarations.entries
-                          .map(
-                            (x) => Code(
-                              pipeline.reduceFromTerm(
-                                DartBindInstanceField(
-                                  tableKey: x.key,
-                                  instanceFieldName: "vmObject.${x.key}",
-                                  instanceField: x.value,
-                                ),
-                              ),
-                            ),
-                          )
-                          .toList()),
-                      ...(swidClass.methods
-                          .where((x) => !x.declarationModifiers.hasProtected)
-                          .where(
-                            (x) => !isOperator(
-                              swidFunctionType: x,
-                            ),
-                          )
-                          .map(
-                            (x) => Code(
-                              pipeline.reduceFromTerm(
-                                DartVMManagedClassMethodInjectionImplementation(
-                                  tableKey: transformAccessorName(
-                                    swidFunctionType: x,
-                                  ).name,
-                                  swidFunctionType: SwidFunctionType.clone(
-                                    swidFunctionType: x,
-                                    name: "vmObject.${x.name}",
+                      ],
+                    )
+                    ..body = Block.of(
+                      [
+                        ...(swidClass.instanceFieldDeclarations.entries
+                            .map(
+                              (x) => Code(
+                                pipeline.reduceFromTerm(
+                                  DartBindInstanceField(
+                                    tableKey: x.key,
+                                    instanceFieldName: "vmObject.${x.key}",
+                                    instanceField: x.value,
                                   ),
                                 ),
                               ),
-                            ),
-                          )
-                          .toList())
-                    ],
-                  ),
+                            )
+                            .toList()),
+                        ...(swidClass.methods
+                            .where((x) => !x.declarationModifiers.hasProtected)
+                            .where(
+                              (x) => !isOperator(
+                                swidFunctionType: x,
+                              ),
+                            )
+                            .map(
+                              (x) => Code(
+                                pipeline.reduceFromTerm(
+                                  DartVMManagedClassMethodInjectionImplementation(
+                                    tableKey: transformAccessorName(
+                                      swidFunctionType: x,
+                                    ).name,
+                                    swidFunctionType: SwidFunctionType.clone(
+                                      swidFunctionType: x,
+                                      name: "vmObject.${x.name}",
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            )
+                            .toList())
+                      ],
+                    ),
+                ),
               ),
-            ),
-        )
-            .accept(
-              DartEmitter(
-                useNullSafetySyntax: true,
-              ),
-            )
-            .toString(),
+          )
+              .accept(
+                DartEmitter(
+                  useNullSafetySyntax: true,
+                ),
+              )
+              .toString(),
+        ),
       );
 }

@@ -6,6 +6,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydro_sdk/swid/backend/dart/util/codeKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
@@ -50,26 +51,32 @@ class DartBoxEnumReference
       );
 
   @override
-  String transform({
+  ISwarsTermResult<String> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      ((Expression expression) => codeKind == CodeKind.statement
-                  ? expression.statement
-                  : codeKind == CodeKind.expression
-                      ? expression.expression
-                      : null)(
-              refer(type!.name).property("values").property("indexWhere").call(
-        [
-          Method((k) => k
-            ..requiredParameters.addAll([
-              Parameter((p) => p..name = "x"),
-            ])
-            ..body = Block.of([Code("return x == $referenceName;")])).closure
-        ],
-        {},
-      ))!
-          .accept(DartEmitter(
-            useNullSafetySyntax: true,
-          ))
-          .toString();
+      SwarsTermResult.fromString(
+        ((Expression expression) => codeKind == CodeKind.statement
+                ? expression.statement
+                : codeKind == CodeKind.expression
+                    ? expression.expression
+                    : null)(refer(type!.name)
+                .property("values")
+                .property("indexWhere")
+                .call(
+          [
+            Method((k) => k
+              ..requiredParameters.addAll([
+                Parameter((p) => p..name = "x"),
+              ])
+              ..body = Block.of([Code("return x == $referenceName;")])).closure
+          ],
+          {},
+        ))!
+            .accept(
+              DartEmitter(
+                useNullSafetySyntax: true,
+              ),
+            )
+            .toString(),
+      );
 }

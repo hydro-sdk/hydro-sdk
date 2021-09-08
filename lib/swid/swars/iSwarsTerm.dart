@@ -1,3 +1,4 @@
+import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
@@ -18,7 +19,7 @@ abstract class ISwarsTerm<T extends Object, U extends Object, V extends Object>
 
   @pragma('vm:prefer-inline')
   @pragma('dart2js:tryInline')
-  V call({
+  ISwarsTermResult<V> call({
     required covariant final ISwarsPipeline<dynamic> pipeline,
   });
 }

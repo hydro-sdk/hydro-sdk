@@ -1,3 +1,4 @@
+import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
@@ -8,7 +9,7 @@ class CachingPipeline<T extends Object> implements ISwarsPipeline<T> {
 
   CachingPipeline._({
     required final List<ISwarsTerm<dynamic, dynamic, dynamic>> terms,
-    required final Map<String, Map<String, dynamic>> results,
+    required final Map<String, Map<String, ISwarsTermResult<dynamic>>> results,
     required final Map<String, Map<String, int>> cacheHits,
   })   : _terms = terms,
         _results = results,
@@ -16,20 +17,20 @@ class CachingPipeline<T extends Object> implements ISwarsPipeline<T> {
 
   List<ISwarsTerm<dynamic, dynamic, dynamic>> _terms = [];
 
-  Map<String, Map<String, dynamic>> _results = {};
+  Map<String, Map<String, ISwarsTermResult<dynamic>>> _results = {};
 
   Map<String, Map<String, int>> _cacheHits = {};
 
   @pragma('vm:prefer-inline')
   @pragma('dart2js:tryInline')
-  T _callTerm({
+  ISwarsTermResult<dynamic> _callTerm({
     required final ISwarsTerm<dynamic, dynamic, dynamic> term,
   }) {
     if (_results.containsKey(term.cacheGroup)) {
       if (_results[term.cacheGroup]!.containsKey(term.hashKey)) {
         _cacheHits[term.cacheGroup]![term.hashKey] =
             (_cacheHits[term.cacheGroup]![term.hashKey] ?? 0) + 1;
-        return _results[term.cacheGroup]![term.hashKey];
+        return _results[term.cacheGroup]![term.hashKey]!;
       }
     } else {
       _results[term.cacheGroup] = {};
@@ -74,10 +75,13 @@ class CachingPipeline<T extends Object> implements ISwarsPipeline<T> {
   @pragma('vm:prefer-inline')
   @pragma('dart2js:tryInline')
   List<T> reduce() => _terms
-      .map((x) => _callTerm(
-            term: x,
-          ))
-      .toList();
+      .map(
+        (x) => _callTerm(
+          term: x,
+        ).unwrap(),
+      )
+      .toList()
+      .cast<T>();
 
   @override
   @pragma('vm:prefer-inline')

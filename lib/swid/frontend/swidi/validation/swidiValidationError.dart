@@ -1,14 +1,25 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/util/iJsonTransformable.dart';
 
 part 'swidiValidationError.freezed.dart';
+part 'swidiValidationError.g.dart';
 
 @freezed
-class SwidiValidationError with _$SwidiValidationError {
+class SwidiValidationError
+    with _$SwidiValidationError
+    implements IJsonTransformable {
   const SwidiValidationError._();
 
   const factory SwidiValidationError({
     required final String message,
   }) = _$SwidiValidationErrorCtor;
+
+  factory SwidiValidationError.fromJson(Map<String, dynamic> json) =>
+      _$SwidiValidationErrorFromJson(json);
+
+  @override
+  SwidiValidationError fromJson(Map<String, dynamic> json) =>
+      SwidiValidationError.fromJson(json);
 
   static const e1 = SwidiValidationError(
     message: "Empty annotation on declaration",

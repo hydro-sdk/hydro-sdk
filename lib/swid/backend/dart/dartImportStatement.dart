@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
@@ -38,15 +39,17 @@ class DartImportStatement
       );
 
   @override
-  String transform({
+  ISwarsTermResult<String> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      [
-        "import ",
-        "'",
-        path,
-        "'",
-        ";",
-        "\n",
-      ].join();
+      SwarsTermResult.fromString(
+        [
+          "import ",
+          "'",
+          path,
+          "'",
+          ";",
+          "\n",
+        ].join(),
+      );
 }

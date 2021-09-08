@@ -12,6 +12,19 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+SwidiClassValidationState _$SwidiClassValidationStateFromJson(
+    Map<String, dynamic> json) {
+  switch (json['runtimeType'] as String) {
+    case 'valid':
+      return _$SwidiClassValidationStateValid.fromJson(json);
+    case 'invalid':
+      return _$SwidiClassValidationStateInvalid.fromJson(json);
+
+    default:
+      throw FallThroughError();
+  }
+}
+
 /// @nodoc
 class _$SwidiClassValidationStateTearOff {
   const _$SwidiClassValidationStateTearOff();
@@ -25,6 +38,10 @@ class _$SwidiClassValidationStateTearOff {
     return _$SwidiClassValidationStateInvalid(
       swidiValidationError: swidiValidationError,
     );
+  }
+
+  SwidiClassValidationState fromJson(Map<String, Object> json) {
+    return SwidiClassValidationState.fromJson(json);
   }
 }
 
@@ -60,6 +77,7 @@ mixin _$SwidiClassValidationState {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -102,10 +120,14 @@ class __$$SwidiClassValidationStateValidCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_$SwidiClassValidationStateValid
     extends _$SwidiClassValidationStateValid {
   const _$_$SwidiClassValidationStateValid() : super._();
+
+  factory _$_$SwidiClassValidationStateValid.fromJson(
+          Map<String, dynamic> json) =>
+      _$_$_$SwidiClassValidationStateValidFromJson(json);
 
   @override
   String toString() {
@@ -165,6 +187,12 @@ class _$_$SwidiClassValidationStateValid
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_$SwidiClassValidationStateValidToJson(this)
+      ..['runtimeType'] = 'valid';
+  }
 }
 
 abstract class _$SwidiClassValidationStateValid
@@ -172,6 +200,9 @@ abstract class _$SwidiClassValidationStateValid
   const factory _$SwidiClassValidationStateValid() =
       _$_$SwidiClassValidationStateValid;
   const _$SwidiClassValidationStateValid._() : super._();
+
+  factory _$SwidiClassValidationStateValid.fromJson(Map<String, dynamic> json) =
+      _$_$SwidiClassValidationStateValid.fromJson;
 }
 
 /// @nodoc
@@ -220,12 +251,16 @@ class __$$SwidiClassValidationStateInvalidCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_$SwidiClassValidationStateInvalid
     extends _$SwidiClassValidationStateInvalid {
   const _$_$SwidiClassValidationStateInvalid(
       {required this.swidiValidationError})
       : super._();
+
+  factory _$_$SwidiClassValidationStateInvalid.fromJson(
+          Map<String, dynamic> json) =>
+      _$_$_$SwidiClassValidationStateInvalidFromJson(json);
 
   @override
   final SwidiValidationError swidiValidationError;
@@ -300,6 +335,12 @@ class _$_$SwidiClassValidationStateInvalid
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_$SwidiClassValidationStateInvalidToJson(this)
+      ..['runtimeType'] = 'invalid';
+  }
 }
 
 abstract class _$SwidiClassValidationStateInvalid
@@ -308,6 +349,10 @@ abstract class _$SwidiClassValidationStateInvalid
           {required SwidiValidationError swidiValidationError}) =
       _$_$SwidiClassValidationStateInvalid;
   const _$SwidiClassValidationStateInvalid._() : super._();
+
+  factory _$SwidiClassValidationStateInvalid.fromJson(
+          Map<String, dynamic> json) =
+      _$_$SwidiClassValidationStateInvalid.fromJson;
 
   SwidiValidationError get swidiValidationError =>
       throw _privateConstructorUsedError;

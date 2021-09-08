@@ -6,6 +6,7 @@ import 'package:hydro_sdk/swid/backend/dart/dartBoxObjectReference.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/util/narrowSwidInterfaceByReferenceDeclaration.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
@@ -54,72 +55,74 @@ class DartBindInstanceField
       );
 
   @override
-  String transform({
+  ISwarsTermResult<String> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      instanceField.when(
-        fromSwidInterface: (val) => narrowSwidInterfaceByReferenceDeclaration(
-          swidInterface: val,
-          onPrimitive: (val) => pipeline.reduceFromTerm(
-            DartBindInstanceFieldDirect(
-              instanceFieldName: instanceFieldName,
-              tableKey: tableKey,
+      SwarsTermResult.fromString(
+        instanceField.when(
+          fromSwidInterface: (val) => narrowSwidInterfaceByReferenceDeclaration(
+            swidInterface: val,
+            onPrimitive: (val) => pipeline.reduceFromTerm(
+              DartBindInstanceFieldDirect(
+                instanceFieldName: instanceFieldName,
+                tableKey: tableKey,
+              ),
             ),
-          ),
-          onDynamic: (val) => pipeline.reduceFromTerm(
-            DartBindInstanceFieldDirect(
-              instanceFieldName: instanceFieldName,
-              tableKey: tableKey,
+            onDynamic: (val) => pipeline.reduceFromTerm(
+              DartBindInstanceFieldDirect(
+                instanceFieldName: instanceFieldName,
+                tableKey: tableKey,
+              ),
             ),
-          ),
-          onClass: (val) => refer("table")
-              .index(literalString(tableKey))
-              .assign(
-                CodeExpression(
-                  Code(
-                    pipeline.reduceFromTerm(
-                      DartBoxObjectReference(
-                        type: val,
-                        boxLists: false,
-                        tableExpression: null,
-                        objectReference: CodeExpression(
-                          Code(instanceFieldName),
+            onClass: (val) => refer("table")
+                .index(literalString(tableKey))
+                .assign(
+                  CodeExpression(
+                    Code(
+                      pipeline.reduceFromTerm(
+                        DartBoxObjectReference(
+                          type: val,
+                          boxLists: false,
+                          tableExpression: null,
+                          objectReference: CodeExpression(
+                            Code(instanceFieldName),
+                          ),
                         ),
                       ),
                     ),
                   ),
-                ),
-              )
-              .accept(DartEmitter(
-                useNullSafetySyntax: true,
-              ))
-              .toString(),
-          onEnum: (val) => refer("table")
-              .index(literalString(tableKey))
-              .assign(
-                CodeExpression(
-                  Code(
-                    pipeline.reduceFromTerm(
-                      DartBoxEnumReference(
-                        type: instanceField,
-                        referenceName: instanceFieldName,
+                )
+                .accept(DartEmitter(
+                  useNullSafetySyntax: true,
+                ))
+                .toString(),
+            onEnum: (val) => refer("table")
+                .index(literalString(tableKey))
+                .assign(
+                  CodeExpression(
+                    Code(
+                      pipeline.reduceFromTerm(
+                        DartBoxEnumReference(
+                          type: instanceField,
+                          referenceName: instanceFieldName,
+                        ),
                       ),
                     ),
                   ),
-                ),
-              )
-              .accept(
-                DartEmitter(
-                  useNullSafetySyntax: true,
-                ),
-              )
-              .toString(),
-          onVoid: (_) => "void",
-          onUnknown: (_) => "unknown",
-          onTypeParameter: (_) => "",
+                )
+                .accept(
+                  DartEmitter(
+                    useNullSafetySyntax: true,
+                  ),
+                )
+                .toString(),
+            onVoid: (_) => "void",
+            onUnknown: (_) => "unknown",
+            onTypeParameter: (_) => "",
+          ),
+          fromSwidClass: (_) => "",
+          fromSwidDefaultFormalParameter: (_) => "",
+          fromSwidFunctionType: (_) => "",
         ),
-        fromSwidClass: (_) => "",
-        fromSwidDefaultFormalParameter: (_) => "",
-        fromSwidFunctionType: (_) => "",
       );
 }

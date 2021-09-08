@@ -115,61 +115,97 @@ class DartIr with _$DartIr {
     required ISwarsPipeline pipeline,
   }) =>
       when(
-        fromDartBarrelLoadNamespaceSymbolDeclaration: (val) => val.transform(
-          pipeline: pipeline,
-        ),
-        fromDartBindInstanceField: (val) => val.transform(
-          pipeline: pipeline,
-        ),
-        fromDartBindInstanceFieldDirect: (val) => val.transform(
-          pipeline: pipeline,
-        ),
-        fromDartBoxEnumReference: (val) => val.transform(
-          pipeline: pipeline,
-        ),
-        fromDartBoxList: (val) => val.transform(
-          pipeline: pipeline,
-        ),
-        fromDartBoxObjectReference: (val) => val.transform(
-          pipeline: pipeline,
-        ),
-        fromDartImportStatement: (val) => val.transform(
-          pipeline: pipeline,
-        ),
+        fromDartBarrelLoadNamespaceSymbolDeclaration: (val) => val
+            .transform(
+              pipeline: pipeline,
+            )
+            .unwrap(),
+        fromDartBindInstanceField: (val) => val
+            .transform(
+              pipeline: pipeline,
+            )
+            .unwrap(),
+        fromDartBindInstanceFieldDirect: (val) => val
+            .transform(
+              pipeline: pipeline,
+            )
+            .unwrap(),
+        fromDartBoxEnumReference: (val) => val
+            .transform(
+              pipeline: pipeline,
+            )
+            .unwrap(),
+        fromDartBoxList: (val) => val
+            .transform(
+              pipeline: pipeline,
+            )
+            .unwrap(),
+        fromDartBoxObjectReference: (val) => val
+            .transform(
+              pipeline: pipeline,
+            )
+            .unwrap(),
+        fromDartImportStatement: (val) => val
+            .transform(
+              pipeline: pipeline,
+            )
+            .unwrap(),
         fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration:
-            (val) => val.transform(
-          pipeline: pipeline,
-        ),
-        fromDartFunctionSelfBindingInvocation: (val) => val.transform(
-          pipeline: pipeline,
-        ),
+            (val) => val
+                .transform(
+                  pipeline: pipeline,
+                )
+                .unwrap(),
+        fromDartFunctionSelfBindingInvocation: (val) => val
+            .transform(
+              pipeline: pipeline,
+            )
+            .unwrap(),
         fromDartLinebreak: (val) => val.toDartSource(),
-        fromDartUnboxingExpression: (val) => val.transform(
-          pipeline: pipeline,
-        ),
-        fromDartUnpackClosures: (val) => val.transform(
-          pipeline: pipeline,
-        ),
-        fromDartVMManagedClassBoxerRegistrant: (val) => val.transform(
-          pipeline: pipeline,
-        ),
-        fromLoadNamepsaceSymbolDeclaration: (val) => val.transform(
-          pipeline: pipeline,
-        ),
-        fromMethodInjectionImplementation: (val) => val.transform(
-          pipeline: pipeline,
-        ),
-        fromRTManagedClassDeclaration: (val) => val.transform(
-          pipeline: pipeline,
-        ),
-        fromDartStaticMethodNamespaceSymbolDeclaration: (val) => val.transform(
-          pipeline: pipeline,
-        ),
-        fromVMManagedClassDeclaration: (val) => val.transform(
-          pipeline: pipeline,
-        ),
-        fromVMManagedClassMethodInjectionImplementation: (val) => val.transform(
-          pipeline: pipeline,
-        ),
+        fromDartUnboxingExpression: (val) => val
+            .transform(
+              pipeline: pipeline,
+            )
+            .unwrap(),
+        fromDartUnpackClosures: (val) => val
+            .transform(
+              pipeline: pipeline,
+            )
+            .unwrap(),
+        fromDartVMManagedClassBoxerRegistrant: (val) => val
+            .transform(
+              pipeline: pipeline,
+            )
+            .unwrap(),
+        fromLoadNamepsaceSymbolDeclaration: (val) => val
+            .transform(
+              pipeline: pipeline,
+            )
+            .unwrap(),
+        fromMethodInjectionImplementation: (val) => val
+            .transform(
+              pipeline: pipeline,
+            )
+            .unwrap(),
+        fromRTManagedClassDeclaration: (val) => val
+            .transform(
+              pipeline: pipeline,
+            )
+            .unwrap(),
+        fromDartStaticMethodNamespaceSymbolDeclaration: (val) => val
+            .transform(
+              pipeline: pipeline,
+            )
+            .unwrap(),
+        fromVMManagedClassDeclaration: (val) => val
+            .transform(
+              pipeline: pipeline,
+            )
+            .unwrap(),
+        fromVMManagedClassMethodInjectionImplementation: (val) => val
+            .transform(
+              pipeline: pipeline,
+            )
+            .unwrap(),
       );
 }

@@ -12,6 +12,7 @@ import 'package:hydro_sdk/swid/ir/util/isList.dart';
 import 'package:hydro_sdk/swid/ir/util/isPrimitiveMap.dart';
 import 'package:hydro_sdk/swid/ir/util/narrowSwidInterfaceByReferenceDeclaration.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
 import 'package:hydro_sdk/swid/transforms/removeTypeArguments.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
@@ -113,42 +114,44 @@ class DartBoxObjectReference
       );
 
   @override
-  String transform({
+  ISwarsTermResult<String> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      ((
-        Expression? expression,
-      ) =>
-              codeKind == CodeKind.statement
-                  ? expression!.statement
-                  : codeKind == CodeKind.expression
-                      ? expression!.expression
-                      : null)(
-        narrowSwidInterfaceByReferenceDeclaration(
-          swidInterface: type,
-          onPrimitive: (_) => _boxObject(
-            pipeline: pipeline,
-          ),
-          onClass: (_) => _boxObject(
-            pipeline: pipeline,
-          ),
-          onEnum: (_) => _boxObject(
-            pipeline: pipeline,
-          ),
-          onVoid: (_) => objectReference,
-          onTypeParameter: (_) => _boxObject(
-            pipeline: pipeline,
-          ),
-          onDynamic: (_) => _boxObject(
-            pipeline: pipeline,
-          ),
-          onUnknown: (_) => objectReference,
-        ),
-      )!
-          .accept(
-            DartEmitter(
-              useNullSafetySyntax: true,
+      SwarsTermResult.fromString(
+        ((
+          Expression? expression,
+        ) =>
+                codeKind == CodeKind.statement
+                    ? expression!.statement
+                    : codeKind == CodeKind.expression
+                        ? expression!.expression
+                        : null)(
+          narrowSwidInterfaceByReferenceDeclaration(
+            swidInterface: type,
+            onPrimitive: (_) => _boxObject(
+              pipeline: pipeline,
             ),
-          )
-          .toString();
+            onClass: (_) => _boxObject(
+              pipeline: pipeline,
+            ),
+            onEnum: (_) => _boxObject(
+              pipeline: pipeline,
+            ),
+            onVoid: (_) => objectReference,
+            onTypeParameter: (_) => _boxObject(
+              pipeline: pipeline,
+            ),
+            onDynamic: (_) => _boxObject(
+              pipeline: pipeline,
+            ),
+            onUnknown: (_) => objectReference,
+          ),
+        )!
+            .accept(
+              DartEmitter(
+                useNullSafetySyntax: true,
+              ),
+            )
+            .toString(),
+      );
 }

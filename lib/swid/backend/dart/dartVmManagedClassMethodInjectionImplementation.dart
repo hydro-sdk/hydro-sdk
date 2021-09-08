@@ -8,6 +8,7 @@ import 'package:hydro_sdk/swid/backend/dart/dartMethodBindingImplementation.dart
 import 'package:hydro_sdk/swid/backend/dart/util/luaDartBinding.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
@@ -50,29 +51,32 @@ class DartVMManagedClassMethodInjectionImplementation
         tableKey: tableKey ?? this.tableKey,
       );
 
-  String transform({
+  @override
+  ISwarsTermResult<String> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      DartFormatter().formatStatement(
-        refer("table")
-            .index(literalString(tableKey))
-            .assign(
-              luaDartBinding(
-                code: Code(
-                  pipeline.reduceFromTerm(
-                    DartMethodBindingImplementation(
-                      swidFunctionType: swidFunctionType,
+      SwarsTermResult.fromString(
+        DartFormatter().formatStatement(
+          refer("table")
+              .index(literalString(tableKey))
+              .assign(
+                luaDartBinding(
+                  code: Code(
+                    pipeline.reduceFromTerm(
+                      DartMethodBindingImplementation(
+                        swidFunctionType: swidFunctionType,
+                      ),
                     ),
                   ),
                 ),
-              ),
-            )
-            .statement
-            .accept(
-              DartEmitter(
-                useNullSafetySyntax: true,
-              ),
-            )
-            .toString(),
+              )
+              .statement
+              .accept(
+                DartEmitter(
+                  useNullSafetySyntax: true,
+                ),
+              )
+              .toString(),
+        ),
       );
 }

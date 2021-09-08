@@ -11,6 +11,7 @@ import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/util/narrowSwidInterfaceByReferenceDeclaration.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
@@ -129,26 +130,28 @@ class DartBoxList
           .toString();
 
   @override
-  String transform({
+  ISwarsTermResult<String> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      narrowSwidInterfaceByReferenceDeclaration(
-        swidInterface: type.typeArguments.first.when(
-          fromSwidInterface: (val) => val,
-          fromSwidClass: (_) => dartUnknownInterface,
-          fromSwidDefaultFormalParameter: (_) => dartUnknownInterface,
-          fromSwidFunctionType: (_) => dartUnknownInterface,
+      SwarsTermResult.fromString(
+        narrowSwidInterfaceByReferenceDeclaration(
+          swidInterface: type.typeArguments.first.when(
+            fromSwidInterface: (val) => val,
+            fromSwidClass: (_) => dartUnknownInterface,
+            fromSwidDefaultFormalParameter: (_) => dartUnknownInterface,
+            fromSwidFunctionType: (_) => dartUnknownInterface,
+          ),
+          onPrimitive: (_) => referenceName,
+          onClass: (_) => _boxList(
+            pipeline: pipeline,
+          ),
+          onEnum: (_) => _boxList(
+            pipeline: pipeline,
+          ),
+          onVoid: (_) => referenceName,
+          onDynamic: (_) => referenceName,
+          onTypeParameter: (_) => referenceName,
+          onUnknown: (_) => referenceName,
         ),
-        onPrimitive: (_) => referenceName,
-        onClass: (_) => _boxList(
-          pipeline: pipeline,
-        ),
-        onEnum: (_) => _boxList(
-          pipeline: pipeline,
-        ),
-        onVoid: (_) => referenceName,
-        onDynamic: (_) => referenceName,
-        onTypeParameter: (_) => referenceName,
-        onUnknown: (_) => referenceName,
       );
 }

@@ -13,6 +13,7 @@ import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/util/instantiateAllGenericsAsDynamic.dart';
 import 'package:hydro_sdk/swid/ir/util/narrowSwidInterfaceByReferenceDeclaration.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
@@ -174,78 +175,81 @@ class DartMethodBindingImplementation
             );
 
   @override
-  String transform({
+  ISwarsTermResult<String> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      swidFunctionType.returnType.when<String?>(
-        fromSwidInterface: (val) =>
-            narrowSwidInterfaceByReferenceDeclaration<String>(
-          swidInterface: val,
-          onPrimitive: (val) => _nonVoidBody(
-            pipeline: pipeline,
-            swidType: SwidType.fromSwidInterface(
-              swidInterface: val,
-            ),
-          ),
-          onClass: (val) => _nonVoidBody(
-            pipeline: pipeline,
-            swidType: SwidType.fromSwidInterface(
-              swidInterface: val,
-            ),
-          ),
-          onEnum: (val) => _nonVoidBody(
-            pipeline: pipeline,
-            swidType: SwidType.fromSwidInterface(
-              swidInterface: val,
-            ),
-          ),
-          onTypeParameter: (val) => _nonVoidBody(
-            pipeline: pipeline,
-            swidType: SwidType.fromSwidInterface(
-              swidInterface: val,
-            ),
-          ),
-          onDynamic: (val) => _nonVoidBody(
-            pipeline: pipeline,
-            swidType: SwidType.fromSwidInterface(
-              swidInterface: val,
-            ),
-          ),
-          onUnknown: (val) => _nonVoidBody(
-            pipeline: pipeline,
-            swidType: SwidType.fromSwidInterface(
-              swidInterface: val,
-            ),
-          ),
-          onVoid: (val) =>
-              pipeline.reduceFromTerm(
-                DartUnpackClosures(
-                  swidFunctionType: instantiateAllGenericsAsDynamic(
-                    swidType: SwidType.fromSwidFunctionType(
-                        swidFunctionType: swidFunctionType),
-                  ).when(
-                    fromSwidInterface: (_) => dartUnknownFunction,
-                    fromSwidClass: (_) => dartUnknownFunction,
-                    fromSwidDefaultFormalParameter: (_) => dartUnknownFunction,
-                    fromSwidFunctionType: (val) => val,
+      SwarsTermResult.fromString(
+        swidFunctionType.returnType.when<String?>(
+              fromSwidInterface: (val) =>
+                  narrowSwidInterfaceByReferenceDeclaration<String>(
+                swidInterface: val,
+                onPrimitive: (val) => _nonVoidBody(
+                  pipeline: pipeline,
+                  swidType: SwidType.fromSwidInterface(
+                    swidInterface: val,
                   ),
                 ),
-              ) +
-              _methodInvocation(
+                onClass: (val) => _nonVoidBody(
+                  pipeline: pipeline,
+                  swidType: SwidType.fromSwidInterface(
+                    swidInterface: val,
+                  ),
+                ),
+                onEnum: (val) => _nonVoidBody(
+                  pipeline: pipeline,
+                  swidType: SwidType.fromSwidInterface(
+                    swidInterface: val,
+                  ),
+                ),
+                onTypeParameter: (val) => _nonVoidBody(
+                  pipeline: pipeline,
+                  swidType: SwidType.fromSwidInterface(
+                    swidInterface: val,
+                  ),
+                ),
+                onDynamic: (val) => _nonVoidBody(
+                  pipeline: pipeline,
+                  swidType: SwidType.fromSwidInterface(
+                    swidInterface: val,
+                  ),
+                ),
+                onUnknown: (val) => _nonVoidBody(
+                  pipeline: pipeline,
+                  swidType: SwidType.fromSwidInterface(
+                    swidInterface: val,
+                  ),
+                ),
+                onVoid: (val) =>
+                    pipeline.reduceFromTerm(
+                      DartUnpackClosures(
+                        swidFunctionType: instantiateAllGenericsAsDynamic(
+                          swidType: SwidType.fromSwidFunctionType(
+                              swidFunctionType: swidFunctionType),
+                        ).when(
+                          fromSwidInterface: (_) => dartUnknownFunction,
+                          fromSwidClass: (_) => dartUnknownFunction,
+                          fromSwidDefaultFormalParameter: (_) =>
+                              dartUnknownFunction,
+                          fromSwidFunctionType: (val) => val,
+                        ),
+                      ),
+                    ) +
+                    _methodInvocation(
+                      pipeline: pipeline,
+                    ) +
+                    ";" +
+                    "\n" +
+                    "return [];",
+              ),
+              fromSwidClass: (_) => null,
+              fromSwidDefaultFormalParameter: (_) => null,
+              fromSwidFunctionType: (val) => _nonVoidBody(
                 pipeline: pipeline,
-              ) +
-              ";" +
-              "\n" +
-              "return [];",
-        ),
-        fromSwidClass: (_) => null,
-        fromSwidDefaultFormalParameter: (_) => null,
-        fromSwidFunctionType: (val) => _nonVoidBody(
-          pipeline: pipeline,
-          swidType: SwidType.fromSwidFunctionType(
-            swidFunctionType: val,
-          ),
-        ),
-      ) ??
-      "";
+                swidType: SwidType.fromSwidFunctionType(
+                  swidFunctionType: val,
+                ),
+              ),
+            ) ??
+            "",
+      );
 }

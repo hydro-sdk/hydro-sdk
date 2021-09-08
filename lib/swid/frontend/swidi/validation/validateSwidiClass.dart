@@ -5,13 +5,18 @@ import 'package:hydro_sdk/swid/frontend/swidi/validation/swidiValidationError.da
 import 'package:hydro_sdk/swid/frontend/swidi/validation/validateSwidiClassMethod.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsAnalysisMixin.dart';
+import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
+import 'package:hydro_sdk/swid/util/iJsonTransformable.dart';
 
 part 'validateSwidiClass.freezed.dart';
+part 'validateSwidiClass.g.dart';
 
 @freezed
-class SwidiClassValidationState with _$SwidiClassValidationState {
+class SwidiClassValidationState
+    with _$SwidiClassValidationState
+    implements IJsonTransformable {
   const SwidiClassValidationState._();
 
   const factory SwidiClassValidationState.valid() =
@@ -20,6 +25,13 @@ class SwidiClassValidationState with _$SwidiClassValidationState {
   const factory SwidiClassValidationState.invalid({
     required final SwidiValidationError swidiValidationError,
   }) = _$SwidiClassValidationStateInvalid;
+
+  factory SwidiClassValidationState.fromJson(Map<String, dynamic> json) =>
+      _$SwidiClassValidationStateFromJson(json);
+
+  @override
+  SwidiClassValidationState fromJson(Map<String, dynamic> json) =>
+      SwidiClassValidationState.fromJson(json);
 }
 
 const validTransformNames = [
@@ -72,10 +84,10 @@ class ValidateSwidiClass
       );
 
   @override
-  SwidiClassValidationState analyze({
+  ISwarsTermResult<SwidiClassValidationState> analyze({
     required final ISwarsPipeline pipeline,
   }) =>
-      swidiClass.methods.isNotEmpty
+      SwarsTermResult.fromJsonTransformable(swidiClass.methods.isNotEmpty
           ? (({
               required final List<SwidiClassValidationState>
                   aggregateValidations,
@@ -109,5 +121,5 @@ class ValidateSwidiClass
                     ],
                   ),
             )
-          : const SwidiClassValidationState.valid();
+          : const SwidiClassValidationState.valid());
 }
