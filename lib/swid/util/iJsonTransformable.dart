@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:meta/meta.dart';
 
 @optionalTypeArgs
 abstract class IJsonTransformable<T extends Object> {
