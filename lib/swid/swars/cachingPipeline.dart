@@ -1,4 +1,5 @@
 import 'package:meta/meta.dart';
+import 'package:tuple/tuple.dart';
 
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsTerm.dart';
@@ -26,22 +27,29 @@ class CachingPipeline<T extends Object> implements ISwarsPipeline<T> {
   ISwarsTermResult<dynamic> _callTerm({
     required final ISwarsTerm<dynamic, dynamic, dynamic> term,
   }) {
-    if (_results.containsKey(term.cacheGroup)) {
-      if (_results[term.cacheGroup]!.containsKey(term.hashKey)) {
-        _cacheHits[term.cacheGroup]![term.hashKey] =
-            (_cacheHits[term.cacheGroup]![term.hashKey] ?? 0) + 1;
-        return _results[term.cacheGroup]![term.hashKey]!;
+    if (term.cacheGroup.isNotEmpty) {
+      if (_results.containsKey(term.cacheGroup)) {
+        if (_results[term.cacheGroup]!.containsKey(term.hashKey)) {
+          _cacheHits[term.cacheGroup]![term.hashKey] =
+              (_cacheHits[term.cacheGroup]![term.hashKey] ?? 0) + 1;
+          return _results[term.cacheGroup]![term.hashKey]!;
+        }
+      } else {
+        _results[term.cacheGroup] = {};
+        _cacheHits[term.cacheGroup] = {};
       }
-    } else {
-      _results[term.cacheGroup] = {};
-      _cacheHits[term.cacheGroup] = {};
+
+      final res = term(
+        pipeline: this,
+      );
+
+      _results[term.cacheGroup]![term.hashKey] = res;
+
+      return res;
     }
-
-    final res = term(pipeline: this);
-
-    _results[term.cacheGroup]![term.hashKey] = res;
-
-    return res;
+    return term(
+      pipeline: this,
+    );
   }
 
   Map<String, int> getCacheHitsForCacheGroup(final String cacheGroup) =>
@@ -50,6 +58,25 @@ class CachingPipeline<T extends Object> implements ISwarsPipeline<T> {
             .entries
             .map((x) => MapEntry(x.key, x.value))
             .toList(),
+      );
+
+  void printTopCacheHits() => (_cacheHits.entries
+          .map(
+            (x) => Tuple2(
+              x.key,
+              x.value.entries.fold<int>(
+                0,
+                (previousValue, element) => previousValue + element.value,
+              ),
+            ),
+          )
+          .toList()
+            ..sort(
+              (a, b) => b.item2.compareTo(a.item2),
+            ))
+      .take(10)
+      .forEach(
+        (x) => print("${x.item1}: ${x.item2}"),
       );
 
   @visibleForTesting
