@@ -36,6 +36,7 @@ class DartBoxEnumReference
   List<int> get hashableParts => [
         ...type?.hashableParts ?? [],
         ...referenceName.codeUnits,
+        codeKind.index,
       ];
 
   @override
@@ -59,19 +60,26 @@ class DartBoxEnumReference
                 ? expression.statement
                 : codeKind == CodeKind.expression
                     ? expression.expression
-                    : null)(refer(type!.name)
-                .property("values")
-                .property("indexWhere")
-                .call(
-          [
-            Method((k) => k
-              ..requiredParameters.addAll([
-                Parameter((p) => p..name = "x"),
-              ])
-              ..body = Block.of([Code("return x == $referenceName;")])).closure
-          ],
-          {},
-        ))!
+                    : null)(
+          refer(type!.name).property("values").property("indexWhere").call(
+            [
+              Method(
+                (k) => k
+                  ..requiredParameters.addAll([
+                    Parameter((p) => p..name = "x"),
+                  ])
+                  ..body = Block.of(
+                    [
+                      Code(
+                        "return x == $referenceName;",
+                      ),
+                    ],
+                  ),
+              ).closure
+            ],
+            {},
+          ),
+        )!
             .accept(
               DartEmitter(
                 useNullSafetySyntax: true,
