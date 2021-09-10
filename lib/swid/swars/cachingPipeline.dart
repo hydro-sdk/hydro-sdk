@@ -129,15 +129,11 @@ class CachingPipeline<T extends Object> implements ISwarsPipeline<T> {
   @pragma('vm:prefer-inline')
   @pragma('dart2js:tryInline')
   V reduceFromTerm<V extends Object>(
-      covariant ISwarsTerm<Object, Object, V> term) {
-    final ISwarsPipeline<V> pipeline = fromTerms<V, Object, Object, V>(
-      terms: [
-        term,
-      ],
-    );
-
-    final res = pipeline.reduce();
-
-    return res.first;
-  }
+    covariant final ISwarsTerm<Object, Object, V> term,
+  ) =>
+      fromTerms<V, Object, Object, V>(
+        terms: [
+          term,
+        ],
+      ).reduce().first;
 }
