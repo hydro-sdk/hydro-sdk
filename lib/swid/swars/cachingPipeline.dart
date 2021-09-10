@@ -60,24 +60,26 @@ class CachingPipeline<T extends Object> implements ISwarsPipeline<T> {
             .toList(),
       );
 
-  void printTopCacheHits() => (_cacheHits.entries
-          .map(
-            (x) => Tuple2(
-              x.key,
-              x.value.entries.fold<int>(
-                0,
-                (previousValue, element) => previousValue + element.value,
-              ),
-            ),
-          )
-          .toList()
-            ..sort(
-              (a, b) => b.item2.compareTo(a.item2),
-            ))
-      .take(10)
-      .forEach(
-        (x) => print("${x.item1}: ${x.item2}"),
-      );
+  List<Tuple2<String, int>> cacheHitsByCacheGroup() => (_cacheHits.entries
+      .map(
+        (x) => Tuple2(
+          x.key,
+          x.value.entries.fold<int>(
+            0,
+            (previousValue, element) => previousValue + element.value,
+          ),
+        ),
+      )
+      .toList()
+        ..sort(
+          (a, b) => b.item2.compareTo(a.item2),
+        ));
+
+  List<Tuple2<String, int>> topCacheHitsByCacheGroup() =>
+      cacheHitsByCacheGroup().take(10).toList();
+
+  List<Tuple2<String, int>> emptyCacheHitsByCacheGroup() =>
+      cacheHitsByCacheGroup().where((x) => x.item2 == 0).toList();
 
   @visibleForTesting
   bool cacheGroupExistsInCache(final String cacheGroup) =>

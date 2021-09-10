@@ -199,5 +199,22 @@ void main(List<String> args) async {
         (dynamic x) => writeTranslationUnit(translationUnit: x)),
   );
 
-  pipeline.printTopCacheHits();
+  final topCacheHits = pipeline.topCacheHitsByCacheGroup();
+
+  if (topCacheHits.isNotEmpty) {
+    print("The following are the most re-used terms:");
+    topCacheHits.forEach(
+      (x) => print(" ${x.item1}: ${x.item2}"),
+    );
+  }
+
+  final emptyCacheHits = pipeline.emptyCacheHitsByCacheGroup();
+
+  if (emptyCacheHits.isNotEmpty) {
+    print(
+        "The following terms generated results but their caches were never hit:");
+    emptyCacheHits.forEach(
+      (x) => print("  ${x.item1}"),
+    );
+  }
 }
