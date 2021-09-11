@@ -8,6 +8,7 @@ import 'package:hydro_sdk/swid/backend/util/barrelSpec.dart';
 import 'package:hydro_sdk/swid/backend/util/requiresDartClassTranslationUnit.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
+import 'package:hydro_sdk/swid/swars/swarsTermStringResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
 import 'package:hydro_sdk/swid/transforms/transformToPascalCase.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
@@ -25,7 +26,8 @@ class DartBarrelLoadNamespaceSymbolDeclaration
             DartBarrelLoadNamespaceSymbolDeclaration,
             $DartBarrelLoadNamespaceSymbolDeclarationCopyWith<
                 DartBarrelLoadNamespaceSymbolDeclaration>,
-            String> {
+            String>,
+        SwarsTermStringResultMixin {
   DartBarrelLoadNamespaceSymbolDeclaration._();
 
   factory DartBarrelLoadNamespaceSymbolDeclaration({

@@ -14,6 +14,7 @@ import 'package:hydro_sdk/swid/ir/util/narrowSwidInterfaceByReferenceDeclaration
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsNonUniqueTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
+import 'package:hydro_sdk/swid/swars/swarsTermStringResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
 import 'package:hydro_sdk/swid/transforms/removeTypeArguments.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
@@ -32,7 +33,8 @@ class DartBoxObjectReference
         SwarsNonUniqueTermMixin<DartBoxObjectReference,
             $DartBoxObjectReferenceCopyWith<DartBoxObjectReference>, String>,
         SwarsTransformMixin<DartBoxObjectReference,
-            $DartBoxObjectReferenceCopyWith<DartBoxObjectReference>, String> {
+            $DartBoxObjectReferenceCopyWith<DartBoxObjectReference>, String>,
+        SwarsTermStringResultMixin {
   DartBoxObjectReference._();
 
   factory DartBoxObjectReference({

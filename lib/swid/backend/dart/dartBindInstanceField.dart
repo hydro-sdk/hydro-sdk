@@ -7,6 +7,7 @@ import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/util/narrowSwidInterfaceByReferenceDeclaration.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
+import 'package:hydro_sdk/swid/swars/swarsTermStringResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
@@ -23,7 +24,8 @@ class DartBindInstanceField
         HashKeyMixin<DartBindInstanceField>,
         HashComparableMixin<DartBindInstanceField>,
         SwarsTransformMixin<DartBindInstanceField,
-            $DartBindInstanceFieldCopyWith<DartBindInstanceField>, String> {
+            $DartBindInstanceFieldCopyWith<DartBindInstanceField>, String>,
+        SwarsTermStringResultMixin {
   DartBindInstanceField._();
 
   factory DartBindInstanceField({

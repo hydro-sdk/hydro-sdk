@@ -5,6 +5,7 @@ import 'package:hydro_sdk/swid/frontend/swidi/validation/swidiValidationError.da
 import 'package:hydro_sdk/swid/frontend/swidi/validation/validateSwidiClassMethod.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsAnalysisMixin.dart';
+import 'package:hydro_sdk/swid/swars/swarsTermJsonTransformableResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
@@ -60,7 +61,8 @@ class ValidateSwidiClass
         SwarsAnalysisMixin<
             ValidateSwidiClass,
             $ValidateSwidiClassCopyWith<ValidateSwidiClass>,
-            SwidiClassValidationState> {
+            SwidiClassValidationState>,
+        SwarsTermJsonTransformableResultMixin {
   ValidateSwidiClass._();
 
   factory ValidateSwidiClass({
@@ -82,6 +84,11 @@ class ValidateSwidiClass
       ValidateSwidiClass(
         swidiClass: swidiClass ?? this.swidiClass.clone(),
       );
+
+  @override
+  SwidiClassValidationState termResultDeserializer(
+          final Map<String, dynamic> json) =>
+      SwidiClassValidationState.fromJson(json);
 
   @override
   ISwarsTermResult<SwidiClassValidationState> analyze({

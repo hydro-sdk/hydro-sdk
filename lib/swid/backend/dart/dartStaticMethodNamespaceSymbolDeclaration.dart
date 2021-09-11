@@ -7,6 +7,7 @@ import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
+import 'package:hydro_sdk/swid/swars/swarsTermStringResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
 import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';
 import 'package:hydro_sdk/swid/transforms/transformToPascalCase.dart';
@@ -28,7 +29,8 @@ class DartStaticMethodNamespaceSymbolDeclaration
             DartStaticMethodNamespaceSymbolDeclaration,
             $DartStaticMethodNamespaceSymbolDeclarationCopyWith<
                 DartStaticMethodNamespaceSymbolDeclaration>,
-            String> {
+            String>,
+        SwarsTermStringResultMixin {
   DartStaticMethodNamespaceSymbolDeclaration._();
 
   factory DartStaticMethodNamespaceSymbolDeclaration({

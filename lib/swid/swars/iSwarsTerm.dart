@@ -22,4 +22,8 @@ abstract class ISwarsTerm<T extends Object, U extends Object, V extends Object>
   ISwarsTermResult<V> call({
     required covariant final ISwarsPipeline<dynamic> pipeline,
   });
+
+  @pragma('vm:prefer-inline')
+  @pragma('dart2js:tryInline')
+  V deserializeTermResult(final String content);
 }

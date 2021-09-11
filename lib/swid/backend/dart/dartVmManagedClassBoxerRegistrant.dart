@@ -6,6 +6,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
+import 'package:hydro_sdk/swid/swars/swarsTermStringResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
@@ -22,7 +23,8 @@ class DartVMManagedClassBoxerRegistrant
             DartVMManagedClassBoxerRegistrant,
             $DartVMManagedClassBoxerRegistrantCopyWith<
                 DartVMManagedClassBoxerRegistrant>,
-            String> {
+            String>,
+        SwarsTermStringResultMixin {
   DartVMManagedClassBoxerRegistrant._();
 
   factory DartVMManagedClassBoxerRegistrant({

@@ -7,6 +7,7 @@ import 'package:hydro_sdk/swid/backend/dart/util/codeKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
+import 'package:hydro_sdk/swid/swars/swarsTermStringResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
@@ -20,7 +21,8 @@ class DartBoxEnumReference
         HashKeyMixin<DartBoxEnumReference>,
         HashComparableMixin<DartBoxEnumReference>,
         SwarsTransformMixin<DartBoxEnumReference,
-            $DartBoxEnumReferenceCopyWith<DartBoxEnumReference>, String> {
+            $DartBoxEnumReferenceCopyWith<DartBoxEnumReference>, String>,
+        SwarsTermStringResultMixin {
   DartBoxEnumReference._();
 
   factory DartBoxEnumReference({

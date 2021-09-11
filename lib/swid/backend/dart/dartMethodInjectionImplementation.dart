@@ -12,6 +12,7 @@ import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/util/narrowSwidInterfaceByReferenceDeclaration.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
+import 'package:hydro_sdk/swid/swars/swarsTermStringResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
 import 'package:hydro_sdk/swid/transforms/methodInjectionFieldName.dart';
 import 'package:hydro_sdk/swid/transforms/transformAccessorName.dart';
@@ -30,7 +31,8 @@ class DartMethodInjectionImplementation
             DartMethodInjectionImplementation,
             $DartMethodInjectionImplementationCopyWith<
                 DartMethodInjectionImplementation>,
-            String> {
+            String>,
+        SwarsTermStringResultMixin {
   DartMethodInjectionImplementation._();
 
   factory DartMethodInjectionImplementation({

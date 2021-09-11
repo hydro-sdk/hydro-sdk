@@ -19,6 +19,7 @@ import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsNonUniqueTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
+import 'package:hydro_sdk/swid/swars/swarsTermStringResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
@@ -42,7 +43,8 @@ class DartFunctionSelfBindingInvocation
             DartFunctionSelfBindingInvocation,
             $DartFunctionSelfBindingInvocationCopyWith<
                 DartFunctionSelfBindingInvocation>,
-            String> {
+            String>,
+        SwarsTermStringResultMixin {
   DartFunctionSelfBindingInvocation._();
 
   factory DartFunctionSelfBindingInvocation({
