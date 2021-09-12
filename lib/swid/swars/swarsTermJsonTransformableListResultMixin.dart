@@ -1,9 +1,10 @@
 import 'dart:convert';
 
+import 'package:meta/meta.dart';
+
+import 'package:hydro_sdk/swid/swars/iSwarsTerm.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/util/iJsonTransformable.dart';
-import 'package:meta/meta.dart';
-import 'package:hydro_sdk/swid/swars/iSwarsTerm.dart';
 
 abstract class ISwarsTermJsonTransformableListResultMixin<
     T extends Object,

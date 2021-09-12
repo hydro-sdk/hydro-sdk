@@ -1,5 +1,6 @@
-import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:tuple/tuple.dart';
+
+import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 
 abstract class ISwarsPipelineCacheMgr {
   const ISwarsPipelineCacheMgr();

@@ -1,6 +1,7 @@
-import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:meta/meta.dart';
+
 import 'package:hydro_sdk/swid/swars/iSwarsTerm.dart';
+import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 
 mixin SwarsTermStringResultMixin<T extends Object, U extends Object>
     on ISwarsTerm<T, U, String> {
