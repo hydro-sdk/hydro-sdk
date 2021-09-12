@@ -10,11 +10,17 @@ import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
+import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
+import 'package:hydro_sdk/swid/swars/pipelineNoopCacheMgr.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
-    final res = swidiSourceToSwidIr(content: """
+    final res = swidiSourceToSwidIr(
+        pipeline: CachingPipeline(
+          cacheMgr: const PipelineNoopCacheMgr(),
+        ),
+        content: """
 class "dart:core"::List {
   static "dart:core"::class::List<type::T> fromArray<T extends "dart:core"::class::Object?>([
     [[ ignoreTransform(@"referenceRewriting") ]]

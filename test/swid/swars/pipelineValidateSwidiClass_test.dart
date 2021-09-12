@@ -5,6 +5,7 @@ import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/validation/swidiValidationError.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/validation/validateSwidiClass.dart';
 import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
+import 'package:hydro_sdk/swid/swars/pipelineNoopCacheMgr.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
@@ -26,8 +27,9 @@ class "package:flutter/src/widgets/icon_data.dart"::IconData {
           .first,
     ).hashKey;
 
-    final pipeline = CachingPipeline<SwidiClassValidationState>()
-      ..add(
+    final pipeline = CachingPipeline<SwidiClassValidationState>(
+      cacheMgr: const PipelineNoopCacheMgr(),
+    )..add(
         term: ValidateSwidiClass(
           swidiClass: const SwidiParser()
               .build()

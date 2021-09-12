@@ -12,6 +12,7 @@ import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/util/instantiateAllGenericsAsDynamic.dart';
 import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
+import 'package:hydro_sdk/swid/swars/pipelineNoopCacheMgr.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
@@ -151,7 +152,9 @@ void main() {
     );
 
     expect(
-        CachingPipeline().reduceFromTerm(
+        CachingPipeline(
+          cacheMgr: const PipelineNoopCacheMgr(),
+        ).reduceFromTerm(
           DartStaticMethodNamespaceSymbolDeclaration(
             swidClass: set,
             swidFunctionType: instantiateAllGenericsAsDynamic(

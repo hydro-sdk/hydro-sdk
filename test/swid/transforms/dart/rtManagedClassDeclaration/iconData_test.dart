@@ -6,6 +6,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartRtManagedClassDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
+import 'package:hydro_sdk/swid/swars/pipelineNoopCacheMgr.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
@@ -16,7 +17,9 @@ void main() {
       ),
     );
 
-    final pipeline = CachingPipeline();
+    final pipeline = CachingPipeline(
+      cacheMgr: const PipelineNoopCacheMgr(),
+    );
 
     final res = pipeline.reduceFromTerm(
       DartRTManagedClassDeclaration(

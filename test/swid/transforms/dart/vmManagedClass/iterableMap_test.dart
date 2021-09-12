@@ -14,6 +14,7 @@ import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/util/instantiateAllGenericsAs.dart';
 import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
+import 'package:hydro_sdk/swid/swars/pipelineNoopCacheMgr.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
@@ -164,7 +165,9 @@ void main() {
           )
         ]);
     expect(
-        CachingPipeline().reduceFromTerm(
+        CachingPipeline(
+          cacheMgr: const PipelineNoopCacheMgr(),
+        ).reduceFromTerm(
           DartVMManagedClassDeclaration(
             swidClass: instantiateAllGenericsAs(
               swidType: SwidType.fromSwidClass(swidClass: iterable),

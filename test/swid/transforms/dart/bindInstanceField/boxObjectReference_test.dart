@@ -7,12 +7,15 @@ import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
+import 'package:hydro_sdk/swid/swars/pipelineNoopCacheMgr.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
     expect(
-        CachingPipeline().reduceFromTerm(
+        CachingPipeline(
+          cacheMgr: const PipelineNoopCacheMgr(),
+        ).reduceFromTerm(
           DartBoxObjectReference(
             tableExpression: null,
             boxLists: true,
@@ -32,7 +35,9 @@ void main() {
 maybeBoxObject<TextStyle>(object: vmObject, hydroState: hydroState, table: HydroTable());""");
 
     expect(
-        CachingPipeline().reduceFromTerm(
+        CachingPipeline(
+          cacheMgr: const PipelineNoopCacheMgr(),
+        ).reduceFromTerm(
           DartBoxObjectReference(
             tableExpression: null,
             boxLists: true,

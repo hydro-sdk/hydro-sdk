@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:developer';
 import 'dart:io';
 
 import 'package:args/args.dart';
@@ -31,7 +30,7 @@ void main(List<String> args) async {
   final results = parser.parse(args);
 
   SwidConfig config = SwidConfig.fromJson(
-      jsonDecode(await File("swid.dart.json").readAsString()));
+      jsonDecode(await File(results["config"]).readAsString()));
 
   final pipeline = CachingPipeline(
     cacheMgr: PipelineFsCacheMgr(
