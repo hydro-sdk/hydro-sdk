@@ -3,11 +3,11 @@ import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/swidiClassToSwidClass.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/validation/validateSwidiClass.dart';
 import 'package:hydro_sdk/swid/ir/swidIr.dart';
-import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
-import 'package:hydro_sdk/swid/swars/pipelineFsCacheMgr.dart';
+import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 
 List<SwidIr> swidiSourceToSwidIr({
   required final String content,
+  required final ISwarsPipeline<dynamic> pipeline,
 }) {
   var parseResult = const SwidiParser().build().parse(content);
 
@@ -16,11 +16,7 @@ List<SwidIr> swidiSourceToSwidIr({
   }
 
   parseResult.value.cast<SwidiClass>().toList().cast<SwidiClass>().forEach(
-        (x) => CachingPipeline(
-          cacheMgr: PipelineFsCacheMgr(
-            basePath: "",
-          ),
-        )
+        (x) => pipeline
             .reduceFromTerm(
               ValidateSwidiClass(
                 swidiClass: x,

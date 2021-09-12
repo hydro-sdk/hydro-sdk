@@ -48,6 +48,7 @@ void main(List<String> args) async {
   final swidiFrontend = SwidiFrontend(
     inputs: config.interfaces,
     inputResolver: const SwidiInputResolver(),
+    pipeline: pipeline,
   );
 
   await CliTiming(
@@ -231,5 +232,4 @@ void main(List<String> args) async {
   }
 
   await pipeline.serialize();
-
 }
