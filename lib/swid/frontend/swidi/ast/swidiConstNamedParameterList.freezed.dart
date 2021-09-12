@@ -109,8 +109,7 @@ class __$$SwidiConstNamedParameterListCtorCopyWithImpl<$Res>
 
 class _$_$SwidiConstNamedParameterListCtor
     extends _$SwidiConstNamedParameterListCtor {
-  const _$_$SwidiConstNamedParameterListCtor({required this.parameters})
-      : super._();
+  _$_$SwidiConstNamedParameterListCtor({required this.parameters}) : super._();
 
   @override
   final List<SwidiConstNamedParameter> parameters;
@@ -143,10 +142,10 @@ class _$_$SwidiConstNamedParameterListCtor
 
 abstract class _$SwidiConstNamedParameterListCtor
     extends SwidiConstNamedParameterList {
-  const factory _$SwidiConstNamedParameterListCtor(
+  factory _$SwidiConstNamedParameterListCtor(
           {required List<SwidiConstNamedParameter> parameters}) =
       _$_$SwidiConstNamedParameterListCtor;
-  const _$SwidiConstNamedParameterListCtor._() : super._();
+  _$SwidiConstNamedParameterListCtor._() : super._();
 
   @override
   List<SwidiConstNamedParameter> get parameters =>

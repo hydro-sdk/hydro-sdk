@@ -105,8 +105,7 @@ class __$$SwidiTypeFormalListCtorlCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_$SwidiTypeFormalListCtorl extends _$SwidiTypeFormalListCtorl {
-  const _$_$SwidiTypeFormalListCtorl({required this.typeFormalList})
-      : super._();
+  _$_$SwidiTypeFormalListCtorl({required this.typeFormalList}) : super._();
 
   @override
   final List<SwidiTypeFormal> typeFormalList;
@@ -139,10 +138,10 @@ class _$_$SwidiTypeFormalListCtorl extends _$SwidiTypeFormalListCtorl {
 }
 
 abstract class _$SwidiTypeFormalListCtorl extends SwidiTypeFormalList {
-  const factory _$SwidiTypeFormalListCtorl(
+  factory _$SwidiTypeFormalListCtorl(
           {required List<SwidiTypeFormal> typeFormalList}) =
       _$_$SwidiTypeFormalListCtorl;
-  const _$SwidiTypeFormalListCtorl._() : super._();
+  _$SwidiTypeFormalListCtorl._() : super._();
 
   @override
   List<SwidiTypeFormal> get typeFormalList =>

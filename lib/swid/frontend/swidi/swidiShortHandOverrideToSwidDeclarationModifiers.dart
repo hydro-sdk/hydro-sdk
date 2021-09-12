@@ -23,7 +23,7 @@ SwidDeclarationModifiers swidiShortHandOverrideToSwidDeclarationModifiers({
                 )
                 .toList(),
             orElse: () => [
-              const StringTuple(
+              StringTuple(
                 item1: "",
                 item2: "",
               ),

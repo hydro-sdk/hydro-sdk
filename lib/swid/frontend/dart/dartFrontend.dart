@@ -111,12 +111,6 @@ class _SwidVisitor extends RecursiveAstVisitor
 
   @override
   void visitClassDeclaration(ClassDeclaration node) {
-    if (node.name.name == "FontWeight") {
-      print(node.name.name);
-      File("test/swid/res/FontWeight.json")
-          .writeAsStringSync(json.encode(classes.last.toJson()));
-    }
-
     if (node.nativeClause == null) {
       var res = swidClassFromDartClassOrMixinOrClassTypAliasDeclaration(
           dartClassOrMixinOrClassTypAliasDeclaration:
@@ -132,150 +126,6 @@ class _SwidVisitor extends RecursiveAstVisitor
       classes.add(res);
     }
 
-    if (node.name.name == "IconData") {
-      print(node.name.name);
-      File("test/swid/res/IconData.json")
-          .writeAsStringSync(json.encode(classes.last.toJson()));
-    }
-
-    if (node.name.name == "IconDataProperty") {
-      print(node.name.name);
-      File("test/swid/res/IconDataProperty.json")
-          .writeAsStringSync(json.encode(classes.last.toJson()));
-    }
-
-    if (node.name.name == "Icons") {
-      print(node.name.name);
-      File("test/swid/res/Icons.json")
-          .writeAsStringSync(json.encode(classes.last.toJson()));
-    }
-
-    if (node.name.name == "CupertinoIcons") {
-      print(node.name.name);
-      File("test/swid/res/CupertinoIcons.json")
-          .writeAsStringSync(json.encode(classes.last.toJson()));
-    }
-
-    if (node.name.name == "IconData") {
-      print(node.name.name);
-      File("test/swid/res/IconData.json")
-          .writeAsStringSync(json.encode(classes.last.toJson()));
-    }
-
-    if (node.name.name == "DiagnosticsNode") {
-      print(node.name.name);
-      File("test/swid/res/DiagnosticsNode.json")
-          .writeAsStringSync(json.encode(classes.last.toJson()));
-    }
-
-    if (node.name.name == "DiagnosticsSerializationDelegate") {
-      print(node.name.name);
-      File("test/swid/res/DiagnosticsSerializationDelegate.json")
-          .writeAsStringSync(json.encode(classes.last.toJson()));
-    }
-
-    if (node.name.name == "DiagnosticPropertiesBuilder") {
-      print(node.name.name);
-      File("test/swid/res/DiagnosticPropertiesBuilder.json")
-          .writeAsStringSync(json.encode(classes.last.toJson()));
-    }
-
-    if (node.name.name == "DiagnosticableTree") {
-      print(node.name.name);
-      File("test/swid/res/DiagnosticableTree.json")
-          .writeAsStringSync(json.encode(classes.last.toJson()));
-    }
-
-    if (node.name.name == "Key") {
-      print(node.name.name);
-      File("test/swid/res/Key.json")
-          .writeAsStringSync(json.encode(classes.last.toJson()));
-    }
-
-    if (node.name.name == "Size") {
-      print(node.name.name);
-      File("test/swid/res/Size.json")
-          .writeAsStringSync(json.encode(classes.last.toJson()));
-    }
-
-    if (node.name.name == "Offset") {
-      print(node.name.name);
-      File("test/swid/res/Offset.json")
-          .writeAsStringSync(json.encode(classes.last.toJson()));
-    }
-
-    if (node.name.name == "Iterable") {
-      print(node.name.name);
-      File("test/swid/res/Iterable.json")
-          .writeAsStringSync(json.encode(classes.last.toJson()));
-    }
-
-    if (node.name.name == "Set") {
-      print(node.name.name);
-      File("test/swid/res/Set.json")
-          .writeAsStringSync(json.encode(classes.last.toJson()));
-    }
-
-    if (node.name.name == "RRect") {
-      print(node.name.name);
-      File("test/swid/res/RRect.json")
-          .writeAsStringSync(json.encode(classes.last.toJson()));
-    }
-
-    if (node.name.name == "UnmodifiableByteBufferView") {
-      print(node.name.name);
-      File("test/swid/res/UnmodifiableByteBufferView.json")
-          .writeAsStringSync(json.encode(classes.last.toJson()));
-    }
-
-    if (node.name.name == "UnmodifiableFloat32ListView") {
-      print(node.name.name);
-      File("test/swid/res/UnmodifiableFloat32ListView.json")
-          .writeAsStringSync(json.encode(classes.last.toJson()));
-    }
-
-    if (node.name.name == "Float32List") {
-      print(node.name.name);
-      File("test/swid/res/Float32List.json")
-          .writeAsStringSync(json.encode(classes.last.toJson()));
-    }
-
-    if (node.name.name == "ListMixin") {
-      print(node.name.name);
-      File("test/swid/res/ListMixin.json")
-          .writeAsStringSync(json.encode(classes.last.toJson()));
-    }
-
-    if (node.name.name == "Iterable") {
-      print(node.name.name);
-      File("test/swid/res/Iterable.json")
-          .writeAsStringSync(json.encode(classes.last.toJson()));
-    }
-
-    if (node.name.name == "IterableBase") {
-      print(node.name.name);
-      File("test/swid/res/IterableBase.json")
-          .writeAsStringSync(json.encode(classes.last.toJson()));
-    }
-
-    if (node.name.name == "UnmodifiableListBase") {
-      print(node.name.name);
-      File("test/swid/res/UnmodifiableListBase.json")
-          .writeAsStringSync(json.encode(classes.last.toJson()));
-    }
-
-    if (node.name.name == "List") {
-      print(node.name.name);
-      File("test/swid/res/List.json")
-          .writeAsStringSync(json.encode(classes.last.toJson()));
-    }
-
-    if (node.name.name == "SemanticsAction") {
-      print(node.name.name);
-      File("test/swid/res/SemanticsAction.json")
-          .writeAsStringSync(json.encode(classes.last.toJson()));
-    }
-
     super.visitClassDeclaration(node);
   }
 
@@ -286,18 +136,6 @@ class _SwidVisitor extends RecursiveAstVisitor
             DartClassOrMixinOrClassTypAliasDeclaration.fromClassTypeAlias(
                 classTypeAlias: node));
     classes.add(res);
-
-    if (node.name.name == "UnmodifiableListBase") {
-      print(node.name.name);
-      File("test/swid/res/UnmodifiableListBase.json")
-          .writeAsStringSync(json.encode(classes.last.toJson()));
-    }
-
-    if (node.name.name == "_UnmodifiableListMixin") {
-      print(node.name.name);
-      File("test/swid/res/_UnmodifiableListMixin.json")
-          .writeAsStringSync(json.encode(classes.last.toJson()));
-    }
 
     return super.visitClassTypeAlias(node);
   }
@@ -320,8 +158,6 @@ class _SwidVisitor extends RecursiveAstVisitor
   @override
   void visitMixinDeclaration(MixinDeclaration node) {
     if (node.name.name == "Diagnosticable") {
-      print(node.name.name);
-
       var res = swidClassFromDartClassOrMixinOrClassTypAliasDeclaration(
           dartClassOrMixinOrClassTypAliasDeclaration:
               DartClassOrMixinOrClassTypAliasDeclaration.fromMixinDeclaration(

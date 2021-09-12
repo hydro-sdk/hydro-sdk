@@ -3,13 +3,20 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiNamedParameter.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiOptionalParameter.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiPositionalParameter.dart';
+import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
+import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
 
 part 'swidiPositionalOrOptionalOrNamedParameter.freezed.dart';
 
 @freezed
 class SwidiPositionalOrOptionalOrNamedParameter
-    with _$SwidiPositionalOrOptionalOrNamedParameter {
-  factory SwidiPositionalOrOptionalOrNamedParameter.clone({
+    with
+        _$SwidiPositionalOrOptionalOrNamedParameter,
+        HashKeyMixin<SwidiPositionalOrOptionalOrNamedParameter>,
+        HashComparableMixin<SwidiPositionalOrOptionalOrNamedParameter> {
+  SwidiPositionalOrOptionalOrNamedParameter._();
+
+  factory SwidiPositionalOrOptionalOrNamedParameter._clone({
     required final SwidiPositionalOrOptionalOrNamedParameter
         swidiPositionalOrOptionalOrNamedParameter,
   }) =>
@@ -17,34 +24,41 @@ class SwidiPositionalOrOptionalOrNamedParameter
         fromSwidiPositionalParameter: (val) =>
             SwidiPositionalOrOptionalOrNamedParameter
                 .fromSwidiPositionalParameter(
-          positionalParameter: SwidiPositionalParameter.clone(
-            swidiPositionalParameter: val,
-          ),
+          positionalParameter: val.clone(),
         ),
         fromSwidiOptionalParameter: (val) =>
             SwidiPositionalOrOptionalOrNamedParameter
                 .fromSwidiOptionalParameter(
-          optionalParameter: SwidiOptionalParameter.clone(
-            swidiOptionalParameter: val,
-          ),
+          optionalParameter: val.clone(),
         ),
         fromSwidiNamedParameter: (val) =>
             SwidiPositionalOrOptionalOrNamedParameter.fromSwidiNamedParameter(
-          namedParameter: SwidiNamedParameter.clone(
-            swidiNamedParameter: val,
-          ),
+          namedParameter: val.clone(),
         ),
       );
 
-  const factory SwidiPositionalOrOptionalOrNamedParameter.fromSwidiPositionalParameter({
+  @override
+  List<int> get hashableParts => when(
+        fromSwidiPositionalParameter: (val) => val.hashableParts,
+        fromSwidiOptionalParameter: (val) => val.hashableParts,
+        fromSwidiNamedParameter: (val) => val.hashableParts,
+      );
+
+  factory SwidiPositionalOrOptionalOrNamedParameter.fromSwidiPositionalParameter({
     required final SwidiPositionalParameter positionalParameter,
   }) = _$SwidiPositionalOrOptionalParameterFromSwidiPositionalParameter;
 
-  const factory SwidiPositionalOrOptionalOrNamedParameter.fromSwidiOptionalParameter({
+  factory SwidiPositionalOrOptionalOrNamedParameter.fromSwidiOptionalParameter({
     required final SwidiOptionalParameter optionalParameter,
   }) = _$SwidiPositionalOrOptionalParameterFromSwidiOptionalParameter;
 
-  const factory SwidiPositionalOrOptionalOrNamedParameter.fromSwidiNamedParameter({
+  factory SwidiPositionalOrOptionalOrNamedParameter.fromSwidiNamedParameter({
     required final SwidiNamedParameter namedParameter,
   }) = _$SwidiPositionalOrOptionalOrNamedParameterFromSwidiNamedParameter;
+
+  @override
+  SwidiPositionalOrOptionalOrNamedParameter clone() =>
+      SwidiPositionalOrOptionalOrNamedParameter._clone(
+        swidiPositionalOrOptionalOrNamedParameter: this,
+      );
 }

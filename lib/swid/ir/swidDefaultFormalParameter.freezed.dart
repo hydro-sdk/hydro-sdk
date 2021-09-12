@@ -196,7 +196,7 @@ class __$$DataCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_$Data extends _$Data {
-  const _$_$Data(
+  _$_$Data(
       {required this.nullabilitySuffix,
       required this.originalPackagePath,
       required this.staticType,
@@ -264,13 +264,13 @@ class _$_$Data extends _$Data {
 }
 
 abstract class _$Data extends SwidDefaultFormalParameter {
-  const factory _$Data(
+  factory _$Data(
       {required SwidNullabilitySuffix nullabilitySuffix,
       required String originalPackagePath,
       required SwidType staticType,
       required SwidStaticConst value,
       required String defaultValueCode}) = _$_$Data;
-  const _$Data._() : super._();
+  _$Data._() : super._();
 
   factory _$Data.fromJson(Map<String, dynamic> json) = _$_$Data.fromJson;
 

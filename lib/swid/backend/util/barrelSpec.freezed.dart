@@ -127,9 +127,10 @@ class __$$BarrelSpecCtorCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_$BarrelSpecCtor implements _$BarrelSpecCtor {
+class _$_$BarrelSpecCtor extends _$BarrelSpecCtor {
   _$_$BarrelSpecCtor(
-      {required this.path, required this.name, required this.members});
+      {required this.path, required this.name, required this.members})
+      : super._();
 
   @override
   final String path;
@@ -168,11 +169,12 @@ class _$_$BarrelSpecCtor implements _$BarrelSpecCtor {
       __$$BarrelSpecCtorCopyWithImpl<_$BarrelSpecCtor>(this, _$identity);
 }
 
-abstract class _$BarrelSpecCtor implements BarrelSpec {
+abstract class _$BarrelSpecCtor extends BarrelSpec {
   factory _$BarrelSpecCtor(
       {required String path,
       required String name,
       required List<BarrelMember> members}) = _$_$BarrelSpecCtor;
+  _$BarrelSpecCtor._() : super._();
 
   @override
   String get path => throw _privateConstructorUsedError;

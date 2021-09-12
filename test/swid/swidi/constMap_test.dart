@@ -46,7 +46,7 @@ void main() {
       ]),
       parser: const SimpleConstMapParser()
           .build(start: const SimpleConstMapParser().constMap),
-      result: const SwidiConstMap(
+      result: SwidiConstMap(
         entries: [
           Tuple2(
             SwidiConst.fromSwidiConstString(
@@ -79,7 +79,7 @@ void main() {
       ]),
       parser: const SimpleConstMapParser()
           .build(start: const SimpleConstMapParser().constMap),
-      result: const SwidiConstMap(
+      result: SwidiConstMap(
         entries: [
           Tuple2(
             SwidiConst.fromSwidiConstNumber(

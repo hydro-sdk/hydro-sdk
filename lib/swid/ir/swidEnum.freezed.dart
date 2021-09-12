@@ -133,11 +133,12 @@ class __$$DataCopyWithImpl<$Res> extends _$SwidEnumCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_$Data implements _$Data {
-  const _$_$Data(
+class _$_$Data extends _$Data {
+  _$_$Data(
       {required this.originalPackagePath,
       required this.identifier,
-      required this.children});
+      required this.children})
+      : super._();
 
   factory _$_$Data.fromJson(Map<String, dynamic> json) =>
       _$_$_$DataFromJson(json);
@@ -187,11 +188,12 @@ class _$_$Data implements _$Data {
   }
 }
 
-abstract class _$Data implements SwidEnum {
-  const factory _$Data(
+abstract class _$Data extends SwidEnum {
+  factory _$Data(
       {required String originalPackagePath,
       required String identifier,
       required List<String> children}) = _$_$Data;
+  _$Data._() : super._();
 
   factory _$Data.fromJson(Map<String, dynamic> json) = _$_$Data.fromJson;
 

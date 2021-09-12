@@ -113,8 +113,8 @@ class __$$SwidiAnnotationCtorCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_$SwidiAnnotationCtor implements _$SwidiAnnotationCtor {
-  const _$_$SwidiAnnotationCtor({required this.value});
+class _$_$SwidiAnnotationCtor extends _$SwidiAnnotationCtor {
+  _$_$SwidiAnnotationCtor({required this.value}) : super._();
 
   @override
   final SwidiConst value;
@@ -143,9 +143,10 @@ class _$_$SwidiAnnotationCtor implements _$SwidiAnnotationCtor {
           this, _$identity);
 }
 
-abstract class _$SwidiAnnotationCtor implements SwidiAnnotation {
-  const factory _$SwidiAnnotationCtor({required SwidiConst value}) =
+abstract class _$SwidiAnnotationCtor extends SwidiAnnotation {
+  factory _$SwidiAnnotationCtor({required SwidiConst value}) =
       _$_$SwidiAnnotationCtor;
+  _$SwidiAnnotationCtor._() : super._();
 
   @override
   SwidiConst get value => throw _privateConstructorUsedError;

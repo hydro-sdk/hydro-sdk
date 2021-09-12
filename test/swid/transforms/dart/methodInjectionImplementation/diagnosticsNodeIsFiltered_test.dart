@@ -5,6 +5,8 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'package:hydro_sdk/swid/backend/dart/dartMethodInjectionImplementation.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
+import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
+import 'package:hydro_sdk/swid/swars/pipelineNoopCacheMgr.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
@@ -13,9 +15,15 @@ void main() {
         .decode(File("test/swid/res/DiagnosticsNode.json").readAsStringSync()));
 
     expect(
-        DartMethodInjectionImplementation(
-            swidFunctionType: diagnosticsNodeClass.methods
-                .firstWhere((x) => x.name == "isFiltered")).toDartSource(),
+        CachingPipeline(
+          cacheMgr: const PipelineNoopCacheMgr(),
+        ).reduceFromTerm(
+          DartMethodInjectionImplementation(
+            swidFunctionType: diagnosticsNodeClass.methods.firstWhere(
+              (x) => x.name == "isFiltered",
+            ),
+          ),
+        ),
         """
 table[\'_dart_isFiltered\'] =
     makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {

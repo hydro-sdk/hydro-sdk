@@ -376,8 +376,8 @@ class __$$FromSwidBooleanLiteralCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_$FromSwidBooleanLiteral implements _$FromSwidBooleanLiteral {
-  const _$_$FromSwidBooleanLiteral({required this.swidBooleanLiteral});
+class _$_$FromSwidBooleanLiteral extends _$FromSwidBooleanLiteral {
+  _$_$FromSwidBooleanLiteral({required this.swidBooleanLiteral}) : super._();
 
   factory _$_$FromSwidBooleanLiteral.fromJson(Map<String, dynamic> json) =>
       _$_$_$FromSwidBooleanLiteralFromJson(json);
@@ -578,10 +578,11 @@ class _$_$FromSwidBooleanLiteral implements _$FromSwidBooleanLiteral {
   }
 }
 
-abstract class _$FromSwidBooleanLiteral implements SwidStaticConst {
-  const factory _$FromSwidBooleanLiteral(
+abstract class _$FromSwidBooleanLiteral extends SwidStaticConst {
+  factory _$FromSwidBooleanLiteral(
           {required SwidBooleanLiteral swidBooleanLiteral}) =
       _$_$FromSwidBooleanLiteral;
+  _$FromSwidBooleanLiteral._() : super._();
 
   factory _$FromSwidBooleanLiteral.fromJson(Map<String, dynamic> json) =
       _$_$FromSwidBooleanLiteral.fromJson;
@@ -636,8 +637,8 @@ class __$$FromSwidStringLiteralCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_$FromSwidStringLiteral implements _$FromSwidStringLiteral {
-  const _$_$FromSwidStringLiteral({required this.swidStringLiteral});
+class _$_$FromSwidStringLiteral extends _$FromSwidStringLiteral {
+  _$_$FromSwidStringLiteral({required this.swidStringLiteral}) : super._();
 
   factory _$_$FromSwidStringLiteral.fromJson(Map<String, dynamic> json) =>
       _$_$_$FromSwidStringLiteralFromJson(json);
@@ -838,10 +839,11 @@ class _$_$FromSwidStringLiteral implements _$FromSwidStringLiteral {
   }
 }
 
-abstract class _$FromSwidStringLiteral implements SwidStaticConst {
-  const factory _$FromSwidStringLiteral(
+abstract class _$FromSwidStringLiteral extends SwidStaticConst {
+  factory _$FromSwidStringLiteral(
           {required SwidStringLiteral swidStringLiteral}) =
       _$_$FromSwidStringLiteral;
+  _$FromSwidStringLiteral._() : super._();
 
   factory _$FromSwidStringLiteral.fromJson(Map<String, dynamic> json) =
       _$_$FromSwidStringLiteral.fromJson;
@@ -897,8 +899,8 @@ class __$$FromSwidIntegerLiteralCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_$FromSwidIntegerLiteral implements _$FromSwidIntegerLiteral {
-  const _$_$FromSwidIntegerLiteral({required this.swidIntegerLiteral});
+class _$_$FromSwidIntegerLiteral extends _$FromSwidIntegerLiteral {
+  _$_$FromSwidIntegerLiteral({required this.swidIntegerLiteral}) : super._();
 
   factory _$_$FromSwidIntegerLiteral.fromJson(Map<String, dynamic> json) =>
       _$_$_$FromSwidIntegerLiteralFromJson(json);
@@ -1099,10 +1101,11 @@ class _$_$FromSwidIntegerLiteral implements _$FromSwidIntegerLiteral {
   }
 }
 
-abstract class _$FromSwidIntegerLiteral implements SwidStaticConst {
-  const factory _$FromSwidIntegerLiteral(
+abstract class _$FromSwidIntegerLiteral extends SwidStaticConst {
+  factory _$FromSwidIntegerLiteral(
           {required SwidIntegerLiteral swidIntegerLiteral}) =
       _$_$FromSwidIntegerLiteral;
+  _$FromSwidIntegerLiteral._() : super._();
 
   factory _$FromSwidIntegerLiteral.fromJson(Map<String, dynamic> json) =
       _$_$FromSwidIntegerLiteral.fromJson;
@@ -1157,8 +1160,8 @@ class __$$FromSwidDoubleLiteralCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_$FromSwidDoubleLiteral implements _$FromSwidDoubleLiteral {
-  const _$_$FromSwidDoubleLiteral({required this.swidDoubleLiteral});
+class _$_$FromSwidDoubleLiteral extends _$FromSwidDoubleLiteral {
+  _$_$FromSwidDoubleLiteral({required this.swidDoubleLiteral}) : super._();
 
   factory _$_$FromSwidDoubleLiteral.fromJson(Map<String, dynamic> json) =>
       _$_$_$FromSwidDoubleLiteralFromJson(json);
@@ -1359,10 +1362,11 @@ class _$_$FromSwidDoubleLiteral implements _$FromSwidDoubleLiteral {
   }
 }
 
-abstract class _$FromSwidDoubleLiteral implements SwidStaticConst {
-  const factory _$FromSwidDoubleLiteral(
+abstract class _$FromSwidDoubleLiteral extends SwidStaticConst {
+  factory _$FromSwidDoubleLiteral(
           {required SwidDoubleLiteral swidDoubleLiteral}) =
       _$_$FromSwidDoubleLiteral;
+  _$FromSwidDoubleLiteral._() : super._();
 
   factory _$FromSwidDoubleLiteral.fromJson(Map<String, dynamic> json) =
       _$_$FromSwidDoubleLiteral.fromJson;
@@ -1424,9 +1428,10 @@ class __$$FromSwidStaticConstFunctionInvocationCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_$FromSwidStaticConstFunctionInvocation
-    implements _$FromSwidStaticConstFunctionInvocation {
-  const _$_$FromSwidStaticConstFunctionInvocation(
-      {required this.staticConstFunctionInvocation});
+    extends _$FromSwidStaticConstFunctionInvocation {
+  _$_$FromSwidStaticConstFunctionInvocation(
+      {required this.staticConstFunctionInvocation})
+      : super._();
 
   factory _$_$FromSwidStaticConstFunctionInvocation.fromJson(
           Map<String, dynamic> json) =>
@@ -1632,12 +1637,12 @@ class _$_$FromSwidStaticConstFunctionInvocation
   }
 }
 
-abstract class _$FromSwidStaticConstFunctionInvocation
-    implements SwidStaticConst {
-  const factory _$FromSwidStaticConstFunctionInvocation(
+abstract class _$FromSwidStaticConstFunctionInvocation extends SwidStaticConst {
+  factory _$FromSwidStaticConstFunctionInvocation(
           {required SwidStaticConstFunctionInvocation
               staticConstFunctionInvocation}) =
       _$_$FromSwidStaticConstFunctionInvocation;
+  _$FromSwidStaticConstFunctionInvocation._() : super._();
 
   factory _$FromSwidStaticConstFunctionInvocation.fromJson(
           Map<String, dynamic> json) =
@@ -1701,9 +1706,10 @@ class __$$FromSwidStaticConstFieldReferenceCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_$FromSwidStaticConstFieldReference
-    implements _$FromSwidStaticConstFieldReference {
-  const _$_$FromSwidStaticConstFieldReference(
-      {required this.swidStaticConstFieldReference});
+    extends _$FromSwidStaticConstFieldReference {
+  _$_$FromSwidStaticConstFieldReference(
+      {required this.swidStaticConstFieldReference})
+      : super._();
 
   factory _$_$FromSwidStaticConstFieldReference.fromJson(
           Map<String, dynamic> json) =>
@@ -1908,11 +1914,12 @@ class _$_$FromSwidStaticConstFieldReference
   }
 }
 
-abstract class _$FromSwidStaticConstFieldReference implements SwidStaticConst {
-  const factory _$FromSwidStaticConstFieldReference(
+abstract class _$FromSwidStaticConstFieldReference extends SwidStaticConst {
+  factory _$FromSwidStaticConstFieldReference(
           {required SwidStaticConstFieldReference
               swidStaticConstFieldReference}) =
       _$_$FromSwidStaticConstFieldReference;
+  _$FromSwidStaticConstFieldReference._() : super._();
 
   factory _$FromSwidStaticConstFieldReference.fromJson(
           Map<String, dynamic> json) =
@@ -1979,9 +1986,10 @@ class __$$FromSwidStaticConstPrefixedExpressionCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_$FromSwidStaticConstPrefixedExpression
-    implements _$FromSwidStaticConstPrefixedExpression {
-  const _$_$FromSwidStaticConstPrefixedExpression(
-      {required this.swidStaticConstPrefixedExpression});
+    extends _$FromSwidStaticConstPrefixedExpression {
+  _$_$FromSwidStaticConstPrefixedExpression(
+      {required this.swidStaticConstPrefixedExpression})
+      : super._();
 
   factory _$_$FromSwidStaticConstPrefixedExpression.fromJson(
           Map<String, dynamic> json) =>
@@ -2188,12 +2196,12 @@ class _$_$FromSwidStaticConstPrefixedExpression
   }
 }
 
-abstract class _$FromSwidStaticConstPrefixedExpression
-    implements SwidStaticConst {
-  const factory _$FromSwidStaticConstPrefixedExpression(
+abstract class _$FromSwidStaticConstPrefixedExpression extends SwidStaticConst {
+  factory _$FromSwidStaticConstPrefixedExpression(
           {required SwidStaticConstPrefixedExpression
               swidStaticConstPrefixedExpression}) =
       _$_$FromSwidStaticConstPrefixedExpression;
+  _$FromSwidStaticConstPrefixedExpression._() : super._();
 
   factory _$FromSwidStaticConstPrefixedExpression.fromJson(
           Map<String, dynamic> json) =
@@ -2258,9 +2266,10 @@ class __$$FromSwidStaticConstBinaryExpressionCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_$FromSwidStaticConstBinaryExpression
-    implements _$FromSwidStaticConstBinaryExpression {
-  const _$_$FromSwidStaticConstBinaryExpression(
-      {required this.swidStaticConstBinaryExpression});
+    extends _$FromSwidStaticConstBinaryExpression {
+  _$_$FromSwidStaticConstBinaryExpression(
+      {required this.swidStaticConstBinaryExpression})
+      : super._();
 
   factory _$_$FromSwidStaticConstBinaryExpression.fromJson(
           Map<String, dynamic> json) =>
@@ -2466,12 +2475,12 @@ class _$_$FromSwidStaticConstBinaryExpression
   }
 }
 
-abstract class _$FromSwidStaticConstBinaryExpression
-    implements SwidStaticConst {
-  const factory _$FromSwidStaticConstBinaryExpression(
+abstract class _$FromSwidStaticConstBinaryExpression extends SwidStaticConst {
+  factory _$FromSwidStaticConstBinaryExpression(
           {required SwidStaticConstBinaryExpression
               swidStaticConstBinaryExpression}) =
       _$_$FromSwidStaticConstBinaryExpression;
+  _$FromSwidStaticConstBinaryExpression._() : super._();
 
   factory _$FromSwidStaticConstBinaryExpression.fromJson(
           Map<String, dynamic> json) =
@@ -2536,9 +2545,10 @@ class __$$FromSwidStaticConstPrefixedIdentifierCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_$FromSwidStaticConstPrefixedIdentifier
-    implements _$FromSwidStaticConstPrefixedIdentifier {
-  const _$_$FromSwidStaticConstPrefixedIdentifier(
-      {required this.staticConstPrefixedIdentifier});
+    extends _$FromSwidStaticConstPrefixedIdentifier {
+  _$_$FromSwidStaticConstPrefixedIdentifier(
+      {required this.staticConstPrefixedIdentifier})
+      : super._();
 
   factory _$_$FromSwidStaticConstPrefixedIdentifier.fromJson(
           Map<String, dynamic> json) =>
@@ -2744,12 +2754,12 @@ class _$_$FromSwidStaticConstPrefixedIdentifier
   }
 }
 
-abstract class _$FromSwidStaticConstPrefixedIdentifier
-    implements SwidStaticConst {
-  const factory _$FromSwidStaticConstPrefixedIdentifier(
+abstract class _$FromSwidStaticConstPrefixedIdentifier extends SwidStaticConst {
+  factory _$FromSwidStaticConstPrefixedIdentifier(
           {required SwidStaticConstPrefixedIdentifier
               staticConstPrefixedIdentifier}) =
       _$_$FromSwidStaticConstPrefixedIdentifier;
+  _$FromSwidStaticConstPrefixedIdentifier._() : super._();
 
   factory _$FromSwidStaticConstPrefixedIdentifier.fromJson(
           Map<String, dynamic> json) =
@@ -2811,9 +2821,9 @@ class __$$FromSwidStaticConstIdentifierCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_$FromSwidStaticConstIdentifier
-    implements _$FromSwidStaticConstIdentifier {
-  const _$_$FromSwidStaticConstIdentifier(
-      {required this.staticConstIdentifier});
+    extends _$FromSwidStaticConstIdentifier {
+  _$_$FromSwidStaticConstIdentifier({required this.staticConstIdentifier})
+      : super._();
 
   factory _$_$FromSwidStaticConstIdentifier.fromJson(
           Map<String, dynamic> json) =>
@@ -3015,10 +3025,11 @@ class _$_$FromSwidStaticConstIdentifier
   }
 }
 
-abstract class _$FromSwidStaticConstIdentifier implements SwidStaticConst {
-  const factory _$FromSwidStaticConstIdentifier(
+abstract class _$FromSwidStaticConstIdentifier extends SwidStaticConst {
+  factory _$FromSwidStaticConstIdentifier(
           {required SwidStaticConstIdentifier staticConstIdentifier}) =
       _$_$FromSwidStaticConstIdentifier;
+  _$FromSwidStaticConstIdentifier._() : super._();
 
   factory _$FromSwidStaticConstIdentifier.fromJson(Map<String, dynamic> json) =
       _$_$FromSwidStaticConstIdentifier.fromJson;
@@ -3078,9 +3089,9 @@ class __$$FromSwidStaticConstListLiteralCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_$FromSwidStaticConstListLiteral
-    implements _$FromSwidStaticConstListLiteral {
-  const _$_$FromSwidStaticConstListLiteral(
-      {required this.staticConstListLiteral});
+    extends _$FromSwidStaticConstListLiteral {
+  _$_$FromSwidStaticConstListLiteral({required this.staticConstListLiteral})
+      : super._();
 
   factory _$_$FromSwidStaticConstListLiteral.fromJson(
           Map<String, dynamic> json) =>
@@ -3282,10 +3293,11 @@ class _$_$FromSwidStaticConstListLiteral
   }
 }
 
-abstract class _$FromSwidStaticConstListLiteral implements SwidStaticConst {
-  const factory _$FromSwidStaticConstListLiteral(
+abstract class _$FromSwidStaticConstListLiteral extends SwidStaticConst {
+  factory _$FromSwidStaticConstListLiteral(
           {required SwidStaticConstListLiteral staticConstListLiteral}) =
       _$_$FromSwidStaticConstListLiteral;
+  _$FromSwidStaticConstListLiteral._() : super._();
 
   factory _$FromSwidStaticConstListLiteral.fromJson(Map<String, dynamic> json) =
       _$_$FromSwidStaticConstListLiteral.fromJson;
@@ -3347,9 +3359,10 @@ class __$$FromSwidStaticConstMapLiteralEntryCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_$FromSwidStaticConstMapLiteralEntry
-    implements _$FromSwidStaticConstMapLiteralEntry {
-  const _$_$FromSwidStaticConstMapLiteralEntry(
-      {required this.swidStaticConstMapLiteralEntry});
+    extends _$FromSwidStaticConstMapLiteralEntry {
+  _$_$FromSwidStaticConstMapLiteralEntry(
+      {required this.swidStaticConstMapLiteralEntry})
+      : super._();
 
   factory _$_$FromSwidStaticConstMapLiteralEntry.fromJson(
           Map<String, dynamic> json) =>
@@ -3554,11 +3567,12 @@ class _$_$FromSwidStaticConstMapLiteralEntry
   }
 }
 
-abstract class _$FromSwidStaticConstMapLiteralEntry implements SwidStaticConst {
-  const factory _$FromSwidStaticConstMapLiteralEntry(
+abstract class _$FromSwidStaticConstMapLiteralEntry extends SwidStaticConst {
+  factory _$FromSwidStaticConstMapLiteralEntry(
           {required SwidStaticConstMapLiteralEntry
               swidStaticConstMapLiteralEntry}) =
       _$_$FromSwidStaticConstMapLiteralEntry;
+  _$FromSwidStaticConstMapLiteralEntry._() : super._();
 
   factory _$FromSwidStaticConstMapLiteralEntry.fromJson(
           Map<String, dynamic> json) =
@@ -3620,9 +3634,9 @@ class __$$FromSwidStaticConstMapLiteralCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_$FromSwidStaticConstMapLiteral
-    implements _$FromSwidStaticConstMapLiteral {
-  const _$_$FromSwidStaticConstMapLiteral(
-      {required this.swidStaticConstMapLiteral});
+    extends _$FromSwidStaticConstMapLiteral {
+  _$_$FromSwidStaticConstMapLiteral({required this.swidStaticConstMapLiteral})
+      : super._();
 
   factory _$_$FromSwidStaticConstMapLiteral.fromJson(
           Map<String, dynamic> json) =>
@@ -3826,10 +3840,11 @@ class _$_$FromSwidStaticConstMapLiteral
   }
 }
 
-abstract class _$FromSwidStaticConstMapLiteral implements SwidStaticConst {
-  const factory _$FromSwidStaticConstMapLiteral(
+abstract class _$FromSwidStaticConstMapLiteral extends SwidStaticConst {
+  factory _$FromSwidStaticConstMapLiteral(
           {required SwidStaticConstMapLiteral swidStaticConstMapLiteral}) =
       _$_$FromSwidStaticConstMapLiteral;
+  _$FromSwidStaticConstMapLiteral._() : super._();
 
   factory _$FromSwidStaticConstMapLiteral.fromJson(Map<String, dynamic> json) =
       _$_$FromSwidStaticConstMapLiteral.fromJson;
@@ -3896,9 +3911,10 @@ class __$$FromSwidStaticConstTopLevelVariableReferenceCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_$FromSwidStaticConstTopLevelVariableReference
-    implements _$FromSwidStaticConstTopLevelVariableReference {
-  const _$_$FromSwidStaticConstTopLevelVariableReference(
-      {required this.swidStaticConstTopLevelVariableReference});
+    extends _$FromSwidStaticConstTopLevelVariableReference {
+  _$_$FromSwidStaticConstTopLevelVariableReference(
+      {required this.swidStaticConstTopLevelVariableReference})
+      : super._();
 
   factory _$_$FromSwidStaticConstTopLevelVariableReference.fromJson(
           Map<String, dynamic> json) =>
@@ -4109,11 +4125,12 @@ class _$_$FromSwidStaticConstTopLevelVariableReference
 }
 
 abstract class _$FromSwidStaticConstTopLevelVariableReference
-    implements SwidStaticConst {
-  const factory _$FromSwidStaticConstTopLevelVariableReference(
+    extends SwidStaticConst {
+  factory _$FromSwidStaticConstTopLevelVariableReference(
           {required SwidStaticConstTopLevelVariableReference
               swidStaticConstTopLevelVariableReference}) =
       _$_$FromSwidStaticConstTopLevelVariableReference;
+  _$FromSwidStaticConstTopLevelVariableReference._() : super._();
 
   factory _$FromSwidStaticConstTopLevelVariableReference.fromJson(
           Map<String, dynamic> json) =

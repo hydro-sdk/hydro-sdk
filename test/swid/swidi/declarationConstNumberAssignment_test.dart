@@ -65,7 +65,7 @@ void main() {
       parser: const SimpleDeclarationParser().build(
           start:
               const SimpleDeclarationParser().declarationWithDefaultConstValue),
-      result: const SwidiDeclaration(
+      result: SwidiDeclaration(
           name: "foo",
           type: SwidiInterface(
             annotations: [],

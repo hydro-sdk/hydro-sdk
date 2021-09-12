@@ -208,7 +208,7 @@ class __$$SwidiInterfaceCtorCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_$SwidiInterfaceCtor extends _$SwidiInterfaceCtor {
-  const _$_$SwidiInterfaceCtor(
+  _$_$SwidiInterfaceCtor(
       {required this.name,
       required this.libraryScopePrefix,
       required this.referenceDeclarationPrefix,
@@ -278,14 +278,14 @@ class _$_$SwidiInterfaceCtor extends _$SwidiInterfaceCtor {
 }
 
 abstract class _$SwidiInterfaceCtor extends SwidiInterface {
-  const factory _$SwidiInterfaceCtor(
+  factory _$SwidiInterfaceCtor(
       {required String name,
       required SwidiLibraryScopePrefix libraryScopePrefix,
       required SwidiReferenceDeclarationPrefix referenceDeclarationPrefix,
       required SwidiNullabilitySuffix nullabilitySuffix,
       required List<SwidiInterface> typeArguments,
       required List<SwidiAnnotation> annotations}) = _$_$SwidiInterfaceCtor;
-  const _$SwidiInterfaceCtor._() : super._();
+  _$SwidiInterfaceCtor._() : super._();
 
   @override
   String get name => throw _privateConstructorUsedError;

@@ -123,8 +123,7 @@ class __$$SwidiStaticFunctionDeclarationCtorCopyWithImpl<$Res>
 
 class _$_$SwidiStaticFunctionDeclarationCtor
     extends _$SwidiStaticFunctionDeclarationCtor {
-  const _$_$SwidiStaticFunctionDeclarationCtor(
-      {required this.functionDeclaration})
+  _$_$SwidiStaticFunctionDeclarationCtor({required this.functionDeclaration})
       : super._();
 
   @override
@@ -159,10 +158,10 @@ class _$_$SwidiStaticFunctionDeclarationCtor
 
 abstract class _$SwidiStaticFunctionDeclarationCtor
     extends SwidiStaticFunctionDeclaration {
-  const factory _$SwidiStaticFunctionDeclarationCtor(
+  factory _$SwidiStaticFunctionDeclarationCtor(
           {required SwidiFunctionDeclaration functionDeclaration}) =
       _$_$SwidiStaticFunctionDeclarationCtor;
-  const _$SwidiStaticFunctionDeclarationCtor._() : super._();
+  _$SwidiStaticFunctionDeclarationCtor._() : super._();
 
   @override
   SwidiFunctionDeclaration get functionDeclaration =>

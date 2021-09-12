@@ -168,8 +168,9 @@ class __$$SwidInstantiableGenericFromSwidClassCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_$SwidInstantiableGenericFromSwidClass
-    implements _$SwidInstantiableGenericFromSwidClass {
-  const _$_$SwidInstantiableGenericFromSwidClass({required this.swidClass});
+    extends _$SwidInstantiableGenericFromSwidClass {
+  _$_$SwidInstantiableGenericFromSwidClass({required this.swidClass})
+      : super._();
 
   factory _$_$SwidInstantiableGenericFromSwidClass.fromJson(
           Map<String, dynamic> json) =>
@@ -267,10 +268,11 @@ class _$_$SwidInstantiableGenericFromSwidClass
 }
 
 abstract class _$SwidInstantiableGenericFromSwidClass
-    implements SwidInstantiableGeneric {
-  const factory _$SwidInstantiableGenericFromSwidClass(
+    extends SwidInstantiableGeneric {
+  factory _$SwidInstantiableGenericFromSwidClass(
           {required SwidClass swidClass}) =
       _$_$SwidInstantiableGenericFromSwidClass;
+  _$SwidInstantiableGenericFromSwidClass._() : super._();
 
   factory _$SwidInstantiableGenericFromSwidClass.fromJson(
           Map<String, dynamic> json) =
@@ -331,9 +333,9 @@ class __$$SwidInstantiableGenericFromSwidInterfaceCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_$SwidInstantiableGenericFromSwidInterface
-    implements _$SwidInstantiableGenericFromSwidInterface {
-  const _$_$SwidInstantiableGenericFromSwidInterface(
-      {required this.swidInterface});
+    extends _$SwidInstantiableGenericFromSwidInterface {
+  _$_$SwidInstantiableGenericFromSwidInterface({required this.swidInterface})
+      : super._();
 
   factory _$_$SwidInstantiableGenericFromSwidInterface.fromJson(
           Map<String, dynamic> json) =>
@@ -431,10 +433,11 @@ class _$_$SwidInstantiableGenericFromSwidInterface
 }
 
 abstract class _$SwidInstantiableGenericFromSwidInterface
-    implements SwidInstantiableGeneric {
-  const factory _$SwidInstantiableGenericFromSwidInterface(
+    extends SwidInstantiableGeneric {
+  factory _$SwidInstantiableGenericFromSwidInterface(
           {required SwidInterface swidInterface}) =
       _$_$SwidInstantiableGenericFromSwidInterface;
+  _$SwidInstantiableGenericFromSwidInterface._() : super._();
 
   factory _$SwidInstantiableGenericFromSwidInterface.fromJson(
           Map<String, dynamic> json) =
@@ -495,9 +498,10 @@ class __$$SwidInstantiableGenericFromSwidFunctionTypeCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_$SwidInstantiableGenericFromSwidFunctionType
-    implements _$SwidInstantiableGenericFromSwidFunctionType {
-  const _$_$SwidInstantiableGenericFromSwidFunctionType(
-      {required this.swidFunctionType});
+    extends _$SwidInstantiableGenericFromSwidFunctionType {
+  _$_$SwidInstantiableGenericFromSwidFunctionType(
+      {required this.swidFunctionType})
+      : super._();
 
   factory _$_$SwidInstantiableGenericFromSwidFunctionType.fromJson(
           Map<String, dynamic> json) =>
@@ -597,10 +601,11 @@ class _$_$SwidInstantiableGenericFromSwidFunctionType
 }
 
 abstract class _$SwidInstantiableGenericFromSwidFunctionType
-    implements SwidInstantiableGeneric {
-  const factory _$SwidInstantiableGenericFromSwidFunctionType(
+    extends SwidInstantiableGeneric {
+  factory _$SwidInstantiableGenericFromSwidFunctionType(
           {required SwidFunctionType swidFunctionType}) =
       _$_$SwidInstantiableGenericFromSwidFunctionType;
+  _$SwidInstantiableGenericFromSwidFunctionType._() : super._();
 
   factory _$SwidInstantiableGenericFromSwidFunctionType.fromJson(
           Map<String, dynamic> json) =

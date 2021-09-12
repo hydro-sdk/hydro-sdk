@@ -11,6 +11,8 @@ import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/util/instantiateAllGenericsAsDynamic.dart';
+import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
+import 'package:hydro_sdk/swid/swars/pipelineNoopCacheMgr.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
@@ -156,14 +158,18 @@ void main() {
           )
         ]);
     expect(
-        DartVMManagedClassDeclaration(
-          swidClass: instantiateAllGenericsAsDynamic(
-                  swidType: SwidType.fromSwidClass(swidClass: iterable))
-              .maybeWhen(
-            fromSwidClass: (val) => val,
-            orElse: () => dartUnknownClass,
+        CachingPipeline(
+          cacheMgr: const PipelineNoopCacheMgr(),
+        ).reduceFromTerm(
+          DartVMManagedClassDeclaration(
+            swidClass: instantiateAllGenericsAsDynamic(
+                    swidType: SwidType.fromSwidClass(swidClass: iterable))
+                .maybeWhen(
+              fromSwidClass: (val) => val,
+              orElse: () => dartUnknownClass,
+            ),
           ),
-        ).toDartSource(),
+        ),
         """
 class VMManagedIterable extends VMManagedBox<Iterable<dynamic>> {
   VMManagedIterable(

@@ -114,8 +114,8 @@ class __$$SwidiNamedParameterCtorCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_$SwidiNamedParameterCtor implements _$SwidiNamedParameterCtor {
-  const _$_$SwidiNamedParameterCtor({required this.declaration});
+class _$_$SwidiNamedParameterCtor extends _$SwidiNamedParameterCtor {
+  _$_$SwidiNamedParameterCtor({required this.declaration}) : super._();
 
   @override
   final SwidiDeclaration declaration;
@@ -145,9 +145,10 @@ class _$_$SwidiNamedParameterCtor implements _$SwidiNamedParameterCtor {
           this, _$identity);
 }
 
-abstract class _$SwidiNamedParameterCtor implements SwidiNamedParameter {
-  const factory _$SwidiNamedParameterCtor(
-      {required SwidiDeclaration declaration}) = _$_$SwidiNamedParameterCtor;
+abstract class _$SwidiNamedParameterCtor extends SwidiNamedParameter {
+  factory _$SwidiNamedParameterCtor({required SwidiDeclaration declaration}) =
+      _$_$SwidiNamedParameterCtor;
+  _$SwidiNamedParameterCtor._() : super._();
 
   @override
   SwidiDeclaration get declaration => throw _privateConstructorUsedError;

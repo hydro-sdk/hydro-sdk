@@ -140,9 +140,10 @@ class __$$SwidStaticConstListLiteralCtorCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_$SwidStaticConstListLiteralCtor
-    implements _$SwidStaticConstListLiteralCtor {
-  const _$_$SwidStaticConstListLiteralCtor(
-      {required this.elements, required this.staticType});
+    extends _$SwidStaticConstListLiteralCtor {
+  _$_$SwidStaticConstListLiteralCtor(
+      {required this.elements, required this.staticType})
+      : super._();
 
   factory _$_$SwidStaticConstListLiteralCtor.fromJson(
           Map<String, dynamic> json) =>
@@ -189,10 +190,11 @@ class _$_$SwidStaticConstListLiteralCtor
 }
 
 abstract class _$SwidStaticConstListLiteralCtor
-    implements SwidStaticConstListLiteral {
-  const factory _$SwidStaticConstListLiteralCtor(
+    extends SwidStaticConstListLiteral {
+  factory _$SwidStaticConstListLiteralCtor(
       {required List<SwidStaticConst> elements,
       required SwidType staticType}) = _$_$SwidStaticConstListLiteralCtor;
+  _$SwidStaticConstListLiteralCtor._() : super._();
 
   factory _$SwidStaticConstListLiteralCtor.fromJson(Map<String, dynamic> json) =
       _$_$SwidStaticConstListLiteralCtor.fromJson;

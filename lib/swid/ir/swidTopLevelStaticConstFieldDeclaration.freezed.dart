@@ -154,7 +154,7 @@ class __$$SwidTopLevelStaticConstFieldDeclarationCtorCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_$SwidTopLevelStaticConstFieldDeclarationCtor
     extends _$SwidTopLevelStaticConstFieldDeclarationCtor {
-  const _$_$SwidTopLevelStaticConstFieldDeclarationCtor(
+  _$_$SwidTopLevelStaticConstFieldDeclarationCtor(
       {required this.originalPackagePath, required this.declaration})
       : super._();
 
@@ -206,11 +206,11 @@ class _$_$SwidTopLevelStaticConstFieldDeclarationCtor
 
 abstract class _$SwidTopLevelStaticConstFieldDeclarationCtor
     extends SwidTopLevelStaticConstFieldDeclaration {
-  const factory _$SwidTopLevelStaticConstFieldDeclarationCtor(
+  factory _$SwidTopLevelStaticConstFieldDeclarationCtor(
           {required String originalPackagePath,
           required SwidStaticConstFieldDeclaration declaration}) =
       _$_$SwidTopLevelStaticConstFieldDeclarationCtor;
-  const _$SwidTopLevelStaticConstFieldDeclarationCtor._() : super._();
+  _$SwidTopLevelStaticConstFieldDeclarationCtor._() : super._();
 
   factory _$SwidTopLevelStaticConstFieldDeclarationCtor.fromJson(
           Map<String, dynamic> json) =

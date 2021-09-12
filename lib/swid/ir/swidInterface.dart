@@ -1,24 +1,29 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'package:hydro_sdk/swid/ir/iSwidType.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeMixin.dart';
-import 'package:hydro_sdk/swid/util/iCloneable.dart';
+import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
+import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
+import 'package:hydro_sdk/swid/util/iCopyable.dart';
 
 part 'swidInterface.freezed.dart';
 part 'swidInterface.g.dart';
 
 @freezed
 class SwidInterface
-    with _$SwidInterface, SwidTypeMixin<SwidInterface>
-    implements ISwidType<SwidInterface>, ICloneable<SwidInterface> {
-  const SwidInterface._();
+    with
+        _$SwidInterface,
+        SwidTypeMixin<SwidInterface>,
+        HashKeyMixin<SwidInterface>,
+        HashComparableMixin<SwidInterface>
+    implements ICopyable<SwidInterface, $SwidInterfaceCopyWith<SwidInterface>> {
+  SwidInterface._();
 
-  const factory SwidInterface({
+  factory SwidInterface({
     required final String name,
     required final SwidNullabilitySuffix nullabilitySuffix,
     required final String originalPackagePath,
@@ -32,12 +37,12 @@ class SwidInterface
 
   factory SwidInterface.clone({
     required final SwidInterface swidType,
-    String? name,
-    SwidNullabilitySuffix? nullabilitySuffix,
-    String? originalPackagePath,
-    List<SwidType>? typeArguments,
-    SwidReferenceDeclarationKind? referenceDeclarationKind,
-    SwidDeclarationModifiers? declarationModifiers,
+    final String? name,
+    final SwidNullabilitySuffix? nullabilitySuffix,
+    final String? originalPackagePath,
+    final List<SwidType>? typeArguments,
+    final SwidReferenceDeclarationKind? referenceDeclarationKind,
+    final SwidDeclarationModifiers? declarationModifiers,
   }) =>
       SwidInterface(
         name: name ?? swidType.name,
@@ -65,17 +70,27 @@ class SwidInterface
         referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
       );
 
+  @override
+  List<int> get hashableParts => [
+        ...name.hashableParts,
+        nullabilitySuffix.index,
+        ...originalPackagePath.hashableParts,
+        ...typeArguments.hashableParts,
+        referenceDeclarationKind.index,
+        ...declarationModifiers.hashableParts,
+      ];
+
   String get displayName =>
       SwidType.fromSwidInterface(swidInterface: this).displayName;
 
   @override
   SwidInterface clone({
-    String? name,
-    SwidNullabilitySuffix? nullabilitySuffix,
-    String? originalPackagePath,
-    List<SwidType>? typeArguments,
-    SwidReferenceDeclarationKind? referenceDeclarationKind,
-    SwidDeclarationModifiers? declarationModifiers,
+    final String? name,
+    final SwidNullabilitySuffix? nullabilitySuffix,
+    final String? originalPackagePath,
+    final List<SwidType>? typeArguments,
+    final SwidReferenceDeclarationKind? referenceDeclarationKind,
+    final SwidDeclarationModifiers? declarationModifiers,
   }) =>
       SwidInterface.clone(
         swidType: this,

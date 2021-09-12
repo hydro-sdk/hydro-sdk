@@ -1,13 +1,25 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/ir/swidType.dart';
+import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
+import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
+import 'package:hydro_sdk/swid/util/iCopyable.dart';
 
 part 'swidStaticConstIdentifier.freezed.dart';
 part 'swidStaticConstIdentifier.g.dart';
 
 @freezed
-class SwidStaticConstIdentifier with _$SwidStaticConstIdentifier {
-  const factory SwidStaticConstIdentifier({
+class SwidStaticConstIdentifier
+    with
+        _$SwidStaticConstIdentifier,
+        HashKeyMixin<SwidStaticConstIdentifier>,
+        HashComparableMixin<SwidStaticConstIdentifier>
+    implements
+        ICopyable<SwidStaticConstIdentifier,
+            $SwidStaticConstIdentifierCopyWith<SwidStaticConstIdentifier>> {
+  SwidStaticConstIdentifier._();
+
+  factory SwidStaticConstIdentifier({
     required final String identifier,
     required final SwidType enclosingType,
   }) = _$SwidStaticConstIdentifierCtor;
@@ -17,8 +29,8 @@ class SwidStaticConstIdentifier with _$SwidStaticConstIdentifier {
 
   factory SwidStaticConstIdentifier.clone({
     required final SwidStaticConstIdentifier swidStaticConstIdentifier,
-    String? identifier,
-    SwidType? enclosingType,
+    final String? identifier,
+    final SwidType? enclosingType,
   }) =>
       SwidStaticConstIdentifier(
         identifier: identifier ?? swidStaticConstIdentifier.identifier,
@@ -26,5 +38,22 @@ class SwidStaticConstIdentifier with _$SwidStaticConstIdentifier {
             SwidType.clone(
               swidType: swidStaticConstIdentifier.enclosingType,
             ),
+      );
+
+  @override
+  List<int> get hashableParts => [
+        ...identifier.hashableParts,
+        ...enclosingType.hashableParts,
+      ];
+
+  @override
+  SwidStaticConstIdentifier clone({
+    final String? identifier,
+    final SwidType? enclosingType,
+  }) =>
+      SwidStaticConstIdentifier.clone(
+        swidStaticConstIdentifier: this,
+        identifier: identifier,
+        enclosingType: enclosingType,
       );
 }

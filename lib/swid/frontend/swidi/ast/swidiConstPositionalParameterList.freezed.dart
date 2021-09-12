@@ -110,7 +110,7 @@ class __$$SwidiConstPositionalParameterListCtorCopyWithImpl<$Res>
 
 class _$_$SwidiConstPositionalParameterListCtor
     extends _$SwidiConstPositionalParameterListCtor {
-  const _$_$SwidiConstPositionalParameterListCtor({required this.parameters})
+  _$_$SwidiConstPositionalParameterListCtor({required this.parameters})
       : super._();
 
   @override
@@ -144,10 +144,10 @@ class _$_$SwidiConstPositionalParameterListCtor
 
 abstract class _$SwidiConstPositionalParameterListCtor
     extends SwidiConstPositionalParameterList {
-  const factory _$SwidiConstPositionalParameterListCtor(
+  factory _$SwidiConstPositionalParameterListCtor(
           {required List<SwidiConst> parameters}) =
       _$_$SwidiConstPositionalParameterListCtor;
-  const _$SwidiConstPositionalParameterListCtor._() : super._();
+  _$SwidiConstPositionalParameterListCtor._() : super._();
 
   @override
   List<SwidiConst> get parameters => throw _privateConstructorUsedError;

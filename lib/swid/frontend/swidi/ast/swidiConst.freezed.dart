@@ -192,7 +192,7 @@ class __$$SwidiConstFromSwidiEmptyConstCopyWithImpl<$Res>
 
 class _$_$SwidiConstFromSwidiEmptyConst
     extends _$SwidiConstFromSwidiEmptyConst {
-  const _$_$SwidiConstFromSwidiEmptyConst({required this.swidiEmptyConst})
+  _$_$SwidiConstFromSwidiEmptyConst({required this.swidiEmptyConst})
       : super._();
 
   @override
@@ -305,10 +305,10 @@ class _$_$SwidiConstFromSwidiEmptyConst
 }
 
 abstract class _$SwidiConstFromSwidiEmptyConst extends SwidiConst {
-  const factory _$SwidiConstFromSwidiEmptyConst(
+  factory _$SwidiConstFromSwidiEmptyConst(
           {required SwidiEmptyConst swidiEmptyConst}) =
       _$_$SwidiConstFromSwidiEmptyConst;
-  const _$SwidiConstFromSwidiEmptyConst._() : super._();
+  _$SwidiConstFromSwidiEmptyConst._() : super._();
 
   SwidiEmptyConst get swidiEmptyConst => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -364,7 +364,7 @@ class __$$SwidiConstFromSwidiConstNumberCopyWithImpl<$Res>
 
 class _$_$SwidiConstFromSwidiConstNumber
     extends _$SwidiConstFromSwidiConstNumber {
-  const _$_$SwidiConstFromSwidiConstNumber({required this.swidiConstNumber})
+  _$_$SwidiConstFromSwidiConstNumber({required this.swidiConstNumber})
       : super._();
 
   @override
@@ -477,10 +477,10 @@ class _$_$SwidiConstFromSwidiConstNumber
 }
 
 abstract class _$SwidiConstFromSwidiConstNumber extends SwidiConst {
-  const factory _$SwidiConstFromSwidiConstNumber(
+  factory _$SwidiConstFromSwidiConstNumber(
           {required SwidiConstNumber swidiConstNumber}) =
       _$_$SwidiConstFromSwidiConstNumber;
-  const _$SwidiConstFromSwidiConstNumber._() : super._();
+  _$SwidiConstFromSwidiConstNumber._() : super._();
 
   SwidiConstNumber get swidiConstNumber => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -536,7 +536,7 @@ class __$$SwidiConstFromSwidiConstStringCopyWithImpl<$Res>
 
 class _$_$SwidiConstFromSwidiConstString
     extends _$SwidiConstFromSwidiConstString {
-  const _$_$SwidiConstFromSwidiConstString({required this.swidiConstString})
+  _$_$SwidiConstFromSwidiConstString({required this.swidiConstString})
       : super._();
 
   @override
@@ -649,10 +649,10 @@ class _$_$SwidiConstFromSwidiConstString
 }
 
 abstract class _$SwidiConstFromSwidiConstString extends SwidiConst {
-  const factory _$SwidiConstFromSwidiConstString(
+  factory _$SwidiConstFromSwidiConstString(
           {required SwidiConstString swidiConstString}) =
       _$_$SwidiConstFromSwidiConstString;
-  const _$SwidiConstFromSwidiConstString._() : super._();
+  _$SwidiConstFromSwidiConstString._() : super._();
 
   SwidiConstString get swidiConstString => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -710,7 +710,7 @@ class __$$SwidiConstFromSwidiConstFunctionInvocationCopyWithImpl<$Res>
 
 class _$_$SwidiConstFromSwidiConstFunctionInvocation
     extends _$SwidiConstFromSwidiConstFunctionInvocation {
-  const _$_$SwidiConstFromSwidiConstFunctionInvocation(
+  _$_$SwidiConstFromSwidiConstFunctionInvocation(
       {required this.swidiConstFunctionInvocation})
       : super._();
 
@@ -828,11 +828,11 @@ class _$_$SwidiConstFromSwidiConstFunctionInvocation
 }
 
 abstract class _$SwidiConstFromSwidiConstFunctionInvocation extends SwidiConst {
-  const factory _$SwidiConstFromSwidiConstFunctionInvocation(
+  factory _$SwidiConstFromSwidiConstFunctionInvocation(
           {required SwidiConstFunctionInvocation
               swidiConstFunctionInvocation}) =
       _$_$SwidiConstFromSwidiConstFunctionInvocation;
-  const _$SwidiConstFromSwidiConstFunctionInvocation._() : super._();
+  _$SwidiConstFromSwidiConstFunctionInvocation._() : super._();
 
   SwidiConstFunctionInvocation get swidiConstFunctionInvocation =>
       throw _privateConstructorUsedError;
@@ -889,8 +889,7 @@ class __$$SwidiConstFromSwidiConstMapCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_$SwidiConstFromSwidiConstMap extends _$SwidiConstFromSwidiConstMap {
-  const _$_$SwidiConstFromSwidiConstMap({required this.swidiConstMap})
-      : super._();
+  _$_$SwidiConstFromSwidiConstMap({required this.swidiConstMap}) : super._();
 
   @override
   final SwidiConstMap swidiConstMap;
@@ -1001,9 +1000,9 @@ class _$_$SwidiConstFromSwidiConstMap extends _$SwidiConstFromSwidiConstMap {
 }
 
 abstract class _$SwidiConstFromSwidiConstMap extends SwidiConst {
-  const factory _$SwidiConstFromSwidiConstMap(
+  factory _$SwidiConstFromSwidiConstMap(
       {required SwidiConstMap swidiConstMap}) = _$_$SwidiConstFromSwidiConstMap;
-  const _$SwidiConstFromSwidiConstMap._() : super._();
+  _$SwidiConstFromSwidiConstMap._() : super._();
 
   SwidiConstMap get swidiConstMap => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1059,7 +1058,7 @@ class __$$SwidiConstFromSwidiConstBooleanCopyWithImpl<$Res>
 
 class _$_$SwidiConstFromSwidiConstBoolean
     extends _$SwidiConstFromSwidiConstBoolean {
-  const _$_$SwidiConstFromSwidiConstBoolean({required this.swidiConstBoolean})
+  _$_$SwidiConstFromSwidiConstBoolean({required this.swidiConstBoolean})
       : super._();
 
   @override
@@ -1172,10 +1171,10 @@ class _$_$SwidiConstFromSwidiConstBoolean
 }
 
 abstract class _$SwidiConstFromSwidiConstBoolean extends SwidiConst {
-  const factory _$SwidiConstFromSwidiConstBoolean(
+  factory _$SwidiConstFromSwidiConstBoolean(
           {required SwidiConstBoolean swidiConstBoolean}) =
       _$_$SwidiConstFromSwidiConstBoolean;
-  const _$SwidiConstFromSwidiConstBoolean._() : super._();
+  _$SwidiConstFromSwidiConstBoolean._() : super._();
 
   SwidiConstBoolean get swidiConstBoolean => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)

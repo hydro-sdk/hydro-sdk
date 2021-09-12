@@ -131,8 +131,8 @@ class __$$FromSwidClassCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_$FromSwidClass implements _$FromSwidClass {
-  _$_$FromSwidClass({required this.swidClass});
+class _$_$FromSwidClass extends _$FromSwidClass {
+  _$_$FromSwidClass({required this.swidClass}) : super._();
 
   @override
   final SwidClass swidClass;
@@ -209,8 +209,9 @@ class _$_$FromSwidClass implements _$FromSwidClass {
   }
 }
 
-abstract class _$FromSwidClass implements BarrelMember {
+abstract class _$FromSwidClass extends BarrelMember {
   factory _$FromSwidClass({required SwidClass swidClass}) = _$_$FromSwidClass;
+  _$FromSwidClass._() : super._();
 
   SwidClass get swidClass => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -261,8 +262,8 @@ class __$$FromSwidEnumCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_$FromSwidEnum implements _$FromSwidEnum {
-  _$_$FromSwidEnum({required this.swidEnum});
+class _$_$FromSwidEnum extends _$FromSwidEnum {
+  _$_$FromSwidEnum({required this.swidEnum}) : super._();
 
   @override
   final SwidEnum swidEnum;
@@ -339,8 +340,9 @@ class _$_$FromSwidEnum implements _$FromSwidEnum {
   }
 }
 
-abstract class _$FromSwidEnum implements BarrelMember {
+abstract class _$FromSwidEnum extends BarrelMember {
   factory _$FromSwidEnum({required SwidEnum swidEnum}) = _$_$FromSwidEnum;
+  _$FromSwidEnum._() : super._();
 
   SwidEnum get swidEnum => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -391,8 +393,8 @@ class __$$FromBarrelSpecCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_$FromBarrelSpec implements _$FromBarrelSpec {
-  _$_$FromBarrelSpec({required this.barrelSpec});
+class _$_$FromBarrelSpec extends _$FromBarrelSpec {
+  _$_$FromBarrelSpec({required this.barrelSpec}) : super._();
 
   @override
   final BarrelSpec barrelSpec;
@@ -469,9 +471,10 @@ class _$_$FromBarrelSpec implements _$FromBarrelSpec {
   }
 }
 
-abstract class _$FromBarrelSpec implements BarrelMember {
+abstract class _$FromBarrelSpec extends BarrelMember {
   factory _$FromBarrelSpec({required BarrelSpec barrelSpec}) =
       _$_$FromBarrelSpec;
+  _$FromBarrelSpec._() : super._();
 
   BarrelSpec get barrelSpec => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)

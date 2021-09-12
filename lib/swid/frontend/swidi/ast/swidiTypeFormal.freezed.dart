@@ -127,7 +127,7 @@ class __$$SwidiTypeFormalCtorCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_$SwidiTypeFormalCtor extends _$SwidiTypeFormalCtor {
-  const _$_$SwidiTypeFormalCtor({required this.name, required this.bound})
+  _$_$SwidiTypeFormalCtor({required this.name, required this.bound})
       : super._();
 
   @override
@@ -164,10 +164,10 @@ class _$_$SwidiTypeFormalCtor extends _$SwidiTypeFormalCtor {
 }
 
 abstract class _$SwidiTypeFormalCtor extends SwidiTypeFormal {
-  const factory _$SwidiTypeFormalCtor(
+  factory _$SwidiTypeFormalCtor(
       {required String name,
       required SwidiInterface bound}) = _$_$SwidiTypeFormalCtor;
-  const _$SwidiTypeFormalCtor._() : super._();
+  _$SwidiTypeFormalCtor._() : super._();
 
   @override
   String get name => throw _privateConstructorUsedError;

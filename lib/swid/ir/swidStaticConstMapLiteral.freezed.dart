@@ -145,7 +145,7 @@ class __$$SwidStaticConstMapLiteralCtorCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_$SwidStaticConstMapLiteralCtor
     extends _$SwidStaticConstMapLiteralCtor {
-  const _$_$SwidStaticConstMapLiteralCtor(
+  _$_$SwidStaticConstMapLiteralCtor(
       {required this.elements, required this.staticType})
       : super._();
 
@@ -195,10 +195,10 @@ class _$_$SwidStaticConstMapLiteralCtor
 
 abstract class _$SwidStaticConstMapLiteralCtor
     extends SwidStaticConstMapLiteral {
-  const factory _$SwidStaticConstMapLiteralCtor(
+  factory _$SwidStaticConstMapLiteralCtor(
       {required List<SwidStaticConstMapLiteralEntry> elements,
       required SwidType staticType}) = _$_$SwidStaticConstMapLiteralCtor;
-  const _$SwidStaticConstMapLiteralCtor._() : super._();
+  _$SwidStaticConstMapLiteralCtor._() : super._();
 
   factory _$SwidStaticConstMapLiteralCtor.fromJson(Map<String, dynamic> json) =
       _$_$SwidStaticConstMapLiteralCtor.fromJson;

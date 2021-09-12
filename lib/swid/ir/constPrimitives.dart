@@ -22,13 +22,13 @@ bool isDartObject({
 }) =>
     _isConstPrimitive(
       swidType: swidType,
-      constPrimitive: const SwidType.fromSwidInterface(
+      constPrimitive: SwidType.fromSwidInterface(
         swidInterface: dartObject,
       ),
     ) ||
     _isConstPrimitive(
       swidType: swidType,
-      constPrimitive: const SwidType.fromSwidInterface(
+      constPrimitive: SwidType.fromSwidInterface(
         swidInterface: dartNullableObject,
       ),
     );
@@ -42,7 +42,7 @@ bool isClassDartObject({
       ),
     );
 
-const emptyDeclarationModifiers = const SwidDeclarationModifiers(
+final emptyDeclarationModifiers = SwidDeclarationModifiers(
   ignoredTransforms: [],
   ignoredAnalyses: [],
   overridenTransforms: [],
@@ -72,7 +72,7 @@ const emptyDeclarationModifiers = const SwidDeclarationModifiers(
   isPublic: true,
 );
 
-const dartObject = const SwidInterface(
+final dartObject = SwidInterface(
   name: "Object",
   nullabilitySuffix: SwidNullabilitySuffix.none,
   originalPackagePath: "dart:core",
@@ -81,7 +81,7 @@ const dartObject = const SwidInterface(
   declarationModifiers: emptyDeclarationModifiers,
 );
 
-const dartNullableObject = const SwidInterface(
+final dartNullableObject = SwidInterface(
   name: "Object?",
   nullabilitySuffix: SwidNullabilitySuffix.question,
   originalPackagePath: "dart:core",
@@ -95,13 +95,13 @@ bool isDartType({
 }) =>
     _isConstPrimitive(
       swidType: swidType,
-      constPrimitive: const SwidType.fromSwidInterface(
+      constPrimitive: SwidType.fromSwidInterface(
         swidInterface: dartType,
       ),
     ) ||
     _isConstPrimitive(
       swidType: swidType,
-      constPrimitive: const SwidType.fromSwidInterface(
+      constPrimitive: SwidType.fromSwidInterface(
         swidInterface: dartNullableType,
       ),
     );
@@ -115,7 +115,7 @@ bool isClassDartType({
       ),
     );
 
-const dartType = const SwidInterface(
+final dartType = SwidInterface(
   name: "Type",
   nullabilitySuffix: SwidNullabilitySuffix.none,
   originalPackagePath: "dart:core",
@@ -124,7 +124,7 @@ const dartType = const SwidInterface(
   declarationModifiers: emptyDeclarationModifiers,
 );
 
-const dartNullableType = const SwidInterface(
+final dartNullableType = SwidInterface(
   name: "Type?",
   nullabilitySuffix: SwidNullabilitySuffix.question,
   originalPackagePath: "dart:core",
@@ -133,7 +133,7 @@ const dartNullableType = const SwidInterface(
   declarationModifiers: emptyDeclarationModifiers,
 );
 
-const dartDouble = const SwidInterface(
+final dartDouble = SwidInterface(
   name: "double",
   nullabilitySuffix: SwidNullabilitySuffix.none,
   originalPackagePath: "dart:core",
@@ -142,7 +142,7 @@ const dartDouble = const SwidInterface(
   declarationModifiers: emptyDeclarationModifiers,
 );
 
-const dartInt = const SwidInterface(
+final dartInt = SwidInterface(
   name: "int",
   nullabilitySuffix: SwidNullabilitySuffix.none,
   originalPackagePath: "dart:core",
@@ -151,7 +151,7 @@ const dartInt = const SwidInterface(
   declarationModifiers: emptyDeclarationModifiers,
 );
 
-const dartNullableInt = const SwidInterface(
+final dartNullableInt = SwidInterface(
   name: "int?",
   nullabilitySuffix: SwidNullabilitySuffix.question,
   originalPackagePath: "dart:core",
@@ -160,7 +160,7 @@ const dartNullableInt = const SwidInterface(
   declarationModifiers: emptyDeclarationModifiers,
 );
 
-const dartNum = const SwidInterface(
+final dartNum = SwidInterface(
   name: "num",
   nullabilitySuffix: SwidNullabilitySuffix.none,
   originalPackagePath: "dart:core",
@@ -169,7 +169,7 @@ const dartNum = const SwidInterface(
   declarationModifiers: emptyDeclarationModifiers,
 );
 
-const dartNullableNum = const SwidInterface(
+final dartNullableNum = SwidInterface(
   name: "num?",
   nullabilitySuffix: SwidNullabilitySuffix.question,
   originalPackagePath: "dart:core",
@@ -178,7 +178,7 @@ const dartNullableNum = const SwidInterface(
   declarationModifiers: emptyDeclarationModifiers,
 );
 
-const dartDynamic = const SwidInterface(
+final dartDynamic = SwidInterface(
   name: "dynamic",
   nullabilitySuffix: SwidNullabilitySuffix.none,
   originalPackagePath: "",
@@ -187,7 +187,7 @@ const dartDynamic = const SwidInterface(
   typeArguments: [],
 );
 
-const dartVoid = const SwidInterface(
+final dartVoid = SwidInterface(
   name: "void",
   nullabilitySuffix: SwidNullabilitySuffix.none,
   originalPackagePath: "",
@@ -196,7 +196,7 @@ const dartVoid = const SwidInterface(
   typeArguments: [],
 );
 
-const dartUnknownInterface = const SwidInterface(
+final dartUnknownInterface = SwidInterface(
   name: "Unknown",
   nullabilitySuffix: SwidNullabilitySuffix.none,
   originalPackagePath: "",
@@ -205,11 +205,11 @@ const dartUnknownInterface = const SwidInterface(
   typeArguments: [],
 );
 
-const dartUnknownType = const SwidType.fromSwidInterface(
+final dartUnknownType = SwidType.fromSwidInterface(
   swidInterface: dartUnknownInterface,
 );
 
-const dartUnknownClass = const SwidClass(
+final dartUnknownClass = SwidClass(
   name: "Unknown",
   nullabilitySuffix: SwidNullabilitySuffix.none,
   originalPackagePath: "",
@@ -226,7 +226,7 @@ const dartUnknownClass = const SwidClass(
   typeFormals: [],
 );
 
-const dartUnknownFunction = const SwidFunctionType(
+final dartUnknownFunction = SwidFunctionType(
   name: "Unknown",
   nullabilitySuffix: SwidNullabilitySuffix.none,
   originalPackagePath: "",
@@ -242,14 +242,14 @@ const dartUnknownFunction = const SwidFunctionType(
   typeFormals: [],
 );
 
-const dartUnkownTypeFormal = const SwidTypeFormal(
+final dartUnkownTypeFormal = SwidTypeFormal(
   value: SwidTypeFormalValue.fromSwidInterface(
     swidInterface: dartUnknownInterface,
   ),
   swidReferenceDeclarationKind: SwidReferenceDeclarationKind.unknown,
 );
 
-const dartUnknownDefaultFormalParameter = const SwidDefaultFormalParameter(
+final dartUnknownDefaultFormalParameter = SwidDefaultFormalParameter(
   nullabilitySuffix: SwidNullabilitySuffix.none,
   originalPackagePath: "",
   defaultValueCode: "Unknown",
@@ -257,13 +257,12 @@ const dartUnknownDefaultFormalParameter = const SwidDefaultFormalParameter(
   staticType: dartUnknownType,
 );
 
-const dartUnkownDefaultFormalParameterEntry = const MapEntry(
+final dartUnkownDefaultFormalParameterEntry = MapEntry(
   "Unknown",
   dartUnknownDefaultFormalParameter,
 );
 
-const dartUnknownConst =
-    const SwidStaticConst.fromSwidStaticConstFieldReference(
+final dartUnknownConst = SwidStaticConst.fromSwidStaticConstFieldReference(
   swidStaticConstFieldReference: SwidStaticConstFieldReference(
     name: "Unknown",
   ),

@@ -9,25 +9,62 @@ import 'package:code_builder/code_builder.dart'
         CodeExpression,
         Code;
 
+import 'package:freezed_annotation/freezed_annotation.dart';
+
 import 'package:hydro_sdk/swid/backend/dart/util/luaCallerArgumentsParameterName.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
-import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/util/narrowSwidInterfaceByReferenceDeclaration.dart';
+import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsNonUniqueTermMixin.dart';
+import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
+import 'package:hydro_sdk/swid/swars/swarsTermStringResultMixin.dart';
+import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
+import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
+import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
+import 'package:hydro_sdk/swid/util/unHashableMixin.dart';
 
-class DartUnboxingExpression {
-  final SwidType swidType;
-  final Expression expression;
-  final String identifierName;
+part 'dartUnboxingExpression.freezed.dart';
 
-  const DartUnboxingExpression({
-    required final this.swidType,
-    required final this.expression,
-    this.identifierName = "",
-  });
+@freezed
+class DartUnboxingExpression
+    with
+        _$DartUnboxingExpression,
+        HashKeyMixin<DartUnboxingExpression>,
+        HashComparableMixin<DartUnboxingExpression>,
+        UnhashableMixin<DartUnboxingExpression>,
+        SwarsNonUniqueTermMixin<DartUnboxingExpression,
+            $DartUnboxingExpressionCopyWith<DartUnboxingExpression>, String>,
+        SwarsTransformMixin<DartUnboxingExpression,
+            $DartUnboxingExpressionCopyWith<DartUnboxingExpression>, String>,
+        SwarsTermStringResultMixin {
+  DartUnboxingExpression._();
 
-  String toDartSource() => swidType.when(
-      fromSwidInterface: (val) => narrowSwidInterfaceByReferenceDeclaration(
+  factory DartUnboxingExpression({
+    required final SwidType swidType,
+    required final Expression expression,
+    @Default("") final String? identifierName,
+  }) = _$DartUnboxingExpressionCtor;
+
+  @override
+  DartUnboxingExpression clone({
+    final SwidType? swidType,
+    final Expression? expression,
+    final String? identifierName,
+  }) =>
+      DartUnboxingExpression(
+        swidType: swidType ?? this.swidType.clone(),
+        expression: expression ?? this.expression,
+        identifierName: identifierName ?? this.identifierName,
+      );
+
+  @override
+  ISwarsTermResult<String> transform({
+    required final ISwarsPipeline pipeline,
+  }) =>
+      SwarsTermResult.fromString(
+        swidType.when(
+          fromSwidInterface: (val) => narrowSwidInterfaceByReferenceDeclaration(
             swidInterface: val,
             onPrimitive: (val) => val.name == "double" || val.name == "double*"
                 ? expression
@@ -90,9 +127,9 @@ class DartUnboxingExpression {
                 ))
                 .toString(),
           ),
-      fromSwidClass: (_) => "",
-      fromSwidDefaultFormalParameter: (_) => "",
-      fromSwidFunctionType: (val) => [
+          fromSwidClass: (_) => "",
+          fromSwidDefaultFormalParameter: (_) => "",
+          fromSwidFunctionType: (val) => [
             ...(val.nullabilitySuffix == SwidNullabilitySuffix.question
                 ? [
                     identifierName,
@@ -115,38 +152,43 @@ class DartUnboxingExpression {
                           .toList(),
                     ],
                   )
-                  ..body = Code(DartUnboxingExpression(
-                    swidType: val.returnType,
-                    expression: CodeExpression(
-                      Code(
-                        ([
-                          identifierName,
-                          ".dispatch([$luaCallerArgumentsParameterName[0],",
-                          val.normalParameterNames
-                              .map((x) => x)
-                              .toList()
-                              .join(","),
-                          "],parentState:hydroState,)",
-                          val.returnType.when(
-                            fromSwidInterface: (val) =>
-                                narrowSwidInterfaceByReferenceDeclaration(
-                              swidInterface: val,
-                              onPrimitive: (_) => "[0]",
-                              onClass: (_) => "[0]",
-                              onEnum: (_) => "[0]",
-                              onVoid: (_) => "",
-                              onTypeParameter: (_) => "[0]",
-                              onDynamic: (_) => "[0]",
-                              onUnknown: (_) => "",
-                            ),
-                            fromSwidClass: (_) => "[0]",
-                            fromSwidDefaultFormalParameter: (_) => "[0]",
-                            fromSwidFunctionType: (_) => "[0]",
-                          )
-                        ]).join(""),
+                  ..body = Code(
+                    pipeline.reduceFromTerm(
+                      DartUnboxingExpression(
+                        identifierName: null,
+                        swidType: val.returnType,
+                        expression: CodeExpression(
+                          Code(
+                            ([
+                              identifierName,
+                              ".dispatch([$luaCallerArgumentsParameterName[0],",
+                              val.normalParameterNames
+                                  .map((x) => x)
+                                  .toList()
+                                  .join(","),
+                              "],parentState:hydroState,)",
+                              val.returnType.when(
+                                fromSwidInterface: (val) =>
+                                    narrowSwidInterfaceByReferenceDeclaration(
+                                  swidInterface: val,
+                                  onPrimitive: (_) => "[0]",
+                                  onClass: (_) => "[0]",
+                                  onEnum: (_) => "[0]",
+                                  onVoid: (_) => "",
+                                  onTypeParameter: (_) => "[0]",
+                                  onDynamic: (_) => "[0]",
+                                  onUnknown: (_) => "",
+                                ),
+                                fromSwidClass: (_) => "[0]",
+                                fromSwidDefaultFormalParameter: (_) => "[0]",
+                                fromSwidFunctionType: (_) => "[0]",
+                              )
+                            ]).join(""),
+                          ),
+                        ),
                       ),
                     ),
-                  ).toDartSource()),
+                  ),
               )
                   .closure
                   .accept(DartEmitter(
@@ -159,5 +201,7 @@ class DartUnboxingExpression {
                     " : null ",
                   ]
                 : [""])
-          ].join());
+          ].join(),
+        ),
+      );
 }

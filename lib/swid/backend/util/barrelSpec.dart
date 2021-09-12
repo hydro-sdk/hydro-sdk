@@ -2,11 +2,19 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:path/path.dart' as p;
 
 import 'package:hydro_sdk/swid/backend/util/barrelMember.dart';
+import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
+import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
 
 part 'barrelSpec.freezed.dart';
 
 @freezed
-class BarrelSpec with _$BarrelSpec {
+class BarrelSpec
+    with
+        _$BarrelSpec,
+        HashKeyMixin<BarrelSpec>,
+        HashComparableMixin<BarrelSpec> {
+  BarrelSpec._();
+
   factory BarrelSpec({
     required final String path,
     required final String name,
@@ -24,8 +32,26 @@ class BarrelSpec with _$BarrelSpec {
         name: name ?? barrelSpec.name,
         members: members ?? List.from(barrelSpec.members),
       );
-}
 
-extension BarrelSpecMethods on BarrelSpec {
+  @override
+  List<int> get hashableParts => [
+        ...path.codeUnits,
+        ...name.codeUnits,
+        ...members.hashableParts,
+      ];
+
+  @override
+  BarrelSpec clone({
+    final String? path,
+    final String? name,
+    final List<BarrelMember>? members,
+  }) =>
+      BarrelSpec.clone(
+        barrelSpec: this,
+        path: path,
+        name: name,
+        members: members,
+      );
+
   bool isTopLevel() => path.split(p.separator).length == 1;
 }

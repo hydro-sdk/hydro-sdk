@@ -1,7 +1,6 @@
 import 'package:collection/collection.dart' show IterableExtension;
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'package:hydro_sdk/swid/ir/iSwidType.dart';
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
@@ -10,18 +9,24 @@ import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeMixin.dart';
 import 'package:hydro_sdk/swid/ir/util/conflictingInstanceMembers.dart';
-import 'package:hydro_sdk/swid/util/iCloneable.dart';
+import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
+import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
+import 'package:hydro_sdk/swid/util/iCopyable.dart';
 
 part 'swidClass.freezed.dart';
 part 'swidClass.g.dart';
 
 @freezed
 class SwidClass
-    with _$SwidClass, SwidTypeMixin<SwidClass>
-    implements ISwidType<SwidClass>, ICloneable<SwidClass> {
-  const SwidClass._();
+    with
+        _$SwidClass,
+        SwidTypeMixin<SwidClass>,
+        HashKeyMixin<SwidClass>,
+        HashComparableMixin<SwidClass>
+    implements ICopyable<SwidClass, $SwidClassCopyWith<SwidClass>> {
+  SwidClass._();
 
-  const factory SwidClass({
+  factory SwidClass({
     required final String name,
     required final SwidNullabilitySuffix nullabilitySuffix,
     required final String originalPackagePath,
@@ -40,26 +45,45 @@ class SwidClass
     SwidClass? extendedClass,
   }) = _$Data;
 
+  @override
+  List<int> get hashableParts => [
+        ...name.hashableParts,
+        nullabilitySuffix.index,
+        ...originalPackagePath.hashableParts,
+        ...constructorType?.hashableParts ?? [],
+        ...factoryConstructors.hashableParts,
+        ...staticMethods.hashableParts,
+        ...methods.hashableParts,
+        ...staticConstFieldDeclarations.hashableParts,
+        ...instanceFieldDeclarations.hashableParts,
+        ...declarationModifiers.hashableParts,
+        ...mixedInClasses.hashableParts,
+        ...implementedClasses.hashableParts,
+        ...isMixin.hashableParts,
+        ...typeFormals.hashableParts,
+        ...extendedClass?.hashableParts ?? [],
+      ];
+
   factory SwidClass.fromJson(Map<String, dynamic> json) =>
       _$SwidClassFromJson(json);
 
   factory SwidClass.clone({
     required final SwidClass swidClass,
-    String? name,
-    SwidNullabilitySuffix? nullabilitySuffix,
-    String? originalPackagePath,
-    SwidFunctionType? constructorType,
-    List<SwidFunctionType>? factoryConstructors,
-    List<SwidFunctionType>? staticMethods,
-    List<SwidFunctionType>? methods,
-    List<SwidStaticConstFieldDeclaration>? staticConstFieldDeclarations,
-    Map<String, SwidType>? instanceFieldDeclarations,
-    SwidDeclarationModifiers? declarationModifiers,
-    List<SwidClass>? mixedInClasses,
-    List<SwidClass>? implementedClasses,
-    bool? isMixin,
-    SwidClass? extendedClass,
-    List<SwidTypeFormal>? typeFormals,
+    final String? name,
+    final SwidNullabilitySuffix? nullabilitySuffix,
+    final String? originalPackagePath,
+    final SwidFunctionType? constructorType,
+    final List<SwidFunctionType>? factoryConstructors,
+    final List<SwidFunctionType>? staticMethods,
+    final List<SwidFunctionType>? methods,
+    final List<SwidStaticConstFieldDeclaration>? staticConstFieldDeclarations,
+    final Map<String, SwidType>? instanceFieldDeclarations,
+    final SwidDeclarationModifiers? declarationModifiers,
+    final List<SwidClass>? mixedInClasses,
+    final List<SwidClass>? implementedClasses,
+    final bool? isMixin,
+    final SwidClass? extendedClass,
+    final List<SwidTypeFormal>? typeFormals,
   }) =>
       SwidClass(
         name: name ?? swidClass.name,
@@ -347,21 +371,21 @@ class SwidClass
 
   @override
   SwidClass clone({
-    String? name,
-    SwidNullabilitySuffix? nullabilitySuffix,
-    String? originalPackagePath,
-    SwidFunctionType? constructorType,
-    List<SwidFunctionType>? factoryConstructors,
-    List<SwidFunctionType>? staticMethods,
-    List<SwidFunctionType>? methods,
-    List<SwidStaticConstFieldDeclaration>? staticConstFieldDeclarations,
-    Map<String, SwidType>? instanceFieldDeclarations,
-    SwidDeclarationModifiers? declarationModifiers,
-    List<SwidClass>? mixedInClasses,
-    List<SwidClass>? implementedClasses,
-    bool? isMixin,
-    SwidClass? extendedClass,
-    List<SwidTypeFormal>? typeFormals,
+    final String? name,
+    final SwidNullabilitySuffix? nullabilitySuffix,
+    final String? originalPackagePath,
+    final SwidFunctionType? constructorType,
+    final List<SwidFunctionType>? factoryConstructors,
+    final List<SwidFunctionType>? staticMethods,
+    final List<SwidFunctionType>? methods,
+    final List<SwidStaticConstFieldDeclaration>? staticConstFieldDeclarations,
+    final Map<String, SwidType>? instanceFieldDeclarations,
+    final SwidDeclarationModifiers? declarationModifiers,
+    final List<SwidClass>? mixedInClasses,
+    final List<SwidClass>? implementedClasses,
+    final bool? isMixin,
+    final SwidClass? extendedClass,
+    final List<SwidTypeFormal>? typeFormals,
   }) =>
       SwidClass.clone(
         swidClass: this,

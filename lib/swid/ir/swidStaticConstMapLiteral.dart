@@ -2,18 +2,25 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/ir/swidStaticConstMapLiteralEntry.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
-import 'package:hydro_sdk/swid/util/iCloneable.dart';
+import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
+import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
+import 'package:hydro_sdk/swid/util/iCopyable.dart';
 
 part 'swidStaticConstMapLiteral.freezed.dart';
 part 'swidStaticConstMapLiteral.g.dart';
 
 @freezed
 class SwidStaticConstMapLiteral
-    with _$SwidStaticConstMapLiteral
-    implements ICloneable<SwidStaticConstMapLiteral> {
-  const SwidStaticConstMapLiteral._();
+    with
+        _$SwidStaticConstMapLiteral,
+        HashKeyMixin<SwidStaticConstMapLiteral>,
+        HashComparableMixin<SwidStaticConstMapLiteral>
+    implements
+        ICopyable<SwidStaticConstMapLiteral,
+            $SwidStaticConstMapLiteralCopyWith<SwidStaticConstMapLiteral>> {
+  SwidStaticConstMapLiteral._();
 
-  const factory SwidStaticConstMapLiteral({
+  factory SwidStaticConstMapLiteral({
     required final List<SwidStaticConstMapLiteralEntry> elements,
     required final SwidType staticType,
   }) = _$SwidStaticConstMapLiteralCtor;
@@ -34,6 +41,12 @@ class SwidStaticConstMapLiteral
               swidType: swidStaticConstMapLiteral.staticType,
             ),
       );
+
+  @override
+  List<int> get hashableParts => [
+        ...elements.hashableParts,
+        ...staticType.hashableParts,
+      ];
 
   @override
   SwidStaticConstMapLiteral clone({

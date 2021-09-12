@@ -46,7 +46,7 @@ void main() {
       parser: const SimpleConstParameterListParser().build(
           start: const SimpleConstParameterListParser()
               .constPositionalParameterList),
-      result: const [
+      result: [
         SwidiConstPositionalParameterList(
           parameters: [
             SwidiConst.fromSwidiConstNumber(
@@ -67,7 +67,7 @@ void main() {
       parser: const SimpleConstParameterListParser().build(
           start: const SimpleConstParameterListParser()
               .constPositionalParameterList),
-      result: const [
+      result: [
         SwidiConstPositionalParameterList(
           parameters: [
             SwidiConst.fromSwidiConstNumber(

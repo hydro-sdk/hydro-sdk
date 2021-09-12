@@ -129,7 +129,6 @@ class Driver {
     }
     ResourceProvider resourceProvider = PhysicalResourceProvider.INSTANCE;
     await _analyzeFiles(resourceProvider, sourceDirs);
-    _print('Finished.');
   }
 
   Future _analyzeFiles(
@@ -137,13 +136,6 @@ class Driver {
     if (skipPackageInstall) {
       _print('(Skipping dependency checks.)');
     }
-
-    if (excludedPaths.isNotEmpty) {
-      _print('(Excluding paths $excludedPaths from analysis.)');
-    }
-
-    // Analyze.
-    _print('Analyzing...');
 
     var cmd = DriverCommands();
 
@@ -186,9 +178,7 @@ class Driver {
 
           preAnalyze(surveyorContext, subDir: dir != root);
 
-          print("Priming analysis context");
           for (var filePath in context.contextRoot.analyzedFiles()) {
-            print(filePath);
             await context.currentSession.getUnitElement(filePath);
           }
 

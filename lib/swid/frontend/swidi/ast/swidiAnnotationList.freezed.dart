@@ -104,8 +104,8 @@ class __$$SwidiAnnotationListCtorCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_$SwidiAnnotationListCtor implements _$SwidiAnnotationListCtor {
-  const _$_$SwidiAnnotationListCtor({required this.annotationList});
+class _$_$SwidiAnnotationListCtor extends _$SwidiAnnotationListCtor {
+  _$_$SwidiAnnotationListCtor({required this.annotationList}) : super._();
 
   @override
   final List<SwidiAnnotation> annotationList;
@@ -136,10 +136,11 @@ class _$_$SwidiAnnotationListCtor implements _$SwidiAnnotationListCtor {
           this, _$identity);
 }
 
-abstract class _$SwidiAnnotationListCtor implements SwidiAnnotationList {
-  const factory _$SwidiAnnotationListCtor(
+abstract class _$SwidiAnnotationListCtor extends SwidiAnnotationList {
+  factory _$SwidiAnnotationListCtor(
           {required List<SwidiAnnotation> annotationList}) =
       _$_$SwidiAnnotationListCtor;
+  _$SwidiAnnotationListCtor._() : super._();
 
   @override
   List<SwidiAnnotation> get annotationList =>
