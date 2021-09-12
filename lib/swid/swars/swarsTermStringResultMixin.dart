@@ -1,3 +1,4 @@
+import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:meta/meta.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsTerm.dart';
 
@@ -7,5 +8,6 @@ mixin SwarsTermStringResultMixin<T extends Object, U extends Object>
   @override
   @pragma('vm:prefer-inline')
   @pragma('dart2js:tryInline')
-  String deserializeTermResult(final String content) => content;
+  ISwarsTermResult<String> deserializeTermResult(final String content) =>
+      SwarsTermResult.fromString(content);
 }

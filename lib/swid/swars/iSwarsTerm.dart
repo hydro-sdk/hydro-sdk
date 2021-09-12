@@ -25,5 +25,5 @@ abstract class ISwarsTerm<T extends Object, U extends Object, V extends Object>
 
   @pragma('vm:prefer-inline')
   @pragma('dart2js:tryInline')
-  V deserializeTermResult(final String content);
+  ISwarsTermResult<V> deserializeTermResult(final String content);
 }

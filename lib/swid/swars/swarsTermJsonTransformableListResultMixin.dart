@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/util/iJsonTransformable.dart';
 import 'package:meta/meta.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsTerm.dart';
@@ -22,7 +23,7 @@ mixin SwarsTermJsonTransformableListResultMixin<
   @override
   @pragma('vm:prefer-inline')
   @pragma('dart2js:tryInline')
-  List<V> deserializeTermResult(final String content) => json
+  ISwarsTermResult<List<V>> deserializeTermResult(final String content) => json
       .decode(content)
       .map((x) => termResultDeserializer(x))
       .toList()

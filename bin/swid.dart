@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:args/args.dart';
@@ -17,6 +18,7 @@ import 'package:hydro_sdk/swid/frontend/swidiInputResolver.dart';
 import 'package:hydro_sdk/swid/ir/swidIr.dart';
 import 'package:hydro_sdk/swid/ir/util/fixupNullability.dart';
 import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
+import 'package:hydro_sdk/swid/swars/pipelineFsCacheMgr.dart';
 import 'package:hydro_sdk/swid/transforms/transformPackageUri.dart';
 import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';
 import 'package:hydro_sdk/swid/util/cliTiming.dart';
@@ -29,9 +31,13 @@ void main(List<String> args) async {
   final results = parser.parse(args);
 
   SwidConfig config = SwidConfig.fromJson(
-      jsonDecode(await File(results["config"]).readAsString()));
+      jsonDecode(await File("swid.dart.json").readAsString()));
 
-  final pipeline = CachingPipeline();
+  final pipeline = CachingPipeline(
+    cacheMgr: PipelineFsCacheMgr(
+      basePath: ".swid",
+    ),
+  );
 
   final logger = Logger.standard();
 
@@ -42,6 +48,12 @@ void main(List<String> args) async {
   final swidiFrontend = SwidiFrontend(
     inputs: config.interfaces,
     inputResolver: const SwidiInputResolver(),
+  );
+
+  await CliTiming(
+    logger: logger,
+    message: "Restoring pipeline cache",
+    fun: () async => await pipeline.deserializeResults(),
   );
 
   final swidIr = await CliTiming(
@@ -217,4 +229,7 @@ void main(List<String> args) async {
       (x) => print("  ${x.item1}"),
     );
   }
+
+  await pipeline.serialize();
+
 }
