@@ -18,11 +18,30 @@ Author Flutter experiences in Typescript. No native bridge, no V8. Just Dart. Fr
 ![Function maps screenshot](https://github.com/chgibb/hydro-sdk/blob/master/img/sourceMapScreenShot.png)
 
 # Roadmap
-## Services
-### Codepush
-A closed-source component registry for first-class support for hosting and running over-the-air (OTA) update packages built using the open-source Hydro-SDK.
+Hydro-SDK is a software development kit (SDK) enabling Flutter developers to write portions of their app (or their entire app) using Typescript. It is a project with one large, ambitious goal. "Become React Native for Flutter".
+It aims to do that by:
 
-## Lanuage Support
+1. Decoupling the API surface of Flutter from the Dart programming language.
+2. Decoupling the development time experience of Flutter from the Dart programming language.
+3. Providing first-class support for over-the-air distribution of code.
+4. Providing an ecosystem of packages from pub.dev, automatically projected to supported languages and published to other package systems.
+
+Hydro-SDK is currently only suitable for simple content. A few dozen Flutter widgets are supported. Content built with Hydro-SDK can be updated over the air using Hydro-SDK's built-in [codepush](https://hydro-sdk.io/blog/fluttering-over-the-air). Content can be authored in a similar manner as in Dart with hot-reload and limited IDE debugging support.
+
+## Near Term Projects
+### API Support
+Continue expanding available Dart APIs with automatic language projection (ALP) in the Structured Wrapper and Interface generator for Dart (SWID) sub-project https://github.com/hydro-sdk/hydro-sdk/tree/master/lib/swid This project is where the overwhelming amount of focus currently is. Having a stable and high quality ALP will for the re-use of existing packages from `pub.dev` in Typescript. This will also allow for expanding support for authoring Hydro-SDK content to other programming languages.
+
+## Long Term Projects
+## Services
+### Registry
+A closed-source component registry for first-class support for hosting and running over-the-air (OTA) update packages built using the open-source Hydro-SDK. This service is already live as a basic [MVP](https://registry.hydro-sdk.io/#/).
+
+### Registry Value Adds
+In the future, building paid features such as targeted distribution, analytics, feature flagging and logging directly into Registry are expected to be a viable path to monetization.
+
+### Lanuage Support
+Hydro-SDK is language agnostic. In the future, it should be possible to support authoring content in other programming languages to attract users from other ecosystems (Flixel, .NET, Xamarin).
 ### Tier 1 (hot-reload, programmatic debugging, function maps)
 - [&check;] Typescript  
     https://github.com/TypeScriptToLua/TypeScriptToLua
@@ -31,10 +50,6 @@ A closed-source component registry for first-class support for hosting and runni
     https://github.com/HaxeFoundation/haxe    
 - [ ] C#  
     https://github.com/yanghuan/CSharp.lua 
-
-## API Support
-Continue expanding available Dart APIs with automatic language projection (ALP) in the Structured Wrapper and Interface generator for Dart (SWID) sub-project https://github.com/hydro-sdk/hydro-sdk/tree/master/lib/swid
-
 
 # Prior Art for Common Flutter Runtime
 - Dartlua, Andre Lipke https://github.com/PixelToast/dartlua
