@@ -1,5 +1,6 @@
 import 'package:collection/collection.dart' show IterableExtension;
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/util/iJsonTransformable.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
@@ -27,7 +28,8 @@ class SwidFunctionType
         HashComparableMixin<SwidFunctionType>
     implements
         ICopyable<SwidFunctionType,
-            $SwidFunctionTypeCopyWith<SwidFunctionType>> {
+            $SwidFunctionTypeCopyWith<SwidFunctionType>>,
+        IJsonTransformable {
   SwidFunctionType._();
 
   factory SwidFunctionType({
@@ -48,6 +50,10 @@ class SwidFunctionType
 
   factory SwidFunctionType.fromJson(Map<String, dynamic> json) =>
       _$SwidFunctionTypeFromJson(json);
+
+  @override
+  SwidFunctionType fromJson(Map<String, dynamic> json) =>
+      SwidFunctionType.fromJson(json);
 
   factory SwidFunctionType.MakeReceiverVoid({
     required final SwidFunctionType swidFunctionType,
