@@ -1,25 +1,30 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'package:hydro_sdk/swid/ir/iSwidType.dart';
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeMixin.dart';
-import 'package:hydro_sdk/swid/util/iCloneable.dart';
+import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
+import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
+import 'package:hydro_sdk/swid/util/iCopyable.dart';
 
 part 'swidDefaultFormalParameter.freezed.dart';
 part 'swidDefaultFormalParameter.g.dart';
 
 @freezed
 class SwidDefaultFormalParameter
-    with _$SwidDefaultFormalParameter, SwidTypeMixin<SwidDefaultFormalParameter>
+    with
+        _$SwidDefaultFormalParameter,
+        SwidTypeMixin<SwidDefaultFormalParameter>,
+        HashKeyMixin<SwidDefaultFormalParameter>,
+        HashComparableMixin<SwidDefaultFormalParameter>
     implements
-        ISwidType<SwidDefaultFormalParameter>,
-        ICloneable<SwidDefaultFormalParameter> {
-  const SwidDefaultFormalParameter._();
+        ICopyable<SwidDefaultFormalParameter,
+            $SwidDefaultFormalParameterCopyWith<SwidDefaultFormalParameter>> {
+  SwidDefaultFormalParameter._();
 
-  const factory SwidDefaultFormalParameter({
+  factory SwidDefaultFormalParameter({
     required final SwidNullabilitySuffix nullabilitySuffix,
     required final String originalPackagePath,
     required final SwidType staticType,
@@ -32,11 +37,11 @@ class SwidDefaultFormalParameter
 
   factory SwidDefaultFormalParameter.clone({
     required final SwidDefaultFormalParameter swidDefaultFormalParameter,
-    SwidNullabilitySuffix? nullabilitySuffix,
-    String? originalPackagePath,
-    SwidType? staticType,
-    SwidStaticConst? value,
-    String? defaultValueCode,
+    final SwidNullabilitySuffix? nullabilitySuffix,
+    final String? originalPackagePath,
+    final SwidType? staticType,
+    final SwidStaticConst? value,
+    final String? defaultValueCode,
   }) =>
       SwidDefaultFormalParameter(
         nullabilitySuffix:
@@ -56,6 +61,15 @@ class SwidDefaultFormalParameter
       );
 
   @override
+  List<int> get hashableParts => [
+        nullabilitySuffix.index,
+        ...originalPackagePath.hashableParts,
+        ...staticType.hashableParts,
+        ...value.hashableParts,
+        ...defaultValueCode.hashableParts,
+      ];
+
+  @override
   String get name => staticType.name;
 
   @override
@@ -64,11 +78,11 @@ class SwidDefaultFormalParameter
 
   @override
   SwidDefaultFormalParameter clone({
-    SwidNullabilitySuffix? nullabilitySuffix,
-    String? originalPackagePath,
-    SwidType? staticType,
-    SwidStaticConst? value,
-    String? defaultValueCode,
+    final SwidNullabilitySuffix? nullabilitySuffix,
+    final String? originalPackagePath,
+    final SwidType? staticType,
+    final SwidStaticConst? value,
+    final String? defaultValueCode,
   }) =>
       SwidDefaultFormalParameter.clone(
         swidDefaultFormalParameter: this,

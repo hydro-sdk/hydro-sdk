@@ -31,7 +31,7 @@ void main() {
         ]),
         parser: const SwidiParser().build(),
         result: [
-          const SwidiClass(
+          SwidiClass(
               name: "IconData",
               libraryScopePrefix: SwidiLibraryScopePrefix.empty,
               staticMethods: [],
@@ -55,29 +55,39 @@ void main() {
                   namedParameters: [],
                   positionalParameters: [
                     SwidiPositionalParameter(
-                        declaration: SwidiDeclaration(
-                            name: "bar",
-                            type: SwidiInterface(
-                              annotations: [],
-                              typeArguments: [],
-                              name: "int",
-                              libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                              referenceDeclarationPrefix:
-                                  SwidiReferenceDeclarationPrefix.empty,
-                              nullabilitySuffix: SwidiNullabilitySuffix.none,
-                            ))),
+                      declaration: SwidiDeclaration(
+                        defaultConstValue: SwidiConst.fromSwidiEmptyConst(
+                          swidiEmptyConst: SwidiEmptyConst(),
+                        ),
+                        name: "bar",
+                        type: SwidiInterface(
+                          annotations: [],
+                          typeArguments: [],
+                          name: "int",
+                          libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                          referenceDeclarationPrefix:
+                              SwidiReferenceDeclarationPrefix.empty,
+                          nullabilitySuffix: SwidiNullabilitySuffix.none,
+                        ),
+                      ),
+                    ),
                     SwidiPositionalParameter(
-                        declaration: SwidiDeclaration(
-                            name: "baz",
-                            type: SwidiInterface(
-                              annotations: [],
-                              typeArguments: [],
-                              name: "int",
-                              libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                              referenceDeclarationPrefix:
-                                  SwidiReferenceDeclarationPrefix.empty,
-                              nullabilitySuffix: SwidiNullabilitySuffix.none,
-                            )))
+                      declaration: SwidiDeclaration(
+                        defaultConstValue: SwidiConst.fromSwidiEmptyConst(
+                          swidiEmptyConst: SwidiEmptyConst(),
+                        ),
+                        name: "baz",
+                        type: SwidiInterface(
+                          annotations: [],
+                          typeArguments: [],
+                          name: "int",
+                          libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                          referenceDeclarationPrefix:
+                              SwidiReferenceDeclarationPrefix.empty,
+                          nullabilitySuffix: SwidiNullabilitySuffix.none,
+                        ),
+                      ),
+                    )
                   ],
                 )
               ]),
@@ -98,7 +108,7 @@ void main() {
       ]),
       parser: const SwidiParser().build(),
       result: [
-        const SwidiClass(
+        SwidiClass(
           name: "IconData",
           libraryScopePrefix: SwidiLibraryScopePrefix.empty,
           staticMethods: [],
@@ -123,6 +133,9 @@ void main() {
               positionalParameters: [
                 SwidiPositionalParameter(
                   declaration: SwidiDeclaration(
+                    defaultConstValue: SwidiConst.fromSwidiEmptyConst(
+                      swidiEmptyConst: SwidiEmptyConst(),
+                    ),
                     name: "bar",
                     type: SwidiInterface(
                       annotations: [],
@@ -137,6 +150,9 @@ void main() {
                 ),
                 SwidiPositionalParameter(
                   declaration: SwidiDeclaration(
+                    defaultConstValue: SwidiConst.fromSwidiEmptyConst(
+                      swidiEmptyConst: SwidiEmptyConst(),
+                    ),
                     name: "baz",
                     type: SwidiInterface(
                       annotations: [],
@@ -171,7 +187,7 @@ void main() {
       ]),
       parser: const SwidiParser().build(),
       result: [
-        const SwidiClass(
+        SwidiClass(
           name: "IconData",
           libraryScopePrefix: SwidiLibraryScopePrefix.empty,
           staticMethods: [],
@@ -196,6 +212,9 @@ void main() {
               positionalParameters: [
                 SwidiPositionalParameter(
                   declaration: SwidiDeclaration(
+                    defaultConstValue: SwidiConst.fromSwidiEmptyConst(
+                      swidiEmptyConst: SwidiEmptyConst(),
+                    ),
                     name: "bar",
                     type: SwidiInterface(
                       annotations: [],
@@ -210,6 +229,9 @@ void main() {
                 ),
                 SwidiPositionalParameter(
                   declaration: SwidiDeclaration(
+                    defaultConstValue: SwidiConst.fromSwidiEmptyConst(
+                      swidiEmptyConst: SwidiEmptyConst(),
+                    ),
                     name: "baz",
                     type: SwidiInterface(
                       annotations: [],
@@ -244,7 +266,7 @@ void main() {
       ]),
       parser: const SwidiParser().build(),
       result: [
-        const SwidiClass(
+        SwidiClass(
           name: "IconData",
           libraryScopePrefix: SwidiLibraryScopePrefix.empty,
           staticMethods: [],
@@ -268,19 +290,27 @@ void main() {
               namedParameters: [],
               positionalParameters: [
                 SwidiPositionalParameter(
-                    declaration: SwidiDeclaration(
-                        name: "bar",
-                        type: SwidiInterface(
-                          annotations: [],
-                          typeArguments: [],
-                          name: "int?",
-                          libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                          referenceDeclarationPrefix:
-                              SwidiReferenceDeclarationPrefix.empty,
-                          nullabilitySuffix: SwidiNullabilitySuffix.question,
-                        ))),
+                  declaration: SwidiDeclaration(
+                    defaultConstValue: SwidiConst.fromSwidiEmptyConst(
+                      swidiEmptyConst: SwidiEmptyConst(),
+                    ),
+                    name: "bar",
+                    type: SwidiInterface(
+                      annotations: [],
+                      typeArguments: [],
+                      name: "int?",
+                      libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                      referenceDeclarationPrefix:
+                          SwidiReferenceDeclarationPrefix.empty,
+                      nullabilitySuffix: SwidiNullabilitySuffix.question,
+                    ),
+                  ),
+                ),
                 SwidiPositionalParameter(
                   declaration: SwidiDeclaration(
+                    defaultConstValue: SwidiConst.fromSwidiEmptyConst(
+                      swidiEmptyConst: SwidiEmptyConst(),
+                    ),
                     name: "baz",
                     type: SwidiInterface(
                       annotations: [],

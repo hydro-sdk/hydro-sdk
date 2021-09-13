@@ -16,18 +16,21 @@ import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/util/collectAllReferences.dart';
 import 'package:hydro_sdk/swid/ir/util/instantiateAllGenericsAsDynamic.dart';
+import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 
 DartTranslationUnit? produceDartTranslationUnitFromSwidClass({
   required final SwidClass swidClass,
   required final String baseFileName,
   required final String path,
   required final List<String> prefixPaths,
+  required final ISwarsPipeline pipeline,
 }) =>
     (({
       required final SwidClass swidClass,
     }) =>
         requiresDartClassTranslationUnit(swidClass: swidClass)
             ? DartTranslationUnit(
+                pipeline: pipeline,
                 path: prefixPaths.join(p.separator) + p.separator + path,
                 fileName: "$baseFileName.dart",
                 ir: [

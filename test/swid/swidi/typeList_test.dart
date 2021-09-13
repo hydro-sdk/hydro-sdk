@@ -58,7 +58,7 @@ void main() {
       input: const ParserTestHarnessInput.fromString(input: "int,int"),
       parser: const SimpleTypeListParser()
           .build(start: const SimpleTypeListParser().typeList),
-      result: const [
+      result: [
         SwidiInterface(
           annotations: [],
           name: "int",
@@ -83,7 +83,7 @@ void main() {
           input: '"dart:core"::class::int?,int'),
       parser: const SimpleTypeListParser()
           .build(start: const SimpleTypeListParser().typeList),
-      result: const [
+      result: [
         SwidiInterface(
           annotations: [],
           typeArguments: [],

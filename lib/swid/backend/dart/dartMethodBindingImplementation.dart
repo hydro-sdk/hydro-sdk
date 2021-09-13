@@ -1,4 +1,5 @@
 import 'package:code_builder/code_builder.dart' show DartEmitter, refer;
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/backend/dart/dartBoxingExpression.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartBoxingProcedure.dart';
@@ -11,35 +12,55 @@ import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/util/instantiateAllGenericsAsDynamic.dart';
 import 'package:hydro_sdk/swid/ir/util/narrowSwidInterfaceByReferenceDeclaration.dart';
+import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
+import 'package:hydro_sdk/swid/swars/swarsTermStringResultMixin.dart';
+import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
+import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
+import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
 
-class DartMethodBindingImplementation {
-  final SwidFunctionType swidFunctionType;
+part 'dartMethodBindingImplementation.freezed.dart';
 
-  const DartMethodBindingImplementation({
-    required final this.swidFunctionType,
-  });
+@freezed
+class DartMethodBindingImplementation
+    with
+        _$DartMethodBindingImplementation,
+        HashKeyMixin<DartMethodBindingImplementation>,
+        HashComparableMixin<DartMethodBindingImplementation>,
+        SwarsTransformMixin<
+            DartMethodBindingImplementation,
+            $DartMethodBindingImplementationCopyWith<
+                DartMethodBindingImplementation>,
+            String>,
+        SwarsTermStringResultMixin {
+  DartMethodBindingImplementation._();
 
-  String _methodInvocation() => DartFunctionSelfBindingInvocation(
-        useClosureUnpackNameForUnboxingIdentifiers: true,
-        argumentBoxingProcedure: DartBoxingProcedure.unbox,
-        returnValueBoxingProcedure: DartBoxingProcedure.box,
-        swidFunctionType: instantiateAllGenericsAsDynamic(
-          swidType: SwidType.fromSwidFunctionType(
-            swidFunctionType: swidFunctionType,
-          ),
-        ).when(
-          fromSwidInterface: (_) => dartUnknownFunction,
-          fromSwidClass: (_) => dartUnknownFunction,
-          fromSwidDefaultFormalParameter: (_) => dartUnknownFunction,
-          fromSwidFunctionType: (val) => val,
-        ),
-        emitTableBindingPrefix: false,
-      ).toDartSource();
+  factory DartMethodBindingImplementation({
+    required final SwidFunctionType swidFunctionType,
+  }) = _$DartMethodBindingImplementationCtor;
 
-  String _nonNullableBody() => [
-        DartUnpackClosures(swidFunctionType: swidFunctionType).toDartSource(),
-        "return [",
+  @override
+  String get cacheGroup => "dartMethodBindingImplementation";
+
+  @override
+  List<int> get hashableParts => [
+        ...swidFunctionType.hashableParts,
+      ];
+
+  @override
+  DartMethodBindingImplementation clone({
+    final SwidFunctionType? swidFunctionType,
+  }) =>
+      DartMethodBindingImplementation(
+        swidFunctionType: swidFunctionType ?? this.swidFunctionType.clone(),
+      );
+
+  String _methodInvocation({
+    required final ISwarsPipeline pipeline,
+  }) =>
+      pipeline.reduceFromTerm(
         DartFunctionSelfBindingInvocation(
+          returnValueBoxingTableExpression: null,
           useClosureUnpackNameForUnboxingIdentifiers: true,
           argumentBoxingProcedure: DartBoxingProcedure.unbox,
           returnValueBoxingProcedure: DartBoxingProcedure.box,
@@ -54,17 +75,25 @@ class DartMethodBindingImplementation {
             fromSwidFunctionType: (val) => val,
           ),
           emitTableBindingPrefix: false,
-        ).toDartSource(),
-        ",];",
-      ].join("");
+        ),
+      );
 
-  String _nullableBody() => [
-        DartUnpackClosures(swidFunctionType: swidFunctionType).toDartSource(),
-        refer(
+  String _nonNullableBody({
+    required final ISwarsPipeline pipeline,
+  }) =>
+      [
+        pipeline.reduceFromTerm(
+          DartUnpackClosures(
+            swidFunctionType: swidFunctionType,
+          ),
+        ),
+        "return [",
+        pipeline.reduceFromTerm(
           DartFunctionSelfBindingInvocation(
+            returnValueBoxingTableExpression: null,
             useClosureUnpackNameForUnboxingIdentifiers: true,
             argumentBoxingProcedure: DartBoxingProcedure.unbox,
-            returnValueBoxingProcedure: DartBoxingProcedure.none,
+            returnValueBoxingProcedure: DartBoxingProcedure.box,
             swidFunctionType: instantiateAllGenericsAsDynamic(
               swidType: SwidType.fromSwidFunctionType(
                 swidFunctionType: swidFunctionType,
@@ -76,7 +105,40 @@ class DartMethodBindingImplementation {
               fromSwidFunctionType: (val) => val,
             ),
             emitTableBindingPrefix: false,
-          ).toDartSource(),
+          ),
+        ),
+        ",];",
+      ].join("");
+
+  String _nullableBody({
+    required final ISwarsPipeline pipeline,
+  }) =>
+      [
+        pipeline.reduceFromTerm(
+          DartUnpackClosures(
+            swidFunctionType: swidFunctionType,
+          ),
+        ),
+        refer(
+          pipeline.reduceFromTerm(
+            DartFunctionSelfBindingInvocation(
+              returnValueBoxingTableExpression: null,
+              useClosureUnpackNameForUnboxingIdentifiers: true,
+              argumentBoxingProcedure: DartBoxingProcedure.unbox,
+              returnValueBoxingProcedure: DartBoxingProcedure.none,
+              swidFunctionType: instantiateAllGenericsAsDynamic(
+                swidType: SwidType.fromSwidFunctionType(
+                  swidFunctionType: swidFunctionType,
+                ),
+              ).when(
+                fromSwidInterface: (_) => dartUnknownFunction,
+                fromSwidClass: (_) => dartUnknownFunction,
+                fromSwidDefaultFormalParameter: (_) => dartUnknownFunction,
+                fromSwidFunctionType: (val) => val,
+              ),
+              emitTableBindingPrefix: false,
+            ),
+          ),
         )
             .assignFinal(
               unpackedReturnValueName(),
@@ -91,10 +153,12 @@ class DartMethodBindingImplementation {
         unpackedReturnValueName(),
         "!= null){",
         "return [",
-        DartBoxingExpression(
-          swidType: swidFunctionType.returnType,
-          expression: refer(unpackedReturnValueName()),
-        ).toDartSource(),
+        pipeline.reduceFromTerm(
+          DartBoxingExpression(
+            swidType: swidFunctionType.returnType,
+            expression: refer(unpackedReturnValueName()),
+          ),
+        ),
         ",];",
         "}",
         "return [];"
@@ -102,70 +166,92 @@ class DartMethodBindingImplementation {
 
   String _nonVoidBody({
     required final SwidType swidType,
+    required final ISwarsPipeline pipeline,
   }) =>
       swidType.nullabilitySuffix == SwidNullabilitySuffix.none
-          ? _nonNullableBody()
-          : _nullableBody();
+          ? _nonNullableBody(
+              pipeline: pipeline,
+            )
+          : _nullableBody(
+              pipeline: pipeline,
+            );
 
-  String toDartSource() =>
-      swidFunctionType.returnType.when<String?>(
-        fromSwidInterface: (val) =>
-            narrowSwidInterfaceByReferenceDeclaration<String>(
-          swidInterface: val,
-          onPrimitive: (val) => _nonVoidBody(
-            swidType: SwidType.fromSwidInterface(
-              swidInterface: val,
-            ),
-          ),
-          onClass: (val) => _nonVoidBody(
-            swidType: SwidType.fromSwidInterface(
-              swidInterface: val,
-            ),
-          ),
-          onEnum: (val) => _nonVoidBody(
-            swidType: SwidType.fromSwidInterface(
-              swidInterface: val,
-            ),
-          ),
-          onTypeParameter: (val) => _nonVoidBody(
-            swidType: SwidType.fromSwidInterface(
-              swidInterface: val,
-            ),
-          ),
-          onDynamic: (val) => _nonVoidBody(
-            swidType: SwidType.fromSwidInterface(
-              swidInterface: val,
-            ),
-          ),
-          onUnknown: (val) => _nonVoidBody(
-            swidType: SwidType.fromSwidInterface(
-              swidInterface: val,
-            ),
-          ),
-          onVoid: (val) =>
-              DartUnpackClosures(
-                swidFunctionType: instantiateAllGenericsAsDynamic(
-                  swidType: SwidType.fromSwidFunctionType(
-                      swidFunctionType: swidFunctionType),
-                ).when(
-                  fromSwidInterface: (_) => dartUnknownFunction,
-                  fromSwidClass: (_) => dartUnknownFunction,
-                  fromSwidDefaultFormalParameter: (_) => dartUnknownFunction,
-                  fromSwidFunctionType: (val) => val,
+  @override
+  ISwarsTermResult<String> transform({
+    required final ISwarsPipeline pipeline,
+  }) =>
+      SwarsTermResult.fromString(
+        swidFunctionType.returnType.when<String?>(
+              fromSwidInterface: (val) =>
+                  narrowSwidInterfaceByReferenceDeclaration<String>(
+                swidInterface: val,
+                onPrimitive: (val) => _nonVoidBody(
+                  pipeline: pipeline,
+                  swidType: SwidType.fromSwidInterface(
+                    swidInterface: val,
+                  ),
                 ),
-              ).toDartSource() +
-              _methodInvocation() +
-              ";" +
-              "\n" +
-              "return [];",
-        ),
-        fromSwidClass: (_) => null,
-        fromSwidDefaultFormalParameter: (_) => null,
-        fromSwidFunctionType: (val) => _nonVoidBody(
-          swidType: SwidType.fromSwidFunctionType(
-            swidFunctionType: val,
-          ),
-        ),
-      ) ??
-      "";
+                onClass: (val) => _nonVoidBody(
+                  pipeline: pipeline,
+                  swidType: SwidType.fromSwidInterface(
+                    swidInterface: val,
+                  ),
+                ),
+                onEnum: (val) => _nonVoidBody(
+                  pipeline: pipeline,
+                  swidType: SwidType.fromSwidInterface(
+                    swidInterface: val,
+                  ),
+                ),
+                onTypeParameter: (val) => _nonVoidBody(
+                  pipeline: pipeline,
+                  swidType: SwidType.fromSwidInterface(
+                    swidInterface: val,
+                  ),
+                ),
+                onDynamic: (val) => _nonVoidBody(
+                  pipeline: pipeline,
+                  swidType: SwidType.fromSwidInterface(
+                    swidInterface: val,
+                  ),
+                ),
+                onUnknown: (val) => _nonVoidBody(
+                  pipeline: pipeline,
+                  swidType: SwidType.fromSwidInterface(
+                    swidInterface: val,
+                  ),
+                ),
+                onVoid: (val) =>
+                    pipeline.reduceFromTerm(
+                      DartUnpackClosures(
+                        swidFunctionType: instantiateAllGenericsAsDynamic(
+                          swidType: SwidType.fromSwidFunctionType(
+                              swidFunctionType: swidFunctionType),
+                        ).when(
+                          fromSwidInterface: (_) => dartUnknownFunction,
+                          fromSwidClass: (_) => dartUnknownFunction,
+                          fromSwidDefaultFormalParameter: (_) =>
+                              dartUnknownFunction,
+                          fromSwidFunctionType: (val) => val,
+                        ),
+                      ),
+                    ) +
+                    _methodInvocation(
+                      pipeline: pipeline,
+                    ) +
+                    ";" +
+                    "\n" +
+                    "return [];",
+              ),
+              fromSwidClass: (_) => null,
+              fromSwidDefaultFormalParameter: (_) => null,
+              fromSwidFunctionType: (val) => _nonVoidBody(
+                pipeline: pipeline,
+                swidType: SwidType.fromSwidFunctionType(
+                  swidFunctionType: val,
+                ),
+              ),
+            ) ??
+            "",
+      );
 }

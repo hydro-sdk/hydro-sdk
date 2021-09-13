@@ -1,14 +1,27 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
+import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
+import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
+import 'package:hydro_sdk/swid/util/iCopyable.dart';
 
 part 'swidStaticConstPrefixedExpression.freezed.dart';
 part 'swidStaticConstPrefixedExpression.g.dart';
 
 @freezed
 class SwidStaticConstPrefixedExpression
-    with _$SwidStaticConstPrefixedExpression {
-  const factory SwidStaticConstPrefixedExpression({
+    with
+        _$SwidStaticConstPrefixedExpression,
+        HashKeyMixin<SwidStaticConstPrefixedExpression>,
+        HashComparableMixin<SwidStaticConstPrefixedExpression>
+    implements
+        ICopyable<
+            SwidStaticConstPrefixedExpression,
+            $SwidStaticConstPrefixedExpressionCopyWith<
+                SwidStaticConstPrefixedExpression>> {
+  SwidStaticConstPrefixedExpression._();
+
+  factory SwidStaticConstPrefixedExpression({
     required final String prefix,
     required final SwidStaticConst expression,
   }) = _$Data;
@@ -20,8 +33,8 @@ class SwidStaticConstPrefixedExpression
   factory SwidStaticConstPrefixedExpression.clone({
     required final SwidStaticConstPrefixedExpression
         swidStaticConstPrefixedExpression,
-    String? prefix,
-    SwidStaticConst? expression,
+    final String? prefix,
+    final SwidStaticConst? expression,
   }) =>
       SwidStaticConstPrefixedExpression(
         prefix: prefix ?? swidStaticConstPrefixedExpression.prefix,
@@ -29,5 +42,22 @@ class SwidStaticConstPrefixedExpression
             SwidStaticConst.clone(
               swidStaticConst: swidStaticConstPrefixedExpression.expression,
             ),
+      );
+
+  @override
+  List<int> get hashableParts => [
+        ...prefix.hashableParts,
+        ...expression.hashableParts,
+      ];
+
+  @override
+  SwidStaticConstPrefixedExpression clone({
+    final String? prefix,
+    final SwidStaticConst? expression,
+  }) =>
+      SwidStaticConstPrefixedExpression.clone(
+        swidStaticConstPrefixedExpression: this,
+        prefix: prefix,
+        expression: expression,
       );
 }

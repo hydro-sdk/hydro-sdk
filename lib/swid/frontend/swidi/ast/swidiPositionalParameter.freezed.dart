@@ -116,9 +116,8 @@ class __$$SwidiPositionalParameterCtorCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_$SwidiPositionalParameterCtor
-    implements _$SwidiPositionalParameterCtor {
-  const _$_$SwidiPositionalParameterCtor({required this.declaration});
+class _$_$SwidiPositionalParameterCtor extends _$SwidiPositionalParameterCtor {
+  _$_$SwidiPositionalParameterCtor({required this.declaration}) : super._();
 
   @override
   final SwidiDeclaration declaration;
@@ -148,11 +147,11 @@ class _$_$SwidiPositionalParameterCtor
           _$SwidiPositionalParameterCtor>(this, _$identity);
 }
 
-abstract class _$SwidiPositionalParameterCtor
-    implements SwidiPositionalParameter {
-  const factory _$SwidiPositionalParameterCtor(
+abstract class _$SwidiPositionalParameterCtor extends SwidiPositionalParameter {
+  factory _$SwidiPositionalParameterCtor(
           {required SwidiDeclaration declaration}) =
       _$_$SwidiPositionalParameterCtor;
+  _$SwidiPositionalParameterCtor._() : super._();
 
   @override
   SwidiDeclaration get declaration => throw _privateConstructorUsedError;

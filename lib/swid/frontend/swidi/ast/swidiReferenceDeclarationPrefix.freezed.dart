@@ -107,8 +107,8 @@ class __$$SwidiReferenceDeclarationPrefixCtorCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_$SwidiReferenceDeclarationPrefixCtor
-    implements _$SwidiReferenceDeclarationPrefixCtor {
-  const _$_$SwidiReferenceDeclarationPrefixCtor({required this.name});
+    extends _$SwidiReferenceDeclarationPrefixCtor {
+  _$_$SwidiReferenceDeclarationPrefixCtor({required this.name}) : super._();
 
   @override
   final String name;
@@ -139,9 +139,10 @@ class _$_$SwidiReferenceDeclarationPrefixCtor
 }
 
 abstract class _$SwidiReferenceDeclarationPrefixCtor
-    implements SwidiReferenceDeclarationPrefix {
-  const factory _$SwidiReferenceDeclarationPrefixCtor({required String name}) =
+    extends SwidiReferenceDeclarationPrefix {
+  factory _$SwidiReferenceDeclarationPrefixCtor({required String name}) =
       _$_$SwidiReferenceDeclarationPrefixCtor;
+  _$SwidiReferenceDeclarationPrefixCtor._() : super._();
 
   @override
   String get name => throw _privateConstructorUsedError;

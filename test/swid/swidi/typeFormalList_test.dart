@@ -65,7 +65,7 @@ void main() {
       input: const ParserTestHarnessInput.fromString(input: "<T>"),
       parser: const SimpleTypeFormalListParser().build(
           start: const SimpleTypeFormalListParser().typeFormalListDeclaration),
-      result: const SwidiTypeFormalList(
+      result: SwidiTypeFormalList(
         typeFormalList: [
           SwidiTypeFormal(
             name: "T",
@@ -79,7 +79,7 @@ void main() {
       input: const ParserTestHarnessInput.fromString(input: "<t,u>"),
       parser: const SimpleTypeFormalListParser().build(
           start: const SimpleTypeFormalListParser().typeFormalListDeclaration),
-      result: const SwidiTypeFormalList(
+      result: SwidiTypeFormalList(
         typeFormalList: [
           SwidiTypeFormal(
             name: "t",
@@ -99,7 +99,7 @@ void main() {
               '<t,u extends "dart:collection"::class::List<void::void?>, v, k extends dynamic::int>'),
       parser: const SimpleTypeFormalListParser().build(
           start: const SimpleTypeFormalListParser().typeFormalListDeclaration),
-      result: const SwidiTypeFormalList(
+      result: SwidiTypeFormalList(
         typeFormalList: [
           SwidiTypeFormal(
             name: "t",

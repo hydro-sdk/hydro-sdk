@@ -158,8 +158,8 @@ class __$$FromStringCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_$FromString implements _$FromString {
-  const _$_$FromString({required this.string});
+class _$_$FromString extends _$FromString {
+  _$_$FromString({required this.string}) : super._();
 
   factory _$_$FromString.fromJson(Map<String, dynamic> json) =>
       _$_$_$FromStringFromJson(json);
@@ -249,8 +249,9 @@ class _$_$FromString implements _$FromString {
   }
 }
 
-abstract class _$FromString implements SwidTypeFormalValue {
-  const factory _$FromString({required String string}) = _$_$FromString;
+abstract class _$FromString extends SwidTypeFormalValue {
+  factory _$FromString({required String string}) = _$_$FromString;
+  _$FromString._() : super._();
 
   factory _$FromString.fromJson(Map<String, dynamic> json) =
       _$_$FromString.fromJson;
@@ -304,8 +305,8 @@ class __$$FromSwidClassCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_$FromSwidClass implements _$FromSwidClass {
-  const _$_$FromSwidClass({required this.swidClass});
+class _$_$FromSwidClass extends _$FromSwidClass {
+  _$_$FromSwidClass({required this.swidClass}) : super._();
 
   factory _$_$FromSwidClass.fromJson(Map<String, dynamic> json) =>
       _$_$_$FromSwidClassFromJson(json);
@@ -396,9 +397,9 @@ class _$_$FromSwidClass implements _$FromSwidClass {
   }
 }
 
-abstract class _$FromSwidClass implements SwidTypeFormalValue {
-  const factory _$FromSwidClass({required SwidClass swidClass}) =
-      _$_$FromSwidClass;
+abstract class _$FromSwidClass extends SwidTypeFormalValue {
+  factory _$FromSwidClass({required SwidClass swidClass}) = _$_$FromSwidClass;
+  _$FromSwidClass._() : super._();
 
   factory _$FromSwidClass.fromJson(Map<String, dynamic> json) =
       _$_$FromSwidClass.fromJson;
@@ -452,8 +453,8 @@ class __$$FromSwidInterfaceCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_$FromSwidInterface implements _$FromSwidInterface {
-  const _$_$FromSwidInterface({required this.swidInterface});
+class _$_$FromSwidInterface extends _$FromSwidInterface {
+  _$_$FromSwidInterface({required this.swidInterface}) : super._();
 
   factory _$_$FromSwidInterface.fromJson(Map<String, dynamic> json) =>
       _$_$_$FromSwidInterfaceFromJson(json);
@@ -545,9 +546,10 @@ class _$_$FromSwidInterface implements _$FromSwidInterface {
   }
 }
 
-abstract class _$FromSwidInterface implements SwidTypeFormalValue {
-  const factory _$FromSwidInterface({required SwidInterface swidInterface}) =
+abstract class _$FromSwidInterface extends SwidTypeFormalValue {
+  factory _$FromSwidInterface({required SwidInterface swidInterface}) =
       _$_$FromSwidInterface;
+  _$FromSwidInterface._() : super._();
 
   factory _$FromSwidInterface.fromJson(Map<String, dynamic> json) =
       _$_$FromSwidInterface.fromJson;
@@ -601,8 +603,8 @@ class __$$FromSwidFunctionTypeCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_$FromSwidFunctionType implements _$FromSwidFunctionType {
-  const _$_$FromSwidFunctionType({required this.swidFunctionType});
+class _$_$FromSwidFunctionType extends _$FromSwidFunctionType {
+  _$_$FromSwidFunctionType({required this.swidFunctionType}) : super._();
 
   factory _$_$FromSwidFunctionType.fromJson(Map<String, dynamic> json) =>
       _$_$_$FromSwidFunctionTypeFromJson(json);
@@ -696,9 +698,10 @@ class _$_$FromSwidFunctionType implements _$FromSwidFunctionType {
   }
 }
 
-abstract class _$FromSwidFunctionType implements SwidTypeFormalValue {
-  const factory _$FromSwidFunctionType(
-      {required SwidFunctionType swidFunctionType}) = _$_$FromSwidFunctionType;
+abstract class _$FromSwidFunctionType extends SwidTypeFormalValue {
+  factory _$FromSwidFunctionType({required SwidFunctionType swidFunctionType}) =
+      _$_$FromSwidFunctionType;
+  _$FromSwidFunctionType._() : super._();
 
   factory _$FromSwidFunctionType.fromJson(Map<String, dynamic> json) =
       _$_$FromSwidFunctionType.fromJson;
@@ -834,9 +837,9 @@ class __$$DataCopyWithImpl<$Res> extends _$SwidTypeFormalCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_$Data implements _$Data {
-  const _$_$Data(
-      {required this.value, required this.swidReferenceDeclarationKind});
+class _$_$Data extends _$Data {
+  _$_$Data({required this.value, required this.swidReferenceDeclarationKind})
+      : super._();
 
   factory _$_$Data.fromJson(Map<String, dynamic> json) =>
       _$_$_$DataFromJson(json);
@@ -881,11 +884,12 @@ class _$_$Data implements _$Data {
   }
 }
 
-abstract class _$Data implements SwidTypeFormal {
-  const factory _$Data(
+abstract class _$Data extends SwidTypeFormal {
+  factory _$Data(
           {required SwidTypeFormalValue value,
           required SwidReferenceDeclarationKind swidReferenceDeclarationKind}) =
       _$_$Data;
+  _$Data._() : super._();
 
   factory _$Data.fromJson(Map<String, dynamic> json) = _$_$Data.fromJson;
 

@@ -13,6 +13,8 @@ import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/util/instantiateAllGenericsAs.dart';
+import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
+import 'package:hydro_sdk/swid/swars/pipelineNoopCacheMgr.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
@@ -163,31 +165,35 @@ void main() {
           )
         ]);
     expect(
-        DartVMManagedClassDeclaration(
-          swidClass: instantiateAllGenericsAs(
-            swidType: SwidType.fromSwidClass(swidClass: iterable),
-            instantiatedGeneric:
-                SwidInstantiatedGeneric.fromSwidInstantiableGeneric(
-              swidInstantiableGeneric:
-                  SwidInstantiableGeneric.fromSwidInterface(
-                swidInterface: SwidInterface(
-                  declarationModifiers: SwidDeclarationModifiers.empty(),
-                  name: "dynamic",
-                  nullabilitySuffix: SwidNullabilitySuffix.none,
-                  originalPackagePath: "",
-                  referenceDeclarationKind:
-                      SwidReferenceDeclarationKind.dynamicType,
-                  typeArguments: [],
+        CachingPipeline(
+          cacheMgr: const PipelineNoopCacheMgr(),
+        ).reduceFromTerm(
+          DartVMManagedClassDeclaration(
+            swidClass: instantiateAllGenericsAs(
+              swidType: SwidType.fromSwidClass(swidClass: iterable),
+              instantiatedGeneric:
+                  SwidInstantiatedGeneric.fromSwidInstantiableGeneric(
+                swidInstantiableGeneric:
+                    SwidInstantiableGeneric.fromSwidInterface(
+                  swidInterface: SwidInterface(
+                    declarationModifiers: SwidDeclarationModifiers.empty(),
+                    name: "dynamic",
+                    nullabilitySuffix: SwidNullabilitySuffix.none,
+                    originalPackagePath: "",
+                    referenceDeclarationKind:
+                        SwidReferenceDeclarationKind.dynamicType,
+                    typeArguments: [],
+                  ),
                 ),
               ),
+            ).when(
+              fromSwidInterface: (_) => dartUnknownClass,
+              fromSwidClass: (val) => val,
+              fromSwidDefaultFormalParameter: (_) => dartUnknownClass,
+              fromSwidFunctionType: (_) => dartUnknownClass,
             ),
-          ).when(
-            fromSwidInterface: (_) => dartUnknownClass,
-            fromSwidClass: (val) => val,
-            fromSwidDefaultFormalParameter: (_) => dartUnknownClass,
-            fromSwidFunctionType: (_) => dartUnknownClass,
           ),
-        ).toDartSource(),
+        ),
         """
 class VMManagedIterable extends VMManagedBox<Iterable<dynamic>> {
   VMManagedIterable(

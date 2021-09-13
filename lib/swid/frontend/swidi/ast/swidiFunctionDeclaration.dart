@@ -6,12 +6,24 @@ import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiNamedParameter.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiOptionalParameter.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiPositionalParameter.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiTypeFormal.dart';
+import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
+import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
+import 'package:hydro_sdk/swid/util/iCopyable.dart';
 
 part 'swidiFunctionDeclaration.freezed.dart';
 
 @freezed
-class SwidiFunctionDeclaration with _$SwidiFunctionDeclaration {
-  const factory SwidiFunctionDeclaration({
+class SwidiFunctionDeclaration
+    with
+        _$SwidiFunctionDeclaration,
+        HashKeyMixin<SwidiFunctionDeclaration>,
+        HashComparableMixin<SwidiFunctionDeclaration>
+    implements
+        ICopyable<SwidiFunctionDeclaration,
+            $SwidiFunctionDeclarationCopyWith<SwidiFunctionDeclaration>> {
+  SwidiFunctionDeclaration._();
+
+  factory SwidiFunctionDeclaration({
     required final String name,
     required final SwidiInterface returnType,
     required final List<SwidiPositionalParameter> positionalParameters,
@@ -21,29 +33,24 @@ class SwidiFunctionDeclaration with _$SwidiFunctionDeclaration {
     required final SwidiConst shortHandOverride,
   }) = _$SwidiFunctionDeclarationCtor;
 
-  factory SwidiFunctionDeclaration.clone({
+  factory SwidiFunctionDeclaration._clone({
     required final SwidiFunctionDeclaration swidiFunctionDeclaration,
-    String? name,
-    SwidiInterface? returnType,
-    List<SwidiPositionalParameter>? positionalParameters,
-    List<SwidiOptionalParameter>? optionalParameters,
-    List<SwidiNamedParameter>? namedParameters,
-    List<SwidiTypeFormal>? typeFormals,
-    SwidiConst? shortHandOverride,
+    final String? name,
+    final SwidiInterface? returnType,
+    final List<SwidiPositionalParameter>? positionalParameters,
+    final List<SwidiOptionalParameter>? optionalParameters,
+    final List<SwidiNamedParameter>? namedParameters,
+    final List<SwidiTypeFormal>? typeFormals,
+    final SwidiConst? shortHandOverride,
   }) =>
       SwidiFunctionDeclaration(
         name: name ?? swidiFunctionDeclaration.name,
-        returnType: returnType ??
-            SwidiInterface.clone(
-              swidiInterface: swidiFunctionDeclaration.returnType,
-            ),
+        returnType: returnType ?? swidiFunctionDeclaration.returnType.clone(),
         positionalParameters: positionalParameters ??
             List.from(
               swidiFunctionDeclaration.positionalParameters
                   .map(
-                    (x) => SwidiPositionalParameter.clone(
-                      swidiPositionalParameter: x,
-                    ),
+                    (x) => x.clone(),
                   )
                   .toList(),
             ),
@@ -51,9 +58,7 @@ class SwidiFunctionDeclaration with _$SwidiFunctionDeclaration {
             List.from(
               swidiFunctionDeclaration.optionalParameters
                   .map(
-                    (x) => SwidiOptionalParameter.clone(
-                      swidiOptionalParameter: x,
-                    ),
+                    (x) => x.clone(),
                   )
                   .toList(),
             ),
@@ -61,23 +66,51 @@ class SwidiFunctionDeclaration with _$SwidiFunctionDeclaration {
             List.from(
               swidiFunctionDeclaration.namedParameters
                   .map(
-                    (x) => SwidiNamedParameter.clone(
-                      swidiNamedParameter: x,
-                    ),
+                    (x) => x.clone(),
                   )
                   .toList(),
             ),
         typeFormals: typeFormals ??
             List.from(
               swidiFunctionDeclaration.typeFormals
-                  .map((x) => SwidiTypeFormal.clone(
-                        swidiTypeFormal: x,
-                      ))
+                  .map(
+                    (x) => x.clone(),
+                  )
                   .toList(),
             ),
         shortHandOverride: shortHandOverride ??
-            SwidiConst.clone(
-              swidiConst: swidiFunctionDeclaration.shortHandOverride,
-            ),
+            swidiFunctionDeclaration.shortHandOverride.clone(),
+      );
+
+  @override
+  List<int> get hashableParts => [
+        ...name.hashableParts,
+        ...returnType.hashableParts,
+        ...positionalParameters.hashableParts,
+        ...optionalParameters.hashableParts,
+        ...namedParameters.hashableParts,
+        ...typeFormals.hashableParts,
+        ...shortHandOverride.hashableParts,
+      ];
+
+  @override
+  SwidiFunctionDeclaration clone({
+    final String? name,
+    final SwidiInterface? returnType,
+    final List<SwidiPositionalParameter>? positionalParameters,
+    final List<SwidiOptionalParameter>? optionalParameters,
+    final List<SwidiNamedParameter>? namedParameters,
+    final List<SwidiTypeFormal>? typeFormals,
+    final SwidiConst? shortHandOverride,
+  }) =>
+      SwidiFunctionDeclaration._clone(
+        swidiFunctionDeclaration: this,
+        name: name,
+        returnType: returnType,
+        positionalParameters: positionalParameters,
+        optionalParameters: optionalParameters,
+        namedParameters: namedParameters,
+        typeFormals: typeFormals,
+        shortHandOverride: shortHandOverride,
       );
 }

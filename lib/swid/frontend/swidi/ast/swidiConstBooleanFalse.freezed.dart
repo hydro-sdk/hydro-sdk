@@ -17,7 +17,7 @@ class _$SwidiConstBooleanFalseTearOff {
   const _$SwidiConstBooleanFalseTearOff();
 
   _$SwidiConstBooleanFalseCtor call() {
-    return const _$SwidiConstBooleanFalseCtor();
+    return _$SwidiConstBooleanFalseCtor();
   }
 }
 
@@ -69,7 +69,7 @@ class __$$SwidiConstBooleanFalseCtorCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_$SwidiConstBooleanFalseCtor extends _$SwidiConstBooleanFalseCtor {
-  const _$_$SwidiConstBooleanFalseCtor() : super._();
+  _$_$SwidiConstBooleanFalseCtor() : super._();
 
   @override
   String toString() {
@@ -86,6 +86,6 @@ class _$_$SwidiConstBooleanFalseCtor extends _$SwidiConstBooleanFalseCtor {
 }
 
 abstract class _$SwidiConstBooleanFalseCtor extends SwidiConstBooleanFalse {
-  const factory _$SwidiConstBooleanFalseCtor() = _$_$SwidiConstBooleanFalseCtor;
-  const _$SwidiConstBooleanFalseCtor._() : super._();
+  factory _$SwidiConstBooleanFalseCtor() = _$_$SwidiConstBooleanFalseCtor;
+  _$SwidiConstBooleanFalseCtor._() : super._();
 }

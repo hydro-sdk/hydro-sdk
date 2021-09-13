@@ -47,7 +47,7 @@ void main() {
       parser: const SimpleConstParameterListParser().build(
           start:
               const SimpleConstParameterListParser().constNamedParameterList),
-      result: const [
+      result: [
         SwidiConstNamedParameterList(
           parameters: [
             SwidiConstNamedParameter(
@@ -71,7 +71,7 @@ void main() {
       parser: const SimpleConstParameterListParser().build(
           start:
               const SimpleConstParameterListParser().constNamedParameterList),
-      result: const [
+      result: [
         SwidiConstNamedParameterList(
           parameters: [
             SwidiConstNamedParameter(

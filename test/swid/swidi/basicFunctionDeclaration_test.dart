@@ -80,7 +80,7 @@ void main() {
       input: const ParserTestHarnessInput.fromString(input: "void foo();"),
       parser: const BasicFunctionDeclarationParser().build(
           start: const BasicFunctionDeclarationParser().functionDeclaration),
-      result: const SwidiFunctionDeclaration(
+      result: SwidiFunctionDeclaration(
         shortHandOverride: SwidiConst.fromSwidiEmptyConst(
           swidiEmptyConst: SwidiEmptyConst(),
         ),

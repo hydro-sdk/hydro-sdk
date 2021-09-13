@@ -12,6 +12,19 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+SwidiClassValidationState _$SwidiClassValidationStateFromJson(
+    Map<String, dynamic> json) {
+  switch (json['runtimeType'] as String) {
+    case 'valid':
+      return _$SwidiClassValidationStateValid.fromJson(json);
+    case 'invalid':
+      return _$SwidiClassValidationStateInvalid.fromJson(json);
+
+    default:
+      throw FallThroughError();
+  }
+}
+
 /// @nodoc
 class _$SwidiClassValidationStateTearOff {
   const _$SwidiClassValidationStateTearOff();
@@ -25,6 +38,10 @@ class _$SwidiClassValidationStateTearOff {
     return _$SwidiClassValidationStateInvalid(
       swidiValidationError: swidiValidationError,
     );
+  }
+
+  SwidiClassValidationState fromJson(Map<String, Object> json) {
+    return SwidiClassValidationState.fromJson(json);
   }
 }
 
@@ -60,6 +77,7 @@ mixin _$SwidiClassValidationState {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -102,10 +120,14 @@ class __$$SwidiClassValidationStateValidCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_$SwidiClassValidationStateValid
     extends _$SwidiClassValidationStateValid {
   const _$_$SwidiClassValidationStateValid() : super._();
+
+  factory _$_$SwidiClassValidationStateValid.fromJson(
+          Map<String, dynamic> json) =>
+      _$_$_$SwidiClassValidationStateValidFromJson(json);
 
   @override
   String toString() {
@@ -165,6 +187,12 @@ class _$_$SwidiClassValidationStateValid
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_$SwidiClassValidationStateValidToJson(this)
+      ..['runtimeType'] = 'valid';
+  }
 }
 
 abstract class _$SwidiClassValidationStateValid
@@ -172,6 +200,9 @@ abstract class _$SwidiClassValidationStateValid
   const factory _$SwidiClassValidationStateValid() =
       _$_$SwidiClassValidationStateValid;
   const _$SwidiClassValidationStateValid._() : super._();
+
+  factory _$SwidiClassValidationStateValid.fromJson(Map<String, dynamic> json) =
+      _$_$SwidiClassValidationStateValid.fromJson;
 }
 
 /// @nodoc
@@ -220,12 +251,16 @@ class __$$SwidiClassValidationStateInvalidCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_$SwidiClassValidationStateInvalid
     extends _$SwidiClassValidationStateInvalid {
   const _$_$SwidiClassValidationStateInvalid(
       {required this.swidiValidationError})
       : super._();
+
+  factory _$_$SwidiClassValidationStateInvalid.fromJson(
+          Map<String, dynamic> json) =>
+      _$_$_$SwidiClassValidationStateInvalidFromJson(json);
 
   @override
   final SwidiValidationError swidiValidationError;
@@ -300,6 +335,12 @@ class _$_$SwidiClassValidationStateInvalid
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_$SwidiClassValidationStateInvalidToJson(this)
+      ..['runtimeType'] = 'invalid';
+  }
 }
 
 abstract class _$SwidiClassValidationStateInvalid
@@ -309,10 +350,160 @@ abstract class _$SwidiClassValidationStateInvalid
       _$_$SwidiClassValidationStateInvalid;
   const _$SwidiClassValidationStateInvalid._() : super._();
 
+  factory _$SwidiClassValidationStateInvalid.fromJson(
+          Map<String, dynamic> json) =
+      _$_$SwidiClassValidationStateInvalid.fromJson;
+
   SwidiValidationError get swidiValidationError =>
       throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$$SwidiClassValidationStateInvalidCopyWith<
           _$SwidiClassValidationStateInvalid>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+class _$ValidateSwidiClassTearOff {
+  const _$ValidateSwidiClassTearOff();
+
+  _$ValidateSwidiClassCtor call({required SwidiClass swidiClass}) {
+    return _$ValidateSwidiClassCtor(
+      swidiClass: swidiClass,
+    );
+  }
+}
+
+/// @nodoc
+const $ValidateSwidiClass = _$ValidateSwidiClassTearOff();
+
+/// @nodoc
+mixin _$ValidateSwidiClass {
+  SwidiClass get swidiClass => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $ValidateSwidiClassCopyWith<ValidateSwidiClass> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ValidateSwidiClassCopyWith<$Res> {
+  factory $ValidateSwidiClassCopyWith(
+          ValidateSwidiClass value, $Res Function(ValidateSwidiClass) then) =
+      _$ValidateSwidiClassCopyWithImpl<$Res>;
+  $Res call({SwidiClass swidiClass});
+
+  $SwidiClassCopyWith<$Res> get swidiClass;
+}
+
+/// @nodoc
+class _$ValidateSwidiClassCopyWithImpl<$Res>
+    implements $ValidateSwidiClassCopyWith<$Res> {
+  _$ValidateSwidiClassCopyWithImpl(this._value, this._then);
+
+  final ValidateSwidiClass _value;
+  // ignore: unused_field
+  final $Res Function(ValidateSwidiClass) _then;
+
+  @override
+  $Res call({
+    Object? swidiClass = freezed,
+  }) {
+    return _then(_value.copyWith(
+      swidiClass: swidiClass == freezed
+          ? _value.swidiClass
+          : swidiClass // ignore: cast_nullable_to_non_nullable
+              as SwidiClass,
+    ));
+  }
+
+  @override
+  $SwidiClassCopyWith<$Res> get swidiClass {
+    return $SwidiClassCopyWith<$Res>(_value.swidiClass, (value) {
+      return _then(_value.copyWith(swidiClass: value));
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$$ValidateSwidiClassCtorCopyWith<$Res>
+    implements $ValidateSwidiClassCopyWith<$Res> {
+  factory _$$ValidateSwidiClassCtorCopyWith(_$ValidateSwidiClassCtor value,
+          $Res Function(_$ValidateSwidiClassCtor) then) =
+      __$$ValidateSwidiClassCtorCopyWithImpl<$Res>;
+  @override
+  $Res call({SwidiClass swidiClass});
+
+  @override
+  $SwidiClassCopyWith<$Res> get swidiClass;
+}
+
+/// @nodoc
+class __$$ValidateSwidiClassCtorCopyWithImpl<$Res>
+    extends _$ValidateSwidiClassCopyWithImpl<$Res>
+    implements _$$ValidateSwidiClassCtorCopyWith<$Res> {
+  __$$ValidateSwidiClassCtorCopyWithImpl(_$ValidateSwidiClassCtor _value,
+      $Res Function(_$ValidateSwidiClassCtor) _then)
+      : super(_value, (v) => _then(v as _$ValidateSwidiClassCtor));
+
+  @override
+  _$ValidateSwidiClassCtor get _value =>
+      super._value as _$ValidateSwidiClassCtor;
+
+  @override
+  $Res call({
+    Object? swidiClass = freezed,
+  }) {
+    return _then(_$ValidateSwidiClassCtor(
+      swidiClass: swidiClass == freezed
+          ? _value.swidiClass
+          : swidiClass // ignore: cast_nullable_to_non_nullable
+              as SwidiClass,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_$ValidateSwidiClassCtor extends _$ValidateSwidiClassCtor {
+  _$_$ValidateSwidiClassCtor({required this.swidiClass}) : super._();
+
+  @override
+  final SwidiClass swidiClass;
+
+  @override
+  String toString() {
+    return 'ValidateSwidiClass(swidiClass: $swidiClass)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _$ValidateSwidiClassCtor &&
+            (identical(other.swidiClass, swidiClass) ||
+                const DeepCollectionEquality()
+                    .equals(other.swidiClass, swidiClass)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(swidiClass);
+
+  @JsonKey(ignore: true)
+  @override
+  _$$ValidateSwidiClassCtorCopyWith<_$ValidateSwidiClassCtor> get copyWith =>
+      __$$ValidateSwidiClassCtorCopyWithImpl<_$ValidateSwidiClassCtor>(
+          this, _$identity);
+}
+
+abstract class _$ValidateSwidiClassCtor extends ValidateSwidiClass {
+  factory _$ValidateSwidiClassCtor({required SwidiClass swidiClass}) =
+      _$_$ValidateSwidiClassCtor;
+  _$ValidateSwidiClassCtor._() : super._();
+
+  @override
+  SwidiClass get swidiClass => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  _$$ValidateSwidiClassCtorCopyWith<_$ValidateSwidiClassCtor> get copyWith =>
+      throw _privateConstructorUsedError;
 }

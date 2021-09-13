@@ -7,12 +7,17 @@ import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
+import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
+import 'package:hydro_sdk/swid/swars/pipelineNoopCacheMgr.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
     expect(
-        DartUnboxingExpression(
+        CachingPipeline(
+          cacheMgr: const PipelineNoopCacheMgr(),
+        ).reduceFromTerm(
+          DartUnboxingExpression(
             swidType: SwidType.fromSwidInterface(
                 swidInterface: SwidInterface(
               declarationModifiers: SwidDeclarationModifiers.empty(),
@@ -23,7 +28,9 @@ void main() {
               referenceDeclarationKind:
                   SwidReferenceDeclarationKind.classElement,
             )),
-            expression: refer("foo").call([])).toDartSource(),
+            expression: refer("foo").call([]),
+          ),
+        ),
         "foo()");
   }, tags: "swid");
 }

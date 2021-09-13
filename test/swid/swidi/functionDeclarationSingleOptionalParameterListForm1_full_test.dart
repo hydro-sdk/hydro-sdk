@@ -31,7 +31,7 @@ void main() {
       ]),
       parser: const SwidiParser().build(),
       result: [
-        const SwidiClass(
+        SwidiClass(
           name: "IconData",
           libraryScopePrefix: SwidiLibraryScopePrefix.empty,
           staticMethods: [],
@@ -54,6 +54,9 @@ void main() {
               optionalParameters: [
                 SwidiOptionalParameter(
                   declaration: SwidiDeclaration(
+                    defaultConstValue: SwidiConst.fromSwidiEmptyConst(
+                      swidiEmptyConst: SwidiEmptyConst(),
+                    ),
                     name: "bar",
                     type: SwidiInterface(
                       annotations: [],

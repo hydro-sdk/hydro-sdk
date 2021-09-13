@@ -25,11 +25,8 @@ mixin SwidiDeclarationWithConstValueParser on SwidiGrammarDefinition
         final declarations = collectTokens<SwidiDeclaration>(x);
         final consts = collectTokens<SwidiConst>(x);
 
-        return SwidiDeclaration.clone(
-          swidiDeclaration: declarations.first,
-          defaultConstValue: SwidiConst.clone(
-            swidiConst: consts.first,
-          ),
+        return declarations.first.clone(
+          defaultConstValue: consts.first.clone(),
         );
       });
 }

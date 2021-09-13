@@ -166,11 +166,12 @@ class __$$DataCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_$Data implements _$Data {
-  const _$_$Data(
+class _$_$Data extends _$Data {
+  _$_$Data(
       {required this.operator,
       required this.leftOperand,
-      required this.rightOperand});
+      required this.rightOperand})
+      : super._();
 
   factory _$_$Data.fromJson(Map<String, dynamic> json) =>
       _$_$_$DataFromJson(json);
@@ -220,11 +221,12 @@ class _$_$Data implements _$Data {
   }
 }
 
-abstract class _$Data implements SwidStaticConstBinaryExpression {
-  const factory _$Data(
+abstract class _$Data extends SwidStaticConstBinaryExpression {
+  factory _$Data(
       {required String operator,
       required SwidStaticConst leftOperand,
       required SwidStaticConst rightOperand}) = _$_$Data;
+  _$Data._() : super._();
 
   factory _$Data.fromJson(Map<String, dynamic> json) = _$_$Data.fromJson;
 

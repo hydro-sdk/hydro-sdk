@@ -222,16 +222,16 @@ class __$$SwidiFunctionDeclarationCtorCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_$SwidiFunctionDeclarationCtor
-    implements _$SwidiFunctionDeclarationCtor {
-  const _$_$SwidiFunctionDeclarationCtor(
+class _$_$SwidiFunctionDeclarationCtor extends _$SwidiFunctionDeclarationCtor {
+  _$_$SwidiFunctionDeclarationCtor(
       {required this.name,
       required this.returnType,
       required this.positionalParameters,
       required this.optionalParameters,
       required this.namedParameters,
       required this.typeFormals,
-      required this.shortHandOverride});
+      required this.shortHandOverride})
+      : super._();
 
   @override
   final String name;
@@ -297,9 +297,8 @@ class _$_$SwidiFunctionDeclarationCtor
           _$SwidiFunctionDeclarationCtor>(this, _$identity);
 }
 
-abstract class _$SwidiFunctionDeclarationCtor
-    implements SwidiFunctionDeclaration {
-  const factory _$SwidiFunctionDeclarationCtor(
+abstract class _$SwidiFunctionDeclarationCtor extends SwidiFunctionDeclaration {
+  factory _$SwidiFunctionDeclarationCtor(
           {required String name,
           required SwidiInterface returnType,
           required List<SwidiPositionalParameter> positionalParameters,
@@ -308,6 +307,7 @@ abstract class _$SwidiFunctionDeclarationCtor
           required List<SwidiTypeFormal> typeFormals,
           required SwidiConst shortHandOverride}) =
       _$_$SwidiFunctionDeclarationCtor;
+  _$SwidiFunctionDeclarationCtor._() : super._();
 
   @override
   String get name => throw _privateConstructorUsedError;

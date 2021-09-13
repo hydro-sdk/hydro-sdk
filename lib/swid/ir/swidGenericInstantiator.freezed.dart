@@ -142,9 +142,10 @@ class __$$SwidGenericInstantiatorCtorCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_$SwidGenericInstantiatorCtor implements _$SwidGenericInstantiatorCtor {
-  const _$_$SwidGenericInstantiatorCtor(
-      {required this.name, required this.instantiatedGeneric});
+class _$_$SwidGenericInstantiatorCtor extends _$SwidGenericInstantiatorCtor {
+  _$_$SwidGenericInstantiatorCtor(
+      {required this.name, required this.instantiatedGeneric})
+      : super._();
 
   factory _$_$SwidGenericInstantiatorCtor.fromJson(Map<String, dynamic> json) =>
       _$_$_$SwidGenericInstantiatorCtorFromJson(json);
@@ -188,12 +189,12 @@ class _$_$SwidGenericInstantiatorCtor implements _$SwidGenericInstantiatorCtor {
   }
 }
 
-abstract class _$SwidGenericInstantiatorCtor
-    implements SwidGenericInstantiator {
-  const factory _$SwidGenericInstantiatorCtor(
+abstract class _$SwidGenericInstantiatorCtor extends SwidGenericInstantiator {
+  factory _$SwidGenericInstantiatorCtor(
           {required String name,
           required SwidInstantiatedGeneric instantiatedGeneric}) =
       _$_$SwidGenericInstantiatorCtor;
+  _$SwidGenericInstantiatorCtor._() : super._();
 
   factory _$SwidGenericInstantiatorCtor.fromJson(Map<String, dynamic> json) =
       _$_$SwidGenericInstantiatorCtor.fromJson;

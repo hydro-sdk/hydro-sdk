@@ -101,8 +101,8 @@ class __$$SwidiConstStringCtorCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_$SwidiConstStringCtor implements _$SwidiConstStringCtor {
-  const _$_$SwidiConstStringCtor({required this.value});
+class _$_$SwidiConstStringCtor extends _$SwidiConstStringCtor {
+  _$_$SwidiConstStringCtor({required this.value}) : super._();
 
   @override
   final String value;
@@ -131,9 +131,10 @@ class _$_$SwidiConstStringCtor implements _$SwidiConstStringCtor {
           this, _$identity);
 }
 
-abstract class _$SwidiConstStringCtor implements SwidiConstString {
-  const factory _$SwidiConstStringCtor({required String value}) =
+abstract class _$SwidiConstStringCtor extends SwidiConstString {
+  factory _$SwidiConstStringCtor({required String value}) =
       _$_$SwidiConstStringCtor;
+  _$SwidiConstStringCtor._() : super._();
 
   @override
   String get value => throw _privateConstructorUsedError;

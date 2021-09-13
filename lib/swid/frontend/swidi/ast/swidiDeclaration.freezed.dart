@@ -19,8 +19,7 @@ class _$SwidiDeclarationTearOff {
   _$SwidiDeclarationCtor call(
       {required String name,
       required SwidiInterface type,
-      SwidiConst defaultConstValue = const SwidiConst.fromSwidiEmptyConst(
-          swidiEmptyConst: swidiEmptyConst)}) {
+      required SwidiConst defaultConstValue}) {
     return _$SwidiDeclarationCtor(
       name: name,
       type: type,
@@ -151,20 +150,15 @@ class __$$SwidiDeclarationCtorCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_$SwidiDeclarationCtor implements _$SwidiDeclarationCtor {
-  const _$_$SwidiDeclarationCtor(
-      {required this.name,
-      required this.type,
-      this.defaultConstValue = const SwidiConst.fromSwidiEmptyConst(
-          swidiEmptyConst: swidiEmptyConst)});
+class _$_$SwidiDeclarationCtor extends _$SwidiDeclarationCtor {
+  _$_$SwidiDeclarationCtor(
+      {required this.name, required this.type, required this.defaultConstValue})
+      : super._();
 
   @override
   final String name;
   @override
   final SwidiInterface type;
-  @JsonKey(
-      defaultValue: const SwidiConst.fromSwidiEmptyConst(
-          swidiEmptyConst: swidiEmptyConst))
   @override
   final SwidiConst defaultConstValue;
 
@@ -200,11 +194,12 @@ class _$_$SwidiDeclarationCtor implements _$SwidiDeclarationCtor {
           this, _$identity);
 }
 
-abstract class _$SwidiDeclarationCtor implements SwidiDeclaration {
-  const factory _$SwidiDeclarationCtor(
+abstract class _$SwidiDeclarationCtor extends SwidiDeclaration {
+  factory _$SwidiDeclarationCtor(
       {required String name,
       required SwidiInterface type,
-      SwidiConst defaultConstValue}) = _$_$SwidiDeclarationCtor;
+      required SwidiConst defaultConstValue}) = _$_$SwidiDeclarationCtor;
+  _$SwidiDeclarationCtor._() : super._();
 
   @override
   String get name => throw _privateConstructorUsedError;

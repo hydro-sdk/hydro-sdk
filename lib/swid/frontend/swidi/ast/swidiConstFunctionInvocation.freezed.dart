@@ -142,7 +142,7 @@ class __$$SwidiConstFunctionInvocationCtorCopyWithImpl<$Res>
 
 class _$_$SwidiConstFunctionInvocationCtor
     extends _$SwidiConstFunctionInvocationCtor {
-  const _$_$SwidiConstFunctionInvocationCtor(
+  _$_$SwidiConstFunctionInvocationCtor(
       {required this.value,
       required this.positionalParameters,
       required this.namedParameters})
@@ -191,12 +191,12 @@ class _$_$SwidiConstFunctionInvocationCtor
 
 abstract class _$SwidiConstFunctionInvocationCtor
     extends SwidiConstFunctionInvocation {
-  const factory _$SwidiConstFunctionInvocationCtor(
+  factory _$SwidiConstFunctionInvocationCtor(
           {required String value,
           required List<SwidiConst> positionalParameters,
           required Map<String, SwidiConst> namedParameters}) =
       _$_$SwidiConstFunctionInvocationCtor;
-  const _$SwidiConstFunctionInvocationCtor._() : super._();
+  _$SwidiConstFunctionInvocationCtor._() : super._();
 
   @override
   String get value => throw _privateConstructorUsedError;

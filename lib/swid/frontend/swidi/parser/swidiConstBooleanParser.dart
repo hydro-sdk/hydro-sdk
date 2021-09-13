@@ -28,11 +28,11 @@ mixin SwidiConstBooleanParser
   @override
   Parser<SwidiConstBoolean> constBoolean() => super.constBoolean().map((x) {
         if (x is SwidiConstBooleanTrue) {
-          return const SwidiConstBoolean.fromSwidiConstBooleanTrue(
+          return SwidiConstBoolean.fromSwidiConstBooleanTrue(
             swidiConstBooleanTrue: SwidiConstBooleanTrue(),
           );
         }
-        return const SwidiConstBoolean.fromSwidiConstBooleanFalse(
+        return SwidiConstBoolean.fromSwidiConstBooleanFalse(
           swidiConstBooleanFalse: SwidiConstBooleanFalse(),
         );
       });

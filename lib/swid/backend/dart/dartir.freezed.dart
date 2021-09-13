@@ -392,6 +392,9 @@ abstract class _$$FromDartBarrelLoadNamespaceSymbolDeclarationCopyWith<$Res> {
   $Res call(
       {DartBarrelLoadNamespaceSymbolDeclaration
           dartBarrelLoadNamespaceSymbolDeclaration});
+
+  $DartBarrelLoadNamespaceSymbolDeclarationCopyWith<$Res>
+      get dartBarrelLoadNamespaceSymbolDeclaration;
 }
 
 /// @nodoc
@@ -420,14 +423,25 @@ class __$$FromDartBarrelLoadNamespaceSymbolDeclarationCopyWithImpl<$Res>
                   as DartBarrelLoadNamespaceSymbolDeclaration,
     ));
   }
+
+  @override
+  $DartBarrelLoadNamespaceSymbolDeclarationCopyWith<$Res>
+      get dartBarrelLoadNamespaceSymbolDeclaration {
+    return $DartBarrelLoadNamespaceSymbolDeclarationCopyWith<$Res>(
+        _value.dartBarrelLoadNamespaceSymbolDeclaration, (value) {
+      return _then(
+          _value.copyWith(dartBarrelLoadNamespaceSymbolDeclaration: value));
+    });
+  }
 }
 
 /// @nodoc
 
 class _$_$FromDartBarrelLoadNamespaceSymbolDeclaration
-    implements _$FromDartBarrelLoadNamespaceSymbolDeclaration {
+    extends _$FromDartBarrelLoadNamespaceSymbolDeclaration {
   _$_$FromDartBarrelLoadNamespaceSymbolDeclaration(
-      {required this.dartBarrelLoadNamespaceSymbolDeclaration});
+      {required this.dartBarrelLoadNamespaceSymbolDeclaration})
+      : super._();
 
   @override
   final DartBarrelLoadNamespaceSymbolDeclaration
@@ -680,12 +694,12 @@ class _$_$FromDartBarrelLoadNamespaceSymbolDeclaration
   }
 }
 
-abstract class _$FromDartBarrelLoadNamespaceSymbolDeclaration
-    implements DartIr {
+abstract class _$FromDartBarrelLoadNamespaceSymbolDeclaration extends DartIr {
   factory _$FromDartBarrelLoadNamespaceSymbolDeclaration(
           {required DartBarrelLoadNamespaceSymbolDeclaration
               dartBarrelLoadNamespaceSymbolDeclaration}) =
       _$_$FromDartBarrelLoadNamespaceSymbolDeclaration;
+  _$FromDartBarrelLoadNamespaceSymbolDeclaration._() : super._();
 
   DartBarrelLoadNamespaceSymbolDeclaration
       get dartBarrelLoadNamespaceSymbolDeclaration =>
@@ -703,6 +717,8 @@ abstract class _$$FromDartBindInstanceFieldCopyWith<$Res> {
           $Res Function(_$FromDartBindInstanceField) then) =
       __$$FromDartBindInstanceFieldCopyWithImpl<$Res>;
   $Res call({DartBindInstanceField dartBindInstanceField});
+
+  $DartBindInstanceFieldCopyWith<$Res> get dartBindInstanceField;
 }
 
 /// @nodoc
@@ -728,12 +744,21 @@ class __$$FromDartBindInstanceFieldCopyWithImpl<$Res>
               as DartBindInstanceField,
     ));
   }
+
+  @override
+  $DartBindInstanceFieldCopyWith<$Res> get dartBindInstanceField {
+    return $DartBindInstanceFieldCopyWith<$Res>(_value.dartBindInstanceField,
+        (value) {
+      return _then(_value.copyWith(dartBindInstanceField: value));
+    });
+  }
 }
 
 /// @nodoc
 
-class _$_$FromDartBindInstanceField implements _$FromDartBindInstanceField {
-  _$_$FromDartBindInstanceField({required this.dartBindInstanceField});
+class _$_$FromDartBindInstanceField extends _$FromDartBindInstanceField {
+  _$_$FromDartBindInstanceField({required this.dartBindInstanceField})
+      : super._();
 
   @override
   final DartBindInstanceField dartBindInstanceField;
@@ -978,10 +1003,11 @@ class _$_$FromDartBindInstanceField implements _$FromDartBindInstanceField {
   }
 }
 
-abstract class _$FromDartBindInstanceField implements DartIr {
+abstract class _$FromDartBindInstanceField extends DartIr {
   factory _$FromDartBindInstanceField(
           {required DartBindInstanceField dartBindInstanceField}) =
       _$_$FromDartBindInstanceField;
+  _$FromDartBindInstanceField._() : super._();
 
   DartBindInstanceField get dartBindInstanceField =>
       throw _privateConstructorUsedError;
@@ -997,6 +1023,8 @@ abstract class _$$FromDartBindInstanceFieldDirectCopyWith<$Res> {
           $Res Function(_$FromDartBindInstanceFieldDirect) then) =
       __$$FromDartBindInstanceFieldDirectCopyWithImpl<$Res>;
   $Res call({DartBindInstanceFieldDirect dartBindInstanceFieldDirect});
+
+  $DartBindInstanceFieldDirectCopyWith<$Res> get dartBindInstanceFieldDirect;
 }
 
 /// @nodoc
@@ -1023,14 +1051,23 @@ class __$$FromDartBindInstanceFieldDirectCopyWithImpl<$Res>
               as DartBindInstanceFieldDirect,
     ));
   }
+
+  @override
+  $DartBindInstanceFieldDirectCopyWith<$Res> get dartBindInstanceFieldDirect {
+    return $DartBindInstanceFieldDirectCopyWith<$Res>(
+        _value.dartBindInstanceFieldDirect, (value) {
+      return _then(_value.copyWith(dartBindInstanceFieldDirect: value));
+    });
+  }
 }
 
 /// @nodoc
 
 class _$_$FromDartBindInstanceFieldDirect
-    implements _$FromDartBindInstanceFieldDirect {
+    extends _$FromDartBindInstanceFieldDirect {
   _$_$FromDartBindInstanceFieldDirect(
-      {required this.dartBindInstanceFieldDirect});
+      {required this.dartBindInstanceFieldDirect})
+      : super._();
 
   @override
   final DartBindInstanceFieldDirect dartBindInstanceFieldDirect;
@@ -1277,10 +1314,11 @@ class _$_$FromDartBindInstanceFieldDirect
   }
 }
 
-abstract class _$FromDartBindInstanceFieldDirect implements DartIr {
+abstract class _$FromDartBindInstanceFieldDirect extends DartIr {
   factory _$FromDartBindInstanceFieldDirect(
           {required DartBindInstanceFieldDirect dartBindInstanceFieldDirect}) =
       _$_$FromDartBindInstanceFieldDirect;
+  _$FromDartBindInstanceFieldDirect._() : super._();
 
   DartBindInstanceFieldDirect get dartBindInstanceFieldDirect =>
       throw _privateConstructorUsedError;
@@ -1295,6 +1333,8 @@ abstract class _$$FromDartBoxEnumReferenceCopyWith<$Res> {
           $Res Function(_$FromDartBoxEnumReference) then) =
       __$$FromDartBoxEnumReferenceCopyWithImpl<$Res>;
   $Res call({DartBoxEnumReference dartBoxEnumReference});
+
+  $DartBoxEnumReferenceCopyWith<$Res> get dartBoxEnumReference;
 }
 
 /// @nodoc
@@ -1320,12 +1360,21 @@ class __$$FromDartBoxEnumReferenceCopyWithImpl<$Res>
               as DartBoxEnumReference,
     ));
   }
+
+  @override
+  $DartBoxEnumReferenceCopyWith<$Res> get dartBoxEnumReference {
+    return $DartBoxEnumReferenceCopyWith<$Res>(_value.dartBoxEnumReference,
+        (value) {
+      return _then(_value.copyWith(dartBoxEnumReference: value));
+    });
+  }
 }
 
 /// @nodoc
 
-class _$_$FromDartBoxEnumReference implements _$FromDartBoxEnumReference {
-  _$_$FromDartBoxEnumReference({required this.dartBoxEnumReference});
+class _$_$FromDartBoxEnumReference extends _$FromDartBoxEnumReference {
+  _$_$FromDartBoxEnumReference({required this.dartBoxEnumReference})
+      : super._();
 
   @override
   final DartBoxEnumReference dartBoxEnumReference;
@@ -1571,10 +1620,11 @@ class _$_$FromDartBoxEnumReference implements _$FromDartBoxEnumReference {
   }
 }
 
-abstract class _$FromDartBoxEnumReference implements DartIr {
+abstract class _$FromDartBoxEnumReference extends DartIr {
   factory _$FromDartBoxEnumReference(
           {required DartBoxEnumReference dartBoxEnumReference}) =
       _$_$FromDartBoxEnumReference;
+  _$FromDartBoxEnumReference._() : super._();
 
   DartBoxEnumReference get dartBoxEnumReference =>
       throw _privateConstructorUsedError;
@@ -1589,6 +1639,8 @@ abstract class _$$FromDartBoxListCopyWith<$Res> {
           _$FromDartBoxList value, $Res Function(_$FromDartBoxList) then) =
       __$$FromDartBoxListCopyWithImpl<$Res>;
   $Res call({DartBoxList dartBoxList});
+
+  $DartBoxListCopyWith<$Res> get dartBoxList;
 }
 
 /// @nodoc
@@ -1612,12 +1664,19 @@ class __$$FromDartBoxListCopyWithImpl<$Res> extends _$DartIrCopyWithImpl<$Res>
               as DartBoxList,
     ));
   }
+
+  @override
+  $DartBoxListCopyWith<$Res> get dartBoxList {
+    return $DartBoxListCopyWith<$Res>(_value.dartBoxList, (value) {
+      return _then(_value.copyWith(dartBoxList: value));
+    });
+  }
 }
 
 /// @nodoc
 
-class _$_$FromDartBoxList implements _$FromDartBoxList {
-  _$_$FromDartBoxList({required this.dartBoxList});
+class _$_$FromDartBoxList extends _$FromDartBoxList {
+  _$_$FromDartBoxList({required this.dartBoxList}) : super._();
 
   @override
   final DartBoxList dartBoxList;
@@ -1860,9 +1919,10 @@ class _$_$FromDartBoxList implements _$FromDartBoxList {
   }
 }
 
-abstract class _$FromDartBoxList implements DartIr {
+abstract class _$FromDartBoxList extends DartIr {
   factory _$FromDartBoxList({required DartBoxList dartBoxList}) =
       _$_$FromDartBoxList;
+  _$FromDartBoxList._() : super._();
 
   DartBoxList get dartBoxList => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1877,6 +1937,8 @@ abstract class _$$FromDartBoxObjectReferenceCopyWith<$Res> {
           $Res Function(_$FromDartBoxObjectReference) then) =
       __$$FromDartBoxObjectReferenceCopyWithImpl<$Res>;
   $Res call({DartBoxObjectReference dartBoxObjectReference});
+
+  $DartBoxObjectReferenceCopyWith<$Res> get dartBoxObjectReference;
 }
 
 /// @nodoc
@@ -1903,12 +1965,21 @@ class __$$FromDartBoxObjectReferenceCopyWithImpl<$Res>
               as DartBoxObjectReference,
     ));
   }
+
+  @override
+  $DartBoxObjectReferenceCopyWith<$Res> get dartBoxObjectReference {
+    return $DartBoxObjectReferenceCopyWith<$Res>(_value.dartBoxObjectReference,
+        (value) {
+      return _then(_value.copyWith(dartBoxObjectReference: value));
+    });
+  }
 }
 
 /// @nodoc
 
-class _$_$FromDartBoxObjectReference implements _$FromDartBoxObjectReference {
-  _$_$FromDartBoxObjectReference({required this.dartBoxObjectReference});
+class _$_$FromDartBoxObjectReference extends _$FromDartBoxObjectReference {
+  _$_$FromDartBoxObjectReference({required this.dartBoxObjectReference})
+      : super._();
 
   @override
   final DartBoxObjectReference dartBoxObjectReference;
@@ -2153,10 +2224,11 @@ class _$_$FromDartBoxObjectReference implements _$FromDartBoxObjectReference {
   }
 }
 
-abstract class _$FromDartBoxObjectReference implements DartIr {
+abstract class _$FromDartBoxObjectReference extends DartIr {
   factory _$FromDartBoxObjectReference(
           {required DartBoxObjectReference dartBoxObjectReference}) =
       _$_$FromDartBoxObjectReference;
+  _$FromDartBoxObjectReference._() : super._();
 
   DartBoxObjectReference get dartBoxObjectReference =>
       throw _privateConstructorUsedError;
@@ -2171,6 +2243,8 @@ abstract class _$$FromDartImportStatementCopyWith<$Res> {
           $Res Function(_$FromDartImportStatement) then) =
       __$$FromDartImportStatementCopyWithImpl<$Res>;
   $Res call({DartImportStatement dartImportStatement});
+
+  $DartImportStatementCopyWith<$Res> get dartImportStatement;
 }
 
 /// @nodoc
@@ -2196,12 +2270,20 @@ class __$$FromDartImportStatementCopyWithImpl<$Res>
               as DartImportStatement,
     ));
   }
+
+  @override
+  $DartImportStatementCopyWith<$Res> get dartImportStatement {
+    return $DartImportStatementCopyWith<$Res>(_value.dartImportStatement,
+        (value) {
+      return _then(_value.copyWith(dartImportStatement: value));
+    });
+  }
 }
 
 /// @nodoc
 
-class _$_$FromDartImportStatement implements _$FromDartImportStatement {
-  _$_$FromDartImportStatement({required this.dartImportStatement});
+class _$_$FromDartImportStatement extends _$FromDartImportStatement {
+  _$_$FromDartImportStatement({required this.dartImportStatement}) : super._();
 
   @override
   final DartImportStatement dartImportStatement;
@@ -2446,10 +2528,11 @@ class _$_$FromDartImportStatement implements _$FromDartImportStatement {
   }
 }
 
-abstract class _$FromDartImportStatement implements DartIr {
+abstract class _$FromDartImportStatement extends DartIr {
   factory _$FromDartImportStatement(
           {required DartImportStatement dartImportStatement}) =
       _$_$FromDartImportStatement;
+  _$FromDartImportStatement._() : super._();
 
   DartImportStatement get dartImportStatement =>
       throw _privateConstructorUsedError;
@@ -2472,6 +2555,10 @@ abstract class _$$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDec
   $Res call(
       {DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
           dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration});
+
+  $DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclarationCopyWith<
+          $Res>
+      get dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration;
 }
 
 /// @nodoc
@@ -2512,15 +2599,30 @@ class __$$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
                   as DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
     ));
   }
+
+  @override
+  $DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclarationCopyWith<
+          $Res>
+      get dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration {
+    return $DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclarationCopyWith<
+            $Res>(
+        _value
+            .dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+        (value) {
+      return _then(_value.copyWith(
+          dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration:
+              value));
+    });
+  }
 }
 
 /// @nodoc
 
 class _$_$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-    implements
-        _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration {
+    extends _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration {
   _$_$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
-      {required this.dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration});
+      {required this.dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration})
+      : super._();
 
   @override
   final DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
@@ -2782,11 +2884,13 @@ class _$_$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
 }
 
 abstract class _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-    implements DartIr {
+    extends DartIr {
   factory _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
           {required DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
               dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration}) =
       _$_$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration;
+  _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration._()
+      : super._();
 
   DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
       get dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration =>
@@ -2805,6 +2909,9 @@ abstract class _$$FromDartFunctionSelfBindingInvocationCopyWith<$Res> {
       __$$FromDartFunctionSelfBindingInvocationCopyWithImpl<$Res>;
   $Res call(
       {DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation});
+
+  $DartFunctionSelfBindingInvocationCopyWith<$Res>
+      get dartFunctionSelfBindingInvocation;
 }
 
 /// @nodoc
@@ -2833,14 +2940,24 @@ class __$$FromDartFunctionSelfBindingInvocationCopyWithImpl<$Res>
               as DartFunctionSelfBindingInvocation,
     ));
   }
+
+  @override
+  $DartFunctionSelfBindingInvocationCopyWith<$Res>
+      get dartFunctionSelfBindingInvocation {
+    return $DartFunctionSelfBindingInvocationCopyWith<$Res>(
+        _value.dartFunctionSelfBindingInvocation, (value) {
+      return _then(_value.copyWith(dartFunctionSelfBindingInvocation: value));
+    });
+  }
 }
 
 /// @nodoc
 
 class _$_$FromDartFunctionSelfBindingInvocation
-    implements _$FromDartFunctionSelfBindingInvocation {
+    extends _$FromDartFunctionSelfBindingInvocation {
   _$_$FromDartFunctionSelfBindingInvocation(
-      {required this.dartFunctionSelfBindingInvocation});
+      {required this.dartFunctionSelfBindingInvocation})
+      : super._();
 
   @override
   final DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation;
@@ -3090,11 +3207,12 @@ class _$_$FromDartFunctionSelfBindingInvocation
   }
 }
 
-abstract class _$FromDartFunctionSelfBindingInvocation implements DartIr {
+abstract class _$FromDartFunctionSelfBindingInvocation extends DartIr {
   factory _$FromDartFunctionSelfBindingInvocation(
           {required DartFunctionSelfBindingInvocation
               dartFunctionSelfBindingInvocation}) =
       _$_$FromDartFunctionSelfBindingInvocation;
+  _$FromDartFunctionSelfBindingInvocation._() : super._();
 
   DartFunctionSelfBindingInvocation get dartFunctionSelfBindingInvocation =>
       throw _privateConstructorUsedError;
@@ -3137,8 +3255,8 @@ class __$$FromDartLinebreakCopyWithImpl<$Res> extends _$DartIrCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_$FromDartLinebreak implements _$FromDartLinebreak {
-  _$_$FromDartLinebreak({required this.dartLinebreak});
+class _$_$FromDartLinebreak extends _$FromDartLinebreak {
+  _$_$FromDartLinebreak({required this.dartLinebreak}) : super._();
 
   @override
   final DartLinebreak dartLinebreak;
@@ -3381,9 +3499,10 @@ class _$_$FromDartLinebreak implements _$FromDartLinebreak {
   }
 }
 
-abstract class _$FromDartLinebreak implements DartIr {
+abstract class _$FromDartLinebreak extends DartIr {
   factory _$FromDartLinebreak({required DartLinebreak dartLinebreak}) =
       _$_$FromDartLinebreak;
+  _$FromDartLinebreak._() : super._();
 
   DartLinebreak get dartLinebreak => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -3398,6 +3517,8 @@ abstract class _$$FromDartUnboxingExpressionCopyWith<$Res> {
           $Res Function(_$FromDartUnboxingExpression) then) =
       __$$FromDartUnboxingExpressionCopyWithImpl<$Res>;
   $Res call({DartUnboxingExpression dartUnboxingExpression});
+
+  $DartUnboxingExpressionCopyWith<$Res> get dartUnboxingExpression;
 }
 
 /// @nodoc
@@ -3424,12 +3545,21 @@ class __$$FromDartUnboxingExpressionCopyWithImpl<$Res>
               as DartUnboxingExpression,
     ));
   }
+
+  @override
+  $DartUnboxingExpressionCopyWith<$Res> get dartUnboxingExpression {
+    return $DartUnboxingExpressionCopyWith<$Res>(_value.dartUnboxingExpression,
+        (value) {
+      return _then(_value.copyWith(dartUnboxingExpression: value));
+    });
+  }
 }
 
 /// @nodoc
 
-class _$_$FromDartUnboxingExpression implements _$FromDartUnboxingExpression {
-  _$_$FromDartUnboxingExpression({required this.dartUnboxingExpression});
+class _$_$FromDartUnboxingExpression extends _$FromDartUnboxingExpression {
+  _$_$FromDartUnboxingExpression({required this.dartUnboxingExpression})
+      : super._();
 
   @override
   final DartUnboxingExpression dartUnboxingExpression;
@@ -3674,10 +3804,11 @@ class _$_$FromDartUnboxingExpression implements _$FromDartUnboxingExpression {
   }
 }
 
-abstract class _$FromDartUnboxingExpression implements DartIr {
+abstract class _$FromDartUnboxingExpression extends DartIr {
   factory _$FromDartUnboxingExpression(
           {required DartUnboxingExpression dartUnboxingExpression}) =
       _$_$FromDartUnboxingExpression;
+  _$FromDartUnboxingExpression._() : super._();
 
   DartUnboxingExpression get dartUnboxingExpression =>
       throw _privateConstructorUsedError;
@@ -3692,6 +3823,8 @@ abstract class _$$FromDartUnpackClosuresCopyWith<$Res> {
           $Res Function(_$FromDartUnpackClosures) then) =
       __$$FromDartUnpackClosuresCopyWithImpl<$Res>;
   $Res call({DartUnpackClosures dartUnpackClosures});
+
+  $DartUnpackClosuresCopyWith<$Res> get dartUnpackClosures;
 }
 
 /// @nodoc
@@ -3717,12 +3850,20 @@ class __$$FromDartUnpackClosuresCopyWithImpl<$Res>
               as DartUnpackClosures,
     ));
   }
+
+  @override
+  $DartUnpackClosuresCopyWith<$Res> get dartUnpackClosures {
+    return $DartUnpackClosuresCopyWith<$Res>(_value.dartUnpackClosures,
+        (value) {
+      return _then(_value.copyWith(dartUnpackClosures: value));
+    });
+  }
 }
 
 /// @nodoc
 
-class _$_$FromDartUnpackClosures implements _$FromDartUnpackClosures {
-  _$_$FromDartUnpackClosures({required this.dartUnpackClosures});
+class _$_$FromDartUnpackClosures extends _$FromDartUnpackClosures {
+  _$_$FromDartUnpackClosures({required this.dartUnpackClosures}) : super._();
 
   @override
   final DartUnpackClosures dartUnpackClosures;
@@ -3967,10 +4108,11 @@ class _$_$FromDartUnpackClosures implements _$FromDartUnpackClosures {
   }
 }
 
-abstract class _$FromDartUnpackClosures implements DartIr {
+abstract class _$FromDartUnpackClosures extends DartIr {
   factory _$FromDartUnpackClosures(
           {required DartUnpackClosures dartUnpackClosures}) =
       _$_$FromDartUnpackClosures;
+  _$FromDartUnpackClosures._() : super._();
 
   DartUnpackClosures get dartUnpackClosures =>
       throw _privateConstructorUsedError;
@@ -3987,6 +4129,9 @@ abstract class $$FromDartVMManagedClassBoxerRegistrantCopyWith<$Res> {
       _$$FromDartVMManagedClassBoxerRegistrantCopyWithImpl<$Res>;
   $Res call(
       {DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant});
+
+  $DartVMManagedClassBoxerRegistrantCopyWith<$Res>
+      get dartVMManagedClassBoxerRegistrant;
 }
 
 /// @nodoc
@@ -4015,14 +4160,24 @@ class _$$FromDartVMManagedClassBoxerRegistrantCopyWithImpl<$Res>
               as DartVMManagedClassBoxerRegistrant,
     ));
   }
+
+  @override
+  $DartVMManagedClassBoxerRegistrantCopyWith<$Res>
+      get dartVMManagedClassBoxerRegistrant {
+    return $DartVMManagedClassBoxerRegistrantCopyWith<$Res>(
+        _value.dartVMManagedClassBoxerRegistrant, (value) {
+      return _then(_value.copyWith(dartVMManagedClassBoxerRegistrant: value));
+    });
+  }
 }
 
 /// @nodoc
 
 class _$$FromDartVMManagedClassBoxerRegistrant
-    implements $FromDartVMManagedClassBoxerRegistrant {
+    extends $FromDartVMManagedClassBoxerRegistrant {
   _$$FromDartVMManagedClassBoxerRegistrant(
-      {required this.dartVMManagedClassBoxerRegistrant});
+      {required this.dartVMManagedClassBoxerRegistrant})
+      : super._();
 
   @override
   final DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant;
@@ -4272,11 +4427,12 @@ class _$$FromDartVMManagedClassBoxerRegistrant
   }
 }
 
-abstract class $FromDartVMManagedClassBoxerRegistrant implements DartIr {
+abstract class $FromDartVMManagedClassBoxerRegistrant extends DartIr {
   factory $FromDartVMManagedClassBoxerRegistrant(
           {required DartVMManagedClassBoxerRegistrant
               dartVMManagedClassBoxerRegistrant}) =
       _$$FromDartVMManagedClassBoxerRegistrant;
+  $FromDartVMManagedClassBoxerRegistrant._() : super._();
 
   DartVMManagedClassBoxerRegistrant get dartVMManagedClassBoxerRegistrant =>
       throw _privateConstructorUsedError;
@@ -4294,6 +4450,9 @@ abstract class _$$FromLoadNamespaceSymbolDeclarationCopyWith<$Res> {
       __$$FromLoadNamespaceSymbolDeclarationCopyWithImpl<$Res>;
   $Res call(
       {DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration});
+
+  $DartLoadNamespaceSymbolDeclarationCopyWith<$Res>
+      get loadNamespaceSymbolDeclaration;
 }
 
 /// @nodoc
@@ -4320,14 +4479,24 @@ class __$$FromLoadNamespaceSymbolDeclarationCopyWithImpl<$Res>
               as DartLoadNamespaceSymbolDeclaration,
     ));
   }
+
+  @override
+  $DartLoadNamespaceSymbolDeclarationCopyWith<$Res>
+      get loadNamespaceSymbolDeclaration {
+    return $DartLoadNamespaceSymbolDeclarationCopyWith<$Res>(
+        _value.loadNamespaceSymbolDeclaration, (value) {
+      return _then(_value.copyWith(loadNamespaceSymbolDeclaration: value));
+    });
+  }
 }
 
 /// @nodoc
 
 class _$_$FromLoadNamespaceSymbolDeclaration
-    implements _$FromLoadNamespaceSymbolDeclaration {
+    extends _$FromLoadNamespaceSymbolDeclaration {
   _$_$FromLoadNamespaceSymbolDeclaration(
-      {required this.loadNamespaceSymbolDeclaration});
+      {required this.loadNamespaceSymbolDeclaration})
+      : super._();
 
   @override
   final DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration;
@@ -4575,11 +4744,12 @@ class _$_$FromLoadNamespaceSymbolDeclaration
   }
 }
 
-abstract class _$FromLoadNamespaceSymbolDeclaration implements DartIr {
+abstract class _$FromLoadNamespaceSymbolDeclaration extends DartIr {
   factory _$FromLoadNamespaceSymbolDeclaration(
           {required DartLoadNamespaceSymbolDeclaration
               loadNamespaceSymbolDeclaration}) =
       _$_$FromLoadNamespaceSymbolDeclaration;
+  _$FromLoadNamespaceSymbolDeclaration._() : super._();
 
   DartLoadNamespaceSymbolDeclaration get loadNamespaceSymbolDeclaration =>
       throw _privateConstructorUsedError;
@@ -4596,6 +4766,9 @@ abstract class _$$FromMethodInjectionImplementationCopyWith<$Res> {
           $Res Function(_$FromMethodInjectionImplementation) then) =
       __$$FromMethodInjectionImplementationCopyWithImpl<$Res>;
   $Res call({DartMethodInjectionImplementation methodInjectionImplementation});
+
+  $DartMethodInjectionImplementationCopyWith<$Res>
+      get methodInjectionImplementation;
 }
 
 /// @nodoc
@@ -4622,14 +4795,24 @@ class __$$FromMethodInjectionImplementationCopyWithImpl<$Res>
               as DartMethodInjectionImplementation,
     ));
   }
+
+  @override
+  $DartMethodInjectionImplementationCopyWith<$Res>
+      get methodInjectionImplementation {
+    return $DartMethodInjectionImplementationCopyWith<$Res>(
+        _value.methodInjectionImplementation, (value) {
+      return _then(_value.copyWith(methodInjectionImplementation: value));
+    });
+  }
 }
 
 /// @nodoc
 
 class _$_$FromMethodInjectionImplementation
-    implements _$FromMethodInjectionImplementation {
+    extends _$FromMethodInjectionImplementation {
   _$_$FromMethodInjectionImplementation(
-      {required this.methodInjectionImplementation});
+      {required this.methodInjectionImplementation})
+      : super._();
 
   @override
   final DartMethodInjectionImplementation methodInjectionImplementation;
@@ -4877,11 +5060,12 @@ class _$_$FromMethodInjectionImplementation
   }
 }
 
-abstract class _$FromMethodInjectionImplementation implements DartIr {
+abstract class _$FromMethodInjectionImplementation extends DartIr {
   factory _$FromMethodInjectionImplementation(
           {required DartMethodInjectionImplementation
               methodInjectionImplementation}) =
       _$_$FromMethodInjectionImplementation;
+  _$FromMethodInjectionImplementation._() : super._();
 
   DartMethodInjectionImplementation get methodInjectionImplementation =>
       throw _privateConstructorUsedError;
@@ -4898,6 +5082,8 @@ abstract class _$$FromRTManagedClassDeclarationCopyWith<$Res> {
           $Res Function(_$FromRTManagedClassDeclaration) then) =
       __$$FromRTManagedClassDeclarationCopyWithImpl<$Res>;
   $Res call({DartRTManagedClassDeclaration rtManagedClassDeclaration});
+
+  $DartRTManagedClassDeclarationCopyWith<$Res> get rtManagedClassDeclaration;
 }
 
 /// @nodoc
@@ -4924,13 +5110,22 @@ class __$$FromRTManagedClassDeclarationCopyWithImpl<$Res>
               as DartRTManagedClassDeclaration,
     ));
   }
+
+  @override
+  $DartRTManagedClassDeclarationCopyWith<$Res> get rtManagedClassDeclaration {
+    return $DartRTManagedClassDeclarationCopyWith<$Res>(
+        _value.rtManagedClassDeclaration, (value) {
+      return _then(_value.copyWith(rtManagedClassDeclaration: value));
+    });
+  }
 }
 
 /// @nodoc
 
 class _$_$FromRTManagedClassDeclaration
-    implements _$FromRTManagedClassDeclaration {
-  _$_$FromRTManagedClassDeclaration({required this.rtManagedClassDeclaration});
+    extends _$FromRTManagedClassDeclaration {
+  _$_$FromRTManagedClassDeclaration({required this.rtManagedClassDeclaration})
+      : super._();
 
   @override
   final DartRTManagedClassDeclaration rtManagedClassDeclaration;
@@ -5177,10 +5372,11 @@ class _$_$FromRTManagedClassDeclaration
   }
 }
 
-abstract class _$FromRTManagedClassDeclaration implements DartIr {
+abstract class _$FromRTManagedClassDeclaration extends DartIr {
   factory _$FromRTManagedClassDeclaration(
           {required DartRTManagedClassDeclaration rtManagedClassDeclaration}) =
       _$_$FromRTManagedClassDeclaration;
+  _$FromRTManagedClassDeclaration._() : super._();
 
   DartRTManagedClassDeclaration get rtManagedClassDeclaration =>
       throw _privateConstructorUsedError;
@@ -5199,6 +5395,9 @@ abstract class _$$FromDartStaticMethodNamespaceSymbolDeclarationCopyWith<$Res> {
   $Res call(
       {DartStaticMethodNamespaceSymbolDeclaration
           staticMethodNamespaceSymbolDeclaration});
+
+  $DartStaticMethodNamespaceSymbolDeclarationCopyWith<$Res>
+      get staticMethodNamespaceSymbolDeclaration;
 }
 
 /// @nodoc
@@ -5229,14 +5428,25 @@ class __$$FromDartStaticMethodNamespaceSymbolDeclarationCopyWithImpl<$Res>
                   as DartStaticMethodNamespaceSymbolDeclaration,
     ));
   }
+
+  @override
+  $DartStaticMethodNamespaceSymbolDeclarationCopyWith<$Res>
+      get staticMethodNamespaceSymbolDeclaration {
+    return $DartStaticMethodNamespaceSymbolDeclarationCopyWith<$Res>(
+        _value.staticMethodNamespaceSymbolDeclaration, (value) {
+      return _then(
+          _value.copyWith(staticMethodNamespaceSymbolDeclaration: value));
+    });
+  }
 }
 
 /// @nodoc
 
 class _$_$FromDartStaticMethodNamespaceSymbolDeclaration
-    implements _$FromDartStaticMethodNamespaceSymbolDeclaration {
+    extends _$FromDartStaticMethodNamespaceSymbolDeclaration {
   _$_$FromDartStaticMethodNamespaceSymbolDeclaration(
-      {required this.staticMethodNamespaceSymbolDeclaration});
+      {required this.staticMethodNamespaceSymbolDeclaration})
+      : super._();
 
   @override
   final DartStaticMethodNamespaceSymbolDeclaration
@@ -5490,12 +5700,12 @@ class _$_$FromDartStaticMethodNamespaceSymbolDeclaration
   }
 }
 
-abstract class _$FromDartStaticMethodNamespaceSymbolDeclaration
-    implements DartIr {
+abstract class _$FromDartStaticMethodNamespaceSymbolDeclaration extends DartIr {
   factory _$FromDartStaticMethodNamespaceSymbolDeclaration(
           {required DartStaticMethodNamespaceSymbolDeclaration
               staticMethodNamespaceSymbolDeclaration}) =
       _$_$FromDartStaticMethodNamespaceSymbolDeclaration;
+  _$FromDartStaticMethodNamespaceSymbolDeclaration._() : super._();
 
   DartStaticMethodNamespaceSymbolDeclaration
       get staticMethodNamespaceSymbolDeclaration =>
@@ -5513,6 +5723,8 @@ abstract class _$$FromVMManagedClassDeclarationCopyWith<$Res> {
           $Res Function(_$FromVMManagedClassDeclaration) then) =
       __$$FromVMManagedClassDeclarationCopyWithImpl<$Res>;
   $Res call({DartVMManagedClassDeclaration vmManagedClassDeclaration});
+
+  $DartVMManagedClassDeclarationCopyWith<$Res> get vmManagedClassDeclaration;
 }
 
 /// @nodoc
@@ -5539,13 +5751,22 @@ class __$$FromVMManagedClassDeclarationCopyWithImpl<$Res>
               as DartVMManagedClassDeclaration,
     ));
   }
+
+  @override
+  $DartVMManagedClassDeclarationCopyWith<$Res> get vmManagedClassDeclaration {
+    return $DartVMManagedClassDeclarationCopyWith<$Res>(
+        _value.vmManagedClassDeclaration, (value) {
+      return _then(_value.copyWith(vmManagedClassDeclaration: value));
+    });
+  }
 }
 
 /// @nodoc
 
 class _$_$FromVMManagedClassDeclaration
-    implements _$FromVMManagedClassDeclaration {
-  _$_$FromVMManagedClassDeclaration({required this.vmManagedClassDeclaration});
+    extends _$FromVMManagedClassDeclaration {
+  _$_$FromVMManagedClassDeclaration({required this.vmManagedClassDeclaration})
+      : super._();
 
   @override
   final DartVMManagedClassDeclaration vmManagedClassDeclaration;
@@ -5792,10 +6013,11 @@ class _$_$FromVMManagedClassDeclaration
   }
 }
 
-abstract class _$FromVMManagedClassDeclaration implements DartIr {
+abstract class _$FromVMManagedClassDeclaration extends DartIr {
   factory _$FromVMManagedClassDeclaration(
           {required DartVMManagedClassDeclaration vmManagedClassDeclaration}) =
       _$_$FromVMManagedClassDeclaration;
+  _$FromVMManagedClassDeclaration._() : super._();
 
   DartVMManagedClassDeclaration get vmManagedClassDeclaration =>
       throw _privateConstructorUsedError;
@@ -5815,6 +6037,9 @@ abstract class _$$FromVMManagedClassMethodInjectionImplementationCopyWith<
   $Res call(
       {DartVMManagedClassMethodInjectionImplementation
           vmManagedClassMethodInjectionImplementation});
+
+  $DartVMManagedClassMethodInjectionImplementationCopyWith<$Res>
+      get vmManagedClassMethodInjectionImplementation;
 }
 
 /// @nodoc
@@ -5846,14 +6071,25 @@ class __$$FromVMManagedClassMethodInjectionImplementationCopyWithImpl<$Res>
                   as DartVMManagedClassMethodInjectionImplementation,
     ));
   }
+
+  @override
+  $DartVMManagedClassMethodInjectionImplementationCopyWith<$Res>
+      get vmManagedClassMethodInjectionImplementation {
+    return $DartVMManagedClassMethodInjectionImplementationCopyWith<$Res>(
+        _value.vmManagedClassMethodInjectionImplementation, (value) {
+      return _then(
+          _value.copyWith(vmManagedClassMethodInjectionImplementation: value));
+    });
+  }
 }
 
 /// @nodoc
 
 class _$_$FromVMManagedClassMethodInjectionImplementation
-    implements _$FromVMManagedClassMethodInjectionImplementation {
+    extends _$FromVMManagedClassMethodInjectionImplementation {
   _$_$FromVMManagedClassMethodInjectionImplementation(
-      {required this.vmManagedClassMethodInjectionImplementation});
+      {required this.vmManagedClassMethodInjectionImplementation})
+      : super._();
 
   @override
   final DartVMManagedClassMethodInjectionImplementation
@@ -6108,11 +6344,12 @@ class _$_$FromVMManagedClassMethodInjectionImplementation
 }
 
 abstract class _$FromVMManagedClassMethodInjectionImplementation
-    implements DartIr {
+    extends DartIr {
   factory _$FromVMManagedClassMethodInjectionImplementation(
           {required DartVMManagedClassMethodInjectionImplementation
               vmManagedClassMethodInjectionImplementation}) =
       _$_$FromVMManagedClassMethodInjectionImplementation;
+  _$FromVMManagedClassMethodInjectionImplementation._() : super._();
 
   DartVMManagedClassMethodInjectionImplementation
       get vmManagedClassMethodInjectionImplementation =>

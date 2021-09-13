@@ -12,6 +12,10 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+SwidiValidationError _$SwidiValidationErrorFromJson(Map<String, dynamic> json) {
+  return _$SwidiValidationErrorCtor.fromJson(json);
+}
+
 /// @nodoc
 class _$SwidiValidationErrorTearOff {
   const _$SwidiValidationErrorTearOff();
@@ -20,6 +24,10 @@ class _$SwidiValidationErrorTearOff {
     return _$SwidiValidationErrorCtor(
       message: message,
     );
+  }
+
+  SwidiValidationError fromJson(Map<String, Object> json) {
+    return SwidiValidationError.fromJson(json);
   }
 }
 
@@ -30,6 +38,7 @@ const $SwidiValidationError = _$SwidiValidationErrorTearOff();
 mixin _$SwidiValidationError {
   String get message => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $SwidiValidationErrorCopyWith<SwidiValidationError> get copyWith =>
       throw _privateConstructorUsedError;
@@ -101,9 +110,12 @@ class __$$SwidiValidationErrorCtorCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_$SwidiValidationErrorCtor extends _$SwidiValidationErrorCtor {
   const _$_$SwidiValidationErrorCtor({required this.message}) : super._();
+
+  factory _$_$SwidiValidationErrorCtor.fromJson(Map<String, dynamic> json) =>
+      _$_$_$SwidiValidationErrorCtorFromJson(json);
 
   @override
   final String message;
@@ -131,12 +143,20 @@ class _$_$SwidiValidationErrorCtor extends _$SwidiValidationErrorCtor {
       get copyWith =>
           __$$SwidiValidationErrorCtorCopyWithImpl<_$SwidiValidationErrorCtor>(
               this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_$SwidiValidationErrorCtorToJson(this);
+  }
 }
 
 abstract class _$SwidiValidationErrorCtor extends SwidiValidationError {
   const factory _$SwidiValidationErrorCtor({required String message}) =
       _$_$SwidiValidationErrorCtor;
   const _$SwidiValidationErrorCtor._() : super._();
+
+  factory _$SwidiValidationErrorCtor.fromJson(Map<String, dynamic> json) =
+      _$_$SwidiValidationErrorCtor.fromJson;
 
   @override
   String get message => throw _privateConstructorUsedError;

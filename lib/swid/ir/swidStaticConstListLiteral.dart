@@ -2,13 +2,25 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
+import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
+import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
+import 'package:hydro_sdk/swid/util/iCopyable.dart';
 
 part 'swidStaticConstListLiteral.freezed.dart';
 part 'swidStaticConstListLiteral.g.dart';
 
 @freezed
-class SwidStaticConstListLiteral with _$SwidStaticConstListLiteral {
-  const factory SwidStaticConstListLiteral({
+class SwidStaticConstListLiteral
+    with
+        _$SwidStaticConstListLiteral,
+        HashKeyMixin<SwidStaticConstListLiteral>,
+        HashComparableMixin<SwidStaticConstListLiteral>
+    implements
+        ICopyable<SwidStaticConstListLiteral,
+            $SwidStaticConstListLiteralCopyWith<SwidStaticConstListLiteral>> {
+  SwidStaticConstListLiteral._();
+
+  factory SwidStaticConstListLiteral({
     required final List<SwidStaticConst> elements,
     required final SwidType staticType,
   }) = _$SwidStaticConstListLiteralCtor;
@@ -18,8 +30,8 @@ class SwidStaticConstListLiteral with _$SwidStaticConstListLiteral {
 
   factory SwidStaticConstListLiteral.clone({
     required final SwidStaticConstListLiteral swidStaticConstListLiteral,
-    List<SwidStaticConst>? elements,
-    SwidType? staticType,
+    final List<SwidStaticConst>? elements,
+    final SwidType? staticType,
   }) =>
       SwidStaticConstListLiteral(
         elements: elements ??
@@ -34,5 +46,22 @@ class SwidStaticConstListLiteral with _$SwidStaticConstListLiteral {
             SwidType.clone(
               swidType: swidStaticConstListLiteral.staticType,
             ),
+      );
+
+  @override
+  List<int> get hashableParts => [
+        ...elements.hashableParts,
+        ...staticType.hashableParts,
+      ];
+
+  @override
+  SwidStaticConstListLiteral clone({
+    final List<SwidStaticConst>? elements,
+    final SwidType? staticType,
+  }) =>
+      SwidStaticConstListLiteral.clone(
+        swidStaticConstListLiteral: this,
+        elements: elements,
+        staticType: staticType,
       );
 }

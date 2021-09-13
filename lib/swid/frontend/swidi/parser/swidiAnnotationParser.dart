@@ -25,7 +25,7 @@ mixin SwidiAnnotationParser
           return SwidiAnnotation(
             value: consts.isNotEmpty
                 ? consts.first
-                : const SwidiConst.fromSwidiEmptyConst(
+                : SwidiConst.fromSwidiEmptyConst(
                     swidiEmptyConst: SwidiEmptyConst(),
                   ),
           );

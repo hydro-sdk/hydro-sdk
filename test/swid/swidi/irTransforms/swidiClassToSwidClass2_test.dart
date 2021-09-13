@@ -12,11 +12,17 @@ import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
+import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
+import 'package:hydro_sdk/swid/swars/pipelineNoopCacheMgr.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
-    var res = swidiSourceToSwidIr(content: """
+    var res = swidiSourceToSwidIr(
+        pipeline: CachingPipeline(
+          cacheMgr: const PipelineNoopCacheMgr(),
+        ),
+        content: """
       class "dart:typed_data"::UnmodifiableFloat32ListView {
         "dart:core"::class::int indexOf(
           "dart:core"::class::double element, [
