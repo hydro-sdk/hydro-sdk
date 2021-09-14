@@ -14,6 +14,7 @@ import 'package:hydro_sdk/swid/ir/util/cloneSwidType.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
 import 'package:hydro_sdk/swid/util/iCopyable.dart';
+import 'package:hydro_sdk/swid/util/iJsonTransformable.dart';
 
 part 'swidFunctionType.freezed.dart';
 part 'swidFunctionType.g.dart';
@@ -27,7 +28,8 @@ class SwidFunctionType
         HashComparableMixin<SwidFunctionType>
     implements
         ICopyable<SwidFunctionType,
-            $SwidFunctionTypeCopyWith<SwidFunctionType>> {
+            $SwidFunctionTypeCopyWith<SwidFunctionType>>,
+        IJsonTransformable {
   SwidFunctionType._();
 
   factory SwidFunctionType({
@@ -48,6 +50,10 @@ class SwidFunctionType
 
   factory SwidFunctionType.fromJson(Map<String, dynamic> json) =>
       _$SwidFunctionTypeFromJson(json);
+
+  @override
+  SwidFunctionType fromJson(Map<String, dynamic> json) =>
+      SwidFunctionType.fromJson(json);
 
   factory SwidFunctionType.MakeReceiverVoid({
     required final SwidFunctionType swidFunctionType,
