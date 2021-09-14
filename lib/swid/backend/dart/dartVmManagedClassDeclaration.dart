@@ -15,6 +15,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/backend/dart/dartBindInstanceField.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartVmManagedClassMethodInjectionImplementation.dart';
+import 'package:hydro_sdk/swid/backend/util/methodIsEmitCandidate.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
@@ -162,6 +163,9 @@ class DartVMManagedClassDeclaration
                                 swidFunctionType: x,
                               ),
                             )
+                            .where((x) => methodIsEmitCandidate(
+                                  swidFunctionType: x,
+                                ))
                             .map(
                               (x) => Code(
                                 pipeline.reduceFromTerm(

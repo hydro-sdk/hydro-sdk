@@ -332,6 +332,7 @@ class DartRTManagedClassDeclaration
                       ),
                     )
                     .where((x) => !x.declarationModifiers.hasProtected)
+                    .where((x) => x.returnType.displayName[0] != "_")
                     .map(
                       (x) => transformAccessorName(
                         swidFunctionType: x,
