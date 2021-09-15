@@ -4,16 +4,12 @@ import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
-import 'package:hydro_sdk/swid/ir/swidGenericInstantiator.dart';
-import 'package:hydro_sdk/swid/ir/swidInstantiableGeneric.dart';
-import 'package:hydro_sdk/swid/ir/swidInstantiatedGeneric.dart';
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/util/instantiateAllGenericsAsDynamic.dart';
-import 'package:hydro_sdk/swid/ir/util/instantiateGeneric.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
@@ -28,8 +24,43 @@ void main() {
         originalPackagePath: "",
         namedParameterTypes: {},
         namedDefaults: {},
-        normalParameterNames: [],
-        normalParameterTypes: [],
+        normalParameterNames: ["map"],
+        normalParameterTypes: [
+          SwidType.fromSwidInterface(
+            swidInterface: SwidInterface(
+              name: "Map",
+              nullabilitySuffix: SwidNullabilitySuffix.none,
+              originalPackagePath: "dart:core",
+              typeArguments: [
+                SwidType.fromSwidInterface(
+                  swidInterface: SwidInterface(
+                    name: "K",
+                    declarationModifiers: SwidDeclarationModifiers.empty(),
+                    nullabilitySuffix: SwidNullabilitySuffix.none,
+                    originalPackagePath: "",
+                    referenceDeclarationKind:
+                        SwidReferenceDeclarationKind.typeParameterType,
+                    typeArguments: [],
+                  ),
+                ),
+                SwidType.fromSwidInterface(
+                  swidInterface: SwidInterface(
+                    name: "V",
+                    declarationModifiers: SwidDeclarationModifiers.empty(),
+                    nullabilitySuffix: SwidNullabilitySuffix.none,
+                    originalPackagePath: "",
+                    referenceDeclarationKind:
+                        SwidReferenceDeclarationKind.typeParameterType,
+                    typeArguments: [],
+                  ),
+                ),
+              ],
+              referenceDeclarationKind:
+                  SwidReferenceDeclarationKind.classElement,
+              declarationModifiers: SwidDeclarationModifiers.empty(),
+            ),
+          ),
+        ],
         optionalParameterNames: [],
         optionalParameterTypes: [],
         returnType: SwidType.fromSwidInterface(
@@ -96,24 +127,30 @@ void main() {
       ],
     );
 
-    final returnTypeWithInstantiatedGeneric = instantiateGeneric(
-      genericInstantiator: SwidGenericInstantiator(
-        name: "K",
-        instantiatedGeneric:
-            SwidInstantiatedGeneric.fromSwidInstantiableGeneric(
-          swidInstantiableGeneric: SwidInstantiableGeneric.fromSwidInterface(
-            swidInterface: dartDynamic,
-          ),
-        ),
+    final classWithInstantiatedGenerics = instantiateAllGenericsAsDynamic(
+      swidType: SwidType.fromSwidClass(
+        swidClass: ir,
       ),
-      swidType: ir.constructorType!.returnType,
     );
 
-    final returnTypeInstantiatedWithInstantiateAllAsDynamic =
-        instantiateAllGenericsAsDynamic(
-      swidType: ir.constructorType!.returnType,
+    expect(
+      classWithInstantiatedGenerics
+          .maybeWhen(
+            fromSwidClass: (val) => val,
+            orElse: () => null,
+          )!
+          .constructorType!
+          .normalParameterTypes
+          .first
+          .maybeWhen(
+            fromSwidInterface: (val) => val,
+            orElse: () => null,
+          )!
+          .typeArguments
+          .first,
+      SwidType.fromSwidInterface(
+        swidInterface: dartDynamic,
+      ),
     );
-
-    print(returnTypeInstantiatedWithInstantiateAllAsDynamic);
   }, tags: "swid");
 }
