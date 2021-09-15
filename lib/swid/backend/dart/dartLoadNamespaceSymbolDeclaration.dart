@@ -100,54 +100,70 @@ class DartLoadNamespaceSymbolDeclaration
                           .index(literalString(
                               transformToCamelCase(str: swidClass.name)))
                           .assign(
-                            luaDartBinding(
-                              code: Block.of(
-                                [
-                                  Code(
-                                    pipeline.reduceFromTerm(
-                                      DartUnpackClosures(
-                                        swidFunctionType:
-                                            swidClass.constructorType!,
-                                      ),
-                                    ),
-                                  ),
-                                  literalList(
+                            (({
+                              required final SwidFunctionType constructorType,
+                            }) =>
+                                luaDartBinding(
+                                  code: Block.of(
                                     [
                                       Code(
                                         pipeline.reduceFromTerm(
-                                          DartFunctionSelfBindingInvocation(
-                                              useClosureUnpackNameForUnboxingIdentifiers:
-                                                  true,
-                                              argumentBoxingProcedure:
-                                                  DartBoxingProcedure.unbox,
-                                              returnValueBoxingProcedure:
-                                                  !swidClass.constructorType!
-                                                          .isFactory
-                                                      ? DartBoxingProcedure.none
-                                                      : DartBoxingProcedure.box,
-                                              emitTableBindingPrefix: !swidClass
-                                                  .constructorType!.isFactory,
-                                              swidFunctionType:
-                                                  SwidFunctionType.clone(
-                                                      swidFunctionType:
-                                                          swidClass
-                                                              .constructorType!,
-                                                      name: !swidClass
-                                                              .constructorType!
-                                                              .isFactory
-                                                          ? "RTManaged${swidClass.name}"
-                                                          : swidClass.name),
-                                              returnValueBoxingTableExpression:
-                                                  swidClass.constructorType!
-                                                          .isFactory
-                                                      ? refer("$luaCallerArgumentsParameterName")
-                                                          .index(literalNum(0))
-                                                      : null),
+                                          DartUnpackClosures(
+                                            swidFunctionType: constructorType,
+                                          ),
                                         ),
                                       ),
+                                      literalList(
+                                        [
+                                          Code(
+                                            pipeline.reduceFromTerm(
+                                              DartFunctionSelfBindingInvocation(
+                                                useClosureUnpackNameForUnboxingIdentifiers:
+                                                    true,
+                                                argumentBoxingProcedure:
+                                                    DartBoxingProcedure.unbox,
+                                                returnValueBoxingProcedure:
+                                                    !constructorType.isFactory
+                                                        ? DartBoxingProcedure
+                                                            .none
+                                                        : DartBoxingProcedure
+                                                            .box,
+                                                emitTableBindingPrefix:
+                                                    !constructorType.isFactory,
+                                                swidFunctionType:
+                                                    SwidFunctionType.clone(
+                                                        swidFunctionType:
+                                                            constructorType,
+                                                        name: !constructorType
+                                                                .isFactory
+                                                            ? "RTManaged${swidClass.name}"
+                                                            : swidClass.name),
+                                                returnValueBoxingTableExpression:
+                                                    constructorType.isFactory
+                                                        ? refer("$luaCallerArgumentsParameterName")
+                                                            .index(
+                                                            literalNum(0),
+                                                          )
+                                                        : null,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ).returned.statement,
                                     ],
-                                  ).returned.statement,
-                                ],
+                                  ),
+                                ))(
+                              constructorType: instantiateAllGenericsAsDynamic(
+                                instantiateNormalParameterTypes: true,
+                                swidType: SwidType.fromSwidFunctionType(
+                                  swidFunctionType: swidClass.constructorType!,
+                                ),
+                              ).when(
+                                fromSwidInterface: (_) => dartUnknownFunction,
+                                fromSwidClass: (_) => dartUnknownFunction,
+                                fromSwidDefaultFormalParameter: (_) =>
+                                    dartUnknownFunction,
+                                fromSwidFunctionType: (val) => val,
                               ),
                             ),
                           )
