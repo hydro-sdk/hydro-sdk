@@ -181,6 +181,7 @@ void main() {
         ).reduceFromTerm(
           DartVMManagedClassDeclaration(
             swidClass: instantiateAllGenericsAs(
+              instantiateNormalParameterTypes: false,
               swidType: SwidType.fromSwidClass(swidClass: iterable),
               instantiatedGeneric:
                   SwidInstantiatedGeneric.fromSwidInstantiableGeneric(

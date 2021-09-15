@@ -128,6 +128,7 @@ void main() {
     );
 
     final classWithInstantiatedGenerics = instantiateAllGenericsAsDynamic(
+      instantiateNormalParameterTypes: true,
       swidType: SwidType.fromSwidClass(
         swidClass: ir,
       ),

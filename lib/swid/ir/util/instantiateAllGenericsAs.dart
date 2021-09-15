@@ -11,6 +11,7 @@ import 'package:hydro_sdk/swid/ir/util/instantiateGeneric.dart';
 SwidType instantiateAllGenericsAs({
   required final SwidType swidType,
   required final SwidInstantiatedGeneric instantiatedGeneric,
+  required final bool instantiateNormalParameterTypes,
 }) =>
     swidType.when(
       fromSwidInterface: (val) => SwidType.fromSwidInterface(
@@ -55,6 +56,8 @@ SwidType instantiateAllGenericsAs({
           ),
           constructorType: val.constructorType != null
               ? instantiateAllGenericsAs(
+                  instantiateNormalParameterTypes:
+                      instantiateNormalParameterTypes,
                   swidType: SwidType.fromSwidFunctionType(
                     swidFunctionType: val.constructorType!,
                   ),
@@ -69,26 +72,44 @@ SwidType instantiateAllGenericsAs({
         ),
       ),
       fromSwidFunctionType: (val) => SwidType.fromSwidFunctionType(
-        swidFunctionType: val.typeFormals.fold<SwidFunctionType>(
-          val,
-          (previousValue, element) => element.swidReferenceDeclarationKind ==
-                  SwidReferenceDeclarationKind.typeParameterType
-              ? instantiateGeneric(
-                  swidType: SwidType.fromSwidFunctionType(
-                      swidFunctionType: previousValue),
-                  genericInstantiator: SwidGenericInstantiator(
-                    name: element.value.name,
-                    instantiatedGeneric: instantiatedGeneric,
+        swidFunctionType: (({
+          required final SwidFunctionType swidFunctionType,
+        }) =>
+            swidFunctionType.clone(
+              normalParameterTypes: instantiateNormalParameterTypes
+                  ? swidFunctionType.normalParameterTypes
+                      .map(
+                        (x) => instantiateAllGenericsAs(
+                          swidType: x,
+                          instantiateNormalParameterTypes:
+                              instantiateNormalParameterTypes,
+                          instantiatedGeneric: instantiatedGeneric,
+                        ),
+                      )
+                      .toList()
+                  : swidFunctionType.normalParameterTypes,
+            ))(
+          swidFunctionType: val.typeFormals.fold<SwidFunctionType>(
+            val,
+            (previousValue, element) => element.swidReferenceDeclarationKind ==
+                    SwidReferenceDeclarationKind.typeParameterType
+                ? instantiateGeneric(
+                    swidType: SwidType.fromSwidFunctionType(
+                        swidFunctionType: previousValue),
+                    genericInstantiator: SwidGenericInstantiator(
+                      name: element.value.name,
+                      instantiatedGeneric: instantiatedGeneric,
+                    ),
+                  ).when(
+                    fromSwidInterface: (_) => dartUnknownFunction,
+                    fromSwidClass: (_) => dartUnknownFunction,
+                    fromSwidDefaultFormalParameter: (_) => dartUnknownFunction,
+                    fromSwidFunctionType: (val) => val,
+                  )
+                : SwidFunctionType.clone(
+                    swidFunctionType: previousValue,
                   ),
-                ).when(
-                  fromSwidInterface: (_) => dartUnknownFunction,
-                  fromSwidClass: (_) => dartUnknownFunction,
-                  fromSwidDefaultFormalParameter: (_) => dartUnknownFunction,
-                  fromSwidFunctionType: (val) => val,
-                )
-              : SwidFunctionType.clone(
-                  swidFunctionType: previousValue,
-                ),
+          ),
         ),
       ),
       fromSwidDefaultFormalParameter: (val) =>

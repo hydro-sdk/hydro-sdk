@@ -6,9 +6,11 @@ import 'package:hydro_sdk/swid/ir/util/instantiateAllGenericsAs.dart';
 
 SwidType instantiateAllGenericsAsDynamic({
   required final SwidType swidType,
+  final bool instantiateNormalParameterTypes = false,
 }) =>
     instantiateAllGenericsAs(
       swidType: swidType,
+      instantiateNormalParameterTypes: instantiateNormalParameterTypes,
       instantiatedGeneric: SwidInstantiatedGeneric.fromSwidInstantiableGeneric(
         swidInstantiableGeneric: SwidInstantiableGeneric.fromSwidInterface(
           swidInterface: dartDynamic,
