@@ -29,6 +29,7 @@ import 'package:hydro_sdk/swid/backend/dart/util/luaCallerArgumentsParameterName
 import 'package:hydro_sdk/swid/backend/dart/util/swidTypeToDartTypeReference.dart';
 import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/transforms/instantiateAllGenericsAsDynamic.dart';
@@ -112,206 +113,238 @@ class DartRTManagedClassDeclaration
               ..constructors.add(
                 Constructor(
                   swidClass.constructorType != null
-                      ? (k) => k
-                        ..requiredParameters.addAll(swidClass
-                            .constructorType!.normalParameterNames
-                            .map(
-                              (e) => Parameter(
-                                (i) => i
-                                  ..name = e
-                                  ..type = TypeReference(
-                                    (j) => j
-                                      ..symbol = swidClass
-                                          .constructorType!.normalParameterTypes
-                                          .elementAt(swidClass.constructorType!
-                                              .normalParameterNames
-                                              .indexOf(e))
-                                          .when(
-                                            fromSwidInterface: (val) =>
-                                                val.name,
-                                            fromSwidClass: (val) => val.name,
-                                            fromSwidDefaultFormalParameter:
-                                                (val) => val.staticType.name,
-                                            fromSwidFunctionType: (val) =>
-                                                val.name,
-                                          ),
-                                  ),
-                              ),
-                            )
-                            .toList())
-                        ..requiredParameters.addAll(
-                            swidClass.constructorType!.optionalParameterNames
-                                .map(
-                                  (x) => Parameter(
-                                    (k) => k
-                                      ..name = removeNullabilitySuffix(
-                                        str: x,
-                                      )
-                                      ..type = swidTypeToDartTypeReference(
-                                        preserveTypeArguments: true,
-                                        swidType: swidClass.constructorType!
-                                            .optionalParameterTypes
-                                            .elementAt(
-                                          swidClass.constructorType!
-                                              .optionalParameterNames
-                                              .indexWhere(
-                                            (e) => e == x,
-                                          ),
-                                        ),
-                                      )
-                                      ..required = false
-                                      ..named = false,
-                                  ),
-                                )
-                                .toList())
-                        ..optionalParameters.addAll(swidClass
-                            .constructorType!.namedParameterTypes.entries
-                            .map(
-                              (x) => MapEntry(
-                                x.key,
-                                removeNullabilitySuffixFromTypeNames(
-                                  swidType: x.value,
-                                ),
-                              ),
-                            )
-                            .toList()
-                            .map(
-                              (x) => Parameter(
-                                (k) => k
-                                  ..name = x.key
-                                  ..type = swidTypeToDartTypeReference(
-                                    preserveTypeArguments: true,
-                                    swidType: x.value,
-                                  )
-                                  ..required = x.value.nullabilitySuffix ==
-                                      SwidNullabilitySuffix.none
-                                  ..named = true,
-                              ),
-                            )
-                            .toList())
-                        ..optionalParameters.addAll(
-                          [
-                            Parameter((i) => i
-                              ..required = true
-                              ..toThis = true
-                              ..named = true
-                              ..name = "table"),
-                            Parameter((i) => i
-                              ..required = true
-                              ..toThis = true
-                              ..named = true
-                              ..name = "hydroState")
-                          ],
-                        )
-                        ..initializers.addAll(
-                          [
-                            Code("super(" +
-                                [
-                                  ...swidClass
-                                      .constructorType!.normalParameterNames,
-                                  ...swidClass
-                                      .constructorType!.optionalParameterNames,
-                                ].map((e) => e).toList().join(",") +
-                                ([
-                                          ...swidClass.constructorType!
-                                              .normalParameterNames,
-                                          ...swidClass.constructorType!
-                                              .optionalParameterNames,
-                                        ].length >=
-                                        1
-                                    ? ","
-                                    : "") +
-                                swidClass.constructorType!.namedParameterTypes
-                                    .entries
-                                    .map((e) => e.key + ": " + e.key)
-                                    .toList()
-                                    .join(",") +
-                                ")"),
-                          ],
-                        )
-                        ..body = Block.of(
-                          [
-                            refer("table")
-                                .index(literalString("vmObject"))
-                                .assign(refer("vmObject"))
-                                .statement,
-                            refer("table")
-                                .index(literalString("unwrap"))
-                                .assign(
-                                  refer("makeLuaDartFunc").call(
-                                    [],
-                                    {
-                                      "func": Method(
-                                        (x) => x
-                                          ..requiredParameters.addAll([
-                                            Parameter((i) => i
-                                              ..name =
-                                                  "$luaCallerArgumentsParameterName"
-                                              ..type = TypeReference(((j) => j
-                                                ..symbol = "List"
-                                                ..types.add(refer("dynamic")))))
-                                          ])
-                                          ..body = Block.of(
-                                            [
-                                              literalList([
-                                                refer("unwrap").call([])
-                                              ]).returned.statement,
-                                            ],
-                                          ),
-                                      ).closure,
-                                    },
-                                  ),
-                                )
-                                .statement,
-                            ...(swidClass.instanceFieldDeclarations.entries
-                                .map(
-                                  (x) => Code(
-                                    pipeline.reduceFromTerm(
-                                      DartBindInstanceField(
-                                        tableKey: x.key,
-                                        instanceFieldName: x.key,
-                                        instanceField: x.value,
-                                      ),
-                                    ),
-                                  ),
-                                )
-                                .toList()),
-                            ...(swidClass.methods
-                                .where(
-                                  (x) => !isOperator(
-                                    swidFunctionType: x,
-                                  ),
-                                )
-                                .map(
-                                  (x) => Code(
-                                    pipeline.reduceFromTerm(
-                                      DartMethodInjectionImplementation(
-                                        swidFunctionType: pipeline
-                                            .reduceFromTerm(
-                                              InstantiateAllGenericsAsDynamic(
-                                                swidType: SwidType
-                                                    .fromSwidFunctionType(
-                                                  swidFunctionType: x,
-                                                ),
+                      ? (k) => (({
+                            required final SwidFunctionType constructorType,
+                          }) =>
+                              k
+                                ..requiredParameters
+                                    .addAll(constructorType.normalParameterNames
+                                        .map(
+                                          (e) => Parameter(
+                                            (i) => i
+                                              ..name = e
+                                              ..type = TypeReference(
+                                                (j) => j
+                                                  ..symbol = constructorType
+                                                      .normalParameterTypes
+                                                      .elementAt(constructorType
+                                                          .normalParameterNames
+                                                          .indexOf(e))
+                                                      .when(
+                                                        fromSwidInterface:
+                                                            (val) =>
+                                                                val.displayName,
+                                                        fromSwidClass: (val) =>
+                                                            val.displayName,
+                                                        fromSwidDefaultFormalParameter:
+                                                            (val) => val
+                                                                .staticType
+                                                                .displayName,
+                                                        fromSwidFunctionType:
+                                                            (val) => val.name,
+                                                      ),
                                               ),
-                                            )
-                                            .when(
-                                              fromSwidInterface: (_) =>
-                                                  dartUnknownFunction,
-                                              fromSwidClass: (_) =>
-                                                  dartUnknownFunction,
-                                              fromSwidDefaultFormalParameter:
-                                                  (_) => dartUnknownFunction,
-                                              fromSwidFunctionType: (val) =>
-                                                  val,
+                                          ),
+                                        )
+                                        .toList())
+                                ..requiredParameters.addAll(
+                                    constructorType.optionalParameterNames
+                                        .map(
+                                          (x) => Parameter(
+                                            (k) => k
+                                              ..name = removeNullabilitySuffix(
+                                                str: x,
+                                              )
+                                              ..type =
+                                                  swidTypeToDartTypeReference(
+                                                preserveTypeArguments: true,
+                                                swidType: constructorType
+                                                    .optionalParameterTypes
+                                                    .elementAt(
+                                                  constructorType
+                                                      .optionalParameterNames
+                                                      .indexWhere(
+                                                    (e) => e == x,
+                                                  ),
+                                                ),
+                                              )
+                                              ..required = false
+                                              ..named = false,
+                                          ),
+                                        )
+                                        .toList())
+                                ..optionalParameters.addAll(
+                                    constructorType.namedParameterTypes.entries
+                                        .map(
+                                          (x) => MapEntry(
+                                            x.key,
+                                            removeNullabilitySuffixFromTypeNames(
+                                              swidType: x.value,
                                             ),
-                                      ),
+                                          ),
+                                        )
+                                        .toList()
+                                        .map(
+                                          (x) => Parameter(
+                                            (k) => k
+                                              ..name = x.key
+                                              ..type =
+                                                  swidTypeToDartTypeReference(
+                                                preserveTypeArguments: true,
+                                                swidType: x.value,
+                                              )
+                                              ..required =
+                                                  x.value.nullabilitySuffix ==
+                                                      SwidNullabilitySuffix.none
+                                              ..named = true,
+                                          ),
+                                        )
+                                        .toList())
+                                ..optionalParameters.addAll(
+                                  [
+                                    Parameter((i) => i
+                                      ..required = true
+                                      ..toThis = true
+                                      ..named = true
+                                      ..name = "table"),
+                                    Parameter((i) => i
+                                      ..required = true
+                                      ..toThis = true
+                                      ..named = true
+                                      ..name = "hydroState")
+                                  ],
+                                )
+                                ..initializers.addAll(
+                                  [
+                                    Code("super(" +
+                                        [
+                                          ...constructorType
+                                              .normalParameterNames,
+                                          ...constructorType
+                                              .optionalParameterNames,
+                                        ].map((e) => e).toList().join(",") +
+                                        ([
+                                                  ...constructorType
+                                                      .normalParameterNames,
+                                                  ...constructorType
+                                                      .optionalParameterNames,
+                                                ].length >=
+                                                1
+                                            ? ","
+                                            : "") +
+                                        constructorType
+                                            .namedParameterTypes.entries
+                                            .map((e) => e.key + ": " + e.key)
+                                            .toList()
+                                            .join(",") +
+                                        ")"),
+                                  ],
+                                )
+                                ..body = Block.of(
+                                  [
+                                    refer("table")
+                                        .index(literalString("vmObject"))
+                                        .assign(refer("vmObject"))
+                                        .statement,
+                                    refer("table")
+                                        .index(literalString("unwrap"))
+                                        .assign(
+                                          refer("makeLuaDartFunc").call(
+                                            [],
+                                            {
+                                              "func": Method(
+                                                (x) => x
+                                                  ..requiredParameters.addAll([
+                                                    Parameter((i) => i
+                                                      ..name =
+                                                          "$luaCallerArgumentsParameterName"
+                                                      ..type = TypeReference(
+                                                          ((j) => j
+                                                            ..symbol = "List"
+                                                            ..types.add(refer(
+                                                                "dynamic")))))
+                                                  ])
+                                                  ..body = Block.of(
+                                                    [
+                                                      literalList([
+                                                        refer("unwrap").call([])
+                                                      ]).returned.statement,
+                                                    ],
+                                                  ),
+                                              ).closure,
+                                            },
+                                          ),
+                                        )
+                                        .statement,
+                                    ...(swidClass
+                                        .instanceFieldDeclarations.entries
+                                        .map(
+                                          (x) => Code(
+                                            pipeline.reduceFromTerm(
+                                              DartBindInstanceField(
+                                                tableKey: x.key,
+                                                instanceFieldName: x.key,
+                                                instanceField: x.value,
+                                              ),
+                                            ),
+                                          ),
+                                        )
+                                        .toList()),
+                                    ...(swidClass.methods
+                                        .where(
+                                          (x) => !isOperator(
+                                            swidFunctionType: x,
+                                          ),
+                                        )
+                                        .map(
+                                          (x) => Code(
+                                            pipeline.reduceFromTerm(
+                                              DartMethodInjectionImplementation(
+                                                swidFunctionType: pipeline
+                                                    .reduceFromTerm(
+                                                      InstantiateAllGenericsAsDynamic(
+                                                        swidType: SwidType
+                                                            .fromSwidFunctionType(
+                                                          swidFunctionType: x,
+                                                        ),
+                                                      ),
+                                                    )
+                                                    .when(
+                                                      fromSwidInterface: (_) =>
+                                                          dartUnknownFunction,
+                                                      fromSwidClass: (_) =>
+                                                          dartUnknownFunction,
+                                                      fromSwidDefaultFormalParameter:
+                                                          (_) =>
+                                                              dartUnknownFunction,
+                                                      fromSwidFunctionType:
+                                                          (val) => val,
+                                                    ),
+                                              ),
+                                            ),
+                                          ),
+                                        )
+                                        .toList())
+                                  ],
+                                ))(
+                            constructorType: pipeline
+                                .reduceFromTerm(
+                                  InstantiateAllGenericsAsDynamic(
+                                    instantiateNormalParameterTypes: true,
+                                    swidType: SwidType.fromSwidFunctionType(
+                                      swidFunctionType:
+                                          swidClass.constructorType!,
                                     ),
                                   ),
                                 )
-                                .toList())
-                          ],
-                        )
+                                .when(
+                                  fromSwidInterface: (_) => dartUnknownFunction,
+                                  fromSwidClass: (_) => dartUnknownFunction,
+                                  fromSwidDefaultFormalParameter: (_) =>
+                                      dartUnknownFunction,
+                                  fromSwidFunctionType: (val) => val,
+                                ),
+                          )
                       : (k) => k,
                 ),
               )
