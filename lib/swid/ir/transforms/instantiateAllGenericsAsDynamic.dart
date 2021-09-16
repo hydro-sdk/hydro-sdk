@@ -4,7 +4,7 @@ import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidInstantiableGeneric.dart';
 import 'package:hydro_sdk/swid/ir/swidInstantiatedGeneric.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
-import 'package:hydro_sdk/swid/ir/util/instantiateAllGenericsAs.dart';
+import 'package:hydro_sdk/swid/ir/transforms/instantiateAllGenericsAs.dart';
 import 'package:hydro_sdk/swid/ir/util/irTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermJsonTransformableResultMixin.dart';
