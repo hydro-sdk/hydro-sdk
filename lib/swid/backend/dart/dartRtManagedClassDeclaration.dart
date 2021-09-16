@@ -286,21 +286,25 @@ class DartRTManagedClassDeclaration
                                   (x) => Code(
                                     pipeline.reduceFromTerm(
                                       DartMethodInjectionImplementation(
-                                        swidFunctionType:
-                                            instantiateAllGenericsAsDynamic(
-                                          swidType:
-                                              SwidType.fromSwidFunctionType(
-                                            swidFunctionType: x,
-                                          ),
-                                        ).when(
-                                          fromSwidInterface: (_) =>
-                                              dartUnknownFunction,
-                                          fromSwidClass: (_) =>
-                                              dartUnknownFunction,
-                                          fromSwidDefaultFormalParameter: (_) =>
-                                              dartUnknownFunction,
-                                          fromSwidFunctionType: (val) => val,
-                                        ),
+                                        swidFunctionType: pipeline
+                                            .reduceFromTerm(
+                                              InstantiateAllGenericsAsDynamic(
+                                                swidType: SwidType
+                                                    .fromSwidFunctionType(
+                                                  swidFunctionType: x,
+                                                ),
+                                              ),
+                                            )
+                                            .when(
+                                              fromSwidInterface: (_) =>
+                                                  dartUnknownFunction,
+                                              fromSwidClass: (_) =>
+                                                  dartUnknownFunction,
+                                              fromSwidDefaultFormalParameter:
+                                                  (_) => dartUnknownFunction,
+                                              fromSwidFunctionType: (val) =>
+                                                  val,
+                                            ),
                                       ),
                                     ),
                                   ),

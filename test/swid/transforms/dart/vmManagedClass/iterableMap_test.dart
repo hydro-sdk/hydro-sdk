@@ -169,30 +169,37 @@ void main() {
           cacheMgr: const PipelineNoopCacheMgr(),
         ).reduceFromTerm(
           DartVMManagedClassDeclaration(
-            swidClass: instantiateAllGenericsAs(
-              instantiateNormalParameterTypes: false,
-              swidType: SwidType.fromSwidClass(swidClass: iterable),
-              instantiatedGeneric:
-                  SwidInstantiatedGeneric.fromSwidInstantiableGeneric(
-                swidInstantiableGeneric:
-                    SwidInstantiableGeneric.fromSwidInterface(
-                  swidInterface: SwidInterface(
-                    declarationModifiers: SwidDeclarationModifiers.empty(),
-                    name: "dynamic",
-                    nullabilitySuffix: SwidNullabilitySuffix.none,
-                    originalPackagePath: "",
-                    referenceDeclarationKind:
-                        SwidReferenceDeclarationKind.dynamicType,
-                    typeArguments: [],
+            swidClass: CachingPipeline(
+              cacheMgr: const PipelineNoopCacheMgr(),
+            )
+                .reduceFromTerm(
+                  InstantiateAllGenericsAs(
+                    instantiateNormalParameterTypes: false,
+                    swidType: SwidType.fromSwidClass(swidClass: iterable),
+                    instantiatedGeneric:
+                        SwidInstantiatedGeneric.fromSwidInstantiableGeneric(
+                      swidInstantiableGeneric:
+                          SwidInstantiableGeneric.fromSwidInterface(
+                        swidInterface: SwidInterface(
+                          declarationModifiers:
+                              SwidDeclarationModifiers.empty(),
+                          name: "dynamic",
+                          nullabilitySuffix: SwidNullabilitySuffix.none,
+                          originalPackagePath: "",
+                          referenceDeclarationKind:
+                              SwidReferenceDeclarationKind.dynamicType,
+                          typeArguments: [],
+                        ),
+                      ),
+                    ),
                   ),
+                )
+                .when(
+                  fromSwidInterface: (_) => dartUnknownClass,
+                  fromSwidClass: (val) => val,
+                  fromSwidDefaultFormalParameter: (_) => dartUnknownClass,
+                  fromSwidFunctionType: (_) => dartUnknownClass,
                 ),
-              ),
-            ).when(
-              fromSwidInterface: (_) => dartUnknownClass,
-              fromSwidClass: (val) => val,
-              fromSwidDefaultFormalParameter: (_) => dartUnknownClass,
-              fromSwidFunctionType: (_) => dartUnknownClass,
-            ),
           ),
         ),
         """

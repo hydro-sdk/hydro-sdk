@@ -157,13 +157,20 @@ void main() {
         ).reduceFromTerm(
           DartStaticMethodNamespaceSymbolDeclaration(
             swidClass: set,
-            swidFunctionType: instantiateAllGenericsAsDynamic(
+            swidFunctionType: CachingPipeline(
+              cacheMgr: const PipelineNoopCacheMgr(),
+            )
+                .reduceFromTerm(
+                  InstantiateAllGenericsAsDynamic(
                     swidType: SwidType.fromSwidFunctionType(
-                        swidFunctionType: castFrom))
+                      swidFunctionType: castFrom,
+                    ),
+                  ),
+                )
                 .maybeWhen(
-              fromSwidFunctionType: (val) => val,
-              orElse: () => dartUnknownFunction,
-            ),
+                  fromSwidFunctionType: (val) => val,
+                  orElse: () => dartUnknownFunction,
+                ),
           ),
         ),
         """

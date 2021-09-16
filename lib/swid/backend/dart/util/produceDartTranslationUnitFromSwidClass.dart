@@ -69,17 +69,23 @@ DartTranslationUnit? produceDartTranslationUnitFromSwidClass({
                   DartIr.fromVMManagedClassDeclaration(
                     vmManagedClassDeclaration: DartVMManagedClassDeclaration(
                       swidClass: removePrivateMethods(
-                        swidClass: instantiateAllGenericsAsDynamic(
+                        swidClass: pipeline
+                            .reduceFromTerm(
+                              InstantiateAllGenericsAsDynamic(
                                 swidType: SwidType.fromSwidClass(
-                                    swidClass: SwidClass.mergeSuperClasses(
-                                        swidClass: swidClass)))
+                                  swidClass: SwidClass.mergeSuperClasses(
+                                    swidClass: swidClass,
+                                  ),
+                                ),
+                              ),
+                            )
                             .when(
-                          fromSwidInterface: (_) => dartUnknownClass,
-                          fromSwidClass: (val) => val,
-                          fromSwidDefaultFormalParameter: (_) =>
-                              dartUnknownClass,
-                          fromSwidFunctionType: (_) => dartUnknownClass,
-                        ),
+                              fromSwidInterface: (_) => dartUnknownClass,
+                              fromSwidClass: (val) => val,
+                              fromSwidDefaultFormalParameter: (_) =>
+                                  dartUnknownClass,
+                              fromSwidFunctionType: (_) => dartUnknownClass,
+                            ),
                       ),
                     ),
                   ),
@@ -91,18 +97,24 @@ DartTranslationUnit? produceDartTranslationUnitFromSwidClass({
                           rtManagedClassDeclaration:
                               DartRTManagedClassDeclaration(
                             swidClass: removePrivateMethods(
-                              swidClass: instantiateAllGenericsAsDynamic(
+                              swidClass: pipeline
+                                  .reduceFromTerm(
+                                    InstantiateAllGenericsAsDynamic(
                                       swidType: SwidType.fromSwidClass(
-                                          swidClass:
-                                              SwidClass.mergeSuperClasses(
-                                                  swidClass: swidClass)))
+                                        swidClass: SwidClass.mergeSuperClasses(
+                                          swidClass: swidClass,
+                                        ),
+                                      ),
+                                    ),
+                                  )
                                   .when(
-                                fromSwidInterface: (_) => dartUnknownClass,
-                                fromSwidClass: (val) => val,
-                                fromSwidDefaultFormalParameter: (_) =>
-                                    dartUnknownClass,
-                                fromSwidFunctionType: (_) => dartUnknownClass,
-                              ),
+                                    fromSwidInterface: (_) => dartUnknownClass,
+                                    fromSwidClass: (val) => val,
+                                    fromSwidDefaultFormalParameter: (_) =>
+                                        dartUnknownClass,
+                                    fromSwidFunctionType: (_) =>
+                                        dartUnknownClass,
+                                  ),
                             ),
                           ),
                         )

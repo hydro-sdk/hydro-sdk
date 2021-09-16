@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/util/iJsonTransformable.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import 'package:hydro_sdk/swid/ir/iSwidType.dart';
@@ -24,7 +25,7 @@ class SwidType
         SwidTypeMixin<SwidType>,
         HashKeyMixin<SwidType>,
         HashComparableMixin<SwidType>
-    implements ISwidType<SwidType> {
+    implements ISwidType<SwidType>, IJsonTransformable {
   SwidType._();
 
   factory SwidType.fromSwidInterface({
@@ -72,6 +73,9 @@ class SwidType
           ),
         ),
       );
+
+  @override
+  SwidType fromJson(final Map<String, dynamic> json) => SwidType.fromJson(json);
 
   @override
   List<int> get hashableParts => when(

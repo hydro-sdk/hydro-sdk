@@ -13,6 +13,8 @@ import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/util/instantiateGeneric.dart';
+import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
+import 'package:hydro_sdk/swid/swars/pipelineNoopCacheMgr.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
@@ -131,25 +133,32 @@ void main() {
       ],
     );
 
-    var replacedIterable = instantiateGeneric(
-      genericInstantiator: SwidGenericInstantiator(
-        name: "E",
-        instantiatedGeneric:
-            SwidInstantiatedGeneric.fromSwidInstantiableGeneric(
-          swidInstantiableGeneric: SwidInstantiableGeneric.fromSwidInterface(
-            swidInterface: dartDouble,
+    var replacedIterable = CachingPipeline(
+      cacheMgr: const PipelineNoopCacheMgr(),
+    )
+        .reduceFromTerm(
+          InstantiateGeneric(
+            genericInstantiator: SwidGenericInstantiator(
+              name: "E",
+              instantiatedGeneric:
+                  SwidInstantiatedGeneric.fromSwidInstantiableGeneric(
+                swidInstantiableGeneric:
+                    SwidInstantiableGeneric.fromSwidInterface(
+                  swidInterface: dartDouble,
+                ),
+              ),
+            ),
+            swidType: SwidType.fromSwidClass(
+              swidClass: iterable,
+            ),
           ),
-        ),
-      ),
-      swidType: SwidType.fromSwidClass(
-        swidClass: iterable,
-      ),
-    ).when(
-      fromSwidInterface: (_) => dartUnknownClass,
-      fromSwidClass: (val) => val,
-      fromSwidDefaultFormalParameter: (_) => dartUnknownClass,
-      fromSwidFunctionType: (_) => dartUnknownClass,
-    );
+        )
+        .when(
+          fromSwidInterface: (_) => dartUnknownClass,
+          fromSwidClass: (val) => val,
+          fromSwidDefaultFormalParameter: (_) => dartUnknownClass,
+          fromSwidFunctionType: (_) => dartUnknownClass,
+        );
 
     expect(replacedIterable.typeFormals.isNotEmpty, true);
     expect(replacedIterable.typeFormals.first.value.displayName, "double");

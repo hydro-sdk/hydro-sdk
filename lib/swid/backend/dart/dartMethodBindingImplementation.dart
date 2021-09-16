@@ -64,16 +64,20 @@ class DartMethodBindingImplementation
           useClosureUnpackNameForUnboxingIdentifiers: true,
           argumentBoxingProcedure: DartBoxingProcedure.unbox,
           returnValueBoxingProcedure: DartBoxingProcedure.box,
-          swidFunctionType: instantiateAllGenericsAsDynamic(
-            swidType: SwidType.fromSwidFunctionType(
-              swidFunctionType: swidFunctionType,
-            ),
-          ).when(
-            fromSwidInterface: (_) => dartUnknownFunction,
-            fromSwidClass: (_) => dartUnknownFunction,
-            fromSwidDefaultFormalParameter: (_) => dartUnknownFunction,
-            fromSwidFunctionType: (val) => val,
-          ),
+          swidFunctionType: pipeline
+              .reduceFromTerm(
+                InstantiateAllGenericsAsDynamic(
+                  swidType: SwidType.fromSwidFunctionType(
+                    swidFunctionType: swidFunctionType,
+                  ),
+                ),
+              )
+              .when(
+                fromSwidInterface: (_) => dartUnknownFunction,
+                fromSwidClass: (_) => dartUnknownFunction,
+                fromSwidDefaultFormalParameter: (_) => dartUnknownFunction,
+                fromSwidFunctionType: (val) => val,
+              ),
           emitTableBindingPrefix: false,
         ),
       );
@@ -94,16 +98,20 @@ class DartMethodBindingImplementation
             useClosureUnpackNameForUnboxingIdentifiers: true,
             argumentBoxingProcedure: DartBoxingProcedure.unbox,
             returnValueBoxingProcedure: DartBoxingProcedure.box,
-            swidFunctionType: instantiateAllGenericsAsDynamic(
-              swidType: SwidType.fromSwidFunctionType(
-                swidFunctionType: swidFunctionType,
-              ),
-            ).when(
-              fromSwidInterface: (_) => dartUnknownFunction,
-              fromSwidClass: (_) => dartUnknownFunction,
-              fromSwidDefaultFormalParameter: (_) => dartUnknownFunction,
-              fromSwidFunctionType: (val) => val,
-            ),
+            swidFunctionType: pipeline
+                .reduceFromTerm(
+                  InstantiateAllGenericsAsDynamic(
+                    swidType: SwidType.fromSwidFunctionType(
+                      swidFunctionType: swidFunctionType,
+                    ),
+                  ),
+                )
+                .when(
+                  fromSwidInterface: (_) => dartUnknownFunction,
+                  fromSwidClass: (_) => dartUnknownFunction,
+                  fromSwidDefaultFormalParameter: (_) => dartUnknownFunction,
+                  fromSwidFunctionType: (val) => val,
+                ),
             emitTableBindingPrefix: false,
           ),
         ),
@@ -126,16 +134,20 @@ class DartMethodBindingImplementation
               useClosureUnpackNameForUnboxingIdentifiers: true,
               argumentBoxingProcedure: DartBoxingProcedure.unbox,
               returnValueBoxingProcedure: DartBoxingProcedure.none,
-              swidFunctionType: instantiateAllGenericsAsDynamic(
-                swidType: SwidType.fromSwidFunctionType(
-                  swidFunctionType: swidFunctionType,
-                ),
-              ).when(
-                fromSwidInterface: (_) => dartUnknownFunction,
-                fromSwidClass: (_) => dartUnknownFunction,
-                fromSwidDefaultFormalParameter: (_) => dartUnknownFunction,
-                fromSwidFunctionType: (val) => val,
-              ),
+              swidFunctionType: pipeline
+                  .reduceFromTerm(
+                    InstantiateAllGenericsAsDynamic(
+                      swidType: SwidType.fromSwidFunctionType(
+                        swidFunctionType: swidFunctionType,
+                      ),
+                    ),
+                  )
+                  .when(
+                    fromSwidInterface: (_) => dartUnknownFunction,
+                    fromSwidClass: (_) => dartUnknownFunction,
+                    fromSwidDefaultFormalParameter: (_) => dartUnknownFunction,
+                    fromSwidFunctionType: (val) => val,
+                  ),
               emitTableBindingPrefix: false,
             ),
           ),
@@ -224,16 +236,21 @@ class DartMethodBindingImplementation
                 onVoid: (val) =>
                     pipeline.reduceFromTerm(
                       DartUnpackClosures(
-                        swidFunctionType: instantiateAllGenericsAsDynamic(
-                          swidType: SwidType.fromSwidFunctionType(
-                              swidFunctionType: swidFunctionType),
-                        ).when(
-                          fromSwidInterface: (_) => dartUnknownFunction,
-                          fromSwidClass: (_) => dartUnknownFunction,
-                          fromSwidDefaultFormalParameter: (_) =>
-                              dartUnknownFunction,
-                          fromSwidFunctionType: (val) => val,
-                        ),
+                        swidFunctionType: pipeline
+                            .reduceFromTerm(
+                              InstantiateAllGenericsAsDynamic(
+                                swidType: SwidType.fromSwidFunctionType(
+                                  swidFunctionType: swidFunctionType,
+                                ),
+                              ),
+                            )
+                            .when(
+                              fromSwidInterface: (_) => dartUnknownFunction,
+                              fromSwidClass: (_) => dartUnknownFunction,
+                              fromSwidDefaultFormalParameter: (_) =>
+                                  dartUnknownFunction,
+                              fromSwidFunctionType: (val) => val,
+                            ),
                       ),
                     ) +
                     _methodInvocation(

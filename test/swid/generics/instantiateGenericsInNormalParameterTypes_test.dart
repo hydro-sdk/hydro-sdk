@@ -10,6 +10,8 @@ import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/util/instantiateAllGenericsAsDynamic.dart';
+import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
+import 'package:hydro_sdk/swid/swars/pipelineNoopCacheMgr.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
@@ -127,10 +129,14 @@ void main() {
       ],
     );
 
-    final classWithInstantiatedGenerics = instantiateAllGenericsAsDynamic(
-      instantiateNormalParameterTypes: true,
-      swidType: SwidType.fromSwidClass(
-        swidClass: ir,
+    final classWithInstantiatedGenerics = CachingPipeline(
+      cacheMgr: const PipelineNoopCacheMgr(),
+    ).reduceFromTerm(
+      InstantiateAllGenericsAsDynamic(
+        instantiateNormalParameterTypes: true,
+        swidType: SwidType.fromSwidClass(
+          swidClass: ir,
+        ),
       ),
     );
 

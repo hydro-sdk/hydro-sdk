@@ -153,18 +153,24 @@ class DartLoadNamespaceSymbolDeclaration
                                     ],
                                   ),
                                 ))(
-                              constructorType: instantiateAllGenericsAsDynamic(
-                                instantiateNormalParameterTypes: true,
-                                swidType: SwidType.fromSwidFunctionType(
-                                  swidFunctionType: swidClass.constructorType!,
-                                ),
-                              ).when(
-                                fromSwidInterface: (_) => dartUnknownFunction,
-                                fromSwidClass: (_) => dartUnknownFunction,
-                                fromSwidDefaultFormalParameter: (_) =>
-                                    dartUnknownFunction,
-                                fromSwidFunctionType: (val) => val,
-                              ),
+                              constructorType: pipeline
+                                  .reduceFromTerm(
+                                    InstantiateAllGenericsAsDynamic(
+                                      instantiateNormalParameterTypes: true,
+                                      swidType: SwidType.fromSwidFunctionType(
+                                        swidFunctionType:
+                                            swidClass.constructorType!,
+                                      ),
+                                    ),
+                                  )
+                                  .when(
+                                    fromSwidInterface: (_) =>
+                                        dartUnknownFunction,
+                                    fromSwidClass: (_) => dartUnknownFunction,
+                                    fromSwidDefaultFormalParameter: (_) =>
+                                        dartUnknownFunction,
+                                    fromSwidFunctionType: (val) => val,
+                                  ),
                             ),
                           )
                           .statement
@@ -187,9 +193,14 @@ class DartLoadNamespaceSymbolDeclaration
                         .toList()
                   ],
                   ...[
-                    ...(instantiateAllGenericsAsDynamic(
-                            swidType:
-                                SwidType.fromSwidClass(swidClass: swidClass))
+                    ...(pipeline
+                        .reduceFromTerm(
+                          InstantiateAllGenericsAsDynamic(
+                            swidType: SwidType.fromSwidClass(
+                              swidClass: swidClass,
+                            ),
+                          ),
+                        )
                         .when(
                           fromSwidInterface: (_) => dartUnknownClass,
                           fromSwidClass: (val) => val,
@@ -203,16 +214,21 @@ class DartLoadNamespaceSymbolDeclaration
                       .map(
                         (x) => DartStaticMethodNamespaceSymbolDeclaration(
                           swidClass: swidClass,
-                          swidFunctionType: instantiateAllGenericsAsDynamic(
-                            swidType: SwidType.fromSwidFunctionType(
-                                swidFunctionType: x),
-                          ).when(
-                            fromSwidInterface: (_) => dartUnknownFunction,
-                            fromSwidClass: (_) => dartUnknownFunction,
-                            fromSwidDefaultFormalParameter: (_) =>
-                                dartUnknownFunction,
-                            fromSwidFunctionType: (val) => val,
-                          ),
+                          swidFunctionType: pipeline
+                              .reduceFromTerm(
+                                InstantiateAllGenericsAsDynamic(
+                                  swidType: SwidType.fromSwidFunctionType(
+                                    swidFunctionType: x,
+                                  ),
+                                ),
+                              )
+                              .when(
+                                fromSwidInterface: (_) => dartUnknownFunction,
+                                fromSwidClass: (_) => dartUnknownFunction,
+                                fromSwidDefaultFormalParameter: (_) =>
+                                    dartUnknownFunction,
+                                fromSwidFunctionType: (val) => val,
+                              ),
                         ).toCode(
                           pipeline: pipeline,
                         ),

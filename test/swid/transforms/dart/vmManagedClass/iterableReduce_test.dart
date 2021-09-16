@@ -162,12 +162,20 @@ void main() {
           cacheMgr: const PipelineNoopCacheMgr(),
         ).reduceFromTerm(
           DartVMManagedClassDeclaration(
-            swidClass: instantiateAllGenericsAsDynamic(
-                    swidType: SwidType.fromSwidClass(swidClass: iterable))
+            swidClass: CachingPipeline(
+              cacheMgr: const PipelineNoopCacheMgr(),
+            )
+                .reduceFromTerm(
+                  InstantiateAllGenericsAsDynamic(
+                    swidType: SwidType.fromSwidClass(
+                      swidClass: iterable,
+                    ),
+                  ),
+                )
                 .maybeWhen(
-              fromSwidClass: (val) => val,
-              orElse: () => dartUnknownClass,
-            ),
+                  fromSwidClass: (val) => val,
+                  orElse: () => dartUnknownClass,
+                ),
           ),
         ),
         """
