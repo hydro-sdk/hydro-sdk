@@ -12,6 +12,7 @@ import 'package:hydro_sdk/swid/ir/util/conflictingInstanceMembers.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
 import 'package:hydro_sdk/swid/util/iCopyable.dart';
+import 'package:hydro_sdk/swid/util/iJsonTransformable.dart';
 
 part 'swidClass.freezed.dart';
 part 'swidClass.g.dart';
@@ -23,7 +24,9 @@ class SwidClass
         SwidTypeMixin<SwidClass>,
         HashKeyMixin<SwidClass>,
         HashComparableMixin<SwidClass>
-    implements ICopyable<SwidClass, $SwidClassCopyWith<SwidClass>> {
+    implements
+        ICopyable<SwidClass, $SwidClassCopyWith<SwidClass>>,
+        IJsonTransformable {
   SwidClass._();
 
   factory SwidClass({
@@ -66,6 +69,9 @@ class SwidClass
 
   factory SwidClass.fromJson(Map<String, dynamic> json) =>
       _$SwidClassFromJson(json);
+
+  @override
+  SwidClass fromJson(Map<String, dynamic> json) => SwidClass.fromJson(json);
 
   factory SwidClass.clone({
     required final SwidClass swidClass,

@@ -23,6 +23,15 @@ import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';
 import 'package:hydro_sdk/swid/util/cliTiming.dart';
 
 void main(List<String> args) async {
+  assert((() {
+    args = [
+      "--config",
+      "swid.dart.json",
+      "--no-fs-cache",
+    ];
+    return true;
+  })());
+
   var parser = ArgParser();
 
   parser.addOption("config");
