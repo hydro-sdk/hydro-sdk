@@ -28,6 +28,7 @@ void loadcollection(
   final collection = HydroTable();
   table['collection'] = collection;
   loadIterableBase(table: collection, hydroState: hydroState);
+  loadUnmodifiableListView(table: collection, hydroState: hydroState);
   loadIterableMixin(table: collection, hydroState: hydroState);
   loadMapBase(table: collection, hydroState: hydroState);
   loadMapMixin(table: collection, hydroState: hydroState);
@@ -49,5 +50,4 @@ void loadcollection(
   loadSetBase(table: collection, hydroState: hydroState);
   loadUnmodifiableSetView(table: collection, hydroState: hydroState);
   loadHashMap(table: collection, hydroState: hydroState);
-  loadUnmodifiableListView(table: collection, hydroState: hydroState);
 }

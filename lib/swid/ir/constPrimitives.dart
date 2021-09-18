@@ -133,9 +133,81 @@ final dartNullableType = SwidInterface(
   declarationModifiers: emptyDeclarationModifiers,
 );
 
+final dartString = SwidInterface(
+  name: "String",
+  nullabilitySuffix: SwidNullabilitySuffix.none,
+  originalPackagePath: "dart:core",
+  typeArguments: [],
+  referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
+  declarationModifiers: emptyDeclarationModifiers,
+);
+
+final dartNullableString = SwidInterface(
+  name: "String?",
+  nullabilitySuffix: SwidNullabilitySuffix.question,
+  originalPackagePath: "dart:core",
+  typeArguments: [],
+  referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
+  declarationModifiers: emptyDeclarationModifiers,
+);
+
+final dartStarString = SwidInterface(
+  name: "String*",
+  nullabilitySuffix: SwidNullabilitySuffix.star,
+  originalPackagePath: "dart:core",
+  typeArguments: [],
+  referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
+  declarationModifiers: emptyDeclarationModifiers,
+);
+
+final dartBool = SwidInterface(
+  name: "bool",
+  nullabilitySuffix: SwidNullabilitySuffix.none,
+  originalPackagePath: "dart:core",
+  typeArguments: [],
+  referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
+  declarationModifiers: emptyDeclarationModifiers,
+);
+
+final dartNullableBool = SwidInterface(
+  name: "bool?",
+  nullabilitySuffix: SwidNullabilitySuffix.question,
+  originalPackagePath: "dart:core",
+  typeArguments: [],
+  referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
+  declarationModifiers: emptyDeclarationModifiers,
+);
+
+final dartStarBool = SwidInterface(
+  name: "bool*",
+  nullabilitySuffix: SwidNullabilitySuffix.star,
+  originalPackagePath: "dart:core",
+  typeArguments: [],
+  referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
+  declarationModifiers: emptyDeclarationModifiers,
+);
+
 final dartDouble = SwidInterface(
   name: "double",
   nullabilitySuffix: SwidNullabilitySuffix.none,
+  originalPackagePath: "dart:core",
+  typeArguments: [],
+  referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
+  declarationModifiers: emptyDeclarationModifiers,
+);
+
+final dartNullableDouble = SwidInterface(
+  name: "double?",
+  nullabilitySuffix: SwidNullabilitySuffix.question,
+  originalPackagePath: "dart:core",
+  typeArguments: [],
+  referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
+  declarationModifiers: emptyDeclarationModifiers,
+);
+
+final dartStarDouble = SwidInterface(
+  name: "double*",
+  nullabilitySuffix: SwidNullabilitySuffix.star,
   originalPackagePath: "dart:core",
   typeArguments: [],
   referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
@@ -160,6 +232,15 @@ final dartNullableInt = SwidInterface(
   declarationModifiers: emptyDeclarationModifiers,
 );
 
+final dartStarInt = SwidInterface(
+  name: "int*",
+  nullabilitySuffix: SwidNullabilitySuffix.star,
+  originalPackagePath: "dart:core",
+  typeArguments: [],
+  referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
+  declarationModifiers: emptyDeclarationModifiers,
+);
+
 final dartNum = SwidInterface(
   name: "num",
   nullabilitySuffix: SwidNullabilitySuffix.none,
@@ -172,6 +253,15 @@ final dartNum = SwidInterface(
 final dartNullableNum = SwidInterface(
   name: "num?",
   nullabilitySuffix: SwidNullabilitySuffix.question,
+  originalPackagePath: "dart:core",
+  typeArguments: [],
+  referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
+  declarationModifiers: emptyDeclarationModifiers,
+);
+
+final dartStarNum = SwidInterface(
+  name: "num*",
+  nullabilitySuffix: SwidNullabilitySuffix.star,
   originalPackagePath: "dart:core",
   typeArguments: [],
   referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
