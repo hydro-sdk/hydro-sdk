@@ -197,6 +197,7 @@ List<SwidInterface> collectAllReferences({
         .whereNot((x) =>
             x.referenceDeclarationKind ==
             SwidReferenceDeclarationKind.typeParameterType)
+        .whereNot((x) => x == dartNull)
         .toList()
         .cast<SwidInterface>())
       ..removeWhere((x) => x == dartUnknownInterface);

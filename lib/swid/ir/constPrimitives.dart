@@ -196,6 +196,15 @@ final dartVoid = SwidInterface(
   typeArguments: [],
 );
 
+final dartNull = SwidInterface(
+  name: "Null",
+  nullabilitySuffix: SwidNullabilitySuffix.none,
+  originalPackagePath: "dart:core",
+  referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
+  declarationModifiers: emptyDeclarationModifiers,
+  typeArguments: [],
+);
+
 final dartUnknownInterface = SwidInterface(
   name: "Unknown",
   nullabilitySuffix: SwidNullabilitySuffix.none,
