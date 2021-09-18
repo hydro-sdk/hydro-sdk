@@ -25,7 +25,7 @@ import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
-import 'package:hydro_sdk/swid/ir/util/instantiateAllGenericsAsDynamic.dart';
+import 'package:hydro_sdk/swid/ir/transforms/instantiateAllGenericsAsDynamic.dart';
 import 'package:hydro_sdk/swid/ir/util/isInexpressibleStaticConst.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
@@ -100,55 +100,77 @@ class DartLoadNamespaceSymbolDeclaration
                           .index(literalString(
                               transformToCamelCase(str: swidClass.name)))
                           .assign(
-                            luaDartBinding(
-                              code: Block.of(
-                                [
-                                  Code(
-                                    pipeline.reduceFromTerm(
-                                      DartUnpackClosures(
+                            (({
+                              required final SwidFunctionType constructorType,
+                            }) =>
+                                luaDartBinding(
+                                  code: Block.of(
+                                    [
+                                      Code(
+                                        pipeline.reduceFromTerm(
+                                          DartUnpackClosures(
+                                            swidFunctionType: constructorType,
+                                          ),
+                                        ),
+                                      ),
+                                      literalList(
+                                        [
+                                          Code(
+                                            pipeline.reduceFromTerm(
+                                              DartFunctionSelfBindingInvocation(
+                                                useClosureUnpackNameForUnboxingIdentifiers:
+                                                    true,
+                                                argumentBoxingProcedure:
+                                                    DartBoxingProcedure.unbox,
+                                                returnValueBoxingProcedure:
+                                                    !constructorType.isFactory
+                                                        ? DartBoxingProcedure
+                                                            .none
+                                                        : DartBoxingProcedure
+                                                            .box,
+                                                emitTableBindingPrefix:
+                                                    !constructorType.isFactory,
+                                                swidFunctionType:
+                                                    SwidFunctionType.clone(
+                                                        swidFunctionType:
+                                                            constructorType,
+                                                        name: !constructorType
+                                                                .isFactory
+                                                            ? "RTManaged${swidClass.name}"
+                                                            : swidClass.name),
+                                                returnValueBoxingTableExpression:
+                                                    constructorType.isFactory
+                                                        ? refer("$luaCallerArgumentsParameterName")
+                                                            .index(
+                                                            literalNum(0),
+                                                          )
+                                                        : null,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ).returned.statement,
+                                    ],
+                                  ),
+                                ))(
+                              constructorType: pipeline
+                                  .reduceFromTerm(
+                                    InstantiateAllGenericsAsDynamic(
+                                      instantiateNormalParameterTypes: true,
+                                      swidType: SwidType.fromSwidFunctionType(
                                         swidFunctionType:
                                             swidClass.constructorType!,
                                       ),
                                     ),
+                                  )
+                                  .when(
+                                    fromSwidInterface: (_) =>
+                                        dartUnknownFunction,
+                                    fromSwidClass: (_) => dartUnknownFunction,
+                                    fromSwidDefaultFormalParameter: (_) =>
+                                        dartUnknownFunction,
+                                    fromSwidFunctionType: (val) => val,
                                   ),
-                                  literalList(
-                                    [
-                                      Code(
-                                        pipeline.reduceFromTerm(
-                                          DartFunctionSelfBindingInvocation(
-                                              useClosureUnpackNameForUnboxingIdentifiers:
-                                                  true,
-                                              argumentBoxingProcedure:
-                                                  DartBoxingProcedure.unbox,
-                                              returnValueBoxingProcedure:
-                                                  !swidClass.constructorType!
-                                                          .isFactory
-                                                      ? DartBoxingProcedure.none
-                                                      : DartBoxingProcedure.box,
-                                              emitTableBindingPrefix: !swidClass
-                                                  .constructorType!.isFactory,
-                                              swidFunctionType:
-                                                  SwidFunctionType.clone(
-                                                      swidFunctionType:
-                                                          swidClass
-                                                              .constructorType!,
-                                                      name: !swidClass
-                                                              .constructorType!
-                                                              .isFactory
-                                                          ? "RTManaged${swidClass.name}"
-                                                          : swidClass.name),
-                                              returnValueBoxingTableExpression:
-                                                  swidClass.constructorType!
-                                                          .isFactory
-                                                      ? refer("$luaCallerArgumentsParameterName")
-                                                          .index(literalNum(0))
-                                                      : null),
-                                        ),
-                                      ),
-                                    ],
-                                  ).returned.statement,
-                                ],
-                              ),
                             ),
                           )
                           .statement
@@ -171,9 +193,14 @@ class DartLoadNamespaceSymbolDeclaration
                         .toList()
                   ],
                   ...[
-                    ...(instantiateAllGenericsAsDynamic(
-                            swidType:
-                                SwidType.fromSwidClass(swidClass: swidClass))
+                    ...(pipeline
+                        .reduceFromTerm(
+                          InstantiateAllGenericsAsDynamic(
+                            swidType: SwidType.fromSwidClass(
+                              swidClass: swidClass,
+                            ),
+                          ),
+                        )
                         .when(
                           fromSwidInterface: (_) => dartUnknownClass,
                           fromSwidClass: (val) => val,
@@ -187,16 +214,21 @@ class DartLoadNamespaceSymbolDeclaration
                       .map(
                         (x) => DartStaticMethodNamespaceSymbolDeclaration(
                           swidClass: swidClass,
-                          swidFunctionType: instantiateAllGenericsAsDynamic(
-                            swidType: SwidType.fromSwidFunctionType(
-                                swidFunctionType: x),
-                          ).when(
-                            fromSwidInterface: (_) => dartUnknownFunction,
-                            fromSwidClass: (_) => dartUnknownFunction,
-                            fromSwidDefaultFormalParameter: (_) =>
-                                dartUnknownFunction,
-                            fromSwidFunctionType: (val) => val,
-                          ),
+                          swidFunctionType: pipeline
+                              .reduceFromTerm(
+                                InstantiateAllGenericsAsDynamic(
+                                  swidType: SwidType.fromSwidFunctionType(
+                                    swidFunctionType: x,
+                                  ),
+                                ),
+                              )
+                              .when(
+                                fromSwidInterface: (_) => dartUnknownFunction,
+                                fromSwidClass: (_) => dartUnknownFunction,
+                                fromSwidDefaultFormalParameter: (_) =>
+                                    dartUnknownFunction,
+                                fromSwidFunctionType: (val) => val,
+                              ),
                         ).toCode(
                           pipeline: pipeline,
                         ),

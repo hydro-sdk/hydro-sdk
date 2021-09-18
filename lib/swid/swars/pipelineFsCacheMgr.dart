@@ -36,21 +36,25 @@ class PipelineFsCacheMgr implements ISwarsPipelineCacheMgr {
 
   @override
   Future<Map<String, Map<String, dynamic>>> deserializeResults() async {
-    final cacheGroups = await Future.wait(
-      await Directory(basePath).list().toList().then(
-            (value) => value.map(
-              (x) async => Tuple2(x.path, await File(x.path).readAsString()),
+    if (await Directory(basePath).exists()) {
+      final cacheGroups = await Future.wait(
+        await Directory(basePath).list().toList().then(
+              (value) => value.map(
+                (x) async => Tuple2(x.path, await File(x.path).readAsString()),
+              ),
             ),
-          ),
-    );
+      );
 
-    return Map.fromEntries(
-      cacheGroups.map(
-        (x) => MapEntry(
-          path.basenameWithoutExtension(x.item1),
-          json.decode(x.item2) as Map<String, dynamic>,
+      return Map.fromEntries(
+        cacheGroups.map(
+          (x) => MapEntry(
+            path.basenameWithoutExtension(x.item1),
+            json.decode(x.item2) as Map<String, dynamic>,
+          ),
         ),
-      ),
-    );
+      );
+    }
+
+    return {};
   }
 }

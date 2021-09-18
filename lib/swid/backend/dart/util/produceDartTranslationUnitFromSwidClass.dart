@@ -14,8 +14,8 @@ import 'package:hydro_sdk/swid/backend/util/requiresDartClassTranslationUnit.dar
 import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
+import 'package:hydro_sdk/swid/ir/transforms/instantiateAllGenericsAsDynamic.dart';
 import 'package:hydro_sdk/swid/ir/util/collectAllReferences.dart';
-import 'package:hydro_sdk/swid/ir/util/instantiateAllGenericsAsDynamic.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 
 DartTranslationUnit? produceDartTranslationUnitFromSwidClass({
@@ -69,17 +69,23 @@ DartTranslationUnit? produceDartTranslationUnitFromSwidClass({
                   DartIr.fromVMManagedClassDeclaration(
                     vmManagedClassDeclaration: DartVMManagedClassDeclaration(
                       swidClass: removePrivateMethods(
-                        swidClass: instantiateAllGenericsAsDynamic(
+                        swidClass: pipeline
+                            .reduceFromTerm(
+                              InstantiateAllGenericsAsDynamic(
                                 swidType: SwidType.fromSwidClass(
-                                    swidClass: SwidClass.mergeSuperClasses(
-                                        swidClass: swidClass)))
+                                  swidClass: SwidClass.mergeSuperClasses(
+                                    swidClass: swidClass,
+                                  ),
+                                ),
+                              ),
+                            )
                             .when(
-                          fromSwidInterface: (_) => dartUnknownClass,
-                          fromSwidClass: (val) => val,
-                          fromSwidDefaultFormalParameter: (_) =>
-                              dartUnknownClass,
-                          fromSwidFunctionType: (_) => dartUnknownClass,
-                        ),
+                              fromSwidInterface: (_) => dartUnknownClass,
+                              fromSwidClass: (val) => val,
+                              fromSwidDefaultFormalParameter: (_) =>
+                                  dartUnknownClass,
+                              fromSwidFunctionType: (_) => dartUnknownClass,
+                            ),
                       ),
                     ),
                   ),
@@ -91,18 +97,24 @@ DartTranslationUnit? produceDartTranslationUnitFromSwidClass({
                           rtManagedClassDeclaration:
                               DartRTManagedClassDeclaration(
                             swidClass: removePrivateMethods(
-                              swidClass: instantiateAllGenericsAsDynamic(
+                              swidClass: pipeline
+                                  .reduceFromTerm(
+                                    InstantiateAllGenericsAsDynamic(
                                       swidType: SwidType.fromSwidClass(
-                                          swidClass:
-                                              SwidClass.mergeSuperClasses(
-                                                  swidClass: swidClass)))
+                                        swidClass: SwidClass.mergeSuperClasses(
+                                          swidClass: swidClass,
+                                        ),
+                                      ),
+                                    ),
+                                  )
                                   .when(
-                                fromSwidInterface: (_) => dartUnknownClass,
-                                fromSwidClass: (val) => val,
-                                fromSwidDefaultFormalParameter: (_) =>
-                                    dartUnknownClass,
-                                fromSwidFunctionType: (_) => dartUnknownClass,
-                              ),
+                                    fromSwidInterface: (_) => dartUnknownClass,
+                                    fromSwidClass: (val) => val,
+                                    fromSwidDefaultFormalParameter: (_) =>
+                                        dartUnknownClass,
+                                    fromSwidFunctionType: (_) =>
+                                        dartUnknownClass,
+                                  ),
                             ),
                           ),
                         )

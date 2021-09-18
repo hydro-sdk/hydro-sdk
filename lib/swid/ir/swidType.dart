@@ -13,6 +13,7 @@ import 'package:hydro_sdk/swid/transforms/removeNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/transforms/removeTypeArguments.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
+import 'package:hydro_sdk/swid/util/iJsonTransformable.dart';
 
 part 'swidType.freezed.dart';
 part 'swidType.g.dart';
@@ -24,7 +25,7 @@ class SwidType
         SwidTypeMixin<SwidType>,
         HashKeyMixin<SwidType>,
         HashComparableMixin<SwidType>
-    implements ISwidType<SwidType> {
+    implements ISwidType<SwidType>, IJsonTransformable {
   SwidType._();
 
   factory SwidType.fromSwidInterface({
@@ -72,6 +73,9 @@ class SwidType
           ),
         ),
       );
+
+  @override
+  SwidType fromJson(final Map<String, dynamic> json) => SwidType.fromJson(json);
 
   @override
   List<int> get hashableParts => when(

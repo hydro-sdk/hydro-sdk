@@ -26,8 +26,15 @@ void main(List<String> args) async {
   var parser = ArgParser();
 
   parser.addOption("config");
+  parser.addFlag(
+    "fs-cache",
+    negatable: true,
+    defaultsTo: true,
+  );
 
   final results = parser.parse(args);
+
+  final bool? fsCache = results["fs-cache"];
 
   SwidConfig config = SwidConfig.fromJson(
       jsonDecode(await File(results["config"]).readAsString()));
@@ -50,11 +57,13 @@ void main(List<String> args) async {
     pipeline: pipeline,
   );
 
-  await CliTiming(
-    logger: logger,
-    message: "Restoring pipeline cache",
-    fun: () async => await pipeline.deserializeResults(),
-  );
+  if (fsCache == true) {
+    await CliTiming(
+      logger: logger,
+      message: "Restoring pipeline cache",
+      fun: () async => await pipeline.deserializeResults(),
+    );
+  }
 
   final swidIr = await CliTiming(
     logger: logger,

@@ -10,7 +10,7 @@ import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
-import 'package:hydro_sdk/swid/ir/util/instantiateAllGenericsAsDynamic.dart';
+import 'package:hydro_sdk/swid/ir/transforms/instantiateAllGenericsAsDynamic.dart';
 import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
 import 'package:hydro_sdk/swid/swars/pipelineNoopCacheMgr.dart';
 
@@ -162,12 +162,20 @@ void main() {
           cacheMgr: const PipelineNoopCacheMgr(),
         ).reduceFromTerm(
           DartVMManagedClassDeclaration(
-            swidClass: instantiateAllGenericsAsDynamic(
-                    swidType: SwidType.fromSwidClass(swidClass: iterable))
+            swidClass: CachingPipeline(
+              cacheMgr: const PipelineNoopCacheMgr(),
+            )
+                .reduceFromTerm(
+                  InstantiateAllGenericsAsDynamic(
+                    swidType: SwidType.fromSwidClass(
+                      swidClass: iterable,
+                    ),
+                  ),
+                )
                 .maybeWhen(
-              fromSwidClass: (val) => val,
-              orElse: () => dartUnknownClass,
-            ),
+                  fromSwidClass: (val) => val,
+                  orElse: () => dartUnknownClass,
+                ),
           ),
         ),
         """
