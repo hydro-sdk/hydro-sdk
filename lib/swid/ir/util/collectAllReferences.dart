@@ -1,10 +1,15 @@
+import 'package:collection/collection.dart';
+
 import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
+import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/util/collectAllStaticConstReferences.dart';
 
 List<SwidInterface> collectAllReferences({
   required final SwidType swidType,
+  final bool includeFirstOrderSuperClassReferences = false,
+  final bool includeFirstOrderSuperClass = true,
 }) =>
     ([
       ...(swidType.isAnalysisIgnored(
@@ -26,16 +31,52 @@ List<SwidInterface> collectAllReferences({
                         .toList())
                   ]..removeWhere((x) => x == dartUnknownInterface),
               fromSwidClass: (val) => ([
+                    ...((List<List<SwidInterface>> elements) =>
+                        elements.isNotEmpty
+                            ? elements.reduce((value, element) => [
+                                  ...value,
+                                  ...element,
+                                ])
+                            : <SwidInterface>[])(
+                      val.typeFormals
+                          .map(
+                            (x) => x.value.when(
+                              fromString: (_) => null,
+                              fromSwidClass: (val) => [
+                                SwidInterface.fromSwidClass(
+                                  swidClass: val,
+                                ),
+                              ],
+                              fromSwidInterface: (val) => [
+                                val,
+                              ],
+                              fromSwidFunctionType: (val) => [
+                                dartUnknownInterface,
+                              ],
+                            ),
+                          )
+                          .whereNotNull()
+                          .toList(),
+                    ),
                     ...(val.constructorType != null
                         ? collectAllReferences(
                             swidType: SwidType.fromSwidFunctionType(
                             swidFunctionType: val.constructorType!,
                           ))
                         : <SwidInterface>[]),
-                    ...(val.extendedClass != null
+                    ...(includeFirstOrderSuperClass && val.extendedClass != null
                         ? [
                             SwidInterface.fromSwidClass(
-                                swidClass: val.extendedClass!),
+                              swidClass: val.extendedClass!,
+                            ),
+                            ...(includeFirstOrderSuperClassReferences
+                                ? collectAllReferences(
+                                    includeFirstOrderSuperClass: false,
+                                    swidType: SwidType.fromSwidClass(
+                                      swidClass: val.extendedClass!,
+                                    ),
+                                  )
+                                : [])
                           ]
                         : <SwidInterface>[]),
                     ...val.implementedClasses
@@ -153,6 +194,9 @@ List<SwidInterface> collectAllReferences({
                     element,
                   ]
                 : prev)
+        .whereNot((x) =>
+            x.referenceDeclarationKind ==
+            SwidReferenceDeclarationKind.typeParameterType)
         .toList()
         .cast<SwidInterface>())
       ..removeWhere((x) => x == dartUnknownInterface);
