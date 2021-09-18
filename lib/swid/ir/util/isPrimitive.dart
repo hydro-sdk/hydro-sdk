@@ -10,6 +10,7 @@ bool isPrimitive({required final SwidType swidType}) =>
         swidType.name == "int*" ||
         swidType.name == "double" ||
         swidType.name == "double*" ||
+        swidType.name == "Null" ||
         //Including TS types here is leaky
         swidType.name == "string" ||
         swidType.name == "number" ||

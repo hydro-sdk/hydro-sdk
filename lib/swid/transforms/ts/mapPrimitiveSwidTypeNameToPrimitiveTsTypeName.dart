@@ -11,4 +11,6 @@ String mapPrimitiveSwidTypeNameToPrimitiveTsTypeName(
                     str == "double*" ||
                     str == "double?"
                 ? "number"
-                : str;
+                : str == "Null"
+                    ? "null"
+                    : str;
