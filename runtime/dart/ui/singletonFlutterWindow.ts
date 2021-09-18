@@ -6,9 +6,11 @@ import { Brightness } from "./brightness";
 import { IFlutterWindow } from "./flutterWindow";
 import { IFrameTiming } from "./frameTiming";
 import { ILocale } from "./locale";
+import { IPlatformDispatcher } from "./platformDispatcher";
 import { IPointerDataPacket } from "./pointerDataPacket";
 import { ISemanticsAction } from "./semanticsAction";
 import { ISemanticsUpdate } from "./semanticsUpdate";
+import { IViewConfiguration } from "./viewConfiguration";
 export interface ISingletonFlutterWindow
     extends Omit<IFlutterWindow, "platformDispatcher"> {
     getOnMetricsChanged: () => () => void | undefined;

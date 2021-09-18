@@ -1,5 +1,6 @@
 import { IIterator } from "../core/iterator";
 import { I_SplayTreeIterator } from "./_splayTreeIterator";
+import { I_SplayTreeMapNode } from "./_splayTreeMapNode";
 import { ISplayTreeMap } from "./splayTreeMap";
 declare const dart: {
     collection: {

@@ -1,4 +1,5 @@
 import { IListBase } from "../collection/listBase";
+import { IListMixin } from "../collection/listMixin";
 import { IUnmodifiableListMixin } from "./unmodifiableListMixin";
 export interface IUnmodifiableListBase<E>
     extends Omit<

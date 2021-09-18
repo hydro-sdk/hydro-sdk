@@ -2,6 +2,7 @@ import { IIterable } from "../core/iterable";
 import { IMap } from "../core/map";
 import { IMapEntry } from "../core/mapEntry";
 import { I_SplayTree } from "./_splayTree";
+import { I_SplayTreeMapNode } from "./_splayTreeMapNode";
 import { IMapMixin } from "./mapMixin";
 declare const dart: {
     collection: {

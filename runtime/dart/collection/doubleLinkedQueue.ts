@@ -1,5 +1,6 @@
 import { IEfficientLengthIterable } from "../_internal/efficientLengthIterable";
 import { IIterable } from "../core/iterable";
+import { IIterator } from "../core/iterator";
 import { IList } from "../core/list";
 import { ISet } from "../core/set";
 import { I_DoubleLinkedQueueIterator } from "./_doubleLinkedQueueIterator";

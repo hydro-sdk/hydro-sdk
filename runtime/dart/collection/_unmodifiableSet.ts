@@ -2,7 +2,6 @@ import { IIterable } from "../core/iterable";
 import { IIterator } from "../core/iterator";
 import { IList } from "../core/list";
 import { IMap } from "../core/map";
-import { INull } from "../core/null";
 import { ISet } from "../core/set";
 import { I_SetBase } from "./_setBase";
 import { I_UnmodifiableSetMixin } from "./_unmodifiableSetMixin";

@@ -3,6 +3,7 @@ import { IIterator } from "../core/iterator";
 import { IList } from "../core/list";
 import { ISet } from "../core/set";
 import { I_SplayTree } from "./_splayTree";
+import { I_SplayTreeSetNode } from "./_splayTreeSetNode";
 import { IIterableMixin } from "./iterableMixin";
 import { ISetMixin } from "./setMixin";
 declare const dart: {
