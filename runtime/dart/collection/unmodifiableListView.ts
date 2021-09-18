@@ -17,6 +17,11 @@ declare const dart: {
     };
 };
 export interface IUnmodifiableListView<E> {
+    lastIndexOf: (
+        element?: Object | undefined,
+        start?: number | undefined
+    ) => number;
+    indexOf: (element: Object | undefined, start: number) => number;
     cast: <R>() => IList<R>;
     getLength: () => number;
     setAll: (at: number, iterable: IIterable<E>) => void;
@@ -44,13 +49,11 @@ export interface IUnmodifiableListView<E> {
     setLength: (newLength: number) => void;
     setFirst: (element: E) => void;
     setLast: (element: E) => void;
-    indexOf: (element: E, start: number) => number;
     indexWhere: (test: (element: E) => boolean, start: number) => number;
     lastIndexWhere: (
         test: (element: E) => boolean,
         start?: number | undefined
     ) => number;
-    lastIndexOf: (element: E, start?: number | undefined) => number;
     sublist: (start: number, end?: number | undefined) => IList<E>;
     getRange: (start: number, end: number) => IIterable<E>;
     asMap: () => { [index: number]: E };
@@ -147,6 +150,14 @@ export class UnmodifiableListView<E>
     public constructor(source: IIterable<E>) {
         dart.collection.unmodifiableListView(this, source);
     }
+    private readonly _dart_lastIndexOf: (
+        element?: Object | undefined,
+        start?: number | undefined
+    ) => number = undefined as any;
+    private readonly _dart_indexOf: (
+        element: Object | undefined,
+        start: number
+    ) => number = undefined as any;
     private readonly _dart_cast: <R>() => IList<R> = undefined as any;
     private readonly _dart_getLength: () => number = undefined as any;
     private readonly _dart_setAll: (
@@ -199,18 +210,12 @@ export class UnmodifiableListView<E>
         undefined as any;
     private readonly _dart_setFirst: (element: E) => void = undefined as any;
     private readonly _dart_setLast: (element: E) => void = undefined as any;
-    private readonly _dart_indexOf: (element: E, start: number) => number =
-        undefined as any;
     private readonly _dart_indexWhere: (
         test: (element: E) => boolean,
         start: number
     ) => number = undefined as any;
     private readonly _dart_lastIndexWhere: (
         test: (element: E) => boolean,
-        start?: number | undefined
-    ) => number = undefined as any;
-    private readonly _dart_lastIndexOf: (
-        element: E,
         start?: number | undefined
     ) => number = undefined as any;
     private readonly _dart_sublist: (
@@ -285,6 +290,15 @@ export class UnmodifiableListView<E>
     private readonly _dart_getLast: () => E = undefined as any;
     private readonly _dart_getSingle: () => E = undefined as any;
     private readonly _dart_getHashCode: () => number = undefined as any;
+    public lastIndexOf(
+        element?: Object | undefined,
+        start?: number | undefined
+    ): number {
+        return this._dart_lastIndexOf(element, start);
+    }
+    public indexOf(element: Object | undefined, start: number = 0): number {
+        return this._dart_indexOf(element, start);
+    }
     public cast<R>(): IList<R> {
         return this._dart_cast();
     }
@@ -364,9 +378,6 @@ export class UnmodifiableListView<E>
     public setLast(element: E): void {
         return this._dart_setLast(element);
     }
-    public indexOf(element: E, start: number = 0): number {
-        return this._dart_indexOf(element, start);
-    }
     public indexWhere(
         test: (element: E) => boolean,
         start: number = 0
@@ -378,9 +389,6 @@ export class UnmodifiableListView<E>
         start?: number | undefined
     ): number {
         return this._dart_lastIndexWhere(test, start);
-    }
-    public lastIndexOf(element: E, start?: number | undefined): number {
-        return this._dart_lastIndexOf(element, start);
     }
     public sublist(start: number, end?: number | undefined): IList<E> {
         return this._dart_sublist(start, end);
