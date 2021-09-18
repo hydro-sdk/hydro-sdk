@@ -13,6 +13,25 @@ class VMManagedUnmodifiableListView
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
+    table['lastIndexOf'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        vmObject.lastIndexOf(
+            maybeUnBoxAndBuildArgument<Object?, dynamic>(luaCallerArguments[1],
+                parentState: hydroState),
+            maybeUnBoxAndBuildArgument<int?, dynamic>(luaCallerArguments[2],
+                parentState: hydroState)),
+      ];
+    });
+    table['indexOf'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        vmObject.indexOf(
+            maybeUnBoxAndBuildArgument<Object?, dynamic>(luaCallerArguments[1],
+                parentState: hydroState),
+            luaCallerArguments[2]),
+      ];
+    });
     table['cast'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<List<dynamic>>(
@@ -163,12 +182,6 @@ class VMManagedUnmodifiableListView
       vmObject.last = (luaCallerArguments[1]);
       return [];
     });
-    table['indexOf'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        vmObject.indexOf(luaCallerArguments[1], luaCallerArguments[2]),
-      ];
-    });
     table['indexWhere'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       Closure unpackedtest = luaCallerArguments[1];
@@ -191,12 +204,6 @@ class VMManagedUnmodifiableListView
                   parentState: hydroState,
                 )[0],
             luaCallerArguments[2]),
-      ];
-    });
-    table['lastIndexOf'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        vmObject.lastIndexOf(luaCallerArguments[1], luaCallerArguments[2]),
       ];
     });
     table['sublist'] =
@@ -552,6 +559,25 @@ class RTManagedUnmodifiableListView extends UnmodifiableListView
     table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [unwrap()];
     });
+    table['_dart_lastIndexOf'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        super.lastIndexOf(
+            maybeUnBoxAndBuildArgument<Object?, dynamic>(luaCallerArguments[1],
+                parentState: hydroState),
+            maybeUnBoxAndBuildArgument<int?, dynamic>(luaCallerArguments[2],
+                parentState: hydroState))
+      ];
+    });
+    table['_dart_indexOf'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        super.indexOf(
+            maybeUnBoxAndBuildArgument<Object?, dynamic>(luaCallerArguments[1],
+                parentState: hydroState),
+            luaCallerArguments[2])
+      ];
+    });
     table['_dart_cast'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
@@ -702,10 +728,6 @@ class RTManagedUnmodifiableListView extends UnmodifiableListView
       super.last = (luaCallerArguments[1]);
       return [];
     });
-    table['_dart_indexOf'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [indexOf(luaCallerArguments[1], luaCallerArguments[2])];
-    });
     table['_dart_indexWhere'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       Closure unpackedtest = luaCallerArguments[1];
@@ -729,10 +751,6 @@ class RTManagedUnmodifiableListView extends UnmodifiableListView
                 )[0],
             luaCallerArguments[2])
       ];
-    });
-    table['_dart_lastIndexOf'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [lastIndexOf(luaCallerArguments[1], luaCallerArguments[2])];
     });
     table['_dart_sublist'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -1054,6 +1072,18 @@ class RTManagedUnmodifiableListView extends UnmodifiableListView
   UnmodifiableListView unwrap() => this;
   UnmodifiableListView get vmObject => this;
   @override
+  int lastIndexOf(Object? element, [int? start]) {
+    Closure closure = table["lastIndexOf"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  int indexOf(Object? element, [int start = 0]) {
+    Closure closure = table["indexOf"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
   List<R> cast<R>() {
     Closure closure = table["cast"];
     return maybeUnBoxAndBuildArgument<List<R>, R>(
@@ -1188,12 +1218,6 @@ class RTManagedUnmodifiableListView extends UnmodifiableListView
   }
 
   @override
-  int indexOf(dynamic element, [int start = 0]) {
-    Closure closure = table["indexOf"];
-    return closure.dispatch([table], parentState: hydroState)[0];
-  }
-
-  @override
   int indexWhere(test, [int start = 0]) {
     Closure closure = table["indexWhere"];
     return closure.dispatch([table], parentState: hydroState)[0];
@@ -1202,12 +1226,6 @@ class RTManagedUnmodifiableListView extends UnmodifiableListView
   @override
   int lastIndexWhere(test, [int? start]) {
     Closure closure = table["lastIndexWhere"];
-    return closure.dispatch([table], parentState: hydroState)[0];
-  }
-
-  @override
-  int lastIndexOf(dynamic element, [int? start]) {
-    Closure closure = table["lastIndexOf"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
