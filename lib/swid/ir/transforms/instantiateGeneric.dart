@@ -14,6 +14,7 @@ import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermJsonTransformableResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
+import 'package:hydro_sdk/swid/transforms/removeNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
 
@@ -123,7 +124,10 @@ class InstantiateGeneric
                     .toList(),
               ),
             ),
-            onTypeParameter: (val) => val.name == genericInstantiator.name
+            onTypeParameter: (val) => removeNullabilitySuffix(
+                      str: val.name,
+                    ) ==
+                    genericInstantiator.name
                 ? genericInstantiator.instantiatedGeneric.instantiableGeneric
                     .when(
                     fromSwidClass: (val) =>

@@ -5,10 +5,10 @@ import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidGenericInstantiator.dart';
 import 'package:hydro_sdk/swid/ir/swidInstantiatedGeneric.dart';
-import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/transforms/instantiateGeneric.dart';
+import 'package:hydro_sdk/swid/ir/util/narrowSwidInterfaceByReferenceDeclaration.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermJsonTransformableResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
@@ -71,17 +71,42 @@ class InstantiateAllGenericsAs
       SwarsTermResult.fromJsonTransformable(
         swidType.when(
           fromSwidInterface: (val) => SwidType.fromSwidInterface(
-            swidInterface: SwidInterface.clone(
-              swidType: val,
+            swidInterface: narrowSwidInterfaceByReferenceDeclaration(
+              swidInterface: val,
+              onPrimitive: (val) => val,
+              onClass: (val) => val,
+              onEnum: (val) => val,
+              onVoid: (val) => val,
+              onTypeParameter: (val) => pipeline
+                  .reduceFromTerm(
+                    InstantiateGeneric(
+                      genericInstantiator: SwidGenericInstantiator(
+                        name: val.name,
+                        instantiatedGeneric: instantiatedGeneric,
+                      ),
+                      swidType: SwidType.fromSwidInterface(
+                        swidInterface: val,
+                      ),
+                    ),
+                  )
+                  .when(
+                    fromSwidInterface: (val) => val,
+                    fromSwidClass: (_) => dartUnknownInterface,
+                    fromSwidDefaultFormalParameter: (_) => dartUnknownInterface,
+                    fromSwidFunctionType: (_) => dartUnknownInterface,
+                  ),
+              onDynamic: (val) => val,
+              onUnknown: (val) => val,
+            ).clone(
               typeArguments: val.typeArguments
                   .map(
                     (x) => pipeline.reduceFromTerm(
                       InstantiateGeneric(
-                        swidType: x,
                         genericInstantiator: SwidGenericInstantiator(
                           name: x.name,
                           instantiatedGeneric: instantiatedGeneric,
                         ),
+                        swidType: x,
                       ),
                     ),
                   )
