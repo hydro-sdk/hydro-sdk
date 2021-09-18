@@ -11,7 +11,7 @@ declare const dart: {
         _unmodifiableSet: <E>(
             this: void,
             _unmodifiableSet: I_UnmodifiableSet<E>,
-            _map: IMap<E, INull>
+            _map: IMap<E, null>
         ) => I_UnmodifiableSet<E>;
     };
 };
@@ -108,7 +108,7 @@ export class _UnmodifiableSet<E>
         ISetMixin<E>,
         ISet<E>
 {
-    public constructor(_map: IMap<E, INull>) {
+    public constructor(_map: IMap<E, null>) {
         dart.collection._unmodifiableSet(this, _map);
     }
     private readonly _dart_contains: (element?: Object | undefined) => boolean =
