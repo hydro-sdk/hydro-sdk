@@ -33,6 +33,7 @@ import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/transforms/instantiateAllGenericsAsDynamic.dart';
+import 'package:hydro_sdk/swid/ir/transforms/thisPrefixMethodsShadowedByConstructorParameters.dart';
 import 'package:hydro_sdk/swid/ir/util/isOperator.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
@@ -290,41 +291,51 @@ class DartRTManagedClassDeclaration
                                           ),
                                         )
                                         .toList()),
-                                    ...(swidClass.methods
-                                        .where(
-                                          (x) => !isOperator(
-                                            swidFunctionType: x,
-                                          ),
-                                        )
-                                        .map(
-                                          (x) => Code(
-                                            pipeline.reduceFromTerm(
-                                              DartMethodInjectionImplementation(
-                                                swidFunctionType: pipeline
-                                                    .reduceFromTerm(
-                                                      InstantiateAllGenericsAsDynamic(
-                                                        swidType: SwidType
-                                                            .fromSwidFunctionType(
-                                                          swidFunctionType: x,
-                                                        ),
-                                                      ),
-                                                    )
-                                                    .when(
-                                                      fromSwidInterface: (_) =>
-                                                          dartUnknownFunction,
-                                                      fromSwidClass: (_) =>
-                                                          dartUnknownFunction,
-                                                      fromSwidDefaultFormalParameter:
-                                                          (_) =>
-                                                              dartUnknownFunction,
-                                                      fromSwidFunctionType:
-                                                          (val) => val,
-                                                    ),
+                                    ...((({
+                                      required final SwidClass swidClass,
+                                    }) =>
+                                        swidClass.methods
+                                            .where(
+                                              (x) => !isOperator(
+                                                swidFunctionType: x,
                                               ),
-                                            ),
-                                          ),
-                                        )
-                                        .toList())
+                                            )
+                                            .map(
+                                              (x) => Code(
+                                                pipeline.reduceFromTerm(
+                                                  DartMethodInjectionImplementation(
+                                                    swidFunctionType: pipeline
+                                                        .reduceFromTerm(
+                                                          InstantiateAllGenericsAsDynamic(
+                                                            swidType: SwidType
+                                                                .fromSwidFunctionType(
+                                                              swidFunctionType:
+                                                                  x,
+                                                            ),
+                                                          ),
+                                                        )
+                                                        .when(
+                                                          fromSwidInterface: (_) =>
+                                                              dartUnknownFunction,
+                                                          fromSwidClass: (_) =>
+                                                              dartUnknownFunction,
+                                                          fromSwidDefaultFormalParameter:
+                                                              (_) =>
+                                                                  dartUnknownFunction,
+                                                          fromSwidFunctionType:
+                                                              (val) => val,
+                                                        ),
+                                                  ),
+                                                ),
+                                              ),
+                                            )
+                                            .toList())(
+                                      swidClass: pipeline.reduceFromTerm(
+                                        ThisPrefixMethodsShadowedByConstructorParameters(
+                                          swidClass: swidClass,
+                                        ),
+                                      ),
+                                    ))
                                   ],
                                 ))(
                             constructorType: pipeline
