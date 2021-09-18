@@ -84,7 +84,8 @@
                 "Sink",
                 "ByteConversionSink",
                 "StringSink",
-                "ChunkedConversionSink"
+                "ChunkedConversionSink",
+                "ListIterable"
             ]
         },
         "denyList": {
