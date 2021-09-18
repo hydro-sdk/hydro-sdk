@@ -10,7 +10,8 @@
         "allowList": {
             "packagePaths": [
                 "dart:typed_data",
-                "dart:ui"
+                "dart:ui",
+                "dart:collection"
             ],
             "classNames": [
                 "Random",
@@ -89,7 +90,9 @@
         "denyList": {
             "packagePaths": [],
             "classNames": [
-                "IsolateNameServer"
+                "IsolateNameServer",
+                "LinkedList",
+                "LinkedListEntry"
             ]
         },
         "tsEmitOptions": {
