@@ -92,7 +92,8 @@
             "classNames": [
                 "IsolateNameServer",
                 "LinkedList",
-                "LinkedListEntry"
+                "LinkedListEntry",
+                "_LinkedListIterator"
             ]
         },
         "tsEmitOptions": {
