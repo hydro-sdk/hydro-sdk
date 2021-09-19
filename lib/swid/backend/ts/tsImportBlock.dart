@@ -24,6 +24,7 @@ List<TsIr> tsImportBlock({
       resolveDependencyInformation(
     dependencies: [
       ...collectAllReferences(
+        includeFirstOrderSuperClassReferences: true,
         swidType: SwidType.fromSwidClass(
           swidClass: swidClass,
         ),

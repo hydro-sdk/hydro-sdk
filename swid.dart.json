@@ -10,7 +10,8 @@
         "allowList": {
             "packagePaths": [
                 "dart:typed_data",
-                "dart:ui"
+                "dart:ui",
+                "dart:collection"
             ],
             "classNames": [
                 "Random",
@@ -83,13 +84,17 @@
                 "Sink",
                 "ByteConversionSink",
                 "StringSink",
-                "ChunkedConversionSink"
+                "ChunkedConversionSink",
+                "ListIterable"
             ]
         },
         "denyList": {
             "packagePaths": [],
             "classNames": [
-                "IsolateNameServer"
+                "IsolateNameServer",
+                "LinkedList",
+                "LinkedListEntry",
+                "_LinkedListIterator"
             ]
         },
         "tsEmitOptions": {

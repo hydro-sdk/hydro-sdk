@@ -20,8 +20,7 @@ class VMManagedUnmodifiableUint16ListView
         vmObject.lastIndexOf(
             maybeUnBoxAndBuildArgument<Object?, dynamic>(luaCallerArguments[1],
                 parentState: hydroState),
-            maybeUnBoxAndBuildArgument<int?, dynamic>(luaCallerArguments[2],
-                parentState: hydroState)),
+            luaCallerArguments[2]),
       ];
     });
     table['indexOf'] =
@@ -589,8 +588,7 @@ class RTManagedUnmodifiableUint16ListView extends UnmodifiableUint16ListView
         super.lastIndexOf(
             maybeUnBoxAndBuildArgument<Object?, dynamic>(luaCallerArguments[1],
                 parentState: hydroState),
-            maybeUnBoxAndBuildArgument<int?, dynamic>(luaCallerArguments[2],
-                parentState: hydroState))
+            luaCallerArguments[2])
       ];
     });
     table['_dart_indexOf'] =

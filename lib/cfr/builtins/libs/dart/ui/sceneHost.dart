@@ -117,10 +117,8 @@ void loadSceneHost(
                   )
               : null,
           unpackedviewStateChangedCallback != null
-              ? () => unpackedviewStateChangedCallback.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+              ? (_) => unpackedviewStateChangedCallback.dispatch(
+                    [luaCallerArguments[0], _],
                     parentState: hydroState,
                   )
               : null,

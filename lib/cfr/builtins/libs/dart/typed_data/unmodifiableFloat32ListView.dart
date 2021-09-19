@@ -20,8 +20,7 @@ class VMManagedUnmodifiableFloat32ListView
         vmObject.lastIndexOf(
             maybeUnBoxAndBuildArgument<Object?, dynamic>(luaCallerArguments[1],
                 parentState: hydroState),
-            maybeUnBoxAndBuildArgument<int?, dynamic>(luaCallerArguments[2],
-                parentState: hydroState)),
+            luaCallerArguments[2]),
       ];
     });
     table['indexOf'] =
@@ -37,10 +36,8 @@ class VMManagedUnmodifiableFloat32ListView
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Float32List>(
-            object: vmObject.sublist(
-                luaCallerArguments[1],
-                maybeUnBoxAndBuildArgument<int?, dynamic>(luaCallerArguments[2],
-                    parentState: hydroState)),
+            object:
+                vmObject.sublist(luaCallerArguments[1], luaCallerArguments[2]),
             hydroState: hydroState,
             table: HydroTable()),
       ];
@@ -595,8 +592,7 @@ class RTManagedUnmodifiableFloat32ListView extends UnmodifiableFloat32ListView
         super.lastIndexOf(
             maybeUnBoxAndBuildArgument<Object?, dynamic>(luaCallerArguments[1],
                 parentState: hydroState),
-            maybeUnBoxAndBuildArgument<int?, dynamic>(luaCallerArguments[2],
-                parentState: hydroState))
+            luaCallerArguments[2])
       ];
     });
     table['_dart_indexOf'] =
@@ -612,10 +608,7 @@ class RTManagedUnmodifiableFloat32ListView extends UnmodifiableFloat32ListView
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Float32List>(
-            object: super.sublist(
-                luaCallerArguments[1],
-                maybeUnBoxAndBuildArgument<int?, dynamic>(luaCallerArguments[2],
-                    parentState: hydroState)),
+            object: super.sublist(luaCallerArguments[1], luaCallerArguments[2]),
             hydroState: hydroState,
             table: HydroTable())
       ];
