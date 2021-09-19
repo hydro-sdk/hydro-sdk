@@ -2,42 +2,88 @@ import 'package:hydro_sdk/swid/backend/ts/analyses/tsClassMethodInjectionCandida
 import 'package:hydro_sdk/swid/backend/ts/tsClassMethodInjectionFieldName.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/util/rewriteClassReferencesToInterfaceReferencesInFunction.dart';
+import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
+import 'package:hydro_sdk/swid/swars/swarsTermStringResultMixin.dart';
+import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
 import 'package:hydro_sdk/swid/transforms/ts/trailingReturnTypeKind.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformFunctionTypeToTs.dart';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
+import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
 
+part 'tsClassMethodInjectionFieldDeclarations.freezed.dart';
 
-class TsClassMethodInjectionFieldDeclarations {
-  final SwidClass swidClass;
+@freezed
+class TsClassMethodInjectionFieldDeclarations
+    with
+        _$TsClassMethodInjectionFieldDeclarations,
+        HashKeyMixin<TsClassMethodInjectionFieldDeclarations>,
+        HashComparableMixin<TsClassMethodInjectionFieldDeclarations>,
+        SwarsTransformMixin<
+            TsClassMethodInjectionFieldDeclarations,
+            $TsClassMethodInjectionFieldDeclarationsCopyWith<
+                TsClassMethodInjectionFieldDeclarations>,
+            String>,
+        SwarsTermStringResultMixin {
+  TsClassMethodInjectionFieldDeclarations._();
 
-  const TsClassMethodInjectionFieldDeclarations({
-    required final this.swidClass,
-  });
+  factory TsClassMethodInjectionFieldDeclarations({
+    required final SwidClass swidClass,
+  }) = _$TsClassMethodInjectionFieldDeclarationsCtor;
 
-  String toTsSource() => (swidClass.methods.isNotEmpty)
-      ? [
-            ...tsClassMethodInjectionCandidates(
-                    swidFunctionTypes: swidClass.methods)
-                .map((x) =>
-                    "    private readonly " +
-                    TsClassMethodInjectionFieldName(
+  @override
+  String get cacheGroup => "tsClassMethodInjectionFieldDeclarations";
+
+  @override
+  List<int> get hashableParts => [
+        ...swidClass.hashableParts,
+      ];
+
+  @override
+  TsClassMethodInjectionFieldDeclarations clone({
+    final SwidClass? swidClass,
+  }) =>
+      TsClassMethodInjectionFieldDeclarations(
+        swidClass: swidClass ?? this.swidClass,
+      );
+
+  @override
+  ISwarsTermResult<String> transform({
+    required final ISwarsPipeline pipeline,
+  }) =>
+      SwarsTermResult.fromString(
+        (swidClass.methods.isNotEmpty)
+            ? [
+                  ...pipeline
+                      .reduceFromTerm(
+                        TsClassMethodInjectionCandidates(
+                          swidFunctionTypes: swidClass.methods,
+                        ),
+                      )
+                      .map((x) =>
+                          "    private readonly " +
+                          TsClassMethodInjectionFieldName(
                             swidFunctionType:
                                 rewriteClassReferencesToInterfaceReferencesInFunction(
-                                    swidFunctionType: x))
-                        .toTsSource() +
-                    ": " +
-                    transformFunctionTypeToTs(
-                      parentClass: swidClass,
-                      swidFunctionType:
-                          rewriteClassReferencesToInterfaceReferencesInFunction(
-                        swidFunctionType: x,
-                      ),
-                      trailingReturnTypeKind: TrailingReturnTypeKind.fatArrow,
-                    ) +
-                    " = undefined as any;")
-                .toList()
-          ].join("\n") +
-          "\n"
-      : "";
+                              swidFunctionType: x,
+                            ),
+                          ).toTsSource() +
+                          ": " +
+                          transformFunctionTypeToTs(
+                            parentClass: swidClass,
+                            swidFunctionType:
+                                rewriteClassReferencesToInterfaceReferencesInFunction(
+                              swidFunctionType: x,
+                            ),
+                            trailingReturnTypeKind:
+                                TrailingReturnTypeKind.fatArrow,
+                          ) +
+                          " = undefined as any;")
+                      .toList()
+                ].join("\n") +
+                "\n"
+            : "",
+      );
 }

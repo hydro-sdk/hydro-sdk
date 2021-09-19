@@ -1,20 +1,59 @@
 import 'package:hydro_sdk/swid/backend/ts/tsSuperClassClause.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
+import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
+import 'package:hydro_sdk/swid/swars/swarsTermStringResultMixin.dart';
+import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformTypeFormalsToTs.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
+import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
 
-class TsClassPreamble {
-  final SwidClass swidClass;
+part 'tsClassPreamble.freezed.dart';
 
-  const TsClassPreamble({
-    required final this.swidClass,
-  });
+@freezed
+class TsClassPreamble
+    with
+        _$TsClassPreamble,
+        HashKeyMixin<TsClassPreamble>,
+        HashComparableMixin<TsClassPreamble>,
+        SwarsTransformMixin<TsClassPreamble,
+            $TsClassPreambleCopyWith<TsClassPreamble>, String>,
+        SwarsTermStringResultMixin {
+  TsClassPreamble._();
 
-  String toTsSource() => ([
-        "export class ${swidClass.name}",
-        transformTypeFormalsToTs(swidTypeFormals: swidClass.typeFormals),
-        TsSuperClassClause(swidClass: swidClass, clauseKeyword: "implements")
-            .toTsSource(),
-        "{"
-      ]..removeWhere((x) => x == null))
-          .join("\n");
+  factory TsClassPreamble({
+    required final SwidClass swidClass,
+  }) = _$TsClassPreambleCtor;
+
+  @override
+  String get cacheGroup => "tsClassPreamble";
+
+  @override
+  List<int> get hashableParts => [
+        ...swidClass.hashableParts,
+      ];
+
+  @override
+  TsClassPreamble clone({
+    final SwidClass? swidClass,
+  }) =>
+      TsClassPreamble(
+        swidClass: swidClass ?? this.swidClass,
+      );
+
+  @override
+  ISwarsTermResult<String> transform({
+    required final ISwarsPipeline pipeline,
+  }) =>
+      SwarsTermResult.fromString(
+        ([
+          "export class ${swidClass.name}",
+          transformTypeFormalsToTs(swidTypeFormals: swidClass.typeFormals),
+          TsSuperClassClause(swidClass: swidClass, clauseKeyword: "implements")
+              .toTsSource(),
+          "{"
+        ]..removeWhere((x) => x == null))
+            .join("\n"),
+      );
 }

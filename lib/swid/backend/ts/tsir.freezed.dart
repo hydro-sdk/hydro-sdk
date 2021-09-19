@@ -746,6 +746,8 @@ abstract class _$$FromTsFunctionDefaultNamedPropsCopyWith<$Res> {
           $Res Function(_$FromTsFunctionDefaultNamedProps) then) =
       __$$FromTsFunctionDefaultNamedPropsCopyWithImpl<$Res>;
   $Res call({TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps});
+
+  $TsFunctionDefaultNamedPropsCopyWith<$Res> get tsFunctionDefaultNamedProps;
 }
 
 /// @nodoc
@@ -771,6 +773,14 @@ class __$$FromTsFunctionDefaultNamedPropsCopyWithImpl<$Res>
           : tsFunctionDefaultNamedProps // ignore: cast_nullable_to_non_nullable
               as TsFunctionDefaultNamedProps,
     ));
+  }
+
+  @override
+  $TsFunctionDefaultNamedPropsCopyWith<$Res> get tsFunctionDefaultNamedProps {
+    return $TsFunctionDefaultNamedPropsCopyWith<$Res>(
+        _value.tsFunctionDefaultNamedProps, (value) {
+      return _then(_value.copyWith(tsFunctionDefaultNamedProps: value));
+    });
   }
 }
 
@@ -1703,6 +1713,9 @@ abstract class _$$FromTsClassMethodInjectionFieldDeclarationsCopyWith<$Res> {
   $Res call(
       {TsClassMethodInjectionFieldDeclarations
           tsClassMethodInjectionFieldDeclarations});
+
+  $TsClassMethodInjectionFieldDeclarationsCopyWith<$Res>
+      get tsClassMethodInjectionFieldDeclarations;
 }
 
 /// @nodoc
@@ -1730,6 +1743,16 @@ class __$$FromTsClassMethodInjectionFieldDeclarationsCopyWithImpl<$Res>
               : tsClassMethodInjectionFieldDeclarations // ignore: cast_nullable_to_non_nullable
                   as TsClassMethodInjectionFieldDeclarations,
     ));
+  }
+
+  @override
+  $TsClassMethodInjectionFieldDeclarationsCopyWith<$Res>
+      get tsClassMethodInjectionFieldDeclarations {
+    return $TsClassMethodInjectionFieldDeclarationsCopyWith<$Res>(
+        _value.tsClassMethodInjectionFieldDeclarations, (value) {
+      return _then(
+          _value.copyWith(tsClassMethodInjectionFieldDeclarations: value));
+    });
   }
 }
 
@@ -2023,6 +2046,9 @@ abstract class _$$FromTsClassMethodInjectionFieldNameCopyWith<$Res> {
           $Res Function(_$FromTsClassMethodInjectionFieldName) then) =
       __$$FromTsClassMethodInjectionFieldNameCopyWithImpl<$Res>;
   $Res call({TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName});
+
+  $TsClassMethodInjectionFieldNameCopyWith<$Res>
+      get tsClassMethodInjectionFieldName;
 }
 
 /// @nodoc
@@ -2049,6 +2075,15 @@ class __$$FromTsClassMethodInjectionFieldNameCopyWithImpl<$Res>
           : tsClassMethodInjectionFieldName // ignore: cast_nullable_to_non_nullable
               as TsClassMethodInjectionFieldName,
     ));
+  }
+
+  @override
+  $TsClassMethodInjectionFieldNameCopyWith<$Res>
+      get tsClassMethodInjectionFieldName {
+    return $TsClassMethodInjectionFieldNameCopyWith<$Res>(
+        _value.tsClassMethodInjectionFieldName, (value) {
+      return _then(_value.copyWith(tsClassMethodInjectionFieldName: value));
+    });
   }
 }
 
@@ -2336,6 +2371,8 @@ abstract class _$$FromTsClassPostambleCopyWith<$Res> {
           $Res Function(_$FromTsClassPostamble) then) =
       __$$FromTsClassPostambleCopyWithImpl<$Res>;
   $Res call({TsClassPostamble tsClassPostamble});
+
+  $TsClassPostambleCopyWith<$Res> get tsClassPostamble;
 }
 
 /// @nodoc
@@ -2359,6 +2396,13 @@ class __$$FromTsClassPostambleCopyWithImpl<$Res>
           : tsClassPostamble // ignore: cast_nullable_to_non_nullable
               as TsClassPostamble,
     ));
+  }
+
+  @override
+  $TsClassPostambleCopyWith<$Res> get tsClassPostamble {
+    return $TsClassPostambleCopyWith<$Res>(_value.tsClassPostamble, (value) {
+      return _then(_value.copyWith(tsClassPostamble: value));
+    });
   }
 }
 
@@ -2636,6 +2680,8 @@ abstract class _$$FromTsClassPreambleCopyWith<$Res> {
           $Res Function(_$FromTsClassPreamble) then) =
       __$$FromTsClassPreambleCopyWithImpl<$Res>;
   $Res call({TsClassPreamble tsClassPreamble});
+
+  $TsClassPreambleCopyWith<$Res> get tsClassPreamble;
 }
 
 /// @nodoc
@@ -2658,6 +2704,13 @@ class __$$FromTsClassPreambleCopyWithImpl<$Res> extends _$TsIrCopyWithImpl<$Res>
           : tsClassPreamble // ignore: cast_nullable_to_non_nullable
               as TsClassPreamble,
     ));
+  }
+
+  @override
+  $TsClassPreambleCopyWith<$Res> get tsClassPreamble {
+    return $TsClassPreambleCopyWith<$Res>(_value.tsClassPreamble, (value) {
+      return _then(_value.copyWith(tsClassPreamble: value));
+    });
   }
 }
 
@@ -2938,6 +2991,9 @@ abstract class _$$FromTsClassStaticConstFieldDeclarationsCopyWith<$Res> {
   $Res call(
       {TsClassStaticConstFieldDeclarations
           tsClassStaticConstFieldDeclarations});
+
+  $TsClassStaticConstFieldDeclarationsCopyWith<$Res>
+      get tsClassStaticConstFieldDeclarations;
 }
 
 /// @nodoc
@@ -2965,6 +3021,15 @@ class __$$FromTsClassStaticConstFieldDeclarationsCopyWithImpl<$Res>
           : tsClassStaticConstFieldDeclarations // ignore: cast_nullable_to_non_nullable
               as TsClassStaticConstFieldDeclarations,
     ));
+  }
+
+  @override
+  $TsClassStaticConstFieldDeclarationsCopyWith<$Res>
+      get tsClassStaticConstFieldDeclarations {
+    return $TsClassStaticConstFieldDeclarationsCopyWith<$Res>(
+        _value.tsClassStaticConstFieldDeclarations, (value) {
+      return _then(_value.copyWith(tsClassStaticConstFieldDeclarations: value));
+    });
   }
 }
 
@@ -3255,6 +3320,9 @@ abstract class _$$FromTsClassStaticMethodImplementationCopyWith<$Res> {
       __$$FromTsClassStaticMethodImplementationCopyWithImpl<$Res>;
   $Res call(
       {TsClassStaticMethodImplementation tsClassStaticMethodImplementation});
+
+  $TsClassStaticMethodImplementationCopyWith<$Res>
+      get tsClassStaticMethodImplementation;
 }
 
 /// @nodoc
@@ -3282,6 +3350,15 @@ class __$$FromTsClassStaticMethodImplementationCopyWithImpl<$Res>
           : tsClassStaticMethodImplementation // ignore: cast_nullable_to_non_nullable
               as TsClassStaticMethodImplementation,
     ));
+  }
+
+  @override
+  $TsClassStaticMethodImplementationCopyWith<$Res>
+      get tsClassStaticMethodImplementation {
+    return $TsClassStaticMethodImplementationCopyWith<$Res>(
+        _value.tsClassStaticMethodImplementation, (value) {
+      return _then(_value.copyWith(tsClassStaticMethodImplementation: value));
+    });
   }
 }
 
@@ -3570,6 +3647,8 @@ abstract class _$$FromTsEnumCopyWith<$Res> {
           _$FromTsEnum value, $Res Function(_$FromTsEnum) then) =
       __$$FromTsEnumCopyWithImpl<$Res>;
   $Res call({TsEnum tsEnum});
+
+  $TsEnumCopyWith<$Res> get tsEnum;
 }
 
 /// @nodoc
@@ -3592,6 +3671,13 @@ class __$$FromTsEnumCopyWithImpl<$Res> extends _$TsIrCopyWithImpl<$Res>
           : tsEnum // ignore: cast_nullable_to_non_nullable
               as TsEnum,
     ));
+  }
+
+  @override
+  $TsEnumCopyWith<$Res> get tsEnum {
+    return $TsEnumCopyWith<$Res>(_value.tsEnum, (value) {
+      return _then(_value.copyWith(tsEnum: value));
+    });
   }
 }
 
@@ -4162,6 +4248,8 @@ abstract class _$$FromTsClassVmDeclarationCopyWith<$Res> {
           $Res Function(_$FromTsClassVmDeclaration) then) =
       __$$FromTsClassVmDeclarationCopyWithImpl<$Res>;
   $Res call({TsClassVmDeclaration tsClassVmDeclaration});
+
+  $TsClassVmDeclarationCopyWith<$Res> get tsClassVmDeclaration;
 }
 
 /// @nodoc
@@ -4186,6 +4274,14 @@ class __$$FromTsClassVmDeclarationCopyWithImpl<$Res>
           : tsClassVmDeclaration // ignore: cast_nullable_to_non_nullable
               as TsClassVmDeclaration,
     ));
+  }
+
+  @override
+  $TsClassVmDeclarationCopyWith<$Res> get tsClassVmDeclaration {
+    return $TsClassVmDeclarationCopyWith<$Res>(_value.tsClassVmDeclaration,
+        (value) {
+      return _then(_value.copyWith(tsClassVmDeclaration: value));
+    });
   }
 }
 
@@ -6084,6 +6180,9 @@ abstract class _$$FromTsFunctionSelfBindingInvocationCopyWith<$Res> {
           $Res Function(_$FromTsFunctionSelfBindingInvocation) then) =
       __$$FromTsFunctionSelfBindingInvocationCopyWithImpl<$Res>;
   $Res call({TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation});
+
+  $TsFunctionSelfBindingInvocationCopyWith<$Res>
+      get tsFunctionSelfBindingInvocation;
 }
 
 /// @nodoc
@@ -6110,6 +6209,15 @@ class __$$FromTsFunctionSelfBindingInvocationCopyWithImpl<$Res>
           : tsFunctionSelfBindingInvocation // ignore: cast_nullable_to_non_nullable
               as TsFunctionSelfBindingInvocation,
     ));
+  }
+
+  @override
+  $TsFunctionSelfBindingInvocationCopyWith<$Res>
+      get tsFunctionSelfBindingInvocation {
+    return $TsFunctionSelfBindingInvocationCopyWith<$Res>(
+        _value.tsFunctionSelfBindingInvocation, (value) {
+      return _then(_value.copyWith(tsFunctionSelfBindingInvocation: value));
+    });
   }
 }
 

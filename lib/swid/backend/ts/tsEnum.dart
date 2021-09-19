@@ -1,10 +1,52 @@
 import 'package:hydro_sdk/swid/ir/swidEnum.dart';
+import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
+import 'package:hydro_sdk/swid/swars/swarsTermStringResultMixin.dart';
+import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformEnumToTs.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
+import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
 
-class TsEnum {
-  final SwidEnum? swidEnum;
+part 'tsEnum.freezed.dart';
 
-  TsEnum({required final this.swidEnum});
+@freezed
+class TsEnum
+    with
+        _$TsEnum,
+        HashKeyMixin<TsEnum>,
+        HashComparableMixin<TsEnum>,
+        SwarsTransformMixin<TsEnum, $TsEnumCopyWith<TsEnum>, String>,
+        SwarsTermStringResultMixin {
+  TsEnum._();
 
-  String toTsSource() => transformEnumToTs(swidEnum: swidEnum!);
+  factory TsEnum({
+    required final SwidEnum swidEnum,
+  }) = _$TsEnumCtor;
+
+  @override
+  String get cacheGroup => "tsEnum";
+
+  @override
+  List<int> get hashableParts => [
+        ...swidEnum.hashableParts,
+      ];
+
+  @override
+  TsEnum clone({
+    final SwidEnum? swidEnum,
+  }) =>
+      TsEnum(
+        swidEnum: swidEnum ?? this.swidEnum,
+      );
+
+  @override
+  ISwarsTermResult<String> transform({
+    required final ISwarsPipeline pipeline,
+  }) =>
+      SwarsTermResult.fromString(
+        transformEnumToTs(
+          swidEnum: swidEnum,
+        ),
+      );
 }
