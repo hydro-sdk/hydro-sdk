@@ -3,7 +3,7 @@ import 'package:path/path.dart' as p;
 import 'package:hydro_sdk/swid/backend/ts/tsClassConstructorImplementation.dart';
 import 'package:hydro_sdk/swid/backend/ts/tsClassInstanceFieldDeclarations.dart';
 import 'package:hydro_sdk/swid/backend/ts/tsClassMethodDeclarations.dart';
-import 'package:hydro_sdk/swid/backend/ts/tsClassMethodInjectionCandidates.dart';
+import 'package:hydro_sdk/swid/backend/ts/analyses/tsClassMethodInjectionCandidates.dart';
 import 'package:hydro_sdk/swid/backend/ts/tsClassMethodInjectionFieldDeclarations.dart';
 import 'package:hydro_sdk/swid/backend/ts/tsClassPostamble.dart';
 import 'package:hydro_sdk/swid/backend/ts/tsClassPreamble.dart';

@@ -418,6 +418,9 @@ abstract class _$$FromTsClassConstructorImplementationCopyWith<$Res> {
       __$$FromTsClassConstructorImplementationCopyWithImpl<$Res>;
   $Res call(
       {TsClassConstructorImplementation tsClassConstructorImplementation});
+
+  $TsClassConstructorImplementationCopyWith<$Res>
+      get tsClassConstructorImplementation;
 }
 
 /// @nodoc
@@ -445,6 +448,15 @@ class __$$FromTsClassConstructorImplementationCopyWithImpl<$Res>
           : tsClassConstructorImplementation // ignore: cast_nullable_to_non_nullable
               as TsClassConstructorImplementation,
     ));
+  }
+
+  @override
+  $TsClassConstructorImplementationCopyWith<$Res>
+      get tsClassConstructorImplementation {
+    return $TsClassConstructorImplementationCopyWith<$Res>(
+        _value.tsClassConstructorImplementation, (value) {
+      return _then(_value.copyWith(tsClassConstructorImplementation: value));
+    });
   }
 }
 
@@ -1044,6 +1056,9 @@ abstract class _$$FromClassInstanceFieldDeclarationsCopyWith<$Res> {
       __$$FromClassInstanceFieldDeclarationsCopyWithImpl<$Res>;
   $Res call(
       {TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations});
+
+  $TsClassInstanceFieldDeclarationsCopyWith<$Res>
+      get tsClassInstanceFieldDeclarations;
 }
 
 /// @nodoc
@@ -1070,6 +1085,15 @@ class __$$FromClassInstanceFieldDeclarationsCopyWithImpl<$Res>
           : tsClassInstanceFieldDeclarations // ignore: cast_nullable_to_non_nullable
               as TsClassInstanceFieldDeclarations,
     ));
+  }
+
+  @override
+  $TsClassInstanceFieldDeclarationsCopyWith<$Res>
+      get tsClassInstanceFieldDeclarations {
+    return $TsClassInstanceFieldDeclarationsCopyWith<$Res>(
+        _value.tsClassInstanceFieldDeclarations, (value) {
+      return _then(_value.copyWith(tsClassInstanceFieldDeclarations: value));
+    });
   }
 }
 
@@ -1359,6 +1383,8 @@ abstract class _$$FromTsClassMethodDeclarationsCopyWith<$Res> {
           $Res Function(_$FromTsClassMethodDeclarations) then) =
       __$$FromTsClassMethodDeclarationsCopyWithImpl<$Res>;
   $Res call({TsClassMethodDeclarations tsClassMethodDeclarations});
+
+  $TsClassMethodDeclarationsCopyWith<$Res> get tsClassMethodDeclarations;
 }
 
 /// @nodoc
@@ -1384,6 +1410,14 @@ class __$$FromTsClassMethodDeclarationsCopyWithImpl<$Res>
           : tsClassMethodDeclarations // ignore: cast_nullable_to_non_nullable
               as TsClassMethodDeclarations,
     ));
+  }
+
+  @override
+  $TsClassMethodDeclarationsCopyWith<$Res> get tsClassMethodDeclarations {
+    return $TsClassMethodDeclarationsCopyWith<$Res>(
+        _value.tsClassMethodDeclarations, (value) {
+      return _then(_value.copyWith(tsClassMethodDeclarations: value));
+    });
   }
 }
 
