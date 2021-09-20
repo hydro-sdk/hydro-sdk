@@ -12,30 +12,22 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-TsFunctionInvocation _$TsFunctionInvocationFromJson(Map<String, dynamic> json) {
-  return _$Data.fromJson(json);
-}
-
 /// @nodoc
 class _$TsFunctionInvocationTearOff {
   const _$TsFunctionInvocationTearOff();
 
-  _$Data call(
+  _$TsFunctionInvocationCtor call(
       {required String functionReference,
       required TsFunctionInvocationPositionalParameters
           tsFunctionInvocationPositionalParameters,
       required List<TsFunctionInvocationNamedParameters>
           tsFunctionInvocationNamedParameters}) {
-    return _$Data(
+    return _$TsFunctionInvocationCtor(
       functionReference: functionReference,
       tsFunctionInvocationPositionalParameters:
           tsFunctionInvocationPositionalParameters,
       tsFunctionInvocationNamedParameters: tsFunctionInvocationNamedParameters,
     );
-  }
-
-  TsFunctionInvocation fromJson(Map<String, Object> json) {
-    return TsFunctionInvocation.fromJson(json);
   }
 }
 
@@ -52,7 +44,6 @@ mixin _$TsFunctionInvocation {
       get tsFunctionInvocationNamedParameters =>
           throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $TsFunctionInvocationCopyWith<TsFunctionInvocation> get copyWith =>
       throw _privateConstructorUsedError;
@@ -119,10 +110,11 @@ class _$TsFunctionInvocationCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$$DataCopyWith<$Res>
+abstract class _$$TsFunctionInvocationCtorCopyWith<$Res>
     implements $TsFunctionInvocationCopyWith<$Res> {
-  factory _$$DataCopyWith(_$Data value, $Res Function(_$Data) then) =
-      __$$DataCopyWithImpl<$Res>;
+  factory _$$TsFunctionInvocationCtorCopyWith(_$TsFunctionInvocationCtor value,
+          $Res Function(_$TsFunctionInvocationCtor) then) =
+      __$$TsFunctionInvocationCtorCopyWithImpl<$Res>;
   @override
   $Res call(
       {String functionReference,
@@ -137,14 +129,16 @@ abstract class _$$DataCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$DataCopyWithImpl<$Res>
+class __$$TsFunctionInvocationCtorCopyWithImpl<$Res>
     extends _$TsFunctionInvocationCopyWithImpl<$Res>
-    implements _$$DataCopyWith<$Res> {
-  __$$DataCopyWithImpl(_$Data _value, $Res Function(_$Data) _then)
-      : super(_value, (v) => _then(v as _$Data));
+    implements _$$TsFunctionInvocationCtorCopyWith<$Res> {
+  __$$TsFunctionInvocationCtorCopyWithImpl(_$TsFunctionInvocationCtor _value,
+      $Res Function(_$TsFunctionInvocationCtor) _then)
+      : super(_value, (v) => _then(v as _$TsFunctionInvocationCtor));
 
   @override
-  _$Data get _value => super._value as _$Data;
+  _$TsFunctionInvocationCtor get _value =>
+      super._value as _$TsFunctionInvocationCtor;
 
   @override
   $Res call({
@@ -152,7 +146,7 @@ class __$$DataCopyWithImpl<$Res>
     Object? tsFunctionInvocationPositionalParameters = freezed,
     Object? tsFunctionInvocationNamedParameters = freezed,
   }) {
-    return _then(_$Data(
+    return _then(_$TsFunctionInvocationCtor(
       functionReference: functionReference == freezed
           ? _value.functionReference
           : functionReference // ignore: cast_nullable_to_non_nullable
@@ -172,15 +166,13 @@ class __$$DataCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
-class _$_$Data implements _$Data {
-  _$_$Data(
+
+class _$_$TsFunctionInvocationCtor extends _$TsFunctionInvocationCtor {
+  _$_$TsFunctionInvocationCtor(
       {required this.functionReference,
       required this.tsFunctionInvocationPositionalParameters,
-      required this.tsFunctionInvocationNamedParameters});
-
-  factory _$_$Data.fromJson(Map<String, dynamic> json) =>
-      _$_$_$DataFromJson(json);
+      required this.tsFunctionInvocationNamedParameters})
+      : super._();
 
   @override
   final String functionReference;
@@ -199,7 +191,7 @@ class _$_$Data implements _$Data {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _$Data &&
+        (other is _$TsFunctionInvocationCtor &&
             (identical(other.functionReference, functionReference) ||
                 const DeepCollectionEquality()
                     .equals(other.functionReference, functionReference)) &&
@@ -225,24 +217,20 @@ class _$_$Data implements _$Data {
 
   @JsonKey(ignore: true)
   @override
-  _$$DataCopyWith<_$Data> get copyWith =>
-      __$$DataCopyWithImpl<_$Data>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$_$_$DataToJson(this);
-  }
+  _$$TsFunctionInvocationCtorCopyWith<_$TsFunctionInvocationCtor>
+      get copyWith =>
+          __$$TsFunctionInvocationCtorCopyWithImpl<_$TsFunctionInvocationCtor>(
+              this, _$identity);
 }
 
-abstract class _$Data implements TsFunctionInvocation {
-  factory _$Data(
+abstract class _$TsFunctionInvocationCtor extends TsFunctionInvocation {
+  factory _$TsFunctionInvocationCtor(
       {required String functionReference,
       required TsFunctionInvocationPositionalParameters
           tsFunctionInvocationPositionalParameters,
       required List<TsFunctionInvocationNamedParameters>
-          tsFunctionInvocationNamedParameters}) = _$_$Data;
-
-  factory _$Data.fromJson(Map<String, dynamic> json) = _$_$Data.fromJson;
+          tsFunctionInvocationNamedParameters}) = _$_$TsFunctionInvocationCtor;
+  _$TsFunctionInvocationCtor._() : super._();
 
   @override
   String get functionReference => throw _privateConstructorUsedError;
@@ -256,5 +244,6 @@ abstract class _$Data implements TsFunctionInvocation {
           throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$$DataCopyWith<_$Data> get copyWith => throw _privateConstructorUsedError;
+  _$$TsFunctionInvocationCtorCopyWith<_$TsFunctionInvocationCtor>
+      get copyWith => throw _privateConstructorUsedError;
 }
