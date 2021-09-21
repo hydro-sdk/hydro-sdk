@@ -3951,6 +3951,8 @@ abstract class _$$FromTsInterfaceCopyWith<$Res> {
           _$FromTsInterface value, $Res Function(_$FromTsInterface) then) =
       __$$FromTsInterfaceCopyWithImpl<$Res>;
   $Res call({TsInterface tsInterface});
+
+  $TsInterfaceCopyWith<$Res> get tsInterface;
 }
 
 /// @nodoc
@@ -3973,6 +3975,13 @@ class __$$FromTsInterfaceCopyWithImpl<$Res> extends _$TsIrCopyWithImpl<$Res>
           : tsInterface // ignore: cast_nullable_to_non_nullable
               as TsInterface,
     ));
+  }
+
+  @override
+  $TsInterfaceCopyWith<$Res> get tsInterface {
+    return $TsInterfaceCopyWith<$Res>(_value.tsInterface, (value) {
+      return _then(_value.copyWith(tsInterface: value));
+    });
   }
 }
 
@@ -6505,6 +6514,8 @@ abstract class _$$FromTsResolvedImportCopyWith<$Res> {
           $Res Function(_$FromTsResolvedImport) then) =
       __$$FromTsResolvedImportCopyWithImpl<$Res>;
   $Res call({TsResolvedImport tsResolvedImport});
+
+  $TsResolvedImportCopyWith<$Res> get tsResolvedImport;
 }
 
 /// @nodoc
@@ -6528,6 +6539,13 @@ class __$$FromTsResolvedImportCopyWithImpl<$Res>
           : tsResolvedImport // ignore: cast_nullable_to_non_nullable
               as TsResolvedImport,
     ));
+  }
+
+  @override
+  $TsResolvedImportCopyWith<$Res> get tsResolvedImport {
+    return $TsResolvedImportCopyWith<$Res>(_value.tsResolvedImport, (value) {
+      return _then(_value.copyWith(tsResolvedImport: value));
+    });
   }
 }
 
@@ -6808,6 +6826,9 @@ abstract class _$$FromTsTopLevelStaticConstFieldDeclarationCopyWith<$Res> {
   $Res call(
       {TsTopLevelStaticConstFieldDeclaration
           tsTopLevelStaticConstFieldDeclaration});
+
+  $TsTopLevelStaticConstFieldDeclarationCopyWith<$Res>
+      get tsTopLevelStaticConstFieldDeclaration;
 }
 
 /// @nodoc
@@ -6835,6 +6856,16 @@ class __$$FromTsTopLevelStaticConstFieldDeclarationCopyWithImpl<$Res>
               : tsTopLevelStaticConstFieldDeclaration // ignore: cast_nullable_to_non_nullable
                   as TsTopLevelStaticConstFieldDeclaration,
     ));
+  }
+
+  @override
+  $TsTopLevelStaticConstFieldDeclarationCopyWith<$Res>
+      get tsTopLevelStaticConstFieldDeclaration {
+    return $TsTopLevelStaticConstFieldDeclarationCopyWith<$Res>(
+        _value.tsTopLevelStaticConstFieldDeclaration, (value) {
+      return _then(
+          _value.copyWith(tsTopLevelStaticConstFieldDeclaration: value));
+    });
   }
 }
 

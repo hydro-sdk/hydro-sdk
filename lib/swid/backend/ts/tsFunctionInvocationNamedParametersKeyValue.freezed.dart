@@ -12,25 +12,15 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-TsFunctionInvocationNamedParametersKeyValue
-    _$TsFunctionInvocationNamedParametersKeyValueFromJson(
-        Map<String, dynamic> json) {
-  return _$Data.fromJson(json);
-}
-
 /// @nodoc
 class _$TsFunctionInvocationNamedParametersKeyValueTearOff {
   const _$TsFunctionInvocationNamedParametersKeyValueTearOff();
 
-  _$Data call({required Map<String, String> namedReferences}) {
-    return _$Data(
+  _$TsFunctionInvocationNamedParametersKeyValueCtor call(
+      {required Map<String, String> namedReferences}) {
+    return _$TsFunctionInvocationNamedParametersKeyValueCtor(
       namedReferences: namedReferences,
     );
-  }
-
-  TsFunctionInvocationNamedParametersKeyValue fromJson(
-      Map<String, Object> json) {
-    return TsFunctionInvocationNamedParametersKeyValue.fromJson(json);
   }
 }
 
@@ -42,7 +32,6 @@ const $TsFunctionInvocationNamedParametersKeyValue =
 mixin _$TsFunctionInvocationNamedParametersKeyValue {
   Map<String, String> get namedReferences => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $TsFunctionInvocationNamedParametersKeyValueCopyWith<
           TsFunctionInvocationNamedParametersKeyValue>
@@ -82,29 +71,39 @@ class _$TsFunctionInvocationNamedParametersKeyValueCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$$DataCopyWith<$Res>
+abstract class _$$TsFunctionInvocationNamedParametersKeyValueCtorCopyWith<$Res>
     implements $TsFunctionInvocationNamedParametersKeyValueCopyWith<$Res> {
-  factory _$$DataCopyWith(_$Data value, $Res Function(_$Data) then) =
-      __$$DataCopyWithImpl<$Res>;
+  factory _$$TsFunctionInvocationNamedParametersKeyValueCtorCopyWith(
+          _$TsFunctionInvocationNamedParametersKeyValueCtor value,
+          $Res Function(_$TsFunctionInvocationNamedParametersKeyValueCtor)
+              then) =
+      __$$TsFunctionInvocationNamedParametersKeyValueCtorCopyWithImpl<$Res>;
   @override
   $Res call({Map<String, String> namedReferences});
 }
 
 /// @nodoc
-class __$$DataCopyWithImpl<$Res>
+class __$$TsFunctionInvocationNamedParametersKeyValueCtorCopyWithImpl<$Res>
     extends _$TsFunctionInvocationNamedParametersKeyValueCopyWithImpl<$Res>
-    implements _$$DataCopyWith<$Res> {
-  __$$DataCopyWithImpl(_$Data _value, $Res Function(_$Data) _then)
-      : super(_value, (v) => _then(v as _$Data));
+    implements
+        _$$TsFunctionInvocationNamedParametersKeyValueCtorCopyWith<$Res> {
+  __$$TsFunctionInvocationNamedParametersKeyValueCtorCopyWithImpl(
+      _$TsFunctionInvocationNamedParametersKeyValueCtor _value,
+      $Res Function(_$TsFunctionInvocationNamedParametersKeyValueCtor) _then)
+      : super(
+            _value,
+            (v) =>
+                _then(v as _$TsFunctionInvocationNamedParametersKeyValueCtor));
 
   @override
-  _$Data get _value => super._value as _$Data;
+  _$TsFunctionInvocationNamedParametersKeyValueCtor get _value =>
+      super._value as _$TsFunctionInvocationNamedParametersKeyValueCtor;
 
   @override
   $Res call({
     Object? namedReferences = freezed,
   }) {
-    return _then(_$Data(
+    return _then(_$TsFunctionInvocationNamedParametersKeyValueCtor(
       namedReferences: namedReferences == freezed
           ? _value.namedReferences
           : namedReferences // ignore: cast_nullable_to_non_nullable
@@ -114,12 +113,12 @@ class __$$DataCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
-class _$_$Data implements _$Data {
-  _$_$Data({required this.namedReferences});
 
-  factory _$_$Data.fromJson(Map<String, dynamic> json) =>
-      _$_$_$DataFromJson(json);
+class _$_$TsFunctionInvocationNamedParametersKeyValueCtor
+    extends _$TsFunctionInvocationNamedParametersKeyValueCtor {
+  _$_$TsFunctionInvocationNamedParametersKeyValueCtor(
+      {required this.namedReferences})
+      : super._();
 
   @override
   final Map<String, String> namedReferences;
@@ -132,7 +131,7 @@ class _$_$Data implements _$Data {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _$Data &&
+        (other is _$TsFunctionInvocationNamedParametersKeyValueCtor &&
             (identical(other.namedReferences, namedReferences) ||
                 const DeepCollectionEquality()
                     .equals(other.namedReferences, namedReferences)));
@@ -145,23 +144,26 @@ class _$_$Data implements _$Data {
 
   @JsonKey(ignore: true)
   @override
-  _$$DataCopyWith<_$Data> get copyWith =>
-      __$$DataCopyWithImpl<_$Data>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$_$_$DataToJson(this);
-  }
+  _$$TsFunctionInvocationNamedParametersKeyValueCtorCopyWith<
+          _$TsFunctionInvocationNamedParametersKeyValueCtor>
+      get copyWith =>
+          __$$TsFunctionInvocationNamedParametersKeyValueCtorCopyWithImpl<
+                  _$TsFunctionInvocationNamedParametersKeyValueCtor>(
+              this, _$identity);
 }
 
-abstract class _$Data implements TsFunctionInvocationNamedParametersKeyValue {
-  factory _$Data({required Map<String, String> namedReferences}) = _$_$Data;
-
-  factory _$Data.fromJson(Map<String, dynamic> json) = _$_$Data.fromJson;
+abstract class _$TsFunctionInvocationNamedParametersKeyValueCtor
+    extends TsFunctionInvocationNamedParametersKeyValue {
+  factory _$TsFunctionInvocationNamedParametersKeyValueCtor(
+          {required Map<String, String> namedReferences}) =
+      _$_$TsFunctionInvocationNamedParametersKeyValueCtor;
+  _$TsFunctionInvocationNamedParametersKeyValueCtor._() : super._();
 
   @override
   Map<String, String> get namedReferences => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$$DataCopyWith<_$Data> get copyWith => throw _privateConstructorUsedError;
+  _$$TsFunctionInvocationNamedParametersKeyValueCtorCopyWith<
+          _$TsFunctionInvocationNamedParametersKeyValueCtor>
+      get copyWith => throw _privateConstructorUsedError;
 }
