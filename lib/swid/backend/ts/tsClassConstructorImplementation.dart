@@ -71,40 +71,42 @@ class TsClassConstructorImplementation
                     swidType: SwidType.fromSwidFunctionType(
                         swidFunctionType: swidClass.constructorType!)) +
                 "{\n" +
-                TsFunctionSelfBindingInvocation(
-                  functionReference: [
-                    ...transformPackageUri(
-                      packageUri: swidClass.originalPackagePath,
-                    ).split(path.separator),
-                    transformToCamelCase(
-                      str: swidClass.name,
-                    )
-                  ].join("."),
-                  swidFunctionType: transformIllegalParameterNames(
-                    swidFunctionType: SwidFunctionType.clone(
-                      swidFunctionType:
-                          SwidFunctionType.InsertLeadingPositionalParameter(
-                        swidFunctionType: swidClass.constructorType!,
-                        typeName: "this",
-                        swidType: SwidType.fromSwidInterface(
-                          swidInterface: SwidInterface(
-                            //todo classes should eventually support type arguments
-                            //todo should eventually be able to produce an interface from a class
-                            typeArguments: [],
-                            name: "this",
-                            referenceDeclarationKind:
-                                SwidReferenceDeclarationKind.classElement,
-                            nullabilitySuffix: SwidNullabilitySuffix.star,
-                            originalPackagePath: "",
-                            declarationModifiers:
-                                SwidDeclarationModifiers.empty(),
+                pipeline.reduceFromTerm(
+                  TsFunctionSelfBindingInvocation(
+                    functionReference: [
+                      ...transformPackageUri(
+                        packageUri: swidClass.originalPackagePath,
+                      ).split(path.separator),
+                      transformToCamelCase(
+                        str: swidClass.name,
+                      )
+                    ].join("."),
+                    swidFunctionType: transformIllegalParameterNames(
+                      swidFunctionType: SwidFunctionType.clone(
+                        swidFunctionType:
+                            SwidFunctionType.InsertLeadingPositionalParameter(
+                          swidFunctionType: swidClass.constructorType!,
+                          typeName: "this",
+                          swidType: SwidType.fromSwidInterface(
+                            swidInterface: SwidInterface(
+                              //todo classes should eventually support type arguments
+                              //todo should eventually be able to produce an interface from a class
+                              typeArguments: [],
+                              name: "this",
+                              referenceDeclarationKind:
+                                  SwidReferenceDeclarationKind.classElement,
+                              nullabilitySuffix: SwidNullabilitySuffix.star,
+                              originalPackagePath: "",
+                              declarationModifiers:
+                                  SwidDeclarationModifiers.empty(),
+                            ),
                           ),
                         ),
+                        name: swidClass.name,
                       ),
-                      name: swidClass.name,
                     ),
                   ),
-                ).toTsSource() +
+                ) +
                 "}\n"
             : "",
       );

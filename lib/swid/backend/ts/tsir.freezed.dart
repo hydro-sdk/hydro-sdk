@@ -463,9 +463,10 @@ class __$$FromTsClassConstructorImplementationCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_$FromTsClassConstructorImplementation
-    implements _$FromTsClassConstructorImplementation {
+    extends _$FromTsClassConstructorImplementation {
   _$_$FromTsClassConstructorImplementation(
-      {required this.tsClassConstructorImplementation});
+      {required this.tsClassConstructorImplementation})
+      : super._();
 
   @override
   final TsClassConstructorImplementation tsClassConstructorImplementation;
@@ -725,11 +726,12 @@ class _$_$FromTsClassConstructorImplementation
   }
 }
 
-abstract class _$FromTsClassConstructorImplementation implements TsIr {
+abstract class _$FromTsClassConstructorImplementation extends TsIr {
   factory _$FromTsClassConstructorImplementation(
           {required TsClassConstructorImplementation
               tsClassConstructorImplementation}) =
       _$_$FromTsClassConstructorImplementation;
+  _$FromTsClassConstructorImplementation._() : super._();
 
   TsClassConstructorImplementation get tsClassConstructorImplementation =>
       throw _privateConstructorUsedError;
@@ -787,9 +789,10 @@ class __$$FromTsFunctionDefaultNamedPropsCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_$FromTsFunctionDefaultNamedProps
-    implements _$FromTsFunctionDefaultNamedProps {
+    extends _$FromTsFunctionDefaultNamedProps {
   _$_$FromTsFunctionDefaultNamedProps(
-      {required this.tsFunctionDefaultNamedProps});
+      {required this.tsFunctionDefaultNamedProps})
+      : super._();
 
   @override
   final TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps;
@@ -1046,10 +1049,11 @@ class _$_$FromTsFunctionDefaultNamedProps
   }
 }
 
-abstract class _$FromTsFunctionDefaultNamedProps implements TsIr {
+abstract class _$FromTsFunctionDefaultNamedProps extends TsIr {
   factory _$FromTsFunctionDefaultNamedProps(
           {required TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps}) =
       _$_$FromTsFunctionDefaultNamedProps;
+  _$FromTsFunctionDefaultNamedProps._() : super._();
 
   TsFunctionDefaultNamedProps get tsFunctionDefaultNamedProps =>
       throw _privateConstructorUsedError;
@@ -1110,9 +1114,10 @@ class __$$FromClassInstanceFieldDeclarationsCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_$FromClassInstanceFieldDeclarations
-    implements _$FromClassInstanceFieldDeclarations {
+    extends _$FromClassInstanceFieldDeclarations {
   _$_$FromClassInstanceFieldDeclarations(
-      {required this.tsClassInstanceFieldDeclarations});
+      {required this.tsClassInstanceFieldDeclarations})
+      : super._();
 
   @override
   final TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations;
@@ -1372,11 +1377,12 @@ class _$_$FromClassInstanceFieldDeclarations
   }
 }
 
-abstract class _$FromClassInstanceFieldDeclarations implements TsIr {
+abstract class _$FromClassInstanceFieldDeclarations extends TsIr {
   factory _$FromClassInstanceFieldDeclarations(
           {required TsClassInstanceFieldDeclarations
               tsClassInstanceFieldDeclarations}) =
       _$_$FromClassInstanceFieldDeclarations;
+  _$FromClassInstanceFieldDeclarations._() : super._();
 
   TsClassInstanceFieldDeclarations get tsClassInstanceFieldDeclarations =>
       throw _privateConstructorUsedError;
@@ -1434,8 +1440,9 @@ class __$$FromTsClassMethodDeclarationsCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_$FromTsClassMethodDeclarations
-    implements _$FromTsClassMethodDeclarations {
-  _$_$FromTsClassMethodDeclarations({required this.tsClassMethodDeclarations});
+    extends _$FromTsClassMethodDeclarations {
+  _$_$FromTsClassMethodDeclarations({required this.tsClassMethodDeclarations})
+      : super._();
 
   @override
   final TsClassMethodDeclarations tsClassMethodDeclarations;
@@ -1692,10 +1699,11 @@ class _$_$FromTsClassMethodDeclarations
   }
 }
 
-abstract class _$FromTsClassMethodDeclarations implements TsIr {
+abstract class _$FromTsClassMethodDeclarations extends TsIr {
   factory _$FromTsClassMethodDeclarations(
           {required TsClassMethodDeclarations tsClassMethodDeclarations}) =
       _$_$FromTsClassMethodDeclarations;
+  _$FromTsClassMethodDeclarations._() : super._();
 
   TsClassMethodDeclarations get tsClassMethodDeclarations =>
       throw _privateConstructorUsedError;
@@ -1759,9 +1767,10 @@ class __$$FromTsClassMethodInjectionFieldDeclarationsCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_$FromTsClassMethodInjectionFieldDeclarations
-    implements _$FromTsClassMethodInjectionFieldDeclarations {
+    extends _$FromTsClassMethodInjectionFieldDeclarations {
   _$_$FromTsClassMethodInjectionFieldDeclarations(
-      {required this.tsClassMethodInjectionFieldDeclarations});
+      {required this.tsClassMethodInjectionFieldDeclarations})
+      : super._();
 
   @override
   final TsClassMethodInjectionFieldDeclarations
@@ -2024,11 +2033,12 @@ class _$_$FromTsClassMethodInjectionFieldDeclarations
   }
 }
 
-abstract class _$FromTsClassMethodInjectionFieldDeclarations implements TsIr {
+abstract class _$FromTsClassMethodInjectionFieldDeclarations extends TsIr {
   factory _$FromTsClassMethodInjectionFieldDeclarations(
           {required TsClassMethodInjectionFieldDeclarations
               tsClassMethodInjectionFieldDeclarations}) =
       _$_$FromTsClassMethodInjectionFieldDeclarations;
+  _$FromTsClassMethodInjectionFieldDeclarations._() : super._();
 
   TsClassMethodInjectionFieldDeclarations
       get tsClassMethodInjectionFieldDeclarations =>
@@ -2090,9 +2100,10 @@ class __$$FromTsClassMethodInjectionFieldNameCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_$FromTsClassMethodInjectionFieldName
-    implements _$FromTsClassMethodInjectionFieldName {
+    extends _$FromTsClassMethodInjectionFieldName {
   _$_$FromTsClassMethodInjectionFieldName(
-      {required this.tsClassMethodInjectionFieldName});
+      {required this.tsClassMethodInjectionFieldName})
+      : super._();
 
   @override
   final TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName;
@@ -2351,11 +2362,12 @@ class _$_$FromTsClassMethodInjectionFieldName
   }
 }
 
-abstract class _$FromTsClassMethodInjectionFieldName implements TsIr {
+abstract class _$FromTsClassMethodInjectionFieldName extends TsIr {
   factory _$FromTsClassMethodInjectionFieldName(
           {required TsClassMethodInjectionFieldName
               tsClassMethodInjectionFieldName}) =
       _$_$FromTsClassMethodInjectionFieldName;
+  _$FromTsClassMethodInjectionFieldName._() : super._();
 
   TsClassMethodInjectionFieldName get tsClassMethodInjectionFieldName =>
       throw _privateConstructorUsedError;
@@ -2408,8 +2420,8 @@ class __$$FromTsClassPostambleCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_$FromTsClassPostamble implements _$FromTsClassPostamble {
-  _$_$FromTsClassPostamble({required this.tsClassPostamble});
+class _$_$FromTsClassPostamble extends _$FromTsClassPostamble {
+  _$_$FromTsClassPostamble({required this.tsClassPostamble}) : super._();
 
   @override
   final TsClassPostamble tsClassPostamble;
@@ -2664,9 +2676,10 @@ class _$_$FromTsClassPostamble implements _$FromTsClassPostamble {
   }
 }
 
-abstract class _$FromTsClassPostamble implements TsIr {
+abstract class _$FromTsClassPostamble extends TsIr {
   factory _$FromTsClassPostamble({required TsClassPostamble tsClassPostamble}) =
       _$_$FromTsClassPostamble;
+  _$FromTsClassPostamble._() : super._();
 
   TsClassPostamble get tsClassPostamble => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -2716,8 +2729,8 @@ class __$$FromTsClassPreambleCopyWithImpl<$Res> extends _$TsIrCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_$FromTsClassPreamble implements _$FromTsClassPreamble {
-  _$_$FromTsClassPreamble({required this.tsClassPreamble});
+class _$_$FromTsClassPreamble extends _$FromTsClassPreamble {
+  _$_$FromTsClassPreamble({required this.tsClassPreamble}) : super._();
 
   @override
   final TsClassPreamble tsClassPreamble;
@@ -2972,9 +2985,10 @@ class _$_$FromTsClassPreamble implements _$FromTsClassPreamble {
   }
 }
 
-abstract class _$FromTsClassPreamble implements TsIr {
+abstract class _$FromTsClassPreamble extends TsIr {
   factory _$FromTsClassPreamble({required TsClassPreamble tsClassPreamble}) =
       _$_$FromTsClassPreamble;
+  _$FromTsClassPreamble._() : super._();
 
   TsClassPreamble get tsClassPreamble => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -3036,9 +3050,10 @@ class __$$FromTsClassStaticConstFieldDeclarationsCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_$FromTsClassStaticConstFieldDeclarations
-    implements _$FromTsClassStaticConstFieldDeclarations {
+    extends _$FromTsClassStaticConstFieldDeclarations {
   _$_$FromTsClassStaticConstFieldDeclarations(
-      {required this.tsClassStaticConstFieldDeclarations});
+      {required this.tsClassStaticConstFieldDeclarations})
+      : super._();
 
   @override
   final TsClassStaticConstFieldDeclarations tsClassStaticConstFieldDeclarations;
@@ -3298,11 +3313,12 @@ class _$_$FromTsClassStaticConstFieldDeclarations
   }
 }
 
-abstract class _$FromTsClassStaticConstFieldDeclarations implements TsIr {
+abstract class _$FromTsClassStaticConstFieldDeclarations extends TsIr {
   factory _$FromTsClassStaticConstFieldDeclarations(
           {required TsClassStaticConstFieldDeclarations
               tsClassStaticConstFieldDeclarations}) =
       _$_$FromTsClassStaticConstFieldDeclarations;
+  _$FromTsClassStaticConstFieldDeclarations._() : super._();
 
   TsClassStaticConstFieldDeclarations get tsClassStaticConstFieldDeclarations =>
       throw _privateConstructorUsedError;
@@ -3365,9 +3381,10 @@ class __$$FromTsClassStaticMethodImplementationCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_$FromTsClassStaticMethodImplementation
-    implements _$FromTsClassStaticMethodImplementation {
+    extends _$FromTsClassStaticMethodImplementation {
   _$_$FromTsClassStaticMethodImplementation(
-      {required this.tsClassStaticMethodImplementation});
+      {required this.tsClassStaticMethodImplementation})
+      : super._();
 
   @override
   final TsClassStaticMethodImplementation tsClassStaticMethodImplementation;
@@ -3627,11 +3644,12 @@ class _$_$FromTsClassStaticMethodImplementation
   }
 }
 
-abstract class _$FromTsClassStaticMethodImplementation implements TsIr {
+abstract class _$FromTsClassStaticMethodImplementation extends TsIr {
   factory _$FromTsClassStaticMethodImplementation(
           {required TsClassStaticMethodImplementation
               tsClassStaticMethodImplementation}) =
       _$_$FromTsClassStaticMethodImplementation;
+  _$FromTsClassStaticMethodImplementation._() : super._();
 
   TsClassStaticMethodImplementation get tsClassStaticMethodImplementation =>
       throw _privateConstructorUsedError;
@@ -3683,8 +3701,8 @@ class __$$FromTsEnumCopyWithImpl<$Res> extends _$TsIrCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_$FromTsEnum implements _$FromTsEnum {
-  _$_$FromTsEnum({required this.tsEnum});
+class _$_$FromTsEnum extends _$FromTsEnum {
+  _$_$FromTsEnum({required this.tsEnum}) : super._();
 
   @override
   final TsEnum tsEnum;
@@ -3936,8 +3954,9 @@ class _$_$FromTsEnum implements _$FromTsEnum {
   }
 }
 
-abstract class _$FromTsEnum implements TsIr {
+abstract class _$FromTsEnum extends TsIr {
   factory _$FromTsEnum({required TsEnum tsEnum}) = _$_$FromTsEnum;
+  _$FromTsEnum._() : super._();
 
   TsEnum get tsEnum => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -3987,8 +4006,8 @@ class __$$FromTsInterfaceCopyWithImpl<$Res> extends _$TsIrCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_$FromTsInterface implements _$FromTsInterface {
-  _$_$FromTsInterface({required this.tsInterface});
+class _$_$FromTsInterface extends _$FromTsInterface {
+  _$_$FromTsInterface({required this.tsInterface}) : super._();
 
   @override
   final TsInterface tsInterface;
@@ -4241,9 +4260,10 @@ class _$_$FromTsInterface implements _$FromTsInterface {
   }
 }
 
-abstract class _$FromTsInterface implements TsIr {
+abstract class _$FromTsInterface extends TsIr {
   factory _$FromTsInterface({required TsInterface tsInterface}) =
       _$_$FromTsInterface;
+  _$FromTsInterface._() : super._();
 
   TsInterface get tsInterface => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -4296,8 +4316,9 @@ class __$$FromTsClassVmDeclarationCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_$FromTsClassVmDeclaration implements _$FromTsClassVmDeclaration {
-  _$_$FromTsClassVmDeclaration({required this.tsClassVmDeclaration});
+class _$_$FromTsClassVmDeclaration extends _$FromTsClassVmDeclaration {
+  _$_$FromTsClassVmDeclaration({required this.tsClassVmDeclaration})
+      : super._();
 
   @override
   final TsClassVmDeclaration tsClassVmDeclaration;
@@ -4553,10 +4574,11 @@ class _$_$FromTsClassVmDeclaration implements _$FromTsClassVmDeclaration {
   }
 }
 
-abstract class _$FromTsClassVmDeclaration implements TsIr {
+abstract class _$FromTsClassVmDeclaration extends TsIr {
   factory _$FromTsClassVmDeclaration(
           {required TsClassVmDeclaration tsClassVmDeclaration}) =
       _$_$FromTsClassVmDeclaration;
+  _$FromTsClassVmDeclaration._() : super._();
 
   TsClassVmDeclaration get tsClassVmDeclaration =>
       throw _privateConstructorUsedError;
@@ -4610,8 +4632,9 @@ class __$$FromTsFunctionInvocationCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_$FromTsFunctionInvocation implements _$FromTsFunctionInvocation {
-  _$_$FromTsFunctionInvocation({required this.tsFunctionInvocation});
+class _$_$FromTsFunctionInvocation extends _$FromTsFunctionInvocation {
+  _$_$FromTsFunctionInvocation({required this.tsFunctionInvocation})
+      : super._();
 
   @override
   final TsFunctionInvocation tsFunctionInvocation;
@@ -4867,10 +4890,11 @@ class _$_$FromTsFunctionInvocation implements _$FromTsFunctionInvocation {
   }
 }
 
-abstract class _$FromTsFunctionInvocation implements TsIr {
+abstract class _$FromTsFunctionInvocation extends TsIr {
   factory _$FromTsFunctionInvocation(
           {required TsFunctionInvocation tsFunctionInvocation}) =
       _$_$FromTsFunctionInvocation;
+  _$FromTsFunctionInvocation._() : super._();
 
   TsFunctionInvocation get tsFunctionInvocation =>
       throw _privateConstructorUsedError;
@@ -4933,9 +4957,10 @@ class __$$FromTsFunctionInvocationNamedParametersCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_$FromTsFunctionInvocationNamedParameters
-    implements _$FromTsFunctionInvocationNamedParameters {
+    extends _$FromTsFunctionInvocationNamedParameters {
   _$_$FromTsFunctionInvocationNamedParameters(
-      {required this.tsFunctionInvocationNamedParameters});
+      {required this.tsFunctionInvocationNamedParameters})
+      : super._();
 
   @override
   final TsFunctionInvocationNamedParameters tsFunctionInvocationNamedParameters;
@@ -5195,11 +5220,12 @@ class _$_$FromTsFunctionInvocationNamedParameters
   }
 }
 
-abstract class _$FromTsFunctionInvocationNamedParameters implements TsIr {
+abstract class _$FromTsFunctionInvocationNamedParameters extends TsIr {
   factory _$FromTsFunctionInvocationNamedParameters(
           {required TsFunctionInvocationNamedParameters
               tsFunctionInvocationNamedParameters}) =
       _$_$FromTsFunctionInvocationNamedParameters;
+  _$FromTsFunctionInvocationNamedParameters._() : super._();
 
   TsFunctionInvocationNamedParameters get tsFunctionInvocationNamedParameters =>
       throw _privateConstructorUsedError;
@@ -5269,9 +5295,10 @@ class __$$FromTsFunctionInvocationNamedParametersKeyValueCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_$FromTsFunctionInvocationNamedParametersKeyValue
-    implements _$FromTsFunctionInvocationNamedParametersKeyValue {
+    extends _$FromTsFunctionInvocationNamedParametersKeyValue {
   _$_$FromTsFunctionInvocationNamedParametersKeyValue(
-      {required this.tsFunctionInvocationNamedParametersKeyValue});
+      {required this.tsFunctionInvocationNamedParametersKeyValue})
+      : super._();
 
   @override
   final TsFunctionInvocationNamedParametersKeyValue
@@ -5535,12 +5562,12 @@ class _$_$FromTsFunctionInvocationNamedParametersKeyValue
   }
 }
 
-abstract class _$FromTsFunctionInvocationNamedParametersKeyValue
-    implements TsIr {
+abstract class _$FromTsFunctionInvocationNamedParametersKeyValue extends TsIr {
   factory _$FromTsFunctionInvocationNamedParametersKeyValue(
           {required TsFunctionInvocationNamedParametersKeyValue
               tsFunctionInvocationNamedParametersKeyValue}) =
       _$_$FromTsFunctionInvocationNamedParametersKeyValue;
+  _$FromTsFunctionInvocationNamedParametersKeyValue._() : super._();
 
   TsFunctionInvocationNamedParametersKeyValue
       get tsFunctionInvocationNamedParametersKeyValue =>
@@ -5606,9 +5633,10 @@ class __$$TsFunctionInvocationNamedParametersSpreadCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_$TsFunctionInvocationNamedParametersSpread
-    implements _$TsFunctionInvocationNamedParametersSpread {
+    extends _$TsFunctionInvocationNamedParametersSpread {
   _$_$TsFunctionInvocationNamedParametersSpread(
-      {required this.tsFunctionInvocationNamedParametersSpread});
+      {required this.tsFunctionInvocationNamedParametersSpread})
+      : super._();
 
   @override
   final TsFunctionInvocationNamedParametersSpread
@@ -5870,11 +5898,12 @@ class _$_$TsFunctionInvocationNamedParametersSpread
   }
 }
 
-abstract class _$TsFunctionInvocationNamedParametersSpread implements TsIr {
+abstract class _$TsFunctionInvocationNamedParametersSpread extends TsIr {
   factory _$TsFunctionInvocationNamedParametersSpread(
           {required TsFunctionInvocationNamedParametersSpread
               tsFunctionInvocationNamedParametersSpread}) =
       _$_$TsFunctionInvocationNamedParametersSpread;
+  _$TsFunctionInvocationNamedParametersSpread._() : super._();
 
   TsFunctionInvocationNamedParametersSpread
       get tsFunctionInvocationNamedParametersSpread =>
@@ -5918,8 +5947,8 @@ class __$$FromTsLinebreakCopyWithImpl<$Res> extends _$TsIrCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_$FromTsLinebreak implements _$FromTsLinebreak {
-  _$_$FromTsLinebreak({required this.tsLinebreak});
+class _$_$FromTsLinebreak extends _$FromTsLinebreak {
+  _$_$FromTsLinebreak({required this.tsLinebreak}) : super._();
 
   @override
   final TsLinebreak tsLinebreak;
@@ -6172,9 +6201,10 @@ class _$_$FromTsLinebreak implements _$FromTsLinebreak {
   }
 }
 
-abstract class _$FromTsLinebreak implements TsIr {
+abstract class _$FromTsLinebreak extends TsIr {
   factory _$FromTsLinebreak({required TsLinebreak tsLinebreak}) =
       _$_$FromTsLinebreak;
+  _$FromTsLinebreak._() : super._();
 
   TsLinebreak get tsLinebreak => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -6233,9 +6263,10 @@ class __$$FromTsFunctionSelfBindingInvocationCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_$FromTsFunctionSelfBindingInvocation
-    implements _$FromTsFunctionSelfBindingInvocation {
+    extends _$FromTsFunctionSelfBindingInvocation {
   _$_$FromTsFunctionSelfBindingInvocation(
-      {required this.tsFunctionSelfBindingInvocation});
+      {required this.tsFunctionSelfBindingInvocation})
+      : super._();
 
   @override
   final TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation;
@@ -6494,11 +6525,12 @@ class _$_$FromTsFunctionSelfBindingInvocation
   }
 }
 
-abstract class _$FromTsFunctionSelfBindingInvocation implements TsIr {
+abstract class _$FromTsFunctionSelfBindingInvocation extends TsIr {
   factory _$FromTsFunctionSelfBindingInvocation(
           {required TsFunctionSelfBindingInvocation
               tsFunctionSelfBindingInvocation}) =
       _$_$FromTsFunctionSelfBindingInvocation;
+  _$FromTsFunctionSelfBindingInvocation._() : super._();
 
   TsFunctionSelfBindingInvocation get tsFunctionSelfBindingInvocation =>
       throw _privateConstructorUsedError;
@@ -6551,8 +6583,8 @@ class __$$FromTsResolvedImportCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_$FromTsResolvedImport implements _$FromTsResolvedImport {
-  _$_$FromTsResolvedImport({required this.tsResolvedImport});
+class _$_$FromTsResolvedImport extends _$FromTsResolvedImport {
+  _$_$FromTsResolvedImport({required this.tsResolvedImport}) : super._();
 
   @override
   final TsResolvedImport tsResolvedImport;
@@ -6807,9 +6839,10 @@ class _$_$FromTsResolvedImport implements _$FromTsResolvedImport {
   }
 }
 
-abstract class _$FromTsResolvedImport implements TsIr {
+abstract class _$FromTsResolvedImport extends TsIr {
   factory _$FromTsResolvedImport({required TsResolvedImport tsResolvedImport}) =
       _$_$FromTsResolvedImport;
+  _$FromTsResolvedImport._() : super._();
 
   TsResolvedImport get tsResolvedImport => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -6872,9 +6905,10 @@ class __$$FromTsTopLevelStaticConstFieldDeclarationCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_$FromTsTopLevelStaticConstFieldDeclaration
-    implements _$FromTsTopLevelStaticConstFieldDeclaration {
+    extends _$FromTsTopLevelStaticConstFieldDeclaration {
   _$_$FromTsTopLevelStaticConstFieldDeclaration(
-      {required this.tsTopLevelStaticConstFieldDeclaration});
+      {required this.tsTopLevelStaticConstFieldDeclaration})
+      : super._();
 
   @override
   final TsTopLevelStaticConstFieldDeclaration
@@ -7136,11 +7170,12 @@ class _$_$FromTsTopLevelStaticConstFieldDeclaration
   }
 }
 
-abstract class _$FromTsTopLevelStaticConstFieldDeclaration implements TsIr {
+abstract class _$FromTsTopLevelStaticConstFieldDeclaration extends TsIr {
   factory _$FromTsTopLevelStaticConstFieldDeclaration(
           {required TsTopLevelStaticConstFieldDeclaration
               tsTopLevelStaticConstFieldDeclaration}) =
       _$_$FromTsTopLevelStaticConstFieldDeclaration;
+  _$FromTsTopLevelStaticConstFieldDeclaration._() : super._();
 
   TsTopLevelStaticConstFieldDeclaration
       get tsTopLevelStaticConstFieldDeclaration =>

@@ -16,8 +16,8 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$TsClassPostambleTearOff {
   const _$TsClassPostambleTearOff();
 
-  _$TsClassPostamble call({required SwidClass swidClass}) {
-    return _$TsClassPostamble(
+  _$TsClassPostambleCtor call({required SwidClass swidClass}) {
+    return _$TsClassPostambleCtor(
       swidClass: swidClass,
     );
   }
@@ -75,11 +75,11 @@ class _$TsClassPostambleCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$$TsClassPostambleCopyWith<$Res>
+abstract class _$$TsClassPostambleCtorCopyWith<$Res>
     implements $TsClassPostambleCopyWith<$Res> {
-  factory _$$TsClassPostambleCopyWith(
-          _$TsClassPostamble value, $Res Function(_$TsClassPostamble) then) =
-      __$$TsClassPostambleCopyWithImpl<$Res>;
+  factory _$$TsClassPostambleCtorCopyWith(_$TsClassPostambleCtor value,
+          $Res Function(_$TsClassPostambleCtor) then) =
+      __$$TsClassPostambleCtorCopyWithImpl<$Res>;
   @override
   $Res call({SwidClass swidClass});
 
@@ -88,21 +88,21 @@ abstract class _$$TsClassPostambleCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$TsClassPostambleCopyWithImpl<$Res>
+class __$$TsClassPostambleCtorCopyWithImpl<$Res>
     extends _$TsClassPostambleCopyWithImpl<$Res>
-    implements _$$TsClassPostambleCopyWith<$Res> {
-  __$$TsClassPostambleCopyWithImpl(
-      _$TsClassPostamble _value, $Res Function(_$TsClassPostamble) _then)
-      : super(_value, (v) => _then(v as _$TsClassPostamble));
+    implements _$$TsClassPostambleCtorCopyWith<$Res> {
+  __$$TsClassPostambleCtorCopyWithImpl(_$TsClassPostambleCtor _value,
+      $Res Function(_$TsClassPostambleCtor) _then)
+      : super(_value, (v) => _then(v as _$TsClassPostambleCtor));
 
   @override
-  _$TsClassPostamble get _value => super._value as _$TsClassPostamble;
+  _$TsClassPostambleCtor get _value => super._value as _$TsClassPostambleCtor;
 
   @override
   $Res call({
     Object? swidClass = freezed,
   }) {
-    return _then(_$TsClassPostamble(
+    return _then(_$TsClassPostambleCtor(
       swidClass: swidClass == freezed
           ? _value.swidClass
           : swidClass // ignore: cast_nullable_to_non_nullable
@@ -113,8 +113,8 @@ class __$$TsClassPostambleCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_$TsClassPostamble extends _$TsClassPostamble {
-  _$_$TsClassPostamble({required this.swidClass}) : super._();
+class _$_$TsClassPostambleCtor extends _$TsClassPostambleCtor {
+  _$_$TsClassPostambleCtor({required this.swidClass}) : super._();
 
   @override
   final SwidClass swidClass;
@@ -127,7 +127,7 @@ class _$_$TsClassPostamble extends _$TsClassPostamble {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _$TsClassPostamble &&
+        (other is _$TsClassPostambleCtor &&
             (identical(other.swidClass, swidClass) ||
                 const DeepCollectionEquality()
                     .equals(other.swidClass, swidClass)));
@@ -139,19 +139,20 @@ class _$_$TsClassPostamble extends _$TsClassPostamble {
 
   @JsonKey(ignore: true)
   @override
-  _$$TsClassPostambleCopyWith<_$TsClassPostamble> get copyWith =>
-      __$$TsClassPostambleCopyWithImpl<_$TsClassPostamble>(this, _$identity);
+  _$$TsClassPostambleCtorCopyWith<_$TsClassPostambleCtor> get copyWith =>
+      __$$TsClassPostambleCtorCopyWithImpl<_$TsClassPostambleCtor>(
+          this, _$identity);
 }
 
-abstract class _$TsClassPostamble extends TsClassPostamble {
-  factory _$TsClassPostamble({required SwidClass swidClass}) =
-      _$_$TsClassPostamble;
-  _$TsClassPostamble._() : super._();
+abstract class _$TsClassPostambleCtor extends TsClassPostamble {
+  factory _$TsClassPostambleCtor({required SwidClass swidClass}) =
+      _$_$TsClassPostambleCtor;
+  _$TsClassPostambleCtor._() : super._();
 
   @override
   SwidClass get swidClass => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$$TsClassPostambleCopyWith<_$TsClassPostamble> get copyWith =>
+  _$$TsClassPostambleCtorCopyWith<_$TsClassPostambleCtor> get copyWith =>
       throw _privateConstructorUsedError;
 }

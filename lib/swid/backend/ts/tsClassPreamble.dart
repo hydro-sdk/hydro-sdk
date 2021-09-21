@@ -50,8 +50,12 @@ class TsClassPreamble
         ([
           "export class ${swidClass.name}",
           transformTypeFormalsToTs(swidTypeFormals: swidClass.typeFormals),
-          TsSuperClassClause(swidClass: swidClass, clauseKeyword: "implements")
-              .toTsSource(),
+          pipeline.reduceFromTerm(
+            TsSuperClassClause(
+              swidClass: swidClass,
+              clauseKeyword: "implements",
+            ),
+          ),
           "{"
         ]..removeWhere((x) => x == null))
             .join("\n"),

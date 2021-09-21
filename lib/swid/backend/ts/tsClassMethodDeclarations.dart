@@ -59,8 +59,12 @@ class TsClassMethodDeclarations
       SwarsTermResult.fromString(
         (swidClass.methods.isNotEmpty)
             ? [
-                  ...tsClassMethodInjectionCandidates(
-                          swidFunctionTypes: swidClass.methods)
+                  ...pipeline
+                      .reduceFromTerm(
+                        TsClassMethodInjectionCandidates(
+                          swidFunctionTypes: swidClass.methods,
+                        ),
+                      )
                       .map((x) => [
                             "public ${x.name}",
                             transformTypeDeclarationToTs(
@@ -85,16 +89,20 @@ class TsClassMethodDeclarations
                                     null
                                 ? [
                                     "    return ",
-                                    TsFunctionSelfBindingInvocation(
-                                      functionReference: "this." +
-                                          TsClassMethodInjectionFieldName(
-                                            swidFunctionType: x,
-                                          ).toTsSource(),
-                                      swidFunctionType:
-                                          transformIllegalParameterNames(
-                                        swidFunctionType: x,
+                                    pipeline.reduceFromTerm(
+                                      TsFunctionSelfBindingInvocation(
+                                        functionReference: "this." +
+                                            pipeline.reduceFromTerm(
+                                              TsClassMethodInjectionFieldName(
+                                                swidFunctionType: x,
+                                              ),
+                                            ),
+                                        swidFunctionType:
+                                            transformIllegalParameterNames(
+                                          swidFunctionType: x,
+                                        ),
                                       ),
-                                    ).toTsSource(),
+                                    ),
                                   ]
                                 : [
                                     x.declarationModifiers.overridenTransforms

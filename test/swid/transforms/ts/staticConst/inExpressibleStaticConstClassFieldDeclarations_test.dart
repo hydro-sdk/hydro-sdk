@@ -12,6 +12,8 @@ import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstFieldDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstFunctionInvocation.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
+import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
+import 'package:hydro_sdk/swid/swars/pipelineNoopCacheMgr.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
@@ -88,7 +90,12 @@ void main() {
     );
     expect(requiresDartClassTranslationUnit(swidClass: endian), true);
     expect(
-        TsClassStaticConstFieldDeclarations(swidClass: endian).toTsSource(), """
+        CachingPipeline(
+          cacheMgr: const PipelineNoopCacheMgr(),
+        ).reduceFromTerm(
+          TsClassStaticConstFieldDeclarations(swidClass: endian),
+        ),
+        """
     public static big = dart.typed_data.endianBig();
     public static little = dart.typed_data.endianLittle();
 """);

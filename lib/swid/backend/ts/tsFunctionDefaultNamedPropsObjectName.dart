@@ -49,6 +49,8 @@ class TsFunctionDefaultNamedPropsObjectName
     required final ISwarsPipeline pipeline,
   }) =>
       SwarsTermResult.fromString(
-        "${transformToCamelCase(str: swidFunctionType!.name)}DefaultProps",
+        "${transformToCamelCase(
+          str: swidFunctionType.name,
+        )}DefaultProps",
       );
 }

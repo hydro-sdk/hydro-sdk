@@ -5,6 +5,8 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'package:hydro_sdk/swid/backend/ts/tsClassStaticConstFieldDeclarations.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
+import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
+import 'package:hydro_sdk/swid/swars/pipelineNoopCacheMgr.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
@@ -25,8 +27,13 @@ void main() {
     expect(cupertinoIconsClass.staticConstFieldDeclarations.length, 3);
     //Should be able to resolve the inline references to CupertinoIcons.iconFont and CupertinoIcons.iconFontPackage
     expect(
-        TsClassStaticConstFieldDeclarations(swidClass: cupertinoIconsClass)
-            .toTsSource(),
+        CachingPipeline(
+          cacheMgr: const PipelineNoopCacheMgr(),
+        ).reduceFromTerm(
+          TsClassStaticConstFieldDeclarations(
+            swidClass: cupertinoIconsClass,
+          ),
+        ),
         """
     public static iconFont = "CupertinoIcons";
     public static iconFontPackage = "cupertino_icons";

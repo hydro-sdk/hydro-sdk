@@ -53,7 +53,10 @@ class TsFunctionDefaultNamedProps
   }) =>
       SwarsTermResult.fromString(
         swidFunctionType.namedDefaultParameters.isNotEmpty
-            ? "const ${TsFunctionDefaultNamedPropsObjectName(swidFunctionType: swidFunctionType).toTsSource()} = {\n" +
+            ? "const ${pipeline.reduceFromTerm(
+                  TsFunctionDefaultNamedPropsObjectName(
+                      swidFunctionType: swidFunctionType),
+                )} = {\n" +
                 swidFunctionType.namedDefaultParameters.entries
                     .map((x) => !isInexpressibleStaticConst(
                           parentClass: null,

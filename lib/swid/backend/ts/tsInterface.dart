@@ -67,8 +67,10 @@ class TsInterface
               emitSuperInterfaceExtensions ? superClause : "",
               "{",
               ...members.entries
-                  .map((x) =>
-                      "${x.key}: ${transformTypeDeclarationToTs(parentClass: null, swidType: x.value!)};")
+                  .map((x) => "${x.key}: ${transformTypeDeclarationToTs(
+                        parentClass: null,
+                        swidType: x.value,
+                      )};")
                   .toList(),
               "}"
             ]..removeWhere((x) => x == null))
@@ -85,9 +87,11 @@ class TsInterface
               .toList()),
         },
         typeFormals: List.from(swidClass.typeFormals),
-        superClause: TsSuperClassClause(
-          swidClass: swidClass,
-          clauseKeyword: "extends",
-        ).toTsSource(),
+        superClause: pipeline.reduceFromTerm(
+          TsSuperClassClause(
+            swidClass: swidClass,
+            clauseKeyword: "extends",
+          ),
+        ),
       );
 }

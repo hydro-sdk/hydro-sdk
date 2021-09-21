@@ -22,7 +22,7 @@ class TsClassPostamble
 
   factory TsClassPostamble({
     required final SwidClass swidClass,
-  }) = _$TsClassPostamble;
+  }) = _$TsClassPostambleCtor;
 
   @override
   String get cacheGroup => "tsClassPostamble";

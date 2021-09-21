@@ -73,8 +73,12 @@ class TsFunctionInvocationNamedParameters
         [
           "{",
           when(
-            fromSpread: (val) => val.toTsSource(),
-            fromKeyValue: (val) => val.toTsSource(),
+            fromSpread: (val) => pipeline.reduceFromTerm(
+              val,
+            ),
+            fromKeyValue: (val) => pipeline.reduceFromTerm(
+              val,
+            ),
           ),
           "}"
         ].join("\n"),

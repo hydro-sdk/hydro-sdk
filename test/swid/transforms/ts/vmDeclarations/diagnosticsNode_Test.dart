@@ -6,6 +6,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:hydro_sdk/swid/backend/ts/tsClassVmDeclaration.dart';
 import 'package:hydro_sdk/swid/backend/util/requiresDartBinding.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
+import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
+import 'package:hydro_sdk/swid/swars/pipelineNoopCacheMgr.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
@@ -15,7 +17,12 @@ void main() {
 
     expect(requiresDartBinding(swidClass: diagnosticsNodeClass), true);
     expect(
-        TsClassVmDeclaration(swidClass: diagnosticsNodeClass).toTsSource(), """
+        CachingPipeline(
+          cacheMgr: const PipelineNoopCacheMgr(),
+        ).reduceFromTerm(
+          TsClassVmDeclaration(swidClass: diagnosticsNodeClass),
+        ),
+        """
 declare const flutter: {
 foundation: {
 diagnosticsNode: (this : void, diagnosticsNode : DiagnosticsNode, props : { linePrefix? : string | undefined, showName : boolean, showSeparator : boolean, style? : DiagnosticsTreeStyle | undefined, name? : string | undefined, }) => DiagnosticsNode;

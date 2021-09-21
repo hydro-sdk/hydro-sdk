@@ -89,22 +89,24 @@ class TsClassStaticMethodImplementation
                   null
               ? [
                   "return ",
-                  TsFunctionSelfBindingInvocation(
-                    functionReference: [
-                      ...transformPackageUri(
-                        packageUri: swidClass.originalPackagePath,
-                      ).split(path.separator),
-                      transformToCamelCase(
-                            str: swidClass.name,
-                          ) +
-                          transformToPascalCase(
-                            str: swidFunctionType.name,
-                          )
-                    ].join("."),
-                    swidFunctionType: transformIllegalParameterNames(
-                      swidFunctionType: swidFunctionType,
+                  pipeline.reduceFromTerm(
+                    TsFunctionSelfBindingInvocation(
+                      functionReference: [
+                        ...transformPackageUri(
+                          packageUri: swidClass.originalPackagePath,
+                        ).split(path.separator),
+                        transformToCamelCase(
+                              str: swidClass.name,
+                            ) +
+                            transformToPascalCase(
+                              str: swidFunctionType.name,
+                            )
+                      ].join("."),
+                      swidFunctionType: transformIllegalParameterNames(
+                        swidFunctionType: swidFunctionType,
+                      ),
                     ),
-                  ).toTsSource(),
+                  ),
                 ]
               : [
                   swidFunctionType.declarationModifiers.overridenTransforms

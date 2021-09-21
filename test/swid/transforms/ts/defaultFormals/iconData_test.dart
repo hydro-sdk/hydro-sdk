@@ -6,6 +6,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:hydro_sdk/swid/backend/ts/tsFunctionDefaultNamedProps.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
+import 'package:hydro_sdk/swid/swars/pipelineNoopCacheMgr.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
@@ -15,12 +17,16 @@ void main() {
 
     expect(iconDataClass.instanceFieldDeclarations.length, 4);
     expect(
-        TsFunctionDefaultNamedProps(
-          swidFunctionType: SwidFunctionType.clone(
-            swidFunctionType: iconDataClass.constructorType!,
-            name: iconDataClass.name,
+        CachingPipeline(
+          cacheMgr: const PipelineNoopCacheMgr(),
+        ).reduceFromTerm(
+          TsFunctionDefaultNamedProps(
+            swidFunctionType: SwidFunctionType.clone(
+              swidFunctionType: iconDataClass.constructorType!,
+              name: iconDataClass.name,
+            ),
           ),
-        ).toTsSource(),
+        ),
         """
 const iconDataDefaultProps = {
     matchTextDirection: false,

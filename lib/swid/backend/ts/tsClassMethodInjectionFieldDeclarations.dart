@@ -64,12 +64,14 @@ class TsClassMethodInjectionFieldDeclarations
                       )
                       .map((x) =>
                           "    private readonly " +
-                          TsClassMethodInjectionFieldName(
-                            swidFunctionType:
-                                rewriteClassReferencesToInterfaceReferencesInFunction(
-                              swidFunctionType: x,
+                          pipeline.reduceFromTerm(
+                            TsClassMethodInjectionFieldName(
+                              swidFunctionType:
+                                  rewriteClassReferencesToInterfaceReferencesInFunction(
+                                swidFunctionType: x,
+                              ),
                             ),
-                          ).toTsSource() +
+                          ) +
                           ": " +
                           transformFunctionTypeToTs(
                             parentClass: swidClass,

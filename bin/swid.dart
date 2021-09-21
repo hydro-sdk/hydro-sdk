@@ -205,6 +205,7 @@ void main(List<String> args) async {
               tsPrefixPaths: config.emitOptions.tsEmitOptions.prefixPaths,
               dartPrefixPaths: config.emitOptions.dartEmitOptions.prefixPaths,
             ).produceFromSwidTopLevelStaticConstFieldDeclaration(
+              pipeline: pipeline,
               swidTopLevelStaticConstFieldDeclaration: topLevelDeclarations[i],
             ),
             (dynamic x) => writeTranslationUnit(translationUnit: x));

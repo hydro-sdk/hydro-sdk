@@ -57,37 +57,38 @@ class TsFunctionSelfBindingInvocation
     required final ISwarsPipeline pipeline,
   }) =>
       SwarsTermResult.fromString(
-        TsFunctionInvocation(
-          functionReference: functionReference,
-          tsFunctionInvocationPositionalParameters:
-              TsFunctionInvocationPositionalParameters(
-            positionalReferences: [
-              ...swidFunctionType.normalParameterNames,
-              ...swidFunctionType.optionalParameterNames.toList(),
-              (swidFunctionType.namedDefaultParameters.entries.isEmpty &&
-                      swidFunctionType.namedParameterTypes.entries.isNotEmpty
-                  ? "props"
-                  : null)
-            ]..removeWhere(
-                (k) => k == null,
-              ),
+        pipeline.reduceFromTerm(
+          TsFunctionInvocation(
+            functionReference: functionReference,
+            tsFunctionInvocationPositionalParameters:
+                TsFunctionInvocationPositionalParameters(
+              positionalReferences: <String?>[
+                ...swidFunctionType.normalParameterNames,
+                ...swidFunctionType.optionalParameterNames.toList(),
+                (swidFunctionType.namedDefaultParameters.entries.isEmpty &&
+                        swidFunctionType.namedParameterTypes.entries.isNotEmpty
+                    ? "props"
+                    : null)
+              ].whereNotNull().toList(),
+            ),
+            tsFunctionInvocationNamedParameters:
+                swidFunctionType.namedDefaultParameters.entries.isNotEmpty
+                    ? [
+                        TsFunctionInvocationNamedParameters.fromSpread(
+                          tsFunctionInvocationNamedParametersSpread:
+                              TsFunctionInvocationNamedParametersSpread(
+                            references: [
+                              pipeline.reduceFromTerm(
+                                TsFunctionDefaultNamedPropsObjectName(
+                                    swidFunctionType: swidFunctionType),
+                              ),
+                              "props"
+                            ],
+                          ),
+                        )
+                      ]
+                    : [],
           ),
-          tsFunctionInvocationNamedParameters:
-              swidFunctionType.namedDefaultParameters.entries.isNotEmpty
-                  ? [
-                      TsFunctionInvocationNamedParameters.fromSpread(
-                        tsFunctionInvocationNamedParametersSpread:
-                            TsFunctionInvocationNamedParametersSpread(
-                          references: [
-                            TsFunctionDefaultNamedPropsObjectName(
-                                    swidFunctionType: swidFunctionType)
-                                .toTsSource(),
-                            "props"
-                          ],
-                        ),
-                      )
-                    ]
-                  : [],
-        ).toTsSource(),
+        ),
       );
 }

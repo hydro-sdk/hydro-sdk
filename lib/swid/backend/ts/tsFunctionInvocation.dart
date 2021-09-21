@@ -58,11 +58,23 @@ class TsFunctionInvocation
                 this.tsFunctionInvocationNamedParameters,
       );
 
-  String _namedParametersToTsSource() =>
-      tsFunctionInvocationNamedParameters.map((x) => x.toTsSource()).join();
+  String _namedParametersToTsSource(final ISwarsPipeline pipeline) =>
+      tsFunctionInvocationNamedParameters
+          .map((x) => pipeline.reduceFromTerm(x))
+          .join();
 
   ISwarsTermResult<String> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      "${functionReference}(${tsFunctionInvocationPositionalParameters.toTsSource()}${tsFunctionInvocationPositionalParameters.toTsSource().isNotEmpty && _namedParametersToTsSource().isNotEmpty ? ", " : ""}${_namedParametersToTsSource()});";
+      SwarsTermResult.fromString(
+        "${functionReference}(${pipeline.reduceFromTerm(
+          tsFunctionInvocationPositionalParameters,
+        )}${pipeline.reduceFromTerm(
+                  tsFunctionInvocationPositionalParameters,
+                ).isNotEmpty && _namedParametersToTsSource(
+              pipeline,
+            ).isNotEmpty ? ", " : ""}${_namedParametersToTsSource(
+          pipeline,
+        )});",
+      );
 }
