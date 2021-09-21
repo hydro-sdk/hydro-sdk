@@ -1,10 +1,9 @@
-import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:path/path.dart' as p;
 
+import 'package:hydro_sdk/swid/backend/ts/analyses/tsClassMethodInjectionCandidates.dart';
 import 'package:hydro_sdk/swid/backend/ts/tsClassConstructorImplementation.dart';
 import 'package:hydro_sdk/swid/backend/ts/tsClassInstanceFieldDeclarations.dart';
 import 'package:hydro_sdk/swid/backend/ts/tsClassMethodDeclarations.dart';
-import 'package:hydro_sdk/swid/backend/ts/analyses/tsClassMethodInjectionCandidates.dart';
 import 'package:hydro_sdk/swid/backend/ts/tsClassMethodInjectionFieldDeclarations.dart';
 import 'package:hydro_sdk/swid/backend/ts/tsClassPostamble.dart';
 import 'package:hydro_sdk/swid/backend/ts/tsClassPreamble.dart';
@@ -23,6 +22,7 @@ import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/util/propagateUnsatisfiedTypeParameters.dart';
 import 'package:hydro_sdk/swid/ir/util/rewriteClassReferencestoInterfaceReferencesInClass.dart';
+import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 
 TsTranslationUnit produceTsTranslationUnitFromSwidClass({
   required final SwidClass swidClass,
@@ -37,7 +37,7 @@ TsTranslationUnit produceTsTranslationUnitFromSwidClass({
       required final SwidClass unMergedSwidClassWithInterfaceReferences,
     }) =>
         TsTranslationUnit(
-          pipeline: pipeline,
+            pipeline: pipeline,
             path: prefixPaths.join(p.separator) + p.separator + path,
             fileName: "$baseFileName.ts",
             ir: !swidClass.isPureAbstract() &&

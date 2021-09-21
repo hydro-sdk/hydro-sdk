@@ -16,7 +16,9 @@ void main() {
         .decode(File("test/swid/res/DiagnosticsNode.json").readAsStringSync()));
 
     expect(
-        CachingPipeline(cacheMgr: const PipelineNoopCacheMgr(),).reduceFromTerm(
+        CachingPipeline(
+          cacheMgr: const PipelineNoopCacheMgr(),
+        ).reduceFromTerm(
           TsFunctionDefaultNamedProps(
             swidFunctionType: SwidFunctionType.clone(
               swidFunctionType: diagnosticsNodeClass.constructorType!,

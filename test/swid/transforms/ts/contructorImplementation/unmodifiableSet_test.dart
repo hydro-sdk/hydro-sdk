@@ -97,7 +97,9 @@ void main() {
     );
 
     expect(
-        CachingPipeline(cacheMgr: const PipelineNoopCacheMgr(),).reduceFromTerm(
+        CachingPipeline(
+          cacheMgr: const PipelineNoopCacheMgr(),
+        ).reduceFromTerm(
           res,
         ),
         """

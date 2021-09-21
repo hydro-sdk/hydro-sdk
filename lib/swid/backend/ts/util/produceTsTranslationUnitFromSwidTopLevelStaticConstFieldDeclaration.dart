@@ -1,4 +1,3 @@
-import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:path/path.dart' as p;
 
 import 'package:hydro_sdk/swid/backend/ts/tsLinebreak.dart';
@@ -6,6 +5,7 @@ import 'package:hydro_sdk/swid/backend/ts/tsTopLevelStaticConstFieldDeclaration.
 import 'package:hydro_sdk/swid/backend/ts/tsTranslationUnit.dart';
 import 'package:hydro_sdk/swid/backend/ts/tsir.dart';
 import 'package:hydro_sdk/swid/ir/swidTopLevelStaticConstFieldDeclaration.dart';
+import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 
 TsTranslationUnit
     produceTsTranslationUnitFromSwidTopLevelStaticConstFieldDeclaration({

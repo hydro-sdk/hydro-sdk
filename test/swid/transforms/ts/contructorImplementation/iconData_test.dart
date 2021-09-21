@@ -16,7 +16,9 @@ void main() {
 
     expect(iconDataClass.instanceFieldDeclarations.length, 4);
     expect(
-        CachingPipeline(cacheMgr: const PipelineNoopCacheMgr(),).reduceFromTerm(
+        CachingPipeline(
+          cacheMgr: const PipelineNoopCacheMgr(),
+        ).reduceFromTerm(
           TsClassConstructorImplementation(
             swidClass: iconDataClass,
           ),
