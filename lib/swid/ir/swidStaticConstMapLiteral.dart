@@ -34,12 +34,8 @@ class SwidStaticConstMapLiteral
     final SwidType? staticType,
   }) =>
       SwidStaticConstMapLiteral(
-        elements: elements ??
-            swidStaticConstMapLiteral.elements.map((x) => x.clone()).toList(),
-        staticType: staticType ??
-            SwidType.clone(
-              swidType: swidStaticConstMapLiteral.staticType,
-            ),
+        elements: elements ?? swidStaticConstMapLiteral.elements,
+        staticType: staticType ?? swidStaticConstMapLiteral.staticType,
       );
 
   @override

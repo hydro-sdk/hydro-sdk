@@ -39,7 +39,7 @@ class NameAnonymousNormalParametersInFunction
     final SwidFunctionType? swidFunctionType,
   }) =>
       NameAnonymousNormalParametersInFunction(
-        swidFunctionType: swidFunctionType ?? this.swidFunctionType.clone(),
+        swidFunctionType: swidFunctionType ?? this.swidFunctionType,
       );
 
   @override

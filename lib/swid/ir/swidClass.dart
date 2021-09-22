@@ -99,63 +99,23 @@ class SwidClass
         constructorType: constructorType != null
             ? constructorType
             : swidClass.constructorType != null
-                ? SwidFunctionType.clone(
-                    swidFunctionType: swidClass.constructorType!,
-                  )
+                ? swidClass.constructorType
                 : null,
-        factoryConstructors: factoryConstructors ??
-            List.from(swidClass.factoryConstructors
-                .map((x) => SwidFunctionType.clone(swidFunctionType: x))
-                .toList()),
-        staticMethods: staticMethods ??
-            List.from(
-              swidClass.staticMethods
-                  .map(
-                    (x) => SwidFunctionType.clone(
-                      swidFunctionType: x,
-                    ),
-                  )
-                  .toList(),
-            ),
-        methods: methods ??
-            List.from(
-              swidClass.methods
-                  .map(
-                    (x) => SwidFunctionType.clone(
-                      swidFunctionType: x,
-                    ),
-                  )
-                  .toList(),
-            ),
+        factoryConstructors:
+            factoryConstructors ?? swidClass.factoryConstructors,
+        staticMethods: staticMethods ?? swidClass.staticMethods,
+        methods: methods ?? swidClass.methods,
         staticConstFieldDeclarations: staticConstFieldDeclarations ??
-            List.from(swidClass.staticConstFieldDeclarations),
-        instanceFieldDeclarations: instanceFieldDeclarations ??
-            Map.from(swidClass.instanceFieldDeclarations),
+            swidClass.staticConstFieldDeclarations,
+        instanceFieldDeclarations:
+            instanceFieldDeclarations ?? swidClass.instanceFieldDeclarations,
         declarationModifiers:
             declarationModifiers ?? swidClass.declarationModifiers,
-        mixedInClasses: mixedInClasses ??
-            List.from(
-              swidClass.mixedInClasses
-                  .map(
-                    (x) => SwidClass.clone(
-                      swidClass: x,
-                    ),
-                  )
-                  .toList(),
-            ),
-        implementedClasses: implementedClasses ??
-            List.from(
-              swidClass.implementedClasses
-                  .map(
-                    (x) => SwidClass.clone(
-                      swidClass: x,
-                    ),
-                  )
-                  .toList(),
-            ),
+        mixedInClasses: mixedInClasses ?? swidClass.mixedInClasses,
+        implementedClasses: implementedClasses ?? swidClass.implementedClasses,
         isMixin: isMixin ?? swidClass.isMixin,
         extendedClass: extendedClass ?? swidClass.extendedClass,
-        typeFormals: typeFormals ?? List.from(swidClass.typeFormals),
+        typeFormals: typeFormals ?? swidClass.typeFormals,
       );
 
   factory SwidClass.empty() => SwidClass(

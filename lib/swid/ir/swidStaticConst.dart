@@ -98,83 +98,56 @@ class SwidStaticConst
   }) =>
       swidStaticConst.when(
         fromSwidBooleanLiteral: (val) => SwidStaticConst.fromSwidBooleanLiteral(
-          swidBooleanLiteral: val.clone(),
+          swidBooleanLiteral: val,
         ),
         fromSwidStringLiteral: (val) => SwidStaticConst.fromSwidStringLiteral(
-          swidStringLiteral: SwidStringLiteral.clone(
-            swidStringLiteral: val,
-          ),
+          swidStringLiteral: val,
         ),
         fromSwidIntegerLiteral: (val) => SwidStaticConst.fromSwidIntegerLiteral(
-          swidIntegerLiteral: SwidIntegerLiteral.clone(
-            swidIntegerLiteral: val,
-          ),
+          swidIntegerLiteral: val,
         ),
         fromDoubleLiteral: (val) => SwidStaticConst.fromDoubleLiteral(
-          swidDoubleLiteral: SwidDoubleLiteral.clone(
-            swidDoubleLiteral: val,
-          ),
+          swidDoubleLiteral: val,
         ),
         fromSwidStaticConstFunctionInvocation: (val) =>
             SwidStaticConst.fromSwidStaticConstFunctionInvocation(
-          staticConstFunctionInvocation:
-              SwidStaticConstFunctionInvocation.clone(
-            swidStaticConstFunctionInvocation: val,
-          ),
+          staticConstFunctionInvocation: val,
         ),
         fromSwidStaticConstFieldReference: (val) =>
             SwidStaticConst.fromSwidStaticConstFieldReference(
-          swidStaticConstFieldReference: SwidStaticConstFieldReference.clone(
-            swidStaticConstFieldReference: val,
-          ),
+          swidStaticConstFieldReference: val,
         ),
         fromSwidStaticConstPrefixedExpression: (val) =>
             SwidStaticConst.fromSwidStaticConstPrefixedExpression(
-          swidStaticConstPrefixedExpression:
-              SwidStaticConstPrefixedExpression.clone(
-            swidStaticConstPrefixedExpression: val,
-          ),
+          swidStaticConstPrefixedExpression: val,
         ),
         fromSwidStaticConstBinaryExpression: (val) =>
             SwidStaticConst.fromSwidStaticConstBinaryExpression(
-          swidStaticConstBinaryExpression:
-              SwidStaticConstBinaryExpression.clone(
-            swidStaticConstBinaryExpression: val,
-          ),
+          swidStaticConstBinaryExpression: val,
         ),
         fromSwidStaticConstPrefixedIdentifier: (val) =>
             SwidStaticConst.fromSwidStaticConstPrefixedIdentifier(
-          staticConstPrefixedIdentifier:
-              SwidStaticConstPrefixedIdentifier.clone(
-            swidStaticConstPrefixedIdentifier: val,
-          ),
+          staticConstPrefixedIdentifier: val,
         ),
         fromSwidStaticConstIdentifier: (val) =>
             SwidStaticConst.fromSwidStaticConstIdentifier(
-          staticConstIdentifier: SwidStaticConstIdentifier.clone(
-            swidStaticConstIdentifier: val,
-          ),
+          staticConstIdentifier: val,
         ),
         fromSwidStaticConstListLiteral: (val) =>
             SwidStaticConst.fromSwidStaticConstListLiteral(
-          staticConstListLiteral: SwidStaticConstListLiteral.clone(
-            swidStaticConstListLiteral: val,
-          ),
+          staticConstListLiteral: val,
         ),
         fromSwidStaticConstMapLiteral: (val) =>
             SwidStaticConst.fromSwidStaticConstMapLiteral(
-          swidStaticConstMapLiteral: val.clone(),
+          swidStaticConstMapLiteral: val,
         ),
         fromSwidStaticConstMapLiteralEntry: (val) =>
             SwidStaticConst.fromSwidStaticConstMapLiteralEntry(
-          swidStaticConstMapLiteralEntry: val.clone(),
+          swidStaticConstMapLiteralEntry: val,
         ),
         fromSwidStaticConstTopLevelVariableReference: (val) =>
             SwidStaticConst.fromSwidStaticConstTopLevelVariableReference(
-          swidStaticConstTopLevelVariableReference:
-              SwidStaticConstTopLevelVariableReference.clone(
-            swidStaticConstTopLevelVariableReference: val,
-          ),
+          swidStaticConstTopLevelVariableReference: val,
         ),
       );
 

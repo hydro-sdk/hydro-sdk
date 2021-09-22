@@ -39,14 +39,9 @@ class SwidStaticConstBinaryExpression
   }) =>
       SwidStaticConstBinaryExpression(
         operator: operator ?? swidStaticConstBinaryExpression.operator,
-        leftOperand: SwidStaticConst.clone(
-          swidStaticConst:
-              leftOperand ?? swidStaticConstBinaryExpression.leftOperand,
-        ),
-        rightOperand: SwidStaticConst.clone(
-          swidStaticConst:
-              rightOperand ?? swidStaticConstBinaryExpression.rightOperand,
-        ),
+        leftOperand: leftOperand ?? swidStaticConstBinaryExpression.leftOperand,
+        rightOperand:
+            rightOperand ?? swidStaticConstBinaryExpression.rightOperand,
       );
 
   @override

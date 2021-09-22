@@ -37,9 +37,7 @@ class SwidStaticConstFieldDeclaration
   }) =>
       SwidStaticConstFieldDeclaration(
         name: name ?? swidStaticConstFieldDeclaration.name,
-        value: SwidStaticConst.clone(
-          swidStaticConst: value ?? swidStaticConstFieldDeclaration.value,
-        ),
+        value: value ?? swidStaticConstFieldDeclaration.value,
       );
 
   @override

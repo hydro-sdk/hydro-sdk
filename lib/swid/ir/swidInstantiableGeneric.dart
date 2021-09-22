@@ -41,14 +41,14 @@ class SwidInstantiableGeneric
   @override
   SwidInstantiableGeneric clone() => when(
         fromSwidClass: (val) => SwidInstantiableGeneric.fromSwidClass(
-          swidClass: val.clone(),
+          swidClass: val,
         ),
         fromSwidInterface: (val) => SwidInstantiableGeneric.fromSwidInterface(
-          swidInterface: val.clone(),
+          swidInterface: val,
         ),
         fromSwidFunctionType: (val) =>
             SwidInstantiableGeneric.fromSwidFunctionType(
-          swidFunctionType: val.clone(),
+          swidFunctionType: val,
         ),
       );
 }

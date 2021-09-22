@@ -45,29 +45,11 @@ class SwidStaticConstFunctionInvocation
   }) =>
       SwidStaticConstFunctionInvocation(
         value: value ?? swidStaticConstFunctionInvocation.value,
-        staticType: staticType ??
-            SwidType.clone(
-              swidType: swidStaticConstFunctionInvocation.staticType,
-            ),
+        staticType: staticType ?? swidStaticConstFunctionInvocation.staticType,
         normalParameters: normalParameters ??
-            List.from(swidStaticConstFunctionInvocation.normalParameters
-                .map((x) => SwidStaticConst.clone(
-                      swidStaticConst: x,
-                    ))
-                .toList()),
+            swidStaticConstFunctionInvocation.normalParameters,
         namedParameters: namedParameters ??
-            Map.fromEntries(
-              swidStaticConstFunctionInvocation.namedParameters.entries
-                  .map(
-                    (x) => MapEntry(
-                      x.key,
-                      SwidStaticConst.clone(
-                        swidStaticConst: x.value,
-                      ),
-                    ),
-                  )
-                  .toList(),
-            ),
+            swidStaticConstFunctionInvocation.namedParameters,
         isConstructorInvocation: isConstructorInvocation ??
             swidStaticConstFunctionInvocation.isConstructorInvocation,
       );

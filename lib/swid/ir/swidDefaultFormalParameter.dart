@@ -48,14 +48,8 @@ class SwidDefaultFormalParameter
             nullabilitySuffix ?? swidDefaultFormalParameter.nullabilitySuffix,
         originalPackagePath: originalPackagePath ??
             swidDefaultFormalParameter.originalPackagePath,
-        staticType: staticType ??
-            SwidType.clone(
-              swidType: swidDefaultFormalParameter.staticType,
-            ),
-        value: value ??
-            SwidStaticConst.clone(
-              swidStaticConst: swidDefaultFormalParameter.value,
-            ),
+        staticType: staticType ?? swidDefaultFormalParameter.staticType,
+        value: value ?? swidDefaultFormalParameter.value,
         defaultValueCode:
             defaultValueCode ?? swidDefaultFormalParameter.defaultValueCode,
       );

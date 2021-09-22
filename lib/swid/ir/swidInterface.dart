@@ -49,13 +49,11 @@ class SwidInterface
         nullabilitySuffix: nullabilitySuffix ?? swidType.nullabilitySuffix,
         originalPackagePath:
             originalPackagePath ?? swidType.originalPackagePath,
-        typeArguments: typeArguments ?? List.from(swidType.typeArguments),
+        typeArguments: typeArguments ?? swidType.typeArguments,
         referenceDeclarationKind:
             referenceDeclarationKind ?? swidType.referenceDeclarationKind,
-        declarationModifiers: declarationModifiers ??
-            SwidDeclarationModifiers.clone(
-              declarationModifiers: swidType.declarationModifiers,
-            ),
+        declarationModifiers:
+            declarationModifiers ?? swidType.declarationModifiers,
       );
 
   factory SwidInterface.fromSwidClass({

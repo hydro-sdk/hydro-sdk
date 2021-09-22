@@ -38,10 +38,7 @@ class SwidStaticConstPrefixedExpression
   }) =>
       SwidStaticConstPrefixedExpression(
         prefix: prefix ?? swidStaticConstPrefixedExpression.prefix,
-        expression: expression ??
-            SwidStaticConst.clone(
-              swidStaticConst: swidStaticConstPrefixedExpression.expression,
-            ),
+        expression: expression ?? swidStaticConstPrefixedExpression.expression,
       );
 
   @override

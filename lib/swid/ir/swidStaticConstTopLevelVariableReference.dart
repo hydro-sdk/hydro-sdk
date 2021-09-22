@@ -40,10 +40,7 @@ class SwidStaticConstTopLevelVariableReference
         identifier:
             identifier ?? swidStaticConstTopLevelVariableReference.identifier,
         topLevelReference: topLevelReference ??
-            SwidType.clone(
-              swidType:
-                  swidStaticConstTopLevelVariableReference.topLevelReference,
-            ),
+            swidStaticConstTopLevelVariableReference.topLevelReference,
       );
 
   @override

@@ -34,10 +34,7 @@ class SwidStaticConstIdentifier
   }) =>
       SwidStaticConstIdentifier(
         identifier: identifier ?? swidStaticConstIdentifier.identifier,
-        enclosingType: enclosingType ??
-            SwidType.clone(
-              swidType: swidStaticConstIdentifier.enclosingType,
-            ),
+        enclosingType: enclosingType ?? swidStaticConstIdentifier.enclosingType,
       );
 
   @override

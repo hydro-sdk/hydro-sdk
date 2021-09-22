@@ -11,7 +11,10 @@ import 'package:hydro_sdk/swid/util/iHashKey.dart';
 mixin HashKeyMixin<T extends Object> implements IHashKey, ICloneable<T> {
   @nonVirtual
   @override
-  late final hashKey = _sha256(hashableParts);
+  late final hashKey = _sha256(hashablePartsCache);
+
+  @nonVirtual
+  late final List<int> hashablePartsCache = hashableParts;
 
   @nonVirtual
   String _sha256(final List<int> data) {

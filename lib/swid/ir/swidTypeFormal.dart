@@ -42,15 +42,13 @@ class SwidTypeFormalValue
       swidTypeFormalValue.when(
         fromString: (val) => SwidTypeFormalValue.fromString(string: val),
         fromSwidClass: (val) => SwidTypeFormalValue.fromSwidClass(
-          swidClass: SwidClass.clone(swidClass: val),
+          swidClass: val,
         ),
         fromSwidInterface: (val) => SwidTypeFormalValue.fromSwidInterface(
-          swidInterface: SwidInterface.clone(swidType: val),
+          swidInterface: val,
         ),
         fromSwidFunctionType: (val) => SwidTypeFormalValue.fromSwidFunctionType(
-          swidFunctionType: SwidFunctionType.clone(
-            swidFunctionType: val,
-          ),
+          swidFunctionType: val,
         ),
       );
 

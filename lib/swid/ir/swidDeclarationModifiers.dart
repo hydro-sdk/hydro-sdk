@@ -158,14 +158,14 @@ class SwidDeclarationModifiers
     final bool? isPublic,
   }) =>
       SwidDeclarationModifiers(
-        ignoredTransforms: ignoredTransforms ??
-            List.from(declarationModifiers.ignoredTransforms),
+        ignoredTransforms:
+            ignoredTransforms ?? declarationModifiers.ignoredTransforms,
         ignoredAnalyses:
-            ignoredAnalyses ?? List.from(declarationModifiers.ignoredAnalyses),
+            ignoredAnalyses ?? declarationModifiers.ignoredAnalyses,
         overridenTransforms: overridenTransforms ??
             declarationModifiers.overridenTransforms
                 .map(
-                  (x) => x.clone(),
+                  (x) => x,
                 )
                 .toList(),
         isAbstract: isAbstract ?? declarationModifiers.isAbstract,

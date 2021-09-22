@@ -52,25 +52,17 @@ class SwidType
   }) =>
       swidType.when(
         fromSwidInterface: (val) => SwidType.fromSwidInterface(
-          swidInterface: SwidInterface.clone(
-            swidType: val,
-          ),
+          swidInterface: val,
         ),
         fromSwidClass: (val) => SwidType.fromSwidClass(
-          swidClass: SwidClass.clone(
-            swidClass: val,
-          ),
+          swidClass: val,
         ),
         fromSwidDefaultFormalParameter: (val) =>
             SwidType.fromSwidDefaultFormalParameter(
-          swidDefaultFormalParameter: SwidDefaultFormalParameter.clone(
-            swidDefaultFormalParameter: val,
-          ),
+          swidDefaultFormalParameter: val,
         ),
         fromSwidFunctionType: (val) => SwidType.fromSwidFunctionType(
-          swidFunctionType: SwidFunctionType.clone(
-            swidFunctionType: val,
-          ),
+          swidFunctionType: val,
         ),
       );
 
