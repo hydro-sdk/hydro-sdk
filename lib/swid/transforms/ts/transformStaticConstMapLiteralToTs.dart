@@ -1,4 +1,5 @@
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/swidStaticConstFieldReference.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstMapLiteral.dart';
 import 'package:hydro_sdk/swid/ir/util/rewriteClassReferencesToInterfaceReferences.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
@@ -70,8 +71,10 @@ class TransformStaticConstMapLiteralToTs
           "<IIterable<IMapEntry",
           "<",
           rewriteClassReferencesToInterfaceReferences(
-            swidType: transformPrimitiveNamesToTs(
-              swidType: staticConstMapLiteral.staticType,
+            swidType: pipeline.reduceFromTerm(
+              TransformPrimitiveNamesToTs(
+                swidType: staticConstMapLiteral.staticType,
+              ),
             ),
           ).maybeWhen(
             fromSwidInterface: (val) =>
@@ -83,12 +86,14 @@ class TransformStaticConstMapLiteralToTs
           "List.fromArray([",
           staticConstMapLiteral.elements
               .map(
-                (x) => transformStaticConstMapLiteralEntryToTs(
-                  staticConstMapLiteralEntry: x,
-                  parentClass: parentClass,
-                  inexpressibleFunctionInvocationFallback:
-                      inexpressibleFunctionInvocationFallback,
-                  scopeResolver: scopeResolver,
+                (x) => pipeline.reduceFromTerm(
+                  TransformStaticConstMapLiteralEntryToTs(
+                    staticConstMapLiteralEntry: x,
+                    parentClass: parentClass,
+                    inexpressibleFunctionInvocationFallback:
+                        inexpressibleFunctionInvocationFallback,
+                    scopeResolver: scopeResolver,
+                  ),
                 ),
               )
               .join(", "),

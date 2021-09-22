@@ -60,22 +60,28 @@ class TransformPrimitiveNamesToTs
       SwarsTermResult.fromJsonTransformable(
         swidType.when(
           fromSwidFunctionType: (val) => SwidType.fromSwidFunctionType(
-            swidFunctionType: transformPrimitiveFunctionTypeNamesToTs(
-              swidFunctionType: val,
+            swidFunctionType: pipeline.reduceFromTerm(
+              TransformPrimitiveFunctionTypeNamesToTs(
+                swidFunctionType: val,
+              ),
             ),
           ),
           fromSwidInterface: (val) => SwidType.fromSwidInterface(
             swidInterface: SwidInterface.clone(
               swidType: val,
               name: val.originalPackagePath == "dart:core"
-                  ? mapPrimitiveSwidTypeNameToPrimitiveTsTypeName(
-                      str: val.name,
+                  ? pipeline.reduceFromTerm(
+                      MapPrimitiveSwidTypeNameToPrimitiveTsTypeName(
+                        str: val.name,
+                      ),
                     )
                   : val.name,
               typeArguments: val.typeArguments
                   .map(
-                    (x) => transformPrimitiveNamesToTs(
-                      swidType: x,
+                    (x) => pipeline.reduceFromTerm(
+                      TransformPrimitiveNamesToTs(
+                        swidType: x,
+                      ),
                     ),
                   )
                   .toList(),
@@ -86,48 +92,64 @@ class TransformPrimitiveNamesToTs
             swidClass: SwidClass.clone(
               swidClass: val,
               name: val.originalPackagePath == "dart:core"
-                  ? mapPrimitiveSwidTypeNameToPrimitiveTsTypeName(
-                      str: val.name,
+                  ? pipeline.reduceFromTerm(
+                      MapPrimitiveSwidTypeNameToPrimitiveTsTypeName(
+                        str: val.name,
+                      ),
                     )
                   : val.name,
               extendedClass: val.extendedClass != null
-                  ? transformPrimitiveNamesToTs(
-                      swidType: SwidType.fromSwidClass(
-                        swidClass: val.extendedClass!,
-                      ),
-                    ).when(
-                      fromSwidInterface: (_) => null,
-                      fromSwidClass: (val) => val,
-                      fromSwidDefaultFormalParameter: (_) => null,
-                      fromSwidFunctionType: (_) => null,
-                    )
+                  ? pipeline
+                      .reduceFromTerm(
+                        TransformPrimitiveNamesToTs(
+                          swidType: SwidType.fromSwidClass(
+                            swidClass: val.extendedClass!,
+                          ),
+                        ),
+                      )
+                      .when(
+                        fromSwidInterface: (_) => null,
+                        fromSwidClass: (val) => val,
+                        fromSwidDefaultFormalParameter: (_) => null,
+                        fromSwidFunctionType: (_) => null,
+                      )
                   : null,
               implementedClasses: val.implementedClasses
                   .map(
-                    (x) => transformPrimitiveNamesToTs(
-                      swidType: SwidType.fromSwidClass(
-                        swidClass: x,
-                      ),
-                    ).when(
-                      fromSwidInterface: (_) => dartUnknownClass,
-                      fromSwidClass: (val) => val,
-                      fromSwidDefaultFormalParameter: (_) => dartUnknownClass,
-                      fromSwidFunctionType: (_) => dartUnknownClass,
-                    ),
+                    (x) => pipeline
+                        .reduceFromTerm(
+                          TransformPrimitiveNamesToTs(
+                            swidType: SwidType.fromSwidClass(
+                              swidClass: x,
+                            ),
+                          ),
+                        )
+                        .when(
+                          fromSwidInterface: (_) => dartUnknownClass,
+                          fromSwidClass: (val) => val,
+                          fromSwidDefaultFormalParameter: (_) =>
+                              dartUnknownClass,
+                          fromSwidFunctionType: (_) => dartUnknownClass,
+                        ),
                   )
                   .toList(),
               mixedInClasses: val.mixedInClasses
                   .map(
-                    (x) => transformPrimitiveNamesToTs(
-                      swidType: SwidType.fromSwidClass(
-                        swidClass: x,
-                      ),
-                    ).when(
-                      fromSwidInterface: (_) => dartUnknownClass,
-                      fromSwidClass: (val) => val,
-                      fromSwidDefaultFormalParameter: (_) => dartUnknownClass,
-                      fromSwidFunctionType: (_) => dartUnknownClass,
-                    ),
+                    (x) => pipeline
+                        .reduceFromTerm(
+                          TransformPrimitiveNamesToTs(
+                            swidType: SwidType.fromSwidClass(
+                              swidClass: x,
+                            ),
+                          ),
+                        )
+                        .when(
+                          fromSwidInterface: (_) => dartUnknownClass,
+                          fromSwidClass: (val) => val,
+                          fromSwidDefaultFormalParameter: (_) =>
+                              dartUnknownClass,
+                          fromSwidFunctionType: (_) => dartUnknownClass,
+                        ),
                   )
                   .toList(),
               typeFormals: val.typeFormals
@@ -140,31 +162,40 @@ class TransformPrimitiveNamesToTs
                         ),
                         fromSwidClass: (val) =>
                             SwidTypeFormalValue.fromSwidClass(
-                          swidClass: transformPrimitiveNamesToTs(
-                            swidType: SwidType.fromSwidClass(
-                              swidClass: val,
-                            ),
-                          ).when(
-                            fromSwidInterface: (_) => dartUnknownClass,
-                            fromSwidClass: (val) => val,
-                            fromSwidDefaultFormalParameter: (_) =>
-                                dartUnknownClass,
-                            fromSwidFunctionType: (_) => dartUnknownClass,
-                          ),
+                          swidClass: pipeline
+                              .reduceFromTerm(
+                                TransformPrimitiveNamesToTs(
+                                  swidType: SwidType.fromSwidClass(
+                                    swidClass: val,
+                                  ),
+                                ),
+                              )
+                              .when(
+                                fromSwidInterface: (_) => dartUnknownClass,
+                                fromSwidClass: (val) => val,
+                                fromSwidDefaultFormalParameter: (_) =>
+                                    dartUnknownClass,
+                                fromSwidFunctionType: (_) => dartUnknownClass,
+                              ),
                         ),
                         fromSwidInterface: (val) =>
                             SwidTypeFormalValue.fromSwidInterface(
-                          swidInterface: transformPrimitiveNamesToTs(
-                            swidType: SwidType.fromSwidInterface(
-                              swidInterface: val,
-                            ),
-                          ).when(
-                            fromSwidInterface: (val) => val,
-                            fromSwidClass: (_) => dartUnknownInterface,
-                            fromSwidDefaultFormalParameter: (_) =>
-                                dartUnknownInterface,
-                            fromSwidFunctionType: (_) => dartUnknownInterface,
-                          ),
+                          swidInterface: pipeline
+                              .reduceFromTerm(
+                                TransformPrimitiveNamesToTs(
+                                  swidType: SwidType.fromSwidInterface(
+                                    swidInterface: val,
+                                  ),
+                                ),
+                              )
+                              .when(
+                                fromSwidInterface: (val) => val,
+                                fromSwidClass: (_) => dartUnknownInterface,
+                                fromSwidDefaultFormalParameter: (_) =>
+                                    dartUnknownInterface,
+                                fromSwidFunctionType: (_) =>
+                                    dartUnknownInterface,
+                              ),
                         ),
                         fromSwidFunctionType: (val) =>
                             SwidTypeFormalValue.fromSwidFunctionType(
@@ -179,8 +210,10 @@ class TransformPrimitiveNamesToTs
                   .toList(),
               methods: val.methods
                   .map(
-                    (x) => transformPrimitiveFunctionTypeNamesToTs(
-                      swidFunctionType: x,
+                    (x) => pipeline.reduceFromTerm(
+                      TransformPrimitiveFunctionTypeNamesToTs(
+                        swidFunctionType: x,
+                      ),
                     ),
                   )
                   .toList(),

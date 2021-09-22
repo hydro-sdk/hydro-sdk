@@ -65,10 +65,12 @@ String _transformVmDeclarationToTs({
         .map(
           (x) =>
               "${x!.name}: " +
-              transformTypeDeclarationToTs(
-                parentClass: null,
-                swidType: SwidType.fromSwidFunctionType(
-                  swidFunctionType: x,
+              pipeline.reduceFromTerm(
+                TransformTypeDeclarationToTs(
+                  parentClass: null,
+                  swidType: SwidType.fromSwidFunctionType(
+                    swidFunctionType: x,
+                  ),
                 ),
               ),
         )
@@ -78,6 +80,7 @@ String _transformVmDeclarationToTs({
         .map(
           (x) => _transformVmDeclarationToTs(
             tsVmDeclaration: x,
+            pipeline: pipeline,
           ),
         )
         .toList()

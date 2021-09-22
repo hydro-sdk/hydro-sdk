@@ -1,5 +1,6 @@
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
+import 'package:hydro_sdk/swid/ir/swidStaticConstFieldReference.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstPrefixedIdentifier.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsNonUniqueTermMixin.dart';
@@ -67,15 +68,17 @@ class TransformStaticConstPrefixedIdentifierToTs
         [
           staticConstPrefixedIdentifier.prefix.name,
           ".",
-          transformLiteralToTs(
-            swidLiteral: SwidStaticConst.fromSwidStaticConstFieldReference(
-                swidStaticConstFieldReference:
-                    staticConstPrefixedIdentifier.staticConstFieldReference),
-            parentClass: parentClass,
-            scopeResolver: scopeResolver,
-            inexpressibleFunctionInvocationFallback:
-                inexpressibleFunctionInvocationFallback,
-          )
+          pipeline.reduceFromTerm(
+            TransformLiteralToTs(
+              swidLiteral: SwidStaticConst.fromSwidStaticConstFieldReference(
+                  swidStaticConstFieldReference:
+                      staticConstPrefixedIdentifier.staticConstFieldReference),
+              parentClass: parentClass,
+              scopeResolver: scopeResolver,
+              inexpressibleFunctionInvocationFallback:
+                  inexpressibleFunctionInvocationFallback,
+            ),
+          ),
         ].join(),
       );
 }

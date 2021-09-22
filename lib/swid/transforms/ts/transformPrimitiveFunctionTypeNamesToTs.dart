@@ -59,8 +59,10 @@ class TransformPrimitiveFunctionTypeNamesToTs
           normalParameterTypes: List.from(
             swidFunctionType.normalParameterTypes.map(
               (x) => cloneSwidType(
-                swidType: transformPrimitiveNamesToTs(
-                  swidType: x,
+                swidType: pipeline.reduceFromTerm(
+                  TransformPrimitiveNamesToTs(
+                    swidType: x,
+                  ),
                 ),
               ),
             ),
@@ -68,8 +70,10 @@ class TransformPrimitiveFunctionTypeNamesToTs
           optionalParameterTypes: List.from(
             swidFunctionType.optionalParameterTypes.map(
               (x) => cloneSwidType(
-                swidType: transformPrimitiveNamesToTs(
-                  swidType: x,
+                swidType: pipeline.reduceFromTerm(
+                  TransformPrimitiveNamesToTs(
+                    swidType: x,
+                  ),
                 ),
               ),
             ),
@@ -79,15 +83,19 @@ class TransformPrimitiveFunctionTypeNamesToTs
               (k, x) => MapEntry(
                 k,
                 cloneSwidType(
-                  swidType: transformPrimitiveNamesToTs(
-                    swidType: x,
+                  swidType: pipeline.reduceFromTerm(
+                    TransformPrimitiveNamesToTs(
+                      swidType: x,
+                    ),
                   ),
                 ),
               ),
             ),
           ),
-          returnType: transformPrimitiveNamesToTs(
-            swidType: swidFunctionType.returnType,
+          returnType: pipeline.reduceFromTerm(
+            TransformPrimitiveNamesToTs(
+              swidType: swidFunctionType.returnType,
+            ),
           ),
         ),
       );

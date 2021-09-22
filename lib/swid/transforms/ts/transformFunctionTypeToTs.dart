@@ -91,8 +91,11 @@ class TransformFunctionTypeToTs
   ISwarsTermResult<String> transform({
     required final ISwarsPipeline pipeline,
   }) {
-    var res = transformTypeFormalsToTs(
-            swidTypeFormals: swidFunctionType.typeFormals) +
+    var res = pipeline.reduceFromTerm(
+          TransformTypeFormalsToTs(
+            swidTypeFormals: swidFunctionType.typeFormals,
+          ),
+        ) +
         "(";
 
     Map<String, SwidType?> normalTypes = {};
@@ -147,11 +150,13 @@ class TransformFunctionTypeToTs
           }
 
           res += " : ";
-          res += transformFunctionTypeToTs(
-            parentClass: parentClass,
-            swidFunctionType: val,
-            trailingReturnTypeKind: nestedTrailingReturnTypeKind,
-            nestedTrailingReturnTypeKind: nestedTrailingReturnTypeKind,
+          res += pipeline.reduceFromTerm(
+            TransformFunctionTypeToTs(
+              parentClass: parentClass,
+              swidFunctionType: val,
+              trailingReturnTypeKind: nestedTrailingReturnTypeKind,
+              nestedTrailingReturnTypeKind: nestedTrailingReturnTypeKind,
+            ),
           );
 
           return null;
@@ -171,17 +176,19 @@ class TransformFunctionTypeToTs
           }
 
           res += ": " +
-              transformTypeDeclarationToTs(
-                parentClass: parentClass,
-                swidType: SwidType.fromSwidInterface(
-                  swidInterface: val,
+              pipeline.reduceFromTerm(
+                TransformTypeDeclarationToTs(
+                  parentClass: parentClass,
+                  swidType: SwidType.fromSwidInterface(
+                    swidInterface: val,
+                  ),
+                  emitDefaultFormalsAsOptionalNamed:
+                      emitDefaultFormalsAsOptionalNamed,
+                  emitTopLevelInitializersForOptionalPositionals:
+                      emitInitializersForOptionalPositionals,
+                  emitTrailingReturnType: emitTrailingReturnType,
+                  nestedTrailingReturnTypeKind: nestedTrailingReturnTypeKind,
                 ),
-                emitDefaultFormalsAsOptionalNamed:
-                    emitDefaultFormalsAsOptionalNamed,
-                emitTopLevelInitializersForOptionalPositionals:
-                    emitInitializersForOptionalPositionals,
-                emitTrailingReturnType: emitTrailingReturnType,
-                nestedTrailingReturnTypeKind: nestedTrailingReturnTypeKind,
               );
 
           if (emitInitializersForOptionalPositionals) {
@@ -191,15 +198,17 @@ class TransformFunctionTypeToTs
             if (initializer != null) {
               res += [
                 " = ",
-                transformLiteralToTs(
-                  swidLiteral: initializer.value.value,
-                  parentClass: parentClass,
-                  inexpressibleFunctionInvocationFallback:
-                      makeDefaultInexpressibleFunctionInvocationFallback(
-                          parentClass: parentClass, name: initializer.key),
-                  scopeResolver:
-                      makeDefaultStaticConstFieldReferenceScopeResolver(
+                pipeline.reduceFromTerm(
+                  TransformLiteralToTs(
+                    swidLiteral: initializer.value.value,
                     parentClass: parentClass,
+                    inexpressibleFunctionInvocationFallback:
+                        makeDefaultInexpressibleFunctionInvocationFallback(
+                            parentClass: parentClass, name: initializer.key),
+                    scopeResolver:
+                        makeDefaultStaticConstFieldReferenceScopeResolver(
+                      parentClass: parentClass,
+                    ),
                   ),
                 )
               ].join("");
@@ -240,8 +249,12 @@ class TransformFunctionTypeToTs
               ? "?"
               : "",
           " : ",
-          transformTypeDeclarationToTs(
-              parentClass: parentClass, swidType: x.value),
+          pipeline.reduceFromTerm(
+            TransformTypeDeclarationToTs(
+              parentClass: parentClass,
+              swidType: x.value,
+            ),
+          ),
           ",",
         ].join("");
       });
@@ -250,9 +263,11 @@ class TransformFunctionTypeToTs
 
     res += ")";
     if (emitTrailingReturnType) {
-      res += transformReturnTypeToTs(
-        swidFunctionType: swidFunctionType,
-        trailingReturnTypeKind: trailingReturnTypeKind,
+      res += pipeline.reduceFromTerm(
+        TransformReturnTypeToTs(
+          swidFunctionType: swidFunctionType,
+          trailingReturnTypeKind: trailingReturnTypeKind,
+        ),
       );
     }
     return SwarsTermResult.fromString(

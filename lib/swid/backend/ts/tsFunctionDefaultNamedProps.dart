@@ -65,15 +65,17 @@ class TsFunctionDefaultNamedProps
                         )
                             ? [
                                 "    ${x.key}: ",
-                                transformTypeDeclarationToTs(
-                                  parentClass: null,
-                                  emitTopLevelInitializersForOptionalPositionals:
-                                      true,
-                                  swidType:
-                                      rewriteClassReferencesToInterfaceReferences(
+                                pipeline.reduceFromTerm(
+                                  TransformTypeDeclarationToTs(
+                                    parentClass: null,
+                                    emitTopLevelInitializersForOptionalPositionals:
+                                        true,
                                     swidType:
-                                        SwidType.fromSwidDefaultFormalParameter(
-                                      swidDefaultFormalParameter: x.value,
+                                        rewriteClassReferencesToInterfaceReferences(
+                                      swidType: SwidType
+                                          .fromSwidDefaultFormalParameter(
+                                        swidDefaultFormalParameter: x.value,
+                                      ),
                                     ),
                                   ),
                                 ),

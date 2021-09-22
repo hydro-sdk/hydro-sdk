@@ -1,4 +1,5 @@
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/swidStaticConstFieldReference.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstListLiteral.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsNonUniqueTermMixin.dart';
@@ -69,23 +70,25 @@ class TransformStaticConstListLiteralToTs
           ...(staticConstListLiteral.elements.isEmpty
               ? [
                   "<",
-                  transformTypeDeclarationToTs(
-                    swidType: staticConstListLiteral.staticType.when(
-                      fromSwidInterface: (val) => val.typeArguments.first,
-                      fromSwidClass: (_) => staticConstListLiteral.staticType,
-                      fromSwidDefaultFormalParameter: (_) =>
-                          staticConstListLiteral.staticType,
-                      fromSwidFunctionType: (_) =>
-                          staticConstListLiteral.staticType,
+                  pipeline.reduceFromTerm(
+                    TransformTypeDeclarationToTs(
+                      swidType: staticConstListLiteral.staticType.when(
+                        fromSwidInterface: (val) => val.typeArguments.first,
+                        fromSwidClass: (_) => staticConstListLiteral.staticType,
+                        fromSwidDefaultFormalParameter: (_) =>
+                            staticConstListLiteral.staticType,
+                        fromSwidFunctionType: (_) =>
+                            staticConstListLiteral.staticType,
+                      ),
+                      parentClass: null,
+                      emitDefaultFormalsAsOptionalNamed: false,
+                      emitTopLevelInitializersForOptionalPositionals: false,
+                      emitTrailingReturnType: true,
+                      nestedTrailingReturnTypeKind:
+                          TrailingReturnTypeKind.fatArrow,
+                      topLevelTrailingReturnTypeKind:
+                          TrailingReturnTypeKind.fatArrow,
                     ),
-                    parentClass: null,
-                    emitDefaultFormalsAsOptionalNamed: false,
-                    emitTopLevelInitializersForOptionalPositionals: false,
-                    emitTrailingReturnType: true,
-                    nestedTrailingReturnTypeKind:
-                        TrailingReturnTypeKind.fatArrow,
-                    topLevelTrailingReturnTypeKind:
-                        TrailingReturnTypeKind.fatArrow,
                   ),
                   ">",
                 ]
@@ -94,12 +97,14 @@ class TransformStaticConstListLiteralToTs
           "[",
           ...staticConstListLiteral.elements
               .map((x) => [
-                    transformLiteralToTs(
-                      swidLiteral: x,
-                      parentClass: parentClass,
-                      inexpressibleFunctionInvocationFallback:
-                          inexpressibleFunctionInvocationFallback,
-                      scopeResolver: scopeResolver,
+                    pipeline.reduceFromTerm(
+                      TransformLiteralToTs(
+                        swidLiteral: x,
+                        parentClass: parentClass,
+                        inexpressibleFunctionInvocationFallback:
+                            inexpressibleFunctionInvocationFallback,
+                        scopeResolver: scopeResolver,
+                      ),
                     ),
                     ",",
                   ].join(""))

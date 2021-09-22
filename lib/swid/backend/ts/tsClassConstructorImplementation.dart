@@ -63,13 +63,17 @@ class TsClassConstructorImplementation
       SwarsTermResult.fromString(
         swidClass.constructorType != null
             ? "public constructor" +
-                transformTypeDeclarationToTs(
+                pipeline.reduceFromTerm(
+                  TransformTypeDeclarationToTs(
                     parentClass: swidClass,
                     emitTrailingReturnType: false,
                     emitDefaultFormalsAsOptionalNamed: true,
                     emitTopLevelInitializersForOptionalPositionals: true,
                     swidType: SwidType.fromSwidFunctionType(
-                        swidFunctionType: swidClass.constructorType!)) +
+                      swidFunctionType: swidClass.constructorType!,
+                    ),
+                  ),
+                ) +
                 "{\n" +
                 pipeline.reduceFromTerm(
                   TsFunctionSelfBindingInvocation(

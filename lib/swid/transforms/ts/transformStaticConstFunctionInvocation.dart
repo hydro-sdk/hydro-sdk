@@ -1,5 +1,6 @@
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
+import 'package:hydro_sdk/swid/ir/swidStaticConstFieldReference.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstFunctionInvocation.dart';
 import 'package:hydro_sdk/swid/ir/util/isInexpressibleStaticConst.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
@@ -65,12 +66,14 @@ class TransformStaticConstFunctionInvocation
   ISwarsTermResult<String> transform({
     required final ISwarsPipeline pipeline,
   }) {
-    var normalParameters = transformNormalParametersToTs(
-      swidLiterals: swidStaticConstFunctionInvocation.normalParameters,
-      parentClass: parentClass,
-      scopeResolver: scopeResolver,
-      inexpressibleFunctionInvocationFallback:
-          inexpressibleFunctionInvocationFallback,
+    var normalParameters = pipeline.reduceFromTerm(
+      TransformNormalParametersToTs(
+        swidLiterals: swidStaticConstFunctionInvocation.normalParameters,
+        parentClass: parentClass,
+        scopeResolver: scopeResolver,
+        inexpressibleFunctionInvocationFallback:
+            inexpressibleFunctionInvocationFallback,
+      ),
     );
 
     var res = "";
@@ -89,12 +92,14 @@ class TransformStaticConstFunctionInvocation
         res += normalParameters;
       }
 
-      var namedParameters = transformNamedParametersToTs(
-        namedParameters: swidStaticConstFunctionInvocation.namedParameters,
-        parentClass: parentClass,
-        scopeResolver: scopeResolver,
-        inexpressibleFunctionInvocationFallback:
-            inexpressibleFunctionInvocationFallback,
+      var namedParameters = pipeline.reduceFromTerm(
+        TransformNamedParametersToTs(
+          namedParameters: swidStaticConstFunctionInvocation.namedParameters,
+          parentClass: parentClass,
+          scopeResolver: scopeResolver,
+          inexpressibleFunctionInvocationFallback:
+              inexpressibleFunctionInvocationFallback,
+        ),
       );
 
       if ((normalParameters.isNotEmpty) && (namedParameters.isNotEmpty)) {

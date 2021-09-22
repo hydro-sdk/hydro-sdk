@@ -46,8 +46,10 @@ class TsEnum
     required final ISwarsPipeline pipeline,
   }) =>
       SwarsTermResult.fromString(
-        transformEnumToTs(
-          swidEnum: swidEnum,
+        pipeline.reduceFromTerm(
+          TransformEnumToTs(
+            swidEnum: swidEnum,
+          ),
         ),
       );
 }

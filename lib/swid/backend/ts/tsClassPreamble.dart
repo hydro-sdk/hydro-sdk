@@ -50,7 +50,11 @@ class TsClassPreamble
       SwarsTermResult.fromString(
         ([
           "export class ${swidClass.name}",
-          transformTypeFormalsToTs(swidTypeFormals: swidClass.typeFormals),
+          pipeline.reduceFromTerm(
+            TransformTypeFormalsToTs(
+              swidTypeFormals: swidClass.typeFormals,
+            ),
+          ),
           pipeline.reduceFromTerm(
             TsSuperClassClause(
               swidClass: swidClass,

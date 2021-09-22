@@ -1,4 +1,5 @@
 import 'package:collection/collection.dart' show IterableExtension;
+import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:tuple/tuple.dart';
 
 import 'package:hydro_sdk/swid/backend/ts/tsLinebreak.dart';
@@ -19,9 +20,11 @@ import 'package:hydro_sdk/swid/ir/util/narrowSwidInterfaceByReferenceDeclaration
 List<TsIr> tsImportBlock({
   required final SwidClass swidClass,
   required final List<String> prefixPaths,
+  required final ISwarsPipeline pipeline,
 }) {
   List<Tuple2<List<String>, String>> symbolModulePairs =
       resolveDependencyInformation(
+    pipeline: pipeline,
     dependencies: [
       ...collectAllReferences(
         includeFirstOrderSuperClassReferences: true,
@@ -73,6 +76,7 @@ List<TsIr> tsImportBlock({
 
   List<Tuple2<List<String>, String>> staticConstSymbolModulePairs =
       resolveDependencyInformation(
+          pipeline: pipeline,
           rewriteReferences: false,
           dependencies: collectAllStaticConstReferences(
                   swidType: SwidType.fromSwidClass(swidClass: swidClass))

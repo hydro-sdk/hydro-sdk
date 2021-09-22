@@ -133,120 +133,127 @@ class TsClassVmDeclaration
                   swidClass: swidClass,
                 ) ||
                 swidClass.isConstructible()
-            ? ((SwidClass swidClass) => transformVmDeclarationToTs(
-                      tsVmDeclaration: transformPackageUri(
-                        packageUri: swidClass.originalPackagePath,
-                      )
-                          .split(path.separator)
-                          .map(
-                            (x) => TsVmDeclaration(
-                              name: x,
-                              methods: [],
-                              children: [],
-                            ),
-                          )
-                          .reduce(
-                            (previousValue, element) => TsVmDeclaration.clone(
-                              tsVmDeclaration:
-                                  _addConstructorBindingDeclarations(
-                                tsVmDeclaration: previousValue,
+            ? ((SwidClass swidClass) => pipeline.reduceFromTerm(
+                      TransformVmDeclarationToTs(
+                        tsVmDeclaration: transformPackageUri(
+                          packageUri: swidClass.originalPackagePath,
+                        )
+                            .split(path.separator)
+                            .map(
+                              (x) => TsVmDeclaration(
+                                name: x,
+                                methods: [],
+                                children: [],
                               ),
-                              children: [
-                                _addConstructorBindingDeclarations(
-                                  tsVmDeclaration: TsVmDeclaration.clone(
-                                    tsVmDeclaration: element,
-                                    methods: [
-                                      ...swidClass.factoryConstructors,
-                                      ...swidClass.staticMethods.where(
-                                        (x) => x.isTransformIgnored(
-                                          transformName: "tsClassVmDeclaration",
+                            )
+                            .reduce(
+                              (previousValue, element) => TsVmDeclaration.clone(
+                                tsVmDeclaration:
+                                    _addConstructorBindingDeclarations(
+                                  tsVmDeclaration: previousValue,
+                                ),
+                                children: [
+                                  _addConstructorBindingDeclarations(
+                                    tsVmDeclaration: TsVmDeclaration.clone(
+                                      tsVmDeclaration: element,
+                                      methods: [
+                                        ...swidClass.factoryConstructors,
+                                        ...swidClass.staticMethods.where(
+                                          (x) => x.isTransformIgnored(
+                                            transformName:
+                                                "tsClassVmDeclaration",
+                                          ),
                                         ),
-                                      ),
-                                      ...swidClass.staticConstFieldDeclarations
-                                          .where(
-                                            (x) => isInexpressibleStaticConst(
-                                              staticConst: x.value,
-                                              parentClass: swidClass,
-                                            ),
-                                          )
-                                          .map(
-                                            (x) =>
-                                                rewriteClassReferencesToInterfaceReferencesInFunction(
-                                              swidFunctionType: SwidFunctionType
-                                                  .MakeReceiverVoid(
+                                        ...swidClass
+                                            .staticConstFieldDeclarations
+                                            .where(
+                                              (x) => isInexpressibleStaticConst(
+                                                staticConst: x.value,
+                                                parentClass: swidClass,
+                                              ),
+                                            )
+                                            .map(
+                                              (x) =>
+                                                  rewriteClassReferencesToInterfaceReferencesInFunction(
                                                 swidFunctionType:
-                                                    SwidFunctionType(
-                                                  declarationModifiers:
-                                                      SwidDeclarationModifiers
-                                                          .empty(),
-                                                  name: x.name,
-                                                  nullabilitySuffix:
-                                                      SwidNullabilitySuffix
-                                                          .none,
-                                                  originalPackagePath: swidClass
-                                                      .originalPackagePath,
-                                                  namedParameterTypes: {},
-                                                  namedDefaults: {},
-                                                  normalParameterNames: [],
-                                                  normalParameterTypes: [],
-                                                  optionalParameterNames: [],
-                                                  optionalParameterTypes: [],
-                                                  returnType:
-                                                      x.value.when<SwidType?>(
-                                                    fromSwidStaticConstTopLevelVariableReference:
-                                                        (_) => null,
-                                                    fromSwidStaticConstMapLiteral:
-                                                        (_) => null,
-                                                    fromSwidStaticConstMapLiteralEntry:
-                                                        (_) => null,
-                                                    fromSwidBooleanLiteral:
-                                                        (_) => null,
-                                                    fromSwidStringLiteral:
-                                                        (_) => null,
-                                                    fromSwidIntegerLiteral:
-                                                        (_) => null,
-                                                    fromDoubleLiteral: (_) =>
-                                                        null,
-                                                    fromSwidStaticConstFunctionInvocation:
-                                                        (val) => val.staticType,
-                                                    fromSwidStaticConstFieldReference:
-                                                        (_) => null,
-                                                    fromSwidStaticConstPrefixedExpression:
-                                                        (_) => null,
-                                                    fromSwidStaticConstBinaryExpression:
-                                                        (_) => null,
-                                                    fromSwidStaticConstPrefixedIdentifier:
-                                                        (_) => null,
-                                                    fromSwidStaticConstIdentifier:
-                                                        (_) => null,
-                                                    fromSwidStaticConstListLiteral:
-                                                        (_) => null,
-                                                  )!,
-                                                  isFactory: false,
-                                                  typeFormals: [],
+                                                    SwidFunctionType
+                                                        .MakeReceiverVoid(
+                                                  swidFunctionType:
+                                                      SwidFunctionType(
+                                                    declarationModifiers:
+                                                        SwidDeclarationModifiers
+                                                            .empty(),
+                                                    name: x.name,
+                                                    nullabilitySuffix:
+                                                        SwidNullabilitySuffix
+                                                            .none,
+                                                    originalPackagePath:
+                                                        swidClass
+                                                            .originalPackagePath,
+                                                    namedParameterTypes: {},
+                                                    namedDefaults: {},
+                                                    normalParameterNames: [],
+                                                    normalParameterTypes: [],
+                                                    optionalParameterNames: [],
+                                                    optionalParameterTypes: [],
+                                                    returnType:
+                                                        x.value.when<SwidType?>(
+                                                      fromSwidStaticConstTopLevelVariableReference:
+                                                          (_) => null,
+                                                      fromSwidStaticConstMapLiteral:
+                                                          (_) => null,
+                                                      fromSwidStaticConstMapLiteralEntry:
+                                                          (_) => null,
+                                                      fromSwidBooleanLiteral:
+                                                          (_) => null,
+                                                      fromSwidStringLiteral:
+                                                          (_) => null,
+                                                      fromSwidIntegerLiteral:
+                                                          (_) => null,
+                                                      fromDoubleLiteral: (_) =>
+                                                          null,
+                                                      fromSwidStaticConstFunctionInvocation:
+                                                          (val) =>
+                                                              val.staticType,
+                                                      fromSwidStaticConstFieldReference:
+                                                          (_) => null,
+                                                      fromSwidStaticConstPrefixedExpression:
+                                                          (_) => null,
+                                                      fromSwidStaticConstBinaryExpression:
+                                                          (_) => null,
+                                                      fromSwidStaticConstPrefixedIdentifier:
+                                                          (_) => null,
+                                                      fromSwidStaticConstIdentifier:
+                                                          (_) => null,
+                                                      fromSwidStaticConstListLiteral:
+                                                          (_) => null,
+                                                    )!,
+                                                    isFactory: false,
+                                                    typeFormals: [],
+                                                  ),
                                                 ),
                                               ),
+                                            )
+                                            .toList()
+                                      ]
+                                          .map(
+                                            (x) => SwidFunctionType.clone(
+                                              swidFunctionType: x,
+                                              name: transformToCamelCase(
+                                                    str: swidClass.name,
+                                                  ) +
+                                                  transformToPascalCase(
+                                                    str: x.name,
+                                                  ),
                                             ),
                                           )
-                                          .toList()
-                                    ]
-                                        .map(
-                                          (x) => SwidFunctionType.clone(
-                                            swidFunctionType: x,
-                                            name: transformToCamelCase(
-                                                  str: swidClass.name,
-                                                ) +
-                                                transformToPascalCase(
-                                                  str: x.name,
-                                                ),
-                                          ),
-                                        )
-                                        .toList(),
+                                          .toList(),
+                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
-                          ),
+                      ),
                     ))(
                   rewriteClassReferencesToInterfaceReferencesInClass(
                     swidClass: swidClass,

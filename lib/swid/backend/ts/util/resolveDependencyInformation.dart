@@ -1,4 +1,5 @@
 import 'package:collection/collection.dart' show IterableExtension;
+import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:path/path.dart' as p;
 import 'package:tuple/tuple.dart';
 
@@ -17,6 +18,7 @@ List<Tuple2<List<String>, String>> resolveDependencyInformation({
   required final List<SwidInterface> dependencies,
   required final SwidType importer,
   required final List<String> prefixPaths,
+  required final ISwarsPipeline pipeline,
   bool rewriteReferences = true,
 }) =>
     dependencies
@@ -54,10 +56,12 @@ List<Tuple2<List<String>, String>> resolveDependencyInformation({
                     )
                   : removeTypeArguments(str: x.name),
             ],
-            resolveTsImportsPaths(
-                  importee: SwidType.fromSwidInterface(swidInterface: x),
-                  importer: importer,
-                  prefixPaths: prefixPaths,
+            pipeline.reduceFromTerm(
+                  ResolveTsImportPaths(
+                    importee: SwidType.fromSwidInterface(swidInterface: x),
+                    importer: importer,
+                    prefixPaths: prefixPaths,
+                  ),
                 ) +
                 p.separator +
                 transformToCamelCase(

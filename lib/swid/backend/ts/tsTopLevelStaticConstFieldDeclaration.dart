@@ -54,9 +54,11 @@ class TsTopLevelStaticConstFieldDeclaration
     required final ISwarsPipeline pipeline,
   }) =>
       SwarsTermResult.fromString(
-        transformTopLevelStaticConstFieldDeclaration(
-          swidTopLevelStaticConstFieldDeclaration:
-              swidTopLevelStaticConstFieldDeclaration,
+        pipeline.reduceFromTerm(
+          TransformTopLevelStaticConstFieldDeclaration(
+            swidTopLevelStaticConstFieldDeclaration:
+                swidTopLevelStaticConstFieldDeclaration,
+          ),
         ),
       );
 }

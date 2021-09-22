@@ -65,17 +65,21 @@ class TsSuperClassClause
                       " ",
                       superInterfaces
                           .map(
-                            (x) => transformPrimitiveNamesToTs(
-                              swidType: SwidType.fromSwidClass(
-                                swidClass: x,
-                              ),
-                            ).when(
-                              fromSwidInterface: (_) => dartUnknownClass,
-                              fromSwidClass: (val) => val,
-                              fromSwidDefaultFormalParameter: (_) =>
-                                  dartUnknownClass,
-                              fromSwidFunctionType: (_) => dartUnknownClass,
-                            ),
+                            (x) => pipeline
+                                .reduceFromTerm(
+                                  TransformPrimitiveNamesToTs(
+                                    swidType: SwidType.fromSwidClass(
+                                      swidClass: x,
+                                    ),
+                                  ),
+                                )
+                                .when(
+                                  fromSwidInterface: (_) => dartUnknownClass,
+                                  fromSwidClass: (val) => val,
+                                  fromSwidDefaultFormalParameter: (_) =>
+                                      dartUnknownClass,
+                                  fromSwidFunctionType: (_) => dartUnknownClass,
+                                ),
                           )
                           .map((x) => (!x.hasSyntheticAccessors() &&
                                   !x.hasMixinApplicationThatConflictsWithSuperClassOrInterface())

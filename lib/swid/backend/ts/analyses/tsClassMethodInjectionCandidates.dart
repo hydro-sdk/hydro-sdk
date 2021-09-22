@@ -58,9 +58,11 @@ class TsClassMethodInjectionCandidates
       SwarsTermResult.fromList(
         swidFunctionTypes
             .map(
-              (x) => transformPrimitiveFunctionTypeNamesToTs(
-                swidFunctionType: transformAccessorName(
-                  swidFunctionType: x,
+              (x) => pipeline.reduceFromTerm(
+                TransformPrimitiveFunctionTypeNamesToTs(
+                  swidFunctionType: transformAccessorName(
+                    swidFunctionType: x,
+                  ),
                 ),
               ),
             )

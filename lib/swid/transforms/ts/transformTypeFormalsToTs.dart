@@ -52,7 +52,13 @@ class TransformTypeFormalsToTs
             ? ([
                 "<",
                 swidTypeFormals
-                    .map((x) => transformTypeFormalToTs(swidTypeFormal: x!))
+                    .map(
+                      (x) => pipeline.reduceFromTerm(
+                        TransformTypeFormalToTs(
+                          swidTypeFormal: x,
+                        ),
+                      ),
+                    )
                     .join(", "),
                 ">"
               ]).join()

@@ -52,12 +52,15 @@ class TsClassStaticConstFieldDeclarations
     var res = "";
     swidClass.staticConstFieldDeclarations.forEach((x) {
       res += "    " +
-          transformStaticConstFieldDeclaration(
+          pipeline.reduceFromTerm(
+            TransformStaticConstFieldDeclaration(
               staticConstFieldDeclaration: x,
               parentClass: swidClass,
               scopeResolver: makeDefaultStaticConstFieldReferenceScopeResolver(
                 parentClass: swidClass,
-              ));
+              ),
+            ),
+          );
       res += "\n";
     });
     return SwarsTermResult.fromString(res);

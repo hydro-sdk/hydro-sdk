@@ -1,3 +1,4 @@
+import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:tuple/tuple.dart';
 
 import 'package:hydro_sdk/swid/backend/util/removeNonEmitCandidates.dart';
@@ -10,18 +11,23 @@ import 'package:hydro_sdk/swid/transforms/ts/transformPrimitiveNamesToTs.dart';
 
 Tuple3<SwidClass, SwidClass, SwidClass> prepareClassForTranslationUnit({
   required final SwidClass swidClass,
+  required final ISwarsPipeline pipeline,
 }) =>
     Tuple3(
       removeNonEmitCandidates(
-        swidClass: transformPrimitiveClassTypeNamesToTs(
-          swidClass: swidClass,
+        swidClass: pipeline.reduceFromTerm(
+          TransformPrimitiveClassTypeNamesToTs(
+            swidClass: swidClass,
+          ),
         ),
       ),
       removeNonEmitCandidates(
         swidClass: rewriteClassReferencesToInterfaceReferences(
-          swidType: transformPrimitiveNamesToTs(
-            swidType: SwidType.fromSwidClass(
-              swidClass: swidClass,
+          swidType: pipeline.reduceFromTerm(
+            TransformPrimitiveNamesToTs(
+              swidType: SwidType.fromSwidClass(
+                swidClass: swidClass,
+              ),
             ),
           ),
         ).when(
@@ -34,9 +40,11 @@ Tuple3<SwidClass, SwidClass, SwidClass> prepareClassForTranslationUnit({
       SwidClass.mergeSuperClasses(
         swidClass: removeNonEmitCandidates(
           swidClass: rewriteClassReferencesToInterfaceReferences(
-            swidType: transformPrimitiveNamesToTs(
-              swidType: SwidType.fromSwidClass(
-                swidClass: swidClass,
+            swidType: pipeline.reduceFromTerm(
+              TransformPrimitiveNamesToTs(
+                swidType: SwidType.fromSwidClass(
+                  swidClass: swidClass,
+                ),
               ),
             ),
           ).when(

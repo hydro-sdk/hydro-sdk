@@ -68,16 +68,18 @@ class TsClassStaticMethodImplementation
         [
           "public static ",
           swidFunctionType.name,
-          transformTypeDeclarationToTs(
-            parentClass: swidClass,
-            emitTrailingReturnType: true,
-            emitDefaultFormalsAsOptionalNamed: true,
-            emitTopLevelInitializersForOptionalPositionals: true,
-            topLevelTrailingReturnTypeKind: TrailingReturnTypeKind.colon,
-            swidType: SwidType.fromSwidFunctionType(
-              swidFunctionType:
-                  rewriteClassReferencesToInterfaceReferencesInFunction(
-                swidFunctionType: swidFunctionType,
+          pipeline.reduceFromTerm(
+            TransformTypeDeclarationToTs(
+              parentClass: swidClass,
+              emitTrailingReturnType: true,
+              emitDefaultFormalsAsOptionalNamed: true,
+              emitTopLevelInitializersForOptionalPositionals: true,
+              topLevelTrailingReturnTypeKind: TrailingReturnTypeKind.colon,
+              swidType: SwidType.fromSwidFunctionType(
+                swidFunctionType:
+                    rewriteClassReferencesToInterfaceReferencesInFunction(
+                  swidFunctionType: swidFunctionType,
+                ),
               ),
             ),
           ),

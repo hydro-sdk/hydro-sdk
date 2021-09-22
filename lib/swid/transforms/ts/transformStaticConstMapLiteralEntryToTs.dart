@@ -1,4 +1,5 @@
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/swidStaticConstFieldReference.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstMapLiteralEntry.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsNonUniqueTermMixin.dart';
@@ -64,20 +65,24 @@ class TransformStaticConstMapLiteralEntryToTs
       SwarsTermResult.fromString(
         [
           " new MapEntry(",
-          transformLiteralToTs(
-            swidLiteral: staticConstMapLiteralEntry.key,
-            parentClass: parentClass,
-            inexpressibleFunctionInvocationFallback:
-                inexpressibleFunctionInvocationFallback,
-            scopeResolver: scopeResolver,
+          pipeline.reduceFromTerm(
+            TransformLiteralToTs(
+              swidLiteral: staticConstMapLiteralEntry.key,
+              parentClass: parentClass,
+              inexpressibleFunctionInvocationFallback:
+                  inexpressibleFunctionInvocationFallback,
+              scopeResolver: scopeResolver,
+            ),
           ),
           " , ",
-          transformLiteralToTs(
-            swidLiteral: staticConstMapLiteralEntry.value,
-            parentClass: parentClass,
-            inexpressibleFunctionInvocationFallback:
-                inexpressibleFunctionInvocationFallback,
-            scopeResolver: scopeResolver,
+          pipeline.reduceFromTerm(
+            TransformLiteralToTs(
+              swidLiteral: staticConstMapLiteralEntry.value,
+              parentClass: parentClass,
+              inexpressibleFunctionInvocationFallback:
+                  inexpressibleFunctionInvocationFallback,
+              scopeResolver: scopeResolver,
+            ),
           ),
           ")",
         ].join(),

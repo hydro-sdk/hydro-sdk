@@ -10,6 +10,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
 import 'package:hydro_sdk/swid/util/unHashableMixin.dart';
+import 'package:hydro_sdk/swid/ir/swidStaticConstFieldReference.dart';
 
 part 'transformNamedParametersToTs.freezed.dart';
 
@@ -61,15 +62,19 @@ class TransformNamedParametersToTs
         namedParameters != null && namedParameters!.keys.isNotEmpty
             ? "{ " +
                 namedParameters!.keys
-                    .map((x) =>
-                        "$x: " +
-                        transformLiteralToTs(
-                          swidLiteral: namedParameters![x]!,
-                          parentClass: parentClass,
-                          scopeResolver: scopeResolver,
-                          inexpressibleFunctionInvocationFallback:
-                              inexpressibleFunctionInvocationFallback,
-                        ))
+                    .map(
+                      (x) =>
+                          "$x: " +
+                          pipeline.reduceFromTerm(
+                            TransformLiteralToTs(
+                              swidLiteral: namedParameters![x]!,
+                              parentClass: parentClass,
+                              scopeResolver: scopeResolver,
+                              inexpressibleFunctionInvocationFallback:
+                                  inexpressibleFunctionInvocationFallback,
+                            ),
+                          ),
+                    )
                     .join(", ") +
                 " }"
             : "",

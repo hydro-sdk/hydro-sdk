@@ -73,14 +73,16 @@ class TsClassMethodInjectionFieldDeclarations
                             ),
                           ) +
                           ": " +
-                          transformFunctionTypeToTs(
-                            parentClass: swidClass,
-                            swidFunctionType:
-                                rewriteClassReferencesToInterfaceReferencesInFunction(
-                              swidFunctionType: x,
+                          pipeline.reduceFromTerm(
+                            TransformFunctionTypeToTs(
+                              parentClass: swidClass,
+                              swidFunctionType:
+                                  rewriteClassReferencesToInterfaceReferencesInFunction(
+                                swidFunctionType: x,
+                              ),
+                              trailingReturnTypeKind:
+                                  TrailingReturnTypeKind.fatArrow,
                             ),
-                            trailingReturnTypeKind:
-                                TrailingReturnTypeKind.fatArrow,
                           ) +
                           " = undefined as any;")
                       .toList()

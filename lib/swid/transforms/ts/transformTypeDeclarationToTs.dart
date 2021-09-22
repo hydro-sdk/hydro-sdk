@@ -99,8 +99,12 @@ class TransformTypeDeclarationToTs
                 : ""))(
           !isPrimitiveMap(swidType: swidType)
               ? removeNullabilitySuffixFromTypeNames(
-                      swidType: transformPrimitiveNamesToTs(swidType: swidType))
-                  .when(
+                  swidType: pipeline.reduceFromTerm(
+                    TransformPrimitiveNamesToTs(
+                      swidType: swidType,
+                    ),
+                  ),
+                ).when(
                   fromSwidInterface: ((val) =>
                       narrowSwidInterfaceByReferenceDeclaration(
                         swidInterface: val,
@@ -111,18 +115,21 @@ class TransformTypeDeclarationToTs
                                 ? "<" +
                                     val.typeArguments
                                         .map(
-                                            (x) => transformTypeDeclarationToTs(
-                                                  swidType: x,
-                                                  parentClass: parentClass,
-                                                  emitTrailingReturnType:
-                                                      emitTrailingReturnType,
-                                                  emitDefaultFormalsAsOptionalNamed:
-                                                      emitDefaultFormalsAsOptionalNamed,
-                                                  topLevelTrailingReturnTypeKind:
-                                                      nestedTrailingReturnTypeKind,
-                                                  nestedTrailingReturnTypeKind:
-                                                      nestedTrailingReturnTypeKind,
-                                                ))
+                                          (x) => pipeline.reduceFromTerm(
+                                            TransformTypeDeclarationToTs(
+                                              swidType: x,
+                                              parentClass: parentClass,
+                                              emitTrailingReturnType:
+                                                  emitTrailingReturnType,
+                                              emitDefaultFormalsAsOptionalNamed:
+                                                  emitDefaultFormalsAsOptionalNamed,
+                                              topLevelTrailingReturnTypeKind:
+                                                  nestedTrailingReturnTypeKind,
+                                              nestedTrailingReturnTypeKind:
+                                                  nestedTrailingReturnTypeKind,
+                                            ),
+                                          ),
+                                        )
                                         .toList()
                                         .join(", ") +
                                     ">"
@@ -135,18 +142,21 @@ class TransformTypeDeclarationToTs
                                 ? "<" +
                                     val.typeArguments
                                         .map(
-                                            (x) => transformTypeDeclarationToTs(
-                                                  swidType: x,
-                                                  parentClass: parentClass,
-                                                  emitTrailingReturnType:
-                                                      emitTrailingReturnType,
-                                                  emitDefaultFormalsAsOptionalNamed:
-                                                      emitDefaultFormalsAsOptionalNamed,
-                                                  topLevelTrailingReturnTypeKind:
-                                                      nestedTrailingReturnTypeKind,
-                                                  nestedTrailingReturnTypeKind:
-                                                      nestedTrailingReturnTypeKind,
-                                                ))
+                                          (x) => pipeline.reduceFromTerm(
+                                            TransformTypeDeclarationToTs(
+                                              swidType: x,
+                                              parentClass: parentClass,
+                                              emitTrailingReturnType:
+                                                  emitTrailingReturnType,
+                                              emitDefaultFormalsAsOptionalNamed:
+                                                  emitDefaultFormalsAsOptionalNamed,
+                                              topLevelTrailingReturnTypeKind:
+                                                  nestedTrailingReturnTypeKind,
+                                              nestedTrailingReturnTypeKind:
+                                                  nestedTrailingReturnTypeKind,
+                                            ),
+                                          ),
+                                        )
                                         .toList()
                                         .join(", ") +
                                     ">"
@@ -158,45 +168,55 @@ class TransformTypeDeclarationToTs
                   fromSwidDefaultFormalParameter: (val) =>
                       !emitTopLevelInitializersForOptionalPositionals
                           ? val.staticType.name
-                          : transformLiteralToTs(
-                              swidLiteral: val.value,
-                              parentClass: parentClass,
-                              inexpressibleFunctionInvocationFallback:
-                                  makeDefaultInexpressibleFunctionInvocationFallback(
+                          : pipeline.reduceFromTerm(
+                              TransformLiteralToTs(
+                                swidLiteral: val.value,
                                 parentClass: parentClass,
-                                name: "",
-                              ),
-                              scopeResolver:
-                                  makeDefaultStaticConstFieldReferenceScopeResolver(
-                                parentClass: parentClass,
+                                inexpressibleFunctionInvocationFallback:
+                                    makeDefaultInexpressibleFunctionInvocationFallback(
+                                  parentClass: parentClass,
+                                  name: "",
+                                ),
+                                scopeResolver:
+                                    makeDefaultStaticConstFieldReferenceScopeResolver(
+                                  parentClass: parentClass,
+                                ),
                               ),
                             ),
-                  fromSwidFunctionType: (val) => transformFunctionTypeToTs(
-                    swidFunctionType: transformIllegalParameterNames(
-                      swidFunctionType: val,
+                  fromSwidFunctionType: (val) => pipeline.reduceFromTerm(
+                    TransformFunctionTypeToTs(
+                      swidFunctionType: transformIllegalParameterNames(
+                        swidFunctionType: val,
+                      ),
+                      parentClass: parentClass,
+                      emitInitializersForOptionalPositionals:
+                          emitTopLevelInitializersForOptionalPositionals,
+                      emitTrailingReturnType: emitTrailingReturnType,
+                      emitDefaultFormalsAsOptionalNamed:
+                          emitDefaultFormalsAsOptionalNamed,
+                      trailingReturnTypeKind: topLevelTrailingReturnTypeKind,
                     ),
-                    parentClass: parentClass,
-                    emitInitializersForOptionalPositionals:
-                        emitTopLevelInitializersForOptionalPositionals,
-                    emitTrailingReturnType: emitTrailingReturnType,
-                    emitDefaultFormalsAsOptionalNamed:
-                        emitDefaultFormalsAsOptionalNamed,
-                    trailingReturnTypeKind: topLevelTrailingReturnTypeKind,
                   ),
                 )
               : (swidType.when(
                   fromSwidInterface: (val) =>
                       "{[index: " +
-                      transformTypeDeclarationToTs(
-                        parentClass: parentClass,
-                        swidType: transformPrimitiveNamesToTs(
-                          swidType: val.typeArguments.first,
+                      pipeline.reduceFromTerm(
+                        TransformTypeDeclarationToTs(
+                          parentClass: parentClass,
+                          swidType: pipeline.reduceFromTerm(
+                            TransformPrimitiveNamesToTs(
+                              swidType: val.typeArguments.first,
+                            ),
+                          ),
                         ),
                       ) +
                       "]: " +
-                      transformTypeDeclarationToTs(
-                        parentClass: parentClass,
-                        swidType: val.typeArguments.last,
+                      pipeline.reduceFromTerm(
+                        TransformTypeDeclarationToTs(
+                          parentClass: parentClass,
+                          swidType: val.typeArguments.last,
+                        ),
                       ) +
                       "}",
                   fromSwidClass: (_) => "",

@@ -1,4 +1,5 @@
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/swidStaticConstFieldReference.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstPrefixedExpression.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsNonUniqueTermMixin.dart';
@@ -64,12 +65,14 @@ class TransformStaticConstPrefixedExpressionToTs
   }) =>
       SwarsTermResult.fromString(
         swidStaticConstPrefixedExpression.prefix +
-            transformLiteralToTs(
-              swidLiteral: swidStaticConstPrefixedExpression.expression,
-              parentClass: parentClass,
-              scopeResolver: scopeResolver,
-              inexpressibleFunctionInvocationFallback:
-                  inexpressibleFunctionInvocationFallback,
+            pipeline.reduceFromTerm(
+              TransformLiteralToTs(
+                swidLiteral: swidStaticConstPrefixedExpression.expression,
+                parentClass: parentClass,
+                scopeResolver: scopeResolver,
+                inexpressibleFunctionInvocationFallback:
+                    inexpressibleFunctionInvocationFallback,
+              ),
             ),
       );
 }

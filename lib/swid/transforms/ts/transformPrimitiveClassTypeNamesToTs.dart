@@ -55,15 +55,19 @@ class TransformPrimitiveClassTypeNamesToTs
     required final ISwarsPipeline pipeline,
   }) =>
       SwarsTermResult.fromJsonTransformable(
-        transformPrimitiveNamesToTs(
-          swidType: SwidType.fromSwidClass(
-            swidClass: swidClass,
-          ),
-        ).when(
-          fromSwidInterface: (_) => dartUnknownClass,
-          fromSwidClass: (val) => val,
-          fromSwidDefaultFormalParameter: (_) => dartUnknownClass,
-          fromSwidFunctionType: (_) => dartUnknownClass,
-        ),
+        pipeline
+            .reduceFromTerm(
+              TransformPrimitiveNamesToTs(
+                swidType: SwidType.fromSwidClass(
+                  swidClass: swidClass,
+                ),
+              ),
+            )
+            .when(
+              fromSwidInterface: (_) => dartUnknownClass,
+              fromSwidClass: (val) => val,
+              fromSwidDefaultFormalParameter: (_) => dartUnknownClass,
+              fromSwidFunctionType: (_) => dartUnknownClass,
+            ),
       );
 }

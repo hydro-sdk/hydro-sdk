@@ -62,17 +62,19 @@ class TransformTopLevelStaticConstFieldDeclaration
           " ",
           swidTopLevelStaticConstFieldDeclaration.declaration.name,
           " = ",
-          transformLiteralToTs(
-            swidLiteral:
-                swidTopLevelStaticConstFieldDeclaration.declaration.value,
-            parentClass: null,
-            inexpressibleFunctionInvocationFallback:
-                makeDefaultInexpressibleFunctionInvocationFallback(
+          pipeline.reduceFromTerm(
+            TransformLiteralToTs(
+              swidLiteral:
+                  swidTopLevelStaticConstFieldDeclaration.declaration.value,
               parentClass: null,
-              name: swidTopLevelStaticConstFieldDeclaration.declaration.name,
-            ),
-            scopeResolver: makeDefaultStaticConstFieldReferenceScopeResolver(
-              parentClass: null,
+              inexpressibleFunctionInvocationFallback:
+                  makeDefaultInexpressibleFunctionInvocationFallback(
+                parentClass: null,
+                name: swidTopLevelStaticConstFieldDeclaration.declaration.name,
+              ),
+              scopeResolver: makeDefaultStaticConstFieldReferenceScopeResolver(
+                parentClass: null,
+              ),
             ),
           ),
           ";",

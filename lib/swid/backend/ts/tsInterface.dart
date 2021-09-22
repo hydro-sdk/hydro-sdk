@@ -64,13 +64,19 @@ class TsInterface
           SwarsTermResult.fromString(
             ([
               "export interface $name",
-              transformTypeFormalsToTs(swidTypeFormals: typeFormals),
+              pipeline.reduceFromTerm(
+                TransformTypeFormalsToTs(
+                  swidTypeFormals: typeFormals,
+                ),
+              ),
               emitSuperInterfaceExtensions ? superClause : "",
               "{",
               ...members.entries
-                  .map((x) => "${x.key}: ${transformTypeDeclarationToTs(
-                        parentClass: null,
-                        swidType: x.value,
+                  .map((x) => "${x.key}: ${pipeline.reduceFromTerm(
+                        TransformTypeDeclarationToTs(
+                          parentClass: null,
+                          swidType: x.value,
+                        ),
                       )};")
                   .toList(),
               "}"

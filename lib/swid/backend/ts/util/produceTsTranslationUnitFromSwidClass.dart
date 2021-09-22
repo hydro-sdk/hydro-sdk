@@ -57,6 +57,7 @@ TsTranslationUnit produceTsTranslationUnitFromSwidClass({
                         swidClass: swidClass,
                       ),
                       prefixPaths: prefixPaths,
+                      pipeline: pipeline,
                     ),
                     TsIr.fromTsClassVmDeclaration(
                       tsClassVmDeclaration: TsClassVmDeclaration(
@@ -187,6 +188,7 @@ TsTranslationUnit produceTsTranslationUnitFromSwidClass({
                     ...tsImportBlock(
                       swidClass: swidClass,
                       prefixPaths: prefixPaths,
+                      pipeline: pipeline,
                     ),
                     TsIr.fromTsInterface(
                       tsInterface: TsInterface(
@@ -208,11 +210,14 @@ TsTranslationUnit produceTsTranslationUnitFromSwidClass({
                   ]))(
       swidClass: prepareClassForTranslationUnit(
         swidClass: swidClass,
+        pipeline: pipeline,
       ).item1,
       swidClassWithInterfaceReferences: prepareClassForTranslationUnit(
         swidClass: swidClass,
+        pipeline: pipeline,
       ).item3,
       unMergedSwidClassWithInterfaceReferences: prepareClassForTranslationUnit(
         swidClass: swidClass,
+        pipeline: pipeline,
       ).item2,
     );
