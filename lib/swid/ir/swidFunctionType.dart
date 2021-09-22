@@ -147,10 +147,10 @@ class SwidFunctionType
         ...normalParameterTypes.hashableParts,
         ...optionalParameterNames.hashableParts,
         ...optionalParameterTypes.hashableParts,
-        ...returnType.hashableParts,
+        ...returnType.hashKey.hashableParts,
         ...isFactory.hashableParts,
         ...typeFormals.hashableParts,
-        ...declarationModifiers.hashableParts,
+        ...declarationModifiers.hashKey.hashableParts,
       ];
 
   Map<String, SwidDefaultFormalParameter> get namedDefaultParameters =>

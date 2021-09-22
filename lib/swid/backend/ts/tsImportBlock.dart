@@ -1,5 +1,4 @@
 import 'package:collection/collection.dart' show IterableExtension;
-import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:tuple/tuple.dart';
 
 import 'package:hydro_sdk/swid/backend/ts/tsLinebreak.dart';
@@ -16,6 +15,7 @@ import 'package:hydro_sdk/swid/ir/util/collectAllReferences.dart';
 import 'package:hydro_sdk/swid/ir/util/collectAllStaticConstReferences.dart';
 import 'package:hydro_sdk/swid/ir/util/hasStaticConstMap.dart';
 import 'package:hydro_sdk/swid/ir/util/narrowSwidInterfaceByReferenceDeclaration.dart';
+import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 
 List<TsIr> tsImportBlock({
   required final SwidClass swidClass,

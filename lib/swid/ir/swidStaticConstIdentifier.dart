@@ -40,7 +40,7 @@ class SwidStaticConstIdentifier
   @override
   List<int> get hashableParts => [
         ...identifier.hashableParts,
-        ...enclosingType.hashableParts,
+        ...enclosingType.hashKey.hashableParts,
       ];
 
   @override

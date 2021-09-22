@@ -38,7 +38,7 @@ class DartUnpackClosures
 
   @override
   List<int> get hashableParts => [
-        ...swidFunctionType.hashableParts,
+        ...swidFunctionType.hashKey.hashableParts,
       ];
 
   @override

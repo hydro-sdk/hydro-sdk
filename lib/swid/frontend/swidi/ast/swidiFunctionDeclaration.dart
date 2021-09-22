@@ -85,7 +85,7 @@ class SwidiFunctionDeclaration
   @override
   List<int> get hashableParts => [
         ...name.hashableParts,
-        ...returnType.hashableParts,
+        ...returnType.hashKey.hashableParts,
         ...positionalParameters.hashableParts,
         ...optionalParameters.hashableParts,
         ...namedParameters.hashableParts,

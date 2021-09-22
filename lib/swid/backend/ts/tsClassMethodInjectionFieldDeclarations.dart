@@ -38,7 +38,7 @@ class TsClassMethodInjectionFieldDeclarations
 
   @override
   List<int> get hashableParts => [
-        ...swidClass.hashableParts,
+        ...swidClass.hashKey.hashableParts,
       ];
 
   @override

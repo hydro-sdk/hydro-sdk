@@ -43,7 +43,7 @@ class InstantiateGeneric
   @override
   List<int> get hashableParts => [
         ...genericInstantiator.hashableParts,
-        ...swidType.hashableParts,
+        ...swidType.hashKey.hashableParts,
       ];
 
   @override

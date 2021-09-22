@@ -74,7 +74,7 @@ class ValidateSwidiClass
 
   @override
   List<int> get hashableParts => [
-        ...swidiClass.hashableParts,
+        ...swidiClass.hashKey.hashableParts,
       ];
 
   @override

@@ -75,7 +75,7 @@ class SwidInterface
         ...originalPackagePath.hashableParts,
         ...typeArguments.hashableParts,
         referenceDeclarationKind.index,
-        ...declarationModifiers.hashableParts,
+        ...declarationModifiers.hashKey.hashableParts,
       ];
 
   String get displayName =>

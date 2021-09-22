@@ -40,7 +40,7 @@ class InstantiateAllGenericsAsDynamic
 
   @override
   List<int> get hashableParts => [
-        ...swidType.hashableParts,
+        ...swidType.hashKey.hashableParts,
         ...instantiateNormalParameterTypes.hashableParts,
       ];
 

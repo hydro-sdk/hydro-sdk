@@ -36,7 +36,7 @@ class TsInterface
 
   @override
   List<int> get hashableParts => [
-        ...swidClass.hashableParts,
+        ...swidClass.hashKey.hashableParts,
         ...emitSuperInterfaceExtensions.hashableParts,
       ];
 

@@ -39,7 +39,7 @@ class TsFunctionSelfBindingInvocation
 
   @override
   List<int> get hashableParts => [
-        ...swidFunctionType.hashableParts,
+        ...swidFunctionType.hashKey.hashableParts,
         ...functionReference.hashableParts,
       ];
 

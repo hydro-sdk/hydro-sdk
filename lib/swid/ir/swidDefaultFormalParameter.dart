@@ -58,7 +58,7 @@ class SwidDefaultFormalParameter
   List<int> get hashableParts => [
         nullabilitySuffix.index,
         ...originalPackagePath.hashableParts,
-        ...staticType.hashableParts,
+        ...staticType.hashKey.hashableParts,
         ...value.hashableParts,
         ...defaultValueCode.hashableParts,
       ];
