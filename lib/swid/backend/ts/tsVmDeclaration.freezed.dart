@@ -22,7 +22,7 @@ class _$TsVmDeclarationTearOff {
 
   _$Data call(
       {required String name,
-      required List<SwidFunctionType?> methods,
+      required List<SwidFunctionType> methods,
       required List<TsVmDeclaration> children}) {
     return _$Data(
       name: name,
@@ -42,7 +42,7 @@ const $TsVmDeclaration = _$TsVmDeclarationTearOff();
 /// @nodoc
 mixin _$TsVmDeclaration {
   String get name => throw _privateConstructorUsedError;
-  List<SwidFunctionType?> get methods => throw _privateConstructorUsedError;
+  List<SwidFunctionType> get methods => throw _privateConstructorUsedError;
   List<TsVmDeclaration> get children => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -58,7 +58,7 @@ abstract class $TsVmDeclarationCopyWith<$Res> {
       _$TsVmDeclarationCopyWithImpl<$Res>;
   $Res call(
       {String name,
-      List<SwidFunctionType?> methods,
+      List<SwidFunctionType> methods,
       List<TsVmDeclaration> children});
 }
 
@@ -85,7 +85,7 @@ class _$TsVmDeclarationCopyWithImpl<$Res>
       methods: methods == freezed
           ? _value.methods
           : methods // ignore: cast_nullable_to_non_nullable
-              as List<SwidFunctionType?>,
+              as List<SwidFunctionType>,
       children: children == freezed
           ? _value.children
           : children // ignore: cast_nullable_to_non_nullable
@@ -101,7 +101,7 @@ abstract class _$$DataCopyWith<$Res> implements $TsVmDeclarationCopyWith<$Res> {
   @override
   $Res call(
       {String name,
-      List<SwidFunctionType?> methods,
+      List<SwidFunctionType> methods,
       List<TsVmDeclaration> children});
 }
 
@@ -128,7 +128,7 @@ class __$$DataCopyWithImpl<$Res> extends _$TsVmDeclarationCopyWithImpl<$Res>
       methods: methods == freezed
           ? _value.methods
           : methods // ignore: cast_nullable_to_non_nullable
-              as List<SwidFunctionType?>,
+              as List<SwidFunctionType>,
       children: children == freezed
           ? _value.children
           : children // ignore: cast_nullable_to_non_nullable
@@ -139,8 +139,9 @@ class __$$DataCopyWithImpl<$Res> extends _$TsVmDeclarationCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_$Data implements _$Data {
-  _$_$Data({required this.name, required this.methods, required this.children});
+class _$_$Data extends _$Data {
+  _$_$Data({required this.name, required this.methods, required this.children})
+      : super._();
 
   factory _$_$Data.fromJson(Map<String, dynamic> json) =>
       _$_$_$DataFromJson(json);
@@ -148,7 +149,7 @@ class _$_$Data implements _$Data {
   @override
   final String name;
   @override
-  final List<SwidFunctionType?> methods;
+  final List<SwidFunctionType> methods;
   @override
   final List<TsVmDeclaration> children;
 
@@ -189,18 +190,19 @@ class _$_$Data implements _$Data {
   }
 }
 
-abstract class _$Data implements TsVmDeclaration {
+abstract class _$Data extends TsVmDeclaration {
   factory _$Data(
       {required String name,
-      required List<SwidFunctionType?> methods,
+      required List<SwidFunctionType> methods,
       required List<TsVmDeclaration> children}) = _$_$Data;
+  _$Data._() : super._();
 
   factory _$Data.fromJson(Map<String, dynamic> json) = _$_$Data.fromJson;
 
   @override
   String get name => throw _privateConstructorUsedError;
   @override
-  List<SwidFunctionType?> get methods => throw _privateConstructorUsedError;
+  List<SwidFunctionType> get methods => throw _privateConstructorUsedError;
   @override
   List<TsVmDeclaration> get children => throw _privateConstructorUsedError;
   @override
