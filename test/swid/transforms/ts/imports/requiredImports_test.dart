@@ -7,6 +7,8 @@ import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/util/collectAllReferences.dart';
+import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
+import 'package:hydro_sdk/swid/swars/pipelineNoopCacheMgr.dart';
 import 'package:hydro_sdk/swid/transforms/ts/resolveTsImportPaths.dart';
 
 void main() {
@@ -54,11 +56,18 @@ void main() {
                 swidType: SwidType.fromSwidFunctionType(
           swidFunctionType: getProperties,
         ))
-            .map((x) => resolveTsImportsPaths(
-                importee: SwidType.fromSwidInterface(swidInterface: x),
-                importer: SwidType.fromSwidFunctionType(
-                    swidFunctionType: getProperties),
-                prefixPaths: ["runtime"]))
+            .map(
+              (x) => CachingPipeline(
+                cacheMgr: const PipelineNoopCacheMgr(),
+              ).reduceFromTerm(
+                ResolveTsImportPaths(
+                  importee: SwidType.fromSwidInterface(swidInterface: x),
+                  importer: SwidType.fromSwidFunctionType(
+                      swidFunctionType: getProperties),
+                  prefixPaths: ["runtime"],
+                ),
+              ),
+            )
             .join("\n"),
         ["../../dart/core", "."].join("\n"));
   }, tags: "swid");

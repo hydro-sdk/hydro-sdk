@@ -64,7 +64,7 @@ String _transformVmDeclarationToTs({
     tsVmDeclaration.methods
         .map(
           (x) =>
-              "${x!.name}: " +
+              "${x.name}: " +
               pipeline.reduceFromTerm(
                 TransformTypeDeclarationToTs(
                   parentClass: null,

@@ -11,6 +11,8 @@ import 'package:hydro_sdk/swid/ir/swidStaticConstFieldDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstFunctionInvocation.dart';
 import 'package:hydro_sdk/swid/ir/swidStringLiteral.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
+import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
+import 'package:hydro_sdk/swid/swars/pipelineNoopCacheMgr.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformStaticConstFieldDeclaration.dart';
 
 void main() {
@@ -60,10 +62,15 @@ void main() {
                 },
                 isConstructorInvocation: true)));
     expect(
-        transformStaticConstFieldDeclaration(
+        CachingPipeline(
+          cacheMgr: const PipelineNoopCacheMgr(),
+        ).reduceFromTerm(
+          TransformStaticConstFieldDeclaration(
             parentClass: icons,
             staticConstFieldDeclaration: tenk,
-            scopeResolver: (_) => null),
+            scopeResolver: (_) => null,
+          ),
+        ),
         "public static ten_k = new IconData(0xe52a,{ fontFamily: \"MaterialIcons\" });");
   }, tags: "swid");
 }
