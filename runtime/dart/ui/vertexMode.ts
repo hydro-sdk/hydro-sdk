@@ -3,3 +3,4 @@ export enum VertexMode {
     triangleStrip,
     triangleFan,
 }
+

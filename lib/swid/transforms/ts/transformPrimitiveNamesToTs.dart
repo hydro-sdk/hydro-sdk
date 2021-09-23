@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/util/hashableList.dart';
 
 import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
@@ -217,7 +218,7 @@ class TransformPrimitiveNamesToTs
                       ),
                     ),
                   )
-                  .toList(),
+                  .toHashableList(),
             ),
           ),
         ),

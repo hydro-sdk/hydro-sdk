@@ -4,3 +4,4 @@ export enum Clip {
     antiAlias,
     antiAliasWithSaveLayer,
 }
+

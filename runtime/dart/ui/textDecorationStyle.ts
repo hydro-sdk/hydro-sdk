@@ -5,3 +5,4 @@ export enum TextDecorationStyle {
     dashed,
     wavy,
 }
+

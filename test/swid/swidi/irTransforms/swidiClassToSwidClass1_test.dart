@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:hydro_sdk/swid/util/hashableList.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/swidiSourceToSwidIr.dart';
 import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
@@ -66,7 +67,7 @@ class "package:flutter/src/widgets/icon_data.dart"::IconData {
           isFactory: false,
           typeFormals: [],
         )
-      ],
+      ].toHashableList(),
       staticConstFieldDeclarations: [],
       instanceFieldDeclarations: {},
       declarationModifiers: SwidDeclarationModifiers.empty(),

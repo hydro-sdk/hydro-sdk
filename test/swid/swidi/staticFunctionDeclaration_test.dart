@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:hydro_sdk/swid/util/hashableList.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiClass.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConst.dart';
@@ -48,7 +49,7 @@ void main() {
               positionalParameters: [],
             )
           ],
-          methods: [],
+          methods: HashableList([]),
         ),
       ],
     );

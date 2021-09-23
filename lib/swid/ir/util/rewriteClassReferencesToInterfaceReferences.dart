@@ -1,4 +1,5 @@
 import 'package:collection/collection.dart' show IterableExtension;
+import 'package:hydro_sdk/swid/util/hashableList.dart';
 
 import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
@@ -145,7 +146,7 @@ SwidType rewriteClassReferencesToInterfaceReferences({
                     rewriteClassReferencesToInterfaceReferencesInFunction(
                       swidFunctionType: x,
                     ))
-                .toList(),
+                .toHashableList(),
             instanceFieldDeclarations: Map.fromEntries(
               val.instanceFieldDeclarations.entries
                   .map((x) => MapEntry(

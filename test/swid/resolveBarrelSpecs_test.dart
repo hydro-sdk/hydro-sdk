@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:hydro_sdk/swid/util/hashableList.dart';
 
 import 'package:hydro_sdk/swid/backend/util/barrelMember.dart';
 import 'package:hydro_sdk/swid/backend/util/resolveBarrelSpecs.dart';
@@ -18,7 +19,7 @@ void main() {
               constructorType: null,
               factoryConstructors: [],
               staticMethods: [],
-              methods: [],
+              methods: HashableList([]),
               implementedClasses: [],
               staticConstFieldDeclarations: [],
               instanceFieldDeclarations: {},
@@ -35,7 +36,7 @@ void main() {
               constructorType: null,
               factoryConstructors: [],
               staticMethods: [],
-              methods: [],
+              methods: HashableList([]),
               implementedClasses: [],
               staticConstFieldDeclarations: [],
               instanceFieldDeclarations: {},
@@ -52,7 +53,7 @@ void main() {
               constructorType: null,
               factoryConstructors: [],
               staticMethods: [],
-              methods: [],
+              methods: HashableList([]),
               implementedClasses: [],
               staticConstFieldDeclarations: [],
               instanceFieldDeclarations: {},
@@ -69,7 +70,7 @@ void main() {
               constructorType: null,
               factoryConstructors: [],
               staticMethods: [],
-              methods: [],
+              methods: HashableList([]),
               implementedClasses: [],
               staticConstFieldDeclarations: [],
               instanceFieldDeclarations: {},
@@ -86,7 +87,7 @@ void main() {
               constructorType: null,
               factoryConstructors: [],
               staticMethods: [],
-              methods: [],
+              methods: HashableList([]),
               implementedClasses: [],
               staticConstFieldDeclarations: [],
               instanceFieldDeclarations: {},
@@ -103,7 +104,7 @@ void main() {
               constructorType: null,
               factoryConstructors: [],
               staticMethods: [],
-              methods: [],
+              methods: HashableList([]),
               implementedClasses: [],
               staticConstFieldDeclarations: [],
               instanceFieldDeclarations: {},

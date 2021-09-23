@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:hydro_sdk/swid/util/hashableList.dart';
 
 import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
@@ -104,7 +105,7 @@ void main() {
       ),
       factoryConstructors: [],
       staticMethods: [],
-      methods: [],
+      methods: HashableList([]),
       staticConstFieldDeclarations: [],
       instanceFieldDeclarations: {},
       declarationModifiers: SwidDeclarationModifiers.empty(),

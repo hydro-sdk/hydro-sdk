@@ -29,3 +29,4 @@ export enum BlendMode {
     color,
     luminosity,
 }
+

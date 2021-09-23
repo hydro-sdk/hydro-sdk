@@ -3,3 +3,4 @@ export enum ImageByteFormat {
     rawUnmodified,
     png,
 }
+

@@ -1,6 +1,7 @@
 import 'package:hydro_sdk/swid/backend/util/methodIsEmitCandidate.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/util/isUnrepresentableStaticConst.dart';
+import 'package:hydro_sdk/swid/util/hashableList.dart';
 
 SwidClass removeNonEmitCandidates({
   required final SwidClass swidClass,
@@ -9,7 +10,7 @@ SwidClass removeNonEmitCandidates({
       swidClass: swidClass,
       methods: swidClass.methods
           .where((x) => methodIsEmitCandidate(swidFunctionType: x))
-          .toList(),
+          .toHashableList(),
       staticConstFieldDeclarations: swidClass.staticConstFieldDeclarations
           .where((x) => !isUnrepresentableStaticConst(
                 parentClass: swidClass,

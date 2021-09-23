@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:hydro_sdk/swid/util/hashableList.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/swidiSourceToSwidIr.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
@@ -125,7 +126,7 @@ void main() {
           isFactory: false,
           typeFormals: [],
         ),
-      ],
+      ].toHashableList(),
     );
 
     expect(res, [SwidIr.fromSwidClass(swidClass: unmodifiableFloat32ListView)]);

@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:hydro_sdk/swid/util/hashableList.dart';
 import 'package:tuple/tuple.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiAnnotation.dart';
@@ -667,7 +668,7 @@ class "dart:core"::List {
               ],
             )
           ],
-          methods: [],
+          methods: HashableList([]),
         ),
       ],
     );

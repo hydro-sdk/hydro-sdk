@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:hydro_sdk/swid/util/hashableList.dart';
 
 import 'package:hydro_sdk/swid/backend/dart/dartStaticMethodNamespaceSymbolDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
@@ -25,7 +26,7 @@ void main() {
       factoryConstructors: [],
       implementedClasses: [],
       instanceFieldDeclarations: {},
-      methods: [],
+      methods: HashableList([]),
       mixedInClasses: [],
       staticConstFieldDeclarations: [],
       declarationModifiers: SwidDeclarationModifiers.empty(),

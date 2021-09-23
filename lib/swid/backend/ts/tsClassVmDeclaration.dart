@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/util/hashableList.dart';
 import 'package:path/path.dart' as path;
 
 import 'package:hydro_sdk/swid/backend/ts/tsVmDeclaration.dart';
@@ -142,7 +143,7 @@ class TsClassVmDeclaration
                             .map(
                               (x) => TsVmDeclaration(
                                 name: x,
-                                methods: [],
+                                methods: HashableList([]),
                                 children: [],
                               ),
                             )

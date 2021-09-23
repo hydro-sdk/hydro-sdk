@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/util/hashableList.dart';
 
 import 'package:hydro_sdk/swid/ir/analyses/methodsShadowedByConstructorParameters.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
@@ -71,7 +72,7 @@ class ThisPrefixMethodsShadowedByConstructorParameters
                           )
                         : x,
                   )
-                  .toList(),
+                  .toHashableList(),
             ),
           ))(
         shadowedMethods: pipeline.reduceFromTerm(

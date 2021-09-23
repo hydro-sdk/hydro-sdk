@@ -4,3 +4,4 @@ export enum TileMode {
     mirror,
     decal,
 }
+

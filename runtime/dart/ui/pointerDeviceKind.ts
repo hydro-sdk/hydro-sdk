@@ -5,3 +5,4 @@ export enum PointerDeviceKind {
     invertedStylus,
     unknown,
 }
+

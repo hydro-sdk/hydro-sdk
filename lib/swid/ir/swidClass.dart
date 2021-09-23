@@ -11,6 +11,7 @@ import 'package:hydro_sdk/swid/ir/swidTypeMixin.dart';
 import 'package:hydro_sdk/swid/ir/util/conflictingInstanceMembers.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
+import 'package:hydro_sdk/swid/util/hashableList.dart';
 import 'package:hydro_sdk/swid/util/iCopyable.dart';
 import 'package:hydro_sdk/swid/util/iJsonTransformable.dart';
 
@@ -36,7 +37,7 @@ class SwidClass
     required final SwidFunctionType? constructorType,
     required final List<SwidFunctionType> factoryConstructors,
     required final List<SwidFunctionType> staticMethods,
-    required final List<SwidFunctionType> methods,
+    required final HashableList<SwidFunctionType> methods,
     required final List<SwidStaticConstFieldDeclaration>
         staticConstFieldDeclarations,
     required final Map<String, SwidType> instanceFieldDeclarations,
@@ -81,7 +82,7 @@ class SwidClass
     final SwidFunctionType? constructorType,
     final List<SwidFunctionType>? factoryConstructors,
     final List<SwidFunctionType>? staticMethods,
-    final List<SwidFunctionType>? methods,
+    final HashableList<SwidFunctionType>? methods,
     final List<SwidStaticConstFieldDeclaration>? staticConstFieldDeclarations,
     final Map<String, SwidType>? instanceFieldDeclarations,
     final SwidDeclarationModifiers? declarationModifiers,
@@ -117,16 +118,7 @@ class SwidClass
                   )
                   .toList(),
             ),
-        methods: methods ??
-            List.from(
-              swidClass.methods
-                  .map(
-                    (x) => SwidFunctionType.clone(
-                      swidFunctionType: x,
-                    ),
-                  )
-                  .toList(),
-            ),
+        methods: methods ?? swidClass.methods,
         staticConstFieldDeclarations: staticConstFieldDeclarations ??
             List.from(swidClass.staticConstFieldDeclarations),
         instanceFieldDeclarations: instanceFieldDeclarations ??
@@ -165,7 +157,7 @@ class SwidClass
         constructorType: null,
         factoryConstructors: [],
         staticMethods: [],
-        methods: [],
+        methods: HashableList([]),
         staticConstFieldDeclarations: [],
         instanceFieldDeclarations: {},
         declarationModifiers: SwidDeclarationModifiers.empty(),
@@ -247,7 +239,7 @@ class SwidClass
                     .map((x) => MapEntry(x.key, x.value))
                     .toList()
               ]),
-              methods: List.from([
+              methods: [
                 ...swidClass.methods,
                 ...superClass.methods
                     .where((x) =>
@@ -256,7 +248,9 @@ class SwidClass
                             orElse: () => null) ==
                         null)
                     .toList()
-              ]))
+                    .toHashableList()
+              ].toHashableList(),
+            )
           : SwidClass.clone(
               swidClass: swidClass,
             );
@@ -383,7 +377,7 @@ class SwidClass
     final SwidFunctionType? constructorType,
     final List<SwidFunctionType>? factoryConstructors,
     final List<SwidFunctionType>? staticMethods,
-    final List<SwidFunctionType>? methods,
+    final HashableList<SwidFunctionType>? methods,
     final List<SwidStaticConstFieldDeclaration>? staticConstFieldDeclarations,
     final Map<String, SwidType>? instanceFieldDeclarations,
     final SwidDeclarationModifiers? declarationModifiers,

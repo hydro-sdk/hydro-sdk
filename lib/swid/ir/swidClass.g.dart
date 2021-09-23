@@ -22,9 +22,7 @@ _$_$Data _$_$_$DataFromJson(Map<String, dynamic> json) {
     staticMethods: (json['staticMethods'] as List<dynamic>)
         .map((e) => SwidFunctionType.fromJson(e as Map<String, dynamic>))
         .toList(),
-    methods: (json['methods'] as List<dynamic>)
-        .map((e) => SwidFunctionType.fromJson(e as Map<String, dynamic>))
-        .toList(),
+    methods: HashableList.fromJson(json['methods'] as Map<String, dynamic>),
     staticConstFieldDeclarations: (json['staticConstFieldDeclarations']
             as List<dynamic>)
         .map((e) =>

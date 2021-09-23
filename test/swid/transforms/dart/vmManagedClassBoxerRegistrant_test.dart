@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:hydro_sdk/swid/util/hashableList.dart';
 
 import 'package:hydro_sdk/swid/backend/dart/dartVmManagedClassBoxerRegistrant.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
@@ -51,7 +52,7 @@ void main() {
         declarationModifiers: SwidDeclarationModifiers.empty(),
       ),
       staticConstFieldDeclarations: [],
-      methods: [],
+      methods: HashableList([]),
       mixedInClasses: [],
     ));
 

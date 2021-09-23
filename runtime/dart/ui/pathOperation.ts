@@ -5,3 +5,4 @@ export enum PathOperation {
     xor,
     reverseDifference,
 }
+

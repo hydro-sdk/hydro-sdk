@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:hydro_sdk/swid/util/hashableList.dart';
 
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
@@ -68,7 +69,7 @@ void main() {
           typeFormals: [],
           declarationModifiers: SwidDeclarationModifiers.empty(),
         ),
-      ],
+      ].toHashableList(),
       staticConstFieldDeclarations: [],
       instanceFieldDeclarations: {
         "firstField": SwidType.fromSwidInterface(
@@ -121,7 +122,7 @@ void main() {
           typeFormals: [],
           declarationModifiers: SwidDeclarationModifiers.empty(),
         ),
-      ],
+      ].toHashableList(),
       staticConstFieldDeclarations: [],
       instanceFieldDeclarations: {
         "firstField": SwidType.fromSwidInterface(

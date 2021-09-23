@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:hydro_sdk/swid/util/hashableList.dart';
 
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
@@ -246,7 +247,7 @@ void main() {
         constructorType: constructor,
         factoryConstructors: [],
         staticMethods: [],
-        methods: [],
+        methods: HashableList([]),
         implementedClasses: [],
         staticConstFieldDeclarations: [],
         instanceFieldDeclarations: {},
@@ -295,7 +296,7 @@ void main() {
       methods: [
         ...iterable.methods,
         map,
-      ],
+      ].toHashableList(),
     );
 
     var unsatisfiedTypesFromIterableWithMapMethod = unsatisfiedTypeParameters(
@@ -334,14 +335,13 @@ void main() {
      factory Iterable<E> Iterable.empty()
     }
   */
-    var iterableWithMapAndEmpty =
-        SwidClass.clone(swidClass: iterable, methods: [
-      ...iterable.methods,
-      map,
-    ], factoryConstructors: [
-      ...iterable.factoryConstructors,
-      empty
-    ]);
+    var iterableWithMapAndEmpty = SwidClass.clone(
+        swidClass: iterable,
+        methods: [
+          ...iterable.methods,
+          map,
+        ].toHashableList(),
+        factoryConstructors: [...iterable.factoryConstructors, empty]);
 
     var unsatisfiedTypesFromIterableWithMapAndEmpty = unsatisfiedTypeParameters(
         swidType: SwidType.fromSwidClass(swidClass: iterableWithMapAndEmpty));

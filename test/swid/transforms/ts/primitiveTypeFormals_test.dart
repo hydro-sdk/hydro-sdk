@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:hydro_sdk/swid/util/hashableList.dart';
 
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
@@ -20,7 +21,7 @@ void main() {
         constructorType: null,
         factoryConstructors: [],
         staticMethods: [],
-        methods: [],
+        methods: HashableList([]),
         implementedClasses: [],
         staticConstFieldDeclarations: [],
         instanceFieldDeclarations: {},
@@ -33,7 +34,7 @@ void main() {
             constructorType: null,
             factoryConstructors: [],
             staticMethods: [],
-            methods: [],
+            methods: HashableList([]),
             implementedClasses: [],
             staticConstFieldDeclarations: [],
             instanceFieldDeclarations: {},
@@ -51,7 +52,7 @@ void main() {
                     constructorType: null,
                     factoryConstructors: [],
                     staticMethods: [],
-                    methods: [],
+                    methods: HashableList([]),
                     implementedClasses: [],
                     staticConstFieldDeclarations: [],
                     instanceFieldDeclarations: {},

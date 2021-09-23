@@ -7,3 +7,4 @@ export enum PointerChange {
     move,
     up,
 }
+

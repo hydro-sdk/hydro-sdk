@@ -10,6 +10,7 @@ import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
+import 'package:hydro_sdk/swid/util/hashableList.dart';
 
 import 'package:analyzer/dart/element/element.dart'
     show PropertyAccessorElement;
@@ -67,7 +68,7 @@ SwidClass swidClassFromInterfaceType({
                 ),
               ),
             )
-            .toList(),
+            .toHashableList(),
         ...interfaceType.accessors
             .whereType<PropertyAccessorElement>()
             .where((x) => x.name[0] != "_")
@@ -75,8 +76,8 @@ SwidClass swidClassFromInterfaceType({
             .map((x) => swidFunctionTypeFromPropertyAccessor(
                   propertyAccessorElement: x,
                 ))
-            .toList()
-      ],
+            .toHashableList()
+      ].toHashableList(),
       staticConstFieldDeclarations: [],
       instanceFieldDeclarations: {},
       declarationModifiers: SwidDeclarationModifiers.empty(),

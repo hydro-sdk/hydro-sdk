@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:hydro_sdk/swid/util/hashableList.dart';
 
 import 'package:hydro_sdk/swid/ir/swidBooleanLiteral.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
@@ -27,7 +28,7 @@ void main() {
       constructorType: null,
       factoryConstructors: [],
       staticMethods: [],
-      methods: [],
+      methods: HashableList([]),
       implementedClasses: [],
       staticConstFieldDeclarations: [
         SwidStaticConstFieldDeclaration(
@@ -79,7 +80,7 @@ void main() {
       constructorType: null,
       factoryConstructors: [],
       staticMethods: [],
-      methods: [],
+      methods: HashableList([]),
       implementedClasses: [],
       staticConstFieldDeclarations: [
         SwidStaticConstFieldDeclaration(
@@ -140,7 +141,7 @@ void main() {
       constructorType: null,
       factoryConstructors: [],
       staticMethods: [],
-      methods: [],
+      methods: HashableList([]),
       implementedClasses: [],
       staticConstFieldDeclarations: [
         SwidStaticConstFieldDeclaration(
@@ -239,7 +240,7 @@ void main() {
       constructorType: null,
       factoryConstructors: [],
       staticMethods: [],
-      methods: [],
+      methods: HashableList([]),
       implementedClasses: [],
       staticConstFieldDeclarations: [
         SwidStaticConstFieldDeclaration(

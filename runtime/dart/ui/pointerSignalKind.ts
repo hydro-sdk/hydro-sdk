@@ -3,3 +3,4 @@ export enum PointerSignalKind {
     scroll,
     unknown,
 }
+

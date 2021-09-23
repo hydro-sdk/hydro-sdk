@@ -6,3 +6,4 @@ export enum PlaceholderAlignment {
     bottom,
     middle,
 }
+

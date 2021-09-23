@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:hydro_sdk/swid/util/hashableList.dart';
 
 import 'package:hydro_sdk/swid/backend/dart/dartRtManagedClassDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
@@ -88,7 +89,7 @@ void main() {
             ),
             isFactory: false,
           ),
-        ],
+        ].toHashableList(),
         staticConstFieldDeclarations: [],
         instanceFieldDeclarations: {},
         declarationModifiers: SwidDeclarationModifiers.empty(),

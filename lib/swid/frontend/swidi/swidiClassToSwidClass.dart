@@ -3,6 +3,7 @@ import 'package:hydro_sdk/swid/frontend/swidi/swidiFunctionDeclarationToSwidFunc
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
+import 'package:hydro_sdk/swid/util/hashableList.dart';
 
 SwidClass swidiClassToSwidClass({
   required final SwidiClass swidiClass,
@@ -26,7 +27,7 @@ SwidClass swidiClassToSwidClass({
               swidiFunctionDeclaration: x,
             ),
           )
-          .toList(),
+          .toHashableList(),
       staticConstFieldDeclarations: [],
       instanceFieldDeclarations: {},
       declarationModifiers: SwidDeclarationModifiers.empty(),

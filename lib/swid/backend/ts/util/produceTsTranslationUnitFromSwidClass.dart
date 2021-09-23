@@ -23,6 +23,7 @@ import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/util/propagateUnsatisfiedTypeParameters.dart';
 import 'package:hydro_sdk/swid/ir/util/rewriteClassReferencestoInterfaceReferencesInClass.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/util/hashableList.dart';
 
 TsTranslationUnit produceTsTranslationUnitFromSwidClass({
   required final SwidClass swidClass,
@@ -72,12 +73,14 @@ TsTranslationUnit produceTsTranslationUnitFromSwidClass({
                         swidClass: SwidClass.clone(
                           swidClass: swidClassWithInterfaceReferences,
                           name: "I${swidClassWithInterfaceReferences.name}",
-                          methods: pipeline.reduceFromTerm(
-                            TsClassMethodInjectionCandidates(
-                              swidFunctionTypes:
-                                  swidClassWithInterfaceReferences.methods,
-                            ),
-                          ),
+                          methods: pipeline
+                              .reduceFromTerm(
+                                TsClassMethodInjectionCandidates(
+                                  swidFunctionTypes:
+                                      swidClassWithInterfaceReferences.methods,
+                                ),
+                              )
+                              .toHashableList(),
                         ),
                       ),
                     ),
@@ -197,13 +200,15 @@ TsTranslationUnit produceTsTranslationUnitFromSwidClass({
                           swidClass: unMergedSwidClassWithInterfaceReferences,
                           name:
                               "I${unMergedSwidClassWithInterfaceReferences.name}",
-                          methods: pipeline.reduceFromTerm(
-                            TsClassMethodInjectionCandidates(
-                              swidFunctionTypes:
-                                  unMergedSwidClassWithInterfaceReferences
-                                      .methods,
-                            ),
-                          ),
+                          methods: pipeline
+                              .reduceFromTerm(
+                                TsClassMethodInjectionCandidates(
+                                  swidFunctionTypes:
+                                      unMergedSwidClassWithInterfaceReferences
+                                          .methods,
+                                ),
+                              )
+                              .toHashableList(),
                         ),
                       ),
                     ),

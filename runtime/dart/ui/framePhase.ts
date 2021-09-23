@@ -5,3 +5,4 @@ export enum FramePhase {
     rasterStart,
     rasterFinish,
 }
+

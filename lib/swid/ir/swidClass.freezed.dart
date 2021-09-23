@@ -27,7 +27,7 @@ class _$SwidClassTearOff {
       required SwidFunctionType? constructorType,
       required List<SwidFunctionType> factoryConstructors,
       required List<SwidFunctionType> staticMethods,
-      required List<SwidFunctionType> methods,
+      required HashableList<SwidFunctionType> methods,
       required List<SwidStaticConstFieldDeclaration>
           staticConstFieldDeclarations,
       required Map<String, SwidType> instanceFieldDeclarations,
@@ -75,7 +75,8 @@ mixin _$SwidClass {
       throw _privateConstructorUsedError;
   List<SwidFunctionType> get staticMethods =>
       throw _privateConstructorUsedError;
-  List<SwidFunctionType> get methods => throw _privateConstructorUsedError;
+  HashableList<SwidFunctionType> get methods =>
+      throw _privateConstructorUsedError;
   List<SwidStaticConstFieldDeclaration> get staticConstFieldDeclarations =>
       throw _privateConstructorUsedError;
   Map<String, SwidType> get instanceFieldDeclarations =>
@@ -105,7 +106,7 @@ abstract class $SwidClassCopyWith<$Res> {
       SwidFunctionType? constructorType,
       List<SwidFunctionType> factoryConstructors,
       List<SwidFunctionType> staticMethods,
-      List<SwidFunctionType> methods,
+      HashableList<SwidFunctionType> methods,
       List<SwidStaticConstFieldDeclaration> staticConstFieldDeclarations,
       Map<String, SwidType> instanceFieldDeclarations,
       SwidDeclarationModifiers declarationModifiers,
@@ -174,7 +175,7 @@ class _$SwidClassCopyWithImpl<$Res> implements $SwidClassCopyWith<$Res> {
       methods: methods == freezed
           ? _value.methods
           : methods // ignore: cast_nullable_to_non_nullable
-              as List<SwidFunctionType>,
+              as HashableList<SwidFunctionType>,
       staticConstFieldDeclarations: staticConstFieldDeclarations == freezed
           ? _value.staticConstFieldDeclarations
           : staticConstFieldDeclarations // ignore: cast_nullable_to_non_nullable
@@ -253,7 +254,7 @@ abstract class _$$DataCopyWith<$Res> implements $SwidClassCopyWith<$Res> {
       SwidFunctionType? constructorType,
       List<SwidFunctionType> factoryConstructors,
       List<SwidFunctionType> staticMethods,
-      List<SwidFunctionType> methods,
+      HashableList<SwidFunctionType> methods,
       List<SwidStaticConstFieldDeclaration> staticConstFieldDeclarations,
       Map<String, SwidType> instanceFieldDeclarations,
       SwidDeclarationModifiers declarationModifiers,
@@ -326,7 +327,7 @@ class __$$DataCopyWithImpl<$Res> extends _$SwidClassCopyWithImpl<$Res>
       methods: methods == freezed
           ? _value.methods
           : methods // ignore: cast_nullable_to_non_nullable
-              as List<SwidFunctionType>,
+              as HashableList<SwidFunctionType>,
       staticConstFieldDeclarations: staticConstFieldDeclarations == freezed
           ? _value.staticConstFieldDeclarations
           : staticConstFieldDeclarations // ignore: cast_nullable_to_non_nullable
@@ -400,7 +401,7 @@ class _$_$Data extends _$Data {
   @override
   final List<SwidFunctionType> staticMethods;
   @override
-  final List<SwidFunctionType> methods;
+  final HashableList<SwidFunctionType> methods;
   @override
   final List<SwidStaticConstFieldDeclaration> staticConstFieldDeclarations;
   @override
@@ -514,7 +515,7 @@ abstract class _$Data extends SwidClass {
       required SwidFunctionType? constructorType,
       required List<SwidFunctionType> factoryConstructors,
       required List<SwidFunctionType> staticMethods,
-      required List<SwidFunctionType> methods,
+      required HashableList<SwidFunctionType> methods,
       required List<SwidStaticConstFieldDeclaration>
           staticConstFieldDeclarations,
       required Map<String, SwidType> instanceFieldDeclarations,
@@ -544,7 +545,8 @@ abstract class _$Data extends SwidClass {
   List<SwidFunctionType> get staticMethods =>
       throw _privateConstructorUsedError;
   @override
-  List<SwidFunctionType> get methods => throw _privateConstructorUsedError;
+  HashableList<SwidFunctionType> get methods =>
+      throw _privateConstructorUsedError;
   @override
   List<SwidStaticConstFieldDeclaration> get staticConstFieldDeclarations =>
       throw _privateConstructorUsedError;

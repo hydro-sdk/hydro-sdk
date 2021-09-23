@@ -9,6 +9,7 @@ import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstFieldReference.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
+import 'package:hydro_sdk/swid/util/hashableList.dart';
 
 bool _isConstPrimitive({
   required final SwidType swidType,
@@ -315,7 +316,7 @@ final dartUnknownClass = SwidClass(
   constructorType: null,
   factoryConstructors: [],
   staticMethods: [],
-  methods: [],
+  methods: HashableList([]),
   staticConstFieldDeclarations: [],
   instanceFieldDeclarations: {},
   declarationModifiers: emptyDeclarationModifiers,

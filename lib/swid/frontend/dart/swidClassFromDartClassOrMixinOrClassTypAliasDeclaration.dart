@@ -9,6 +9,7 @@ import 'package:analyzer/dart/element/type.dart' show InterfaceType;
 import 'package:collection/collection.dart' show IterableExtension;
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'package:hydro_sdk/swid/util/hashableList.dart';
 import 'package:hydro_sdk/swid/frontend/dart/dartClassOrMixinOrClassTypAliasDeclaration.dart';
 import 'package:hydro_sdk/swid/frontend/dart/narrowModifierProducer.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidClassFromInterfaceType.dart';
@@ -99,7 +100,7 @@ SwidClass swidClassFromDartClassOrMixinOrClassTypAliasDeclaration({
                 isFactory: true,
               ))
           .toList(),
-      methods: methods.where((x) => !x.declarationModifiers.isStatic).toList(),
+      methods: methods.where((x) => !x.declarationModifiers.isStatic).toHashableList(),
       staticMethods:
           methods.where((x) => x.declarationModifiers.isStatic).toList(),
       mixedInClasses: dartClassOrMixinOrClassTypAliasDeclaration.withClause != null

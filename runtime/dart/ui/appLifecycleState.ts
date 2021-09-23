@@ -4,3 +4,4 @@ export enum AppLifecycleState {
     paused,
     detached,
 }
+

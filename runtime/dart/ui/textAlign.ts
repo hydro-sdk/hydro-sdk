@@ -6,3 +6,4 @@ export enum TextAlign {
     start,
     end,
 }
+
