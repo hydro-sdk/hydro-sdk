@@ -21,7 +21,7 @@ class MethodsShadowedByConstructorParameters
             MethodsShadowedByConstructorParameters,
             $MethodsShadowedByConstructorParametersCopyWith<
                 MethodsShadowedByConstructorParameters>,
-            List<SwidFunctionType>>,
+            HashableList<SwidFunctionType>>,
         SwarsTermJsonTransformableListResultMixin {
   MethodsShadowedByConstructorParameters._();
 
@@ -50,7 +50,7 @@ class MethodsShadowedByConstructorParameters
       SwidFunctionType.fromJson(json);
 
   @override
-  ISwarsTermResult<List<SwidFunctionType>> analyze({
+  ISwarsTermResult<HashableList<SwidFunctionType>> analyze({
     required final ISwarsPipeline pipeline,
   }) =>
       SwarsTermResult.fromList(

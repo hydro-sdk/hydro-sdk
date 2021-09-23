@@ -23,12 +23,12 @@ class TsClassMethodInjectionCandidates
             TsClassMethodInjectionCandidates,
             $TsClassMethodInjectionCandidatesCopyWith<
                 TsClassMethodInjectionCandidates>,
-            List<SwidFunctionType>>,
+            HashableList<SwidFunctionType>>,
         SwarsTermJsonTransformableListResultMixin {
   TsClassMethodInjectionCandidates._();
 
   factory TsClassMethodInjectionCandidates({
-    required final List<SwidFunctionType> swidFunctionTypes,
+    required final HashableList<SwidFunctionType> swidFunctionTypes,
   }) = _$TsClassMethodInjectionCandidatesCtor;
 
   @override
@@ -41,7 +41,7 @@ class TsClassMethodInjectionCandidates
 
   @override
   TsClassMethodInjectionCandidates clone({
-    final List<SwidFunctionType>? swidFunctionTypes,
+    final HashableList<SwidFunctionType>? swidFunctionTypes,
   }) =>
       TsClassMethodInjectionCandidates(
         swidFunctionTypes: swidFunctionTypes ?? this.swidFunctionTypes,
@@ -52,7 +52,7 @@ class TsClassMethodInjectionCandidates
       SwidFunctionType.fromJson(json);
 
   @override
-  ISwarsTermResult<List<SwidFunctionType>> analyze({
+  ISwarsTermResult<HashableList<SwidFunctionType>> analyze({
     required final ISwarsPipeline pipeline,
   }) =>
       SwarsTermResult.fromList(

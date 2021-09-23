@@ -27,7 +27,7 @@ class SwidInterface
     required final String name,
     required final SwidNullabilitySuffix nullabilitySuffix,
     required final String originalPackagePath,
-    required final List<SwidType> typeArguments,
+    required final HashableList<SwidType> typeArguments,
     required final SwidReferenceDeclarationKind referenceDeclarationKind,
     required final SwidDeclarationModifiers declarationModifiers,
   }) = _$Data;
@@ -40,7 +40,7 @@ class SwidInterface
     final String? name,
     final SwidNullabilitySuffix? nullabilitySuffix,
     final String? originalPackagePath,
-    final List<SwidType>? typeArguments,
+    final HashableList<SwidType>? typeArguments,
     final SwidReferenceDeclarationKind? referenceDeclarationKind,
     final SwidDeclarationModifiers? declarationModifiers,
   }) =>
@@ -88,7 +88,7 @@ class SwidInterface
     final String? name,
     final SwidNullabilitySuffix? nullabilitySuffix,
     final String? originalPackagePath,
-    final List<SwidType>? typeArguments,
+    final HashableList<SwidType>? typeArguments,
     final SwidReferenceDeclarationKind? referenceDeclarationKind,
     final SwidDeclarationModifiers? declarationModifiers,
   }) =>

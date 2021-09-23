@@ -56,7 +56,7 @@ class ThisPrefixMethodsShadowedByConstructorParameters
     required final ISwarsPipeline pipeline,
   }) =>
       (({
-        required final List<SwidFunctionType> shadowedMethods,
+        required final HashableList<SwidFunctionType> shadowedMethods,
       }) =>
           SwarsTermResult.fromJsonTransformable(
             swidClass.clone(

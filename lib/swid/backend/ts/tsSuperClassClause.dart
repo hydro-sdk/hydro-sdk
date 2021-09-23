@@ -56,7 +56,7 @@ class TsSuperClassClause
       SwarsTermResult.fromString(
         [
           ...((({
-            required final List<SwidClass> superInterfaces,
+            required final HashableList<SwidClass> superInterfaces,
           }) =>
               superInterfaces.isNotEmpty
                   ? [
@@ -100,7 +100,7 @@ class TsSuperClassClause
                                         .syntheticAccessors()
                                         .map((x) => "\"${x.name}\""),
                                     ...((({
-                                      required final List<List<String>>
+                                      required final HashableList<HashableList<String>>
                                           intersectedMembers,
                                     }) =>
                                         intersectedMembers.isNotEmpty

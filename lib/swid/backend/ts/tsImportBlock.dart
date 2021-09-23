@@ -17,12 +17,12 @@ import 'package:hydro_sdk/swid/ir/util/hasStaticConstMap.dart';
 import 'package:hydro_sdk/swid/ir/util/narrowSwidInterfaceByReferenceDeclaration.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 
-List<TsIr> tsImportBlock({
+HashableList<TsIr> tsImportBlock({
   required final SwidClass swidClass,
-  required final List<String> prefixPaths,
+  required final HashableList<String> prefixPaths,
   required final ISwarsPipeline pipeline,
 }) {
-  List<Tuple2<List<String>, String>> symbolModulePairs =
+  HashableList<Tuple2<HashableList<String>, String>> symbolModulePairs =
       resolveDependencyInformation(
     pipeline: pipeline,
     dependencies: [
@@ -74,7 +74,7 @@ List<TsIr> tsImportBlock({
     prefixPaths: prefixPaths,
   );
 
-  List<Tuple2<List<String>, String>> staticConstSymbolModulePairs =
+  HashableList<Tuple2<HashableList<String>, String>> staticConstSymbolModulePairs =
       resolveDependencyInformation(
           pipeline: pipeline,
           rewriteReferences: false,
@@ -98,17 +98,17 @@ List<TsIr> tsImportBlock({
       symbolModulePairs.firstWhereOrNull((k) => k.item2 == x.item2) != null
           ? symbolModulePairs
               .setAll(symbolModulePairs.indexWhere((k) => k.item2 == x.item2), [
-              Tuple2<List<String>, String>(
+              Tuple2<HashableList<String>, String>(
                   symbolModulePairs.firstWhere((k) => k.item2 == x.item2).item1
                     ..addAll(x.item1),
                   x.item2)
             ])
           : symbolModulePairs
-              .add(Tuple2<List<String>, String>(x.item1, x.item2)));
+              .add(Tuple2<HashableList<String>, String>(x.item1, x.item2)));
 
   symbolModulePairs = symbolModulePairs
       .map((x) => Tuple2(
-            x.item1.fold<List<String>>(
+            x.item1.fold<HashableList<String>>(
               <String>[],
               (prev, element) =>
                   prev.firstWhereOrNull((k) => k == element) == null

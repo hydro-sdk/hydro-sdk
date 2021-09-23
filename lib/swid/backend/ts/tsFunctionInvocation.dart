@@ -26,7 +26,7 @@ class TsFunctionInvocation
     required final String functionReference,
     required final TsFunctionInvocationPositionalParameters
         tsFunctionInvocationPositionalParameters,
-    required final List<TsFunctionInvocationNamedParameters>
+    required final HashableList<TsFunctionInvocationNamedParameters>
         tsFunctionInvocationNamedParameters,
   }) = _$TsFunctionInvocationCtor;
 
@@ -45,7 +45,7 @@ class TsFunctionInvocation
     final String? functionReference,
     final TsFunctionInvocationPositionalParameters?
         tsFunctionInvocationPositionalParameters,
-    final List<TsFunctionInvocationNamedParameters>?
+    final HashableList<TsFunctionInvocationNamedParameters>?
         tsFunctionInvocationNamedParameters,
   }) =>
       TsFunctionInvocation(

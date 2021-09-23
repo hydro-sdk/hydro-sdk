@@ -21,7 +21,7 @@ class TsResolvedImport
   TsResolvedImport._();
 
   factory TsResolvedImport({
-    required final List<String> symbols,
+    required final HashableList<String> symbols,
     required final String path,
   }) = _$TsResolvedImportCtor;
 
@@ -36,7 +36,7 @@ class TsResolvedImport
 
   @override
   TsResolvedImport clone({
-    final List<String>? symbols,
+    final HashableList<String>? symbols,
     final String? path,
   }) =>
       TsResolvedImport(

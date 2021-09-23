@@ -17,7 +17,7 @@ class SwidEnum
   factory SwidEnum({
     required final String originalPackagePath,
     required final String identifier,
-    required final List<String> children,
+    required final HashableList<String> children,
   }) = _$Data;
 
   factory SwidEnum.fromJson(Map<String, dynamic> json) =>
@@ -27,7 +27,7 @@ class SwidEnum
     required final SwidEnum swidEnum,
     final String? originalPackagePath,
     final String? identifier,
-    final List<String>? children,
+    final HashableList<String>? children,
   }) =>
       SwidEnum(
         originalPackagePath:
@@ -47,7 +47,7 @@ class SwidEnum
   SwidEnum clone({
     final String? originalPackagePath,
     final String? identifier,
-    final List<String>? children,
+    final HashableList<String>? children,
   }) =>
       SwidEnum._clone(
         swidEnum: this,

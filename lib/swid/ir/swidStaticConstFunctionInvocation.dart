@@ -25,7 +25,7 @@ class SwidStaticConstFunctionInvocation
   factory SwidStaticConstFunctionInvocation({
     required final String value,
     required final SwidType staticType,
-    required final List<SwidStaticConst> normalParameters,
+    required final HashableList<SwidStaticConst> normalParameters,
     required final Map<String, SwidStaticConst> namedParameters,
     required final bool isConstructorInvocation,
   }) = _$Data;
@@ -39,7 +39,7 @@ class SwidStaticConstFunctionInvocation
         swidStaticConstFunctionInvocation,
     final String? value,
     final SwidType? staticType,
-    final List<SwidStaticConst>? normalParameters,
+    final HashableList<SwidStaticConst>? normalParameters,
     final Map<String, SwidStaticConst>? namedParameters,
     final bool? isConstructorInvocation,
   }) =>
@@ -85,7 +85,7 @@ class SwidStaticConstFunctionInvocation
   SwidStaticConstFunctionInvocation clone({
     final String? value,
     final SwidType? staticType,
-    final List<SwidStaticConst>? normalParameters,
+    final HashableList<SwidStaticConst>? normalParameters,
     final Map<String, SwidStaticConst>? namedParameters,
     final bool? isConstructorInvocation,
   }) =>

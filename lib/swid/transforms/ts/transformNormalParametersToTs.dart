@@ -36,7 +36,7 @@ class TransformNormalParametersToTs
   TransformNormalParametersToTs._();
 
   factory TransformNormalParametersToTs({
-    required final List<SwidStaticConst> swidLiterals,
+    required final HashableList<SwidStaticConst> swidLiterals,
     required final SwidClass? parentClass,
     required final String inexpressibleFunctionInvocationFallback,
     required final SwidStaticConstFieldReferenceScopeResolver scopeResolver,
@@ -44,7 +44,7 @@ class TransformNormalParametersToTs
 
   @override
   TransformNormalParametersToTs clone({
-    final List<SwidStaticConst>? swidLiterals,
+    final HashableList<SwidStaticConst>? swidLiterals,
     final SwidClass? parentClass,
     final String? inexpressibleFunctionInvocationFallback,
     final SwidStaticConstFieldReferenceScopeResolver? scopeResolver,

@@ -64,9 +64,9 @@ class SwidDeclarationModifiers
   SwidDeclarationModifiers._();
 
   factory SwidDeclarationModifiers({
-    required final List<String> ignoredTransforms,
-    required final List<String> ignoredAnalyses,
-    required final List<StringTuple> overridenTransforms,
+    required final HashableList<String> ignoredTransforms,
+    required final HashableList<String> ignoredAnalyses,
+    required final HashableList<StringTuple> overridenTransforms,
     required final bool isAbstract,
     required final bool isGetter,
     required final bool isOperator,
@@ -129,9 +129,9 @@ class SwidDeclarationModifiers
 
   factory SwidDeclarationModifiers.clone({
     required final SwidDeclarationModifiers declarationModifiers,
-    final List<String>? ignoredTransforms,
-    final List<String>? ignoredAnalyses,
-    final List<StringTuple>? overridenTransforms,
+    final HashableList<String>? ignoredTransforms,
+    final HashableList<String>? ignoredAnalyses,
+    final HashableList<StringTuple>? overridenTransforms,
     final bool? isAbstract,
     final bool? isGetter,
     final bool? isOperator,
@@ -203,9 +203,9 @@ class SwidDeclarationModifiers
   factory SwidDeclarationModifiers.empty() => SwidDeclarationModifiers.only();
 
   factory SwidDeclarationModifiers.only({
-    final List<String> ignoredTransforms: const [],
-    final List<String> ignoredAnalyses: const [],
-    final List<StringTuple> overridenTransforms: const [],
+    final HashableList<String> ignoredTransforms: const [],
+    final HashableList<String> ignoredAnalyses: const [],
+    final HashableList<StringTuple> overridenTransforms: const [],
     final bool isAbstract: false,
     final bool isGetter: false,
     final bool isOperator: false,
@@ -273,9 +273,9 @@ class SwidDeclarationModifiers
 
   @override
   SwidDeclarationModifiers clone({
-    final List<String>? ignoredTransforms,
-    final List<String>? ignoredAnalyses,
-    final List<StringTuple>? overridenTransforms,
+    final HashableList<String>? ignoredTransforms,
+    final HashableList<String>? ignoredAnalyses,
+    final HashableList<StringTuple>? overridenTransforms,
     final bool? isAbstract,
     final bool? isGetter,
     final bool? isOperator,

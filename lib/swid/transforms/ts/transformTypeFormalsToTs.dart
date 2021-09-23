@@ -25,7 +25,7 @@ class TransformTypeFormalsToTs
   TransformTypeFormalsToTs._();
 
   factory TransformTypeFormalsToTs({
-    required final List<SwidTypeFormal> swidTypeFormals,
+    required final HashableList<SwidTypeFormal> swidTypeFormals,
   }) = _$TransformTypeFormalsToTsCtor;
 
   @override
@@ -38,7 +38,7 @@ class TransformTypeFormalsToTs
 
   @override
   TransformTypeFormalsToTs clone({
-    final List<SwidTypeFormal>? swidTypeFormals,
+    final HashableList<SwidTypeFormal>? swidTypeFormals,
   }) =>
       TransformTypeFormalsToTs(
         swidTypeFormals: swidTypeFormals ?? this.swidTypeFormals,

@@ -35,17 +35,17 @@ class SwidClass
     required final SwidNullabilitySuffix nullabilitySuffix,
     required final String originalPackagePath,
     required final SwidFunctionType? constructorType,
-    required final List<SwidFunctionType> factoryConstructors,
-    required final List<SwidFunctionType> staticMethods,
-    required final HashableList<SwidFunctionType> methods,
-    required final List<SwidStaticConstFieldDeclaration>
+    required final HashableList<SwidFunctionType> factoryConstructors,
+    required final HashableList<SwidFunctionType> staticMethods,
+    required final HashableHashableList<SwidFunctionType> methods,
+    required final HashableList<SwidStaticConstFieldDeclaration>
         staticConstFieldDeclarations,
     required final Map<String, SwidType> instanceFieldDeclarations,
     required final SwidDeclarationModifiers declarationModifiers,
-    required final List<SwidClass> mixedInClasses,
-    required final List<SwidClass> implementedClasses,
+    required final HashableList<SwidClass> mixedInClasses,
+    required final HashableList<SwidClass> implementedClasses,
     required final bool isMixin,
-    required final List<SwidTypeFormal> typeFormals,
+    required final HashableList<SwidTypeFormal> typeFormals,
     SwidClass? extendedClass,
   }) = _$Data;
 
@@ -80,17 +80,17 @@ class SwidClass
     final SwidNullabilitySuffix? nullabilitySuffix,
     final String? originalPackagePath,
     final SwidFunctionType? constructorType,
-    final List<SwidFunctionType>? factoryConstructors,
-    final List<SwidFunctionType>? staticMethods,
-    final HashableList<SwidFunctionType>? methods,
-    final List<SwidStaticConstFieldDeclaration>? staticConstFieldDeclarations,
+    final HashableList<SwidFunctionType>? factoryConstructors,
+    final HashableList<SwidFunctionType>? staticMethods,
+    final HashableHashableList<SwidFunctionType>? methods,
+    final HashableList<SwidStaticConstFieldDeclaration>? staticConstFieldDeclarations,
     final Map<String, SwidType>? instanceFieldDeclarations,
     final SwidDeclarationModifiers? declarationModifiers,
-    final List<SwidClass>? mixedInClasses,
-    final List<SwidClass>? implementedClasses,
+    final HashableList<SwidClass>? mixedInClasses,
+    final HashableList<SwidClass>? implementedClasses,
     final bool? isMixin,
     final SwidClass? extendedClass,
-    final List<SwidTypeFormal>? typeFormals,
+    final HashableList<SwidTypeFormal>? typeFormals,
   }) =>
       SwidClass(
         name: name ?? swidClass.name,
@@ -319,7 +319,7 @@ class SwidClass
       ) !=
       null;
 
-  List<SwidFunctionType> syntheticAccessors() => methods
+  HashableList<SwidFunctionType> syntheticAccessors() => methods
       .where(
         (x) => x.declarationModifiers.isSynthetic,
       )
@@ -375,17 +375,17 @@ class SwidClass
     final SwidNullabilitySuffix? nullabilitySuffix,
     final String? originalPackagePath,
     final SwidFunctionType? constructorType,
-    final List<SwidFunctionType>? factoryConstructors,
-    final List<SwidFunctionType>? staticMethods,
-    final HashableList<SwidFunctionType>? methods,
-    final List<SwidStaticConstFieldDeclaration>? staticConstFieldDeclarations,
+    final HashableList<SwidFunctionType>? factoryConstructors,
+    final HashableList<SwidFunctionType>? staticMethods,
+    final HashableHashableList<SwidFunctionType>? methods,
+    final HashableList<SwidStaticConstFieldDeclaration>? staticConstFieldDeclarations,
     final Map<String, SwidType>? instanceFieldDeclarations,
     final SwidDeclarationModifiers? declarationModifiers,
-    final List<SwidClass>? mixedInClasses,
-    final List<SwidClass>? implementedClasses,
+    final HashableList<SwidClass>? mixedInClasses,
+    final HashableList<SwidClass>? implementedClasses,
     final bool? isMixin,
     final SwidClass? extendedClass,
-    final List<SwidTypeFormal>? typeFormals,
+    final HashableList<SwidTypeFormal>? typeFormals,
   }) =>
       SwidClass.clone(
         swidClass: this,

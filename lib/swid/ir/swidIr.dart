@@ -25,8 +25,8 @@ class SwidIr with _$SwidIr {
 
   factory SwidIr.fromJson(Map<String, dynamic> json) => _$SwidIrFromJson(json);
 
-  static List<SwidIr> merge({
-    required final List<List<SwidIr>> ir,
+  static HashableList<SwidIr> merge({
+    required final HashableList<HashableList<SwidIr>> ir,
   }) =>
       ir.reduce(
         (value, element) => [
@@ -102,9 +102,9 @@ class SwidIr with _$SwidIr {
       );
 }
 
-List<SwidClass> _mergeClasses({
-  required final List<SwidClass> first,
-  required final List<SwidClass> second,
+HashableList<SwidClass> _mergeClasses({
+  required final HashableList<SwidClass> first,
+  required final HashableList<SwidClass> second,
 }) =>
     second.fold(
       first,

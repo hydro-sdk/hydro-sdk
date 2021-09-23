@@ -17,8 +17,8 @@ class TsVmDeclaration
 
   factory TsVmDeclaration({
     required final String name,
-    required final List<SwidFunctionType> methods,
-    required final List<TsVmDeclaration> children,
+    required final HashableList<SwidFunctionType> methods,
+    required final HashableList<TsVmDeclaration> children,
   }) = _$Data;
 
   factory TsVmDeclaration.fromJson(Map<String, dynamic> json) =>
@@ -27,8 +27,8 @@ class TsVmDeclaration
   factory TsVmDeclaration.clone({
     required final TsVmDeclaration tsVmDeclaration,
     String? name,
-    List<SwidFunctionType>? methods,
-    List<TsVmDeclaration>? children,
+    HashableList<SwidFunctionType>? methods,
+    HashableList<TsVmDeclaration>? children,
   }) =>
       TsVmDeclaration(
         name: name ?? tsVmDeclaration.name,
@@ -46,8 +46,8 @@ class TsVmDeclaration
   @override
   TsVmDeclaration clone({
     String? name,
-    List<SwidFunctionType>? methods,
-    List<TsVmDeclaration>? children,
+    HashableList<SwidFunctionType>? methods,
+    HashableList<TsVmDeclaration>? children,
   }) =>
       TsVmDeclaration.clone(
         tsVmDeclaration: this,

@@ -59,7 +59,7 @@ class TsInterface
         required final String name,
         required final Map<String, SwidType> members,
         required final String superClause,
-        required final List<SwidTypeFormal> typeFormals,
+        required final HashableList<SwidTypeFormal> typeFormals,
       }) =>
           SwarsTermResult.fromString(
             ([

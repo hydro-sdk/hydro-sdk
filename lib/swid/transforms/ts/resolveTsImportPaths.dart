@@ -26,7 +26,7 @@ class ResolveTsImportPaths
   factory ResolveTsImportPaths({
     required final SwidType importee,
     required final SwidType importer,
-    @Default([]) final List<String> prefixPaths,
+    @Default([]) final HashableList<String> prefixPaths,
   }) = _$ResolveTsImportPathsCtor;
 
   @override
@@ -43,7 +43,7 @@ class ResolveTsImportPaths
   ResolveTsImportPaths clone({
     final SwidType? importee,
     final SwidType? importer,
-    final List<String>? prefixPaths,
+    final HashableList<String>? prefixPaths,
   }) =>
       ResolveTsImportPaths(
         importee: importee ?? this.importee,

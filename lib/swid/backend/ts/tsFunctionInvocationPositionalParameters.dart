@@ -24,7 +24,7 @@ class TsFunctionInvocationPositionalParameters
   TsFunctionInvocationPositionalParameters._();
 
   factory TsFunctionInvocationPositionalParameters({
-    required final List<String> positionalReferences,
+    required final HashableList<String> positionalReferences,
   }) = _$TsFunctionInvocationPositionalParametersCtor;
 
   @override
@@ -37,7 +37,7 @@ class TsFunctionInvocationPositionalParameters
 
   @override
   TsFunctionInvocationPositionalParameters clone({
-    final List<String>? positionalReferences,
+    final HashableList<String>? positionalReferences,
   }) =>
       TsFunctionInvocationPositionalParameters(
         positionalReferences: positionalReferences ?? this.positionalReferences,

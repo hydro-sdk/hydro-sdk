@@ -7,7 +7,7 @@ import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 class TsTranslationUnit implements TranslationUnit {
   final String path;
   final String fileName;
-  final List<TsIr?> ir;
+  final HashableList<TsIr?> ir;
   final ISwarsPipeline pipeline;
 
   TsTranslationUnit({

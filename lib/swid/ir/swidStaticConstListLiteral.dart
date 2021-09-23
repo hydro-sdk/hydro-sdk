@@ -21,7 +21,7 @@ class SwidStaticConstListLiteral
   SwidStaticConstListLiteral._();
 
   factory SwidStaticConstListLiteral({
-    required final List<SwidStaticConst> elements,
+    required final HashableList<SwidStaticConst> elements,
     required final SwidType staticType,
   }) = _$SwidStaticConstListLiteralCtor;
 
@@ -30,7 +30,7 @@ class SwidStaticConstListLiteral
 
   factory SwidStaticConstListLiteral.clone({
     required final SwidStaticConstListLiteral swidStaticConstListLiteral,
-    final List<SwidStaticConst>? elements,
+    final HashableList<SwidStaticConst>? elements,
     final SwidType? staticType,
   }) =>
       SwidStaticConstListLiteral(
@@ -56,7 +56,7 @@ class SwidStaticConstListLiteral
 
   @override
   SwidStaticConstListLiteral clone({
-    final List<SwidStaticConst>? elements,
+    final HashableList<SwidStaticConst>? elements,
     final SwidType? staticType,
   }) =>
       SwidStaticConstListLiteral.clone(

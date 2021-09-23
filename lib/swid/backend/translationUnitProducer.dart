@@ -14,11 +14,11 @@ import 'package:hydro_sdk/swid/ir/swidTopLevelStaticConstFieldDeclaration.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 
 class TranslationUnitProducer {
-  final List<String> tsPrefixPaths;
-  final List<String> dartPrefixPaths;
+  final HashableList<String> tsPrefixPaths;
+  final HashableList<String> dartPrefixPaths;
   final String path;
   final String baseFileName;
-  final List<String> prefixPaths;
+  final HashableList<String> prefixPaths;
   final ISwarsPipeline pipeline;
 
   TranslationUnitProducer({
@@ -30,7 +30,7 @@ class TranslationUnitProducer {
     required final this.pipeline,
   });
 
-  List<TranslationUnit> produceFromSwidEnum({
+  HashableList<TranslationUnit> produceFromSwidEnum({
     required final SwidEnum swidEnum,
   }) =>
       [
@@ -48,7 +48,7 @@ class TranslationUnitProducer {
         )
       ];
 
-  List<TranslationUnit> produceFromSwidClass({
+  HashableList<TranslationUnit> produceFromSwidClass({
     required final SwidClass swidClass,
   }) =>
       [
@@ -68,7 +68,7 @@ class TranslationUnitProducer {
         ),
       ].whereNotNull().toList();
 
-  List<TranslationUnit> produceFromSwidTopLevelStaticConstFieldDeclaration({
+  HashableList<TranslationUnit> produceFromSwidTopLevelStaticConstFieldDeclaration({
     required final SwidTopLevelStaticConstFieldDeclaration
         swidTopLevelStaticConstFieldDeclaration,
     required final ISwarsPipeline pipeline,

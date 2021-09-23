@@ -24,7 +24,7 @@ class TsFunctionInvocationNamedParametersSpread
   TsFunctionInvocationNamedParametersSpread._();
 
   factory TsFunctionInvocationNamedParametersSpread({
-    required final List<String> references,
+    required final HashableList<String> references,
   }) = _$TsFunctionInvocationNamedParametersSpreadCtor;
 
   @override
@@ -37,7 +37,7 @@ class TsFunctionInvocationNamedParametersSpread
 
   @override
   TsFunctionInvocationNamedParametersSpread clone({
-    final List<String>? references,
+    final HashableList<String>? references,
   }) =>
       TsFunctionInvocationNamedParametersSpread(
         references: references ?? this.references,
