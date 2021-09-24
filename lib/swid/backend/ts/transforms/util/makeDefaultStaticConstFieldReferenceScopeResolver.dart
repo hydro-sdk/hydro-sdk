@@ -1,8 +1,8 @@
 import 'package:collection/collection.dart' show IterableExtension;
 
+import 'package:hydro_sdk/swid/backend/ts/transforms/transformLiteralToTs.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstFieldDeclaration.dart';
-import 'package:hydro_sdk/swid/transforms/ts/transformLiteralToTs.dart';
 
 SwidStaticConstFieldReferenceScopeResolver
     makeDefaultStaticConstFieldReferenceScopeResolver({

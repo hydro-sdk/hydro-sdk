@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:path/path.dart' as path;
 
+import 'package:hydro_sdk/swid/backend/ts/transforms/transformVmDeclarationToTs.dart';
 import 'package:hydro_sdk/swid/backend/ts/tsVmDeclaration.dart';
 import 'package:hydro_sdk/swid/backend/util/requiresDartBinding.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
@@ -20,7 +21,6 @@ import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
 import 'package:hydro_sdk/swid/transforms/transformPackageUri.dart';
 import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';
 import 'package:hydro_sdk/swid/transforms/transformToPascalCase.dart';
-import 'package:hydro_sdk/swid/transforms/ts/transformVmDeclarationToTs.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
 

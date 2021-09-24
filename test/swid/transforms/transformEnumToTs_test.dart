@@ -1,9 +1,9 @@
 import 'package:flutter_test/flutter_test.dart';
 
+import 'package:hydro_sdk/swid/backend/ts/transforms/transformEnumToTs.dart';
 import 'package:hydro_sdk/swid/ir/swidEnum.dart';
 import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
 import 'package:hydro_sdk/swid/swars/pipelineNoopCacheMgr.dart';
-import 'package:hydro_sdk/swid/transforms/ts/transformEnumToTs.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();

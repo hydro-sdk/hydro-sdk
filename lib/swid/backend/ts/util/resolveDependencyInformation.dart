@@ -2,6 +2,7 @@ import 'package:collection/collection.dart' show IterableExtension;
 import 'package:path/path.dart' as p;
 import 'package:tuple/tuple.dart';
 
+import 'package:hydro_sdk/swid/backend/ts/transforms/resolveTsImportPaths.dart';
 import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
@@ -12,7 +13,6 @@ import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/transforms/removeNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/transforms/removeTypeArguments.dart';
 import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';
-import 'package:hydro_sdk/swid/transforms/ts/resolveTsImportPaths.dart';
 
 List<Tuple2<List<String>, String>> resolveDependencyInformation({
   required final List<SwidInterface> dependencies,

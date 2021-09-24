@@ -1,57 +1,59 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'package:hydro_sdk/swid/backend/ts/transforms/transformLiteralToTs.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstFieldReference.dart';
-import 'package:hydro_sdk/swid/ir/swidStaticConstMapLiteralEntry.dart';
+import 'package:hydro_sdk/swid/ir/swidStaticConstPrefixedIdentifier.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsNonUniqueTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermStringResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
-import 'package:hydro_sdk/swid/transforms/ts/transformLiteralToTs.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
 import 'package:hydro_sdk/swid/util/unHashableMixin.dart';
 
-part 'transformStaticConstMapLiteralEntryToTs.freezed.dart';
+part 'transformStaticConstPrefixedIdentifierToTs.freezed.dart';
 
 @freezed
-class TransformStaticConstMapLiteralEntryToTs
+class TransformStaticConstPrefixedIdentifierToTs
     with
-        _$TransformStaticConstMapLiteralEntryToTs,
-        HashKeyMixin<TransformStaticConstMapLiteralEntryToTs>,
-        HashComparableMixin<TransformStaticConstMapLiteralEntryToTs>,
-        UnhashableMixin<TransformStaticConstMapLiteralEntryToTs>,
+        _$TransformStaticConstPrefixedIdentifierToTs,
+        HashKeyMixin<TransformStaticConstPrefixedIdentifierToTs>,
+        HashComparableMixin<TransformStaticConstPrefixedIdentifierToTs>,
+        UnhashableMixin<TransformStaticConstPrefixedIdentifierToTs>,
         SwarsNonUniqueTermMixin<
-            TransformStaticConstMapLiteralEntryToTs,
-            $TransformStaticConstMapLiteralEntryToTsCopyWith<
-                TransformStaticConstMapLiteralEntryToTs>,
+            TransformStaticConstPrefixedIdentifierToTs,
+            $TransformStaticConstPrefixedIdentifierToTsCopyWith<
+                TransformStaticConstPrefixedIdentifierToTs>,
             String>,
         SwarsTransformMixin<
-            TransformStaticConstMapLiteralEntryToTs,
-            $TransformStaticConstMapLiteralEntryToTsCopyWith<
-                TransformStaticConstMapLiteralEntryToTs>,
+            TransformStaticConstPrefixedIdentifierToTs,
+            $TransformStaticConstPrefixedIdentifierToTsCopyWith<
+                TransformStaticConstPrefixedIdentifierToTs>,
             String>,
         SwarsTermStringResultMixin {
-  TransformStaticConstMapLiteralEntryToTs._();
+  TransformStaticConstPrefixedIdentifierToTs._();
 
-  factory TransformStaticConstMapLiteralEntryToTs({
-    required final SwidStaticConstMapLiteralEntry staticConstMapLiteralEntry,
+  factory TransformStaticConstPrefixedIdentifierToTs({
+    required final SwidStaticConstPrefixedIdentifier
+        staticConstPrefixedIdentifier,
     required final SwidClass? parentClass,
     required final String inexpressibleFunctionInvocationFallback,
     required final SwidStaticConstFieldReferenceScopeResolver scopeResolver,
-  }) = _$TransformStaticConstMapLiteralEntryToTsCtor;
+  }) = _$TransformStaticConstPrefixedIdentifierToTsCtor;
 
   @override
-  TransformStaticConstMapLiteralEntryToTs clone({
-    final SwidStaticConstMapLiteralEntry? staticConstMapLiteralEntry,
+  TransformStaticConstPrefixedIdentifierToTs clone({
+    final SwidStaticConstPrefixedIdentifier? staticConstPrefixedIdentifier,
     final SwidClass? parentClass,
     final String? inexpressibleFunctionInvocationFallback,
     final SwidStaticConstFieldReferenceScopeResolver? scopeResolver,
   }) =>
-      TransformStaticConstMapLiteralEntryToTs(
-        staticConstMapLiteralEntry:
-            staticConstMapLiteralEntry ?? this.staticConstMapLiteralEntry,
+      TransformStaticConstPrefixedIdentifierToTs(
+        staticConstPrefixedIdentifier:
+            staticConstPrefixedIdentifier ?? this.staticConstPrefixedIdentifier,
         parentClass: parentClass ?? this.parentClass,
         inexpressibleFunctionInvocationFallback:
             inexpressibleFunctionInvocationFallback ??
@@ -65,27 +67,19 @@ class TransformStaticConstMapLiteralEntryToTs
   }) =>
       SwarsTermResult.fromString(
         [
-          " new MapEntry(",
+          staticConstPrefixedIdentifier.prefix.name,
+          ".",
           pipeline.reduceFromTerm(
             TransformLiteralToTs(
-              swidLiteral: staticConstMapLiteralEntry.key,
+              swidLiteral: SwidStaticConst.fromSwidStaticConstFieldReference(
+                  swidStaticConstFieldReference:
+                      staticConstPrefixedIdentifier.staticConstFieldReference),
               parentClass: parentClass,
+              scopeResolver: scopeResolver,
               inexpressibleFunctionInvocationFallback:
                   inexpressibleFunctionInvocationFallback,
-              scopeResolver: scopeResolver,
             ),
           ),
-          " , ",
-          pipeline.reduceFromTerm(
-            TransformLiteralToTs(
-              swidLiteral: staticConstMapLiteralEntry.value,
-              parentClass: parentClass,
-              inexpressibleFunctionInvocationFallback:
-                  inexpressibleFunctionInvocationFallback,
-              scopeResolver: scopeResolver,
-            ),
-          ),
-          ")",
         ].join(),
       );
 }

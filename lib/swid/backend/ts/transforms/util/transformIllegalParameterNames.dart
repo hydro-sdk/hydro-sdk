@@ -1,5 +1,5 @@
+import 'package:hydro_sdk/swid/backend/ts/transforms/util/transformIllegalParameterName.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
-import 'package:hydro_sdk/swid/transforms/ts/util/transformIllegalParameterName.dart';
 
 SwidFunctionType transformIllegalParameterNames({
   required final SwidFunctionType swidFunctionType,
