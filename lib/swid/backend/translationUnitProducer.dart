@@ -31,10 +31,11 @@ class TranslationUnitProducer {
   });
 
   List<TranslationUnit> produceFromSwidEnum({
-    required final SwidEnum? swidEnum,
+    required final SwidEnum swidEnum,
   }) =>
       [
         TsTranslationUnit(
+          pipeline: pipeline,
           path: tsPrefixPaths.join(p.separator) + p.separator + path,
           fileName: "$baseFileName.ts",
           ir: [
@@ -56,6 +57,7 @@ class TranslationUnitProducer {
           baseFileName: baseFileName,
           path: path,
           prefixPaths: tsPrefixPaths,
+          pipeline: pipeline,
         ),
         produceDartTranslationUnitFromSwidClass(
           swidClass: swidClass,
@@ -69,6 +71,7 @@ class TranslationUnitProducer {
   List<TranslationUnit> produceFromSwidTopLevelStaticConstFieldDeclaration({
     required final SwidTopLevelStaticConstFieldDeclaration
         swidTopLevelStaticConstFieldDeclaration,
+    required final ISwarsPipeline pipeline,
   }) =>
       [
         produceTsTranslationUnitFromSwidTopLevelStaticConstFieldDeclaration(
@@ -77,6 +80,7 @@ class TranslationUnitProducer {
           baseFileName: baseFileName,
           path: path,
           prefixPaths: tsPrefixPaths,
+          pipeline: pipeline,
         )
       ];
 }

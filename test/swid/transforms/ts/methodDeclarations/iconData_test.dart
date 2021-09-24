@@ -5,6 +5,8 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'package:hydro_sdk/swid/backend/ts/tsClassMethodDeclarations.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
+import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
+import 'package:hydro_sdk/swid/swars/pipelineNoopCacheMgr.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
@@ -13,7 +15,13 @@ void main() {
         json.decode(File("test/swid/res/IconData.json").readAsStringSync()));
 
     expect(iconDataClass.instanceFieldDeclarations.length, 4);
-    expect(TsClassMethodDeclarations(swidClass: iconDataClass).toTsSource(), """
+    expect(
+        CachingPipeline(
+          cacheMgr: const PipelineNoopCacheMgr(),
+        ).reduceFromTerm(
+          TsClassMethodDeclarations(swidClass: iconDataClass),
+        ),
+        """
 public getHashCode() : number {
     return this._dart_getHashCode();
 }

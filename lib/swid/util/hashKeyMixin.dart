@@ -196,6 +196,29 @@ extension HashablePartsKeyHashablePartsValueMap<T extends IHashKey,
       );
 }
 
+extension StringKeyStringValueMap on Map<String, String> {
+  @pragma('vm:prefer-inline')
+  @pragma('dart2js:tryInline')
+  List<int> get hashableParts => ((
+        Iterable<List<int>> iterable,
+      ) =>
+          iterable.isNotEmpty
+              ? iterable.reduce(
+                  (value, element) => [
+                    ...value,
+                    ...element,
+                  ],
+                )
+              : <int>[])(
+        entries.map(
+          (x) => [
+            ...x.key.hashableParts,
+            ...x.value.hashableParts,
+          ],
+        ),
+      );
+}
+
 extension HashablePartsString on String {
   @pragma('vm:prefer-inline')
   @pragma('dart2js:tryInline')

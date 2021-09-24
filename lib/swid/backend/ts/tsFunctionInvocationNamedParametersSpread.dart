@@ -1,20 +1,52 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
+import 'package:hydro_sdk/swid/swars/swarsTermStringResultMixin.dart';
+import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
+import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
+import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
+
 part 'tsFunctionInvocationNamedParametersSpread.freezed.dart';
-part 'tsFunctionInvocationNamedParametersSpread.g.dart';
 
 @freezed
 class TsFunctionInvocationNamedParametersSpread
-    with _$TsFunctionInvocationNamedParametersSpread {
-  factory TsFunctionInvocationNamedParametersSpread(
-      {required final List<String> references}) = _$Data;
+    with
+        _$TsFunctionInvocationNamedParametersSpread,
+        HashKeyMixin<TsFunctionInvocationNamedParametersSpread>,
+        HashComparableMixin<TsFunctionInvocationNamedParametersSpread>,
+        SwarsTransformMixin<
+            TsFunctionInvocationNamedParametersSpread,
+            $TsFunctionInvocationNamedParametersSpreadCopyWith<
+                TsFunctionInvocationNamedParametersSpread>,
+            String>,
+        SwarsTermStringResultMixin {
+  TsFunctionInvocationNamedParametersSpread._();
 
-  factory TsFunctionInvocationNamedParametersSpread.fromJson(
-          Map<String, dynamic> json) =>
-      _$TsFunctionInvocationNamedParametersSpreadFromJson(json);
-}
+  factory TsFunctionInvocationNamedParametersSpread({
+    required final List<String> references,
+  }) = _$TsFunctionInvocationNamedParametersSpreadCtor;
 
-extension TsFunctionInvocationNamedParametersSpreadMethods
-    on TsFunctionInvocationNamedParametersSpread {
-  String toTsSource() => references.map((x) => "...${x}").toList().join(",\n");
+  @override
+  String get cacheGroup => "tsFunctionInvocationNamedParametersSpread";
+
+  @override
+  List<int> get hashableParts => [
+        ...references.hashableParts,
+      ];
+
+  @override
+  TsFunctionInvocationNamedParametersSpread clone({
+    final List<String>? references,
+  }) =>
+      TsFunctionInvocationNamedParametersSpread(
+        references: references ?? this.references,
+      );
+
+  ISwarsTermResult<String> transform({
+    required final ISwarsPipeline pipeline,
+  }) =>
+      SwarsTermResult.fromString(
+        references.map((x) => "...${x}").toList().join(",\n"),
+      );
 }

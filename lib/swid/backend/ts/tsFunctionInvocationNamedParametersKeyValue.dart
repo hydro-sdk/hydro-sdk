@@ -1,23 +1,56 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
+import 'package:hydro_sdk/swid/swars/swarsTermStringResultMixin.dart';
+import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
+import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
+import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
+
 part 'tsFunctionInvocationNamedParametersKeyValue.freezed.dart';
-part 'tsFunctionInvocationNamedParametersKeyValue.g.dart';
 
 @freezed
 class TsFunctionInvocationNamedParametersKeyValue
-    with _$TsFunctionInvocationNamedParametersKeyValue {
-  factory TsFunctionInvocationNamedParametersKeyValue(
-      {required final Map<String, String> namedReferences}) = _$Data;
+    with
+        _$TsFunctionInvocationNamedParametersKeyValue,
+        HashKeyMixin<TsFunctionInvocationNamedParametersKeyValue>,
+        HashComparableMixin<TsFunctionInvocationNamedParametersKeyValue>,
+        SwarsTransformMixin<
+            TsFunctionInvocationNamedParametersKeyValue,
+            $TsFunctionInvocationNamedParametersKeyValueCopyWith<
+                TsFunctionInvocationNamedParametersKeyValue>,
+            String>,
+        SwarsTermStringResultMixin {
+  TsFunctionInvocationNamedParametersKeyValue._();
 
-  factory TsFunctionInvocationNamedParametersKeyValue.fromJson(
-          Map<String, dynamic> json) =>
-      _$TsFunctionInvocationNamedParametersKeyValueFromJson(json);
-}
+  factory TsFunctionInvocationNamedParametersKeyValue({
+    required final Map<String, String> namedReferences,
+  }) = _$TsFunctionInvocationNamedParametersKeyValueCtor;
 
-extension TsFunctionInvocationNamedParametersKeyValueMethods
-    on TsFunctionInvocationNamedParametersKeyValue {
-  String toTsSource() => namedReferences.entries
-      .map((x) => "${x.key}: ${x.value}")
-      .toList()
-      .join(",\n");
+  @override
+  String get cacheGroup => "tsFunctionInvocationNamedParametersKeyValue";
+
+  @override
+  List<int> get hashableParts => [
+        ...namedReferences.hashableParts,
+      ];
+
+  @override
+  TsFunctionInvocationNamedParametersKeyValue clone({
+    final Map<String, String>? namedReferences,
+  }) =>
+      TsFunctionInvocationNamedParametersKeyValue(
+        namedReferences: namedReferences ?? this.namedReferences,
+      );
+
+  @override
+  ISwarsTermResult<String> transform({
+    required final ISwarsPipeline pipeline,
+  }) =>
+      SwarsTermResult.fromString(
+        namedReferences.entries
+            .map((x) => "${x.key}: ${x.value}")
+            .toList()
+            .join(",\n"),
+      );
 }
