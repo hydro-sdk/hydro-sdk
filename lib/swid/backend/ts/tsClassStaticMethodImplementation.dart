@@ -46,8 +46,8 @@ class TsClassStaticMethodImplementation
 
   @override
   List<int> get hashableParts => [
-        ...swidClass.hashableParts,
-        ...swidFunctionType.hashableParts,
+        ...swidClass.hashKey.hashableParts,
+        ...swidFunctionType.hashKey.hashableParts,
       ];
 
   @override

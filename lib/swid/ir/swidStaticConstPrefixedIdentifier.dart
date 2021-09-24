@@ -44,10 +44,10 @@ class SwidStaticConstPrefixedIdentifier
       );
 
   @override
-  List<int> get hashableParts => [
-        ...prefix.hashableParts,
-        ...staticConstFieldReference.hashableParts,
-      ];
+  late final List<int> hashableParts = [
+    ...prefix.hashableParts,
+    ...staticConstFieldReference.hashableParts,
+  ];
 
   @override
   SwidStaticConstPrefixedIdentifier clone({

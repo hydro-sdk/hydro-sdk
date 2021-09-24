@@ -1,3 +1,5 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
+
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
@@ -16,7 +18,6 @@ import 'package:hydro_sdk/swid/transforms/ts/transformPrimitiveNamesToTs.dart';
 import 'package:hydro_sdk/swid/transforms/ts/util/makeDefaultInexpressibleFunctionInvocationFallback.dart';
 import 'package:hydro_sdk/swid/transforms/ts/util/makeDefaultStaticConstFieldReferenceScopeResolver.dart';
 import 'package:hydro_sdk/swid/transforms/ts/util/transformIllegalParameterNames.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
 
@@ -52,8 +53,8 @@ class TransformTypeDeclarationToTs
 
   @override
   List<int> get hashableParts => [
-        ...swidType.hashableParts,
-        ...?parentClass?.hashableParts,
+        ...swidType.hashKey.hashableParts,
+        ...?parentClass?.hashKey.hashableParts,
         ...emitTrailingReturnType.hashableParts,
         ...emitDefaultFormalsAsOptionalNamed.hashableParts,
         ...emitTopLevelInitializersForOptionalPositionals.hashableParts,

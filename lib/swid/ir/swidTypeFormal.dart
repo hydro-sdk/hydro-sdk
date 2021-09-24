@@ -56,12 +56,12 @@ class SwidTypeFormalValue
       _$SwidTypeFormalValueFromJson(json);
 
   @override
-  List<int> get hashableParts => when(
-        fromString: (val) => val.hashableParts,
-        fromSwidClass: (val) => val.hashableParts,
-        fromSwidInterface: (val) => val.hashableParts,
-        fromSwidFunctionType: (val) => val.hashableParts,
-      );
+  late final List<int> hashableParts = when(
+    fromString: (val) => val.hashableParts,
+    fromSwidClass: (val) => val.hashableParts,
+    fromSwidInterface: (val) => val.hashableParts,
+    fromSwidFunctionType: (val) => val.hashableParts,
+  );
 
   String get name => when(
         fromString: (val) => val,
@@ -117,11 +117,19 @@ class SwidTypeFormal
             swidTypeFormal.swidReferenceDeclarationKind,
       );
 
+// changing all hashableparts in ir to late final took 194.4s to produce translation units
+// TransformFunctionTypeToTs and TransformTypeDeclarationToTs seem to be taking the most time to build hashableParts
+
+// Producing Typescript and Dart translation units from classes... 66.3s
+// with TransformTypeDeclarationToTs and TransformTypeDeclarationToTs using hashkey.hashableParts wherever possible
+
+// Producing Typescript and Dart translation units from classes... 60.8s
+// with ResolveTsImportPaths and TransformPrimitiveNamesToTs using hashKey.hashableParts
   @override
-  List<int> get hashableParts => [
-        ...value.hashableParts,
-        swidReferenceDeclarationKind.index,
-      ];
+  late final List<int> hashableParts = [
+    ...value.hashableParts,
+    swidReferenceDeclarationKind.index,
+  ];
 
   @override
   SwidTypeFormal clone({

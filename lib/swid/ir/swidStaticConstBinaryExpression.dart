@@ -45,11 +45,11 @@ class SwidStaticConstBinaryExpression
       );
 
   @override
-  List<int> get hashableParts => [
-        ...operator.hashableParts,
-        ...leftOperand.hashableParts,
-        ...rightOperand.hashableParts,
-      ];
+  late final List<int> hashableParts = [
+    ...operator.hashableParts,
+    ...leftOperand.hashableParts,
+    ...rightOperand.hashableParts,
+  ];
 
   @override
   SwidStaticConstBinaryExpression clone({

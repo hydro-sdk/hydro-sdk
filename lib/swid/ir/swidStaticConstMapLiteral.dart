@@ -39,10 +39,10 @@ class SwidStaticConstMapLiteral
       );
 
   @override
-  List<int> get hashableParts => [
-        ...elements.hashableParts,
-        ...staticType.hashableParts,
-      ];
+  late final List<int> hashableParts = [
+    ...elements.hashableParts,
+    ...staticType.hashableParts,
+  ];
 
   @override
   SwidStaticConstMapLiteral clone({

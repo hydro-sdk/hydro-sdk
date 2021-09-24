@@ -70,12 +70,12 @@ class SwidType
   SwidType fromJson(final Map<String, dynamic> json) => SwidType.fromJson(json);
 
   @override
-  List<int> get hashableParts => when(
-        fromSwidInterface: (val) => val.hashableParts,
-        fromSwidClass: (val) => val.hashableParts,
-        fromSwidDefaultFormalParameter: (val) => val.hashableParts,
-        fromSwidFunctionType: (val) => val.hashableParts,
-      );
+  late final List<int> hashableParts = when(
+    fromSwidInterface: (val) => val.hashableParts,
+    fromSwidClass: (val) => val.hashableParts,
+    fromSwidDefaultFormalParameter: (val) => val.hashableParts,
+    fromSwidFunctionType: (val) => val.hashableParts,
+  );
 
   @override
   SwidType clone() => SwidType.clone(
