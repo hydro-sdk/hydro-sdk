@@ -249,5 +249,7 @@ void main(List<String> args) async {
     );
   }
 
-  await pipeline.serialize();
+  if (fsCache == true) {
+    await pipeline.serialize();
+  }
 }
