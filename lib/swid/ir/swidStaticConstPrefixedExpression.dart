@@ -38,17 +38,14 @@ class SwidStaticConstPrefixedExpression
   }) =>
       SwidStaticConstPrefixedExpression(
         prefix: prefix ?? swidStaticConstPrefixedExpression.prefix,
-        expression: expression ??
-            SwidStaticConst.clone(
-              swidStaticConst: swidStaticConstPrefixedExpression.expression,
-            ),
+        expression: expression ?? swidStaticConstPrefixedExpression.expression,
       );
 
   @override
-  List<int> get hashableParts => [
-        ...prefix.hashableParts,
-        ...expression.hashableParts,
-      ];
+  late final List<int> hashableParts = [
+    ...prefix.hashableParts,
+    ...expression.hashableParts,
+  ];
 
   @override
   SwidStaticConstPrefixedExpression clone({

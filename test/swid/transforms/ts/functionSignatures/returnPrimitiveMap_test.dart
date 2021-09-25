@@ -1,12 +1,14 @@
 import 'package:flutter_test/flutter_test.dart';
 
+import 'package:hydro_sdk/swid/backend/ts/transforms/transformTypeDeclarationToTs.dart';
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
-import 'package:hydro_sdk/swid/transforms/ts/transformTypeDeclarationToTs.dart';
+import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
+import 'package:hydro_sdk/swid/swars/pipelineNoopCacheMgr.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
@@ -57,10 +59,14 @@ void main() {
     );
 
     expect(
-        transformTypeDeclarationToTs(
-          parentClass: null,
-          swidType: SwidType.fromSwidFunctionType(
-            swidFunctionType: functionType,
+        CachingPipeline(
+          cacheMgr: const PipelineNoopCacheMgr(),
+        ).reduceFromTerm(
+          TransformTypeDeclarationToTs(
+            parentClass: null,
+            swidType: SwidType.fromSwidFunctionType(
+              swidFunctionType: functionType,
+            ),
           ),
         ),
         "() => {[index: string]: Object}");

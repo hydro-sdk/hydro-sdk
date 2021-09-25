@@ -34,19 +34,15 @@ class SwidStaticConstMapLiteral
     final SwidType? staticType,
   }) =>
       SwidStaticConstMapLiteral(
-        elements: elements ??
-            swidStaticConstMapLiteral.elements.map((x) => x.clone()).toList(),
-        staticType: staticType ??
-            SwidType.clone(
-              swidType: swidStaticConstMapLiteral.staticType,
-            ),
+        elements: elements ?? swidStaticConstMapLiteral.elements,
+        staticType: staticType ?? swidStaticConstMapLiteral.staticType,
       );
 
   @override
-  List<int> get hashableParts => [
-        ...elements.hashableParts,
-        ...staticType.hashableParts,
-      ];
+  late final List<int> hashableParts = [
+    ...elements.hashableParts,
+    ...staticType.hashableParts,
+  ];
 
   @override
   SwidStaticConstMapLiteral clone({

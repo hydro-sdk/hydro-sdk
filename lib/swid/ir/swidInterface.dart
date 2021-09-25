@@ -49,13 +49,11 @@ class SwidInterface
         nullabilitySuffix: nullabilitySuffix ?? swidType.nullabilitySuffix,
         originalPackagePath:
             originalPackagePath ?? swidType.originalPackagePath,
-        typeArguments: typeArguments ?? List.from(swidType.typeArguments),
+        typeArguments: typeArguments ?? swidType.typeArguments,
         referenceDeclarationKind:
             referenceDeclarationKind ?? swidType.referenceDeclarationKind,
-        declarationModifiers: declarationModifiers ??
-            SwidDeclarationModifiers.clone(
-              declarationModifiers: swidType.declarationModifiers,
-            ),
+        declarationModifiers:
+            declarationModifiers ?? swidType.declarationModifiers,
       );
 
   factory SwidInterface.fromSwidClass({
@@ -71,14 +69,14 @@ class SwidInterface
       );
 
   @override
-  List<int> get hashableParts => [
-        ...name.hashableParts,
-        nullabilitySuffix.index,
-        ...originalPackagePath.hashableParts,
-        ...typeArguments.hashableParts,
-        referenceDeclarationKind.index,
-        ...declarationModifiers.hashableParts,
-      ];
+  late final List<int> hashableParts = [
+    ...name.hashableParts,
+    nullabilitySuffix.index,
+    ...originalPackagePath.hashableParts,
+    ...typeArguments.hashableParts,
+    referenceDeclarationKind.index,
+    ...declarationModifiers.hashableParts,
+  ];
 
   String get displayName =>
       SwidType.fromSwidInterface(swidInterface: this).displayName;

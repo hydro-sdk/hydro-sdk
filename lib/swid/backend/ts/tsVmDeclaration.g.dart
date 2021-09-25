@@ -10,9 +10,7 @@ _$_$Data _$_$_$DataFromJson(Map<String, dynamic> json) {
   return _$_$Data(
     name: json['name'] as String,
     methods: (json['methods'] as List<dynamic>)
-        .map((e) => e == null
-            ? null
-            : SwidFunctionType.fromJson(e as Map<String, dynamic>))
+        .map((e) => SwidFunctionType.fromJson(e as Map<String, dynamic>))
         .toList(),
     children: (json['children'] as List<dynamic>)
         .map((e) => TsVmDeclaration.fromJson(e as Map<String, dynamic>))

@@ -37,11 +37,11 @@ class SwidEnum
       );
 
   @override
-  List<int> get hashableParts => [
-        ...originalPackagePath.hashableParts,
-        ...identifier.hashableParts,
-        ...children.hashableParts,
-      ];
+  late final List<int> hashableParts = [
+    ...originalPackagePath.hashableParts,
+    ...identifier.hashableParts,
+    ...children.hashableParts,
+  ];
 
   @override
   SwidEnum clone({

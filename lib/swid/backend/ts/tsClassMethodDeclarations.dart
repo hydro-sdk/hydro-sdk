@@ -2,6 +2,9 @@ import 'package:collection/collection.dart' show IterableExtension;
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/backend/ts/analyses/tsClassMethodInjectionCandidates.dart';
+import 'package:hydro_sdk/swid/backend/ts/transforms/trailingReturnTypeKind.dart';
+import 'package:hydro_sdk/swid/backend/ts/transforms/transformTypeDeclarationToTs.dart';
+import 'package:hydro_sdk/swid/backend/ts/transforms/util/transformIllegalParameterNames.dart';
 import 'package:hydro_sdk/swid/backend/ts/tsClassMethodInjectionFieldName.dart';
 import 'package:hydro_sdk/swid/backend/ts/tsFunctionSelfBindingInvocation.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
@@ -11,9 +14,6 @@ import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermStringResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
-import 'package:hydro_sdk/swid/transforms/ts/trailingReturnTypeKind.dart';
-import 'package:hydro_sdk/swid/transforms/ts/transformTypeDeclarationToTs.dart';
-import 'package:hydro_sdk/swid/transforms/ts/util/transformIllegalParameterNames.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
 
@@ -41,7 +41,7 @@ class TsClassMethodDeclarations
 
   @override
   List<int> get hashableParts => [
-        ...swidClass.hashableParts,
+        ...swidClass.hashKey.hashableParts,
       ];
 
   @override
@@ -67,18 +67,20 @@ class TsClassMethodDeclarations
                       )
                       .map((x) => [
                             "public ${x.name}",
-                            transformTypeDeclarationToTs(
-                              parentClass: swidClass,
-                              emitTrailingReturnType: true,
-                              emitDefaultFormalsAsOptionalNamed: true,
-                              emitTopLevelInitializersForOptionalPositionals:
-                                  true,
-                              topLevelTrailingReturnTypeKind:
-                                  TrailingReturnTypeKind.colon,
-                              swidType: SwidType.fromSwidFunctionType(
-                                swidFunctionType:
-                                    rewriteClassReferencesToInterfaceReferencesInFunction(
-                                  swidFunctionType: x,
+                            pipeline.reduceFromTerm(
+                              TransformTypeDeclarationToTs(
+                                parentClass: swidClass,
+                                emitTrailingReturnType: true,
+                                emitDefaultFormalsAsOptionalNamed: true,
+                                emitTopLevelInitializersForOptionalPositionals:
+                                    true,
+                                topLevelTrailingReturnTypeKind:
+                                    TrailingReturnTypeKind.colon,
+                                swidType: SwidType.fromSwidFunctionType(
+                                  swidFunctionType:
+                                      rewriteClassReferencesToInterfaceReferencesInFunction(
+                                    swidFunctionType: x,
+                                  ),
                                 ),
                               ),
                             ),

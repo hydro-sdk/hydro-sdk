@@ -1,5 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 
+import 'package:hydro_sdk/swid/backend/ts/transforms/trailingReturnTypeKind.dart';
+import 'package:hydro_sdk/swid/backend/ts/transforms/transformFunctionTypeToTs.dart';
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidDefaultFormalParameter.dart';
 import 'package:hydro_sdk/swid/ir/swidDoubleLiteral.dart';
@@ -9,8 +11,8 @@ import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
-import 'package:hydro_sdk/swid/transforms/ts/trailingReturnTypeKind.dart';
-import 'package:hydro_sdk/swid/transforms/ts/transformFunctionTypeToTs.dart';
+import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
+import 'package:hydro_sdk/swid/swars/pipelineNoopCacheMgr.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
@@ -80,20 +82,28 @@ void main() {
     );
     //no configuration
     expect(
-        transformFunctionTypeToTs(
-          parentClass: null,
-          swidFunctionType: fromDirection,
-          trailingReturnTypeKind: TrailingReturnTypeKind.fatArrow,
+        CachingPipeline(
+          cacheMgr: const PipelineNoopCacheMgr(),
+        ).reduceFromTerm(
+          TransformFunctionTypeToTs(
+            parentClass: null,
+            swidFunctionType: fromDirection,
+            trailingReturnTypeKind: TrailingReturnTypeKind.fatArrow,
+          ),
         ),
         "(direction: number, distance: number) => Offset");
 
     //with initializers
     expect(
-        transformFunctionTypeToTs(
-          parentClass: null,
-          swidFunctionType: fromDirection,
-          trailingReturnTypeKind: TrailingReturnTypeKind.fatArrow,
-          emitInitializersForOptionalPositionals: true,
+        CachingPipeline(
+          cacheMgr: const PipelineNoopCacheMgr(),
+        ).reduceFromTerm(
+          TransformFunctionTypeToTs(
+            parentClass: null,
+            swidFunctionType: fromDirection,
+            trailingReturnTypeKind: TrailingReturnTypeKind.fatArrow,
+            emitInitializersForOptionalPositionals: true,
+          ),
         ),
         "(direction: number, distance: number = 1.0) => Offset");
   }, tags: "swid");

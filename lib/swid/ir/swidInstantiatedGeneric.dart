@@ -62,10 +62,10 @@ class SwidInstantiatedGeneric
       );
 
   @override
-  List<int> get hashableParts => [
-        ...instantiableGeneric.hashableParts,
-        referenceDeclarationKind.index,
-      ];
+  late final List<int> hashableParts = [
+    ...instantiableGeneric.hashableParts,
+    referenceDeclarationKind.index,
+  ];
 
   @override
   SwidInstantiatedGeneric clone({

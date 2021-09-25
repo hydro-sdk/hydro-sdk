@@ -34,17 +34,14 @@ class SwidStaticConstIdentifier
   }) =>
       SwidStaticConstIdentifier(
         identifier: identifier ?? swidStaticConstIdentifier.identifier,
-        enclosingType: enclosingType ??
-            SwidType.clone(
-              swidType: swidStaticConstIdentifier.enclosingType,
-            ),
+        enclosingType: enclosingType ?? swidStaticConstIdentifier.enclosingType,
       );
 
   @override
-  List<int> get hashableParts => [
-        ...identifier.hashableParts,
-        ...enclosingType.hashableParts,
-      ];
+  late final List<int> hashableParts = [
+    ...identifier.hashableParts,
+    ...enclosingType.hashableParts,
+  ];
 
   @override
   SwidStaticConstIdentifier clone({

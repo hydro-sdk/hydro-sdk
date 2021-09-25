@@ -30,16 +30,16 @@ class NameAnonymousNormalParametersInFunction
   String get cacheGroup => "nameAnonymousNormalParametersInFunction";
 
   @override
-  List<int> get hashableParts => [
-        ...swidFunctionType.hashableParts,
-      ];
+  late final List<int> hashableParts = [
+    ...swidFunctionType.hashableParts,
+  ];
 
   @override
   NameAnonymousNormalParametersInFunction clone({
     final SwidFunctionType? swidFunctionType,
   }) =>
       NameAnonymousNormalParametersInFunction(
-        swidFunctionType: swidFunctionType ?? this.swidFunctionType.clone(),
+        swidFunctionType: swidFunctionType ?? this.swidFunctionType,
       );
 
   @override

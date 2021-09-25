@@ -39,22 +39,17 @@ class SwidStaticConstBinaryExpression
   }) =>
       SwidStaticConstBinaryExpression(
         operator: operator ?? swidStaticConstBinaryExpression.operator,
-        leftOperand: SwidStaticConst.clone(
-          swidStaticConst:
-              leftOperand ?? swidStaticConstBinaryExpression.leftOperand,
-        ),
-        rightOperand: SwidStaticConst.clone(
-          swidStaticConst:
-              rightOperand ?? swidStaticConstBinaryExpression.rightOperand,
-        ),
+        leftOperand: leftOperand ?? swidStaticConstBinaryExpression.leftOperand,
+        rightOperand:
+            rightOperand ?? swidStaticConstBinaryExpression.rightOperand,
       );
 
   @override
-  List<int> get hashableParts => [
-        ...operator.hashableParts,
-        ...leftOperand.hashableParts,
-        ...rightOperand.hashableParts,
-      ];
+  late final List<int> hashableParts = [
+    ...operator.hashableParts,
+    ...leftOperand.hashableParts,
+    ...rightOperand.hashableParts,
+  ];
 
   @override
   SwidStaticConstBinaryExpression clone({

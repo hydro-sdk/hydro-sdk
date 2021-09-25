@@ -38,22 +38,16 @@ class SwidStaticConstPrefixedIdentifier
     final SwidStaticConstFieldReference? staticConstFieldReference,
   }) =>
       SwidStaticConstPrefixedIdentifier(
-        prefix: prefix ??
-            SwidInterface.clone(
-              swidType: swidStaticConstPrefixedIdentifier.prefix,
-            ),
+        prefix: prefix ?? swidStaticConstPrefixedIdentifier.prefix,
         staticConstFieldReference: staticConstFieldReference ??
-            SwidStaticConstFieldReference.clone(
-              swidStaticConstFieldReference:
-                  swidStaticConstPrefixedIdentifier.staticConstFieldReference,
-            ),
+            swidStaticConstPrefixedIdentifier.staticConstFieldReference,
       );
 
   @override
-  List<int> get hashableParts => [
-        ...prefix.hashableParts,
-        ...staticConstFieldReference.hashableParts,
-      ];
+  late final List<int> hashableParts = [
+    ...prefix.hashableParts,
+    ...staticConstFieldReference.hashableParts,
+  ];
 
   @override
   SwidStaticConstPrefixedIdentifier clone({

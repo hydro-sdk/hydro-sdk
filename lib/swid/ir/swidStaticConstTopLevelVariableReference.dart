@@ -40,17 +40,14 @@ class SwidStaticConstTopLevelVariableReference
         identifier:
             identifier ?? swidStaticConstTopLevelVariableReference.identifier,
         topLevelReference: topLevelReference ??
-            SwidType.clone(
-              swidType:
-                  swidStaticConstTopLevelVariableReference.topLevelReference,
-            ),
+            swidStaticConstTopLevelVariableReference.topLevelReference,
       );
 
   @override
-  List<int> get hashableParts => [
-        ...identifier.hashableParts,
-        ...topLevelReference.hashableParts,
-      ];
+  late final List<int> hashableParts = [
+    ...identifier.hashableParts,
+    ...topLevelReference.hashableParts,
+  ];
 
   @override
   SwidStaticConstTopLevelVariableReference clone({

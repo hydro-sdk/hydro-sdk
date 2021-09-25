@@ -32,22 +32,8 @@ class SwidiClass
         name: name ?? swidiClass.name,
         libraryScopePrefix:
             libraryScopePrefix ?? swidiClass.libraryScopePrefix.clone(),
-        methods: methods ??
-            List.from(
-              swidiClass.methods
-                  .map(
-                    (x) => x.clone(),
-                  )
-                  .toList(),
-            ),
-        staticMethods: staticMethods ??
-            List.from(
-              swidiClass.staticMethods
-                  .map(
-                    (x) => x.clone(),
-                  )
-                  .toList(),
-            ),
+        methods: methods ?? swidiClass.methods,
+        staticMethods: staticMethods ?? swidiClass.staticMethods,
       );
 
   @override

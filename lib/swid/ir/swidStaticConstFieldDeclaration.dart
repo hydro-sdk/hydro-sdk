@@ -37,16 +37,14 @@ class SwidStaticConstFieldDeclaration
   }) =>
       SwidStaticConstFieldDeclaration(
         name: name ?? swidStaticConstFieldDeclaration.name,
-        value: SwidStaticConst.clone(
-          swidStaticConst: value ?? swidStaticConstFieldDeclaration.value,
-        ),
+        value: value ?? swidStaticConstFieldDeclaration.value,
       );
 
   @override
-  List<int> get hashableParts => [
-        ...name.hashableParts,
-        ...value.hashableParts,
-      ];
+  late final List<int> hashableParts = [
+    ...name.hashableParts,
+    ...value.hashableParts,
+  ];
 
   @override
   SwidStaticConstFieldDeclaration clone({

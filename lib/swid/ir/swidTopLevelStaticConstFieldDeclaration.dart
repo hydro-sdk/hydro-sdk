@@ -44,10 +44,10 @@ class SwidTopLevelStaticConstFieldDeclaration
       );
 
   @override
-  List<int> get hashableParts => [
-        ...originalPackagePath.hashableParts,
-        ...declaration.hashableParts,
-      ];
+  late final List<int> hashableParts = [
+    ...originalPackagePath.hashableParts,
+    ...declaration.hashableParts,
+  ];
 
   @override
   SwidTopLevelStaticConstFieldDeclaration clone({

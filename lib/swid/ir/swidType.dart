@@ -52,25 +52,17 @@ class SwidType
   }) =>
       swidType.when(
         fromSwidInterface: (val) => SwidType.fromSwidInterface(
-          swidInterface: SwidInterface.clone(
-            swidType: val,
-          ),
+          swidInterface: val,
         ),
         fromSwidClass: (val) => SwidType.fromSwidClass(
-          swidClass: SwidClass.clone(
-            swidClass: val,
-          ),
+          swidClass: val,
         ),
         fromSwidDefaultFormalParameter: (val) =>
             SwidType.fromSwidDefaultFormalParameter(
-          swidDefaultFormalParameter: SwidDefaultFormalParameter.clone(
-            swidDefaultFormalParameter: val,
-          ),
+          swidDefaultFormalParameter: val,
         ),
         fromSwidFunctionType: (val) => SwidType.fromSwidFunctionType(
-          swidFunctionType: SwidFunctionType.clone(
-            swidFunctionType: val,
-          ),
+          swidFunctionType: val,
         ),
       );
 
@@ -78,12 +70,12 @@ class SwidType
   SwidType fromJson(final Map<String, dynamic> json) => SwidType.fromJson(json);
 
   @override
-  List<int> get hashableParts => when(
-        fromSwidInterface: (val) => val.hashableParts,
-        fromSwidClass: (val) => val.hashableParts,
-        fromSwidDefaultFormalParameter: (val) => val.hashableParts,
-        fromSwidFunctionType: (val) => val.hashableParts,
-      );
+  late final List<int> hashableParts = when(
+    fromSwidInterface: (val) => val.hashableParts,
+    fromSwidClass: (val) => val.hashableParts,
+    fromSwidDefaultFormalParameter: (val) => val.hashableParts,
+    fromSwidFunctionType: (val) => val.hashableParts,
+  );
 
   @override
   SwidType clone() => SwidType.clone(

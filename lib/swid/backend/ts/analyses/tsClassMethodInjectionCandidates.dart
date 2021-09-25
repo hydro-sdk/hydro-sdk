@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'package:hydro_sdk/swid/backend/ts/transforms/transformPrimitiveFunctionTypeNamesToTs.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/util/isOperator.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
@@ -7,7 +8,6 @@ import 'package:hydro_sdk/swid/swars/swarsAnalysisMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermJsonTransformableListResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/transforms/transformAccessorName.dart';
-import 'package:hydro_sdk/swid/transforms/ts/transformPrimitiveFunctionTypeNamesToTs.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
 
@@ -58,9 +58,11 @@ class TsClassMethodInjectionCandidates
       SwarsTermResult.fromList(
         swidFunctionTypes
             .map(
-              (x) => transformPrimitiveFunctionTypeNamesToTs(
-                swidFunctionType: transformAccessorName(
-                  swidFunctionType: x,
+              (x) => pipeline.reduceFromTerm(
+                TransformPrimitiveFunctionTypeNamesToTs(
+                  swidFunctionType: transformAccessorName(
+                    swidFunctionType: x,
+                  ),
                 ),
               ),
             )

@@ -1,6 +1,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/backend/ts/analyses/tsClassMethodInjectionCandidates.dart';
+import 'package:hydro_sdk/swid/backend/ts/transforms/trailingReturnTypeKind.dart';
+import 'package:hydro_sdk/swid/backend/ts/transforms/transformFunctionTypeToTs.dart';
 import 'package:hydro_sdk/swid/backend/ts/tsClassMethodInjectionFieldName.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/util/rewriteClassReferencesToInterfaceReferencesInFunction.dart';
@@ -8,8 +10,6 @@ import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermStringResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
-import 'package:hydro_sdk/swid/transforms/ts/trailingReturnTypeKind.dart';
-import 'package:hydro_sdk/swid/transforms/ts/transformFunctionTypeToTs.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
 
@@ -38,7 +38,7 @@ class TsClassMethodInjectionFieldDeclarations
 
   @override
   List<int> get hashableParts => [
-        ...swidClass.hashableParts,
+        ...swidClass.hashKey.hashableParts,
       ];
 
   @override
@@ -73,14 +73,16 @@ class TsClassMethodInjectionFieldDeclarations
                             ),
                           ) +
                           ": " +
-                          transformFunctionTypeToTs(
-                            parentClass: swidClass,
-                            swidFunctionType:
-                                rewriteClassReferencesToInterfaceReferencesInFunction(
-                              swidFunctionType: x,
+                          pipeline.reduceFromTerm(
+                            TransformFunctionTypeToTs(
+                              parentClass: swidClass,
+                              swidFunctionType:
+                                  rewriteClassReferencesToInterfaceReferencesInFunction(
+                                swidFunctionType: x,
+                              ),
+                              trailingReturnTypeKind:
+                                  TrailingReturnTypeKind.fatArrow,
                             ),
-                            trailingReturnTypeKind:
-                                TrailingReturnTypeKind.fatArrow,
                           ) +
                           " = undefined as any;")
                       .toList()

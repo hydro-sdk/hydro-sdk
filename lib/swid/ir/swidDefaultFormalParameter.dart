@@ -48,26 +48,20 @@ class SwidDefaultFormalParameter
             nullabilitySuffix ?? swidDefaultFormalParameter.nullabilitySuffix,
         originalPackagePath: originalPackagePath ??
             swidDefaultFormalParameter.originalPackagePath,
-        staticType: staticType ??
-            SwidType.clone(
-              swidType: swidDefaultFormalParameter.staticType,
-            ),
-        value: value ??
-            SwidStaticConst.clone(
-              swidStaticConst: swidDefaultFormalParameter.value,
-            ),
+        staticType: staticType ?? swidDefaultFormalParameter.staticType,
+        value: value ?? swidDefaultFormalParameter.value,
         defaultValueCode:
             defaultValueCode ?? swidDefaultFormalParameter.defaultValueCode,
       );
 
   @override
-  List<int> get hashableParts => [
-        nullabilitySuffix.index,
-        ...originalPackagePath.hashableParts,
-        ...staticType.hashableParts,
-        ...value.hashableParts,
-        ...defaultValueCode.hashableParts,
-      ];
+  late final List<int> hashableParts = [
+    nullabilitySuffix.index,
+    ...originalPackagePath.hashableParts,
+    ...staticType.hashableParts,
+    ...value.hashableParts,
+    ...defaultValueCode.hashableParts,
+  ];
 
   @override
   String get name => staticType.name;

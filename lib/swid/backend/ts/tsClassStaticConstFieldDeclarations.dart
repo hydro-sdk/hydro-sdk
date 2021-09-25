@@ -1,12 +1,12 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'package:hydro_sdk/swid/backend/ts/transforms/transformStaticConstFieldDeclaration.dart';
+import 'package:hydro_sdk/swid/backend/ts/transforms/util/makeDefaultStaticConstFieldReferenceScopeResolver.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermStringResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
-import 'package:hydro_sdk/swid/transforms/ts/transformStaticConstFieldDeclaration.dart';
-import 'package:hydro_sdk/swid/transforms/ts/util/makeDefaultStaticConstFieldReferenceScopeResolver.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
 
@@ -35,7 +35,7 @@ class TsClassStaticConstFieldDeclarations
 
   @override
   List<int> get hashableParts => [
-        ...swidClass.hashableParts,
+        ...swidClass.hashKey.hashableParts,
       ];
 
   @override
@@ -52,12 +52,15 @@ class TsClassStaticConstFieldDeclarations
     var res = "";
     swidClass.staticConstFieldDeclarations.forEach((x) {
       res += "    " +
-          transformStaticConstFieldDeclaration(
+          pipeline.reduceFromTerm(
+            TransformStaticConstFieldDeclaration(
               staticConstFieldDeclaration: x,
               parentClass: swidClass,
               scopeResolver: makeDefaultStaticConstFieldReferenceScopeResolver(
                 parentClass: swidClass,
-              ));
+              ),
+            ),
+          );
       res += "\n";
     });
     return SwarsTermResult.fromString(res);

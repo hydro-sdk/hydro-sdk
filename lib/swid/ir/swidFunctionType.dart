@@ -116,46 +116,42 @@ class SwidFunctionType
         name: name ?? swidFunctionType.name,
         nullabilitySuffix:
             nullabilitySuffix ?? swidFunctionType.nullabilitySuffix,
-        originalPackagePath: nullabilitySuffix as String? ??
-            swidFunctionType.originalPackagePath,
-        declarationModifiers: declarationModifiers ??
-            SwidDeclarationModifiers.clone(
-              declarationModifiers: swidFunctionType.declarationModifiers,
-            ),
-        namedParameterTypes: namedParameterTypes ??
-            Map.from(swidFunctionType.namedParameterTypes),
-        namedDefaults:
-            namedDefaults ?? Map.from(swidFunctionType.namedDefaults),
-        normalParameterNames: normalParameterNames ??
-            List.from(swidFunctionType.normalParameterNames),
-        normalParameterTypes: normalParameterTypes ??
-            List.from(swidFunctionType.normalParameterTypes),
-        optionalParameterNames: optionalParameterNames ??
-            List.from(swidFunctionType.optionalParameterNames),
-        optionalParameterTypes: optionalParameterTypes ??
-            List.from(swidFunctionType.optionalParameterTypes),
-        returnType:
-            returnType ?? cloneSwidType(swidType: swidFunctionType.returnType),
+        originalPackagePath:
+            originalPackagePath ?? swidFunctionType.originalPackagePath,
+        declarationModifiers:
+            declarationModifiers ?? swidFunctionType.declarationModifiers,
+        namedParameterTypes:
+            namedParameterTypes ?? swidFunctionType.namedParameterTypes,
+        namedDefaults: namedDefaults ?? swidFunctionType.namedDefaults,
+        normalParameterNames:
+            normalParameterNames ?? swidFunctionType.normalParameterNames,
+        normalParameterTypes:
+            normalParameterTypes ?? swidFunctionType.normalParameterTypes,
+        optionalParameterNames:
+            optionalParameterNames ?? swidFunctionType.optionalParameterNames,
+        optionalParameterTypes:
+            optionalParameterTypes ?? swidFunctionType.optionalParameterTypes,
+        returnType: returnType ?? swidFunctionType.returnType,
         isFactory: isFactory ?? swidFunctionType.isFactory,
-        typeFormals: typeFormals ?? List.from(swidFunctionType.typeFormals),
+        typeFormals: typeFormals ?? swidFunctionType.typeFormals,
       );
 
   @override
-  List<int> get hashableParts => [
-        ...name.hashableParts,
-        nullabilitySuffix.index,
-        ...originalPackagePath.hashableParts,
-        ...namedParameterTypes.hashableParts,
-        ...namedDefaults.hashableParts,
-        ...normalParameterNames.hashableParts,
-        ...normalParameterTypes.hashableParts,
-        ...optionalParameterNames.hashableParts,
-        ...optionalParameterTypes.hashableParts,
-        ...returnType.hashableParts,
-        ...isFactory.hashableParts,
-        ...typeFormals.hashableParts,
-        ...declarationModifiers.hashableParts,
-      ];
+  late final List<int> hashableParts = [
+    ...name.hashableParts,
+    nullabilitySuffix.index,
+    ...originalPackagePath.hashableParts,
+    ...namedParameterTypes.hashableParts,
+    ...namedDefaults.hashableParts,
+    ...normalParameterNames.hashableParts,
+    ...normalParameterTypes.hashableParts,
+    ...optionalParameterNames.hashableParts,
+    ...optionalParameterTypes.hashableParts,
+    ...returnType.hashableParts,
+    ...isFactory.hashableParts,
+    ...typeFormals.hashableParts,
+    ...declarationModifiers.hashableParts,
+  ];
 
   Map<String, SwidDefaultFormalParameter> get namedDefaultParameters =>
       Map.fromEntries(

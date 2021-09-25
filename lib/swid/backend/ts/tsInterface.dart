@@ -1,5 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'package:hydro_sdk/swid/backend/ts/transforms/transformTypeDeclarationToTs.dart';
+import 'package:hydro_sdk/swid/backend/ts/transforms/transformTypeFormalsToTs.dart';
 import 'package:hydro_sdk/swid/backend/ts/tsSuperClassClause.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
@@ -8,8 +10,6 @@ import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermStringResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
-import 'package:hydro_sdk/swid/transforms/ts/transformTypeDeclarationToTs.dart';
-import 'package:hydro_sdk/swid/transforms/ts/transformTypeFormalsToTs.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
 
@@ -36,7 +36,7 @@ class TsInterface
 
   @override
   List<int> get hashableParts => [
-        ...swidClass.hashableParts,
+        ...swidClass.hashKey.hashableParts,
         ...emitSuperInterfaceExtensions.hashableParts,
       ];
 
@@ -64,13 +64,19 @@ class TsInterface
           SwarsTermResult.fromString(
             ([
               "export interface $name",
-              transformTypeFormalsToTs(swidTypeFormals: typeFormals),
+              pipeline.reduceFromTerm(
+                TransformTypeFormalsToTs(
+                  swidTypeFormals: typeFormals,
+                ),
+              ),
               emitSuperInterfaceExtensions ? superClause : "",
               "{",
               ...members.entries
-                  .map((x) => "${x.key}: ${transformTypeDeclarationToTs(
-                        parentClass: null,
-                        swidType: x.value,
+                  .map((x) => "${x.key}: ${pipeline.reduceFromTerm(
+                        TransformTypeDeclarationToTs(
+                          parentClass: null,
+                          swidType: x.value,
+                        ),
                       )};")
                   .toList(),
               "}"

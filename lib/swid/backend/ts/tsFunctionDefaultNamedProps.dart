@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'package:hydro_sdk/swid/backend/ts/transforms/transformTypeDeclarationToTs.dart';
 import 'package:hydro_sdk/swid/backend/ts/tsFunctionDefaultNamedPropsObjectName.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
@@ -9,7 +10,6 @@ import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermStringResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
-import 'package:hydro_sdk/swid/transforms/ts/transformTypeDeclarationToTs.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
 
@@ -65,15 +65,17 @@ class TsFunctionDefaultNamedProps
                         )
                             ? [
                                 "    ${x.key}: ",
-                                transformTypeDeclarationToTs(
-                                  parentClass: null,
-                                  emitTopLevelInitializersForOptionalPositionals:
-                                      true,
-                                  swidType:
-                                      rewriteClassReferencesToInterfaceReferences(
+                                pipeline.reduceFromTerm(
+                                  TransformTypeDeclarationToTs(
+                                    parentClass: null,
+                                    emitTopLevelInitializersForOptionalPositionals:
+                                        true,
                                     swidType:
-                                        SwidType.fromSwidDefaultFormalParameter(
-                                      swidDefaultFormalParameter: x.value,
+                                        rewriteClassReferencesToInterfaceReferences(
+                                      swidType: SwidType
+                                          .fromSwidDefaultFormalParameter(
+                                        swidDefaultFormalParameter: x.value,
+                                      ),
                                     ),
                                   ),
                                 ),

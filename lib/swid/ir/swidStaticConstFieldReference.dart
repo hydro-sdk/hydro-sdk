@@ -36,9 +36,9 @@ class SwidStaticConstFieldReference
       );
 
   @override
-  List<int> get hashableParts => [
-        ...name.hashableParts,
-      ];
+  late final List<int> hashableParts = [
+    ...name.hashableParts,
+  ];
 
   @override
   SwidStaticConstFieldReference clone({

@@ -32,10 +32,10 @@ class StringTuple
       );
 
   @override
-  List<int> get hashableParts => [
-        ...item1.hashableParts,
-        ...item2.hashableParts,
-      ];
+  late final List<int> hashableParts = [
+    ...item1.hashableParts,
+    ...item2.hashableParts,
+  ];
 
   factory StringTuple.fromJson(Map<String, dynamic> json) =>
       _$StringTupleFromJson(json);
@@ -94,35 +94,35 @@ class SwidDeclarationModifiers
   }) = _$Data;
 
   @override
-  List<int> get hashableParts => [
-        ...ignoredTransforms.hashableParts,
-        ...ignoredAnalyses.hashableParts,
-        ...overridenTransforms.hashableParts,
-        ...isAbstract.hashableParts,
-        ...isGetter.hashableParts,
-        ...isOperator.hashableParts,
-        ...isSetter.hashableParts,
-        ...isStatic.hashableParts,
-        ...isSynthetic.hashableParts,
-        ...hasAlwaysThrows.hashableParts,
-        ...hasDeprecated.hashableParts,
-        ...hasFactory.hashableParts,
-        ...hasImplicitReturnType.hashableParts,
-        ...hasIsTest.hashableParts,
-        ...hasIsTestGroup.hashableParts,
-        ...hasJS.hashableParts,
-        ...hasLiteral.hashableParts,
-        ...hasMustCallSuper.hashableParts,
-        ...hasNonVirtual.hashableParts,
-        ...hasOptionalTypeArgs.hashableParts,
-        ...hasOverride.hashableParts,
-        ...hasProtected.hashableParts,
-        ...hasRequired.hashableParts,
-        ...hasSealed.hashableParts,
-        ...hasVisibleForTemplate.hashableParts,
-        ...hasVisibleForTesting.hashableParts,
-        ...isPublic.hashableParts,
-      ];
+  late final List<int> hashableParts = [
+    ...ignoredTransforms.hashableParts,
+    ...ignoredAnalyses.hashableParts,
+    ...overridenTransforms.hashableParts,
+    ...isAbstract.hashableParts,
+    ...isGetter.hashableParts,
+    ...isOperator.hashableParts,
+    ...isSetter.hashableParts,
+    ...isStatic.hashableParts,
+    ...isSynthetic.hashableParts,
+    ...hasAlwaysThrows.hashableParts,
+    ...hasDeprecated.hashableParts,
+    ...hasFactory.hashableParts,
+    ...hasImplicitReturnType.hashableParts,
+    ...hasIsTest.hashableParts,
+    ...hasIsTestGroup.hashableParts,
+    ...hasJS.hashableParts,
+    ...hasLiteral.hashableParts,
+    ...hasMustCallSuper.hashableParts,
+    ...hasNonVirtual.hashableParts,
+    ...hasOptionalTypeArgs.hashableParts,
+    ...hasOverride.hashableParts,
+    ...hasProtected.hashableParts,
+    ...hasRequired.hashableParts,
+    ...hasSealed.hashableParts,
+    ...hasVisibleForTemplate.hashableParts,
+    ...hasVisibleForTesting.hashableParts,
+    ...isPublic.hashableParts,
+  ];
 
   factory SwidDeclarationModifiers.fromJson(Map<String, dynamic> json) =>
       _$SwidDeclarationModifiersFromJson(json);
@@ -158,14 +158,14 @@ class SwidDeclarationModifiers
     final bool? isPublic,
   }) =>
       SwidDeclarationModifiers(
-        ignoredTransforms: ignoredTransforms ??
-            List.from(declarationModifiers.ignoredTransforms),
+        ignoredTransforms:
+            ignoredTransforms ?? declarationModifiers.ignoredTransforms,
         ignoredAnalyses:
-            ignoredAnalyses ?? List.from(declarationModifiers.ignoredAnalyses),
+            ignoredAnalyses ?? declarationModifiers.ignoredAnalyses,
         overridenTransforms: overridenTransforms ??
             declarationModifiers.overridenTransforms
                 .map(
-                  (x) => x.clone(),
+                  (x) => x,
                 )
                 .toList(),
         isAbstract: isAbstract ?? declarationModifiers.isAbstract,

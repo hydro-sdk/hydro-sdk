@@ -15,13 +15,16 @@ import 'package:hydro_sdk/swid/ir/util/collectAllReferences.dart';
 import 'package:hydro_sdk/swid/ir/util/collectAllStaticConstReferences.dart';
 import 'package:hydro_sdk/swid/ir/util/hasStaticConstMap.dart';
 import 'package:hydro_sdk/swid/ir/util/narrowSwidInterfaceByReferenceDeclaration.dart';
+import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 
 List<TsIr> tsImportBlock({
   required final SwidClass swidClass,
   required final List<String> prefixPaths,
+  required final ISwarsPipeline pipeline,
 }) {
   List<Tuple2<List<String>, String>> symbolModulePairs =
       resolveDependencyInformation(
+    pipeline: pipeline,
     dependencies: [
       ...collectAllReferences(
         includeFirstOrderSuperClassReferences: true,
@@ -73,6 +76,7 @@ List<TsIr> tsImportBlock({
 
   List<Tuple2<List<String>, String>> staticConstSymbolModulePairs =
       resolveDependencyInformation(
+          pipeline: pipeline,
           rewriteReferences: false,
           dependencies: collectAllStaticConstReferences(
                   swidType: SwidType.fromSwidClass(swidClass: swidClass))

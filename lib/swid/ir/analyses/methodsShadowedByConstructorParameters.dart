@@ -33,9 +33,9 @@ class MethodsShadowedByConstructorParameters
   String get cacheGroup => "methodsShadowedByConstructorParameters";
 
   @override
-  List<int> get hashableParts => [
-        ...swidClass.hashableParts,
-      ];
+  late final List<int> hashableParts = [
+    ...swidClass.hashKey.hashableParts,
+  ];
 
   @override
   MethodsShadowedByConstructorParameters clone({

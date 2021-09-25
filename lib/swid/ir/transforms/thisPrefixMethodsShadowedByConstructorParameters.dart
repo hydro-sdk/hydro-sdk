@@ -34,9 +34,9 @@ class ThisPrefixMethodsShadowedByConstructorParameters
   String get cacheGroup => "thisPrefixMethodsShadowedByConstructorParameters";
 
   @override
-  List<int> get hashableParts => [
-        ...swidClass.hashableParts,
-      ];
+  late final List<int> hashableParts = [
+    ...swidClass.hashKey.hashableParts,
+  ];
 
   @override
   ThisPrefixMethodsShadowedByConstructorParameters clone({
