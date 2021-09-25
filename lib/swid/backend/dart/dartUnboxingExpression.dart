@@ -1,14 +1,3 @@
-import 'package:code_builder/code_builder.dart'
-    show
-        DartEmitter,
-        refer,
-        Expression,
-        TypeReference,
-        Method,
-        Parameter,
-        CodeExpression,
-        Code;
-
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/backend/dart/util/luaCallerArgumentsParameterName.dart';
@@ -25,6 +14,17 @@ import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
 import 'package:hydro_sdk/swid/util/unHashableMixin.dart';
+
+import 'package:code_builder/code_builder.dart'
+    show
+        DartEmitter,
+        refer,
+        Expression,
+        TypeReference,
+        Method,
+        Parameter,
+        CodeExpression,
+        Code;
 
 part 'dartUnboxingExpression.freezed.dart';
 
@@ -147,7 +147,7 @@ class DartUnboxingExpression
                           val.typeFormals
                               .map((x) => x.value.name)
                               .toList()
-                              .join() +
+                              .join(",") +
                           ">")
                       : "",
                   Method(
@@ -163,7 +163,7 @@ class DartUnboxingExpression
                       ..body = Code(
                         pipeline.reduceFromTerm(
                           DartUnboxingExpression(
-                            identifierName: null,
+                            identifierName: identifierName,
                             swidType: val.returnType,
                             expression: CodeExpression(
                               Code(
