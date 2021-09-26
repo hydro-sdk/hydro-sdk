@@ -26,7 +26,7 @@ Widget integrationTestHarness(
       var res = file.readAsStringSync();
       return res;
       } catch (err) {
-        return null;
+        return "";
       }
     },
     downloadByteCodeImage: (String uri) async {
