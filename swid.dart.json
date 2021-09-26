@@ -9,6 +9,7 @@
         ],
         "allowList": {
             "packagePaths": [
+                "dart:async",
                 "dart:typed_data",
                 "dart:ui",
                 "dart:collection"

@@ -1,114 +1,149 @@
-export type FutureOr<T> = Future<T> | T;
-
+import { IDuration } from "../core/duration";
+import { IFunction } from "../core/function";
+import { IIterable } from "../core/iterable";
+import { IList } from "../core/list";
+import { IStackTrace } from "../core/stackTrace";
+import { IFutureOr } from "./futureOr";
+import { IStream } from "./stream";
 declare const dart: {
     async: {
         future: <T>(
             this: void,
-            future: Future<T>,
-            computation: () => FutureOr<T>
-        ) => Future<T>;
+            future: IFuture<T>,
+            computation: () => IFutureOr<T>
+        ) => IFuture<T>;
+        futureMicrotask: <T>(computation: () => IFutureOr<T>) => IFuture<T>;
+        futureSync: <T>(computation: () => IFutureOr<T>) => IFuture<T>;
+        futureValue: <T>(value?: IFutureOr<T> | undefined) => IFuture<T>;
         futureError: <T>(
-            this: void,
-            error: any,
-            stackTrace?: any | undefined
-        ) => Future<T>;
-        futureSync: <T>(
-            this: void,
-            computation: () => FutureOr<T>
-        ) => Future<T>;
-        futureValue: <T>(
-            this: void,
-            value?: FutureOr<T> | undefined
-        ) => Future<T>;
-        futureAny: <T>(this: void, futures: Array<Future<T>>) => Future<T>;
-        futureDoWhile: <T>(
-            this: void,
-            action: () => FutureOr<boolean>
-        ) => Future<any>;
-        futureForEach: <T>(
-            this: void,
-            element: Array<T>,
-            action: (element: T) => FutureOr<any>
-        ) => Future<any>;
+            error: Object,
+            stackTrace?: IStackTrace | undefined
+        ) => IFuture<T>;
+        futureDelayed: <T>(
+            duration: IDuration,
+            computation?: () => IFutureOr<T>
+        ) => IFuture<T>;
         futureWait: <T>(
-            this: void,
-            futures: Array<Future<T>>,
-            {
-                eagerError,
-                cleanUp,
-            }: { eagerError: boolean; cleanUp: (successValue: T) => void }
-        ) => Future<Array<T>>;
+            futures: IIterable<IFuture<T>>,
+            props: {
+                cleanUp?: (successValue: T) => void | undefined;
+                eagerError: boolean;
+            }
+        ) => IFuture<IList<T>>;
+        futureAny: <T>(futures: IIterable<IFuture<T>>) => IFuture<T>;
+        futureForEach: <T>(
+            elements: IIterable<T>,
+            action: (element: T) => IFutureOr<any>
+        ) => IFuture<any>;
+        futureDoWhile: (action: () => IFutureOr<boolean>) => IFuture<any>;
     };
 };
-
 export interface IFuture<T> {
-    catchError: (
-        onError: (error?: T | undefined) => void,
-        props?: { test?: (error: T) => boolean | undefined } | undefined
-    ) => Future<T>;
-
     then: <R>(
-        onValue: (this: void, value: T) => R,
-        props?: { onError?: (err: any) => void | undefined } | undefined
-    ) => Future<R>;
-
-    whenComplete: (action: () => FutureOr<any>) => Future<T>;
+        onValue: (value: T) => IFutureOr<R>,
+        props: { onError?: IFunction | undefined }
+    ) => IFuture<R>;
+    catchError: (
+        onError: IFunction,
+        props: { test?: (error: Object) => boolean | undefined }
+    ) => IFuture<T>;
+    whenComplete: (action: () => IFutureOr<void>) => IFuture<T>;
+    asStream: () => IStream<T>;
+    timeout: (
+        timeLimit: IDuration,
+        props: { onTimeout?: () => IFutureOr<T> | undefined }
+    ) => IFuture<T>;
 }
-
 export class Future<T> {
-    public constructor(computation: () => FutureOr<T>) {
-        this.catchError = undefined as any;
-        this.then = undefined as any;
-        this.whenComplete = undefined as any;
+    public constructor(computation: () => IFutureOr<T>) {
         dart.async.future(this, computation);
     }
-
-    public static error<T>(error: T, stackTrace?: any | undefined): Future<T> {
-        return dart.async.futureError(error, stackTrace);
+    public static microtask<T>(computation: () => IFutureOr<T>): IFuture<T> {
+        return dart.async.futureMicrotask(computation);
     }
-
-    public static sync<T>(computation: () => FutureOr<T>): Future<T> {
+    public static sync<T>(computation: () => IFutureOr<T>): IFuture<T> {
         return dart.async.futureSync(computation);
     }
-
-    public static value<T>(value?: FutureOr<T> | undefined): Future<T> {
+    public static value<T>(value?: IFutureOr<T> | undefined): IFuture<T> {
         return dart.async.futureValue(value);
     }
-
-    public catchError: (
-        onError: (error?: T | undefined) => void,
-        props?: { test?: (error: T) => boolean | undefined } | undefined
-    ) => Future<T>;
-
-    public then: <R>(
-        onValue: (this: void, value: T) => R,
-        props?: { onError?: (err: any) => void | undefined } | undefined
-    ) => Future<R>;
-
-    public whenComplete: (action: () => FutureOr<any>) => Future<T>;
-
-    public static any<T>(futures: Array<Future<T>>): Future<T> {
+    public static error<T>(
+        error: Object,
+        stackTrace?: IStackTrace | undefined
+    ): IFuture<T> {
+        return dart.async.futureError(error, stackTrace);
+    }
+    public static delayed<T>(
+        duration: IDuration,
+        computation?: () => IFutureOr<T>
+    ): IFuture<T> {
+        return dart.async.futureDelayed(duration, computation);
+    }
+    public static wait<T>(
+        futures: IIterable<IFuture<T>>,
+        props: {
+            cleanUp?: (successValue: T) => void | undefined;
+            eagerError?: boolean;
+        }
+    ): IFuture<IList<T>> {
+        return dart.async.futureWait(futures, {
+            ...waitDefaultProps,
+            ...props,
+        });
+    }
+    public static any<T>(futures: IIterable<IFuture<T>>): IFuture<T> {
         return dart.async.futureAny(futures);
     }
-
-    public static doWhile(action: () => FutureOr<boolean>): Future<any> {
+    public static forEach<T>(
+        elements: IIterable<T>,
+        action: (element: T) => IFutureOr<any>
+    ): IFuture<any> {
+        return dart.async.futureForEach(elements, action);
+    }
+    public static doWhile(action: () => IFutureOr<boolean>): IFuture<any> {
         return dart.async.futureDoWhile(action);
     }
-
-    public static forEach<T>(
-        element: Array<T>,
-        action: (element: T) => FutureOr<any>
-    ): Future<any> {
-        return dart.async.futureForEach(element, action);
+    private readonly _dart_then: <R>(
+        onValue: (value: T) => IFutureOr<R>,
+        props: { onError?: IFunction | undefined }
+    ) => IFuture<R> = undefined as any;
+    private readonly _dart_catchError: (
+        onError: IFunction,
+        props: { test?: (error: Object) => boolean | undefined }
+    ) => IFuture<T> = undefined as any;
+    private readonly _dart_whenComplete: (
+        action: () => IFutureOr<void>
+    ) => IFuture<T> = undefined as any;
+    private readonly _dart_asStream: () => IStream<T> = undefined as any;
+    private readonly _dart_timeout: (
+        timeLimit: IDuration,
+        props: { onTimeout?: () => IFutureOr<T> | undefined }
+    ) => IFuture<T> = undefined as any;
+    public then<R>(
+        onValue: (value: T) => IFutureOr<R>,
+        props: { onError?: IFunction | undefined }
+    ): IFuture<R> {
+        return this._dart_then(onValue, props);
     }
-
-    public static wait<T>(
-        futures: Array<Future<T>>,
-        {
-            eagerError,
-            cleanUp,
-        }: { eagerError: boolean; cleanUp: (successValue: T) => void }
-    ): Future<Array<T>> {
-        return dart.async.futureWait(futures, { eagerError, cleanUp });
+    public catchError(
+        onError: IFunction,
+        props: { test?: (error: Object) => boolean | undefined }
+    ): IFuture<T> {
+        return this._dart_catchError(onError, props);
+    }
+    public whenComplete(action: () => IFutureOr<void>): IFuture<T> {
+        return this._dart_whenComplete(action);
+    }
+    public asStream(): IStream<T> {
+        return this._dart_asStream();
+    }
+    public timeout(
+        timeLimit: IDuration,
+        props: { onTimeout?: () => IFutureOr<T> | undefined }
+    ): IFuture<T> {
+        return this._dart_timeout(timeLimit, props);
     }
 }
+const waitDefaultProps = {
+    eagerError: false,
+};
