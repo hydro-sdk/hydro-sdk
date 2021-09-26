@@ -8,7 +8,12 @@ List<int> hashInstruction(Inst inst) {
 
   var input = sha256.startChunkedConversion(output);
 
-  input.add([inst.OP, inst.A, inst.B, inst.C]);
+  input.add([
+    inst.OP,
+    inst.A,
+    inst.B,
+    inst.C,
+  ]);
 
   input.close();
   output.close();

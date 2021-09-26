@@ -16,7 +16,6 @@ _$_$ComponentReadDtoCtor _$_$_$ComponentReadDtoCtorFromJson(
     isPublic: json['isPublic'] as bool,
     name: json['name'] as String,
     description: json['description'] as String,
-    deploymentPublicKey: json['deploymentPublicKey'] as String,
   );
 }
 
@@ -30,5 +29,4 @@ Map<String, dynamic> _$_$_$ComponentReadDtoCtorToJson(
       'isPublic': instance.isPublic,
       'name': instance.name,
       'description': instance.description,
-      'deploymentPublicKey': instance.deploymentPublicKey,
     };

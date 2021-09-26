@@ -17,8 +17,7 @@ jobs:
           TARGET: windows
       fail-fast: false
 
-    steps:
-    - uses: ilammy/setup-nasm@v1
+    steps:    
     - name: Install Linux dependencies
       if: startsWith(matrix.os, 'ubuntu')
       run: |
@@ -29,7 +28,7 @@ jobs:
       uses: actions/checkout@v2
       with:
         repository: 'flutter/flutter'
-        ref: '1.22.0'
+        ref: '2.0.6'
         path: 'flutter'
         fetch-depth: 0
     - name: Add Flutter to the PATH for Unix
@@ -86,7 +85,7 @@ jobs:
 
     - name: Build Sdk Tools
       shell: bash
-      run: bash scripts/buildSdkTools.bash
+      run: bash scripts/buildSdkTools.bash --skip-swid
       working-directory: hydro
 
     - name: Build Typescript release fixtures

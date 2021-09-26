@@ -1,14 +1,53 @@
-import 'package:meta/meta.dart';
-
+import 'package:hydro_sdk/cfr/builtins/libs/dart/collection/doubleLinkedQueue.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/dart/collection/doubleLinkedQueueEntry.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/dart/collection/hasNextIterator.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/dart/collection/hashMap.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/dart/collection/hashSet.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/collection/iterableBase.dart';
-import 'package:hydro_sdk/cfr/builtins/libs/dart/collection/list.dart';
-import 'package:hydro_sdk/cfr/vm/table.dart';
-import 'package:hydro_sdk/hydroState.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/dart/collection/iterableMixin.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/dart/collection/linkedHashMap.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/dart/collection/linkedHashSet.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/dart/collection/listBase.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/dart/collection/listMixin.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/dart/collection/listQueue.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/dart/collection/mapBase.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/dart/collection/mapMixin.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/dart/collection/mapView.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/dart/collection/queue.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/dart/collection/setBase.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/dart/collection/setMixin.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/dart/collection/splayTreeMap.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/dart/collection/splayTreeSet.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/dart/collection/unmodifiableListView.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/dart/collection/unmodifiableMapView.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/dart/collection/unmodifiableSetView.dart';
+import 'package:hydro_sdk/cfr/runtimeSupport.dart';
 
 void loadcollection(
-    {@required HydroState hydroState, @required HydroTable table}) {
+    {required HydroState hydroState, required HydroTable table}) {
   final collection = HydroTable();
   table['collection'] = collection;
   loadIterableBase(table: collection, hydroState: hydroState);
-  loadCoreList(hydroState: hydroState, table: collection);
+  loadUnmodifiableListView(table: collection, hydroState: hydroState);
+  loadIterableMixin(table: collection, hydroState: hydroState);
+  loadMapBase(table: collection, hydroState: hydroState);
+  loadMapMixin(table: collection, hydroState: hydroState);
+  loadMapView(table: collection, hydroState: hydroState);
+  loadUnmodifiableMapView(table: collection, hydroState: hydroState);
+  loadHashSet(table: collection, hydroState: hydroState);
+  loadLinkedHashMap(table: collection, hydroState: hydroState);
+  loadQueue(table: collection, hydroState: hydroState);
+  loadDoubleLinkedQueueEntry(table: collection, hydroState: hydroState);
+  loadDoubleLinkedQueue(table: collection, hydroState: hydroState);
+  loadListQueue(table: collection, hydroState: hydroState);
+  loadListBase(table: collection, hydroState: hydroState);
+  loadListMixin(table: collection, hydroState: hydroState);
+  loadSplayTreeMap(table: collection, hydroState: hydroState);
+  loadSplayTreeSet(table: collection, hydroState: hydroState);
+  loadHasNextIterator(table: collection, hydroState: hydroState);
+  loadLinkedHashSet(table: collection, hydroState: hydroState);
+  loadSetMixin(table: collection, hydroState: hydroState);
+  loadSetBase(table: collection, hydroState: hydroState);
+  loadUnmodifiableSetView(table: collection, hydroState: hydroState);
+  loadHashMap(table: collection, hydroState: hydroState);
 }

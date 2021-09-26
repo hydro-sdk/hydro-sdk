@@ -1,4 +1,4 @@
-import { List } from "../../../runtime/dart/collection/list";
+import { List } from "../../../runtime/dart/core/list";
 import { BuildContext } from "../../../runtime/flutter/buildContext";
 import { AppBar } from "../../../runtime/flutter/material/appBar";
 import { CircularProgressIndicator } from "../../../runtime/flutter/material/circularProgressIndicator";
@@ -68,7 +68,8 @@ export class PokeGridScreen extends StatelessWidget {
                               children: List.fromArray(pokeHub.pokemon)
                                   .where((poke) => {
                                       if (textSearchService) {
-                                          const searchText = textSearchService.getSearchText();
+                                          const searchText =
+                                              textSearchService.getSearchText();
                                           if (
                                               searchText !== undefined &&
                                               searchText != ""
@@ -83,9 +84,10 @@ export class PokeGridScreen extends StatelessWidget {
                                       }
                                       return true;
                                   })
-                                  .map((poke) => new PokeCard(poke)),
+                                  .map((poke) => new PokeCard(poke))
+                                  .toList({ growable: true }) as any,
                           }),
-                      ]),
+                      ]) as any,
                   }),
         });
     }

@@ -1,4 +1,4 @@
-import { Color } from "./../../dart/ui/color";
+import { IColor } from "./../../dart/ui/color";
 import { VoidCallback } from "./../../dart/ui/voidCallback";
 import { Type } from "../../dart/core/type";
 import { Radius } from "../../dart/ui/radius";
@@ -15,8 +15,8 @@ export interface CupertinoButtonProps {
     key?: Key | undefined;
     child: Widget;
     padding?: EdgeInsets | undefined;
-    color?: Color | undefined;
-    disabledColor?: Color | undefined;
+    color?: IColor | undefined;
+    disabledColor?: IColor | undefined;
     minSize?: number | undefined;
     pressedOpacity?: number | undefined;
     borderRadius?: BorderRadius | undefined;
@@ -37,7 +37,8 @@ declare const flutter: {
 };
 export class CupertinoButton
     extends StatelessWidget
-    implements RuntimeBaseClass {
+    implements RuntimeBaseClass
+{
     public readonly internalRuntimeType = new Type(CupertinoButton);
     private filled = false;
     public props: CupertinoButtonProps;

@@ -6,15 +6,16 @@ import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
 void loadSliverPadding(
-    {@required HydroState luaState, @required HydroTable table}) {
+    {required HydroState luaState, required HydroTable table}) {
   table["sliverPadding"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       SliverPadding(
-        key: maybeUnBoxAndBuildArgument<Key>(args[0]["key"],
+        key: maybeUnBoxAndBuildArgument<Key, dynamic>(args[0]["key"],
             parentState: luaState),
-        sliver: maybeUnBoxAndBuildArgument<Widget>(args[0]["sliver"],
+        sliver: maybeUnBoxAndBuildArgument<Widget, dynamic>(args[0]["sliver"],
             parentState: luaState),
-        padding: maybeUnBoxAndBuildArgument<EdgeInsets>(args[0]["padding"],
+        padding: maybeUnBoxAndBuildArgument<EdgeInsets, dynamic>(
+            args[0]["padding"],
             parentState: luaState),
       )
     ];

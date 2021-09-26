@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'swidEnum.dart';
 
@@ -8,6 +8,10 @@ part of 'swidEnum.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 SwidEnum _$SwidEnumFromJson(Map<String, dynamic> json) {
   return _$Data.fromJson(json);
 }
@@ -16,11 +20,10 @@ SwidEnum _$SwidEnumFromJson(Map<String, dynamic> json) {
 class _$SwidEnumTearOff {
   const _$SwidEnumTearOff();
 
-// ignore: unused_element
   _$Data call(
-      {@required String originalPackagePath,
-      @required String identifier,
-      @required List<String> children}) {
+      {required String originalPackagePath,
+      required String identifier,
+      required List<String> children}) {
     return _$Data(
       originalPackagePath: originalPackagePath,
       identifier: identifier,
@@ -28,25 +31,24 @@ class _$SwidEnumTearOff {
     );
   }
 
-// ignore: unused_element
   SwidEnum fromJson(Map<String, Object> json) {
     return SwidEnum.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $SwidEnum = _$SwidEnumTearOff();
 
 /// @nodoc
 mixin _$SwidEnum {
-  String get originalPackagePath;
-  String get identifier;
-  List<String> get children;
+  String get originalPackagePath => throw _privateConstructorUsedError;
+  String get identifier => throw _privateConstructorUsedError;
+  List<String> get children => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $SwidEnumCopyWith<SwidEnum> get copyWith;
+  $SwidEnumCopyWith<SwidEnum> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -67,18 +69,23 @@ class _$SwidEnumCopyWithImpl<$Res> implements $SwidEnumCopyWith<$Res> {
 
   @override
   $Res call({
-    Object originalPackagePath = freezed,
-    Object identifier = freezed,
-    Object children = freezed,
+    Object? originalPackagePath = freezed,
+    Object? identifier = freezed,
+    Object? children = freezed,
   }) {
     return _then(_value.copyWith(
       originalPackagePath: originalPackagePath == freezed
           ? _value.originalPackagePath
-          : originalPackagePath as String,
-      identifier:
-          identifier == freezed ? _value.identifier : identifier as String,
-      children:
-          children == freezed ? _value.children : children as List<String>,
+          : originalPackagePath // ignore: cast_nullable_to_non_nullable
+              as String,
+      identifier: identifier == freezed
+          ? _value.identifier
+          : identifier // ignore: cast_nullable_to_non_nullable
+              as String,
+      children: children == freezed
+          ? _value.children
+          : children // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ));
   }
 }
@@ -103,33 +110,35 @@ class __$$DataCopyWithImpl<$Res> extends _$SwidEnumCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object originalPackagePath = freezed,
-    Object identifier = freezed,
-    Object children = freezed,
+    Object? originalPackagePath = freezed,
+    Object? identifier = freezed,
+    Object? children = freezed,
   }) {
     return _then(_$Data(
       originalPackagePath: originalPackagePath == freezed
           ? _value.originalPackagePath
-          : originalPackagePath as String,
-      identifier:
-          identifier == freezed ? _value.identifier : identifier as String,
-      children:
-          children == freezed ? _value.children : children as List<String>,
+          : originalPackagePath // ignore: cast_nullable_to_non_nullable
+              as String,
+      identifier: identifier == freezed
+          ? _value.identifier
+          : identifier // ignore: cast_nullable_to_non_nullable
+              as String,
+      children: children == freezed
+          ? _value.children
+          : children // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
-class _$_$Data implements _$Data {
-  const _$_$Data(
-      {@required this.originalPackagePath,
-      @required this.identifier,
-      @required this.children})
-      : assert(originalPackagePath != null),
-        assert(identifier != null),
-        assert(children != null);
+@JsonSerializable()
+class _$_$Data extends _$Data {
+  _$_$Data(
+      {required this.originalPackagePath,
+      required this.identifier,
+      required this.children})
+      : super._();
 
   factory _$_$Data.fromJson(Map<String, dynamic> json) =>
       _$_$_$DataFromJson(json);
@@ -179,21 +188,22 @@ class _$_$Data implements _$Data {
   }
 }
 
-abstract class _$Data implements SwidEnum {
-  const factory _$Data(
-      {@required String originalPackagePath,
-      @required String identifier,
-      @required List<String> children}) = _$_$Data;
+abstract class _$Data extends SwidEnum {
+  factory _$Data(
+      {required String originalPackagePath,
+      required String identifier,
+      required List<String> children}) = _$_$Data;
+  _$Data._() : super._();
 
   factory _$Data.fromJson(Map<String, dynamic> json) = _$_$Data.fromJson;
 
   @override
-  String get originalPackagePath;
+  String get originalPackagePath => throw _privateConstructorUsedError;
   @override
-  String get identifier;
+  String get identifier => throw _privateConstructorUsedError;
   @override
-  List<String> get children;
+  List<String> get children => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$$DataCopyWith<_$Data> get copyWith;
+  _$$DataCopyWith<_$Data> get copyWith => throw _privateConstructorUsedError;
 }

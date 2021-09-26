@@ -1,11 +1,9 @@
-import 'package:meta/meta.dart';
-
 import 'package:hydro_sdk/cfr/util.dart';
 import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
-void loadTableLib({@required HydroState hydroState, @required Context ctx}) {
+void loadTableLib({required HydroState hydroState, required Context ctx}) {
   var table = new HydroTable();
 
   ctx.env["table"] = table;
@@ -59,7 +57,9 @@ void loadTableLib({@required HydroState hydroState, @required Context ctx}) {
 
   table["maxn"] = (List<dynamic> args) {
     HydroTable t = Context.getArg1<HydroTable>(args, 0, "maxn");
-    return [t.map.keys.fold(t.length, (s, e) => e is num && e > s ? e : s)];
+    return [
+      t.map.keys.fold(t.length, (dynamic s, e) => e is num && e > s ? e : s)
+    ];
   };
 
   table["remove"] = (List<dynamic> args) {
@@ -84,7 +84,7 @@ void loadTableLib({@required HydroState hydroState, @required Context ctx}) {
 
   table["sort"] = (List<dynamic> args) {
     HydroTable t = Context.getArg1<HydroTable>(args, 0, "maxn");
-    LuaDartFunc f = maybeAt(args, 1) == null
+    LuaDartFunc? f = maybeAt(args, 1) == null
         ? null
         : Context.getArg1<LuaDartFunc>(args, 1, "sort");
 
@@ -101,11 +101,11 @@ void loadTableLib({@required HydroState hydroState, @required Context ctx}) {
         return a.compareTo(b);
       } else if ((a is HydroTable && Context.hasMetamethod(a, "__le")) ||
           (b is HydroTable && Context.hasMetamethod(b, "__le"))) {
-        var lt = Context.checkLT(a, b, hydroState: hydroState);
+        var lt = Context.checkLT(a, b, hydroState: hydroState)!;
         var gt = Context.checkLT(b, a, hydroState: hydroState);
         return lt
             ? -1
-            : gt
+            : gt!
                 ? 1
                 : 0;
       } else {

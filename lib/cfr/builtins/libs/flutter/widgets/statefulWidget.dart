@@ -8,25 +8,25 @@ import 'package:hydro_sdk/hydroState.dart';
 
 class StatefulWidgetBox extends StatefulWidget {
   final HydroTable table;
-  final HydroState parentState;
+  final HydroState? parentState;
 
-  StatefulWidgetBox({@required this.table, @required this.parentState});
+  StatefulWidgetBox({required this.table, required this.parentState});
 
   @override
   StatefulWidgetBoxState createState() {
-    HydroTable newTable = maybeFindInheritedMethod(
-            managedObject: table, methodName: "createState")
-        .dispatch([table.map], parentState: parentState)[0];
+    HydroTable? newTable = maybeFindInheritedMethod(
+            managedObject: table, methodName: "createState")!
+        .dispatch([table.map], parentState: parentState!)[0];
     return StatefulWidgetBoxState(table: newTable, parentState: parentState);
   }
 }
 
 class StatefulWidgetBoxState extends State<StatefulWidgetBox> {
-  final HydroTable table;
-  final HydroState parentState;
+  final HydroTable? table;
+  final HydroState? parentState;
 
-  StatefulWidgetBoxState({@required this.table, @required this.parentState}) {
-    table.map["setState"] = makeLuaDartFunc(func: (List<dynamic> args) {
+  StatefulWidgetBoxState({required this.table, required this.parentState}) {
+    table!.map["setState"] = makeLuaDartFunc(func: (List<dynamic> args) {
       //args[0] will be a self reference
       //args[1] will be setState closure to call
       //Do a this call of args[1]
@@ -45,41 +45,41 @@ class StatefulWidgetBoxState extends State<StatefulWidgetBox> {
   @override
   void initState() {
     super.initState();
-    Closure managedInitState =
-        maybeFindInheritedMethod(managedObject: table, methodName: "initState");
+    Closure managedInitState = maybeFindInheritedMethod(
+        managedObject: table, methodName: "initState")!;
     managedInitState.dispatch([table],
-        parentState: parentState, resetEnclosingLexicalEnvironment: true);
+        parentState: parentState!, resetEnclosingLexicalEnvironment: true);
   }
 
   @override
   void dispose() {
     super.dispose();
     Closure managedDispose =
-        maybeFindInheritedMethod(managedObject: table, methodName: "dispose");
+        maybeFindInheritedMethod(managedObject: table, methodName: "dispose")!;
     managedDispose.dispatch([table],
-        parentState: parentState, resetEnclosingLexicalEnvironment: true);
+        parentState: parentState!, resetEnclosingLexicalEnvironment: true);
   }
 
   @override
   Widget build(BuildContext context) {
     Closure managedBuild =
-        maybeFindInheritedMethod(managedObject: table, methodName: "build");
+        maybeFindInheritedMethod(managedObject: table, methodName: "build")!;
     var buildResult = managedBuild.dispatch(
       [table, context],
-      parentState: parentState,
+      parentState: parentState!,
       resetEnclosingLexicalEnvironment: true,
     )[0];
-    return maybeUnBoxAndBuildArgument<Widget>(buildResult,
-        parentState: parentState);
+    return maybeUnBoxAndBuildArgument<Widget, dynamic>(buildResult,
+        parentState: parentState!);
   }
 }
 
 void loadStatefulWidget(
-    {@required HydroState luaState, @required HydroTable table}) {
-  registerUnBoxer(unBoxer: ({dynamic box, HydroState parentState}) {
+    {required HydroState luaState, required HydroTable table}) {
+  registerUnBoxer(unBoxer: ({dynamic box, HydroState? parentState}) {
     if (box is HydroTable) {
       //Metatable will contain an inherited build function from the StatlessWidget base class
-      Closure createState = maybeFindInheritedMethod(
+      Closure? createState = maybeFindInheritedMethod(
           managedObject: box, methodName: "createState");
       if (createState != null) {
         return StatefulWidgetBox(

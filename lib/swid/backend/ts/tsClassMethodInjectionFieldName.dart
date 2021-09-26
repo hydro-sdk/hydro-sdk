@@ -1,13 +1,56 @@
-import 'package:meta/meta.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
+import 'package:hydro_sdk/swid/swars/swarsTermStringResultMixin.dart';
+import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
 import 'package:hydro_sdk/swid/transforms/methodInjectionFieldName.dart';
+import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
+import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
 
-class TsClassMethodInjectionFieldName {
-  final SwidFunctionType swidFunctionType;
+part 'tsClassMethodInjectionFieldName.freezed.dart';
 
-  TsClassMethodInjectionFieldName({@required this.swidFunctionType});
+@freezed
+class TsClassMethodInjectionFieldName
+    with
+        _$TsClassMethodInjectionFieldName,
+        HashKeyMixin<TsClassMethodInjectionFieldName>,
+        HashComparableMixin<TsClassMethodInjectionFieldName>,
+        SwarsTransformMixin<
+            TsClassMethodInjectionFieldName,
+            $TsClassMethodInjectionFieldNameCopyWith<
+                TsClassMethodInjectionFieldName>,
+            String>,
+        SwarsTermStringResultMixin {
+  TsClassMethodInjectionFieldName._();
 
-  String toTsSource() =>
-      methodInjectionFieldName(swidFunctionType: swidFunctionType);
+  factory TsClassMethodInjectionFieldName({
+    required final SwidFunctionType swidFunctionType,
+  }) = _$TsClassMethodInjectionFieldNameCtor;
+
+  @override
+  String get cacheGroup => "tsClassMethodInjectionFieldName";
+
+  @override
+  List<int> get hashableParts => [
+        ...swidFunctionType.hashableParts,
+      ];
+
+  @override
+  TsClassMethodInjectionFieldName clone({
+    final SwidFunctionType? swidFunctionType,
+  }) =>
+      TsClassMethodInjectionFieldName(
+        swidFunctionType: swidFunctionType ?? this.swidFunctionType,
+      );
+
+  ISwarsTermResult<String> transform({
+    required final ISwarsPipeline pipeline,
+  }) =>
+      SwarsTermResult.fromString(
+        methodInjectionFieldName(
+          swidFunctionType: swidFunctionType,
+        ),
+      );
 }

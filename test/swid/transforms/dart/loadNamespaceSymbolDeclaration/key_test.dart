@@ -5,27 +5,41 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'package:hydro_sdk/swid/backend/dart/dartLoadNamespaceSymbolDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
+import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
+import 'package:hydro_sdk/swid/swars/pipelineNoopCacheMgr.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
     var keyClass = SwidClass.fromJson(
-        json.decode(File("../test/swid/res/Key.json").readAsStringSync()));
+        json.decode(File("test/swid/res/Key.json").readAsStringSync()));
 
     expect(
-        DartLoadNamespaceSymbolDeclaration(swidClass: keyClass).toDartSource(),
+        CachingPipeline(
+          cacheMgr: const PipelineNoopCacheMgr(),
+        ).reduceFromTerm(
+          DartLoadNamespaceSymbolDeclaration(swidClass: keyClass),
+        ),
         """
-void loadKey({@required HydroState hydroState, @required HydroTable table}) {
-  table[\'key\'] = makeLuaDartFunc(func: (List<dynamic> args) {
+void loadKey({required HydroState hydroState, required HydroTable table}) {
+  table[\'key\'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<Key>(
-          object: Key(args[1]), hydroState: hydroState, table: args[0])
+          object: Key(luaCallerArguments[1]),
+          hydroState: hydroState,
+          table: luaCallerArguments[0])
+    ];
+  });
+  table[\'keyEmpty\'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    return [
+      maybeBoxObject<Key>(
+          object: Key.empty(), hydroState: hydroState, table: HydroTable()),
     ];
   });
   registerBoxer<Key>(boxer: (
-      {@required Key vmObject,
-      @required HydroState hydroState,
-      @required HydroTable table}) {
+      {required Key vmObject,
+      required HydroState hydroState,
+      required HydroTable table}) {
     return VMManagedKey(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

@@ -9,16 +9,16 @@ class Flavor {
       this.version_minor,
       this.instructions}) {
     int i = 0;
-    instructions.forEach((e) => e.opcode = i++);
+    instructions!.forEach((e) => e.opcode = i++);
   }
-  final String name;
+  final String? name;
   // ignore: non_constant_identifier_names
-  final int version_major;
+  final int? version_major;
   // ignore: non_constant_identifier_names
-  final int version_minor;
-  final List<InstInfo> instructions;
+  final int? version_minor;
+  final List<InstInfo>? instructions;
 
-  InstInfo getInfo(int raw) => instructions[raw & 63];
+  InstInfo getInfo(int raw) => instructions![raw & 63];
   Inst decode(int raw) => getInfo(raw).decode(raw);
 }
 

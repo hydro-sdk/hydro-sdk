@@ -10,7 +10,8 @@ declare const flutter: {
 
 export class Alignment
     extends JITAllocatingRTManagedBox<undefined, Alignment>
-    implements RuntimeBaseClass {
+    implements RuntimeBaseClass
+{
     public readonly internalRuntimeType = new Type(Alignment);
     public props = undefined;
     public readonly x: number;

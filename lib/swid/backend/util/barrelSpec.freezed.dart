@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'barrelSpec.dart';
 
@@ -9,15 +9,17 @@ part of 'barrelSpec.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$BarrelSpecTearOff {
   const _$BarrelSpecTearOff();
 
-// ignore: unused_element
   _$BarrelSpecCtor call(
-      {@required String path,
-      @required String name,
-      @required List<BarrelMember> members}) {
+      {required String path,
+      required String name,
+      required List<BarrelMember> members}) {
     return _$BarrelSpecCtor(
       path: path,
       name: name,
@@ -27,17 +29,17 @@ class _$BarrelSpecTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $BarrelSpec = _$BarrelSpecTearOff();
 
 /// @nodoc
 mixin _$BarrelSpec {
-  String get path;
-  String get name;
-  List<BarrelMember> get members;
+  String get path => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
+  List<BarrelMember> get members => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $BarrelSpecCopyWith<BarrelSpec> get copyWith;
+  $BarrelSpecCopyWith<BarrelSpec> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -58,15 +60,23 @@ class _$BarrelSpecCopyWithImpl<$Res> implements $BarrelSpecCopyWith<$Res> {
 
   @override
   $Res call({
-    Object path = freezed,
-    Object name = freezed,
-    Object members = freezed,
+    Object? path = freezed,
+    Object? name = freezed,
+    Object? members = freezed,
   }) {
     return _then(_value.copyWith(
-      path: path == freezed ? _value.path : path as String,
-      name: name == freezed ? _value.name : name as String,
-      members:
-          members == freezed ? _value.members : members as List<BarrelMember>,
+      path: path == freezed
+          ? _value.path
+          : path // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      members: members == freezed
+          ? _value.members
+          : members // ignore: cast_nullable_to_non_nullable
+              as List<BarrelMember>,
     ));
   }
 }
@@ -94,26 +104,33 @@ class __$$BarrelSpecCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object path = freezed,
-    Object name = freezed,
-    Object members = freezed,
+    Object? path = freezed,
+    Object? name = freezed,
+    Object? members = freezed,
   }) {
     return _then(_$BarrelSpecCtor(
-      path: path == freezed ? _value.path : path as String,
-      name: name == freezed ? _value.name : name as String,
-      members:
-          members == freezed ? _value.members : members as List<BarrelMember>,
+      path: path == freezed
+          ? _value.path
+          : path // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      members: members == freezed
+          ? _value.members
+          : members // ignore: cast_nullable_to_non_nullable
+              as List<BarrelMember>,
     ));
   }
 }
 
 /// @nodoc
-class _$_$BarrelSpecCtor implements _$BarrelSpecCtor {
+
+class _$_$BarrelSpecCtor extends _$BarrelSpecCtor {
   _$_$BarrelSpecCtor(
-      {@required this.path, @required this.name, @required this.members})
-      : assert(path != null),
-        assert(name != null),
-        assert(members != null);
+      {required this.path, required this.name, required this.members})
+      : super._();
 
   @override
   final String path;
@@ -152,19 +169,21 @@ class _$_$BarrelSpecCtor implements _$BarrelSpecCtor {
       __$$BarrelSpecCtorCopyWithImpl<_$BarrelSpecCtor>(this, _$identity);
 }
 
-abstract class _$BarrelSpecCtor implements BarrelSpec {
+abstract class _$BarrelSpecCtor extends BarrelSpec {
   factory _$BarrelSpecCtor(
-      {@required String path,
-      @required String name,
-      @required List<BarrelMember> members}) = _$_$BarrelSpecCtor;
+      {required String path,
+      required String name,
+      required List<BarrelMember> members}) = _$_$BarrelSpecCtor;
+  _$BarrelSpecCtor._() : super._();
 
   @override
-  String get path;
+  String get path => throw _privateConstructorUsedError;
   @override
-  String get name;
+  String get name => throw _privateConstructorUsedError;
   @override
-  List<BarrelMember> get members;
+  List<BarrelMember> get members => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$$BarrelSpecCtorCopyWith<_$BarrelSpecCtor> get copyWith;
+  _$$BarrelSpecCtorCopyWith<_$BarrelSpecCtor> get copyWith =>
+      throw _privateConstructorUsedError;
 }

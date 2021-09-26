@@ -8,13 +8,9 @@ part of 'swidStaticConstPrefixedIdentifier.dart';
 
 _$_$Data _$_$_$DataFromJson(Map<String, dynamic> json) {
   return _$_$Data(
-    prefix: json['prefix'] == null
-        ? null
-        : SwidInterface.fromJson(json['prefix'] as Map<String, dynamic>),
-    staticConstFieldReference: json['staticConstFieldReference'] == null
-        ? null
-        : SwidStaticConstFieldReference.fromJson(
-            json['staticConstFieldReference'] as Map<String, dynamic>),
+    prefix: SwidInterface.fromJson(json['prefix'] as Map<String, dynamic>),
+    staticConstFieldReference: SwidStaticConstFieldReference.fromJson(
+        json['staticConstFieldReference'] as Map<String, dynamic>),
   );
 }
 

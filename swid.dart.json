@@ -1,15 +1,20 @@
 {
-    "inputPackagePath": "/Users/chgibb/Downloads/sky_engine",
-    "interfaces": [],
+    "inputPackagePath": "/Users/chgibb/Documents/dev/sky_engine",
+    "interfaces": [
+        "interfaces/*.i"
+    ],
     "emitOptions": {
         "prefixPaths": [
             "runtime"
         ],
         "allowList": {
             "packagePaths": [
-                "dart:typed_data"
+                "dart:typed_data",
+                "dart:ui",
+                "dart:collection"
             ],
             "classNames": [
+                "Random",
                 "Icons",
                 "CupertinoIcons",
                 "IconData",
@@ -61,12 +66,36 @@
                 "Endian",
                 "_TypedFloatList",
                 "UnmodifiableListBase",
-                "Invocation"
+                "Invocation",
+                "ListBase",
+                "_UnmodifiableListMixin",
+                "UnmodifiableListMixin",
+                "ListMixin",
+                "StackTrace",
+                "Map",
+                "MapEntry",
+                "Function",
+                "Symbol",
+                "Error",
+                "EventSink",
+                "FutureOr",
+                "StreamSubscription",
+                "Exception",
+                "Sink",
+                "ByteConversionSink",
+                "StringSink",
+                "ChunkedConversionSink",
+                "ListIterable"
             ]
         },
         "denyList": {
             "packagePaths": [],
-            "classNames": []
+            "classNames": [
+                "IsolateNameServer",
+                "LinkedList",
+                "LinkedListEntry",
+                "_LinkedListIterator"
+            ]
         },
         "tsEmitOptions": {
             "prefixPaths": [

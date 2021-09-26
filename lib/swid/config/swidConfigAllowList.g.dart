@@ -9,9 +9,11 @@ part of 'swidConfigAllowList.dart';
 _$_$SwidConfigAllowListCtor _$_$_$SwidConfigAllowListCtorFromJson(
     Map<String, dynamic> json) {
   return _$_$SwidConfigAllowListCtor(
-    classNames: (json['classNames'] as List)?.map((e) => e as String)?.toList(),
-    packagePaths:
-        (json['packagePaths'] as List)?.map((e) => e as String)?.toList(),
+    classNames:
+        (json['classNames'] as List<dynamic>).map((e) => e as String).toList(),
+    packagePaths: (json['packagePaths'] as List<dynamic>)
+        .map((e) => e as String)
+        .toList(),
   );
 }
 

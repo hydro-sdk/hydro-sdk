@@ -1,5 +1,5 @@
 import { JITAllocatingRTManagedBox } from "./../../syntheticBox";
-import { List } from "../../dart/collection/list";
+import { List } from "../../dart/core/list";
 import { Type } from "../../dart/core/type";
 import { FontStyle } from "../../dart/ui/fontStyle";
 import { FontWeight } from "../../dart/ui/fontWeight";
@@ -25,7 +25,8 @@ declare const flutter: {
 
 export class StrutStyle
     extends JITAllocatingRTManagedBox<StrutStyleProps, StrutStyle>
-    implements RuntimeBaseClass {
+    implements RuntimeBaseClass
+{
     public readonly internalRuntimeType = new Type(StrutStyle);
     public props: StrutStyleProps;
     public constructor(props: StrutStyleProps) {

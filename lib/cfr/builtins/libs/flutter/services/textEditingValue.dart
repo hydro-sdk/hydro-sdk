@@ -12,9 +12,9 @@ class VMManagedTextEditingValue extends VMManagedBox<TextEditingValue> {
   final HydroState hydroState;
   final TextEditingValue vmObject;
   VMManagedTextEditingValue({
-    @required this.table,
-    @required this.hydroState,
-    @required this.vmObject,
+    required this.table,
+    required this.hydroState,
+    required this.vmObject,
   }) : super(
           table: table,
           hydroState: hydroState,
@@ -22,17 +22,17 @@ class VMManagedTextEditingValue extends VMManagedBox<TextEditingValue> {
         ) {
     table["copyWith"] = makeLuaDartFunc(func: (List<dynamic> args) {
       dynamic rawCaller = args[0];
-      TextEditingValue caller;
-      caller = maybeUnBoxAndBuildArgument<TextEditingValue>(rawCaller,
+      TextEditingValue? caller;
+      caller = maybeUnBoxAndBuildArgument<TextEditingValue, dynamic>(rawCaller,
           parentState: hydroState);
       return [
         maybeBoxObject(
-            object: caller.copyWith(
+            object: caller!.copyWith(
                 text: args[1]["text"],
-                selection: maybeUnBoxAndBuildArgument<TextSelection>(
+                selection: maybeUnBoxAndBuildArgument<TextSelection, dynamic>(
                     args[1]["selection"],
                     parentState: hydroState),
-                composing: maybeUnBoxAndBuildArgument<TextRange>(
+                composing: maybeUnBoxAndBuildArgument<TextRange, dynamic>(
                     args[1]["composing"],
                     parentState: hydroState)),
             hydroState: hydroState,
@@ -43,9 +43,11 @@ class VMManagedTextEditingValue extends VMManagedBox<TextEditingValue> {
 }
 
 void loadTextEditingValue(
-    {@required HydroState luaState, @required HydroTable table}) {
+    {required HydroState luaState, required HydroTable table}) {
   registerBoxer<TextEditingValue>(boxer: (
-      {TextEditingValue vmObject, HydroState hydroState, HydroTable table}) {
+      {required TextEditingValue vmObject,
+      required HydroState hydroState,
+      required HydroTable table}) {
     return VMManagedTextEditingValue(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });
@@ -57,10 +59,10 @@ void loadTextEditingValue(
       maybeBoxObject<TextEditingValue>(
           object: TextEditingValue(
             text: args[1]["text"],
-            selection: maybeUnBoxAndBuildArgument<TextSelection>(
+            selection: maybeUnBoxAndBuildArgument<TextSelection, dynamic>(
                 args[1]["selection"],
                 parentState: luaState),
-            composing: maybeUnBoxAndBuildArgument<TextRange>(
+            composing: maybeUnBoxAndBuildArgument<TextRange, dynamic>(
                 args[1]["textRange"],
                 parentState: luaState),
           ),

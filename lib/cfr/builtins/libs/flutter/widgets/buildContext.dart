@@ -13,9 +13,9 @@ class VMManagedBuildContext extends VMManagedBox<BuildContext> {
   final BuildContext vmObject;
   final HydroState hydroState;
   VMManagedBuildContext({
-    @required this.table,
-    @required this.vmObject,
-    @required this.hydroState,
+    required this.table,
+    required this.vmObject,
+    required this.hydroState,
   }) : super(
           table: table,
           vmObject: vmObject,
@@ -27,14 +27,17 @@ class VMManagedBuildContext extends VMManagedBox<BuildContext> {
     */
     table["ancestorInheritedElementForWidgetOfExactType"] =
         makeLuaDartFunc(func: (List<dynamic> args) {
-      HydroTable res;
-      BuildContext activeContext = maybeUnBoxAndBuildArgument<BuildContext>(
-          args[0],
-          parentState: hydroState);
+      HydroTable? res;
+      BuildContext activeContext =
+          maybeUnBoxAndBuildArgument<BuildContext, dynamic>(
+        args[0],
+        parentState: hydroState,
+      );
 
       activeContext.visitAncestorElements((element) {
         if (element.widget is InheritedWidgetBox) {
-          InheritedWidgetBox inheritedWidgetBox = element.widget;
+          InheritedWidgetBox inheritedWidgetBox =
+              element.widget as InheritedWidgetBox;
           if (maybeUnBoxRuntimeType(
                   managedObject: inheritedWidgetBox.table,
                   runtimeTypePropName: "runtimeType") ==
@@ -52,8 +55,11 @@ class VMManagedBuildContext extends VMManagedBox<BuildContext> {
 }
 
 void loadBuildContext() {
-  registerBoxer(boxer: (
-      {BuildContext vmObject, HydroState hydroState, HydroTable table}) {
+  registerBoxer<BuildContext>(boxer: ({
+    required BuildContext vmObject,
+    required HydroState hydroState,
+    required HydroTable table,
+  }) {
     return VMManagedBuildContext(
       vmObject: vmObject,
       hydroState: hydroState,

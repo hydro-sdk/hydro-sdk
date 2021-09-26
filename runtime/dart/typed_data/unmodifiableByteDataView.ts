@@ -1,6 +1,7 @@
 import { IByteBuffer } from "./byteBuffer";
 import { IByteData } from "./byteData";
 import { Endian, IEndian } from "./endian";
+import { ITypedData } from "./typedData";
 declare const dart: {
     typed_data: {
         unmodifiableByteDataView: (
@@ -38,20 +39,18 @@ export interface IUnmodifiableByteDataView {
     toString: () => string;
     getHashCode: () => number;
 }
-export class UnmodifiableByteDataView implements IByteData {
+export class UnmodifiableByteDataView implements IByteData, ITypedData {
     public constructor(data: IByteData) {
         dart.typed_data.unmodifiableByteDataView(this, data);
     }
-    private readonly _dart_getInt8: (
-        byteOffset: number
-    ) => number = undefined as any;
+    private readonly _dart_getInt8: (byteOffset: number) => number =
+        undefined as any;
     private readonly _dart_setInt8: (
         byteOffset: number,
         value: number
     ) => void = undefined as any;
-    private readonly _dart_getUint8: (
-        byteOffset: number
-    ) => number = undefined as any;
+    private readonly _dart_getUint8: (byteOffset: number) => number =
+        undefined as any;
     private readonly _dart_setUint8: (
         byteOffset: number,
         value: number
@@ -128,7 +127,8 @@ export class UnmodifiableByteDataView implements IByteData {
         value: number,
         endian: IEndian
     ) => void = undefined as any;
-    private readonly _dart_getElementSizeInBytes: () => number = undefined as any;
+    private readonly _dart_getElementSizeInBytes: () => number =
+        undefined as any;
     private readonly _dart_getOffsetInBytes: () => number = undefined as any;
     private readonly _dart_getLengthInBytes: () => number = undefined as any;
     private readonly _dart_getBuffer: () => IByteBuffer = undefined as any;

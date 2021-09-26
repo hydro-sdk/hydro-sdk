@@ -8,9 +8,7 @@ import 'package:hydro_sdk/hydroState.dart';
 
 class VMManagedKey extends VMManagedBox<Key> {
   VMManagedKey(
-      {@required this.table,
-      @required this.vmObject,
-      @required this.hydroState})
+      {required this.table, required this.vmObject, required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,
@@ -24,7 +22,7 @@ class VMManagedKey extends VMManagedBox<Key> {
   final Key vmObject;
 }
 
-void loadKey({@required HydroState hydroState, @required HydroTable table}) {
+void loadKey({required HydroState hydroState, required HydroTable table}) {
   table['key'] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       maybeBoxObject<Key>(
@@ -32,9 +30,9 @@ void loadKey({@required HydroState hydroState, @required HydroTable table}) {
     ];
   });
   registerBoxer<Key>(boxer: (
-      {@required Key vmObject,
-      @required HydroState hydroState,
-      @required HydroTable table}) {
+      {required Key vmObject,
+      required HydroState hydroState,
+      required HydroTable table}) {
     return VMManagedKey(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

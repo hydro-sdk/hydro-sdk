@@ -19,7 +19,8 @@ declare const flutter: {
 
 export class TextSpan
     extends JITAllocatingRTManagedBox<TextSpanProps, TextSpan>
-    implements InlineSpan, RuntimeBaseClass {
+    implements InlineSpan, RuntimeBaseClass
+{
     public readonly internalRuntimeType = new Type(TextSpan);
     public props: TextSpanProps;
     public constructor(props: TextSpanProps) {

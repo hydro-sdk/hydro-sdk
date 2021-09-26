@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'swidiNamedParameter.dart';
 
@@ -9,12 +9,14 @@ part of 'swidiNamedParameter.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$SwidiNamedParameterTearOff {
   const _$SwidiNamedParameterTearOff();
 
-// ignore: unused_element
-  _$SwidiNamedParameterCtor call({@required SwidiDeclaration declaration}) {
+  _$SwidiNamedParameterCtor call({required SwidiDeclaration declaration}) {
     return _$SwidiNamedParameterCtor(
       declaration: declaration,
     );
@@ -22,15 +24,15 @@ class _$SwidiNamedParameterTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $SwidiNamedParameter = _$SwidiNamedParameterTearOff();
 
 /// @nodoc
 mixin _$SwidiNamedParameter {
-  SwidiDeclaration get declaration;
+  SwidiDeclaration get declaration => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $SwidiNamedParameterCopyWith<SwidiNamedParameter> get copyWith;
+  $SwidiNamedParameterCopyWith<SwidiNamedParameter> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -54,20 +56,18 @@ class _$SwidiNamedParameterCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object declaration = freezed,
+    Object? declaration = freezed,
   }) {
     return _then(_value.copyWith(
       declaration: declaration == freezed
           ? _value.declaration
-          : declaration as SwidiDeclaration,
+          : declaration // ignore: cast_nullable_to_non_nullable
+              as SwidiDeclaration,
     ));
   }
 
   @override
   $SwidiDeclarationCopyWith<$Res> get declaration {
-    if (_value.declaration == null) {
-      return null;
-    }
     return $SwidiDeclarationCopyWith<$Res>(_value.declaration, (value) {
       return _then(_value.copyWith(declaration: value));
     });
@@ -101,20 +101,21 @@ class __$$SwidiNamedParameterCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object declaration = freezed,
+    Object? declaration = freezed,
   }) {
     return _then(_$SwidiNamedParameterCtor(
       declaration: declaration == freezed
           ? _value.declaration
-          : declaration as SwidiDeclaration,
+          : declaration // ignore: cast_nullable_to_non_nullable
+              as SwidiDeclaration,
     ));
   }
 }
 
 /// @nodoc
-class _$_$SwidiNamedParameterCtor implements _$SwidiNamedParameterCtor {
-  const _$_$SwidiNamedParameterCtor({@required this.declaration})
-      : assert(declaration != null);
+
+class _$_$SwidiNamedParameterCtor extends _$SwidiNamedParameterCtor {
+  _$_$SwidiNamedParameterCtor({required this.declaration}) : super._();
 
   @override
   final SwidiDeclaration declaration;
@@ -144,13 +145,15 @@ class _$_$SwidiNamedParameterCtor implements _$SwidiNamedParameterCtor {
           this, _$identity);
 }
 
-abstract class _$SwidiNamedParameterCtor implements SwidiNamedParameter {
-  const factory _$SwidiNamedParameterCtor(
-      {@required SwidiDeclaration declaration}) = _$_$SwidiNamedParameterCtor;
+abstract class _$SwidiNamedParameterCtor extends SwidiNamedParameter {
+  factory _$SwidiNamedParameterCtor({required SwidiDeclaration declaration}) =
+      _$_$SwidiNamedParameterCtor;
+  _$SwidiNamedParameterCtor._() : super._();
 
   @override
-  SwidiDeclaration get declaration;
+  SwidiDeclaration get declaration => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$$SwidiNamedParameterCtorCopyWith<_$SwidiNamedParameterCtor> get copyWith;
+  _$$SwidiNamedParameterCtorCopyWith<_$SwidiNamedParameterCtor> get copyWith =>
+      throw _privateConstructorUsedError;
 }

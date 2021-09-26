@@ -1,5 +1,3 @@
-import 'package:meta/meta.dart';
-
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/foundation/changeNotifier.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/foundation/diagnosticPropertiesBuilder.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/foundation/diagnosticable.dart';
@@ -11,8 +9,7 @@ import 'package:hydro_sdk/cfr/builtins/libs/flutter/foundation/textTreeConfigura
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
-void loadFoundation(
-    {@required HydroState luaState, @required HydroTable table}) {
+void loadFoundation({required HydroState luaState, required HydroTable table}) {
   var foundation = HydroTable();
 
   table["foundation"] = foundation;

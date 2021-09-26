@@ -7,28 +7,29 @@ import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
 void loadCupertinoButton(
-    {@required HydroState luaState, @required HydroTable table}) {
+    {required HydroState luaState, required HydroTable table}) {
   table["cupertinoButton"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       CupertinoButton(
-        key: maybeUnBoxAndBuildArgument<Key>(args[0]["key"],
+        key: maybeUnBoxAndBuildArgument<Key, dynamic>(args[0]["key"],
             parentState: luaState),
-        child: maybeUnBoxAndBuildArgument<Widget>(args[0]["child"],
+        child: maybeUnBoxAndBuildArgument<Widget, dynamic>(args[0]["child"],
             parentState: luaState),
-        padding: maybeUnBoxAndBuildArgument<EdgeInsets>(args[0]["padding"],
+        padding: maybeUnBoxAndBuildArgument<EdgeInsets, dynamic>(
+            args[0]["padding"],
             parentState: luaState),
-        color: maybeUnBoxAndBuildArgument<Color>(args[0]["color"],
+        color: maybeUnBoxAndBuildArgument<Color, dynamic>(args[0]["color"],
             parentState: luaState),
-        disabledColor: maybeUnBoxAndBuildArgument<Color>(
+        disabledColor: maybeUnBoxAndBuildArgument<Color, dynamic>(
             args[0]["disabledColor"],
             parentState: luaState),
         minSize: args[0]["minSize"]?.toDouble(),
         pressedOpacity: args[0]["pressedOpacity"]?.toDouble(),
-        borderRadius: maybeUnBoxAndBuildArgument<BorderRadius>(
+        borderRadius: maybeUnBoxAndBuildArgument<BorderRadius, dynamic>(
             args[0]["borderRadius"],
             parentState: luaState),
         onPressed: () {
-          Closure closure = args[0]["onPressed"];
+          Closure? closure = args[0]["onPressed"];
           if (closure != null) {
             closure.dispatch(
               [],

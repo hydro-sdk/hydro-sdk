@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'swidConfigAllowList.dart';
 
@@ -8,6 +8,10 @@ part of 'swidConfigAllowList.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 SwidConfigAllowList _$SwidConfigAllowListFromJson(Map<String, dynamic> json) {
   return _$SwidConfigAllowListCtor.fromJson(json);
 }
@@ -16,34 +20,31 @@ SwidConfigAllowList _$SwidConfigAllowListFromJson(Map<String, dynamic> json) {
 class _$SwidConfigAllowListTearOff {
   const _$SwidConfigAllowListTearOff();
 
-// ignore: unused_element
   _$SwidConfigAllowListCtor call(
-      {@required List<String> classNames,
-      @required List<String> packagePaths}) {
+      {required List<String> classNames, required List<String> packagePaths}) {
     return _$SwidConfigAllowListCtor(
       classNames: classNames,
       packagePaths: packagePaths,
     );
   }
 
-// ignore: unused_element
   SwidConfigAllowList fromJson(Map<String, Object> json) {
     return SwidConfigAllowList.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $SwidConfigAllowList = _$SwidConfigAllowListTearOff();
 
 /// @nodoc
 mixin _$SwidConfigAllowList {
-  List<String> get classNames;
-  List<String> get packagePaths;
+  List<String> get classNames => throw _privateConstructorUsedError;
+  List<String> get packagePaths => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $SwidConfigAllowListCopyWith<SwidConfigAllowList> get copyWith;
+  $SwidConfigAllowListCopyWith<SwidConfigAllowList> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -65,16 +66,18 @@ class _$SwidConfigAllowListCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object classNames = freezed,
-    Object packagePaths = freezed,
+    Object? classNames = freezed,
+    Object? packagePaths = freezed,
   }) {
     return _then(_value.copyWith(
       classNames: classNames == freezed
           ? _value.classNames
-          : classNames as List<String>,
+          : classNames // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       packagePaths: packagePaths == freezed
           ? _value.packagePaths
-          : packagePaths as List<String>,
+          : packagePaths // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ));
   }
 }
@@ -103,28 +106,27 @@ class __$$SwidConfigAllowListCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object classNames = freezed,
-    Object packagePaths = freezed,
+    Object? classNames = freezed,
+    Object? packagePaths = freezed,
   }) {
     return _then(_$SwidConfigAllowListCtor(
       classNames: classNames == freezed
           ? _value.classNames
-          : classNames as List<String>,
+          : classNames // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       packagePaths: packagePaths == freezed
           ? _value.packagePaths
-          : packagePaths as List<String>,
+          : packagePaths // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_$SwidConfigAllowListCtor implements _$SwidConfigAllowListCtor {
   const _$_$SwidConfigAllowListCtor(
-      {@required this.classNames, @required this.packagePaths})
-      : assert(classNames != null),
-        assert(packagePaths != null);
+      {required this.classNames, required this.packagePaths});
 
   factory _$_$SwidConfigAllowListCtor.fromJson(Map<String, dynamic> json) =>
       _$_$_$SwidConfigAllowListCtorFromJson(json);
@@ -171,17 +173,18 @@ class _$_$SwidConfigAllowListCtor implements _$SwidConfigAllowListCtor {
 
 abstract class _$SwidConfigAllowListCtor implements SwidConfigAllowList {
   const factory _$SwidConfigAllowListCtor(
-      {@required List<String> classNames,
-      @required List<String> packagePaths}) = _$_$SwidConfigAllowListCtor;
+      {required List<String> classNames,
+      required List<String> packagePaths}) = _$_$SwidConfigAllowListCtor;
 
   factory _$SwidConfigAllowListCtor.fromJson(Map<String, dynamic> json) =
       _$_$SwidConfigAllowListCtor.fromJson;
 
   @override
-  List<String> get classNames;
+  List<String> get classNames => throw _privateConstructorUsedError;
   @override
-  List<String> get packagePaths;
+  List<String> get packagePaths => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$$SwidConfigAllowListCtorCopyWith<_$SwidConfigAllowListCtor> get copyWith;
+  _$$SwidConfigAllowListCtorCopyWith<_$SwidConfigAllowListCtor> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -1,4 +1,9 @@
-import 'package:meta/meta.dart';
 import 'package:recase/recase.dart';
 
-String transformToCamelCase({@required String str}) => ReCase(str).camelCase;
+String transformToCamelCase({
+  required final String str,
+}) =>
+    [
+      str[0] == "_" ? "_" : "",
+      ReCase(str).camelCase,
+    ].join("");

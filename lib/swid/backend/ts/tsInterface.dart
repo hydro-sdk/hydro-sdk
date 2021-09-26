@@ -1,32 +1,89 @@
-import 'package:meta/meta.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'package:hydro_sdk/swid/backend/ts/transforms/transformTypeDeclarationToTs.dart';
+import 'package:hydro_sdk/swid/backend/ts/transforms/transformTypeFormalsToTs.dart';
+import 'package:hydro_sdk/swid/backend/ts/tsSuperClassClause.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
-import 'package:hydro_sdk/swid/transforms/ts/transformTypeDeclarationToTs.dart';
-import 'package:hydro_sdk/swid/transforms/ts/transformTypeFormalsToTs.dart';
+import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
+import 'package:hydro_sdk/swid/swars/swarsTermStringResultMixin.dart';
+import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
+import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
+import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
 
-class TsInterface {
-  final String name;
-  final Map<String, SwidType> members;
-  final List<String> superInterfaces;
-  final List<SwidTypeFormal> typeFormals;
-  final bool emitSuperInterfaceExtensions;
+part 'tsInterface.freezed.dart';
 
-  TsInterface({
-    @required this.name,
-    @required this.members,
-    @required this.emitSuperInterfaceExtensions,
-    this.superInterfaces = const [],
-    this.typeFormals = const [],
-  });
+@freezed
+class TsInterface
+    with
+        _$TsInterface,
+        HashKeyMixin<TsInterface>,
+        HashComparableMixin<TsInterface>,
+        SwarsTransformMixin<TsInterface, $TsInterfaceCopyWith<TsInterface>,
+            String>,
+        SwarsTermStringResultMixin {
+  TsInterface._();
 
-  factory TsInterface.fromSwidClass(
-          {@required SwidClass swidClass,
-          @required bool emitSuperInterfaceExtensions}) =>
+  factory TsInterface({
+    required final SwidClass swidClass,
+    required final bool emitSuperInterfaceExtensions,
+  }) = _$TsInterfaceCtor;
+
+  @override
+  String get cacheGroup => "tsInterface";
+
+  @override
+  List<int> get hashableParts => [
+        ...swidClass.hashKey.hashableParts,
+        ...emitSuperInterfaceExtensions.hashableParts,
+      ];
+
+  @override
+  TsInterface clone({
+    final SwidClass? swidClass,
+    final bool? emitSuperInterfaceExtensions,
+  }) =>
       TsInterface(
+        swidClass: swidClass ?? this.swidClass,
+        emitSuperInterfaceExtensions:
+            emitSuperInterfaceExtensions ?? this.emitSuperInterfaceExtensions,
+      );
+
+  @override
+  ISwarsTermResult<String> transform({
+    required final ISwarsPipeline pipeline,
+  }) =>
+      (({
+        required final String name,
+        required final Map<String, SwidType> members,
+        required final String superClause,
+        required final List<SwidTypeFormal> typeFormals,
+      }) =>
+          SwarsTermResult.fromString(
+            ([
+              "export interface $name",
+              pipeline.reduceFromTerm(
+                TransformTypeFormalsToTs(
+                  swidTypeFormals: typeFormals,
+                ),
+              ),
+              emitSuperInterfaceExtensions ? superClause : "",
+              "{",
+              ...members.entries
+                  .map((x) => "${x.key}: ${pipeline.reduceFromTerm(
+                        TransformTypeDeclarationToTs(
+                          parentClass: null,
+                          swidType: x.value,
+                        ),
+                      )};")
+                  .toList(),
+              "}"
+            ]..removeWhere((x) => x == null))
+                .join("\n"),
+          ))(
         name: swidClass.name,
-        emitSuperInterfaceExtensions: emitSuperInterfaceExtensions,
         members: {
           ...Map.fromEntries(swidClass.instanceFieldDeclarations.entries
               .map((x) => MapEntry(x.key, x.value))
@@ -36,30 +93,12 @@ class TsInterface {
                   x.name, SwidType.fromSwidFunctionType(swidFunctionType: x)))
               .toList()),
         },
-        superInterfaces: ([
-          swidClass.extendedClass != null
-              ? "I${swidClass.extendedClass.name}"
-              : null
-        ]..removeWhere(
-            (x) => x == null,
-          )),
         typeFormals: List.from(swidClass.typeFormals),
+        superClause: pipeline.reduceFromTerm(
+          TsSuperClassClause(
+            swidClass: swidClass,
+            clauseKeyword: "extends",
+          ),
+        ),
       );
-
-  String toTsSource() => ([
-        "export interface $name",
-        transformTypeFormalsToTs(swidTypeFormals: typeFormals),
-        ...(emitSuperInterfaceExtensions
-            ? superInterfaces.isNotEmpty
-                ? ["extends", superInterfaces.map((x) => x).toList().join(", ")]
-                : []
-            : []),
-        "{",
-        ...members.entries
-            .map((x) =>
-                "${x.key}: ${transformTypeDeclarationToTs(swidType: x.value)};")
-            .toList(),
-        "}"
-      ]..removeWhere((x) => x == null))
-          .join("\n");
 }

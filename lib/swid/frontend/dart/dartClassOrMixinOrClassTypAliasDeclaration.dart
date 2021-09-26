@@ -11,23 +11,22 @@ import 'package:analyzer/dart/ast/ast.dart'
 import 'package:analyzer/dart/ast/syntactic_entity.dart';
 import 'package:analyzer/dart/element/element.dart' show ClassElement;
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:meta/meta.dart';
 
 part 'dartClassOrMixinOrClassTypAliasDeclaration.freezed.dart';
 
 @freezed
-abstract class DartClassOrMixinOrClassTypAliasDeclaration
+class DartClassOrMixinOrClassTypAliasDeclaration
     with _$DartClassOrMixinOrClassTypAliasDeclaration {
   const factory DartClassOrMixinOrClassTypAliasDeclaration.fromClassDeclaration({
-    @required ClassDeclaration classDeclaration,
+    required final ClassDeclaration classDeclaration,
   }) = _$DartClassOrMixinOrClassTypAliasDeclarationFromClassDeclaration;
 
   const factory DartClassOrMixinOrClassTypAliasDeclaration.fromMixinDeclaration({
-    @required MixinDeclaration mixinDeclaration,
+    required final MixinDeclaration mixinDeclaration,
   }) = _$DartClassOrMixinOrClassTypAliasDeclarationFromMixinDeclaration;
 
   const factory DartClassOrMixinOrClassTypAliasDeclaration.fromClassTypeAlias({
-    @required ClassTypeAlias classTypeAlias,
+    required final ClassTypeAlias classTypeAlias,
   }) = _$DartClassOrMixinOrClassTypAliasDeclarationFromClassTypeAlias;
 }
 
@@ -45,25 +44,25 @@ extension DartClassOrMixinOrClassTypAliasDeclarationMethods
         fromClassTypeAlias: (val) => val.name,
       );
 
-  TypeName get superClass => this.when(
+  TypeName? get superClass => this.when(
         fromClassDeclaration: (val) => val.extendsClause?.superclass,
         fromMixinDeclaration: (_) => null,
         fromClassTypeAlias: (val) => val.superclass,
       );
 
-  ImplementsClause get implementsClause => this.when(
+  ImplementsClause? get implementsClause => this.when(
         fromClassDeclaration: (val) => val.implementsClause,
         fromMixinDeclaration: (val) => val.implementsClause,
         fromClassTypeAlias: (val) => val.implementsClause,
       );
 
-  WithClause get withClause => this.when(
+  WithClause? get withClause => this.when(
         fromClassDeclaration: (val) => val.withClause,
         fromMixinDeclaration: (_) => null,
         fromClassTypeAlias: (val) => val.withClause,
       );
 
-  ClassElement get declaredElement => this.when(
+  ClassElement? get declaredElement => this.when(
         fromClassDeclaration: (val) => val.declaredElement,
         fromMixinDeclaration: (val) => val.declaredElement,
         fromClassTypeAlias: (val) => val.declaredElement,

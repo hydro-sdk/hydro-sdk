@@ -1,13 +1,48 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:meta/meta.dart';
+
+import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
+import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
+import 'package:hydro_sdk/swid/util/iCopyable.dart';
 
 part 'swidDoubleLiteral.freezed.dart';
 part 'swidDoubleLiteral.g.dart';
 
 @freezed
-abstract class SwidDoubleLiteral with _$SwidDoubleLiteral {
-  const factory SwidDoubleLiteral({@required String value}) = _$Data;
+class SwidDoubleLiteral
+    with
+        _$SwidDoubleLiteral,
+        HashKeyMixin<SwidDoubleLiteral>,
+        HashComparableMixin<SwidDoubleLiteral>
+    implements
+        ICopyable<SwidDoubleLiteral,
+            $SwidDoubleLiteralCopyWith<SwidDoubleLiteral>> {
+  SwidDoubleLiteral._();
+  factory SwidDoubleLiteral({
+    required final String value,
+  }) = _$Data;
 
   factory SwidDoubleLiteral.fromJson(Map<String, dynamic> json) =>
       _$SwidDoubleLiteralFromJson(json);
+
+  factory SwidDoubleLiteral.clone({
+    required final SwidDoubleLiteral swidDoubleLiteral,
+    final String? value,
+  }) =>
+      SwidDoubleLiteral(
+        value: value ?? swidDoubleLiteral.value,
+      );
+
+  @override
+  late final List<int> hashableParts = [
+    ...value.hashableParts,
+  ];
+
+  @override
+  SwidDoubleLiteral clone({
+    final String? value,
+  }) =>
+      SwidDoubleLiteral.clone(
+        swidDoubleLiteral: this,
+        value: value,
+      );
 }

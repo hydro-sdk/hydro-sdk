@@ -1,14 +1,51 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:meta/meta.dart';
+
+import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
+import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
+import 'package:hydro_sdk/swid/util/iCopyable.dart';
 
 part 'swidStaticConstFieldReference.freezed.dart';
 part 'swidStaticConstFieldReference.g.dart';
 
 @freezed
-abstract class SwidStaticConstFieldReference
-    with _$SwidStaticConstFieldReference {
-  const factory SwidStaticConstFieldReference({@required String name}) = _$Data;
+class SwidStaticConstFieldReference
+    with
+        _$SwidStaticConstFieldReference,
+        HashKeyMixin<SwidStaticConstFieldReference>,
+        HashComparableMixin<SwidStaticConstFieldReference>
+    implements
+        ICopyable<
+            SwidStaticConstFieldReference,
+            $SwidStaticConstFieldReferenceCopyWith<
+                SwidStaticConstFieldReference>> {
+  SwidStaticConstFieldReference._();
+
+  factory SwidStaticConstFieldReference({
+    required final String name,
+  }) = _$Data;
 
   factory SwidStaticConstFieldReference.fromJson(Map<String, dynamic> json) =>
       _$SwidStaticConstFieldReferenceFromJson(json);
+
+  factory SwidStaticConstFieldReference.clone({
+    required final SwidStaticConstFieldReference swidStaticConstFieldReference,
+    final String? name,
+  }) =>
+      SwidStaticConstFieldReference(
+        name: name ?? swidStaticConstFieldReference.name,
+      );
+
+  @override
+  late final List<int> hashableParts = [
+    ...name.hashableParts,
+  ];
+
+  @override
+  SwidStaticConstFieldReference clone({
+    final String? name,
+  }) =>
+      SwidStaticConstFieldReference.clone(
+        swidStaticConstFieldReference: this,
+        name: name,
+      );
 }

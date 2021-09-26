@@ -9,9 +9,8 @@ part of 'swidType.dart';
 _$_$FromSwidInterface _$_$_$FromSwidInterfaceFromJson(
     Map<String, dynamic> json) {
   return _$_$FromSwidInterface(
-    swidInterface: json['swidInterface'] == null
-        ? null
-        : SwidInterface.fromJson(json['swidInterface'] as Map<String, dynamic>),
+    swidInterface:
+        SwidInterface.fromJson(json['swidInterface'] as Map<String, dynamic>),
   );
 }
 
@@ -23,9 +22,7 @@ Map<String, dynamic> _$_$_$FromSwidInterfaceToJson(
 
 _$_$FromSwidClass _$_$_$FromSwidClassFromJson(Map<String, dynamic> json) {
   return _$_$FromSwidClass(
-    swidClass: json['swidClass'] == null
-        ? null
-        : SwidClass.fromJson(json['swidClass'] as Map<String, dynamic>),
+    swidClass: SwidClass.fromJson(json['swidClass'] as Map<String, dynamic>),
   );
 }
 
@@ -37,10 +34,8 @@ Map<String, dynamic> _$_$_$FromSwidClassToJson(_$_$FromSwidClass instance) =>
 _$_$FromSwidDefaultFormalParameter _$_$_$FromSwidDefaultFormalParameterFromJson(
     Map<String, dynamic> json) {
   return _$_$FromSwidDefaultFormalParameter(
-    swidDefaultFormalParameter: json['swidDefaultFormalParameter'] == null
-        ? null
-        : SwidDefaultFormalParameter.fromJson(
-            json['swidDefaultFormalParameter'] as Map<String, dynamic>),
+    swidDefaultFormalParameter: SwidDefaultFormalParameter.fromJson(
+        json['swidDefaultFormalParameter'] as Map<String, dynamic>),
   );
 }
 
@@ -53,10 +48,8 @@ Map<String, dynamic> _$_$_$FromSwidDefaultFormalParameterToJson(
 _$_$FromSwidFunctionType _$_$_$FromSwidFunctionTypeFromJson(
     Map<String, dynamic> json) {
   return _$_$FromSwidFunctionType(
-    swidFunctionType: json['swidFunctionType'] == null
-        ? null
-        : SwidFunctionType.fromJson(
-            json['swidFunctionType'] as Map<String, dynamic>),
+    swidFunctionType: SwidFunctionType.fromJson(
+        json['swidFunctionType'] as Map<String, dynamic>),
   );
 }
 

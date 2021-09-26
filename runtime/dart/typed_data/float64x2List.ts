@@ -1,3 +1,4 @@
+import { IEfficientLengthIterable } from "../_internal/efficientLengthIterable";
 import { IIterable } from "../core/iterable";
 import { IIterator } from "../core/iterator";
 import { IList } from "../core/list";
@@ -25,9 +26,6 @@ declare const dart: {
             end?: number | undefined
         ) => IFloat64x2List;
     };
-};
-const toListDefaultProps = {
-    growable: true,
 };
 export interface IFloat64x2List {
     sublist: (start: number, end?: number | undefined) => IFloat64x2List;
@@ -128,7 +126,12 @@ export interface IFloat64x2List {
     getLengthInBytes: () => number;
     getBuffer: () => IByteBuffer;
 }
-export class Float64x2List implements IList<IFloat64x2>, ITypedData {
+export class Float64x2List
+    implements
+        IList<IFloat64x2>,
+        ITypedData,
+        IEfficientLengthIterable<IFloat64x2>
+{
     public static bytesPerElement = 16;
     public constructor(length: number) {
         dart.typed_data.float64x2List(this, length);
@@ -156,15 +159,13 @@ export class Float64x2List implements IList<IFloat64x2>, ITypedData {
     ) => IFloat64x2List = undefined as any;
     private readonly _dart_cast: <R>() => IList<R> = undefined as any;
     private readonly _dart_add: (value: IFloat64x2) => void = undefined as any;
-    private readonly _dart_addAll: (
-        iterable: IIterable<IFloat64x2>
-    ) => void = undefined as any;
+    private readonly _dart_addAll: (iterable: IIterable<IFloat64x2>) => void =
+        undefined as any;
     private readonly _dart_sort: (
         compare?: (a: IFloat64x2, b: IFloat64x2) => number
     ) => void = undefined as any;
-    private readonly _dart_shuffle: (
-        random?: IRandom | undefined
-    ) => void = undefined as any;
+    private readonly _dart_shuffle: (random?: IRandom | undefined) => void =
+        undefined as any;
     private readonly _dart_indexOf: (
         element: IFloat64x2,
         start: number
@@ -194,12 +195,10 @@ export class Float64x2List implements IList<IFloat64x2>, ITypedData {
         index: number,
         iterable: IIterable<IFloat64x2>
     ) => void = undefined as any;
-    private readonly _dart_remove: (
-        value?: Object | undefined
-    ) => boolean = undefined as any;
-    private readonly _dart_removeAt: (
-        index: number
-    ) => IFloat64x2 = undefined as any;
+    private readonly _dart_remove: (value?: Object | undefined) => boolean =
+        undefined as any;
+    private readonly _dart_removeAt: (index: number) => IFloat64x2 =
+        undefined as any;
     private readonly _dart_removeLast: () => IFloat64x2 = undefined as any;
     private readonly _dart_removeWhere: (
         test: (element: IFloat64x2) => boolean
@@ -217,10 +216,8 @@ export class Float64x2List implements IList<IFloat64x2>, ITypedData {
         iterable: IIterable<IFloat64x2>,
         skipCount: number
     ) => void = undefined as any;
-    private readonly _dart_removeRange: (
-        start: number,
-        end: number
-    ) => void = undefined as any;
+    private readonly _dart_removeRange: (start: number, end: number) => void =
+        undefined as any;
     private readonly _dart_fillRange: (
         start: number,
         end: number,
@@ -231,26 +228,22 @@ export class Float64x2List implements IList<IFloat64x2>, ITypedData {
         end: number,
         replacement: IIterable<IFloat64x2>
     ) => void = undefined as any;
-    private readonly _dart_asMap: () => {
-        [index: number]: IFloat64x2;
-    } = undefined as any;
-    private readonly _dart_setFirst: (
-        value: IFloat64x2
-    ) => void = undefined as any;
-    private readonly _dart_setLast: (
-        value: IFloat64x2
-    ) => void = undefined as any;
+    private readonly _dart_asMap: () => { [index: number]: IFloat64x2 } =
+        undefined as any;
+    private readonly _dart_setFirst: (value: IFloat64x2) => void =
+        undefined as any;
+    private readonly _dart_setLast: (value: IFloat64x2) => void =
+        undefined as any;
     private readonly _dart_getLength: () => number = undefined as any;
-    private readonly _dart_setLength: (
-        newLength: number
-    ) => void = undefined as any;
-    private readonly _dart_getReversed: () => IIterable<IFloat64x2> = undefined as any;
+    private readonly _dart_setLength: (newLength: number) => void =
+        undefined as any;
+    private readonly _dart_getReversed: () => IIterable<IFloat64x2> =
+        undefined as any;
     private readonly _dart_followedBy: (
         other: IIterable<IFloat64x2>
     ) => IIterable<IFloat64x2> = undefined as any;
-    private readonly _dart_map: <T>(
-        f: (e: IFloat64x2) => T
-    ) => IIterable<T> = undefined as any;
+    private readonly _dart_map: <T>(f: (e: IFloat64x2) => T) => IIterable<T> =
+        undefined as any;
     private readonly _dart_where: (
         test: (element: IFloat64x2) => boolean
     ) => IIterable<IFloat64x2> = undefined as any;
@@ -258,12 +251,10 @@ export class Float64x2List implements IList<IFloat64x2>, ITypedData {
     private readonly _dart_expand: <T>(
         f: (element: IFloat64x2) => IIterable<T>
     ) => IIterable<T> = undefined as any;
-    private readonly _dart_contains: (
-        element?: Object | undefined
-    ) => boolean = undefined as any;
-    private readonly _dart_forEach: (
-        f: (element: IFloat64x2) => void
-    ) => void = undefined as any;
+    private readonly _dart_contains: (element?: Object | undefined) => boolean =
+        undefined as any;
+    private readonly _dart_forEach: (f: (element: IFloat64x2) => void) => void =
+        undefined as any;
     private readonly _dart_reduce: (
         combine: (value: IFloat64x2, element: IFloat64x2) => IFloat64x2
     ) => IFloat64x2 = undefined as any;
@@ -274,9 +265,8 @@ export class Float64x2List implements IList<IFloat64x2>, ITypedData {
     private readonly _dart_every: (
         test: (element: IFloat64x2) => boolean
     ) => boolean = undefined as any;
-    private readonly _dart_join: (
-        separator: string
-    ) => string = undefined as any;
+    private readonly _dart_join: (separator: string) => string =
+        undefined as any;
     private readonly _dart_any: (
         test: (element: IFloat64x2) => boolean
     ) => boolean = undefined as any;
@@ -284,15 +274,13 @@ export class Float64x2List implements IList<IFloat64x2>, ITypedData {
         growable: boolean;
     }) => IList<IFloat64x2> = undefined as any;
     private readonly _dart_toSet: () => ISet<IFloat64x2> = undefined as any;
-    private readonly _dart_take: (
-        count: number
-    ) => IIterable<IFloat64x2> = undefined as any;
+    private readonly _dart_take: (count: number) => IIterable<IFloat64x2> =
+        undefined as any;
     private readonly _dart_takeWhile: (
         test: (value: IFloat64x2) => boolean
     ) => IIterable<IFloat64x2> = undefined as any;
-    private readonly _dart_skip: (
-        count: number
-    ) => IIterable<IFloat64x2> = undefined as any;
+    private readonly _dart_skip: (count: number) => IIterable<IFloat64x2> =
+        undefined as any;
     private readonly _dart_skipWhile: (
         test: (value: IFloat64x2) => boolean
     ) => IIterable<IFloat64x2> = undefined as any;
@@ -308,18 +296,19 @@ export class Float64x2List implements IList<IFloat64x2>, ITypedData {
         test: (element: IFloat64x2) => boolean,
         props: { orElse?: () => IFloat64x2 | undefined }
     ) => IFloat64x2 = undefined as any;
-    private readonly _dart_elementAt: (
-        index: number
-    ) => IFloat64x2 = undefined as any;
+    private readonly _dart_elementAt: (index: number) => IFloat64x2 =
+        undefined as any;
     private readonly _dart_toString: () => string = undefined as any;
-    private readonly _dart_getIterator: () => IIterator<IFloat64x2> = undefined as any;
+    private readonly _dart_getIterator: () => IIterator<IFloat64x2> =
+        undefined as any;
     private readonly _dart_getIsEmpty: () => boolean = undefined as any;
     private readonly _dart_getIsNotEmpty: () => boolean = undefined as any;
     private readonly _dart_getFirst: () => IFloat64x2 = undefined as any;
     private readonly _dart_getLast: () => IFloat64x2 = undefined as any;
     private readonly _dart_getSingle: () => IFloat64x2 = undefined as any;
     private readonly _dart_getHashCode: () => number = undefined as any;
-    private readonly _dart_getElementSizeInBytes: () => number = undefined as any;
+    private readonly _dart_getElementSizeInBytes: () => number =
+        undefined as any;
     private readonly _dart_getOffsetInBytes: () => number = undefined as any;
     private readonly _dart_getLengthInBytes: () => number = undefined as any;
     private readonly _dart_getBuffer: () => IByteBuffer = undefined as any;
@@ -561,3 +550,6 @@ export class Float64x2List implements IList<IFloat64x2>, ITypedData {
         return this._dart_getBuffer();
     }
 }
+const toListDefaultProps = {
+    growable: true,
+};

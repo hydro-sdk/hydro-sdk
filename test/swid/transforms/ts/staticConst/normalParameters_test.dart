@@ -1,10 +1,12 @@
 import 'package:flutter_test/flutter_test.dart';
 
+import 'package:hydro_sdk/swid/backend/ts/transforms/transformNormalParametersToTs.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidIntegerLiteral.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/swidStringLiteral.dart';
-import 'package:hydro_sdk/swid/transforms/ts/transformNormalParametersToTs.dart';
+import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
+import 'package:hydro_sdk/swid/swars/pipelineNoopCacheMgr.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
@@ -21,11 +23,16 @@ void main() {
     ];
 
     expect(
-        transformNormalParametersToTs(
+        CachingPipeline(
+          cacheMgr: const PipelineNoopCacheMgr(),
+        ).reduceFromTerm(
+          TransformNormalParametersToTs(
             parentClass: SwidClass.empty(),
             inexpressibleFunctionInvocationFallback: "",
             swidLiterals: normalParameters,
-            scopeResolver: (_) => null),
+            scopeResolver: (_) => null,
+          ),
+        ),
         "0xe52a, \"0xe52a\", \"1\", 1");
   }, tags: "swid");
 }

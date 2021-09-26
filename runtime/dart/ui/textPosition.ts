@@ -1,34 +1,37 @@
-import { RuntimeBaseClass } from "./../../runtimeBaseClass";
-import { JITAllocatingRTManagedBox } from "./../../syntheticBox";
-import { Type } from "./../core/type";
 import { TextAffinity } from "./textAffinity";
-
-export interface TextPositionProps {
-    offset: number;
-    affinity?: TextAffinity | undefined;
-}
-
 declare const dart: {
     ui: {
-        textPosition: (this: void, props: TextPositionProps) => TextPosition;
+        textPosition: (
+            this: void,
+            textPosition: ITextPosition,
+            props: { affinity: TextAffinity; offset: number }
+        ) => ITextPosition;
     };
 };
-
-export class TextPosition
-    extends JITAllocatingRTManagedBox<TextPositionProps, TextPosition>
-    implements RuntimeBaseClass {
-    public readonly internalRuntimeType = new Type(TextPosition);
-    public props: TextPositionProps;
-    public constructor(props: TextPositionProps) {
-        super();
-        this.props = props;
-
-        if (this.props.affinity === undefined) {
-            this.props.affinity = TextAffinity.downstream;
-        }
+export interface ITextPosition {
+    offset: number;
+    affinity: TextAffinity;
+    getHashCode: () => number;
+    toString: () => string;
+}
+export class TextPosition {
+    public readonly offset: number = undefined as any;
+    public readonly affinity: TextAffinity = undefined as any;
+    public constructor(props: { affinity?: TextAffinity; offset: number }) {
+        dart.ui.textPosition(this, {
+            ...textPositionDefaultProps,
+            ...props,
+        });
     }
-
-    public unwrap() {
-        return dart.ui.textPosition(this.props);
+    private readonly _dart_getHashCode: () => number = undefined as any;
+    private readonly _dart_toString: () => string = undefined as any;
+    public getHashCode(): number {
+        return this._dart_getHashCode();
+    }
+    public toString(): string {
+        return this._dart_toString();
     }
 }
+const textPositionDefaultProps = {
+    affinity: TextAffinity.downstream,
+};

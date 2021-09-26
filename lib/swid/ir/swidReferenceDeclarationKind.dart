@@ -4,4 +4,5 @@ enum SwidReferenceDeclarationKind {
   voidType,
   typeParameterType,
   dynamicType,
+  unknown,
 }

@@ -1,4 +1,4 @@
-import { List } from "../../../runtime/dart/collection/list";
+import { List } from "../../../runtime/dart/core/list";
 import { FontWeight } from "../../../runtime/dart/ui/fontWeight";
 import { BuildContext } from "../../../runtime/flutter/buildContext";
 import { AppBar } from "../../../runtime/flutter/material/appBar";
@@ -70,21 +70,16 @@ export class DetailScreen extends StatelessWidget {
                                     new Row({
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceEvenly,
-                                        children: List.fromArray(
-                                            this.pokemon.type
-                                        )
-                                            .map(
-                                                (t) =>
-                                                    new FilterChip({
-                                                        backgroundColor:
-                                                            Colors.amber
-                                                                .swatch[500],
-                                                        label: new Text(t),
-                                                        onSelected: () =>
-                                                            undefined,
-                                                    })
-                                            )
-                                            .unwrap(),
+                                        children: this.pokemon.type.map(
+                                            (t) =>
+                                                new FilterChip({
+                                                    backgroundColor:
+                                                        Colors.amber
+                                                            .swatch[500],
+                                                    label: new Text(t),
+                                                    onSelected: () => undefined,
+                                                })
+                                        ),
                                     }),
                                     new Text("Weakness", {
                                         style: new TextStyle({
@@ -94,28 +89,19 @@ export class DetailScreen extends StatelessWidget {
                                     new Row({
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceEvenly,
-                                        children: List.fromArray(
-                                            this.pokemon.weaknesses
-                                        )
-                                            .map(
-                                                (t) =>
-                                                    new FilterChip({
-                                                        backgroundColor:
-                                                            Colors.red
-                                                                .swatch[500],
-                                                        label: new Text(t, {
-                                                            style: new TextStyle(
-                                                                {
-                                                                    color:
-                                                                        Colors.white,
-                                                                }
-                                                            ),
+                                        children: this.pokemon.weaknesses.map(
+                                            (t) =>
+                                                new FilterChip({
+                                                    backgroundColor:
+                                                        Colors.red.swatch[500],
+                                                    label: new Text(t, {
+                                                        style: new TextStyle({
+                                                            color: Colors.white,
                                                         }),
-                                                        onSelected: () =>
-                                                            undefined,
-                                                    })
-                                            )
-                                            .unwrap(),
+                                                    }),
+                                                    onSelected: () => undefined,
+                                                })
+                                        ),
                                     }),
                                     new Text("Next Evolution", {
                                         style: new TextStyle({
@@ -136,33 +122,26 @@ export class DetailScreen extends StatelessWidget {
                                                           "This is the final form"
                                                       ),
                                                   ]
-                                                : List.fromArray(
-                                                      this.pokemon
-                                                          .next_evolution
-                                                  )
-                                                      .map(
-                                                          (n) =>
-                                                              new FilterChip({
-                                                                  backgroundColor:
-                                                                      Colors
-                                                                          .green
-                                                                          .swatch[500],
-                                                                  label: new Text(
-                                                                      n.name,
-                                                                      {
-                                                                          style: new TextStyle(
-                                                                              {
-                                                                                  color:
-                                                                                      Colors.white,
-                                                                              }
-                                                                          ),
-                                                                      }
-                                                                  ),
-                                                                  onSelected: () =>
-                                                                      undefined,
-                                                              })
-                                                      )
-                                                      .unwrap(),
+                                                : this.pokemon.next_evolution.map(
+                                                      (n) =>
+                                                          new FilterChip({
+                                                              backgroundColor:
+                                                                  Colors.green
+                                                                      .swatch[500],
+                                                              label: new Text(
+                                                                  n.name,
+                                                                  {
+                                                                      style: new TextStyle(
+                                                                          {
+                                                                              color: Colors.white,
+                                                                          }
+                                                                      ),
+                                                                  }
+                                                              ),
+                                                              onSelected: () =>
+                                                                  undefined,
+                                                          })
+                                                  ),
                                     }),
                                 ],
                             }),

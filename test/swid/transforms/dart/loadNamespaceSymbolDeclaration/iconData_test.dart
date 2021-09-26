@@ -5,34 +5,38 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'package:hydro_sdk/swid/backend/dart/dartLoadNamespaceSymbolDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
+import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
+import 'package:hydro_sdk/swid/swars/pipelineNoopCacheMgr.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
     var iconDataClass = SwidClass.fromJson(
-        json.decode(File("../test/swid/res/IconData.json").readAsStringSync()));
+        json.decode(File("test/swid/res/IconData.json").readAsStringSync()));
 
     expect(iconDataClass.instanceFieldDeclarations.length, 4);
     expect(
-        DartLoadNamespaceSymbolDeclaration(swidClass: iconDataClass)
-            .toDartSource(),
+        CachingPipeline(
+          cacheMgr: const PipelineNoopCacheMgr(),
+        ).reduceFromTerm(
+          DartLoadNamespaceSymbolDeclaration(swidClass: iconDataClass),
+        ),
         """
-void loadIconData(
-    {@required HydroState hydroState, @required HydroTable table}) {
-  table[\'iconData\'] = makeLuaDartFunc(func: (List<dynamic> args) {
+void loadIconData({required HydroState hydroState, required HydroTable table}) {
+  table[\'iconData\'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
-      RTManagedIconData(args[1],
-          table: args[0],
+      RTManagedIconData(luaCallerArguments[1],
+          table: luaCallerArguments[0],
           hydroState: hydroState,
-          fontFamily: args[2][\'fontFamily\'],
-          fontPackage: args[2][\'fontPackage\'],
-          matchTextDirection: args[2][\'matchTextDirection\'])
+          fontFamily: luaCallerArguments[2][\'fontFamily\'],
+          fontPackage: luaCallerArguments[2][\'fontPackage\'],
+          matchTextDirection: luaCallerArguments[2][\'matchTextDirection\'])
     ];
   });
   registerBoxer<IconData>(boxer: (
-      {@required IconData vmObject,
-      @required HydroState hydroState,
-      @required HydroTable table}) {
+      {required IconData vmObject,
+      required HydroState hydroState,
+      required HydroTable table}) {
     return VMManagedIconData(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

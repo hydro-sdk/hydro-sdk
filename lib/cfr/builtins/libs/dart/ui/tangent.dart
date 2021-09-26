@@ -1,21 +1,11 @@
 import 'dart:core';
 import 'dart:ui';
 
-import 'package:meta/meta.dart';
-
-import 'package:hydro_sdk/cfr/builtins/boxing/boxers.dart';
-import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
-import 'package:hydro_sdk/cfr/builtins/boxing/unboxers.dart';
-import 'package:hydro_sdk/cfr/vm/closure.dart';
-import 'package:hydro_sdk/cfr/vm/context.dart';
-import 'package:hydro_sdk/cfr/vm/table.dart';
-import 'package:hydro_sdk/hydroState.dart';
+import 'package:hydro_sdk/cfr/runtimeSupport.dart';
 
 class VMManagedTangent extends VMManagedBox<Tangent> {
   VMManagedTangent(
-      {@required this.table,
-      @required this.vmObject,
-      @required this.hydroState})
+      {required this.table, required this.vmObject, required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,
@@ -25,8 +15,11 @@ class VMManagedTangent extends VMManagedBox<Tangent> {
         object: vmObject.position, hydroState: hydroState, table: HydroTable());
     table['vector'] = maybeBoxObject<Offset>(
         object: vmObject.vector, hydroState: hydroState, table: HydroTable());
-    table['getAngle'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject.angle];
+    table['getAngle'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        vmObject.angle,
+      ];
     });
   }
 
@@ -39,20 +32,21 @@ class VMManagedTangent extends VMManagedBox<Tangent> {
 
 class RTManagedTangent extends Tangent implements Box<Tangent> {
   RTManagedTangent(Offset position, Offset vector,
-      {@required this.table, @required this.hydroState})
+      {required this.table, required this.hydroState})
       : super(
           position,
           vector,
         ) {
     table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [unwrap()];
     });
     table['position'] = maybeBoxObject<Offset>(
         object: position, hydroState: hydroState, table: HydroTable());
     table['vector'] = maybeBoxObject<Offset>(
         object: vector, hydroState: hydroState, table: HydroTable());
-    table['_dart_getAngle'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getAngle'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.angle];
     });
   }
@@ -70,32 +64,34 @@ class RTManagedTangent extends Tangent implements Box<Tangent> {
   }
 }
 
-void loadTangent(
-    {@required HydroState hydroState, @required HydroTable table}) {
-  table['tangent'] = makeLuaDartFunc(func: (List<dynamic> args) {
+void loadTangent({required HydroState hydroState, required HydroTable table}) {
+  table['tangent'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       RTManagedTangent(
-          maybeUnBoxAndBuildArgument<Offset>(args[1], parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Offset>(args[2], parentState: hydroState),
-          table: args[0],
+          maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[1],
+              parentState: hydroState),
+          maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[2],
+              parentState: hydroState),
+          table: luaCallerArguments[0],
           hydroState: hydroState)
     ];
   });
-  table['tangentFromAngle'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['tangentFromAngle'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<Tangent>(
           object: Tangent.fromAngle(
-              maybeUnBoxAndBuildArgument<Offset>(args[1],
+              maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[1],
                   parentState: hydroState),
-              args[2]?.toDouble()),
+              luaCallerArguments[2]?.toDouble()),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   registerBoxer<Tangent>(boxer: (
-      {@required Tangent vmObject,
-      @required HydroState hydroState,
-      @required HydroTable table}) {
+      {required Tangent vmObject,
+      required HydroState hydroState,
+      required HydroTable table}) {
     return VMManagedTangent(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

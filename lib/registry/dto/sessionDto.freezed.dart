@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'sessionDto.dart';
 
@@ -8,6 +8,10 @@ part of 'sessionDto.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 SessionDto _$SessionDtoFromJson(Map<String, dynamic> json) {
   return _$SessionDtoCtor.fromJson(json);
 }
@@ -16,33 +20,28 @@ SessionDto _$SessionDtoFromJson(Map<String, dynamic> json) {
 class _$SessionDtoTearOff {
   const _$SessionDtoTearOff();
 
-// ignore: unused_element
-  _$SessionDtoCtor call(
-      {@required AuthTokenDto authenticatedUser, @required String authToken}) {
+  _$SessionDtoCtor call({required String authToken}) {
     return _$SessionDtoCtor(
-      authenticatedUser: authenticatedUser,
       authToken: authToken,
     );
   }
 
-// ignore: unused_element
   SessionDto fromJson(Map<String, Object> json) {
     return SessionDto.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $SessionDto = _$SessionDtoTearOff();
 
 /// @nodoc
 mixin _$SessionDto {
-  AuthTokenDto get authenticatedUser;
-  String get authToken;
+  String get authToken => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $SessionDtoCopyWith<SessionDto> get copyWith;
+  $SessionDtoCopyWith<SessionDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -50,9 +49,7 @@ abstract class $SessionDtoCopyWith<$Res> {
   factory $SessionDtoCopyWith(
           SessionDto value, $Res Function(SessionDto) then) =
       _$SessionDtoCopyWithImpl<$Res>;
-  $Res call({AuthTokenDto authenticatedUser, String authToken});
-
-  $AuthTokenDtoCopyWith<$Res> get authenticatedUser;
+  $Res call({String authToken});
 }
 
 /// @nodoc
@@ -65,25 +62,14 @@ class _$SessionDtoCopyWithImpl<$Res> implements $SessionDtoCopyWith<$Res> {
 
   @override
   $Res call({
-    Object authenticatedUser = freezed,
-    Object authToken = freezed,
+    Object? authToken = freezed,
   }) {
     return _then(_value.copyWith(
-      authenticatedUser: authenticatedUser == freezed
-          ? _value.authenticatedUser
-          : authenticatedUser as AuthTokenDto,
-      authToken: authToken == freezed ? _value.authToken : authToken as String,
+      authToken: authToken == freezed
+          ? _value.authToken
+          : authToken // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
-  }
-
-  @override
-  $AuthTokenDtoCopyWith<$Res> get authenticatedUser {
-    if (_value.authenticatedUser == null) {
-      return null;
-    }
-    return $AuthTokenDtoCopyWith<$Res>(_value.authenticatedUser, (value) {
-      return _then(_value.copyWith(authenticatedUser: value));
-    });
   }
 }
 
@@ -94,10 +80,7 @@ abstract class _$$SessionDtoCtorCopyWith<$Res>
           _$SessionDtoCtor value, $Res Function(_$SessionDtoCtor) then) =
       __$$SessionDtoCtorCopyWithImpl<$Res>;
   @override
-  $Res call({AuthTokenDto authenticatedUser, String authToken});
-
-  @override
-  $AuthTokenDtoCopyWith<$Res> get authenticatedUser;
+  $Res call({String authToken});
 }
 
 /// @nodoc
@@ -113,47 +96,37 @@ class __$$SessionDtoCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object authenticatedUser = freezed,
-    Object authToken = freezed,
+    Object? authToken = freezed,
   }) {
     return _then(_$SessionDtoCtor(
-      authenticatedUser: authenticatedUser == freezed
-          ? _value.authenticatedUser
-          : authenticatedUser as AuthTokenDto,
-      authToken: authToken == freezed ? _value.authToken : authToken as String,
+      authToken: authToken == freezed
+          ? _value.authToken
+          : authToken // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_$SessionDtoCtor implements _$SessionDtoCtor {
-  const _$_$SessionDtoCtor(
-      {@required this.authenticatedUser, @required this.authToken})
-      : assert(authenticatedUser != null),
-        assert(authToken != null);
+  const _$_$SessionDtoCtor({required this.authToken});
 
   factory _$_$SessionDtoCtor.fromJson(Map<String, dynamic> json) =>
       _$_$_$SessionDtoCtorFromJson(json);
 
   @override
-  final AuthTokenDto authenticatedUser;
-  @override
   final String authToken;
 
   @override
   String toString() {
-    return 'SessionDto(authenticatedUser: $authenticatedUser, authToken: $authToken)';
+    return 'SessionDto(authToken: $authToken)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _$SessionDtoCtor &&
-            (identical(other.authenticatedUser, authenticatedUser) ||
-                const DeepCollectionEquality()
-                    .equals(other.authenticatedUser, authenticatedUser)) &&
             (identical(other.authToken, authToken) ||
                 const DeepCollectionEquality()
                     .equals(other.authToken, authToken)));
@@ -161,9 +134,7 @@ class _$_$SessionDtoCtor implements _$SessionDtoCtor {
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(authenticatedUser) ^
-      const DeepCollectionEquality().hash(authToken);
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(authToken);
 
   @JsonKey(ignore: true)
   @override
@@ -177,18 +148,16 @@ class _$_$SessionDtoCtor implements _$SessionDtoCtor {
 }
 
 abstract class _$SessionDtoCtor implements SessionDto {
-  const factory _$SessionDtoCtor(
-      {@required AuthTokenDto authenticatedUser,
-      @required String authToken}) = _$_$SessionDtoCtor;
+  const factory _$SessionDtoCtor({required String authToken}) =
+      _$_$SessionDtoCtor;
 
   factory _$SessionDtoCtor.fromJson(Map<String, dynamic> json) =
       _$_$SessionDtoCtor.fromJson;
 
   @override
-  AuthTokenDto get authenticatedUser;
-  @override
-  String get authToken;
+  String get authToken => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$$SessionDtoCtorCopyWith<_$SessionDtoCtor> get copyWith;
+  _$$SessionDtoCtorCopyWith<_$SessionDtoCtor> get copyWith =>
+      throw _privateConstructorUsedError;
 }

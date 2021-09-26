@@ -5,24 +5,24 @@ class Upval extends LinkedListEntry<Upval> {
   Upval.store(this.storage) : open = false;
 
   bool open;
-  int reg;
-  List<dynamic> registers;
+  int? reg;
+  List<dynamic>? registers;
   dynamic storage;
 
   void close() {
     open = false;
-    storage = registers[reg];
+    storage = registers![reg!];
     registers = null;
     unlink();
   }
 
   void set(dynamic v) {
     if (open) {
-      registers[reg] = v;
+      registers![reg!] = v;
     } else {
       storage = v;
     }
   }
 
-  dynamic get() => open ? registers[reg] : storage;
+  dynamic get() => open ? registers![reg!] : storage;
 }

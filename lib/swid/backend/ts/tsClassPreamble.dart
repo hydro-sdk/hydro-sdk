@@ -1,45 +1,68 @@
-import 'package:meta/meta.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'package:hydro_sdk/swid/backend/ts/transforms/transformTypeFormalsToTs.dart';
+import 'package:hydro_sdk/swid/backend/ts/tsSuperClassClause.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
-import 'package:hydro_sdk/swid/ir/swidType.dart';
-import 'package:hydro_sdk/swid/transforms/ts/transformPrimitiveNamesToTs.dart';
-import 'package:hydro_sdk/swid/transforms/ts/transformTypeFormalsToTs.dart';
+import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
+import 'package:hydro_sdk/swid/swars/swarsTermStringResultMixin.dart';
+import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
+import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
+import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
 
-class TsClassPreamble {
-  final SwidClass swidClass;
-  final List<String> superInterfaces;
+part 'tsClassPreamble.freezed.dart';
 
-  TsClassPreamble({
-    @required this.swidClass,
-  }) : superInterfaces = ([
-          swidClass.extendedClass != null
-              ? "I${swidClass.extendedClass.displayName}"
-              : null,
-          ...swidClass.mixedInClasses
-              .map(
-                (x) => transformPrimitiveNamesToTs(
-                  swidType: SwidType.fromSwidClass(swidClass: x),
-                ),
-              )
-              .map((x) => "I${x.displayName}")
-              .toList(),
-          ...swidClass.implementedClasses
-              .map(
-                (x) => transformPrimitiveNamesToTs(
-                  swidType: SwidType.fromSwidClass(swidClass: x),
-                ),
-              )
-              .map((x) => "I${x.displayName}")
-              .toList()
-        ]..removeWhere((x) => x == null));
+@freezed
+class TsClassPreamble
+    with
+        _$TsClassPreamble,
+        HashKeyMixin<TsClassPreamble>,
+        HashComparableMixin<TsClassPreamble>,
+        SwarsTransformMixin<TsClassPreamble,
+            $TsClassPreambleCopyWith<TsClassPreamble>, String>,
+        SwarsTermStringResultMixin {
+  TsClassPreamble._();
 
-  String toTsSource() => ([
-        "export class ${swidClass.name}",
-        transformTypeFormalsToTs(swidTypeFormals: swidClass.typeFormals),
-        ...(superInterfaces.isNotEmpty
-            ? ["implements", superInterfaces.map((x) => x).toList().join(", ")]
-            : []),
-        "{"
-      ]..removeWhere((x) => x == null))
-          .join("\n");
+  factory TsClassPreamble({
+    required final SwidClass swidClass,
+  }) = _$TsClassPreambleCtor;
+
+  @override
+  String get cacheGroup => "tsClassPreamble";
+
+  @override
+  List<int> get hashableParts => [
+        ...swidClass.hashKey.hashableParts,
+      ];
+
+  @override
+  TsClassPreamble clone({
+    final SwidClass? swidClass,
+  }) =>
+      TsClassPreamble(
+        swidClass: swidClass ?? this.swidClass,
+      );
+
+  @override
+  ISwarsTermResult<String> transform({
+    required final ISwarsPipeline pipeline,
+  }) =>
+      SwarsTermResult.fromString(
+        ([
+          "export class ${swidClass.name}",
+          pipeline.reduceFromTerm(
+            TransformTypeFormalsToTs(
+              swidTypeFormals: swidClass.typeFormals,
+            ),
+          ),
+          pipeline.reduceFromTerm(
+            TsSuperClassClause(
+              swidClass: swidClass,
+              clauseKeyword: "implements",
+            ),
+          ),
+          "{"
+        ]..removeWhere((x) => x == null))
+            .join("\n"),
+      );
 }

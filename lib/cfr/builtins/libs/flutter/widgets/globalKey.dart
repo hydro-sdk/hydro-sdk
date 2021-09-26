@@ -14,9 +14,11 @@ class RTManagedGlobalKey extends RTManagedBox<GlobalKey> {
   final HydroState parentState;
 
   RTManagedGlobalKey(
-      {@required this.table,
-      @required this.parentState,
-      @required this.vmObject}) {
+      {required this.table, required this.parentState, required this.vmObject})
+      : super(
+          table: table,
+          vmObject: vmObject,
+        ) {
     table["currentState"] = makeLuaDartFunc(func: (List<dynamic> args) {
       HydroTable currentState = HydroTable();
       currentState["insertItem"] = (List<dynamic> args) {
@@ -27,7 +29,7 @@ class RTManagedGlobalKey extends RTManagedBox<GlobalKey> {
         (vmObject.currentState as dynamic).removeItem(args[1],
             (BuildContext context, Animation<double> animation) {
           Closure closure = args[2];
-          return maybeUnBoxAndBuildArgument<Widget>(
+          return maybeUnBoxAndBuildArgument<Widget, dynamic>(
               closure.dispatch([args[0], context, animation],
                   parentState: parentState)[0],
               parentState: parentState) as Widget;
@@ -38,10 +40,9 @@ class RTManagedGlobalKey extends RTManagedBox<GlobalKey> {
   }
 }
 
-void loadGlobalKey(
-    {@required HydroState luaState, @required HydroTable table}) {
+void loadGlobalKey({required HydroState luaState, required HydroTable table}) {
   table["globalKeyCtor"] = makeLuaDartFunc(func: (List<dynamic> args) {
-    GlobalKey key = translateRTTIToGenericGlobalKey(
+    GlobalKey? key = translateRTTIToGenericGlobalKey(
         runtimeType: RuntimeTypes.values.firstWhere((x) =>
             x.toString().split(".")[1] ==
             maybeUnBoxRuntimeType(
@@ -49,7 +50,11 @@ void loadGlobalKey(
                 runtimeTypePropName: "targetRuntimeType")));
 
     return [
-      RTManagedGlobalKey(table: args[0], parentState: luaState, vmObject: key)
+      RTManagedGlobalKey(
+        table: args[0],
+        parentState: luaState,
+        vmObject: key!,
+      )
     ];
   });
 }

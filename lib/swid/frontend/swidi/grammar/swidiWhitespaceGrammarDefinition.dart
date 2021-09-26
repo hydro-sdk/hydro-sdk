@@ -2,21 +2,43 @@ import 'package:petitparser/core.dart';
 import 'package:petitparser/definition.dart';
 import 'package:petitparser/petitparser.dart';
 
-mixin SwidiWhitespaceGrammarDefinition on GrammarDefinition {
-  Parser HIDDEN() => ref(HIDDEN_STUFF).plus();
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iHiddenLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iHiddenStuffLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iMultiLineCommentLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iNewlineLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iSingleLineCommentLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iWhitespaceLexer.dart';
 
-  Parser HIDDEN_STUFF() =>
-      ref(WHITESPACE) | ref(SINGLE_LINE_COMMENT) | ref(MULTI_LINE_COMMENT);
+mixin SwidiWhitespaceGrammarDefinition on GrammarDefinition
+    implements
+        IHiddenLexer,
+        IHiddenStuffLexer,
+        IWhitespaceLexer,
+        ISingleLineCommentLexer,
+        IMultiLineCommentLexer,
+        INewlineLexer {
+  @override
+  Parser hidden() => ref0(hiddenStuff).plus();
 
-  Parser WHITESPACE() => whitespace();
+  @override
+  Parser hiddenStuff() =>
+      ref0(lexicalWhitespace) |
+      ref0(singleLineComment) |
+      ref0(multiLineComment);
 
-  Parser SINGLE_LINE_COMMENT() =>
-      string('//') & ref(NEWLINE).neg().star() & ref(NEWLINE).optional();
+  @override
+  Parser lexicalWhitespace() => whitespace();
 
-  Parser MULTI_LINE_COMMENT() =>
+  @override
+  Parser singleLineComment() =>
+      string('//') & ref0(newline).neg().star() & ref0(newline).optional();
+
+  @override
+  Parser multiLineComment() =>
       string('/*') &
-      (ref(MULTI_LINE_COMMENT) | string('*/').neg()).star() &
+      (ref0(multiLineComment) | string('*/').neg()).star() &
       string('*/');
 
-  Parser NEWLINE() => pattern('\n\r');
+  @override
+  Parser newline() => pattern('\n\r');
 }

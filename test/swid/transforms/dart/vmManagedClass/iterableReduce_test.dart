@@ -1,6 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:hydro_sdk/swid/backend/dart/dartVmManagedClassDeclaration.dart';
+import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
@@ -9,7 +10,9 @@ import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
-import 'package:hydro_sdk/swid/ir/util/instantiateAllGenericsAsDynamic.dart';
+import 'package:hydro_sdk/swid/ir/transforms/instantiateAllGenericsAsDynamic.dart';
+import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
+import 'package:hydro_sdk/swid/swars/pipelineNoopCacheMgr.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
@@ -29,7 +32,7 @@ void main() {
           name: "",
           nullabilitySuffix: SwidNullabilitySuffix.none,
           originalPackagePath: "",
-          swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+          declarationModifiers: SwidDeclarationModifiers.empty(),
           namedParameterTypes: {},
           namedDefaults: {},
           normalParameterNames: [],
@@ -38,12 +41,14 @@ void main() {
           optionalParameterTypes: [],
           returnType: SwidType.fromSwidInterface(
             swidInterface: SwidInterface(
+              declarationModifiers: SwidDeclarationModifiers.empty(),
               name: "Iterable<E>",
               nullabilitySuffix: SwidNullabilitySuffix.none,
               originalPackagePath: "dart:core",
               typeArguments: [
                 SwidType.fromSwidInterface(
                   swidInterface: SwidInterface(
+                      declarationModifiers: SwidDeclarationModifiers.empty(),
                       name: "E",
                       nullabilitySuffix: SwidNullabilitySuffix.none,
                       originalPackagePath: "dart:core",
@@ -66,7 +71,7 @@ void main() {
             name: "reduce",
             nullabilitySuffix: SwidNullabilitySuffix.none,
             originalPackagePath: "dart:core",
-            swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+            declarationModifiers: SwidDeclarationModifiers.empty(),
             namedParameterTypes: {},
             namedDefaults: {},
             normalParameterNames: ["combine"],
@@ -76,13 +81,14 @@ void main() {
                   name: "",
                   nullabilitySuffix: SwidNullabilitySuffix.none,
                   originalPackagePath: "",
-                  swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+                  declarationModifiers: SwidDeclarationModifiers.empty(),
                   namedParameterTypes: {},
                   namedDefaults: {},
                   normalParameterNames: ["value", "element"],
                   normalParameterTypes: [
                     SwidType.fromSwidInterface(
                       swidInterface: SwidInterface(
+                        declarationModifiers: SwidDeclarationModifiers.empty(),
                         name: "E",
                         nullabilitySuffix: SwidNullabilitySuffix.none,
                         originalPackagePath: "dart:core",
@@ -93,6 +99,7 @@ void main() {
                     ),
                     SwidType.fromSwidInterface(
                       swidInterface: SwidInterface(
+                        declarationModifiers: SwidDeclarationModifiers.empty(),
                         name: "E",
                         nullabilitySuffix: SwidNullabilitySuffix.none,
                         originalPackagePath: "dart:core",
@@ -106,6 +113,7 @@ void main() {
                   optionalParameterTypes: [],
                   returnType: SwidType.fromSwidInterface(
                     swidInterface: SwidInterface(
+                      declarationModifiers: SwidDeclarationModifiers.empty(),
                       name: "E",
                       nullabilitySuffix: SwidNullabilitySuffix.none,
                       originalPackagePath: "dart:core",
@@ -123,6 +131,7 @@ void main() {
             optionalParameterTypes: [],
             returnType: SwidType.fromSwidInterface(
               swidInterface: SwidInterface(
+                declarationModifiers: SwidDeclarationModifiers.empty(),
                 name: "E",
                 nullabilitySuffix: SwidNullabilitySuffix.none,
                 originalPackagePath: "dart:core",
@@ -137,7 +146,7 @@ void main() {
         ],
         staticConstFieldDeclarations: [],
         instanceFieldDeclarations: {},
-        swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+        declarationModifiers: SwidDeclarationModifiers.empty(),
         mixedInClasses: [],
         extendedClass: null,
         isMixin: false,
@@ -149,31 +158,42 @@ void main() {
           )
         ]);
     expect(
-        DartVMManagedClassDeclaration(
-                swidClass: instantiateAllGenericsAsDynamic(
-                        swidType: SwidType.fromSwidClass(swidClass: iterable))
-                    .maybeWhen(fromSwidClass: (val) => val, orElse: () => null))
-            .toDartSource(),
+        CachingPipeline(
+          cacheMgr: const PipelineNoopCacheMgr(),
+        ).reduceFromTerm(
+          DartVMManagedClassDeclaration(
+            swidClass: CachingPipeline(
+              cacheMgr: const PipelineNoopCacheMgr(),
+            )
+                .reduceFromTerm(
+                  InstantiateAllGenericsAsDynamic(
+                    swidType: SwidType.fromSwidClass(
+                      swidClass: iterable,
+                    ),
+                  ),
+                )
+                .maybeWhen(
+                  fromSwidClass: (val) => val,
+                  orElse: () => dartUnknownClass,
+                ),
+          ),
+        ),
         """
 class VMManagedIterable extends VMManagedBox<Iterable<dynamic>> {
   VMManagedIterable(
-      {@required this.table,
-      @required this.vmObject,
-      @required this.hydroState})
+      {required this.table, required this.vmObject, required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table[\'reduce\'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      Closure combine = args[1];
+    table[\'reduce\'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      Closure unpackedcombine = luaCallerArguments[1];
       return [
-        vmObject.reduce(combine != null
-            ? (value, element) => combine.dispatch(
-                  [args[0], value, element],
-                  parentState: hydroState,
-                )[0]
-            : null)
+        vmObject.reduce((value, element) => unpackedcombine.dispatch(
+              [luaCallerArguments[0], value, element],
+              parentState: hydroState,
+            )[0]),
       ];
     });
   }

@@ -11,15 +11,20 @@ void main() {
 
     List<String> outLines = [];
 
-    state.context.env["print"] = (List<dynamic> args) {
+    state.context!.env["print"] = (List<dynamic> args) {
       outLines.add(args
           .map((a) => Context.luaToString(a, hydroState: state).toString())
           .join("\t"));
+      return [];
     };
 
     List<String> expectedOutLines = ["ayy", "false\tmd", "69", "true	420"];
 
-    var res = await state.doFile("lua/pcall.hc");
+    var res = await state.doFile("test/lua/pcall.hc");
+
+    if (!res.success) {
+      print(res.values);
+    }
 
     expect(res.success, true);
     expect(outLines.length, expectedOutLines.length);

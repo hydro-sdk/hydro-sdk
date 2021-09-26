@@ -1,9 +1,7 @@
-import 'package:meta/meta.dart';
-
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/transforms/removeTypeArguments.dart';
 
-bool isList({@required SwidType swidType}) => swidType.when(
+bool isList({required final SwidType swidType}) => swidType.when(
       fromSwidInterface: (val) =>
           val.originalPackagePath == "dart:core" &&
           removeTypeArguments(str: val.name) == "List" &&

@@ -55,6 +55,7 @@ assets/test/co19/core/*.hc
 hydro_sdk/android/.project
 *.js
 .hydroc
+.swid
 *.sha256
 !test/hot/**/*.sha256
 !dist/compiler/**/*.js
@@ -74,3 +75,5 @@ sdk-tools/lua52/src/luac.exe
 #Typedoc 
 !docs/assets/js/main.js
 !docs/assets/js/search.js
+
+key.pem

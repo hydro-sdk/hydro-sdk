@@ -14,9 +14,9 @@ class VMManagedTextEditingController
   final HydroState hydroState;
   final TextEditingController vmObject;
   VMManagedTextEditingController({
-    @required this.table,
-    @required this.hydroState,
-    @required this.vmObject,
+    required this.table,
+    required this.hydroState,
+    required this.vmObject,
   }) : super(
           table: table,
           hydroState: hydroState,
@@ -25,17 +25,19 @@ class VMManagedTextEditingController
     table["getText"] = makeLuaDartFunc(func: (List<dynamic> args) {
       dynamic rawCaller = args[0];
       return [
-        maybeUnBoxAndBuildArgument<TextEditingController>(rawCaller,
-                parentState: hydroState)
-            .text
+        maybeUnBoxAndBuildArgument<TextEditingController, dynamic>(
+          rawCaller,
+          parentState: hydroState,
+        ).text
       ];
     });
 
     table["setText"] = makeLuaDartFunc(func: (List<dynamic> args) {
       dynamic rawCaller = args[0];
-      maybeUnBoxAndBuildArgument<TextEditingController>(rawCaller,
-              parentState: hydroState)
-          .text = args[1];
+      maybeUnBoxAndBuildArgument<TextEditingController, dynamic>(
+        rawCaller,
+        parentState: hydroState,
+      ).text = args[1];
       return [];
     });
 
@@ -43,9 +45,10 @@ class VMManagedTextEditingController
       dynamic rawCaller = args[0];
       return [
         maybeBoxObject<TextEditingValue>(
-            object: maybeUnBoxAndBuildArgument<TextEditingController>(rawCaller,
-                    parentState: hydroState)
-                .value,
+            object: maybeUnBoxAndBuildArgument<TextEditingController, dynamic>(
+              rawCaller,
+              parentState: hydroState,
+            ).value,
             hydroState: hydroState,
             table: HydroTable())
       ];
@@ -53,11 +56,13 @@ class VMManagedTextEditingController
 
     table["setValue"] = makeLuaDartFunc(func: (List<dynamic> args) {
       dynamic rawCaller = args[0];
-      maybeUnBoxAndBuildArgument<TextEditingController>(rawCaller,
-                  parentState: hydroState)
-              .value =
-          maybeUnBoxAndBuildArgument<TextEditingValue>(args[1],
-              parentState: hydroState);
+      maybeUnBoxAndBuildArgument<TextEditingController, dynamic>(
+        rawCaller,
+        parentState: hydroState,
+      ).value = maybeUnBoxAndBuildArgument<TextEditingValue, dynamic>(
+        args[1],
+        parentState: hydroState,
+      );
       return [];
     });
 
@@ -78,11 +83,12 @@ class VMManagedTextEditingController
 }
 
 void loadTextEditingController(
-    {@required HydroState luaState, @required HydroTable table}) {
-  registerBoxer<TextEditingController>(boxer: (
-      {TextEditingController vmObject,
-      HydroState hydroState,
-      HydroTable table}) {
+    {required HydroState luaState, required HydroTable table}) {
+  registerBoxer<TextEditingController>(boxer: ({
+    required TextEditingController vmObject,
+    required HydroState hydroState,
+    required HydroTable table,
+  }) {
     return VMManagedTextEditingController(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });
@@ -91,7 +97,10 @@ void loadTextEditingController(
 
     return [
       maybeBoxObject<TextEditingController>(
-          object: TextEditingController(), hydroState: luaState, table: caller)
+        object: TextEditingController(),
+        hydroState: luaState,
+        table: caller,
+      )
     ];
   });
 }

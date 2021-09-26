@@ -1,82 +1,113 @@
-import 'package:code_builder/code_builder.dart'
-    show
-        refer,
-        literalString,
-        literalList,
-        Code,
-        CodeExpression,
-        Block,
-        DartEmitter;
+import 'package:collection/collection.dart' show IterableExtension;
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'package:meta/meta.dart';
-
-import 'package:hydro_sdk/swid/backend/dart/dartBoxObjectReference.dart';
-import 'package:hydro_sdk/swid/backend/dart/dartBoxingProcedure.dart';
-import 'package:hydro_sdk/swid/backend/dart/dartFunctionSelfBindingInvocation.dart';
-import 'package:hydro_sdk/swid/backend/dart/dartUnpackClosures.dart';
-import 'package:hydro_sdk/swid/backend/dart/util/codeKind.dart';
+import 'package:hydro_sdk/swid/backend/dart/dartMethodBindingImplementation.dart';
 import 'package:hydro_sdk/swid/backend/dart/util/luaDartBinding.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
-import 'package:hydro_sdk/swid/ir/util/narrowSwidInterfaceByReferenceDeclaration.dart';
+import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
+import 'package:hydro_sdk/swid/swars/swarsTermStringResultMixin.dart';
+import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
 import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';
 import 'package:hydro_sdk/swid/transforms/transformToPascalCase.dart';
+import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
+import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
 
-class DartStaticMethodNamespaceSymbolDeclaration {
-  final SwidClass swidClass;
-  final SwidFunctionType swidFunctionType;
+import 'package:code_builder/code_builder.dart'
+    show refer, literalString, Code, DartEmitter;
 
-  DartStaticMethodNamespaceSymbolDeclaration(
-      {@required this.swidClass, @required this.swidFunctionType});
+part 'dartStaticMethodNamespaceSymbolDeclaration.freezed.dart';
 
-  Code _body() => Code(DartBoxObjectReference(
-          codeKind: CodeKind.expression,
-          boxLists: true,
-          type: swidFunctionType.returnType.when(
-            fromSwidInterface: (val) => val,
-            fromSwidClass: (_) => null,
-            fromSwidDefaultFormalParameter: (_) => null,
-            fromSwidFunctionType: (_) => null,
-          ),
-          objectReference: CodeExpression(Code(
-              DartFunctionSelfBindingInvocation(
-                      argumentBoxingProcedure: DartBoxingProcedure.unbox,
-                      returnValueBoxingProcedure: DartBoxingProcedure.none,
-                      emitTableBindingPrefix: false,
-                      swidFunctionType: SwidFunctionType.clone(
+@freezed
+class DartStaticMethodNamespaceSymbolDeclaration
+    with
+        _$DartStaticMethodNamespaceSymbolDeclaration,
+        HashKeyMixin<DartStaticMethodNamespaceSymbolDeclaration>,
+        HashComparableMixin<DartStaticMethodNamespaceSymbolDeclaration>,
+        SwarsTransformMixin<
+            DartStaticMethodNamespaceSymbolDeclaration,
+            $DartStaticMethodNamespaceSymbolDeclarationCopyWith<
+                DartStaticMethodNamespaceSymbolDeclaration>,
+            String>,
+        SwarsTermStringResultMixin {
+  DartStaticMethodNamespaceSymbolDeclaration._();
+
+  factory DartStaticMethodNamespaceSymbolDeclaration({
+    required final SwidClass swidClass,
+    required final SwidFunctionType swidFunctionType,
+  }) = _$DartStaticMethodNamespaceSymbolDeclarationCtor;
+
+  @override
+  String get cacheGroup => "dartStaticMethodNamespaceSymbolDeclaration";
+
+  @override
+  List<int> get hashableParts => [
+        ...swidClass.hashableParts,
+        ...swidFunctionType.hashableParts,
+      ];
+
+  @override
+  DartStaticMethodNamespaceSymbolDeclaration clone({
+    final SwidClass? swidClass,
+    final SwidFunctionType? swidFunctionType,
+  }) =>
+      DartStaticMethodNamespaceSymbolDeclaration(
+        swidClass: swidClass ?? this.swidClass.clone(),
+        swidFunctionType: swidFunctionType ?? this.swidFunctionType.clone(),
+      );
+
+  Code toCode({
+    required final ISwarsPipeline pipeline,
+  }) =>
+      swidFunctionType.isTransformIgnored(
+        transformName: "dartStaticMethodNamespaceSymbolDeclaration",
+      )
+          ? refer("table")
+              .index(
+                literalString(
+                  transformToCamelCase(str: swidClass.name) +
+                      transformToPascalCase(str: swidFunctionType.name),
+                ),
+              )
+              .assign(
+                luaDartBinding(
+                  code: Code(
+                    pipeline.reduceFromTerm(
+                      DartMethodBindingImplementation(
+                        swidFunctionType: SwidFunctionType.clone(
                           swidFunctionType: swidFunctionType,
-                          name: [swidClass.name, swidFunctionType.name]
-                              .join(".")))
-                  .toDartSource())))
-      .toDartSource());
+                          name: [
+                            swidClass.name,
+                            swidFunctionType.name,
+                          ].join("."),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              )
+              .statement
+          : Code("");
 
-  Code _nonVoidBody() => literalList([_body()]).returned.statement;
-
-  Code toCode() => refer("table")
-      .index(literalString(transformToCamelCase(str: swidClass.name) +
-          transformToPascalCase(str: swidFunctionType.name)))
-      .assign(luaDartBinding(
-          code: Block.of([
-        Code(DartUnpackClosures(swidFunctionType: swidFunctionType)
-            .toDartSource()),
-        swidFunctionType.returnType.when<Code>(
-          fromSwidInterface: (val) =>
-              narrowSwidInterfaceByReferenceDeclaration<Code>(
-            swidInterface: val,
-            onPrimitive: (_) => _nonVoidBody(),
-            onClass: (_) => _nonVoidBody(),
-            onEnum: (_) => _nonVoidBody(),
-            onVoid: (_) =>
-                Code(_body().accept(DartEmitter()).toString() + ";return[];"),
-            onTypeParameter: (_) => _nonVoidBody(),
-            onDynamic: (_) => _nonVoidBody(),
-          ),
-          fromSwidClass: (_) => _nonVoidBody(),
-          fromSwidDefaultFormalParameter: (_) => _nonVoidBody(),
-          fromSwidFunctionType: (_) => _nonVoidBody(),
-        )
-      ])))
-      .statement;
-
-  String toDartSource() => toCode().accept(DartEmitter()).toString();
+  @override
+  ISwarsTermResult<String> transform({
+    required final ISwarsPipeline pipeline,
+  }) =>
+      SwarsTermResult.fromString(
+        swidFunctionType.declarationModifiers.ignoredTransforms
+                    .firstWhereOrNull((x) =>
+                        x == "dartStaticMethodNamespaceSymbolDeclaration") ==
+                null
+            ? toCode(
+                pipeline: pipeline,
+              )
+                .accept(
+                  DartEmitter(
+                    useNullSafetySyntax: true,
+                  ),
+                )
+                .toString()
+            : "",
+      );
 }

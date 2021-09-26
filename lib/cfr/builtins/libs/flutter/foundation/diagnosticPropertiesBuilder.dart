@@ -11,11 +11,11 @@ import 'package:hydro_sdk/hydroState.dart';
 
 class VMManagedDiagnosticPropertiesBuilder
     extends VMManagedBox<DiagnosticPropertiesBuilder> {
-  VMManagedDiagnosticPropertiesBuilder(
-      {@required this.table,
-      @required this.vmObject,
-      @required this.hydroState})
-      : super(
+  VMManagedDiagnosticPropertiesBuilder({
+    required this.table,
+    required this.vmObject,
+    required this.hydroState,
+  }) : super(
           table: table,
           vmObject: vmObject,
           hydroState: hydroState,
@@ -30,7 +30,7 @@ class VMManagedDiagnosticPropertiesBuilder
     });
     table['emptyBodyDescription'] = vmObject.emptyBodyDescription;
     table['add'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      vmObject.add(maybeUnBoxAndBuildArgument<DiagnosticsNode>(args[1],
+      vmObject.add(maybeUnBoxAndBuildArgument<DiagnosticsNode, dynamic>(args[1],
           parentState: hydroState));
       return [];
     });
@@ -46,7 +46,7 @@ class VMManagedDiagnosticPropertiesBuilder
 class RTManagedDiagnosticPropertiesBuilder extends DiagnosticPropertiesBuilder
     implements Box<DiagnosticPropertiesBuilder> {
   RTManagedDiagnosticPropertiesBuilder(
-      {@required this.table, @required this.hydroState})
+      {required this.table, required this.hydroState})
       : super() {
     table['vmObject'] = vmObject;
     table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> args) {
@@ -60,7 +60,7 @@ class RTManagedDiagnosticPropertiesBuilder extends DiagnosticPropertiesBuilder
     });
     table['emptyBodyDescription'] = emptyBodyDescription;
     table['_dart_add'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      super.add(maybeUnBoxAndBuildArgument<DiagnosticsNode>(args[1],
+      super.add(maybeUnBoxAndBuildArgument<DiagnosticsNode, dynamic>(args[1],
           parentState: hydroState));
       return [];
     });
@@ -80,7 +80,7 @@ class RTManagedDiagnosticPropertiesBuilder extends DiagnosticPropertiesBuilder
 }
 
 void loadDiagnosticPropertiesBuilder(
-    {@required HydroState hydroState, @required HydroTable table}) {
+    {required HydroState hydroState, required HydroTable table}) {
   table['diagnosticPropertiesBuilder'] =
       makeLuaDartFunc(func: (List<dynamic> args) {
     return [
@@ -93,16 +93,17 @@ void loadDiagnosticPropertiesBuilder(
     return [
       maybeBoxObject<DiagnosticPropertiesBuilder>(
           object: DiagnosticPropertiesBuilder.fromProperties(
-              maybeUnBoxAndBuildArgument<List<DiagnosticsNode>>(args[1],
+              maybeUnBoxAndBuildArgument<List<DiagnosticsNode>, dynamic>(
+                  args[1],
                   parentState: hydroState)),
           hydroState: hydroState,
           table: HydroTable())
     ];
   });
   registerBoxer<DiagnosticPropertiesBuilder>(boxer: (
-      {@required DiagnosticPropertiesBuilder vmObject,
-      @required HydroState hydroState,
-      @required HydroTable table}) {
+      {required DiagnosticPropertiesBuilder vmObject,
+      required HydroState hydroState,
+      required HydroTable table}) {
     return VMManagedDiagnosticPropertiesBuilder(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

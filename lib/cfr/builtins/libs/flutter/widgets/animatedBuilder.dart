@@ -8,16 +8,16 @@ import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
 void loadAnimatedBuilder(
-    {@required HydroState luaState, @required HydroTable table}) {
+    {required HydroState luaState, required HydroTable table}) {
   table["animatedBuilder"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       AnimatedBuilder(
-        animation: maybeUnBoxAndBuildArgument<ChangeNotifier>(
+        animation: maybeUnBoxAndBuildArgument<ChangeNotifier, dynamic>(
             args[0]["animation"],
             parentState: luaState),
-        builder: (BuildContext context, Widget child) {
+        builder: (BuildContext context, Widget? child) {
           Closure closure = args[0]["builder"];
-          var res = maybeUnBoxAndBuildArgument<Widget>(
+          var res = maybeUnBoxAndBuildArgument<Widget, dynamic>(
               closure.dispatch([
                 maybeBoxObject(
                   object: context,

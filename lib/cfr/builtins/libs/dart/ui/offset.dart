@@ -1,69 +1,86 @@
 import 'dart:core';
 import 'dart:ui';
 
-import 'package:meta/meta.dart';
-
-import 'package:hydro_sdk/cfr/builtins/boxing/boxers.dart';
-import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
-import 'package:hydro_sdk/cfr/builtins/boxing/unboxers.dart';
-import 'package:hydro_sdk/cfr/vm/closure.dart';
-import 'package:hydro_sdk/cfr/vm/context.dart';
-import 'package:hydro_sdk/cfr/vm/table.dart';
-import 'package:hydro_sdk/hydroState.dart';
+import 'package:hydro_sdk/cfr/runtimeSupport.dart';
 
 class VMManagedOffset extends VMManagedBox<Offset> {
   VMManagedOffset(
-      {@required this.table,
-      @required this.vmObject,
-      @required this.hydroState})
+      {required this.table, required this.vmObject, required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['getDx'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject.dx];
-    });
-    table['getDy'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject.dy];
-    });
-    table['getDistance'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject.distance];
-    });
-    table['getDistanceSquared'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject.distanceSquared];
-    });
-    table['getDirection'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject.direction];
-    });
-    table['scale'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getDx'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<Offset>(
-            object: vmObject.scale(args[1]?.toDouble(), args[2]?.toDouble()),
-            hydroState: hydroState,
-            table: HydroTable())
+        vmObject.dx,
       ];
     });
-    table['translate'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getDy'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<Offset>(
-            object:
-                vmObject.translate(args[1]?.toDouble(), args[2]?.toDouble()),
-            hydroState: hydroState,
-            table: HydroTable())
+        vmObject.dy,
       ];
     });
-    table['getHashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject.hashCode];
+    table['getDistance'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        vmObject.distance,
+      ];
     });
-    table['toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject.toString()];
+    table['getDistanceSquared'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        vmObject.distanceSquared,
+      ];
     });
-    table['getIsInfinite'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject.isInfinite];
+    table['getDirection'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        vmObject.direction,
+      ];
     });
-    table['getIsFinite'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject.isFinite];
+    table['scale'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        maybeBoxObject<Offset>(
+            object: vmObject.scale(luaCallerArguments[1]?.toDouble(),
+                luaCallerArguments[2]?.toDouble()),
+            hydroState: hydroState,
+            table: HydroTable()),
+      ];
+    });
+    table['translate'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        maybeBoxObject<Offset>(
+            object: vmObject.translate(luaCallerArguments[1]?.toDouble(),
+                luaCallerArguments[2]?.toDouble()),
+            hydroState: hydroState,
+            table: HydroTable()),
+      ];
+    });
+    table['getHashCode'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        vmObject.hashCode,
+      ];
+    });
+    table['toString'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        vmObject.toString(),
+      ];
+    });
+    table['getIsInfinite'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        vmObject.isInfinite,
+      ];
+    });
+    table['getIsFinite'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        vmObject.isFinite,
+      ];
     });
   }
 
@@ -76,57 +93,69 @@ class VMManagedOffset extends VMManagedBox<Offset> {
 
 class RTManagedOffset extends Offset implements Box<Offset> {
   RTManagedOffset(double dx, double dy,
-      {@required this.table, @required this.hydroState})
+      {required this.table, required this.hydroState})
       : super(
           dx,
           dy,
         ) {
     table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [unwrap()];
     });
-    table['_dart_getDx'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getDx'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.dx];
     });
-    table['_dart_getDy'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getDy'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.dy];
     });
-    table['_dart_getDistance'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getDistance'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.distance];
     });
     table['_dart_getDistanceSquared'] =
-        makeLuaDartFunc(func: (List<dynamic> args) {
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.distanceSquared];
     });
-    table['_dart_getDirection'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getDirection'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.direction];
     });
-    table['_dart_scale'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_scale'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Offset>(
-            object: super.scale(args[1]?.toDouble(), args[2]?.toDouble()),
+            object: super.scale(luaCallerArguments[1]?.toDouble(),
+                luaCallerArguments[2]?.toDouble()),
             hydroState: hydroState,
             table: HydroTable())
       ];
     });
-    table['_dart_translate'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_translate'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Offset>(
-            object: super.translate(args[1]?.toDouble(), args[2]?.toDouble()),
+            object: super.translate(luaCallerArguments[1]?.toDouble(),
+                luaCallerArguments[2]?.toDouble()),
             hydroState: hydroState,
             table: HydroTable())
       ];
     });
-    table['_dart_getHashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getHashCode'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.hashCode];
     });
-    table['_dart_toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_toString'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.toString()];
     });
-    table['_dart_getIsInfinite'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getIsInfinite'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.isInfinite];
     });
-    table['_dart_getIsFinite'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getIsFinite'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.isFinite];
     });
   }
@@ -170,7 +199,7 @@ class RTManagedOffset extends Offset implements Box<Offset> {
   @override
   Offset scale(double scaleX, double scaleY) {
     Closure closure = table["scale"];
-    return maybeUnBoxAndBuildArgument<Offset>(
+    return maybeUnBoxAndBuildArgument<Offset, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -178,7 +207,7 @@ class RTManagedOffset extends Offset implements Box<Offset> {
   @override
   Offset translate(double translateX, double translateY) {
     Closure closure = table["translate"];
-    return maybeUnBoxAndBuildArgument<Offset>(
+    return maybeUnBoxAndBuildArgument<Offset, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -208,39 +237,44 @@ class RTManagedOffset extends Offset implements Box<Offset> {
   }
 }
 
-void loadOffset({@required HydroState hydroState, @required HydroTable table}) {
-  table['offset'] = makeLuaDartFunc(func: (List<dynamic> args) {
+void loadOffset({required HydroState hydroState, required HydroTable table}) {
+  table['offset'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
-      RTManagedOffset(args[1]?.toDouble(), args[2]?.toDouble(),
-          table: args[0], hydroState: hydroState)
+      RTManagedOffset(
+          luaCallerArguments[1]?.toDouble(), luaCallerArguments[2]?.toDouble(),
+          table: luaCallerArguments[0], hydroState: hydroState)
     ];
   });
-  table['offsetFromDirection'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['offsetFromDirection'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<Offset>(
-          object:
-              Offset.fromDirection(args[1]?.toDouble(), args[2]?.toDouble()),
+          object: Offset.fromDirection(luaCallerArguments[1]?.toDouble(),
+              luaCallerArguments[2]?.toDouble()),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
-  table['offsetLerp'] = makeLuaDartFunc(func: (List<dynamic> args) {
-    return [
-      maybeBoxObject<Offset>(
-          object: Offset.lerp(
-              maybeUnBoxAndBuildArgument<Offset>(args[1],
-                  parentState: hydroState),
-              maybeUnBoxAndBuildArgument<Offset>(args[2],
-                  parentState: hydroState),
-              args[3]?.toDouble()),
-          hydroState: hydroState,
-          table: HydroTable())
-    ];
+  table['offsetLerp'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    final returnValue = Offset.lerp(
+        maybeUnBoxAndBuildArgument<Offset?, dynamic>(luaCallerArguments[1],
+            parentState: hydroState),
+        maybeUnBoxAndBuildArgument<Offset?, dynamic>(luaCallerArguments[2],
+            parentState: hydroState),
+        luaCallerArguments[3]?.toDouble());
+    if (returnValue != null) {
+      return [
+        maybeBoxObject<Offset?>(
+            object: returnValue, hydroState: hydroState, table: HydroTable()),
+      ];
+    }
+    return [];
   });
   registerBoxer<Offset>(boxer: (
-      {@required Offset vmObject,
-      @required HydroState hydroState,
-      @required HydroTable table}) {
+      {required Offset vmObject,
+      required HydroState hydroState,
+      required HydroTable table}) {
     return VMManagedOffset(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

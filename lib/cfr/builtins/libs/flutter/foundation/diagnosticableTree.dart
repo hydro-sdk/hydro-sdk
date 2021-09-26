@@ -11,9 +11,7 @@ import 'package:hydro_sdk/hydroState.dart';
 
 class VMManagedDiagnosticableTree extends VMManagedBox<DiagnosticableTree> {
   VMManagedDiagnosticableTree(
-      {@required this.table,
-      @required this.vmObject,
-      @required this.hydroState})
+      {required this.table, required this.vmObject, required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,
@@ -42,13 +40,14 @@ class VMManagedDiagnosticableTree extends VMManagedBox<DiagnosticableTree> {
     table['toDiagnosticsNode'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<DiagnosticsNode>(
-            object: vmObject.toDiagnosticsNode(
-                name: args[1]['name'],
-                style: maybeUnBoxEnum(
-                    values: DiagnosticsTreeStyle.values,
-                    boxedEnum: args[1]['style'])),
-            hydroState: hydroState,
-            table: HydroTable())
+          object: vmObject.toDiagnosticsNode(
+              name: args[1]['name'],
+              style: maybeUnBoxEnum(
+                  values: DiagnosticsTreeStyle.values,
+                  boxedEnum: args[1]['style'])),
+          hydroState: hydroState,
+          table: HydroTable(),
+        )
       ];
     });
   }
@@ -62,8 +61,10 @@ class VMManagedDiagnosticableTree extends VMManagedBox<DiagnosticableTree> {
 
 class RTManagedDiagnosticableTree extends DiagnosticableTree
     implements Box<DiagnosticableTree> {
-  RTManagedDiagnosticableTree({@required this.table, @required this.hydroState})
-      : super() {
+  RTManagedDiagnosticableTree({
+    required this.table,
+    required this.hydroState,
+  }) : super() {
     table['vmObject'] = vmObject;
     table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [unwrap()];
@@ -122,7 +123,7 @@ class RTManagedDiagnosticableTree extends DiagnosticableTree
   String toStringDeep(
       {DiagnosticLevel minLevel = DiagnosticLevel.debug,
       String prefixLineOne = '',
-      String prefixOtherLines}) {
+      String? prefixOtherLines}) {
     Closure closure = table["toStringDeep"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -134,26 +135,30 @@ class RTManagedDiagnosticableTree extends DiagnosticableTree
   }
 
   @override
-  DiagnosticsNode toDiagnosticsNode({String name, DiagnosticsTreeStyle style}) {
+  DiagnosticsNode toDiagnosticsNode(
+      {String? name, DiagnosticsTreeStyle? style}) {
     Closure closure = table["toDiagnosticsNode"];
-    return maybeUnBoxAndBuildArgument<DiagnosticsNode>(
+    return maybeUnBoxAndBuildArgument<DiagnosticsNode, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
 }
 
 void loadDiagnosticableTree(
-    {@required HydroState hydroState, @required HydroTable table}) {
+    {required HydroState hydroState, required HydroTable table}) {
   table['diagnosticableTree'] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       RTManagedDiagnosticableTree(table: args[0], hydroState: hydroState)
     ];
   });
   registerBoxer<DiagnosticableTree>(boxer: (
-      {@required DiagnosticableTree vmObject,
-      @required HydroState hydroState,
-      @required HydroTable table}) {
+      {required DiagnosticableTree vmObject,
+      required HydroState hydroState,
+      required HydroTable table}) {
     return VMManagedDiagnosticableTree(
-        vmObject: vmObject, hydroState: hydroState, table: table);
+      vmObject: vmObject,
+      hydroState: hydroState,
+      table: table,
+    );
   });
 }

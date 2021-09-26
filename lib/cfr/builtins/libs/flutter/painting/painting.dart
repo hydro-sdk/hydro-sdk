@@ -1,5 +1,3 @@
-import 'package:meta/meta.dart';
-
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/painting/alignment.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/painting/borderRadius.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/painting/borderSide.dart';
@@ -15,14 +13,14 @@ import 'package:hydro_sdk/cfr/builtins/libs/flutter/painting/textStyle.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
-void loadPainting({@required HydroState luaState, @required HydroTable table}) {
+void loadPainting({required HydroState luaState, required HydroTable table}) {
   var painting = HydroTable();
 
   table["painting"] = painting;
 
   loadTextStyle(luaState: luaState, table: painting);
   loadEdgeInsets(painting);
-  loadBorderRadius(painting);
+  loadBorderRadius(hydroState: luaState, table: painting);
   loadNetworkImage(painting);
   loadAlignment(painting);
   loadBoxDecoration(luaState: luaState, table: painting);

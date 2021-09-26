@@ -9,15 +9,17 @@ void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
     parserTestHarness(
-        input:
-            const ParserTestHarnessInput.fromString(input: "class IconData {}"),
-        parser: const SwidiParser().build(),
-        result: [
-          const SwidiClass(
-            name: "IconData",
-            libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-            methods: [],
-          )
-        ]);
+      input:
+          const ParserTestHarnessInput.fromString(input: "class IconData {}"),
+      parser: const SwidiParser().build(),
+      result: [
+        SwidiClass(
+          name: "IconData",
+          libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+          methods: [],
+          staticMethods: [],
+        )
+      ],
+    );
   }, tags: "swid");
 }

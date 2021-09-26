@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'updatePermissionDto.dart';
 
@@ -8,6 +8,10 @@ part of 'updatePermissionDto.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 UpdatePermissionDto _$UpdatePermissionDtoFromJson(Map<String, dynamic> json) {
   return _$UpdatePermissionDtoCtor.fromJson(json);
 }
@@ -16,14 +20,13 @@ UpdatePermissionDto _$UpdatePermissionDtoFromJson(Map<String, dynamic> json) {
 class _$UpdatePermissionDtoTearOff {
   const _$UpdatePermissionDtoTearOff();
 
-// ignore: unused_element
   _$UpdatePermissionDtoCtor call(
-      {@required String manageeId,
-      @required String managerId,
-      @required bool canUpdate,
-      @required bool canDelete,
-      @required bool canAddToCollection,
-      @required bool canRemoveFromCollection}) {
+      {required String manageeId,
+      required String managerId,
+      required bool canUpdate,
+      required bool canDelete,
+      required bool canAddToCollection,
+      required bool canRemoveFromCollection}) {
     return _$UpdatePermissionDtoCtor(
       manageeId: manageeId,
       managerId: managerId,
@@ -34,28 +37,27 @@ class _$UpdatePermissionDtoTearOff {
     );
   }
 
-// ignore: unused_element
   UpdatePermissionDto fromJson(Map<String, Object> json) {
     return UpdatePermissionDto.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $UpdatePermissionDto = _$UpdatePermissionDtoTearOff();
 
 /// @nodoc
 mixin _$UpdatePermissionDto {
-  String get manageeId;
-  String get managerId;
-  bool get canUpdate;
-  bool get canDelete;
-  bool get canAddToCollection;
-  bool get canRemoveFromCollection;
+  String get manageeId => throw _privateConstructorUsedError;
+  String get managerId => throw _privateConstructorUsedError;
+  bool get canUpdate => throw _privateConstructorUsedError;
+  bool get canDelete => throw _privateConstructorUsedError;
+  bool get canAddToCollection => throw _privateConstructorUsedError;
+  bool get canRemoveFromCollection => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $UpdatePermissionDtoCopyWith<UpdatePermissionDto> get copyWith;
+  $UpdatePermissionDtoCopyWith<UpdatePermissionDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -83,24 +85,38 @@ class _$UpdatePermissionDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object manageeId = freezed,
-    Object managerId = freezed,
-    Object canUpdate = freezed,
-    Object canDelete = freezed,
-    Object canAddToCollection = freezed,
-    Object canRemoveFromCollection = freezed,
+    Object? manageeId = freezed,
+    Object? managerId = freezed,
+    Object? canUpdate = freezed,
+    Object? canDelete = freezed,
+    Object? canAddToCollection = freezed,
+    Object? canRemoveFromCollection = freezed,
   }) {
     return _then(_value.copyWith(
-      manageeId: manageeId == freezed ? _value.manageeId : manageeId as String,
-      managerId: managerId == freezed ? _value.managerId : managerId as String,
-      canUpdate: canUpdate == freezed ? _value.canUpdate : canUpdate as bool,
-      canDelete: canDelete == freezed ? _value.canDelete : canDelete as bool,
+      manageeId: manageeId == freezed
+          ? _value.manageeId
+          : manageeId // ignore: cast_nullable_to_non_nullable
+              as String,
+      managerId: managerId == freezed
+          ? _value.managerId
+          : managerId // ignore: cast_nullable_to_non_nullable
+              as String,
+      canUpdate: canUpdate == freezed
+          ? _value.canUpdate
+          : canUpdate // ignore: cast_nullable_to_non_nullable
+              as bool,
+      canDelete: canDelete == freezed
+          ? _value.canDelete
+          : canDelete // ignore: cast_nullable_to_non_nullable
+              as bool,
       canAddToCollection: canAddToCollection == freezed
           ? _value.canAddToCollection
-          : canAddToCollection as bool,
+          : canAddToCollection // ignore: cast_nullable_to_non_nullable
+              as bool,
       canRemoveFromCollection: canRemoveFromCollection == freezed
           ? _value.canRemoveFromCollection
-          : canRemoveFromCollection as bool,
+          : canRemoveFromCollection // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -135,45 +151,52 @@ class __$$UpdatePermissionDtoCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object manageeId = freezed,
-    Object managerId = freezed,
-    Object canUpdate = freezed,
-    Object canDelete = freezed,
-    Object canAddToCollection = freezed,
-    Object canRemoveFromCollection = freezed,
+    Object? manageeId = freezed,
+    Object? managerId = freezed,
+    Object? canUpdate = freezed,
+    Object? canDelete = freezed,
+    Object? canAddToCollection = freezed,
+    Object? canRemoveFromCollection = freezed,
   }) {
     return _then(_$UpdatePermissionDtoCtor(
-      manageeId: manageeId == freezed ? _value.manageeId : manageeId as String,
-      managerId: managerId == freezed ? _value.managerId : managerId as String,
-      canUpdate: canUpdate == freezed ? _value.canUpdate : canUpdate as bool,
-      canDelete: canDelete == freezed ? _value.canDelete : canDelete as bool,
+      manageeId: manageeId == freezed
+          ? _value.manageeId
+          : manageeId // ignore: cast_nullable_to_non_nullable
+              as String,
+      managerId: managerId == freezed
+          ? _value.managerId
+          : managerId // ignore: cast_nullable_to_non_nullable
+              as String,
+      canUpdate: canUpdate == freezed
+          ? _value.canUpdate
+          : canUpdate // ignore: cast_nullable_to_non_nullable
+              as bool,
+      canDelete: canDelete == freezed
+          ? _value.canDelete
+          : canDelete // ignore: cast_nullable_to_non_nullable
+              as bool,
       canAddToCollection: canAddToCollection == freezed
           ? _value.canAddToCollection
-          : canAddToCollection as bool,
+          : canAddToCollection // ignore: cast_nullable_to_non_nullable
+              as bool,
       canRemoveFromCollection: canRemoveFromCollection == freezed
           ? _value.canRemoveFromCollection
-          : canRemoveFromCollection as bool,
+          : canRemoveFromCollection // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_$UpdatePermissionDtoCtor implements _$UpdatePermissionDtoCtor {
   const _$_$UpdatePermissionDtoCtor(
-      {@required this.manageeId,
-      @required this.managerId,
-      @required this.canUpdate,
-      @required this.canDelete,
-      @required this.canAddToCollection,
-      @required this.canRemoveFromCollection})
-      : assert(manageeId != null),
-        assert(managerId != null),
-        assert(canUpdate != null),
-        assert(canDelete != null),
-        assert(canAddToCollection != null),
-        assert(canRemoveFromCollection != null);
+      {required this.manageeId,
+      required this.managerId,
+      required this.canUpdate,
+      required this.canDelete,
+      required this.canAddToCollection,
+      required this.canRemoveFromCollection});
 
   factory _$_$UpdatePermissionDtoCtor.fromJson(Map<String, dynamic> json) =>
       _$_$_$UpdatePermissionDtoCtorFromJson(json);
@@ -245,29 +268,30 @@ class _$_$UpdatePermissionDtoCtor implements _$UpdatePermissionDtoCtor {
 
 abstract class _$UpdatePermissionDtoCtor implements UpdatePermissionDto {
   const factory _$UpdatePermissionDtoCtor(
-      {@required String manageeId,
-      @required String managerId,
-      @required bool canUpdate,
-      @required bool canDelete,
-      @required bool canAddToCollection,
-      @required bool canRemoveFromCollection}) = _$_$UpdatePermissionDtoCtor;
+      {required String manageeId,
+      required String managerId,
+      required bool canUpdate,
+      required bool canDelete,
+      required bool canAddToCollection,
+      required bool canRemoveFromCollection}) = _$_$UpdatePermissionDtoCtor;
 
   factory _$UpdatePermissionDtoCtor.fromJson(Map<String, dynamic> json) =
       _$_$UpdatePermissionDtoCtor.fromJson;
 
   @override
-  String get manageeId;
+  String get manageeId => throw _privateConstructorUsedError;
   @override
-  String get managerId;
+  String get managerId => throw _privateConstructorUsedError;
   @override
-  bool get canUpdate;
+  bool get canUpdate => throw _privateConstructorUsedError;
   @override
-  bool get canDelete;
+  bool get canDelete => throw _privateConstructorUsedError;
   @override
-  bool get canAddToCollection;
+  bool get canAddToCollection => throw _privateConstructorUsedError;
   @override
-  bool get canRemoveFromCollection;
+  bool get canRemoveFromCollection => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$$UpdatePermissionDtoCtorCopyWith<_$UpdatePermissionDtoCtor> get copyWith;
+  _$$UpdatePermissionDtoCtorCopyWith<_$UpdatePermissionDtoCtor> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -1,9 +1,9 @@
-import { IList } from "./../../dart/collection/list";
+import { IList } from "./../../dart/core/list";
 import { IDiagnosticsNode } from "./diagnosticsNode";
 export interface IDiagnosticsSerializationDelegate {
-    additionalNodeProperties: (
-        node: IDiagnosticsNode
-    ) => { [index: string]: Object | undefined };
+    additionalNodeProperties: (node: IDiagnosticsNode) => {
+        [index: string]: Object | undefined;
+    };
     filterChildren: (
         nodes: IList<IDiagnosticsNode>,
         owner: IDiagnosticsNode

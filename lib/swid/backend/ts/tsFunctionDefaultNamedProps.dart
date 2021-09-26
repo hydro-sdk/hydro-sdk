@@ -1,23 +1,90 @@
-import 'package:meta/meta.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'package:hydro_sdk/swid/backend/ts/transforms/transformTypeDeclarationToTs.dart';
 import 'package:hydro_sdk/swid/backend/ts/tsFunctionDefaultNamedPropsObjectName.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
-import 'package:hydro_sdk/swid/transforms/ts/transformTypeDeclarationToTs.dart';
+import 'package:hydro_sdk/swid/ir/util/isInexpressibleStaticConst.dart';
+import 'package:hydro_sdk/swid/ir/util/rewriteClassReferencesToInterfaceReferences.dart';
+import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
+import 'package:hydro_sdk/swid/swars/swarsTermStringResultMixin.dart';
+import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
+import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
+import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
 
-class TsFunctionDefaultNamedProps {
-  final SwidFunctionType swidFunctionType;
+part 'tsFunctionDefaultNamedProps.freezed.dart';
 
-  TsFunctionDefaultNamedProps({@required this.swidFunctionType});
+@freezed
+class TsFunctionDefaultNamedProps
+    with
+        _$TsFunctionDefaultNamedProps,
+        HashKeyMixin<TsFunctionDefaultNamedProps>,
+        HashComparableMixin<TsFunctionDefaultNamedProps>,
+        SwarsTransformMixin<
+            TsFunctionDefaultNamedProps,
+            $TsFunctionDefaultNamedPropsCopyWith<TsFunctionDefaultNamedProps>,
+            String>,
+        SwarsTermStringResultMixin {
+  TsFunctionDefaultNamedProps._();
 
-  String toTsSource() => swidFunctionType.namedDefaultParameters.isNotEmpty
-      ? "const ${TsFunctionDefaultNamedPropsObjectName(swidFunctionType: swidFunctionType).toTsSource()} = {\n" +
-          swidFunctionType.namedDefaultParameters.entries
-              .map((x) =>
-                  "    ${x.key}: " +
-                  "${transformTypeDeclarationToTs(swidType: SwidType.fromSwidDefaultFormalParameter(swidDefaultFormalParameter: x.value))}")
-              ?.toList()
-              ?.join(",\n") +
-          "\n};\n"
-      : "";
+  factory TsFunctionDefaultNamedProps({
+    required final SwidFunctionType swidFunctionType,
+  }) = _$TsFunctionDefaultNamedPropsCtor;
+
+  @override
+  String get cacheGroup => "tsFunctionDefaultNamedProps";
+
+  @override
+  List<int> get hashableParts => [
+        ...swidFunctionType.hashableParts,
+      ];
+
+  @override
+  TsFunctionDefaultNamedProps clone({
+    final SwidFunctionType? swidFunctionType,
+  }) =>
+      TsFunctionDefaultNamedProps(
+        swidFunctionType: swidFunctionType ?? this.swidFunctionType,
+      );
+
+  @override
+  ISwarsTermResult<String> transform({
+    required final ISwarsPipeline pipeline,
+  }) =>
+      SwarsTermResult.fromString(
+        swidFunctionType.namedDefaultParameters.isNotEmpty
+            ? "const ${pipeline.reduceFromTerm(
+                  TsFunctionDefaultNamedPropsObjectName(
+                      swidFunctionType: swidFunctionType),
+                )} = {\n" +
+                swidFunctionType.namedDefaultParameters.entries
+                    .map((x) => !isInexpressibleStaticConst(
+                          parentClass: null,
+                          staticConst: x.value.value,
+                        )
+                            ? [
+                                "    ${x.key}: ",
+                                pipeline.reduceFromTerm(
+                                  TransformTypeDeclarationToTs(
+                                    parentClass: null,
+                                    emitTopLevelInitializersForOptionalPositionals:
+                                        true,
+                                    swidType:
+                                        rewriteClassReferencesToInterfaceReferences(
+                                      swidType: SwidType
+                                          .fromSwidDefaultFormalParameter(
+                                        swidDefaultFormalParameter: x.value,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                ",",
+                              ].join()
+                            : "")
+                    .toList()
+                    .join("\n") +
+                "\n};\n"
+            : "",
+      );
 }

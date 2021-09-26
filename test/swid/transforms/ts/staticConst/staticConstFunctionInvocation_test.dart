@@ -1,6 +1,8 @@
 import 'package:flutter_test/flutter_test.dart';
 
+import 'package:hydro_sdk/swid/backend/ts/transforms/transformStaticConstFunctionInvocation.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidIntegerLiteral.dart';
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
@@ -9,7 +11,8 @@ import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstFunctionInvocation.dart';
 import 'package:hydro_sdk/swid/ir/swidStringLiteral.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
-import 'package:hydro_sdk/swid/transforms/ts/transformStaticConstFunctionInvocation.dart';
+import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
+import 'package:hydro_sdk/swid/swars/pipelineNoopCacheMgr.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
@@ -18,6 +21,7 @@ void main() {
         value: "IconData",
         staticType: SwidType.fromSwidInterface(
             swidInterface: SwidInterface(
+          declarationModifiers: SwidDeclarationModifiers.empty(),
           name: "IconData",
           nullabilitySuffix: SwidNullabilitySuffix.none,
           originalPackagePath: "package:flutter/widgets.dart",
@@ -31,17 +35,23 @@ void main() {
         namedParameters: {},
         isConstructorInvocation: false);
     expect(
-        transformStaticConstFunctionInvocation(
+        CachingPipeline(
+          cacheMgr: const PipelineNoopCacheMgr(),
+        ).reduceFromTerm(
+          TransformStaticConstFunctionInvocation(
             parentClass: SwidClass.empty(),
             inexpressibleFunctionInvocationFallback: "",
             swidStaticConstFunctionInvocation: normal,
-            scopeResolver: (_) => null),
+            scopeResolver: (_) => null,
+          ),
+        ),
         "IconData(0xe52a)");
 
     var manyNormal = SwidStaticConstFunctionInvocation(
         value: "IconData",
         staticType: SwidType.fromSwidInterface(
             swidInterface: SwidInterface(
+          declarationModifiers: SwidDeclarationModifiers.empty(),
           name: "IconData",
           nullabilitySuffix: SwidNullabilitySuffix.none,
           originalPackagePath: "package:flutter/widgets.dart",
@@ -61,17 +71,23 @@ void main() {
         namedParameters: {},
         isConstructorInvocation: false);
     expect(
-        transformStaticConstFunctionInvocation(
+        CachingPipeline(
+          cacheMgr: const PipelineNoopCacheMgr(),
+        ).reduceFromTerm(
+          TransformStaticConstFunctionInvocation(
             parentClass: SwidClass.empty(),
             inexpressibleFunctionInvocationFallback: "",
             swidStaticConstFunctionInvocation: manyNormal,
-            scopeResolver: (_) => null),
+            scopeResolver: (_) => null,
+          ),
+        ),
         "IconData(0xe52a, \"foo\", \"bar\", 123)");
 
     var manyNamed = SwidStaticConstFunctionInvocation(
         value: "IconData",
         staticType: SwidType.fromSwidInterface(
             swidInterface: SwidInterface(
+          declarationModifiers: SwidDeclarationModifiers.empty(),
           name: "IconData",
           nullabilitySuffix: SwidNullabilitySuffix.none,
           originalPackagePath: "package:flutter/widgets.dart",
@@ -89,17 +105,23 @@ void main() {
         },
         isConstructorInvocation: false);
     expect(
-        transformStaticConstFunctionInvocation(
+        CachingPipeline(
+          cacheMgr: const PipelineNoopCacheMgr(),
+        ).reduceFromTerm(
+          TransformStaticConstFunctionInvocation(
             parentClass: SwidClass.empty(),
             inexpressibleFunctionInvocationFallback: "",
             swidStaticConstFunctionInvocation: manyNamed,
-            scopeResolver: (_) => null),
+            scopeResolver: (_) => null,
+          ),
+        ),
         "IconData({ foo: \"foo\", bar: \"bar\", offset: 123 })");
 
     var normalAndNamedCtor = SwidStaticConstFunctionInvocation(
         value: "IconData",
         staticType: SwidType.fromSwidInterface(
             swidInterface: SwidInterface(
+          declarationModifiers: SwidDeclarationModifiers.empty(),
           name: "IconData",
           nullabilitySuffix: SwidNullabilitySuffix.none,
           originalPackagePath: "package:flutter/widgets.dart",
@@ -117,11 +139,16 @@ void main() {
         isConstructorInvocation: true);
 
     expect(
-        transformStaticConstFunctionInvocation(
+        CachingPipeline(
+          cacheMgr: const PipelineNoopCacheMgr(),
+        ).reduceFromTerm(
+          TransformStaticConstFunctionInvocation(
             parentClass: SwidClass.empty(),
             inexpressibleFunctionInvocationFallback: "",
             swidStaticConstFunctionInvocation: normalAndNamedCtor,
-            scopeResolver: (_) => null),
+            scopeResolver: (_) => null,
+          ),
+        ),
         "new IconData(0xe52a,{ fontFamily: \"MaterialIcons\" })");
   }, tags: "swid");
 }

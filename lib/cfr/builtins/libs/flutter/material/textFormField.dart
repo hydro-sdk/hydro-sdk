@@ -8,17 +8,17 @@ import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
 void loadTextFormField(
-    {@required HydroState luaState, @required HydroTable table}) {
+    {required HydroState luaState, required HydroTable table}) {
   table["textFormField"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       TextFormField(
-          key: maybeUnBoxAndBuildArgument<Key>(args[0]["key"],
+          key: maybeUnBoxAndBuildArgument<Key, dynamic>(args[0]["key"],
               parentState: luaState),
-          controller: maybeUnBoxAndBuildArgument<TextEditingController>(
+          controller: maybeUnBoxAndBuildArgument<TextEditingController, dynamic>(
               args[0]["controller"],
               parentState: luaState),
           initialValue: args[0]["initialValue"],
-          decoration: maybeUnBoxAndBuildArgument<InputDecoration>(
+          decoration: maybeUnBoxAndBuildArgument<InputDecoration, dynamic>(
               args[0]["decoration"],
               parentState: luaState),
           textCapitalization: maybeUnBoxEnum(
@@ -27,29 +27,25 @@ void loadTextFormField(
           textInputAction: maybeUnBoxEnum(
               values: TextInputAction.values,
               boxedEnum: args[0]["textInputAction"]),
-          style: maybeUnBoxAndBuildArgument<TextStyle>(args[0]["style"],
+          style: maybeUnBoxAndBuildArgument<TextStyle, dynamic>(args[0]["style"],
               parentState: luaState),
-          strutStyle: maybeUnBoxAndBuildArgument<StrutStyle>(args[0]["strutStyle"],
+          strutStyle: maybeUnBoxAndBuildArgument<StrutStyle, dynamic>(
+              args[0]["strutStyle"],
               parentState: luaState),
           textDirection: maybeUnBoxEnum(
               values: TextDirection.values,
               boxedEnum: args[0]["textDirection"]),
           textAlign: maybeUnBoxEnum(
               values: TextAlign.values, boxedEnum: args[0]["textAlign"]),
-          textAlignVertical: maybeUnBoxAndBuildArgument<TextAlignVertical>(
-              args[0]["textAlignVertical"],
-              parentState: luaState),
+          textAlignVertical:
+              maybeUnBoxAndBuildArgument<TextAlignVertical, dynamic>(args[0]["textAlignVertical"], parentState: luaState),
           autofocus: args[0]["autofocus"],
           readOnly: args[0]["readOnly"],
-          toolbarOptions: maybeUnBoxAndBuildArgument<ToolbarOptions>(
-              args[0]["toolbarOptions"],
-              parentState: luaState),
+          toolbarOptions: maybeUnBoxAndBuildArgument<ToolbarOptions, dynamic>(args[0]["toolbarOptions"], parentState: luaState),
           showCursor: args[0]["showCursor"],
           obscureText: args[0]["obscureText"],
           autocorrect: args[0]["autocorrect"],
-          smartDashesType: maybeUnBoxEnum(
-              values: SmartDashesType.values,
-              boxedEnum: args[0]["smartDashesType"]),
+          smartDashesType: maybeUnBoxEnum(values: SmartDashesType.values, boxedEnum: args[0]["smartDashesType"]),
           smartQuotesType: maybeUnBoxEnum(values: SmartQuotesType.values, boxedEnum: args[0]["smartQuotesType"]),
           autovalidate: args[0]["autovalidate"],
           maxLengthEnforced: args[0]["maxLengthEnforced"],
@@ -97,7 +93,7 @@ void loadTextFormField(
                 }
               : null,
           onSaved: args[0]["onSaved"] != null
-              ? (String val) {
+              ? (String? val) {
                   Closure closure = args[0]["onSaved"];
                   closure.dispatch(
                     [val],
@@ -107,7 +103,7 @@ void loadTextFormField(
                 }
               : null,
           validator: args[0]["validator"] != null
-              ? (String val) {
+              ? (String? val) {
                   Closure closure = args[0]["validator"];
                   return closure.dispatch(
                     [val],
@@ -119,16 +115,16 @@ void loadTextFormField(
           enabled: args[0]["enabled"],
           cursorWidth: args[0]["cursorWidth"]?.toDouble(),
           cursorRadius: args[0]["cursorRadius"],
-          cursorColor: maybeUnBoxAndBuildArgument<Color>(args[0]["cursorColor"], parentState: luaState),
+          cursorColor: maybeUnBoxAndBuildArgument<Color, dynamic>(args[0]["cursorColor"], parentState: luaState),
           keyboardAppearance: maybeUnBoxEnum(values: Brightness.values, boxedEnum: args[0]["keyboardAppearance"]),
-          scrollPadding: maybeUnBoxAndBuildArgument<EdgeInsets>(args[0]["scrollPadding"], parentState: luaState),
+          scrollPadding: maybeUnBoxAndBuildArgument<EdgeInsets, dynamic>(args[0]["scrollPadding"], parentState: luaState),
           enableInteractiveSelection: args[0]["enableInteractiveSelection"],
           buildCounter: args[0]["buildCounter"] != null
               ? (
                   BuildContext context, {
-                  int currentLength,
-                  int maxLength,
-                  bool isFocused,
+                  int? currentLength,
+                  int? maxLength,
+                  bool? isFocused,
                 }) {
                   HydroTable props = HydroTable();
                   props["currentLength"] = currentLength;

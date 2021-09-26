@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'swidDefaultFormalParameter.dart';
 
@@ -8,6 +8,10 @@ part of 'swidDefaultFormalParameter.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 SwidDefaultFormalParameter _$SwidDefaultFormalParameterFromJson(
     Map<String, dynamic> json) {
   return _$Data.fromJson(json);
@@ -17,41 +21,42 @@ SwidDefaultFormalParameter _$SwidDefaultFormalParameterFromJson(
 class _$SwidDefaultFormalParameterTearOff {
   const _$SwidDefaultFormalParameterTearOff();
 
-// ignore: unused_element
   _$Data call(
-      {@required String name,
-      @required SwidNullabilitySuffix nullabilitySuffix,
-      @required String originalPackagePath,
-      @required @nullable SwidType value}) {
+      {required SwidNullabilitySuffix nullabilitySuffix,
+      required String originalPackagePath,
+      required SwidType staticType,
+      required SwidStaticConst value,
+      required String defaultValueCode}) {
     return _$Data(
-      name: name,
       nullabilitySuffix: nullabilitySuffix,
       originalPackagePath: originalPackagePath,
+      staticType: staticType,
       value: value,
+      defaultValueCode: defaultValueCode,
     );
   }
 
-// ignore: unused_element
   SwidDefaultFormalParameter fromJson(Map<String, Object> json) {
     return SwidDefaultFormalParameter.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $SwidDefaultFormalParameter = _$SwidDefaultFormalParameterTearOff();
 
 /// @nodoc
 mixin _$SwidDefaultFormalParameter {
-  String get name;
-  SwidNullabilitySuffix get nullabilitySuffix;
-  String get originalPackagePath;
-  @nullable
-  SwidType get value;
+  SwidNullabilitySuffix get nullabilitySuffix =>
+      throw _privateConstructorUsedError;
+  String get originalPackagePath => throw _privateConstructorUsedError;
+  SwidType get staticType => throw _privateConstructorUsedError;
+  SwidStaticConst get value => throw _privateConstructorUsedError;
+  String get defaultValueCode => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $SwidDefaultFormalParameterCopyWith<SwidDefaultFormalParameter> get copyWith;
+  $SwidDefaultFormalParameterCopyWith<SwidDefaultFormalParameter>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -60,12 +65,14 @@ abstract class $SwidDefaultFormalParameterCopyWith<$Res> {
           $Res Function(SwidDefaultFormalParameter) then) =
       _$SwidDefaultFormalParameterCopyWithImpl<$Res>;
   $Res call(
-      {String name,
-      SwidNullabilitySuffix nullabilitySuffix,
+      {SwidNullabilitySuffix nullabilitySuffix,
       String originalPackagePath,
-      @nullable SwidType value});
+      SwidType staticType,
+      SwidStaticConst value,
+      String defaultValueCode});
 
-  $SwidTypeCopyWith<$Res> get value;
+  $SwidTypeCopyWith<$Res> get staticType;
+  $SwidStaticConstCopyWith<$Res> get value;
 }
 
 /// @nodoc
@@ -79,29 +86,46 @@ class _$SwidDefaultFormalParameterCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object name = freezed,
-    Object nullabilitySuffix = freezed,
-    Object originalPackagePath = freezed,
-    Object value = freezed,
+    Object? nullabilitySuffix = freezed,
+    Object? originalPackagePath = freezed,
+    Object? staticType = freezed,
+    Object? value = freezed,
+    Object? defaultValueCode = freezed,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed ? _value.name : name as String,
       nullabilitySuffix: nullabilitySuffix == freezed
           ? _value.nullabilitySuffix
-          : nullabilitySuffix as SwidNullabilitySuffix,
+          : nullabilitySuffix // ignore: cast_nullable_to_non_nullable
+              as SwidNullabilitySuffix,
       originalPackagePath: originalPackagePath == freezed
           ? _value.originalPackagePath
-          : originalPackagePath as String,
-      value: value == freezed ? _value.value : value as SwidType,
+          : originalPackagePath // ignore: cast_nullable_to_non_nullable
+              as String,
+      staticType: staticType == freezed
+          ? _value.staticType
+          : staticType // ignore: cast_nullable_to_non_nullable
+              as SwidType,
+      value: value == freezed
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as SwidStaticConst,
+      defaultValueCode: defaultValueCode == freezed
+          ? _value.defaultValueCode
+          : defaultValueCode // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 
   @override
-  $SwidTypeCopyWith<$Res> get value {
-    if (_value.value == null) {
-      return null;
-    }
-    return $SwidTypeCopyWith<$Res>(_value.value, (value) {
+  $SwidTypeCopyWith<$Res> get staticType {
+    return $SwidTypeCopyWith<$Res>(_value.staticType, (value) {
+      return _then(_value.copyWith(staticType: value));
+    });
+  }
+
+  @override
+  $SwidStaticConstCopyWith<$Res> get value {
+    return $SwidStaticConstCopyWith<$Res>(_value.value, (value) {
       return _then(_value.copyWith(value: value));
     });
   }
@@ -114,13 +138,16 @@ abstract class _$$DataCopyWith<$Res>
       __$$DataCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String name,
-      SwidNullabilitySuffix nullabilitySuffix,
+      {SwidNullabilitySuffix nullabilitySuffix,
       String originalPackagePath,
-      @nullable SwidType value});
+      SwidType staticType,
+      SwidStaticConst value,
+      String defaultValueCode});
 
   @override
-  $SwidTypeCopyWith<$Res> get value;
+  $SwidTypeCopyWith<$Res> get staticType;
+  @override
+  $SwidStaticConstCopyWith<$Res> get value;
 }
 
 /// @nodoc
@@ -135,78 +162,95 @@ class __$$DataCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object name = freezed,
-    Object nullabilitySuffix = freezed,
-    Object originalPackagePath = freezed,
-    Object value = freezed,
+    Object? nullabilitySuffix = freezed,
+    Object? originalPackagePath = freezed,
+    Object? staticType = freezed,
+    Object? value = freezed,
+    Object? defaultValueCode = freezed,
   }) {
     return _then(_$Data(
-      name: name == freezed ? _value.name : name as String,
       nullabilitySuffix: nullabilitySuffix == freezed
           ? _value.nullabilitySuffix
-          : nullabilitySuffix as SwidNullabilitySuffix,
+          : nullabilitySuffix // ignore: cast_nullable_to_non_nullable
+              as SwidNullabilitySuffix,
       originalPackagePath: originalPackagePath == freezed
           ? _value.originalPackagePath
-          : originalPackagePath as String,
-      value: value == freezed ? _value.value : value as SwidType,
+          : originalPackagePath // ignore: cast_nullable_to_non_nullable
+              as String,
+      staticType: staticType == freezed
+          ? _value.staticType
+          : staticType // ignore: cast_nullable_to_non_nullable
+              as SwidType,
+      value: value == freezed
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as SwidStaticConst,
+      defaultValueCode: defaultValueCode == freezed
+          ? _value.defaultValueCode
+          : defaultValueCode // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
-class _$_$Data implements _$Data {
-  const _$_$Data(
-      {@required this.name,
-      @required this.nullabilitySuffix,
-      @required this.originalPackagePath,
-      @required @nullable this.value})
-      : assert(name != null),
-        assert(nullabilitySuffix != null),
-        assert(originalPackagePath != null);
+@JsonSerializable()
+class _$_$Data extends _$Data {
+  _$_$Data(
+      {required this.nullabilitySuffix,
+      required this.originalPackagePath,
+      required this.staticType,
+      required this.value,
+      required this.defaultValueCode})
+      : super._();
 
   factory _$_$Data.fromJson(Map<String, dynamic> json) =>
       _$_$_$DataFromJson(json);
 
   @override
-  final String name;
-  @override
   final SwidNullabilitySuffix nullabilitySuffix;
   @override
   final String originalPackagePath;
   @override
-  @nullable
-  final SwidType value;
+  final SwidType staticType;
+  @override
+  final SwidStaticConst value;
+  @override
+  final String defaultValueCode;
 
   @override
   String toString() {
-    return 'SwidDefaultFormalParameter(name: $name, nullabilitySuffix: $nullabilitySuffix, originalPackagePath: $originalPackagePath, value: $value)';
+    return 'SwidDefaultFormalParameter(nullabilitySuffix: $nullabilitySuffix, originalPackagePath: $originalPackagePath, staticType: $staticType, value: $value, defaultValueCode: $defaultValueCode)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _$Data &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.nullabilitySuffix, nullabilitySuffix) ||
                 const DeepCollectionEquality()
                     .equals(other.nullabilitySuffix, nullabilitySuffix)) &&
             (identical(other.originalPackagePath, originalPackagePath) ||
                 const DeepCollectionEquality()
                     .equals(other.originalPackagePath, originalPackagePath)) &&
+            (identical(other.staticType, staticType) ||
+                const DeepCollectionEquality()
+                    .equals(other.staticType, staticType)) &&
             (identical(other.value, value) ||
-                const DeepCollectionEquality().equals(other.value, value)));
+                const DeepCollectionEquality().equals(other.value, value)) &&
+            (identical(other.defaultValueCode, defaultValueCode) ||
+                const DeepCollectionEquality()
+                    .equals(other.defaultValueCode, defaultValueCode)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(nullabilitySuffix) ^
       const DeepCollectionEquality().hash(originalPackagePath) ^
-      const DeepCollectionEquality().hash(value);
+      const DeepCollectionEquality().hash(staticType) ^
+      const DeepCollectionEquality().hash(value) ^
+      const DeepCollectionEquality().hash(defaultValueCode);
 
   @JsonKey(ignore: true)
   @override
@@ -219,25 +263,29 @@ class _$_$Data implements _$Data {
   }
 }
 
-abstract class _$Data implements SwidDefaultFormalParameter {
-  const factory _$Data(
-      {@required String name,
-      @required SwidNullabilitySuffix nullabilitySuffix,
-      @required String originalPackagePath,
-      @required @nullable SwidType value}) = _$_$Data;
+abstract class _$Data extends SwidDefaultFormalParameter {
+  factory _$Data(
+      {required SwidNullabilitySuffix nullabilitySuffix,
+      required String originalPackagePath,
+      required SwidType staticType,
+      required SwidStaticConst value,
+      required String defaultValueCode}) = _$_$Data;
+  _$Data._() : super._();
 
   factory _$Data.fromJson(Map<String, dynamic> json) = _$_$Data.fromJson;
 
   @override
-  String get name;
+  SwidNullabilitySuffix get nullabilitySuffix =>
+      throw _privateConstructorUsedError;
   @override
-  SwidNullabilitySuffix get nullabilitySuffix;
+  String get originalPackagePath => throw _privateConstructorUsedError;
   @override
-  String get originalPackagePath;
+  SwidType get staticType => throw _privateConstructorUsedError;
   @override
-  @nullable
-  SwidType get value;
+  SwidStaticConst get value => throw _privateConstructorUsedError;
+  @override
+  String get defaultValueCode => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$$DataCopyWith<_$Data> get copyWith;
+  _$$DataCopyWith<_$Data> get copyWith => throw _privateConstructorUsedError;
 }

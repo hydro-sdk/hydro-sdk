@@ -11,9 +11,7 @@ import 'package:hydro_sdk/hydroState.dart';
 class VMManagedDiagnosticsSerializationDelegate
     extends VMManagedBox<DiagnosticsSerializationDelegate> {
   VMManagedDiagnosticsSerializationDelegate(
-      {@required this.table,
-      @required this.vmObject,
-      @required this.hydroState})
+      {required this.table, required this.vmObject, required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,
@@ -24,7 +22,7 @@ class VMManagedDiagnosticsSerializationDelegate
       return [
         maybeBoxObject<Map>(
             object: vmObject.additionalNodeProperties(
-                maybeUnBoxAndBuildArgument<DiagnosticsNode>(args[1],
+                maybeUnBoxAndBuildArgument<DiagnosticsNode, dynamic>(args[1],
                     parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable())
@@ -35,9 +33,11 @@ class VMManagedDiagnosticsSerializationDelegate
         maybeBoxObject<List<dynamic>>(
             object: vmObject
                 .filterChildren(
-                    maybeUnBoxAndBuildArgument<List<DiagnosticsNode>>(args[1],
+                    maybeUnBoxAndBuildArgument<List<DiagnosticsNode>, dynamic>(
+                        args[1],
                         parentState: hydroState),
-                    maybeUnBoxAndBuildArgument<DiagnosticsNode>(args[2],
+                    maybeUnBoxAndBuildArgument<DiagnosticsNode, dynamic>(
+                        args[2],
                         parentState: hydroState))
                 .map((x) => maybeBoxObject<DiagnosticsNode>(
                     object: x, hydroState: hydroState, table: HydroTable()))
@@ -51,9 +51,11 @@ class VMManagedDiagnosticsSerializationDelegate
         maybeBoxObject<List<dynamic>>(
             object: vmObject
                 .filterProperties(
-                    maybeUnBoxAndBuildArgument<List<DiagnosticsNode>>(args[1],
+                    maybeUnBoxAndBuildArgument<List<DiagnosticsNode>, dynamic>(
+                        args[1],
                         parentState: hydroState),
-                    maybeUnBoxAndBuildArgument<DiagnosticsNode>(args[2],
+                    maybeUnBoxAndBuildArgument<DiagnosticsNode, dynamic>(
+                        args[2],
                         parentState: hydroState))
                 .map((x) => maybeBoxObject<DiagnosticsNode>(
                     object: x, hydroState: hydroState, table: HydroTable()))
@@ -67,9 +69,11 @@ class VMManagedDiagnosticsSerializationDelegate
         maybeBoxObject<List<dynamic>>(
             object: vmObject
                 .truncateNodesList(
-                    maybeUnBoxAndBuildArgument<List<DiagnosticsNode>>(args[1],
+                    maybeUnBoxAndBuildArgument<List<DiagnosticsNode>, dynamic>(
+                        args[1],
                         parentState: hydroState),
-                    maybeUnBoxAndBuildArgument<DiagnosticsNode>(args[2],
+                    maybeUnBoxAndBuildArgument<DiagnosticsNode, dynamic>(
+                        args[2],
                         parentState: hydroState))
                 .map((x) => maybeBoxObject<DiagnosticsNode>(
                     object: x, hydroState: hydroState, table: HydroTable()))
@@ -82,7 +86,7 @@ class VMManagedDiagnosticsSerializationDelegate
       return [
         maybeBoxObject<DiagnosticsSerializationDelegate>(
             object: vmObject.delegateForNode(
-                maybeUnBoxAndBuildArgument<DiagnosticsNode>(args[1],
+                maybeUnBoxAndBuildArgument<DiagnosticsNode, dynamic>(args[1],
                     parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable())
@@ -118,11 +122,12 @@ class VMManagedDiagnosticsSerializationDelegate
 }
 
 void loadDiagnosticsSerializationDelegate(
-    {@required HydroState hydroState, @required HydroTable table}) {
-  registerBoxer<DiagnosticsSerializationDelegate>(boxer: (
-      {@required DiagnosticsSerializationDelegate vmObject,
-      @required HydroState hydroState,
-      @required HydroTable table}) {
+    {required HydroState hydroState, required HydroTable table}) {
+  registerBoxer<DiagnosticsSerializationDelegate>(boxer: ({
+    required DiagnosticsSerializationDelegate vmObject,
+    required HydroState hydroState,
+    required HydroTable table,
+  }) {
     return VMManagedDiagnosticsSerializationDelegate(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

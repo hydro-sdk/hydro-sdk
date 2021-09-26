@@ -11,16 +11,16 @@ String hashClosure(Closure closure, {bool includeSourceLocations = true}) {
   var input = sha256.startChunkedConversion(output);
 
   input.add([
-    ...(hashPrototype(closure.proto,
+    ...(hashPrototype(closure.proto!,
             includeSourceLocations: includeSourceLocations)
         .codeUnits),
     ...(closure.upvalues
             ?.map((x) => _hashUpvalues([x]))
-            ?.reduce((x, k) => [
+            .reduce((x, k) => [
                   ...x,
                   ...k,
                 ])
-            ?.toList() ??
+            .toList() ??
         [])
   ]);
 
@@ -42,19 +42,19 @@ List<int> _hashUpvalue(Upval upvalue) {
             : 0
   ]);
 
-  if (upvalue?.reg != null) {
-    input.add([upvalue.reg]);
+  if (upvalue.reg != null) {
+    input.add([upvalue.reg!]);
   }
 
   input.add([
     ...(upvalue.registers
             ?.map((x) => x.toString())
-            ?.map((x) => x.codeUnits)
-            ?.reduce((x, k) => [
+            .map((x) => x.codeUnits)
+            .reduce((x, k) => [
                   ...x,
                   ...k,
                 ])
-            ?.toList() ??
+            .toList() ??
         [])
   ]);
   input.add(upvalue.storage.toString().codeUnits);
@@ -64,12 +64,12 @@ List<int> _hashUpvalue(Upval upvalue) {
   return output.events.single.bytes;
 }
 
-List<int> _hashUpvalues(List<Upval> upvalues) {
+List<int> _hashUpvalues(List<Upval?> upvalues) {
   var output = AccumulatorSink<Digest>();
 
   var input = sha256.startChunkedConversion(output);
 
-  var upvalHash = upvalues.map((x) => _hashUpvalue(x));
+  var upvalHash = upvalues.map((x) => _hashUpvalue(x!));
 
   upvalHash.forEach((x) => input.add(x));
 

@@ -1,14 +1,12 @@
-import 'package:meta/meta.dart';
-
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/transforms/transformToPascalCase.dart';
 
 SwidFunctionType transformAccessorName({
-  @required SwidFunctionType swidFunctionType,
+  required final SwidFunctionType swidFunctionType,
   bool addPrefixes = true,
   bool removeSuffixes = true,
 }) {
-  if (swidFunctionType.swidDeclarationModifiers?.isSetter ?? false) {
+  if (swidFunctionType.declarationModifiers.isSetter) {
     return SwidFunctionType.clone(
         swidFunctionType: swidFunctionType,
         name: ([
@@ -24,9 +22,8 @@ SwidFunctionType transformAccessorName({
               : removeSuffixes
                   ? swidFunctionType.name.replaceAll("=", "")
                   : swidFunctionType.name,
-        ]..removeWhere((x) => x == null))
-            .join());
-  } else if (swidFunctionType.swidDeclarationModifiers?.isGetter ?? false) {
+        ]).join());
+  } else if (swidFunctionType.declarationModifiers.isGetter) {
     return SwidFunctionType.clone(
         swidFunctionType: swidFunctionType,
         name: ([
@@ -38,8 +35,7 @@ SwidFunctionType transformAccessorName({
                   )
                 ]).join()
               : swidFunctionType.name
-        ]..removeWhere((x) => x == null))
-            .join());
+        ]).join());
   }
 
   return swidFunctionType;

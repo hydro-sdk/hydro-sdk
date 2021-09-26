@@ -1,16 +1,15 @@
-import 'package:meta/meta.dart';
-
 import 'package:hydro_sdk/cfr/vm/prototype.dart';
 
 class HashedPrototype {
-  final String hash;
+  final String? hash;
   final String hashWithoutSourceInformation;
-  Prototype prototype;
+  final Prototype prototype;
 
-  HashedPrototype(
-      {@required this.hash,
-      @required this.hashWithoutSourceInformation,
-      @required this.prototype});
+  const HashedPrototype({
+    required this.hash,
+    required this.hashWithoutSourceInformation,
+    required this.prototype,
+  });
 
   @override
   bool operator ==(o) =>
@@ -19,6 +18,5 @@ class HashedPrototype {
           (hash ?? hashWithoutSourceInformation);
 
   @override
-  int get hashCode =>
-      (hash?.hashCode ?? hashWithoutSourceInformation?.hashCode);
+  int get hashCode => (hash?.hashCode ?? hashWithoutSourceInformation.hashCode);
 }

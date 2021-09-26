@@ -6,15 +6,14 @@ import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
-void loadIconButton(
-    {@required HydroState luaState, @required HydroTable table}) {
+void loadIconButton({required HydroState luaState, required HydroTable table}) {
   table["iconButton"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       IconButton(
-        icon: maybeUnBoxAndBuildArgument<Widget>(args[0]["icon"],
+        icon: maybeUnBoxAndBuildArgument<Widget, dynamic>(args[0]["icon"],
             parentState: luaState),
         tooltip: args[0]["tooltip"],
-        key: maybeUnBoxAndBuildArgument<Key>(args[0]["key"],
+        key: maybeUnBoxAndBuildArgument<Key, dynamic>(args[0]["key"],
             parentState: luaState),
         onPressed: () {
           Closure closure = args[0]["onPressed"];

@@ -2,7 +2,7 @@ List<T> collectTokens<T>(List<dynamic> list) {
   return [
     ...List.from(list).where((e) => e != null).whereType<T>().toList(),
     ...((({
-      List<List<dynamic>> nested,
+      required final List<List<dynamic>> nested,
     }) =>
                 nested.isNotEmpty
                     ? nested.reduce((value, element) => [...value, ...element])

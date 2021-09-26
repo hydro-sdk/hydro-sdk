@@ -1,10 +1,9 @@
 import 'package:analyzer/dart/ast/ast.dart' show TypeName;
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/frontend/dart/mapAnalyzerNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/frontend/dart/mapClassLibrarySourcePath.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidFunctionTypeFromFunctionType.dart';
+import 'package:hydro_sdk/swid/frontend/dart/swidFunctionTypeFromPropertyAccessor.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidInterfaceFromTypeParameterType.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
@@ -19,18 +18,18 @@ import 'package:analyzer/dart/element/type.dart'
     show InterfaceType, TypeParameterType;
 
 SwidClass swidClassFromInterfaceType({
-  @required InterfaceType interfaceType,
+  required final InterfaceType interfaceType,
   /*
       This is a hack to break cycles in self-referencing class declarations (declarations that look like CRTP).
       Should probably use an inheritance manager of some sort similar to package:analyzer.
       A SWID inheritance manager would have to be fully serializable.
     */
-  bool fullyResolveInterfaceTypeFormals = true,
+  int interfaceTypeFormalResolutionDepth = 10,
 }) =>
     SwidClass(
       name: interfaceType.getDisplayString(withNullability: false),
       nullabilitySuffix: mapNullabilitySuffix(
-          nullabilitySuffix: interfaceType.nullabilitySuffix),
+          nullabilitySuffix: interfaceType.nullabilitySuffix)!,
       originalPackagePath:
           mapClassLibrarySourcePath(element: interfaceType.element),
       constructorType: null,
@@ -41,8 +40,8 @@ SwidClass swidClassFromInterfaceType({
             .where((x) => !x.isStatic)
             .map(
               (x) => (({
-                SwidFunctionType baseClassMethod,
-                SwidFunctionType childClassMethod,
+                required final SwidFunctionType baseClassMethod,
+                required final SwidFunctionType childClassMethod,
               }) =>
                   SwidFunctionType.clone(
                       swidFunctionType: childClassMethod,
@@ -50,17 +49,21 @@ SwidClass swidClassFromInterfaceType({
                         ..addAll(childClassMethod.namedDefaults)))(
                 baseClassMethod: swidFunctionTypeFromFunctionType(
                   functionType: x.declaration.type,
-                  swidDeclarationModifiers: SwidDeclarationModifiers.clone(
-                    swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+                  declarationModifiers: SwidDeclarationModifiers.clone(
+                    declarationModifiers: SwidDeclarationModifiers.empty(),
                     isAbstract: x.isAbstract,
+                    isSynthetic: x.isSynthetic,
                   ),
+                  name: x.declaration.displayName,
                 ),
                 childClassMethod: swidFunctionTypeFromFunctionType(
                   functionType: x.type,
-                  swidDeclarationModifiers: SwidDeclarationModifiers.clone(
-                    swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+                  declarationModifiers: SwidDeclarationModifiers.clone(
+                    declarationModifiers: SwidDeclarationModifiers.empty(),
                     isAbstract: x.isAbstract,
+                    isSynthetic: x.isSynthetic,
                   ),
+                  name: x.declaration.displayName,
                 ),
               ),
             )
@@ -69,45 +72,45 @@ SwidClass swidClassFromInterfaceType({
             .whereType<PropertyAccessorElement>()
             .where((x) => x.name[0] != "_")
             .where((x) => !x.isStatic)
-            .map(
-              (x) => swidFunctionTypeFromFunctionType(
-                functionType: x.type,
-                swidDeclarationModifiers: SwidDeclarationModifiers.clone(
-                  swidDeclarationModifiers: SwidDeclarationModifiers.clone(
-                    swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
-                    isAbstract: x.isAbstract,
-                  ),
-                  isGetter: x.isGetter,
-                  isSetter: x.isSetter,
-                ),
-              ),
-            )
+            .map((x) => swidFunctionTypeFromPropertyAccessor(
+                  propertyAccessorElement: x,
+                ))
             .toList()
       ],
       staticConstFieldDeclarations: [],
       instanceFieldDeclarations: {},
-      swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
-      mixedInClasses: [],
+      declarationModifiers: SwidDeclarationModifiers.empty(),
+      mixedInClasses: interfaceType.mixins
+          .map(
+            (x) => swidClassFromInterfaceType(
+              interfaceType: x,
+            ),
+          )
+          .toList(),
       implementedClasses: interfaceType.interfaces
           .map((x) => swidClassFromInterfaceType(
                 interfaceType: x,
-                fullyResolveInterfaceTypeFormals: false,
+                interfaceTypeFormalResolutionDepth:
+                    interfaceTypeFormalResolutionDepth - 1,
               ))
           .toList(),
       isMixin: false,
       extendedClass: interfaceType.superclass != null
           ? swidClassFromInterfaceType(
-              interfaceType: interfaceType.superclass,
-              fullyResolveInterfaceTypeFormals: false,
+              interfaceType: interfaceType.superclass!,
+              interfaceTypeFormalResolutionDepth:
+                  interfaceTypeFormalResolutionDepth - 1,
             )
           : null,
       typeFormals: interfaceType.typeArguments
-          .map((x) => x is InterfaceType && fullyResolveInterfaceTypeFormals
+          .map((x) => x is InterfaceType &&
+                  interfaceTypeFormalResolutionDepth > 0
               ? SwidTypeFormal(
                   value: SwidTypeFormalValue.fromSwidClass(
                     swidClass: swidClassFromInterfaceType(
                       interfaceType: x,
-                      fullyResolveInterfaceTypeFormals: false,
+                      interfaceTypeFormalResolutionDepth:
+                          interfaceTypeFormalResolutionDepth - 1,
                     ),
                   ),
                   swidReferenceDeclarationKind:
@@ -117,7 +120,8 @@ SwidClass swidClassFromInterfaceType({
                   ? SwidTypeFormal(
                       value: SwidTypeFormalValue.fromSwidClass(
                         swidClass: swidClassFromInterfaceType(
-                            interfaceType: (x as TypeName).type),
+                            interfaceType:
+                                (x as TypeName).type as InterfaceType),
                       ),
                       swidReferenceDeclarationKind:
                           SwidReferenceDeclarationKind.classElement,
@@ -132,5 +136,7 @@ SwidClass swidClassFromInterfaceType({
                               SwidReferenceDeclarationKind.typeParameterType,
                         )
                       : null)
-          .toList(),
+          .where((x) => x != null)
+          .toList()
+          .cast<SwidTypeFormal>(),
     );

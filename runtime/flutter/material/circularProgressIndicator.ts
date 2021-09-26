@@ -26,7 +26,8 @@ declare const flutter: {
 
 export class CircularProgressIndicator
     extends StatelessWidget
-    implements RuntimeBaseClass {
+    implements RuntimeBaseClass
+{
     public readonly internalRuntimeType = new Type(CircularProgressIndicator);
     public props?: CircularProgressIndicatorProps | undefined;
     public constructor(props?: CircularProgressIndicatorProps | undefined) {

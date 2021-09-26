@@ -21,7 +21,8 @@ declare const flutter: {
 
 export class FloatingActionButton
     extends StatelessWidget
-    implements RuntimeBaseClass {
+    implements RuntimeBaseClass
+{
     public readonly internalRuntimeType = new Type(FloatingActionButton);
     public props: FloatingActionButtonProps;
     public constructor(props: FloatingActionButtonProps) {

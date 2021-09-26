@@ -9,6 +9,8 @@ import Axios from "axios";
 import { Command, Option } from "commander";
 import ProgressBar from "progress";
 
+const humanhash = require("humanhash");
+
 const defaultCacheDir = ".hydroc";
 
 class Hydroc {
@@ -23,6 +25,7 @@ class Hydroc {
         "swid",
         "build-project",
         "run-project",
+        "codepush",
     ];
 
     public constructor({ sdkToolsVersion }: { sdkToolsVersion: string }) {
@@ -243,13 +246,76 @@ class Hydroc {
             }
         );
     }
+
+    public codepush({
+        project,
+        ts2hc,
+        profile,
+        outDir,
+        privateKeyFile,
+        registryScheme,
+        registryHost,
+        registryPort,
+        channel,
+        readme,
+        pubspecyaml,
+        pubspeclock,
+        version,
+    }: {
+        project: string;
+        ts2hc: string;
+        outDir: string;
+        profile: string;
+        privateKeyFile: string;
+        registryScheme: string;
+        registryHost: string;
+        registryPort: string;
+        channel: string;
+        readme: string;
+        pubspecyaml: string;
+        pubspeclock: string;
+        version: string;
+    }) {
+        return cp.spawn(
+            this.makeSdkToolPlatformPath({ toolName: "codepush" }),
+            [
+                "--project",
+                project,
+                "--ts2hc",
+                ts2hc,
+                "--cache-dir",
+                this.cacheDir,
+                "--profile",
+                profile,
+                "--out-dir",
+                outDir,
+                "--private-key-file",
+                privateKeyFile,
+                "--registry-scheme",
+                registryScheme,
+                "--registry-host",
+                registryHost,
+                "--registry-port",
+                registryPort,
+                "--channel",
+                channel,
+                "--readme",
+                readme,
+                "--pubspecyaml",
+                pubspecyaml,
+                "--pubspeclock",
+                pubspeclock,
+                "--version",
+                version,
+            ],
+            {
+                stdio: "inherit",
+            }
+        );
+    }
 }
 
-async function readSdkPackage({
-    directory,
-}: {
-    directory: string;
-}): Promise<
+async function readSdkPackage({ directory }: { directory: string }): Promise<
     | Readonly<{
           version: string;
       }>
@@ -324,12 +390,20 @@ async function readSdkPackage({
                 "The profile to use for compilation"
             ).makeOptionMandatory()
         )
+        .addOption(
+            new Option(
+                "--skip-sdk-tools-check",
+                "Skip downloading missing SDK tools"
+            )
+        )
         .action(async (options) => {
             const hydroc = new Hydroc({
                 sdkToolsVersion: options.toolsVersion ?? sdkPackage.version,
             });
 
-            await hydroc.downloadMissingSdkTools();
+            if (!options.skipSdkToolsCheck) {
+                await hydroc.downloadMissingSdkTools();
+            }
 
             await new Promise((resolve, reject) => {
                 const ts2hc = hydroc.ts2hc({
@@ -415,6 +489,113 @@ async function readSdkPackage({
                 });
 
                 runProject.on("exit", (exitCode) =>
+                    exitCode == 0 ? resolve(undefined) : reject(exitCode)
+                );
+            }).catch((err) => process.exit(err));
+        });
+
+    program
+        .command("codepush")
+        .description("Publish the project given by --project")
+        .addOption(
+            new Option(
+                "--project <project>",
+                "The project description to use"
+            ).default("hydro.json")
+        )
+        .addOption(
+            new Option(
+                "--out-dir <out-dir>",
+                "The directory to write build outputs to"
+            ).default("")
+        )
+        .addOption(
+            new Option(
+                "--profile <profile>",
+                "The build profile to use for all chunks in the project"
+            ).default("release")
+        )
+        .addOption(
+            new Option(
+                "--registry-scheme <registry-scheme>",
+                "The scheme to use when connecting to the registry"
+            ).default("https")
+        )
+        .addOption(
+            new Option(
+                "--registry-host <registry-host>",
+                "The registry host to use"
+            ).default("api.registry.hydro-sdk.io")
+        )
+        .addOption(
+            new Option(
+                "--registry-port <registry-port",
+                "The port to use when connecting to the registry"
+            )
+        )
+        .addOption(
+            new Option(
+                "--private-key-file <private-key-file>",
+                "The path to the key to use to sign the release"
+            ).makeOptionMandatory()
+        )
+        .addOption(
+            new Option(
+                "--channel <channel>",
+                "The channel to publish the release to"
+            ).default("latest")
+        )
+        .addOption(
+            new Option(
+                "--readme <readme>",
+                "The path to the readme (in markdown format) to use for this release"
+            ).default("readme.md")
+        )
+        .addOption(
+            new Option(
+                "--pubspecyaml <pubspecyaml>",
+                "The path to the pubspec.yaml file to use for this release"
+            ).default("pubspec.yaml")
+        )
+        .addOption(
+            new Option(
+                "--pubspeclock <pubspeclock>",
+                "The path to the pubspec.lock file to use for this release"
+            ).default("pubspec.lock")
+        )
+        .addOption(
+            new Option(
+                "--version <version>",
+                "The version name to assign to this release"
+            ).default(new humanhash().uuid().humanhash)
+        )
+        .action(async (options) => {
+            const hydroc = new Hydroc({
+                sdkToolsVersion: options.toolsVersion ?? sdkPackage.version,
+            });
+
+            await hydroc.downloadMissingSdkTools();
+
+            await new Promise((resolve, reject) => {
+                const codepush = hydroc.codepush({
+                    project: options.project,
+                    profile: options.profile,
+                    outDir: options.outDir,
+                    privateKeyFile: options.privateKeyFile,
+                    registryScheme: options.registryScheme,
+                    registryHost: options.registryHost,
+                    registryPort: options.registryPort,
+                    channel: options.channel,
+                    readme: options.readme,
+                    pubspecyaml: options.pubspecyaml,
+                    pubspeclock: options.pubspeclock,
+                    version: options.version,
+                    ts2hc: hydroc.makeSdkToolPlatformPath({
+                        toolName: "ts2hc",
+                    }),
+                });
+
+                codepush.on("exit", (exitCode) =>
                     exitCode == 0 ? resolve(undefined) : reject(exitCode)
                 );
             }).catch((err) => process.exit(err));

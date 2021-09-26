@@ -5,17 +5,17 @@ import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
-void loadFittedBox(
-    {@required HydroState luaState, @required HydroTable table}) {
+void loadFittedBox({required HydroState luaState, required HydroTable table}) {
   table["fittedBox"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       FittedBox(
-        key: maybeUnBoxAndBuildArgument<Key>(args[0]["key"],
+        key: maybeUnBoxAndBuildArgument<Key, dynamic>(args[0]["key"],
             parentState: luaState),
         fit: maybeUnBoxEnum(values: BoxFit.values, boxedEnum: args[0]["fit"]),
-        alignment: maybeUnBoxAndBuildArgument<Alignment>(args[0]["alignment"],
+        alignment: maybeUnBoxAndBuildArgument<Alignment, dynamic>(
+            args[0]["alignment"],
             parentState: luaState),
-        child: maybeUnBoxAndBuildArgument<Widget>(args[0]["child"],
+        child: maybeUnBoxAndBuildArgument<Widget, dynamic>(args[0]["child"],
             parentState: luaState),
       )
     ];

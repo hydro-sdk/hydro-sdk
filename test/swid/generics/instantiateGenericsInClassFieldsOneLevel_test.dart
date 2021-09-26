@@ -12,7 +12,9 @@ import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
-import 'package:hydro_sdk/swid/ir/util/instantiateGeneric.dart';
+import 'package:hydro_sdk/swid/ir/transforms/instantiateGeneric.dart';
+import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
+import 'package:hydro_sdk/swid/swars/pipelineNoopCacheMgr.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
@@ -29,7 +31,7 @@ void main() {
           name: "first",
           nullabilitySuffix: SwidNullabilitySuffix.none,
           originalPackagePath: "dart:core",
-          swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+          declarationModifiers: SwidDeclarationModifiers.empty(),
           namedParameterTypes: {},
           namedDefaults: {},
           normalParameterNames: [],
@@ -38,6 +40,7 @@ void main() {
           optionalParameterTypes: [],
           returnType: SwidType.fromSwidInterface(
               swidInterface: SwidInterface(
+            declarationModifiers: SwidDeclarationModifiers.empty(),
             name: "E",
             nullabilitySuffix: SwidNullabilitySuffix.none,
             originalPackagePath: "dart:core",
@@ -52,7 +55,7 @@ void main() {
           name: "iterator",
           nullabilitySuffix: SwidNullabilitySuffix.none,
           originalPackagePath: "dart:core",
-          swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+          declarationModifiers: SwidDeclarationModifiers.empty(),
           namedParameterTypes: {},
           namedDefaults: {},
           normalParameterNames: [],
@@ -61,12 +64,14 @@ void main() {
           optionalParameterTypes: [],
           returnType: SwidType.fromSwidInterface(
               swidInterface: SwidInterface(
+            declarationModifiers: SwidDeclarationModifiers.empty(),
             name: "Iterator<E>",
             nullabilitySuffix: SwidNullabilitySuffix.none,
             originalPackagePath: "dart:core",
             typeArguments: [
               SwidType.fromSwidInterface(
                   swidInterface: SwidInterface(
+                declarationModifiers: SwidDeclarationModifiers.empty(),
                 name: "E",
                 nullabilitySuffix: SwidNullabilitySuffix.none,
                 originalPackagePath: "dart:core",
@@ -83,7 +88,7 @@ void main() {
       ],
       staticConstFieldDeclarations: [],
       instanceFieldDeclarations: {},
-      swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+      declarationModifiers: SwidDeclarationModifiers.empty(),
       mixedInClasses: [],
       implementedClasses: [],
       extendedClass: null,
@@ -97,24 +102,31 @@ void main() {
       ],
     );
 
-    var replacedIterable = instantiateGeneric(
-      genericInstantiator: SwidGenericInstantiator(
-        name: "E",
-        instantiatedGeneric:
-            SwidInstantiatedGeneric.fromSwidInstantiableGeneric(
-          swidInstantiableGeneric: SwidInstantiableGeneric.fromSwidInterface(
-              swidInterface: dartDouble),
-        ),
-      ),
-      swidType: SwidType.fromSwidClass(
-        swidClass: iterable,
-      ),
-    ).when(
-      fromSwidInterface: (_) => null,
-      fromSwidClass: (val) => val,
-      fromSwidDefaultFormalParameter: (_) => null,
-      fromSwidFunctionType: (_) => null,
-    );
+    var replacedIterable = CachingPipeline(
+      cacheMgr: const PipelineNoopCacheMgr(),
+    )
+        .reduceFromTerm(
+          InstantiateGeneric(
+            genericInstantiator: SwidGenericInstantiator(
+              name: "E",
+              instantiatedGeneric:
+                  SwidInstantiatedGeneric.fromSwidInstantiableGeneric(
+                swidInstantiableGeneric:
+                    SwidInstantiableGeneric.fromSwidInterface(
+                        swidInterface: dartDouble),
+              ),
+            ),
+            swidType: SwidType.fromSwidClass(
+              swidClass: iterable,
+            ),
+          ),
+        )
+        .when(
+          fromSwidInterface: (_) => dartUnknownClass,
+          fromSwidClass: (val) => val,
+          fromSwidDefaultFormalParameter: (_) => dartUnknownClass,
+          fromSwidFunctionType: (_) => dartUnknownClass,
+        );
 
     expect(
         replacedIterable.methods.first.returnType
@@ -123,7 +135,7 @@ void main() {
 
     expect(
         replacedIterable.methods.last.returnType
-            .maybeWhen(fromSwidInterface: (val) => val, orElse: () => null)
+            .maybeWhen(fromSwidInterface: (val) => val, orElse: () => null)!
             .displayName,
         "Iterator<double>");
   }, tags: "swid");

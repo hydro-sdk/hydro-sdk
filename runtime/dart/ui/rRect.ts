@@ -52,18 +52,6 @@ declare const dart: {
         ) => IRRect | undefined;
     };
 };
-const fromLTRBAndCornersDefaultProps = {
-    bottomLeft: Radius.zero,
-    bottomRight: Radius.zero,
-    topLeft: Radius.zero,
-    topRight: Radius.zero,
-};
-const fromRectAndCornersDefaultProps = {
-    bottomLeft: Radius.zero,
-    bottomRight: Radius.zero,
-    topLeft: Radius.zero,
-    topRight: Radius.zero,
-};
 export interface IRRect {
     left: number;
     top: number;
@@ -197,15 +185,12 @@ export class RRect {
     private readonly _dart_getTrRadius: () => IRadius = undefined as any;
     private readonly _dart_getBrRadius: () => IRadius = undefined as any;
     private readonly _dart_getBlRadius: () => IRadius = undefined as any;
-    private readonly _dart_shift: (
-        offset: IOffset
-    ) => IRRect = undefined as any;
-    private readonly _dart_inflate: (
-        delta: number
-    ) => IRRect = undefined as any;
-    private readonly _dart_deflate: (
-        delta: number
-    ) => IRRect = undefined as any;
+    private readonly _dart_shift: (offset: IOffset) => IRRect =
+        undefined as any;
+    private readonly _dart_inflate: (delta: number) => IRRect =
+        undefined as any;
+    private readonly _dart_deflate: (delta: number) => IRRect =
+        undefined as any;
     private readonly _dart_getWidth: () => number = undefined as any;
     private readonly _dart_getHeight: () => number = undefined as any;
     private readonly _dart_getOuterRect: () => IRect = undefined as any;
@@ -224,9 +209,8 @@ export class RRect {
     private readonly _dart_getHasNaN: () => boolean = undefined as any;
     private readonly _dart_getCenter: () => IOffset = undefined as any;
     private readonly _dart_scaleRadii: () => IRRect = undefined as any;
-    private readonly _dart_contains: (
-        point: IOffset
-    ) => boolean = undefined as any;
+    private readonly _dart_contains: (point: IOffset) => boolean =
+        undefined as any;
     private readonly _dart_getHashCode: () => number = undefined as any;
     private readonly _dart_toString: () => string = undefined as any;
     public getTlRadius(): IRadius {
@@ -314,3 +298,15 @@ export class RRect {
         return this._dart_toString();
     }
 }
+const fromLTRBAndCornersDefaultProps = {
+    bottomLeft: Radius.zero,
+    bottomRight: Radius.zero,
+    topLeft: Radius.zero,
+    topRight: Radius.zero,
+};
+const fromRectAndCornersDefaultProps = {
+    bottomLeft: Radius.zero,
+    bottomRight: Radius.zero,
+    topLeft: Radius.zero,
+    topRight: Radius.zero,
+};

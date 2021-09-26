@@ -1,131 +1,240 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:meta/meta.dart';
+
+import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
+import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
+import 'package:hydro_sdk/swid/util/iCopyable.dart';
 
 part 'swidDeclarationModifiers.freezed.dart';
 part 'swidDeclarationModifiers.g.dart';
 
 @freezed
-abstract class SwidDeclarationModifiers with _$SwidDeclarationModifiers {
-  const factory SwidDeclarationModifiers({
-    @required bool isAbstract,
-    @required bool isGetter,
-    @required bool isOperator,
-    @required bool isSetter,
-    @required bool isStatic,
-    @required bool isSynthetic,
-    @required bool hasAlwaysThrows,
-    @required bool hasDeprecated,
-    @required bool hasFactory,
-    @required bool hasImplicitReturnType,
-    @required bool hasIsTest,
-    @required bool hasIsTestGroup,
-    @required bool hasJS,
-    @required bool hasLiteral,
-    @required bool hasMustCallSuper,
-    @required bool hasNonVirtual,
-    @required bool hasOptionalTypeArgs,
-    @required bool hasOverride,
-    @required bool hasProtected,
-    @required bool hasRequired,
-    @required bool hasSealed,
-    @required bool hasVisibleForTemplate,
-    @required bool hasVisibleForTesting,
-    @required bool isPublic,
+class StringTuple
+    with
+        _$StringTuple,
+        HashKeyMixin<StringTuple>,
+        HashComparableMixin<StringTuple>
+    implements ICopyable<StringTuple, $StringTupleCopyWith<StringTuple>> {
+  StringTuple._();
+
+  factory StringTuple({
+    required final String item1,
+    required final String item2,
+  }) = _$StringTupleCtor;
+
+  factory StringTuple._clone({
+    required final StringTuple stringTuple,
+    final String? item1,
+    final String? item2,
+  }) =>
+      StringTuple(
+        item1: item1 ?? stringTuple.item1,
+        item2: item2 ?? stringTuple.item2,
+      );
+
+  @override
+  late final List<int> hashableParts = [
+    ...item1.hashableParts,
+    ...item2.hashableParts,
+  ];
+
+  factory StringTuple.fromJson(Map<String, dynamic> json) =>
+      _$StringTupleFromJson(json);
+
+  @override
+  StringTuple clone({
+    final String? item1,
+    final String? item2,
+  }) =>
+      StringTuple._clone(
+        stringTuple: this,
+        item1: item1,
+        item2: item2,
+      );
+}
+
+@freezed
+class SwidDeclarationModifiers
+    with
+        _$SwidDeclarationModifiers,
+        HashKeyMixin<SwidDeclarationModifiers>,
+        HashComparableMixin<SwidDeclarationModifiers>
+    implements
+        ICopyable<SwidDeclarationModifiers,
+            $SwidDeclarationModifiersCopyWith<SwidDeclarationModifiers>> {
+  SwidDeclarationModifiers._();
+
+  factory SwidDeclarationModifiers({
+    required final List<String> ignoredTransforms,
+    required final List<String> ignoredAnalyses,
+    required final List<StringTuple> overridenTransforms,
+    required final bool isAbstract,
+    required final bool isGetter,
+    required final bool isOperator,
+    required final bool isSetter,
+    required final bool isStatic,
+    required final bool isSynthetic,
+    required final bool hasAlwaysThrows,
+    required final bool hasDeprecated,
+    required final bool hasFactory,
+    required final bool hasImplicitReturnType,
+    required final bool hasIsTest,
+    required final bool hasIsTestGroup,
+    required final bool hasJS,
+    required final bool hasLiteral,
+    required final bool hasMustCallSuper,
+    required final bool hasNonVirtual,
+    required final bool hasOptionalTypeArgs,
+    required final bool hasOverride,
+    required final bool hasProtected,
+    required final bool hasRequired,
+    required final bool hasSealed,
+    required final bool hasVisibleForTemplate,
+    required final bool hasVisibleForTesting,
+    required final bool isPublic,
   }) = _$Data;
+
+  @override
+  late final List<int> hashableParts = [
+    ...ignoredTransforms.hashableParts,
+    ...ignoredAnalyses.hashableParts,
+    ...overridenTransforms.hashableParts,
+    ...isAbstract.hashableParts,
+    ...isGetter.hashableParts,
+    ...isOperator.hashableParts,
+    ...isSetter.hashableParts,
+    ...isStatic.hashableParts,
+    ...isSynthetic.hashableParts,
+    ...hasAlwaysThrows.hashableParts,
+    ...hasDeprecated.hashableParts,
+    ...hasFactory.hashableParts,
+    ...hasImplicitReturnType.hashableParts,
+    ...hasIsTest.hashableParts,
+    ...hasIsTestGroup.hashableParts,
+    ...hasJS.hashableParts,
+    ...hasLiteral.hashableParts,
+    ...hasMustCallSuper.hashableParts,
+    ...hasNonVirtual.hashableParts,
+    ...hasOptionalTypeArgs.hashableParts,
+    ...hasOverride.hashableParts,
+    ...hasProtected.hashableParts,
+    ...hasRequired.hashableParts,
+    ...hasSealed.hashableParts,
+    ...hasVisibleForTemplate.hashableParts,
+    ...hasVisibleForTesting.hashableParts,
+    ...isPublic.hashableParts,
+  ];
 
   factory SwidDeclarationModifiers.fromJson(Map<String, dynamic> json) =>
       _$SwidDeclarationModifiersFromJson(json);
 
   factory SwidDeclarationModifiers.clone({
-    @required SwidDeclarationModifiers swidDeclarationModifiers,
-    bool isAbstract,
-    bool isGetter,
-    bool isOperator,
-    bool isSetter,
-    bool isStatic,
-    bool isSynthetic,
-    bool hasAlwaysThrows,
-    bool hasDeprecated,
-    bool hasFactory,
-    bool hasImplicitReturnType,
-    bool hasIsTest,
-    bool hasIsTestGroup,
-    bool hasJS,
-    bool hasLiteral,
-    bool hasMustCallSuper,
-    bool hasNonVirtual,
-    bool hasOptionalTypeArgs,
-    bool hasOverride,
-    bool hasProtected,
-    bool hasRequired,
-    bool hasSealed,
-    bool hasVisibleForTemplate,
-    bool hasVisibleForTesting,
-    bool isPublic,
+    required final SwidDeclarationModifiers declarationModifiers,
+    final List<String>? ignoredTransforms,
+    final List<String>? ignoredAnalyses,
+    final List<StringTuple>? overridenTransforms,
+    final bool? isAbstract,
+    final bool? isGetter,
+    final bool? isOperator,
+    final bool? isSetter,
+    final bool? isStatic,
+    final bool? isSynthetic,
+    final bool? hasAlwaysThrows,
+    final bool? hasDeprecated,
+    final bool? hasFactory,
+    final bool? hasImplicitReturnType,
+    final bool? hasIsTest,
+    final bool? hasIsTestGroup,
+    final bool? hasJS,
+    final bool? hasLiteral,
+    final bool? hasMustCallSuper,
+    final bool? hasNonVirtual,
+    final bool? hasOptionalTypeArgs,
+    final bool? hasOverride,
+    final bool? hasProtected,
+    final bool? hasRequired,
+    final bool? hasSealed,
+    final bool? hasVisibleForTemplate,
+    final bool? hasVisibleForTesting,
+    final bool? isPublic,
   }) =>
       SwidDeclarationModifiers(
-        isAbstract: isAbstract ?? swidDeclarationModifiers.isAbstract,
-        isGetter: isGetter ?? swidDeclarationModifiers.isGetter,
-        isOperator: isOperator ?? swidDeclarationModifiers.isOperator,
-        isSetter: isSetter ?? swidDeclarationModifiers.isSetter,
-        isStatic: isStatic ?? swidDeclarationModifiers.isStatic,
-        isSynthetic: isSynthetic ?? swidDeclarationModifiers.isSynthetic,
+        ignoredTransforms:
+            ignoredTransforms ?? declarationModifiers.ignoredTransforms,
+        ignoredAnalyses:
+            ignoredAnalyses ?? declarationModifiers.ignoredAnalyses,
+        overridenTransforms: overridenTransforms ??
+            declarationModifiers.overridenTransforms
+                .map(
+                  (x) => x,
+                )
+                .toList(),
+        isAbstract: isAbstract ?? declarationModifiers.isAbstract,
+        isGetter: isGetter ?? declarationModifiers.isGetter,
+        isOperator: isOperator ?? declarationModifiers.isOperator,
+        isSetter: isSetter ?? declarationModifiers.isSetter,
+        isStatic: isStatic ?? declarationModifiers.isStatic,
+        isSynthetic: isSynthetic ?? declarationModifiers.isSynthetic,
         hasAlwaysThrows:
-            hasAlwaysThrows ?? swidDeclarationModifiers.hasAlwaysThrows,
-        hasDeprecated: hasDeprecated ?? swidDeclarationModifiers.hasDeprecated,
-        hasFactory: hasFactory ?? swidDeclarationModifiers.hasFactory,
-        hasImplicitReturnType: hasImplicitReturnType ??
-            swidDeclarationModifiers.hasImplicitReturnType,
-        hasIsTest: hasIsTest ?? swidDeclarationModifiers.hasIsTest,
-        hasIsTestGroup:
-            hasIsTestGroup ?? swidDeclarationModifiers.hasIsTestGroup,
-        hasJS: hasJS ?? swidDeclarationModifiers.hasJS,
-        hasLiteral: hasLiteral ?? swidDeclarationModifiers.hasLiteral,
+            hasAlwaysThrows ?? declarationModifiers.hasAlwaysThrows,
+        hasDeprecated: hasDeprecated ?? declarationModifiers.hasDeprecated,
+        hasFactory: hasFactory ?? declarationModifiers.hasFactory,
+        hasImplicitReturnType:
+            hasImplicitReturnType ?? declarationModifiers.hasImplicitReturnType,
+        hasIsTest: hasIsTest ?? declarationModifiers.hasIsTest,
+        hasIsTestGroup: hasIsTestGroup ?? declarationModifiers.hasIsTestGroup,
+        hasJS: hasJS ?? declarationModifiers.hasJS,
+        hasLiteral: hasLiteral ?? declarationModifiers.hasLiteral,
         hasMustCallSuper:
-            hasMustCallSuper ?? swidDeclarationModifiers.hasMustCallSuper,
-        hasNonVirtual: hasNonVirtual ?? swidDeclarationModifiers.hasNonVirtual,
+            hasMustCallSuper ?? declarationModifiers.hasMustCallSuper,
+        hasNonVirtual: hasNonVirtual ?? declarationModifiers.hasNonVirtual,
         hasOptionalTypeArgs:
-            hasOptionalTypeArgs ?? swidDeclarationModifiers.hasOptionalTypeArgs,
-        hasOverride: hasOverride ?? swidDeclarationModifiers.hasOverride,
-        hasProtected: hasProtected ?? swidDeclarationModifiers.hasProtected,
-        hasRequired: hasRequired ?? swidDeclarationModifiers.hasRequired,
-        hasSealed: hasSealed ?? swidDeclarationModifiers.hasSealed,
-        hasVisibleForTemplate: hasVisibleForTemplate ??
-            swidDeclarationModifiers.hasVisibleForTemplate,
-        hasVisibleForTesting: hasVisibleForTesting ??
-            swidDeclarationModifiers.hasVisibleForTemplate,
-        isPublic: isPublic ?? swidDeclarationModifiers.isPublic,
+            hasOptionalTypeArgs ?? declarationModifiers.hasOptionalTypeArgs,
+        hasOverride: hasOverride ?? declarationModifiers.hasOverride,
+        hasProtected: hasProtected ?? declarationModifiers.hasProtected,
+        hasRequired: hasRequired ?? declarationModifiers.hasRequired,
+        hasSealed: hasSealed ?? declarationModifiers.hasSealed,
+        hasVisibleForTemplate:
+            hasVisibleForTemplate ?? declarationModifiers.hasVisibleForTemplate,
+        hasVisibleForTesting:
+            hasVisibleForTesting ?? declarationModifiers.hasVisibleForTemplate,
+        isPublic: isPublic ?? declarationModifiers.isPublic,
       );
 
   factory SwidDeclarationModifiers.empty() => SwidDeclarationModifiers.only();
 
   factory SwidDeclarationModifiers.only({
-    isAbstract: false,
-    isGetter: false,
-    isOperator: false,
-    isSetter: false,
-    isStatic: false,
-    isSynthetic: false,
-    hasAlwaysThrows: false,
-    hasDeprecated: false,
-    hasFactory: false,
-    hasImplicitReturnType: false,
-    hasIsTest: false,
-    hasIsTestGroup: false,
-    hasJS: false,
-    hasLiteral: false,
-    hasMustCallSuper: false,
-    hasNonVirtual: false,
-    hasOptionalTypeArgs: false,
-    hasOverride: false,
-    hasProtected: false,
-    hasRequired: false,
-    hasSealed: false,
-    hasVisibleForTemplate: false,
-    hasVisibleForTesting: false,
-    isPublic: true,
+    final List<String> ignoredTransforms: const [],
+    final List<String> ignoredAnalyses: const [],
+    final List<StringTuple> overridenTransforms: const [],
+    final bool isAbstract: false,
+    final bool isGetter: false,
+    final bool isOperator: false,
+    final bool isSetter: false,
+    final bool isStatic: false,
+    final bool isSynthetic: false,
+    final bool hasAlwaysThrows: false,
+    final bool hasDeprecated: false,
+    final bool hasFactory: false,
+    final bool hasImplicitReturnType: false,
+    final bool hasIsTest: false,
+    final bool hasIsTestGroup: false,
+    final bool hasJS: false,
+    final bool hasLiteral: false,
+    final bool hasMustCallSuper: false,
+    final bool hasNonVirtual: false,
+    final bool hasOptionalTypeArgs: false,
+    final bool hasOverride: false,
+    final bool hasProtected: false,
+    final bool hasRequired: false,
+    final bool hasSealed: false,
+    final bool hasVisibleForTemplate: false,
+    final bool hasVisibleForTesting: false,
+    final bool isPublic: true,
   }) =>
       SwidDeclarationModifiers(
+        ignoredTransforms: ignoredTransforms,
+        ignoredAnalyses: ignoredAnalyses,
+        overridenTransforms: overridenTransforms,
         isAbstract: isAbstract,
         isGetter: isGetter,
         isOperator: isOperator,
@@ -160,5 +269,66 @@ abstract class SwidDeclarationModifiers with _$SwidDeclarationModifiers {
   factory SwidDeclarationModifiers.syntheticSetter() =>
       SwidDeclarationModifiers.only(
         isSetter: true,
+      );
+
+  @override
+  SwidDeclarationModifiers clone({
+    final List<String>? ignoredTransforms,
+    final List<String>? ignoredAnalyses,
+    final List<StringTuple>? overridenTransforms,
+    final bool? isAbstract,
+    final bool? isGetter,
+    final bool? isOperator,
+    final bool? isSetter,
+    final bool? isStatic,
+    final bool? isSynthetic,
+    final bool? hasAlwaysThrows,
+    final bool? hasDeprecated,
+    final bool? hasFactory,
+    final bool? hasImplicitReturnType,
+    final bool? hasIsTest,
+    final bool? hasIsTestGroup,
+    final bool? hasJS,
+    final bool? hasLiteral,
+    final bool? hasMustCallSuper,
+    final bool? hasNonVirtual,
+    final bool? hasOptionalTypeArgs,
+    final bool? hasOverride,
+    final bool? hasProtected,
+    final bool? hasRequired,
+    final bool? hasSealed,
+    final bool? hasVisibleForTemplate,
+    final bool? hasVisibleForTesting,
+    final bool? isPublic,
+  }) =>
+      SwidDeclarationModifiers.clone(
+        declarationModifiers: this,
+        ignoredTransforms: ignoredTransforms,
+        ignoredAnalyses: ignoredAnalyses,
+        overridenTransforms: overridenTransforms,
+        isAbstract: isAbstract,
+        isGetter: isGetter,
+        isOperator: isOperator,
+        isSetter: isSetter,
+        isStatic: isStatic,
+        isSynthetic: isSynthetic,
+        hasAlwaysThrows: hasAlwaysThrows,
+        hasDeprecated: hasDeprecated,
+        hasFactory: hasFactory,
+        hasImplicitReturnType: hasImplicitReturnType,
+        hasIsTest: hasIsTest,
+        hasIsTestGroup: hasIsTestGroup,
+        hasJS: hasJS,
+        hasLiteral: hasLiteral,
+        hasMustCallSuper: hasMustCallSuper,
+        hasNonVirtual: hasNonVirtual,
+        hasOptionalTypeArgs: hasOptionalTypeArgs,
+        hasOverride: hasOverride,
+        hasProtected: hasProtected,
+        hasRequired: hasRequired,
+        hasSealed: hasSealed,
+        hasVisibleForTemplate: hasVisibleForTemplate,
+        hasVisibleForTesting: hasVisibleForTesting,
+        isPublic: isPublic,
       );
 }

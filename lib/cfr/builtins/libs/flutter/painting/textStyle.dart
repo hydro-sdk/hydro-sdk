@@ -12,11 +12,11 @@ class VMManagedTextStyle extends VMManagedBox<TextStyle> {
   final TextStyle vmObject;
   final HydroState hydroState;
 
-  VMManagedTextStyle(
-      {@required this.table,
-      @required this.vmObject,
-      @required this.hydroState})
-      : super(
+  VMManagedTextStyle({
+    required this.table,
+    required this.vmObject,
+    required this.hydroState,
+  }) : super(
           table: table,
           vmObject: vmObject,
           hydroState: hydroState,
@@ -25,7 +25,8 @@ class VMManagedTextStyle extends VMManagedBox<TextStyle> {
       return [
         maybeBoxObject<TextStyle>(
           object: vmObject.copyWith(
-              color: maybeUnBoxAndBuildArgument<Color>(args[1]["color"],
+              color: maybeUnBoxAndBuildArgument<Color, dynamic>(
+                  args[1]["color"],
                   parentState: hydroState)),
           hydroState: hydroState,
           table: HydroTable(),
@@ -36,7 +37,8 @@ class VMManagedTextStyle extends VMManagedBox<TextStyle> {
       return [
         maybeBoxObject<TextStyle>(
           object: vmObject.apply(
-              color: maybeUnBoxAndBuildArgument<Color>(args[1]["color"],
+              color: maybeUnBoxAndBuildArgument<Color, dynamic>(
+                  args[1]["color"],
                   parentState: hydroState),
               fontWeightDelta: args[1]["fontWeightDelta"] != null
                   ? args[1]["fontWeightDelta"]
@@ -49,10 +51,15 @@ class VMManagedTextStyle extends VMManagedBox<TextStyle> {
   }
 }
 
-void loadTextStyle(
-    {@required HydroState luaState, @required HydroTable table}) {
-  registerBoxer(
-      boxer: ({TextStyle vmObject, HydroState hydroState, HydroTable table}) {
+void loadTextStyle({
+  required HydroState luaState,
+  required HydroTable table,
+}) {
+  registerBoxer<TextStyle>(boxer: ({
+    required TextStyle vmObject,
+    required HydroState hydroState,
+    required HydroTable table,
+  }) {
     return VMManagedTextStyle(
       vmObject: vmObject,
       hydroState: hydroState,
@@ -64,9 +71,9 @@ void loadTextStyle(
     return [
       TextStyle(
           fontSize: args[0]["fontSize"]?.toDouble(),
-          color: maybeUnBoxAndBuildArgument<Color>(args[0]["color"],
+          color: maybeUnBoxAndBuildArgument<Color, dynamic>(args[0]["color"],
               parentState: luaState),
-          fontWeight: maybeUnBoxAndBuildArgument<FontWeight>(
+          fontWeight: maybeUnBoxAndBuildArgument<FontWeight, dynamic>(
               args[0]["fontWeight"],
               parentState: luaState))
     ];

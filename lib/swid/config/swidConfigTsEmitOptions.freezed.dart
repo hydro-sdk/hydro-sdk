@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'swidConfigTsEmitOptions.dart';
 
@@ -8,6 +8,10 @@ part of 'swidConfigTsEmitOptions.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 SwidConfigTsEmitOptions _$SwidConfigTsEmitOptionsFromJson(
     Map<String, dynamic> json) {
   return _$SwidConfigTsEmitOptionsCtor.fromJson(json);
@@ -17,30 +21,28 @@ SwidConfigTsEmitOptions _$SwidConfigTsEmitOptionsFromJson(
 class _$SwidConfigTsEmitOptionsTearOff {
   const _$SwidConfigTsEmitOptionsTearOff();
 
-// ignore: unused_element
-  _$SwidConfigTsEmitOptionsCtor call({@required List<String> prefixPaths}) {
+  _$SwidConfigTsEmitOptionsCtor call({required List<String> prefixPaths}) {
     return _$SwidConfigTsEmitOptionsCtor(
       prefixPaths: prefixPaths,
     );
   }
 
-// ignore: unused_element
   SwidConfigTsEmitOptions fromJson(Map<String, Object> json) {
     return SwidConfigTsEmitOptions.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $SwidConfigTsEmitOptions = _$SwidConfigTsEmitOptionsTearOff();
 
 /// @nodoc
 mixin _$SwidConfigTsEmitOptions {
-  List<String> get prefixPaths;
+  List<String> get prefixPaths => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $SwidConfigTsEmitOptionsCopyWith<SwidConfigTsEmitOptions> get copyWith;
+  $SwidConfigTsEmitOptionsCopyWith<SwidConfigTsEmitOptions> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -62,12 +64,13 @@ class _$SwidConfigTsEmitOptionsCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object prefixPaths = freezed,
+    Object? prefixPaths = freezed,
   }) {
     return _then(_value.copyWith(
       prefixPaths: prefixPaths == freezed
           ? _value.prefixPaths
-          : prefixPaths as List<String>,
+          : prefixPaths // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ));
   }
 }
@@ -98,22 +101,21 @@ class __$$SwidConfigTsEmitOptionsCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object prefixPaths = freezed,
+    Object? prefixPaths = freezed,
   }) {
     return _then(_$SwidConfigTsEmitOptionsCtor(
       prefixPaths: prefixPaths == freezed
           ? _value.prefixPaths
-          : prefixPaths as List<String>,
+          : prefixPaths // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_$SwidConfigTsEmitOptionsCtor implements _$SwidConfigTsEmitOptionsCtor {
-  const _$_$SwidConfigTsEmitOptionsCtor({@required this.prefixPaths})
-      : assert(prefixPaths != null);
+  const _$_$SwidConfigTsEmitOptionsCtor({required this.prefixPaths});
 
   factory _$_$SwidConfigTsEmitOptionsCtor.fromJson(Map<String, dynamic> json) =>
       _$_$_$SwidConfigTsEmitOptionsCtorFromJson(json);
@@ -154,15 +156,15 @@ class _$_$SwidConfigTsEmitOptionsCtor implements _$SwidConfigTsEmitOptionsCtor {
 abstract class _$SwidConfigTsEmitOptionsCtor
     implements SwidConfigTsEmitOptions {
   const factory _$SwidConfigTsEmitOptionsCtor(
-      {@required List<String> prefixPaths}) = _$_$SwidConfigTsEmitOptionsCtor;
+      {required List<String> prefixPaths}) = _$_$SwidConfigTsEmitOptionsCtor;
 
   factory _$SwidConfigTsEmitOptionsCtor.fromJson(Map<String, dynamic> json) =
       _$_$SwidConfigTsEmitOptionsCtor.fromJson;
 
   @override
-  List<String> get prefixPaths;
+  List<String> get prefixPaths => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$SwidConfigTsEmitOptionsCtorCopyWith<_$SwidConfigTsEmitOptionsCtor>
-      get copyWith;
+      get copyWith => throw _privateConstructorUsedError;
 }

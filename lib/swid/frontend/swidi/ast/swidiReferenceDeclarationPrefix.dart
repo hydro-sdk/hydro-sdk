@@ -1,14 +1,50 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:meta/meta.dart';
+
+import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
+import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
+import 'package:hydro_sdk/swid/util/iCopyable.dart';
 
 part 'swidiReferenceDeclarationPrefix.freezed.dart';
 
 @freezed
-abstract class SwidiReferenceDeclarationPrefix
-    with _$SwidiReferenceDeclarationPrefix {
-  const factory SwidiReferenceDeclarationPrefix({
-    @required String name,
+class SwidiReferenceDeclarationPrefix
+    with
+        _$SwidiReferenceDeclarationPrefix,
+        HashKeyMixin<SwidiReferenceDeclarationPrefix>,
+        HashComparableMixin<SwidiReferenceDeclarationPrefix>
+    implements
+        ICopyable<
+            SwidiReferenceDeclarationPrefix,
+            $SwidiReferenceDeclarationPrefixCopyWith<
+                SwidiReferenceDeclarationPrefix>> {
+  SwidiReferenceDeclarationPrefix._();
+
+  factory SwidiReferenceDeclarationPrefix({
+    required final String name,
   }) = _$SwidiReferenceDeclarationPrefixCtor;
 
-  static const empty = const SwidiReferenceDeclarationPrefix(name: "");
+  static final empty = SwidiReferenceDeclarationPrefix(name: "");
+
+  factory SwidiReferenceDeclarationPrefix._clone({
+    required final SwidiReferenceDeclarationPrefix
+        swidiReferenceDeclarationPrefix,
+    String? name,
+  }) =>
+      SwidiReferenceDeclarationPrefix(
+        name: name ?? swidiReferenceDeclarationPrefix.name,
+      );
+
+  @override
+  List<int> get hashableParts => [
+        ...name.hashableParts,
+      ];
+
+  @override
+  SwidiReferenceDeclarationPrefix clone({
+    final String? name,
+  }) =>
+      SwidiReferenceDeclarationPrefix._clone(
+        swidiReferenceDeclarationPrefix: this,
+        name: name,
+      );
 }

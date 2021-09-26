@@ -1,38 +1,95 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:meta/meta.dart';
 
+import 'package:hydro_sdk/swid/ir/iSwidType.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidDefaultFormalParameter.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
-import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
+import 'package:hydro_sdk/swid/ir/swidTypeMixin.dart';
+import 'package:hydro_sdk/swid/transforms/removeNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/transforms/removeTypeArguments.dart';
+import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
+import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
+import 'package:hydro_sdk/swid/util/iJsonTransformable.dart';
 
 part 'swidType.freezed.dart';
 part 'swidType.g.dart';
 
 @freezed
-abstract class SwidType with _$SwidType {
-  const factory SwidType.fromSwidInterface(
-      {@required SwidInterface swidInterface}) = _$FromSwidInterface;
+class SwidType
+    with
+        _$SwidType,
+        SwidTypeMixin<SwidType>,
+        HashKeyMixin<SwidType>,
+        HashComparableMixin<SwidType>
+    implements ISwidType<SwidType>, IJsonTransformable {
+  SwidType._();
 
-  const factory SwidType.fromSwidClass({@required SwidClass swidClass}) =
-      _$FromSwidClass;
+  factory SwidType.fromSwidInterface({
+    required final SwidInterface swidInterface,
+  }) = _$FromSwidInterface;
 
-  const factory SwidType.fromSwidDefaultFormalParameter(
-          {@required SwidDefaultFormalParameter swidDefaultFormalParameter}) =
-      _$FromSwidDefaultFormalParameter;
+  factory SwidType.fromSwidClass({
+    required final SwidClass swidClass,
+  }) = _$FromSwidClass;
 
-  const factory SwidType.fromSwidFunctionType(
-      {@required SwidFunctionType swidFunctionType}) = _$FromSwidFunctionType;
+  factory SwidType.fromSwidDefaultFormalParameter({
+    required final SwidDefaultFormalParameter swidDefaultFormalParameter,
+  }) = _$FromSwidDefaultFormalParameter;
+
+  factory SwidType.fromSwidFunctionType({
+    required final SwidFunctionType swidFunctionType,
+  }) = _$FromSwidFunctionType;
 
   factory SwidType.fromJson(Map<String, dynamic> json) =>
       _$SwidTypeFromJson(json);
-}
 
-extension SwidTypeMethods on SwidType {
+  factory SwidType.clone({
+    required final SwidType swidType,
+  }) =>
+      swidType.when(
+        fromSwidInterface: (val) => SwidType.fromSwidInterface(
+          swidInterface: val,
+        ),
+        fromSwidClass: (val) => SwidType.fromSwidClass(
+          swidClass: val,
+        ),
+        fromSwidDefaultFormalParameter: (val) =>
+            SwidType.fromSwidDefaultFormalParameter(
+          swidDefaultFormalParameter: val,
+        ),
+        fromSwidFunctionType: (val) => SwidType.fromSwidFunctionType(
+          swidFunctionType: val,
+        ),
+      );
+
+  @override
+  SwidType fromJson(final Map<String, dynamic> json) => SwidType.fromJson(json);
+
+  @override
+  late final List<int> hashableParts = when(
+    fromSwidInterface: (val) => val.hashableParts,
+    fromSwidClass: (val) => val.hashableParts,
+    fromSwidDefaultFormalParameter: (val) => val.hashableParts,
+    fromSwidFunctionType: (val) => val.hashableParts,
+  );
+
+  @override
+  SwidType clone() => SwidType.clone(
+        swidType: this,
+      );
+
+  @override
+  SwidDeclarationModifiers get declarationModifiers => when(
+        fromSwidInterface: (val) => val.declarationModifiers,
+        fromSwidClass: (val) => val.declarationModifiers,
+        fromSwidDefaultFormalParameter: (val) => val.declarationModifiers,
+        fromSwidFunctionType: (val) => val.declarationModifiers,
+      );
+
   SwidNullabilitySuffix get nullabilitySuffix => when(
       fromSwidInterface: (val) => val.nullabilitySuffix,
       fromSwidClass: (val) => val.nullabilitySuffix,
@@ -42,7 +99,7 @@ extension SwidTypeMethods on SwidType {
   String get name => when(
         fromSwidInterface: (val) => val.name,
         fromSwidClass: (val) => val.name,
-        fromSwidDefaultFormalParameter: (val) => val.name,
+        fromSwidDefaultFormalParameter: (val) => val.staticType.name,
         fromSwidFunctionType: (val) => val.name,
       );
 
@@ -53,36 +110,49 @@ extension SwidTypeMethods on SwidType {
         fromSwidFunctionType: (val) => val.originalPackagePath,
       );
 
-  String get displayName => [
-        when(
-          fromSwidInterface: (val) => [
-            removeTypeArguments(str: val.name),
-            ...(val.typeArguments.isNotEmpty
-                ? [
-                    "<",
-                    val.typeArguments
-                        .map((x) => x.displayName)
-                        .toList()
-                        .join(","),
-                    ">"
-                  ]
-                : [])
-          ].join(""),
-          fromSwidClass: (val) => [
-            removeTypeArguments(str: val.name),
-            ...(val.typeFormals.isNotEmpty
-                ? [
-                    "<",
-                    val.typeFormals
-                        .map((x) => x.value.displayName)
-                        .toList()
-                        .join(""),
-                    ">"
-                  ]
-                : [])
-          ].join(""),
-          fromSwidDefaultFormalParameter: (val) => val.name,
-          fromSwidFunctionType: (val) => val.name,
-        ),
-      ].join("");
+  String get displayName => (({
+        required final String name,
+      }) =>
+              name.isNotEmpty
+                  ? [
+                      name,
+                      nullabilitySuffix == SwidNullabilitySuffix.question
+                          ? "?"
+                          : "",
+                    ].join("")
+                  : name)(
+          name: [
+        removeNullabilitySuffix(
+          str: when(
+            fromSwidInterface: (val) => [
+              removeTypeArguments(str: val.name),
+              ...(val.typeArguments.isNotEmpty
+                  ? [
+                      "<",
+                      val.typeArguments
+                          .map((x) => x.displayName)
+                          .toList()
+                          .join(","),
+                      ">"
+                    ]
+                  : [])
+            ].join(""),
+            fromSwidClass: (val) => [
+              removeTypeArguments(str: val.name),
+              ...(val.typeFormals.isNotEmpty
+                  ? [
+                      "<",
+                      val.typeFormals
+                          .map((x) => x.value.displayName)
+                          .toList()
+                          .join(","),
+                      ">"
+                    ]
+                  : [])
+            ].join(""),
+            fromSwidDefaultFormalParameter: (val) => val.staticType.name,
+            fromSwidFunctionType: (val) => val.name,
+          ),
+        )
+      ].join(""));
 }

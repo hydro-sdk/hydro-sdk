@@ -1,5 +1,3 @@
-import 'package:meta/meta.dart';
-
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/cupertino/cupertinoApp.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/cupertino/cupertinoButton.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/cupertino/cupertinoContextMenu.dart';
@@ -7,8 +5,7 @@ import 'package:hydro_sdk/cfr/builtins/libs/flutter/cupertino/cupertinoContextMe
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
-void loadCupertino(
-    {@required HydroState luaState, @required HydroTable table}) {
+void loadCupertino({required HydroState luaState, required HydroTable table}) {
   var cupertino = HydroTable();
 
   table["cupertino"] = cupertino;

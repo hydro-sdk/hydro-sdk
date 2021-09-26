@@ -26,7 +26,7 @@ jobs:
       uses: actions/checkout@v2
       with:
         repository: 'flutter/flutter'
-        ref: '1.22.0'
+        ref: '2.0.6'
         path: 'flutter'
         fetch-depth: 0
     - name: Add Flutter to the PATH for Unix
@@ -67,7 +67,9 @@ jobs:
 
     - name: Build SWID
       shell: bash
-      run: time dart2native bin/swid.dart -o bin/swid  -v 
+      run: | 
+        time dart2native bin/swid.dart -o bin/swid  -v 
+        du -shk bin/swid
       working-directory: hydro
 
     # - name: Run binding generator

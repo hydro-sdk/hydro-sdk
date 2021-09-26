@@ -1,12 +1,11 @@
 import 'dart:io';
 
-import 'package:meta/meta.dart';
 import 'package:path/path.dart' as p;
 
 import 'package:hydro_sdk/swid/backend/translationUnit.dart';
 
 Future<void> writeTranslationUnit(
-    {@required TranslationUnit translationUnit}) async {
+    {required final TranslationUnit translationUnit}) async {
   var dir =
       Directory([...translationUnit.path.split(p.separator)].join(p.separator));
 

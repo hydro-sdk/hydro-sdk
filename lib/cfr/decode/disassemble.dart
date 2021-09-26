@@ -12,7 +12,7 @@ String disassemble(CodeDump code) {
   }
 
   writeLine(
-      ".version 0x${(code.versionMajor * 16 + code.versionMinor).toRadixString(16)}");
+      ".version 0x${(code.versionMajor! * 16 + code.versionMinor!).toRadixString(16)}");
   writeLine(".implementation ${code.implementation}");
   writeLine(".endian ${code.littleEndian ? 1 : 0}");
   writeLine(".int_size ${code.intSize}");
@@ -33,19 +33,19 @@ String disassemble(CodeDump code) {
           func.lineEnd.toString());
     if (func.params != 0) writeLine(".params " + func.params.toString());
     if (func.varag != 0) writeLine(".vararg " + func.varag.toString());
-    void writeConst(int i, [String comment]) {
+    void writeConst(int i, [String? comment]) {
       writeLine(".const " +
           i.toString() +
           " " +
-          func.constantScope.elementAt(i - 1).toString() +
+          func.constantScope!.elementAt(i - 1).toString() +
           (comment == null ? "" : " ; $comment"));
     }
 
-    for (int i = 0; i < func.constants.length; i++) {
-      writeConst(func.constantScope.toList().indexOf(func.constants[i]) + 1);
+    for (int i = 0; i < func.constants!.length; i++) {
+      writeConst(func.constantScope!.toList().indexOf(func.constants![i]) + 1);
     }
-    for (int i = 0; i < func.prototypes.length; i++) {
-      writeFunc(func.prototypes[i], i.toString());
+    for (int i = 0; i < func.prototypes!.length; i++) {
+      writeFunc(func.prototypes![i], i.toString());
     }
     for (int i = 0; i < func.upvals.length; i++) {
       writeLine(".upval " +
@@ -54,7 +54,7 @@ String disassemble(CodeDump code) {
           func.upvals[i].reg.toString() +
           (func.upvals[i].name == null
               ? ""
-              : " \"" + luaEscape(func.upvals[i].name) + "\""));
+              : " \"" + luaEscape(func.upvals[i].name!) + "\""));
     }
     writeLine(".registers " + func.registers.toString());
     // ignore: non_constant_identifier_names
@@ -64,37 +64,37 @@ String disassemble(CodeDump code) {
     for (int i = 0; i < func.locals.length; i++) {
       var c = func.locals[i];
       local_start[c.from] = local_start[c.from] ?? [];
-      local_start[c.from].add(c);
+      local_start[c.from]!.add(c);
       local_end[c.to] = local_end[c.to] ?? [];
-      local_end[c.to].add(c);
+      local_end[c.to]!.add(c);
     }
 
     int clocal = 0;
 
     if (local_start.containsKey(0)) {
-      local_start[0].forEach((e) => writeLine(".local " +
+      local_start[0]!.forEach((e) => writeLine(".local " +
           (clocal++).toString() +
           " \"" +
           luaEscape(e.name) +
           "\""));
     }
 
-    for (int i = 0; i < func.code.length; i++) {
-      var c = func.code[i];
+    for (int i = 0; i < func.code!.length; i++) {
+      var c = func.code![i];
       if (local_end.containsKey(i + 1)) {
-        local_end[i + 1]
+        local_end[i + 1]!
             .forEach((e) => writeLine(".endlocal " + (--clocal).toString()));
       }
 
       if (local_start.containsKey(i + 1)) {
-        local_start[i + 1].forEach((e) => writeLine(".local " +
+        local_start[i + 1]!.forEach((e) => writeLine(".local " +
             (clocal++).toString() +
             " \"" +
             luaEscape(e.name) +
             "\""));
       }
 
-      var info = code.flavor.instructions[c.OP];
+      var info = code.flavor!.instructions![c.OP];
       writeLine(info.name + " " + info.getParams(c).item1.join(" "));
     }
 
@@ -105,7 +105,7 @@ String disassemble(CodeDump code) {
   }
 
   writeLine("");
-  writeFunc(code.main, "main");
+  writeFunc(code.main!, "main");
 
   return o;
 }

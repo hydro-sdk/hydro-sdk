@@ -253,10 +253,9 @@ class CardItem extends StatelessWidget {
                     child: new SizedBox({
                         height: 128,
                         child: new Card({
-                            color:
-                                Colors.primaries[
-                                    this.item % Colors.primaries.length
-                                ].swatch[500],
+                            color: Colors.primaries[
+                                this.item % Colors.primaries.length
+                            ].swatch[500],
                             child: new Center({
                                 child: new Text(`Item ${this.item}`, {
                                     style: textStyle,

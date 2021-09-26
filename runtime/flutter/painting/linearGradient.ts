@@ -24,7 +24,8 @@ declare const flutter: {
 
 export class LinearGradient
     extends JITAllocatingRTManagedBox<LinearGradientProps, LinearGradient>
-    implements RuntimeBaseClass {
+    implements RuntimeBaseClass
+{
     public readonly internalRuntimeType = new Type(LinearGradient);
     public props: LinearGradientProps;
     public constructor(props: LinearGradientProps) {

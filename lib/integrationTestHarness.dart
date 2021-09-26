@@ -11,7 +11,7 @@ import 'package:hydro_sdk/runFromNetwork.dart';
 Widget integrationTestHarness(
   String path, {
   List<dynamic> args = const [],
-  List<CustomNamespaceLoader> customNamespaces,
+  List<CustomNamespaceLoader>? customNamespaces,
 }) {
   WidgetsFlutterBinding.ensureInitialized();
   return RunFromNetwork(

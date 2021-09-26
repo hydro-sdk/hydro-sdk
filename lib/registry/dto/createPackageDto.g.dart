@@ -17,6 +17,7 @@ _$_$CreatePackageDtoCtor _$_$_$CreatePackageDtoCtorFromJson(
     readmeMd: json['readmeMd'] as String,
     pubspecYaml: json['pubspecYaml'] as String,
     pubspecLock: json['pubspecLock'] as String,
+    releaseChannelName: json['releaseChannelName'] as String? ?? 'latest',
   );
 }
 
@@ -31,4 +32,5 @@ Map<String, dynamic> _$_$_$CreatePackageDtoCtorToJson(
       'readmeMd': instance.readmeMd,
       'pubspecYaml': instance.pubspecYaml,
       'pubspecLock': instance.pubspecLock,
+      'releaseChannelName': instance.releaseChannelName,
     };

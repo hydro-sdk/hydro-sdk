@@ -8,11 +8,17 @@ import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidIr.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
+import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
+import 'package:hydro_sdk/swid/swars/pipelineNoopCacheMgr.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
-    var res = swidiSourceToSwidIr(content: """
+    var res = swidiSourceToSwidIr(
+        pipeline: CachingPipeline(
+          cacheMgr: const PipelineNoopCacheMgr(),
+        ),
+        content: """
 class "package:flutter/src/widgets/icon_data.dart"::IconData {
     void::void foo(
       "dart:core"::class::int bar, {
@@ -36,7 +42,7 @@ class "package:flutter/src/widgets/icon_data.dart"::IconData {
           name: "foo",
           nullabilitySuffix: SwidNullabilitySuffix.none,
           originalPackagePath: "",
-          swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+          declarationModifiers: SwidDeclarationModifiers.empty(),
           namedParameterTypes: {
             "baz": SwidType.fromSwidInterface(
               swidInterface: dartInt,
@@ -63,7 +69,7 @@ class "package:flutter/src/widgets/icon_data.dart"::IconData {
       ],
       staticConstFieldDeclarations: [],
       instanceFieldDeclarations: {},
-      swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+      declarationModifiers: SwidDeclarationModifiers.empty(),
       mixedInClasses: [],
       implementedClasses: [],
       extendedClass: null,

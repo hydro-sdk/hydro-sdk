@@ -1,4 +1,4 @@
-import { IList } from "./../../dart/collection/list";
+import { IList } from "./../../dart/core/list";
 import { DiagnosticLevel } from "./diagnosticLevel";
 import { IDiagnosticsSerializationDelegate } from "./diagnosticsSerializationDelegate";
 import { DiagnosticsTreeStyle } from "./diagnosticsTreeStyle";
@@ -121,21 +121,20 @@ export class DiagnosticsNode {
     private readonly _dart_toDescription: (props: {
         parentConfiguration?: ITextTreeConfiguration | undefined;
     }) => string | undefined = undefined as any;
-    private readonly _dart_isFiltered: (
-        minLevel: DiagnosticLevel
-    ) => boolean = undefined as any;
+    private readonly _dart_isFiltered: (minLevel: DiagnosticLevel) => boolean =
+        undefined as any;
     private readonly _dart_getLevel: () => DiagnosticLevel = undefined as any;
-    private readonly _dart_getEmptyBodyDescription: () =>
-        | string
-        | undefined = undefined as any;
-    private readonly _dart_getValue: () =>
-        | Object
-        | undefined = undefined as any;
+    private readonly _dart_getEmptyBodyDescription: () => string | undefined =
+        undefined as any;
+    private readonly _dart_getValue: () => Object | undefined =
+        undefined as any;
     private readonly _dart_getAllowWrap: () => boolean = undefined as any;
     private readonly _dart_getAllowNameWrap: () => boolean = undefined as any;
     private readonly _dart_getAllowTruncate: () => boolean = undefined as any;
-    private readonly _dart_getProperties: () => IList<IDiagnosticsNode> = undefined as any;
-    private readonly _dart_getChildren: () => IList<IDiagnosticsNode> = undefined as any;
+    private readonly _dart_getProperties: () => IList<IDiagnosticsNode> =
+        undefined as any;
+    private readonly _dart_getChildren: () => IList<IDiagnosticsNode> =
+        undefined as any;
     private readonly _dart_toString: (props: {
         minLevel: DiagnosticLevel;
         parentConfiguration?: ITextTreeConfiguration | undefined;

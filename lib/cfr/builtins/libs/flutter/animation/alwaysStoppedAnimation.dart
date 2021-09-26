@@ -14,9 +14,9 @@ class VMManagedAlwaysStoppedAnimation<T>
   final HydroState hydroState;
   final AlwaysStoppedAnimation<T> vmObject;
   VMManagedAlwaysStoppedAnimation({
-    @required this.table,
-    @required this.hydroState,
-    @required this.vmObject,
+    required this.table,
+    required this.hydroState,
+    required this.vmObject,
   }) : super(
           table: table,
           hydroState: hydroState,
@@ -28,20 +28,23 @@ class VMManagedAlwaysStoppedAnimation<T>
   }
 }
 
-void loadAlwaysStoppedAnimation(
-    {@required HydroState luaState, @required HydroTable table}) {
-  registerBoxer<AlwaysStoppedAnimation<Color>>(boxer: (
-      {AlwaysStoppedAnimation<Color> vmObject,
-      HydroState hydroState,
-      HydroTable table}) {
+void loadAlwaysStoppedAnimation({
+  required HydroState luaState,
+  required HydroTable table,
+}) {
+  registerBoxer<AlwaysStoppedAnimation<Color>>(boxer: ({
+    required AlwaysStoppedAnimation<Color> vmObject,
+    required HydroState hydroState,
+    required HydroTable table,
+  }) {
     return VMManagedAlwaysStoppedAnimation<Color>(
         vmObject: vmObject, table: table, hydroState: hydroState);
   });
 
   registerBoxer<AlwaysStoppedAnimation<double>>(boxer: (
-      {AlwaysStoppedAnimation<double> vmObject,
-      HydroState hydroState,
-      HydroTable table}) {
+      {required AlwaysStoppedAnimation<double> vmObject,
+      required HydroState hydroState,
+      required HydroTable table}) {
     return VMManagedAlwaysStoppedAnimation<double>(
         vmObject: vmObject, table: table, hydroState: hydroState);
   });
@@ -54,26 +57,22 @@ void loadAlwaysStoppedAnimation(
     switch (targetRuntimeType) {
       case RuntimeTypes.AnimatedListState:
         return [];
-        break;
       case RuntimeTypes.Color:
         return [
           maybeBoxObject<AlwaysStoppedAnimation<Color>>(
               object: AlwaysStoppedAnimation<Color>(
-                  maybeUnBoxAndBuildArgument<Color>(args[1],
+                  maybeUnBoxAndBuildArgument<Color, dynamic>(args[1],
                       parentState: luaState)),
               hydroState: luaState,
               table: caller)
         ];
-        break;
       case RuntimeTypes.double:
         return [
-          maybeBoxObject<AlwaysStoppedAnimation<double>>(
-              object: AlwaysStoppedAnimation<double>(args[1]),
+          maybeBoxObject<AlwaysStoppedAnimation<double?>>(
+              object: AlwaysStoppedAnimation<double?>(args[1]),
               hydroState: luaState,
               table: caller)
         ];
-        break;
     }
-    return [];
   });
 }

@@ -1,84 +1,84 @@
 import 'package:code_builder/code_builder.dart'
-    show DartEmitter, refer, literalString, Block, Code;
+    show DartEmitter, refer, literalString, Code;
 
 import 'package:dart_style/dart_style.dart';
-import 'package:meta/meta.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'package:hydro_sdk/swid/backend/dart/dartBoxingProcedure.dart';
-import 'package:hydro_sdk/swid/backend/dart/dartFunctionSelfBindingInvocation.dart';
-import 'package:hydro_sdk/swid/backend/dart/dartUnpackClosures.dart';
+import 'package:hydro_sdk/swid/backend/dart/dartMethodBindingImplementation.dart';
 import 'package:hydro_sdk/swid/backend/dart/util/luaDartBinding.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
-import 'package:hydro_sdk/swid/ir/swidType.dart';
-import 'package:hydro_sdk/swid/ir/util/instantiateAllGenericsAsDynamic.dart';
-import 'package:hydro_sdk/swid/ir/util/narrowSwidInterfaceByReferenceDeclaration.dart';
+import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
+import 'package:hydro_sdk/swid/swars/swarsTermStringResultMixin.dart';
+import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
+import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
+import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
 
-class DartVMManagedClassMethodInjectionImplementation {
-  final SwidFunctionType swidFunctionType;
-  final String tableKey;
+part 'dartVmManagedClassMethodInjectionImplementation.freezed.dart';
 
-  DartVMManagedClassMethodInjectionImplementation({
-    @required this.swidFunctionType,
-    @required this.tableKey,
-  });
+@freezed
+class DartVMManagedClassMethodInjectionImplementation
+    with
+        _$DartVMManagedClassMethodInjectionImplementation,
+        HashKeyMixin<DartVMManagedClassMethodInjectionImplementation>,
+        HashComparableMixin<DartVMManagedClassMethodInjectionImplementation>,
+        SwarsTransformMixin<
+            DartVMManagedClassMethodInjectionImplementation,
+            $DartVMManagedClassMethodInjectionImplementationCopyWith<
+                DartVMManagedClassMethodInjectionImplementation>,
+            String>,
+        SwarsTermStringResultMixin {
+  DartVMManagedClassMethodInjectionImplementation._();
 
-  String _methodInvocation() => DartFunctionSelfBindingInvocation(
-          argumentBoxingProcedure: DartBoxingProcedure.unbox,
-          returnValueBoxingProcedure: DartBoxingProcedure.box,
-          swidFunctionType: instantiateAllGenericsAsDynamic(
-            swidType: SwidType.fromSwidFunctionType(
-                swidFunctionType: swidFunctionType),
-          ).when(
-            fromSwidInterface: (_) => null,
-            fromSwidClass: (_) => null,
-            fromSwidDefaultFormalParameter: (_) => null,
-            fromSwidFunctionType: (val) => val,
-          ),
-          emitTableBindingPrefix: false)
-      .toDartSource();
+  factory DartVMManagedClassMethodInjectionImplementation({
+    required final SwidFunctionType swidFunctionType,
+    required final String tableKey,
+  }) = _$DartVMManagedClassMethodInjectionImplementationCtor;
 
-  Block _nonVoidBody() => Block.of([
-        Code(
-            "${DartUnpackClosures(swidFunctionType: swidFunctionType).toDartSource()}  return [" +
-                _methodInvocation() +
-                "];")
-      ]);
+  @override
+  String get cacheGroup => "dartVMManagedClassMethodInjectionImplementation";
 
-  String toDartSource() => DartFormatter().formatStatement(refer("table")
-      .index(literalString(tableKey))
-      .assign(luaDartBinding(
-          code: swidFunctionType.returnType.when<Block>(
-        fromSwidInterface: (val) =>
-            narrowSwidInterfaceByReferenceDeclaration<Block>(
-          swidInterface: val,
-          onPrimitive: (_) => _nonVoidBody(),
-          onClass: (_) => _nonVoidBody(),
-          onEnum: (_) => _nonVoidBody(),
-          onTypeParameter: (_) => _nonVoidBody(),
-          onDynamic: (_) => _nonVoidBody(),
-          onVoid: (_) => Block.of([
-            Code(DartUnpackClosures(
-                  swidFunctionType: instantiateAllGenericsAsDynamic(
-                    swidType: SwidType.fromSwidFunctionType(
-                        swidFunctionType: swidFunctionType),
-                  ).when(
-                    fromSwidInterface: (_) => null,
-                    fromSwidClass: (_) => null,
-                    fromSwidDefaultFormalParameter: (_) => null,
-                    fromSwidFunctionType: (val) => val,
+  @override
+  List<int> get hashableParts => [
+        ...swidFunctionType.hashableParts,
+      ];
+
+  @override
+  DartVMManagedClassMethodInjectionImplementation clone({
+    final SwidFunctionType? swidFunctionType,
+    final String? tableKey,
+  }) =>
+      DartVMManagedClassMethodInjectionImplementation(
+        swidFunctionType: swidFunctionType ?? this.swidFunctionType.clone(),
+        tableKey: tableKey ?? this.tableKey,
+      );
+
+  @override
+  ISwarsTermResult<String> transform({
+    required final ISwarsPipeline pipeline,
+  }) =>
+      SwarsTermResult.fromString(
+        DartFormatter().formatStatement(
+          refer("table")
+              .index(literalString(tableKey))
+              .assign(
+                luaDartBinding(
+                  code: Code(
+                    pipeline.reduceFromTerm(
+                      DartMethodBindingImplementation(
+                        swidFunctionType: swidFunctionType,
+                      ),
+                    ),
                   ),
-                ).toDartSource() +
-                _methodInvocation() +
-                ";" +
-                "\n" +
-                "return [];")
-          ]),
+                ),
+              )
+              .statement
+              .accept(
+                DartEmitter(
+                  useNullSafetySyntax: true,
+                ),
+              )
+              .toString(),
         ),
-        fromSwidClass: (_) => null,
-        fromSwidDefaultFormalParameter: (_) => null,
-        fromSwidFunctionType: (_) => Block.of([Code("bar")]),
-      )))
-      .statement
-      .accept(DartEmitter())
-      .toString());
+      );
 }

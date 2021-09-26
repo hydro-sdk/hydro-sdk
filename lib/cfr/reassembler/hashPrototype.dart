@@ -14,19 +14,19 @@ String hashPrototype(Prototype prototype,
 
   var input = sha256.startChunkedConversion(output);
 
-  input.add([prototype.varag]);
-  input.add([prototype.registers]);
-  var instHash = hashInstructionBlock(prototype.code);
-  input.add(prototype.rawCode);
-  var constantsHash = hashConstants(prototype.constants);
+  input.add([prototype.varag!]);
+  input.add([prototype.registers!]);
+  var instHash = hashInstructionBlock(prototype.code!);
+  input.add(prototype.rawCode!);
+  var constantsHash = hashConstants(prototype.constants!);
   var upvalueHash = hashUpvalues(prototype.upvals);
   var localHash = hashLocals(prototype.locals);
 
   if (includeSourceLocations && prototype.buildProfile == BuildProfile.debug) {
-    input.add(prototype.lines);
+    input.add(prototype.lines!);
     input.add([
-      prototype.lineStart,
-      prototype.lineEnd,
+      prototype.lineStart!,
+      prototype.lineEnd!,
       ...(prototype.source?.codeUnits ?? [])
     ]);
   }

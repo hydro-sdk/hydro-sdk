@@ -10,7 +10,7 @@ _$_$SwidConfigDartEmitOptionsCtor _$_$_$SwidConfigDartEmitOptionsCtorFromJson(
     Map<String, dynamic> json) {
   return _$_$SwidConfigDartEmitOptionsCtor(
     prefixPaths:
-        (json['prefixPaths'] as List)?.map((e) => e as String)?.toList(),
+        (json['prefixPaths'] as List<dynamic>).map((e) => e as String).toList(),
     hostPackageName: json['hostPackageName'] as String,
   );
 }

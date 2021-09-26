@@ -11,11 +11,11 @@ class VMManagedMediaQueryData extends VMManagedBox<MediaQueryData> {
   final HydroTable table;
   final HydroState hydroState;
   final MediaQueryData vmObject;
-  VMManagedMediaQueryData(
-      {@required this.table,
-      @required this.vmObject,
-      @required this.hydroState})
-      : super(
+  VMManagedMediaQueryData({
+    required this.table,
+    required this.vmObject,
+    required this.hydroState,
+  }) : super(
           table: table,
           hydroState: hydroState,
           vmObject: vmObject,
@@ -28,10 +28,15 @@ class VMManagedMediaQueryData extends VMManagedBox<MediaQueryData> {
   }
 }
 
-void loadMediaQuery(
-    {@required HydroState luaState, @required HydroTable table}) {
-  registerBoxer(boxer: (
-      {MediaQueryData vmObject, HydroState hydroState, HydroTable table}) {
+void loadMediaQuery({
+  required HydroState luaState,
+  required HydroTable table,
+}) {
+  registerBoxer<MediaQueryData>(boxer: ({
+    required MediaQueryData vmObject,
+    required HydroState hydroState,
+    required HydroTable table,
+  }) {
     return VMManagedMediaQueryData(
       vmObject: vmObject,
       hydroState: hydroState,
@@ -42,7 +47,7 @@ void loadMediaQuery(
   table["mediaQueryOf"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       maybeBoxObject(
-        object: MediaQuery.of(maybeUnBoxAndBuildArgument<BuildContext>(
+        object: MediaQuery.of(maybeUnBoxAndBuildArgument<BuildContext, dynamic>(
           args[0],
           parentState: luaState,
         )),

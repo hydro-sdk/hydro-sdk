@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "target": "ES2015",
+        "lib": [
+            "esnext"
+        ],
+        "esModuleInterop": true,
+        "strict": true,
+        "strictPropertyInitialization": true,
+        "noImplicitAny": true,
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
+        "moduleResolution": "node",
+        "module": "CommonJS"
+    },
+    "include": [
+        "runtime",
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}

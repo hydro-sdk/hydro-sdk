@@ -1,4 +1,4 @@
-import { Color } from "./../../runtime/dart/ui/color";
+import { IColor } from "./../../runtime/dart/ui/color";
 import { Key } from "./../../runtime/flutter/foundation/key";
 import { Icon } from "./../../runtime/flutter/widgets/icon";
 import { MainAxisAlignment } from "./../../runtime/flutter/widgets/mainAxisAlignment";
@@ -12,7 +12,7 @@ import { runApp } from "../../runtime/flutter/runApp";
 
 export interface MyCustomWidgetProps {
     key: Key;
-    color: Color;
+    color: IColor;
     icon: Icon;
     text: Text;
     mainAxisAlignment: MainAxisAlignment;

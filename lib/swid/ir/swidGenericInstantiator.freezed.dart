@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'swidGenericInstantiator.dart';
 
@@ -8,6 +8,10 @@ part of 'swidGenericInstantiator.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 SwidGenericInstantiator _$SwidGenericInstantiatorFromJson(
     Map<String, dynamic> json) {
   return _$SwidGenericInstantiatorCtor.fromJson(json);
@@ -17,34 +21,33 @@ SwidGenericInstantiator _$SwidGenericInstantiatorFromJson(
 class _$SwidGenericInstantiatorTearOff {
   const _$SwidGenericInstantiatorTearOff();
 
-// ignore: unused_element
   _$SwidGenericInstantiatorCtor call(
-      {@required String name,
-      @required SwidInstantiatedGeneric instantiatedGeneric}) {
+      {required String name,
+      required SwidInstantiatedGeneric instantiatedGeneric}) {
     return _$SwidGenericInstantiatorCtor(
       name: name,
       instantiatedGeneric: instantiatedGeneric,
     );
   }
 
-// ignore: unused_element
   SwidGenericInstantiator fromJson(Map<String, Object> json) {
     return SwidGenericInstantiator.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $SwidGenericInstantiator = _$SwidGenericInstantiatorTearOff();
 
 /// @nodoc
 mixin _$SwidGenericInstantiator {
-  String get name;
-  SwidInstantiatedGeneric get instantiatedGeneric;
+  String get name => throw _privateConstructorUsedError;
+  SwidInstantiatedGeneric get instantiatedGeneric =>
+      throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $SwidGenericInstantiatorCopyWith<SwidGenericInstantiator> get copyWith;
+  $SwidGenericInstantiatorCopyWith<SwidGenericInstantiator> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -68,22 +71,23 @@ class _$SwidGenericInstantiatorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object name = freezed,
-    Object instantiatedGeneric = freezed,
+    Object? name = freezed,
+    Object? instantiatedGeneric = freezed,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed ? _value.name : name as String,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
       instantiatedGeneric: instantiatedGeneric == freezed
           ? _value.instantiatedGeneric
-          : instantiatedGeneric as SwidInstantiatedGeneric,
+          : instantiatedGeneric // ignore: cast_nullable_to_non_nullable
+              as SwidInstantiatedGeneric,
     ));
   }
 
   @override
   $SwidInstantiatedGenericCopyWith<$Res> get instantiatedGeneric {
-    if (_value.instantiatedGeneric == null) {
-      return null;
-    }
     return $SwidInstantiatedGenericCopyWith<$Res>(_value.instantiatedGeneric,
         (value) {
       return _then(_value.copyWith(instantiatedGeneric: value));
@@ -120,26 +124,28 @@ class __$$SwidGenericInstantiatorCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object name = freezed,
-    Object instantiatedGeneric = freezed,
+    Object? name = freezed,
+    Object? instantiatedGeneric = freezed,
   }) {
     return _then(_$SwidGenericInstantiatorCtor(
-      name: name == freezed ? _value.name : name as String,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
       instantiatedGeneric: instantiatedGeneric == freezed
           ? _value.instantiatedGeneric
-          : instantiatedGeneric as SwidInstantiatedGeneric,
+          : instantiatedGeneric // ignore: cast_nullable_to_non_nullable
+              as SwidInstantiatedGeneric,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
-class _$_$SwidGenericInstantiatorCtor implements _$SwidGenericInstantiatorCtor {
-  const _$_$SwidGenericInstantiatorCtor(
-      {@required this.name, @required this.instantiatedGeneric})
-      : assert(name != null),
-        assert(instantiatedGeneric != null);
+@JsonSerializable()
+class _$_$SwidGenericInstantiatorCtor extends _$SwidGenericInstantiatorCtor {
+  _$_$SwidGenericInstantiatorCtor(
+      {required this.name, required this.instantiatedGeneric})
+      : super._();
 
   factory _$_$SwidGenericInstantiatorCtor.fromJson(Map<String, dynamic> json) =>
       _$_$_$SwidGenericInstantiatorCtorFromJson(json);
@@ -183,22 +189,23 @@ class _$_$SwidGenericInstantiatorCtor implements _$SwidGenericInstantiatorCtor {
   }
 }
 
-abstract class _$SwidGenericInstantiatorCtor
-    implements SwidGenericInstantiator {
-  const factory _$SwidGenericInstantiatorCtor(
-          {@required String name,
-          @required SwidInstantiatedGeneric instantiatedGeneric}) =
+abstract class _$SwidGenericInstantiatorCtor extends SwidGenericInstantiator {
+  factory _$SwidGenericInstantiatorCtor(
+          {required String name,
+          required SwidInstantiatedGeneric instantiatedGeneric}) =
       _$_$SwidGenericInstantiatorCtor;
+  _$SwidGenericInstantiatorCtor._() : super._();
 
   factory _$SwidGenericInstantiatorCtor.fromJson(Map<String, dynamic> json) =
       _$_$SwidGenericInstantiatorCtor.fromJson;
 
   @override
-  String get name;
+  String get name => throw _privateConstructorUsedError;
   @override
-  SwidInstantiatedGeneric get instantiatedGeneric;
+  SwidInstantiatedGeneric get instantiatedGeneric =>
+      throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$SwidGenericInstantiatorCtorCopyWith<_$SwidGenericInstantiatorCtor>
-      get copyWith;
+      get copyWith => throw _privateConstructorUsedError;
 }

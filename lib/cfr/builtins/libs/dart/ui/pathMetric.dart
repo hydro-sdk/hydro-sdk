@@ -1,21 +1,11 @@
 import 'dart:core';
 import 'dart:ui';
 
-import 'package:meta/meta.dart';
-
-import 'package:hydro_sdk/cfr/builtins/boxing/boxers.dart';
-import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
-import 'package:hydro_sdk/cfr/builtins/boxing/unboxers.dart';
-import 'package:hydro_sdk/cfr/vm/closure.dart';
-import 'package:hydro_sdk/cfr/vm/context.dart';
-import 'package:hydro_sdk/cfr/vm/table.dart';
-import 'package:hydro_sdk/hydroState.dart';
+import 'package:hydro_sdk/cfr/runtimeSupport.dart';
 
 class VMManagedPathMetric extends VMManagedBox<PathMetric> {
   VMManagedPathMetric(
-      {@required this.table,
-      @required this.vmObject,
-      @required this.hydroState})
+      {required this.table, required this.vmObject, required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,
@@ -24,26 +14,34 @@ class VMManagedPathMetric extends VMManagedBox<PathMetric> {
     table['length'] = vmObject.length;
     table['isClosed'] = vmObject.isClosed;
     table['contourIndex'] = vmObject.contourIndex;
-    table['getTangentForOffset'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [
-        maybeBoxObject<Tangent>(
-            object: vmObject.getTangentForOffset(args[1]?.toDouble()),
-            hydroState: hydroState,
-            table: HydroTable())
-      ];
+    table['getTangentForOffset'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      final returnValue =
+          vmObject.getTangentForOffset(luaCallerArguments[1]?.toDouble());
+      if (returnValue != null) {
+        return [
+          maybeBoxObject<Tangent?>(
+              object: returnValue, hydroState: hydroState, table: HydroTable()),
+        ];
+      }
+      return [];
     });
-    table['extractPath'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['extractPath'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Path>(
-            object: vmObject.extractPath(
-                args[1]?.toDouble(), args[2]?.toDouble(),
-                startWithMoveTo: args[3]['startWithMoveTo']),
+            object: vmObject.extractPath(luaCallerArguments[1]?.toDouble(),
+                luaCallerArguments[2]?.toDouble(),
+                startWithMoveTo: luaCallerArguments[3]['startWithMoveTo']),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
-    table['toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject.toString()];
+    table['toString'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        vmObject.toString(),
+      ];
     });
   }
 
@@ -55,11 +53,11 @@ class VMManagedPathMetric extends VMManagedBox<PathMetric> {
 }
 
 void loadPathMetric(
-    {@required HydroState hydroState, @required HydroTable table}) {
+    {required HydroState hydroState, required HydroTable table}) {
   registerBoxer<PathMetric>(boxer: (
-      {@required PathMetric vmObject,
-      @required HydroState hydroState,
-      @required HydroTable table}) {
+      {required PathMetric vmObject,
+      required HydroState hydroState,
+      required HydroTable table}) {
     return VMManagedPathMetric(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

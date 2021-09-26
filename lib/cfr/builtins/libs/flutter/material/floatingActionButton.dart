@@ -7,13 +7,13 @@ import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
 void loadFloatingActionButton(
-    {@required HydroState luaState, @required HydroTable table}) {
+    {required HydroState luaState, required HydroTable table}) {
   table["floatingActionButton"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       FloatingActionButton(
-        key: maybeUnBoxAndBuildArgument<Widget>(args[0]["key"],
+        key: maybeUnBoxAndBuildArgument<Widget, dynamic>(args[0]["key"],
             parentState: luaState),
-        child: maybeUnBoxAndBuildArgument<Widget>(args[0]["child"],
+        child: maybeUnBoxAndBuildArgument<Widget, dynamic>(args[0]["child"],
             parentState: luaState),
         tooltip: args[0]["tooltip"],
         onPressed: () {

@@ -15,7 +15,8 @@ declare const flutter: {
 
 export class CircleBorder
     extends JITAllocatingRTManagedBox<CircleBorderProps, CircleBorder>
-    implements RuntimeBaseClass {
+    implements RuntimeBaseClass
+{
     public readonly internalRuntimeType = new Type(CircleBorder);
     public props: CircleBorderProps;
     public constructor(props: CircleBorderProps) {

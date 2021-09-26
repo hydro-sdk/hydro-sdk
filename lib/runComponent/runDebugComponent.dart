@@ -5,17 +5,15 @@ class _RunDebugComponent extends StatefulWidget {
   final String component;
   final int port;
   final Widget loading;
-  final Map<String, Prototype Function({CodeDump codeDump, Prototype parent})>
+  final Map<String, Prototype Function({CodeDump? codeDump, Prototype? parent})>
       thunks;
 
   const _RunDebugComponent({
-    @required this.project,
-    @required this.component,
-    @required this.thunks,
-    this.port = 5000,
-    this.loading = const Center(
-      child: CircularProgressIndicator(),
-    ),
+    required this.project,
+    required this.component,
+    required this.thunks,
+    required this.port,
+    required this.loading,
   });
 
   @override
@@ -23,9 +21,13 @@ class _RunDebugComponent extends StatefulWidget {
 }
 
 class _RunDebugComponentState extends State<_RunDebugComponent>
-    with HotReloadable, PreloadableCustomNamespaces, ReloadableMountableChunk {
-  Timer timer;
-  List<dynamic> args;
+    with
+        ServiceAware,
+        HotReloadable,
+        PreloadableCustomNamespaces,
+        ReloadableMountableChunk {
+  late Timer timer;
+  List<dynamic>? args;
 
   _RunDebugComponentState() {
     maybeReload();
@@ -35,30 +37,46 @@ class _RunDebugComponentState extends State<_RunDebugComponent>
   Future<void> maybeReload() async {
     if (kDebugMode) {
       if (mounted) {
-        final newHash = await _downloadDebugPackageHash(
-          port: widget.port,
-          project: widget.project,
-          component: widget.component,
-        );
+        var packageAvailability = await _debugPackageAvailable(
+            project: widget.project,
+            component: widget.component,
+            port: widget.port);
 
-        if (newHash == null) {
-          return;
-        }
-
-        if (newHash != null && newHash != lastHash) {
-          setState(() {
-            lastHash = newHash;
-          });
-          final rawPackage = await _downloadDebugPackage(
+        if (packageAvailability == null ||
+            packageAvailability == RunProjectResponseKind.kUnavailable) {
+          timer.cancel();
+          throw new Exception(
+              "@${widget.project}/${widget.component} is no longer available for local debugging");
+        } else if (packageAvailability == RunProjectResponseKind.kReady) {
+          if (mounted) {
+            final newHash = await _downloadDebugPackageHash(
               port: widget.port,
               project: widget.project,
-              component: widget.component);
+              component: widget.component,
+            );
 
-          await maybeReloadMountableChunk(
-            rawPackage: rawPackage,
-            component: widget.component,
-            thunks: widget.thunks,
-          );
+            if (newHash == null) {
+              return;
+            }
+
+            if (newHash != lastHash) {
+              setState(() {
+                lastHash = newHash;
+              });
+              final rawPackage = await _downloadDebugPackage(
+                  port: widget.port,
+                  project: widget.project,
+                  component: widget.component);
+
+              if (rawPackage != null) {
+                await maybeReloadMountableChunk(
+                  rawPackage: rawPackage,
+                  component: widget.component,
+                  thunks: widget.thunks,
+                );
+              }
+            }
+          }
         }
       }
     }
@@ -76,12 +94,12 @@ class _RunDebugComponentState extends State<_RunDebugComponent>
       if (res == null) {
         return widget.loading;
       } else {
-        if (!res.success) {
-          print(res.values[0]);
+        if (!res!.success) {
+          print(res!.values![0]);
         }
-        return maybeUnBoxAndBuildArgument<Widget>(
-            luaState.context.env["hydro"]["globalBuildResult"].dispatch(
-                args != null ? [...args] : [],
+        return maybeUnBoxAndBuildArgument<Widget, dynamic>(
+            luaState.context!.env["hydro"]["globalBuildResult"].dispatch(
+                args != null ? [...args!] : [],
                 parentState: luaState)[0],
             parentState: luaState);
       }

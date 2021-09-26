@@ -12,7 +12,7 @@ void main() {
   testWidgets('animated_list sample app smoke test',
       (WidgetTester tester) async {
     await tester
-        .pumpWidget(integrationTestHarness("../assets/examples/animated-list"));
+        .pumpWidget(integrationTestHarness("assets/examples/animated-list"));
     await tester.pumpAndSettle();
 
     expect(find.text('Item 0'), findsOneWidget);

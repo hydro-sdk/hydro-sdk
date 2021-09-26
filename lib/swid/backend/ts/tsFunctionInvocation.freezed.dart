@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'tsFunctionInvocation.dart';
 
@@ -8,53 +8,45 @@ part of 'tsFunctionInvocation.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
-TsFunctionInvocation _$TsFunctionInvocationFromJson(Map<String, dynamic> json) {
-  return _$Data.fromJson(json);
-}
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 class _$TsFunctionInvocationTearOff {
   const _$TsFunctionInvocationTearOff();
 
-// ignore: unused_element
-  _$Data call(
-      {@required
-          String functionReference,
-      @required
-          TsFunctionInvocationPositionalParameters
-              tsFunctionInvocationPositionalParameters,
-      @required
-          List<TsFunctionInvocationNamedParameters>
-              tsFunctionInvocationNamedParameters}) {
-    return _$Data(
+  _$TsFunctionInvocationCtor call(
+      {required String functionReference,
+      required TsFunctionInvocationPositionalParameters
+          tsFunctionInvocationPositionalParameters,
+      required List<TsFunctionInvocationNamedParameters>
+          tsFunctionInvocationNamedParameters}) {
+    return _$TsFunctionInvocationCtor(
       functionReference: functionReference,
       tsFunctionInvocationPositionalParameters:
           tsFunctionInvocationPositionalParameters,
       tsFunctionInvocationNamedParameters: tsFunctionInvocationNamedParameters,
     );
   }
-
-// ignore: unused_element
-  TsFunctionInvocation fromJson(Map<String, Object> json) {
-    return TsFunctionInvocation.fromJson(json);
-  }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $TsFunctionInvocation = _$TsFunctionInvocationTearOff();
 
 /// @nodoc
 mixin _$TsFunctionInvocation {
-  String get functionReference;
+  String get functionReference => throw _privateConstructorUsedError;
   TsFunctionInvocationPositionalParameters
-      get tsFunctionInvocationPositionalParameters;
+      get tsFunctionInvocationPositionalParameters =>
+          throw _privateConstructorUsedError;
   List<TsFunctionInvocationNamedParameters>
-      get tsFunctionInvocationNamedParameters;
+      get tsFunctionInvocationNamedParameters =>
+          throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
   @JsonKey(ignore: true)
-  $TsFunctionInvocationCopyWith<TsFunctionInvocation> get copyWith;
+  $TsFunctionInvocationCopyWith<TsFunctionInvocation> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -84,33 +76,31 @@ class _$TsFunctionInvocationCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object functionReference = freezed,
-    Object tsFunctionInvocationPositionalParameters = freezed,
-    Object tsFunctionInvocationNamedParameters = freezed,
+    Object? functionReference = freezed,
+    Object? tsFunctionInvocationPositionalParameters = freezed,
+    Object? tsFunctionInvocationNamedParameters = freezed,
   }) {
     return _then(_value.copyWith(
       functionReference: functionReference == freezed
           ? _value.functionReference
-          : functionReference as String,
+          : functionReference // ignore: cast_nullable_to_non_nullable
+              as String,
       tsFunctionInvocationPositionalParameters:
           tsFunctionInvocationPositionalParameters == freezed
               ? _value.tsFunctionInvocationPositionalParameters
-              : tsFunctionInvocationPositionalParameters
+              : tsFunctionInvocationPositionalParameters // ignore: cast_nullable_to_non_nullable
                   as TsFunctionInvocationPositionalParameters,
-      tsFunctionInvocationNamedParameters:
-          tsFunctionInvocationNamedParameters == freezed
-              ? _value.tsFunctionInvocationNamedParameters
-              : tsFunctionInvocationNamedParameters
-                  as List<TsFunctionInvocationNamedParameters>,
+      tsFunctionInvocationNamedParameters: tsFunctionInvocationNamedParameters ==
+              freezed
+          ? _value.tsFunctionInvocationNamedParameters
+          : tsFunctionInvocationNamedParameters // ignore: cast_nullable_to_non_nullable
+              as List<TsFunctionInvocationNamedParameters>,
     ));
   }
 
   @override
   $TsFunctionInvocationPositionalParametersCopyWith<$Res>
       get tsFunctionInvocationPositionalParameters {
-    if (_value.tsFunctionInvocationPositionalParameters == null) {
-      return null;
-    }
     return $TsFunctionInvocationPositionalParametersCopyWith<$Res>(
         _value.tsFunctionInvocationPositionalParameters, (value) {
       return _then(
@@ -120,10 +110,11 @@ class _$TsFunctionInvocationCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$$DataCopyWith<$Res>
+abstract class _$$TsFunctionInvocationCtorCopyWith<$Res>
     implements $TsFunctionInvocationCopyWith<$Res> {
-  factory _$$DataCopyWith(_$Data value, $Res Function(_$Data) then) =
-      __$$DataCopyWithImpl<$Res>;
+  factory _$$TsFunctionInvocationCtorCopyWith(_$TsFunctionInvocationCtor value,
+          $Res Function(_$TsFunctionInvocationCtor) then) =
+      __$$TsFunctionInvocationCtorCopyWithImpl<$Res>;
   @override
   $Res call(
       {String functionReference,
@@ -138,53 +129,50 @@ abstract class _$$DataCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$DataCopyWithImpl<$Res>
+class __$$TsFunctionInvocationCtorCopyWithImpl<$Res>
     extends _$TsFunctionInvocationCopyWithImpl<$Res>
-    implements _$$DataCopyWith<$Res> {
-  __$$DataCopyWithImpl(_$Data _value, $Res Function(_$Data) _then)
-      : super(_value, (v) => _then(v as _$Data));
+    implements _$$TsFunctionInvocationCtorCopyWith<$Res> {
+  __$$TsFunctionInvocationCtorCopyWithImpl(_$TsFunctionInvocationCtor _value,
+      $Res Function(_$TsFunctionInvocationCtor) _then)
+      : super(_value, (v) => _then(v as _$TsFunctionInvocationCtor));
 
   @override
-  _$Data get _value => super._value as _$Data;
+  _$TsFunctionInvocationCtor get _value =>
+      super._value as _$TsFunctionInvocationCtor;
 
   @override
   $Res call({
-    Object functionReference = freezed,
-    Object tsFunctionInvocationPositionalParameters = freezed,
-    Object tsFunctionInvocationNamedParameters = freezed,
+    Object? functionReference = freezed,
+    Object? tsFunctionInvocationPositionalParameters = freezed,
+    Object? tsFunctionInvocationNamedParameters = freezed,
   }) {
-    return _then(_$Data(
+    return _then(_$TsFunctionInvocationCtor(
       functionReference: functionReference == freezed
           ? _value.functionReference
-          : functionReference as String,
+          : functionReference // ignore: cast_nullable_to_non_nullable
+              as String,
       tsFunctionInvocationPositionalParameters:
           tsFunctionInvocationPositionalParameters == freezed
               ? _value.tsFunctionInvocationPositionalParameters
-              : tsFunctionInvocationPositionalParameters
+              : tsFunctionInvocationPositionalParameters // ignore: cast_nullable_to_non_nullable
                   as TsFunctionInvocationPositionalParameters,
-      tsFunctionInvocationNamedParameters:
-          tsFunctionInvocationNamedParameters == freezed
-              ? _value.tsFunctionInvocationNamedParameters
-              : tsFunctionInvocationNamedParameters
-                  as List<TsFunctionInvocationNamedParameters>,
+      tsFunctionInvocationNamedParameters: tsFunctionInvocationNamedParameters ==
+              freezed
+          ? _value.tsFunctionInvocationNamedParameters
+          : tsFunctionInvocationNamedParameters // ignore: cast_nullable_to_non_nullable
+              as List<TsFunctionInvocationNamedParameters>,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
-class _$_$Data implements _$Data {
-  _$_$Data(
-      {@required this.functionReference,
-      @required this.tsFunctionInvocationPositionalParameters,
-      @required this.tsFunctionInvocationNamedParameters})
-      : assert(functionReference != null),
-        assert(tsFunctionInvocationPositionalParameters != null),
-        assert(tsFunctionInvocationNamedParameters != null);
 
-  factory _$_$Data.fromJson(Map<String, dynamic> json) =>
-      _$_$_$DataFromJson(json);
+class _$_$TsFunctionInvocationCtor extends _$TsFunctionInvocationCtor {
+  _$_$TsFunctionInvocationCtor(
+      {required this.functionReference,
+      required this.tsFunctionInvocationPositionalParameters,
+      required this.tsFunctionInvocationNamedParameters})
+      : super._();
 
   @override
   final String functionReference;
@@ -203,7 +191,7 @@ class _$_$Data implements _$Data {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _$Data &&
+        (other is _$TsFunctionInvocationCtor &&
             (identical(other.functionReference, functionReference) ||
                 const DeepCollectionEquality()
                     .equals(other.functionReference, functionReference)) &&
@@ -229,37 +217,33 @@ class _$_$Data implements _$Data {
 
   @JsonKey(ignore: true)
   @override
-  _$$DataCopyWith<_$Data> get copyWith =>
-      __$$DataCopyWithImpl<_$Data>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$_$_$DataToJson(this);
-  }
+  _$$TsFunctionInvocationCtorCopyWith<_$TsFunctionInvocationCtor>
+      get copyWith =>
+          __$$TsFunctionInvocationCtorCopyWithImpl<_$TsFunctionInvocationCtor>(
+              this, _$identity);
 }
 
-abstract class _$Data implements TsFunctionInvocation {
-  factory _$Data(
-      {@required
-          String functionReference,
-      @required
-          TsFunctionInvocationPositionalParameters
-              tsFunctionInvocationPositionalParameters,
-      @required
-          List<TsFunctionInvocationNamedParameters>
-              tsFunctionInvocationNamedParameters}) = _$_$Data;
-
-  factory _$Data.fromJson(Map<String, dynamic> json) = _$_$Data.fromJson;
+abstract class _$TsFunctionInvocationCtor extends TsFunctionInvocation {
+  factory _$TsFunctionInvocationCtor(
+      {required String functionReference,
+      required TsFunctionInvocationPositionalParameters
+          tsFunctionInvocationPositionalParameters,
+      required List<TsFunctionInvocationNamedParameters>
+          tsFunctionInvocationNamedParameters}) = _$_$TsFunctionInvocationCtor;
+  _$TsFunctionInvocationCtor._() : super._();
 
   @override
-  String get functionReference;
+  String get functionReference => throw _privateConstructorUsedError;
   @override
   TsFunctionInvocationPositionalParameters
-      get tsFunctionInvocationPositionalParameters;
+      get tsFunctionInvocationPositionalParameters =>
+          throw _privateConstructorUsedError;
   @override
   List<TsFunctionInvocationNamedParameters>
-      get tsFunctionInvocationNamedParameters;
+      get tsFunctionInvocationNamedParameters =>
+          throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$$DataCopyWith<_$Data> get copyWith;
+  _$$TsFunctionInvocationCtorCopyWith<_$TsFunctionInvocationCtor>
+      get copyWith => throw _privateConstructorUsedError;
 }

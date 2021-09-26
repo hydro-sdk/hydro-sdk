@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'swidiLibraryScopePrefix.dart';
 
@@ -9,12 +9,14 @@ part of 'swidiLibraryScopePrefix.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$SwidiLibraryScopePrefixTearOff {
   const _$SwidiLibraryScopePrefixTearOff();
 
-// ignore: unused_element
-  _$SwidiLibraryScopePrefixCtor call({@required String name}) {
+  _$SwidiLibraryScopePrefixCtor call({required String name}) {
     return _$SwidiLibraryScopePrefixCtor(
       name: name,
     );
@@ -22,15 +24,15 @@ class _$SwidiLibraryScopePrefixTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $SwidiLibraryScopePrefix = _$SwidiLibraryScopePrefixTearOff();
 
 /// @nodoc
 mixin _$SwidiLibraryScopePrefix {
-  String get name;
+  String get name => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $SwidiLibraryScopePrefixCopyWith<SwidiLibraryScopePrefix> get copyWith;
+  $SwidiLibraryScopePrefixCopyWith<SwidiLibraryScopePrefix> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -52,10 +54,13 @@ class _$SwidiLibraryScopePrefixCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object name = freezed,
+    Object? name = freezed,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed ? _value.name : name as String,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -86,18 +91,21 @@ class __$$SwidiLibraryScopePrefixCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object name = freezed,
+    Object? name = freezed,
   }) {
     return _then(_$SwidiLibraryScopePrefixCtor(
-      name: name == freezed ? _value.name : name as String,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
-class _$_$SwidiLibraryScopePrefixCtor implements _$SwidiLibraryScopePrefixCtor {
-  const _$_$SwidiLibraryScopePrefixCtor({@required this.name})
-      : assert(name != null);
+
+class _$_$SwidiLibraryScopePrefixCtor extends _$SwidiLibraryScopePrefixCtor {
+  _$_$SwidiLibraryScopePrefixCtor({required this.name}) : super._();
 
   @override
   final String name;
@@ -126,15 +134,15 @@ class _$_$SwidiLibraryScopePrefixCtor implements _$SwidiLibraryScopePrefixCtor {
           _$SwidiLibraryScopePrefixCtor>(this, _$identity);
 }
 
-abstract class _$SwidiLibraryScopePrefixCtor
-    implements SwidiLibraryScopePrefix {
-  const factory _$SwidiLibraryScopePrefixCtor({@required String name}) =
+abstract class _$SwidiLibraryScopePrefixCtor extends SwidiLibraryScopePrefix {
+  factory _$SwidiLibraryScopePrefixCtor({required String name}) =
       _$_$SwidiLibraryScopePrefixCtor;
+  _$SwidiLibraryScopePrefixCtor._() : super._();
 
   @override
-  String get name;
+  String get name => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$SwidiLibraryScopePrefixCtorCopyWith<_$SwidiLibraryScopePrefixCtor>
-      get copyWith;
+      get copyWith => throw _privateConstructorUsedError;
 }

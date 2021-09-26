@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'createComponentDto.dart';
 
@@ -8,6 +8,10 @@ part of 'createComponentDto.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 CreateComponentDto _$CreateComponentDtoFromJson(Map<String, dynamic> json) {
   return _$CreateComponentDtoCtor.fromJson(json);
 }
@@ -16,11 +20,10 @@ CreateComponentDto _$CreateComponentDtoFromJson(Map<String, dynamic> json) {
 class _$CreateComponentDtoTearOff {
   const _$CreateComponentDtoTearOff();
 
-// ignore: unused_element
   _$CreateComponentDtoCtor call(
-      {@required String name,
-      @required String description,
-      @required String projectId}) {
+      {required String name,
+      required String description,
+      required String projectId}) {
     return _$CreateComponentDtoCtor(
       name: name,
       description: description,
@@ -28,25 +31,24 @@ class _$CreateComponentDtoTearOff {
     );
   }
 
-// ignore: unused_element
   CreateComponentDto fromJson(Map<String, Object> json) {
     return CreateComponentDto.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $CreateComponentDto = _$CreateComponentDtoTearOff();
 
 /// @nodoc
 mixin _$CreateComponentDto {
-  String get name;
-  String get description;
-  String get projectId;
+  String get name => throw _privateConstructorUsedError;
+  String get description => throw _privateConstructorUsedError;
+  String get projectId => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $CreateComponentDtoCopyWith<CreateComponentDto> get copyWith;
+  $CreateComponentDtoCopyWith<CreateComponentDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -68,15 +70,23 @@ class _$CreateComponentDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object name = freezed,
-    Object description = freezed,
-    Object projectId = freezed,
+    Object? name = freezed,
+    Object? description = freezed,
+    Object? projectId = freezed,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed ? _value.name : name as String,
-      description:
-          description == freezed ? _value.description : description as String,
-      projectId: projectId == freezed ? _value.projectId : projectId as String,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
+      projectId: projectId == freezed
+          ? _value.projectId
+          : projectId // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -105,30 +115,32 @@ class __$$CreateComponentDtoCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object name = freezed,
-    Object description = freezed,
-    Object projectId = freezed,
+    Object? name = freezed,
+    Object? description = freezed,
+    Object? projectId = freezed,
   }) {
     return _then(_$CreateComponentDtoCtor(
-      name: name == freezed ? _value.name : name as String,
-      description:
-          description == freezed ? _value.description : description as String,
-      projectId: projectId == freezed ? _value.projectId : projectId as String,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
+      projectId: projectId == freezed
+          ? _value.projectId
+          : projectId // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_$CreateComponentDtoCtor implements _$CreateComponentDtoCtor {
   const _$_$CreateComponentDtoCtor(
-      {@required this.name,
-      @required this.description,
-      @required this.projectId})
-      : assert(name != null),
-        assert(description != null),
-        assert(projectId != null);
+      {required this.name, required this.description, required this.projectId});
 
   factory _$_$CreateComponentDtoCtor.fromJson(Map<String, dynamic> json) =>
       _$_$_$CreateComponentDtoCtorFromJson(json);
@@ -180,20 +192,21 @@ class _$_$CreateComponentDtoCtor implements _$CreateComponentDtoCtor {
 
 abstract class _$CreateComponentDtoCtor implements CreateComponentDto {
   const factory _$CreateComponentDtoCtor(
-      {@required String name,
-      @required String description,
-      @required String projectId}) = _$_$CreateComponentDtoCtor;
+      {required String name,
+      required String description,
+      required String projectId}) = _$_$CreateComponentDtoCtor;
 
   factory _$CreateComponentDtoCtor.fromJson(Map<String, dynamic> json) =
       _$_$CreateComponentDtoCtor.fromJson;
 
   @override
-  String get name;
+  String get name => throw _privateConstructorUsedError;
   @override
-  String get description;
+  String get description => throw _privateConstructorUsedError;
   @override
-  String get projectId;
+  String get projectId => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$$CreateComponentDtoCtorCopyWith<_$CreateComponentDtoCtor> get copyWith;
+  _$$CreateComponentDtoCtorCopyWith<_$CreateComponentDtoCtor> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -2,6 +2,27 @@ import 'package:petitparser/core.dart';
 import 'package:petitparser/definition.dart';
 import 'package:petitparser/petitparser.dart';
 
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iAbstractLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iClassLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iDigitLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iExponentLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iHashbangLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iHexDigitLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iHexNumberLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iIdentifierPartLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iIdentifierStartLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iIdentifierStartNoDollarLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iLetterLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iLexicalIdentifierLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iMultiLineStringLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iNumberLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iNumberOptFractionalPartLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iNumberOptIllegalEndLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iSingleLineStringLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iStringContentDqLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iStringContentSqLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iStringLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iVoidLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiGrammarTokenizer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiWhitespaceGrammarDefinition.dart';
 
@@ -9,67 +30,112 @@ mixin SwidiLexicalTokensGrammarDefinition
     on
         GrammarDefinition,
         SwidiGrammarTokenizer,
-        SwidiWhitespaceGrammarDefinition {
-  Parser ABSTRACT() => ref(token, "abstract");
+        SwidiWhitespaceGrammarDefinition
+    implements
+        IClassLexer,
+        IAbstractLexer,
+        IDigitLexer,
+        IHexDigitLexer,
+        IHexNumberLexer,
+        IIdentifierStartLexer,
+        IIdentifierPartLexer,
+        IIdentifierStartNoDollarLexer,
+        ILetterLexer,
+        ILexicalIdentifierLexer,
+        IStringContentSqLexer,
+        IStringContentDqLexer,
+        IVoidLexer,
+        INumberLexer,
+        INumberOptFractionalPartLexer,
+        INumberOptIllegalEndLexer,
+        IExponentLexer,
+        IStringLexer,
+        IMultiLineStringLexer,
+        ISingleLineStringLexer,
+        IHashbangLexer {
+  @override
+  Parser lexicalAbstract() => ref1(token, "abstract");
 
-  Parser VOID() => ref(token, "void");
+  @override
+  Parser lexicalVoid() => ref1(token, "void");
 
-  Parser CLASS() => ref(token, "class");
-  Parser IDENTIFIER() => ref(IDENTIFIER_START) & ref(IDENTIFIER_PART).star();
+  @override
+  Parser lexicalClass() => ref1(token, "class");
 
-  Parser HEX_NUMBER() =>
-      string('0x') & ref(HEX_DIGIT).plus() |
-      string('0X') & ref(HEX_DIGIT).plus();
+  @override
+  Parser lexicalIdentifier() =>
+      ref0(identifierStart) & ref0(identifierPart).star();
 
-  Parser NUMBER() =>
-      ref(DIGIT).plus() &
-          ref(NUMBER_OPT_FRACTIONAL_PART) &
-          ref(EXPONENT).optional() &
-          ref(NUMBER_OPT_ILLEGAL_END) |
+  @override
+  Parser hexNumber() =>
+      string('0x') & ref0(hexDigit).plus() |
+      string('0X') & ref0(hexDigit).plus();
+
+  @override
+  Parser number() =>
+      ref0(digit).plus() &
+          ref0(numberOptFractionalPart) &
+          ref0(exponent).optional() &
+          ref0(numberOptIllegalEnd) |
       char('.') &
-          ref(DIGIT).plus() &
-          ref(EXPONENT).optional() &
-          ref(NUMBER_OPT_ILLEGAL_END);
+          ref0(digit).plus() &
+          ref0(exponent).optional() &
+          ref0(numberOptIllegalEnd);
 
-  Parser NUMBER_OPT_FRACTIONAL_PART() =>
-      char('.') & ref(DIGIT).plus() | epsilon();
+  @override
+  Parser numberOptFractionalPart() =>
+      char('.') & ref0(digit).plus() | epsilon();
 
-  Parser NUMBER_OPT_ILLEGAL_END() => epsilon();
+  @override
+  Parser numberOptIllegalEnd() => epsilon();
 
-  Parser HEX_DIGIT() => pattern('0-9a-fA-F');
+  @override
+  Parser hexDigit() => pattern('0-9a-fA-F');
 
-  Parser IDENTIFIER_START() => ref(IDENTIFIER_START_NO_DOLLAR) | char('\$');
+  @override
+  Parser identifierStart() => ref0(identifierStartNoDollar) | char('\$');
 
-  Parser IDENTIFIER_START_NO_DOLLAR() => ref(LETTER) | char('_');
+  @override
+  Parser identifierStartNoDollar() => ref0(letter) | char('_');
 
-  Parser IDENTIFIER_PART() => ref(IDENTIFIER_START) | ref(DIGIT);
+  @override
+  Parser identifierPart() => ref0(identifierStart) | ref0(digit);
 
-  Parser LETTER() => letter();
+  @override
+  Parser lexicalLetter() => letter();
 
-  Parser DIGIT() => digit();
+  @override
+  Parser lexicalDigit() => digit();
 
-  Parser EXPONENT() =>
-      pattern('eE') & pattern('+-').optional() & ref(DIGIT).plus();
+  @override
+  Parser exponent() =>
+      pattern('eE') & pattern('+-').optional() & ref0(digit).plus();
 
-  Parser STRING() =>
-      char('@').optional() & ref(MULTI_LINE_STRING) | ref(SINGLE_LINE_STRING);
+  @override
+  Parser lexicalString() =>
+      char('@').optional() & ref0(multiLineString) | ref0(singleLineString);
 
-  Parser MULTI_LINE_STRING() =>
+  @override
+  Parser multiLineString() =>
       string('"""') & any().starLazy(string('"""')) & string('"""') |
       string("'''") & any().starLazy(string("'''")) & string("'''");
 
-  Parser SINGLE_LINE_STRING() =>
-      char('"') & ref(STRING_CONTENT_DQ).star() & char('"') |
-      char("'") & ref(STRING_CONTENT_SQ).star() & char("'") |
+  @override
+  Parser singleLineString() =>
+      char('"') & ref0(stringContentDq).star() & char('"') |
+      char("'") & ref0(stringContentSq).star() & char("'") |
       string('@"') & pattern('^"\n\r').star() & char('"') |
       string("@'") & pattern("^'\n\r").star() & char("'");
 
-  Parser STRING_CONTENT_DQ() =>
+  @override
+  Parser stringContentDq() =>
       pattern('^\\"\n\r') | char('\\') & pattern('\n\r');
 
-  Parser STRING_CONTENT_SQ() =>
+  @override
+  Parser stringContentSq() =>
       pattern("^\\'\n\r") | char('\\') & pattern('\n\r');
 
-  Parser HASHBANG() =>
-      string('#!') & pattern('^\n\r').star() & ref(NEWLINE).optional();
+  @override
+  Parser hashbang() =>
+      string('#!') & pattern('^\n\r').star() & ref0(newline).optional();
 }

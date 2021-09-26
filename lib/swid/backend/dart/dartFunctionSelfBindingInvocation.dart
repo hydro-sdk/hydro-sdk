@@ -8,143 +8,269 @@ import 'package:code_builder/code_builder.dart'
         Code,
         CodeExpression;
 
-import 'package:meta/meta.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'package:hydro_sdk/swid/backend/dart/dartBoxEnumReference.dart';
-import 'package:hydro_sdk/swid/backend/dart/dartBoxObjectReference.dart';
+import 'package:hydro_sdk/swid/backend/dart/dartBoxingExpression.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartBoxingProcedure.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartUnboxingExpression.dart';
-import 'package:hydro_sdk/swid/backend/dart/util/codeKind.dart';
+import 'package:hydro_sdk/swid/backend/dart/util/luaCallerArgumentsParameterName.dart';
+import 'package:hydro_sdk/swid/backend/dart/util/unpackedClosureName.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
-import 'package:hydro_sdk/swid/ir/swidType.dart';
-import 'package:hydro_sdk/swid/ir/util/narrowSwidInterfaceByReferenceDeclaration.dart';
+import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsNonUniqueTermMixin.dart';
+import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
+import 'package:hydro_sdk/swid/swars/swarsTermStringResultMixin.dart';
+import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
+import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
+import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
+import 'package:hydro_sdk/swid/util/unHashableMixin.dart';
 
-class DartFunctionSelfBindingInvocation {
-  final SwidFunctionType swidFunctionType;
-  final DartBoxingProcedure argumentBoxingProcedure;
-  final DartBoxingProcedure returnValueBoxingProcedure;
-  final bool emitTableBindingPrefix;
-  final Expression returnValueBoxingTableExpression;
+part 'dartFunctionSelfBindingInvocation.freezed.dart';
 
-  DartFunctionSelfBindingInvocation({
-    @required this.swidFunctionType,
-    @required this.argumentBoxingProcedure,
-    @required this.returnValueBoxingProcedure,
-    @required this.emitTableBindingPrefix,
-    this.returnValueBoxingTableExpression,
-  });
+@freezed
+class DartFunctionSelfBindingInvocation
+    with
+        _$DartFunctionSelfBindingInvocation,
+        HashKeyMixin<DartFunctionSelfBindingInvocation>,
+        HashComparableMixin<DartFunctionSelfBindingInvocation>,
+        UnhashableMixin<DartFunctionSelfBindingInvocation>,
+        SwarsNonUniqueTermMixin<
+            DartFunctionSelfBindingInvocation,
+            $DartFunctionSelfBindingInvocationCopyWith<
+                DartFunctionSelfBindingInvocation>,
+            String>,
+        SwarsTransformMixin<
+            DartFunctionSelfBindingInvocation,
+            $DartFunctionSelfBindingInvocationCopyWith<
+                DartFunctionSelfBindingInvocation>,
+            String>,
+        SwarsTermStringResultMixin {
+  DartFunctionSelfBindingInvocation._();
 
-  String toDartSource() => ((Expression expression) =>
-      returnValueBoxingProcedure == DartBoxingProcedure.unbox
-          ? DartUnboxingExpression(
-              swidType: swidFunctionType.returnType, expression: expression)
-          : returnValueBoxingProcedure == DartBoxingProcedure.box
-              ? swidFunctionType.returnType.when(
-                  fromSwidInterface: (val) =>
-                      narrowSwidInterfaceByReferenceDeclaration(
-                    swidInterface: val,
-                    onPrimitive: (_) =>
-                        expression.accept(DartEmitter()).toString(),
-                    onDynamic: (_) =>
-                        expression.accept(DartEmitter()).toString(),
-                    onClass: (val) => DartBoxObjectReference(
-                      type: val,
-                      objectReference: expression,
-                      boxLists: true,
-                      codeKind: CodeKind.expression,
-                      tableExpression: returnValueBoxingTableExpression,
-                    ).toDartSource(),
-                    onEnum: (val) => DartBoxEnumReference(
-                            type:
-                                SwidType.fromSwidInterface(swidInterface: val),
-                            codeKind: CodeKind.expression,
-                            referenceName:
-                                expression.accept(DartEmitter()).toString())
-                        .toDartSource(),
-                    onVoid: (_) => expression.accept(DartEmitter()).toString(),
-                    onTypeParameter: (_) =>
-                        expression.accept(DartEmitter()).toString(),
-                  ),
-                  fromSwidClass: (_) => "",
-                  fromSwidDefaultFormalParameter: (_) => "",
-                  fromSwidFunctionType: (_) => "",
-                )
-              : expression.accept(DartEmitter()).toString())(!swidFunctionType
-          .swidDeclarationModifiers.isGetter
-      ? refer(swidFunctionType.name)
-          /*
+  factory DartFunctionSelfBindingInvocation({
+    required final SwidFunctionType swidFunctionType,
+    required final DartBoxingProcedure argumentBoxingProcedure,
+    required final DartBoxingProcedure returnValueBoxingProcedure,
+    required final bool emitTableBindingPrefix,
+    required final bool useClosureUnpackNameForUnboxingIdentifiers,
+    required final Expression? returnValueBoxingTableExpression,
+  }) = _$DartFunctionSelfBindingInvocationCtor;
+
+  @override
+  DartFunctionSelfBindingInvocation clone({
+    final SwidFunctionType? swidFunctionType,
+    final DartBoxingProcedure? argumentBoxingProcedure,
+    final DartBoxingProcedure? returnValueBoxingProcedure,
+    final bool? emitTableBindingPrefix,
+    final bool? useClosureUnpackNameForUnboxingIdentifiers,
+    final Expression? returnValueBoxingTableExpression,
+  }) =>
+      DartFunctionSelfBindingInvocation(
+        swidFunctionType: swidFunctionType ?? this.swidFunctionType.clone(),
+        argumentBoxingProcedure:
+            argumentBoxingProcedure ?? this.argumentBoxingProcedure,
+        returnValueBoxingProcedure:
+            returnValueBoxingProcedure ?? this.returnValueBoxingProcedure,
+        emitTableBindingPrefix:
+            emitTableBindingPrefix ?? this.emitTableBindingPrefix,
+        useClosureUnpackNameForUnboxingIdentifiers:
+            useClosureUnpackNameForUnboxingIdentifiers ??
+                this.useClosureUnpackNameForUnboxingIdentifiers,
+        returnValueBoxingTableExpression: returnValueBoxingTableExpression ??
+            this.returnValueBoxingTableExpression,
+      );
+
+  @override
+  ISwarsTermResult<String> transform({
+    required final ISwarsPipeline pipeline,
+  }) =>
+      SwarsTermResult.fromString(
+        ((
+          Expression expression,
+        ) =>
+            returnValueBoxingProcedure == DartBoxingProcedure.unbox
+                ? pipeline.reduceFromTerm(DartUnboxingExpression(
+                    swidType: swidFunctionType.returnType,
+                    expression: expression,
+                    identifierName: null,
+                  ))
+                : returnValueBoxingProcedure == DartBoxingProcedure.box
+                    ? pipeline.reduceFromTerm(DartBoxingExpression(
+                        swidType: swidFunctionType.returnType,
+                        expression: expression,
+                        tableExpression: returnValueBoxingTableExpression,
+                      ))
+                    : expression
+                        .accept(
+                          DartEmitter(
+                            useNullSafetySyntax: true,
+                          ),
+                        )
+                        .toString())(
+          !swidFunctionType.declarationModifiers.isGetter
+              ? refer(swidFunctionType.name)
+                  /*
               args[0] - caller
               args[1...n] - positional arguments
               args[n + 1] - named arguments
       */
-          .call(
-              ([
-                ...(swidFunctionType.normalParameterNames.isNotEmpty
-                    ? swidFunctionType.normalParameterNames
-                        .map((x) => ((Expression expression) =>
-                            argumentBoxingProcedure == DartBoxingProcedure.unbox
-                                ? CodeExpression(Code(DartUnboxingExpression(
-                                    swidType: swidFunctionType
-                                        .normalParameterTypes
-                                        .elementAt(swidFunctionType
-                                            .normalParameterNames
-                                            .indexWhere((e) => e == x)),
-                                    expression: expression,
-                                    identifierName: x,
-                                  ).toDartSource()))
-                                : CodeExpression(Code("")))(refer("args").index(
-                            literalNum(swidFunctionType.normalParameterNames
-                                    .indexWhere((e) => e == x) +
-                                1))))
-                        .toList()
-                        .cast<Expression>()
-                    : []),
-                ...(swidFunctionType.optionalParameterNames.isNotEmpty
-                    ? swidFunctionType.optionalParameterNames
-                        .map((x) => ((Expression expression) =>
-                            argumentBoxingProcedure == DartBoxingProcedure.unbox
-                                ? CodeExpression(Code(DartUnboxingExpression(
-                                    swidType: swidFunctionType
-                                        .optionalParameterTypes
-                                        .elementAt(swidFunctionType
-                                            .optionalParameterNames
-                                            .indexWhere((e) => e == x)),
-                                    expression: expression,
-                                    identifierName: x,
-                                  ).toDartSource()))
-                                : CodeExpression(Code("")))(refer("args")
-                            .index(literalNum([
-                                  ...swidFunctionType.normalParameterNames,
-                                  ...swidFunctionType.optionalParameterNames,
-                                ].indexWhere((e) => e == x) +
-                                1))))
-                        .toList()
-                        .cast<Expression>()
-                    : [])
-              ]..removeWhere((x) => x == null)),
-              Map.fromEntries([
-                ...(emitTableBindingPrefix
-                    ? [
-                        MapEntry("table", refer("args").index(literalNum(0))),
-                        MapEntry("hydroState", refer("hydroState"))
-                      ]
-                    : []),
-                ...(swidFunctionType.namedParameterTypes.entries.map((x) =>
-                    MapEntry(
-                        x.key,
-                        CodeExpression(Code(
-                            argumentBoxingProcedure == DartBoxingProcedure.unbox
-                                ? DartUnboxingExpression(
-                                        swidType: x.value,
-                                        identifierName: x.key,
-                                        expression: refer("args")
-                                            .index(literalNum(swidFunctionType
-                                                    .normalParameterNames
-                                                    .length +
-                                                1))
-                                            .index(literalString(x.key)))
-                                    .toDartSource()
-                                : ""))))),
-              ]..removeWhere((x) => x == null)))
-      : refer(swidFunctionType.name));
+                  .call(
+                  ([
+                    ...(swidFunctionType.normalParameterNames.isNotEmpty
+                        ? swidFunctionType.normalParameterNames
+                            .map(
+                              (x) => ((
+                                Expression expression,
+                              ) =>
+                                  argumentBoxingProcedure ==
+                                          DartBoxingProcedure.unbox
+                                      ? CodeExpression(
+                                          Code(
+                                            pipeline.reduceFromTerm(
+                                              DartUnboxingExpression(
+                                                swidType: swidFunctionType
+                                                    .normalParameterTypes
+                                                    .elementAt(
+                                                  swidFunctionType
+                                                      .normalParameterNames
+                                                      .indexWhere(
+                                                    (e) => e == x,
+                                                  ),
+                                                ),
+                                                expression: expression,
+                                                identifierName:
+                                                    useClosureUnpackNameForUnboxingIdentifiers
+                                                        ? unpackedClosureName(
+                                                            str: x,
+                                                          )
+                                                        : x,
+                                              ),
+                                            ),
+                                          ),
+                                        )
+                                      : CodeExpression(
+                                          Code(""),
+                                        ))(
+                                refer("$luaCallerArgumentsParameterName").index(
+                                  literalNum(
+                                    swidFunctionType.normalParameterNames
+                                            .indexWhere((e) => e == x) +
+                                        1,
+                                  ),
+                                ),
+                              ),
+                            )
+                            .toList()
+                            .cast<Expression>()
+                        : []),
+                    ...(swidFunctionType.optionalParameterNames.isNotEmpty
+                        ? swidFunctionType.optionalParameterNames
+                            .map(
+                              (x) => ((
+                                Expression expression,
+                              ) =>
+                                  argumentBoxingProcedure ==
+                                          DartBoxingProcedure.unbox
+                                      ? CodeExpression(
+                                          Code(
+                                            pipeline.reduceFromTerm(
+                                              DartUnboxingExpression(
+                                                swidType: swidFunctionType
+                                                    .optionalParameterTypes
+                                                    .elementAt(
+                                                  swidFunctionType
+                                                      .optionalParameterNames
+                                                      .indexWhere(
+                                                    (e) => e == x,
+                                                  ),
+                                                ),
+                                                expression: expression,
+                                                identifierName:
+                                                    useClosureUnpackNameForUnboxingIdentifiers
+                                                        ? unpackedClosureName(
+                                                            str: x,
+                                                          )
+                                                        : x,
+                                              ),
+                                            ),
+                                          ),
+                                        )
+                                      : CodeExpression(
+                                          Code(""),
+                                        ))(
+                                refer("$luaCallerArgumentsParameterName").index(
+                                  literalNum(
+                                    [
+                                          ...swidFunctionType
+                                              .normalParameterNames,
+                                          ...swidFunctionType
+                                              .optionalParameterNames,
+                                        ].indexWhere(
+                                          (e) => e == x,
+                                        ) +
+                                        1,
+                                  ),
+                                ),
+                              ),
+                            )
+                            .toList()
+                            .cast<Expression>()
+                        : [])
+                  ]),
+                  Map.fromEntries(
+                    [
+                      ...(emitTableBindingPrefix
+                          ? [
+                              MapEntry(
+                                "table",
+                                refer("$luaCallerArgumentsParameterName").index(
+                                  literalNum(0),
+                                ),
+                              ),
+                              MapEntry(
+                                "hydroState",
+                                refer("hydroState"),
+                              )
+                            ]
+                          : []),
+                      ...(swidFunctionType.namedParameterTypes.entries.map(
+                        (x) => MapEntry(
+                          x.key,
+                          CodeExpression(
+                            Code(argumentBoxingProcedure ==
+                                    DartBoxingProcedure.unbox
+                                ? pipeline.reduceFromTerm(
+                                    DartUnboxingExpression(
+                                      swidType: x.value,
+                                      identifierName:
+                                          useClosureUnpackNameForUnboxingIdentifiers
+                                              ? unpackedClosureName(
+                                                  str: x.key,
+                                                )
+                                              : x.key,
+                                      expression: refer(
+                                              "$luaCallerArgumentsParameterName")
+                                          .index(
+                                            literalNum(
+                                              swidFunctionType
+                                                      .normalParameterNames
+                                                      .length +
+                                                  1,
+                                            ),
+                                          )
+                                          .index(
+                                            literalString(x.key),
+                                          ),
+                                    ),
+                                  )
+                                : ""),
+                          ),
+                        ),
+                      )),
+                    ],
+                  ),
+                )
+              : refer(swidFunctionType.name),
+        ),
+      );
 }

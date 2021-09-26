@@ -2,11 +2,12 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'package:hydro_sdk/swid/backend/dart/dartBarrelLoadNamespaceSymbolDeclaration.dart';
 import 'package:hydro_sdk/swid/backend/util/barrelMember.dart';
-import 'package:hydro_sdk/swid/backend/util/barrelSpec.dart';
 import 'package:hydro_sdk/swid/backend/util/resolveBarrelSpecs.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
+import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
+import 'package:hydro_sdk/swid/swars/pipelineNoopCacheMgr.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
@@ -24,7 +25,7 @@ void main() {
               implementedClasses: [],
               staticConstFieldDeclarations: [],
               instanceFieldDeclarations: {},
-              swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+              declarationModifiers: SwidDeclarationModifiers.empty(),
               mixedInClasses: [],
               extendedClass: null,
               isMixin: false,
@@ -41,7 +42,7 @@ void main() {
               implementedClasses: [],
               staticConstFieldDeclarations: [],
               instanceFieldDeclarations: {},
-              swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+              declarationModifiers: SwidDeclarationModifiers.empty(),
               mixedInClasses: [],
               extendedClass: null,
               isMixin: false,
@@ -58,7 +59,7 @@ void main() {
               implementedClasses: [],
               staticConstFieldDeclarations: [],
               instanceFieldDeclarations: {},
-              swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+              declarationModifiers: SwidDeclarationModifiers.empty(),
               mixedInClasses: [],
               extendedClass: null,
               isMixin: false,
@@ -75,7 +76,7 @@ void main() {
               implementedClasses: [],
               staticConstFieldDeclarations: [],
               instanceFieldDeclarations: {},
-              swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+              declarationModifiers: SwidDeclarationModifiers.empty(),
               mixedInClasses: [],
               extendedClass: null,
               isMixin: false,
@@ -92,7 +93,7 @@ void main() {
               implementedClasses: [],
               staticConstFieldDeclarations: [],
               instanceFieldDeclarations: {},
-              swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+              declarationModifiers: SwidDeclarationModifiers.empty(),
               mixedInClasses: [],
               extendedClass: null,
               isMixin: false,
@@ -109,7 +110,7 @@ void main() {
               implementedClasses: [],
               staticConstFieldDeclarations: [],
               instanceFieldDeclarations: {},
-              swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+              declarationModifiers: SwidDeclarationModifiers.empty(),
               mixedInClasses: [],
               extendedClass: null,
               isMixin: false,
@@ -119,10 +120,13 @@ void main() {
     expect(barrelSpec.isTopLevel(), true);
 
     expect(
-        DartBarrelLoadNamespaceSymbolDeclaration(barrelSpec: barrelSpec)
-            .toDartSource(),
+        CachingPipeline(
+          cacheMgr: const PipelineNoopCacheMgr(),
+        ).reduceFromTerm(
+          DartBarrelLoadNamespaceSymbolDeclaration(barrelSpec: barrelSpec),
+        ),
         """
-void loaddart({@required HydroState hydroState, @required Context context}) {
+void loaddart({required HydroState hydroState, required Context context}) {
   final dart = HydroTable();
   context.env[\'dart\'] = dart;
   loadcore(table: dart, hydroState: hydroState);

@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'logEvent.dart';
 
@@ -8,6 +8,10 @@ part of 'logEvent.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 DiagnosticLogEvent _$DiagnosticLogEventFromJson(Map<String, dynamic> json) {
   return _$DiagnosticLogEventCtor.fromJson(json);
 }
@@ -16,33 +20,31 @@ DiagnosticLogEvent _$DiagnosticLogEventFromJson(Map<String, dynamic> json) {
 class _$DiagnosticLogEventTearOff {
   const _$DiagnosticLogEventTearOff();
 
-// ignore: unused_element
   _$DiagnosticLogEventCtor call(
-      {@required int logEventType, @required String message}) {
+      {required int logEventType, required String message}) {
     return _$DiagnosticLogEventCtor(
       logEventType: logEventType,
       message: message,
     );
   }
 
-// ignore: unused_element
   DiagnosticLogEvent fromJson(Map<String, Object> json) {
     return DiagnosticLogEvent.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $DiagnosticLogEvent = _$DiagnosticLogEventTearOff();
 
 /// @nodoc
 mixin _$DiagnosticLogEvent {
-  int get logEventType;
-  String get message;
+  int get logEventType => throw _privateConstructorUsedError;
+  String get message => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $DiagnosticLogEventCopyWith<DiagnosticLogEvent> get copyWith;
+  $DiagnosticLogEventCopyWith<DiagnosticLogEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -64,13 +66,18 @@ class _$DiagnosticLogEventCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object logEventType = freezed,
-    Object message = freezed,
+    Object? logEventType = freezed,
+    Object? message = freezed,
   }) {
     return _then(_value.copyWith(
-      logEventType:
-          logEventType == freezed ? _value.logEventType : logEventType as int,
-      message: message == freezed ? _value.message : message as String,
+      logEventType: logEventType == freezed
+          ? _value.logEventType
+          : logEventType // ignore: cast_nullable_to_non_nullable
+              as int,
+      message: message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -99,25 +106,27 @@ class __$$DiagnosticLogEventCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object logEventType = freezed,
-    Object message = freezed,
+    Object? logEventType = freezed,
+    Object? message = freezed,
   }) {
     return _then(_$DiagnosticLogEventCtor(
-      logEventType:
-          logEventType == freezed ? _value.logEventType : logEventType as int,
-      message: message == freezed ? _value.message : message as String,
+      logEventType: logEventType == freezed
+          ? _value.logEventType
+          : logEventType // ignore: cast_nullable_to_non_nullable
+              as int,
+      message: message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_$DiagnosticLogEventCtor implements _$DiagnosticLogEventCtor {
   const _$_$DiagnosticLogEventCtor(
-      {@required this.logEventType, @required this.message})
-      : assert(logEventType != null),
-        assert(message != null);
+      {required this.logEventType, required this.message});
 
   factory _$_$DiagnosticLogEventCtor.fromJson(Map<String, dynamic> json) =>
       _$_$_$DiagnosticLogEventCtorFromJson(json);
@@ -163,19 +172,20 @@ class _$_$DiagnosticLogEventCtor implements _$DiagnosticLogEventCtor {
 
 abstract class _$DiagnosticLogEventCtor implements DiagnosticLogEvent {
   const factory _$DiagnosticLogEventCtor(
-      {@required int logEventType,
-      @required String message}) = _$_$DiagnosticLogEventCtor;
+      {required int logEventType,
+      required String message}) = _$_$DiagnosticLogEventCtor;
 
   factory _$DiagnosticLogEventCtor.fromJson(Map<String, dynamic> json) =
       _$_$DiagnosticLogEventCtor.fromJson;
 
   @override
-  int get logEventType;
+  int get logEventType => throw _privateConstructorUsedError;
   @override
-  String get message;
+  String get message => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$$DiagnosticLogEventCtorCopyWith<_$DiagnosticLogEventCtor> get copyWith;
+  _$$DiagnosticLogEventCtorCopyWith<_$DiagnosticLogEventCtor> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 ErrorLogEvent _$ErrorLogEventFromJson(Map<String, dynamic> json) {
@@ -186,33 +196,31 @@ ErrorLogEvent _$ErrorLogEventFromJson(Map<String, dynamic> json) {
 class _$ErrorLogEventTearOff {
   const _$ErrorLogEventTearOff();
 
-// ignore: unused_element
   _$ErrorLogEventCtor call(
-      {@required int logEventType, @required String message}) {
+      {required int logEventType, required String message}) {
     return _$ErrorLogEventCtor(
       logEventType: logEventType,
       message: message,
     );
   }
 
-// ignore: unused_element
   ErrorLogEvent fromJson(Map<String, Object> json) {
     return ErrorLogEvent.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $ErrorLogEvent = _$ErrorLogEventTearOff();
 
 /// @nodoc
 mixin _$ErrorLogEvent {
-  int get logEventType;
-  String get message;
+  int get logEventType => throw _privateConstructorUsedError;
+  String get message => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ErrorLogEventCopyWith<ErrorLogEvent> get copyWith;
+  $ErrorLogEventCopyWith<ErrorLogEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -234,13 +242,18 @@ class _$ErrorLogEventCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object logEventType = freezed,
-    Object message = freezed,
+    Object? logEventType = freezed,
+    Object? message = freezed,
   }) {
     return _then(_value.copyWith(
-      logEventType:
-          logEventType == freezed ? _value.logEventType : logEventType as int,
-      message: message == freezed ? _value.message : message as String,
+      logEventType: logEventType == freezed
+          ? _value.logEventType
+          : logEventType // ignore: cast_nullable_to_non_nullable
+              as int,
+      message: message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -268,25 +281,27 @@ class __$$ErrorLogEventCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object logEventType = freezed,
-    Object message = freezed,
+    Object? logEventType = freezed,
+    Object? message = freezed,
   }) {
     return _then(_$ErrorLogEventCtor(
-      logEventType:
-          logEventType == freezed ? _value.logEventType : logEventType as int,
-      message: message == freezed ? _value.message : message as String,
+      logEventType: logEventType == freezed
+          ? _value.logEventType
+          : logEventType // ignore: cast_nullable_to_non_nullable
+              as int,
+      message: message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_$ErrorLogEventCtor implements _$ErrorLogEventCtor {
   const _$_$ErrorLogEventCtor(
-      {@required this.logEventType, @required this.message})
-      : assert(logEventType != null),
-        assert(message != null);
+      {required this.logEventType, required this.message});
 
   factory _$_$ErrorLogEventCtor.fromJson(Map<String, dynamic> json) =>
       _$_$_$ErrorLogEventCtorFromJson(json);
@@ -331,19 +346,20 @@ class _$_$ErrorLogEventCtor implements _$ErrorLogEventCtor {
 
 abstract class _$ErrorLogEventCtor implements ErrorLogEvent {
   const factory _$ErrorLogEventCtor(
-      {@required int logEventType,
-      @required String message}) = _$_$ErrorLogEventCtor;
+      {required int logEventType,
+      required String message}) = _$_$ErrorLogEventCtor;
 
   factory _$ErrorLogEventCtor.fromJson(Map<String, dynamic> json) =
       _$_$ErrorLogEventCtor.fromJson;
 
   @override
-  int get logEventType;
+  int get logEventType => throw _privateConstructorUsedError;
   @override
-  String get message;
+  String get message => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$$ErrorLogEventCtorCopyWith<_$ErrorLogEventCtor> get copyWith;
+  _$$ErrorLogEventCtorCopyWith<_$ErrorLogEventCtor> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 ProgressStartLogEvent _$ProgressStartLogEventFromJson(
@@ -355,33 +371,31 @@ ProgressStartLogEvent _$ProgressStartLogEventFromJson(
 class _$ProgressStartLogEventTearOff {
   const _$ProgressStartLogEventTearOff();
 
-// ignore: unused_element
   _$ProgressStartLogEventCtor call(
-      {@required int logEventType, @required String progressId}) {
+      {required int logEventType, required String progressId}) {
     return _$ProgressStartLogEventCtor(
       logEventType: logEventType,
       progressId: progressId,
     );
   }
 
-// ignore: unused_element
   ProgressStartLogEvent fromJson(Map<String, Object> json) {
     return ProgressStartLogEvent.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $ProgressStartLogEvent = _$ProgressStartLogEventTearOff();
 
 /// @nodoc
 mixin _$ProgressStartLogEvent {
-  int get logEventType;
-  String get progressId;
+  int get logEventType => throw _privateConstructorUsedError;
+  String get progressId => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ProgressStartLogEventCopyWith<ProgressStartLogEvent> get copyWith;
+  $ProgressStartLogEventCopyWith<ProgressStartLogEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -403,14 +417,18 @@ class _$ProgressStartLogEventCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object logEventType = freezed,
-    Object progressId = freezed,
+    Object? logEventType = freezed,
+    Object? progressId = freezed,
   }) {
     return _then(_value.copyWith(
-      logEventType:
-          logEventType == freezed ? _value.logEventType : logEventType as int,
-      progressId:
-          progressId == freezed ? _value.progressId : progressId as String,
+      logEventType: logEventType == freezed
+          ? _value.logEventType
+          : logEventType // ignore: cast_nullable_to_non_nullable
+              as int,
+      progressId: progressId == freezed
+          ? _value.progressId
+          : progressId // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -440,26 +458,27 @@ class __$$ProgressStartLogEventCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object logEventType = freezed,
-    Object progressId = freezed,
+    Object? logEventType = freezed,
+    Object? progressId = freezed,
   }) {
     return _then(_$ProgressStartLogEventCtor(
-      logEventType:
-          logEventType == freezed ? _value.logEventType : logEventType as int,
-      progressId:
-          progressId == freezed ? _value.progressId : progressId as String,
+      logEventType: logEventType == freezed
+          ? _value.logEventType
+          : logEventType // ignore: cast_nullable_to_non_nullable
+              as int,
+      progressId: progressId == freezed
+          ? _value.progressId
+          : progressId // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_$ProgressStartLogEventCtor implements _$ProgressStartLogEventCtor {
   const _$_$ProgressStartLogEventCtor(
-      {@required this.logEventType, @required this.progressId})
-      : assert(logEventType != null),
-        assert(progressId != null);
+      {required this.logEventType, required this.progressId});
 
   factory _$_$ProgressStartLogEventCtor.fromJson(Map<String, dynamic> json) =>
       _$_$_$ProgressStartLogEventCtorFromJson(json);
@@ -506,20 +525,20 @@ class _$_$ProgressStartLogEventCtor implements _$ProgressStartLogEventCtor {
 
 abstract class _$ProgressStartLogEventCtor implements ProgressStartLogEvent {
   const factory _$ProgressStartLogEventCtor(
-      {@required int logEventType,
-      @required String progressId}) = _$_$ProgressStartLogEventCtor;
+      {required int logEventType,
+      required String progressId}) = _$_$ProgressStartLogEventCtor;
 
   factory _$ProgressStartLogEventCtor.fromJson(Map<String, dynamic> json) =
       _$_$ProgressStartLogEventCtor.fromJson;
 
   @override
-  int get logEventType;
+  int get logEventType => throw _privateConstructorUsedError;
   @override
-  String get progressId;
+  String get progressId => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$ProgressStartLogEventCtorCopyWith<_$ProgressStartLogEventCtor>
-      get copyWith;
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 ProgressStopLogEvent _$ProgressStopLogEventFromJson(Map<String, dynamic> json) {
@@ -530,33 +549,31 @@ ProgressStopLogEvent _$ProgressStopLogEventFromJson(Map<String, dynamic> json) {
 class _$ProgressStopLogEventTearOff {
   const _$ProgressStopLogEventTearOff();
 
-// ignore: unused_element
   _$ProgressStopLogEventCtor call(
-      {@required int logEventType, @required String progressId}) {
+      {required int logEventType, required String progressId}) {
     return _$ProgressStopLogEventCtor(
       logEventType: logEventType,
       progressId: progressId,
     );
   }
 
-// ignore: unused_element
   ProgressStopLogEvent fromJson(Map<String, Object> json) {
     return ProgressStopLogEvent.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $ProgressStopLogEvent = _$ProgressStopLogEventTearOff();
 
 /// @nodoc
 mixin _$ProgressStopLogEvent {
-  int get logEventType;
-  String get progressId;
+  int get logEventType => throw _privateConstructorUsedError;
+  String get progressId => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ProgressStopLogEventCopyWith<ProgressStopLogEvent> get copyWith;
+  $ProgressStopLogEventCopyWith<ProgressStopLogEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -578,14 +595,18 @@ class _$ProgressStopLogEventCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object logEventType = freezed,
-    Object progressId = freezed,
+    Object? logEventType = freezed,
+    Object? progressId = freezed,
   }) {
     return _then(_value.copyWith(
-      logEventType:
-          logEventType == freezed ? _value.logEventType : logEventType as int,
-      progressId:
-          progressId == freezed ? _value.progressId : progressId as String,
+      logEventType: logEventType == freezed
+          ? _value.logEventType
+          : logEventType // ignore: cast_nullable_to_non_nullable
+              as int,
+      progressId: progressId == freezed
+          ? _value.progressId
+          : progressId // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -614,26 +635,27 @@ class __$$ProgressStopLogEventCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object logEventType = freezed,
-    Object progressId = freezed,
+    Object? logEventType = freezed,
+    Object? progressId = freezed,
   }) {
     return _then(_$ProgressStopLogEventCtor(
-      logEventType:
-          logEventType == freezed ? _value.logEventType : logEventType as int,
-      progressId:
-          progressId == freezed ? _value.progressId : progressId as String,
+      logEventType: logEventType == freezed
+          ? _value.logEventType
+          : logEventType // ignore: cast_nullable_to_non_nullable
+              as int,
+      progressId: progressId == freezed
+          ? _value.progressId
+          : progressId // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_$ProgressStopLogEventCtor implements _$ProgressStopLogEventCtor {
   const _$_$ProgressStopLogEventCtor(
-      {@required this.logEventType, @required this.progressId})
-      : assert(logEventType != null),
-        assert(progressId != null);
+      {required this.logEventType, required this.progressId});
 
   factory _$_$ProgressStopLogEventCtor.fromJson(Map<String, dynamic> json) =>
       _$_$_$ProgressStopLogEventCtorFromJson(json);
@@ -681,19 +703,20 @@ class _$_$ProgressStopLogEventCtor implements _$ProgressStopLogEventCtor {
 
 abstract class _$ProgressStopLogEventCtor implements ProgressStopLogEvent {
   const factory _$ProgressStopLogEventCtor(
-      {@required int logEventType,
-      @required String progressId}) = _$_$ProgressStopLogEventCtor;
+      {required int logEventType,
+      required String progressId}) = _$_$ProgressStopLogEventCtor;
 
   factory _$ProgressStopLogEventCtor.fromJson(Map<String, dynamic> json) =
       _$_$ProgressStopLogEventCtor.fromJson;
 
   @override
-  int get logEventType;
+  int get logEventType => throw _privateConstructorUsedError;
   @override
-  String get progressId;
+  String get progressId => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$$ProgressStopLogEventCtorCopyWith<_$ProgressStopLogEventCtor> get copyWith;
+  _$$ProgressStopLogEventCtorCopyWith<_$ProgressStopLogEventCtor>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 ProgressTickLogEvent _$ProgressTickLogEventFromJson(Map<String, dynamic> json) {
@@ -704,13 +727,12 @@ ProgressTickLogEvent _$ProgressTickLogEventFromJson(Map<String, dynamic> json) {
 class _$ProgressTickLogEventTearOff {
   const _$ProgressTickLogEventTearOff();
 
-// ignore: unused_element
   _$ProgressTickLogEventCtor call(
-      {@required int logEventType,
-      @required int currentStep,
-      @required int totalSteps,
-      @required String suffixMessage,
-      @required String progressId}) {
+      {required int logEventType,
+      required int currentStep,
+      required int totalSteps,
+      required String suffixMessage,
+      required String progressId}) {
     return _$ProgressTickLogEventCtor(
       logEventType: logEventType,
       currentStep: currentStep,
@@ -720,27 +742,26 @@ class _$ProgressTickLogEventTearOff {
     );
   }
 
-// ignore: unused_element
   ProgressTickLogEvent fromJson(Map<String, Object> json) {
     return ProgressTickLogEvent.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $ProgressTickLogEvent = _$ProgressTickLogEventTearOff();
 
 /// @nodoc
 mixin _$ProgressTickLogEvent {
-  int get logEventType;
-  int get currentStep;
-  int get totalSteps;
-  String get suffixMessage;
-  String get progressId;
+  int get logEventType => throw _privateConstructorUsedError;
+  int get currentStep => throw _privateConstructorUsedError;
+  int get totalSteps => throw _privateConstructorUsedError;
+  String get suffixMessage => throw _privateConstructorUsedError;
+  String get progressId => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ProgressTickLogEventCopyWith<ProgressTickLogEvent> get copyWith;
+  $ProgressTickLogEventCopyWith<ProgressTickLogEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -767,23 +788,33 @@ class _$ProgressTickLogEventCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object logEventType = freezed,
-    Object currentStep = freezed,
-    Object totalSteps = freezed,
-    Object suffixMessage = freezed,
-    Object progressId = freezed,
+    Object? logEventType = freezed,
+    Object? currentStep = freezed,
+    Object? totalSteps = freezed,
+    Object? suffixMessage = freezed,
+    Object? progressId = freezed,
   }) {
     return _then(_value.copyWith(
-      logEventType:
-          logEventType == freezed ? _value.logEventType : logEventType as int,
-      currentStep:
-          currentStep == freezed ? _value.currentStep : currentStep as int,
-      totalSteps: totalSteps == freezed ? _value.totalSteps : totalSteps as int,
+      logEventType: logEventType == freezed
+          ? _value.logEventType
+          : logEventType // ignore: cast_nullable_to_non_nullable
+              as int,
+      currentStep: currentStep == freezed
+          ? _value.currentStep
+          : currentStep // ignore: cast_nullable_to_non_nullable
+              as int,
+      totalSteps: totalSteps == freezed
+          ? _value.totalSteps
+          : totalSteps // ignore: cast_nullable_to_non_nullable
+              as int,
       suffixMessage: suffixMessage == freezed
           ? _value.suffixMessage
-          : suffixMessage as String,
-      progressId:
-          progressId == freezed ? _value.progressId : progressId as String,
+          : suffixMessage // ignore: cast_nullable_to_non_nullable
+              as String,
+      progressId: progressId == freezed
+          ? _value.progressId
+          : progressId // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -817,42 +848,46 @@ class __$$ProgressTickLogEventCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object logEventType = freezed,
-    Object currentStep = freezed,
-    Object totalSteps = freezed,
-    Object suffixMessage = freezed,
-    Object progressId = freezed,
+    Object? logEventType = freezed,
+    Object? currentStep = freezed,
+    Object? totalSteps = freezed,
+    Object? suffixMessage = freezed,
+    Object? progressId = freezed,
   }) {
     return _then(_$ProgressTickLogEventCtor(
-      logEventType:
-          logEventType == freezed ? _value.logEventType : logEventType as int,
-      currentStep:
-          currentStep == freezed ? _value.currentStep : currentStep as int,
-      totalSteps: totalSteps == freezed ? _value.totalSteps : totalSteps as int,
+      logEventType: logEventType == freezed
+          ? _value.logEventType
+          : logEventType // ignore: cast_nullable_to_non_nullable
+              as int,
+      currentStep: currentStep == freezed
+          ? _value.currentStep
+          : currentStep // ignore: cast_nullable_to_non_nullable
+              as int,
+      totalSteps: totalSteps == freezed
+          ? _value.totalSteps
+          : totalSteps // ignore: cast_nullable_to_non_nullable
+              as int,
       suffixMessage: suffixMessage == freezed
           ? _value.suffixMessage
-          : suffixMessage as String,
-      progressId:
-          progressId == freezed ? _value.progressId : progressId as String,
+          : suffixMessage // ignore: cast_nullable_to_non_nullable
+              as String,
+      progressId: progressId == freezed
+          ? _value.progressId
+          : progressId // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_$ProgressTickLogEventCtor implements _$ProgressTickLogEventCtor {
   const _$_$ProgressTickLogEventCtor(
-      {@required this.logEventType,
-      @required this.currentStep,
-      @required this.totalSteps,
-      @required this.suffixMessage,
-      @required this.progressId})
-      : assert(logEventType != null),
-        assert(currentStep != null),
-        assert(totalSteps != null),
-        assert(suffixMessage != null),
-        assert(progressId != null);
+      {required this.logEventType,
+      required this.currentStep,
+      required this.totalSteps,
+      required this.suffixMessage,
+      required this.progressId});
 
   factory _$_$ProgressTickLogEventCtor.fromJson(Map<String, dynamic> json) =>
       _$_$_$ProgressTickLogEventCtorFromJson(json);
@@ -918,26 +953,27 @@ class _$_$ProgressTickLogEventCtor implements _$ProgressTickLogEventCtor {
 
 abstract class _$ProgressTickLogEventCtor implements ProgressTickLogEvent {
   const factory _$ProgressTickLogEventCtor(
-      {@required int logEventType,
-      @required int currentStep,
-      @required int totalSteps,
-      @required String suffixMessage,
-      @required String progressId}) = _$_$ProgressTickLogEventCtor;
+      {required int logEventType,
+      required int currentStep,
+      required int totalSteps,
+      required String suffixMessage,
+      required String progressId}) = _$_$ProgressTickLogEventCtor;
 
   factory _$ProgressTickLogEventCtor.fromJson(Map<String, dynamic> json) =
       _$_$ProgressTickLogEventCtor.fromJson;
 
   @override
-  int get logEventType;
+  int get logEventType => throw _privateConstructorUsedError;
   @override
-  int get currentStep;
+  int get currentStep => throw _privateConstructorUsedError;
   @override
-  int get totalSteps;
+  int get totalSteps => throw _privateConstructorUsedError;
   @override
-  String get suffixMessage;
+  String get suffixMessage => throw _privateConstructorUsedError;
   @override
-  String get progressId;
+  String get progressId => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$$ProgressTickLogEventCtorCopyWith<_$ProgressTickLogEventCtor> get copyWith;
+  _$$ProgressTickLogEventCtorCopyWith<_$ProgressTickLogEventCtor>
+      get copyWith => throw _privateConstructorUsedError;
 }

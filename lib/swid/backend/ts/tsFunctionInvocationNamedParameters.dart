@@ -1,37 +1,86 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/backend/ts/tsFunctionInvocationNamedParametersKeyValue.dart';
 import 'package:hydro_sdk/swid/backend/ts/tsFunctionInvocationNamedParametersSpread.dart';
+import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
+import 'package:hydro_sdk/swid/swars/swarsTermStringResultMixin.dart';
+import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
+import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
+import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
 
 part 'tsFunctionInvocationNamedParameters.freezed.dart';
-part 'tsFunctionInvocationNamedParameters.g.dart';
 
 @freezed
-abstract class TsFunctionInvocationNamedParameters
-    with _$TsFunctionInvocationNamedParameters {
-  factory TsFunctionInvocationNamedParameters.fromSpread(
-      {@required
-          TsFunctionInvocationNamedParametersSpread
-              tsFunctionInvocationNamedParametersSpread}) = _$FromSpread;
-  factory TsFunctionInvocationNamedParameters.fromKeyValue(
-      {@required
-          TsFunctionInvocationNamedParametersKeyValue
-              tsFunctionInvocationNamedParametersKeyValue}) = _$FromKeyValue;
+class TsFunctionInvocationNamedParameters
+    with
+        _$TsFunctionInvocationNamedParameters,
+        HashKeyMixin<TsFunctionInvocationNamedParameters>,
+        HashComparableMixin<TsFunctionInvocationNamedParameters>,
+        SwarsTransformMixin<TsFunctionInvocationNamedParameters, Object,
+            String>,
+        SwarsTermStringResultMixin {
+  TsFunctionInvocationNamedParameters._();
 
-  factory TsFunctionInvocationNamedParameters.fromJson(
-          Map<String, dynamic> json) =>
-      _$TsFunctionInvocationNamedParametersFromJson(json);
-}
+  factory TsFunctionInvocationNamedParameters.fromSpread({
+    required final TsFunctionInvocationNamedParametersSpread
+        tsFunctionInvocationNamedParametersSpread,
+  }) = _$TsFunctionInvocationNamedParametersFromSpread;
+  factory TsFunctionInvocationNamedParameters.fromKeyValue({
+    required final TsFunctionInvocationNamedParametersKeyValue
+        tsFunctionInvocationNamedParametersKeyValue,
+  }) = _$TsFunctionInvocationNamedParametersFromKeyValue;
 
-extension TsFunctionInvocationNamedParametersMethods
-    on TsFunctionInvocationNamedParameters {
-  String toTsSource() => [
-        "{",
-        when(
-          fromSpread: (val) => val.toTsSource(),
-          fromKeyValue: (val) => val.toTsSource(),
+  @override
+  String get cacheGroup => "tsFunctionInvocationNamedParameters";
+
+  @override
+  List<int> get hashableParts => when(
+        fromSpread: (val) => val.hashableParts,
+        fromKeyValue: (val) => val.hashableParts,
+      );
+
+  @override
+  TsFunctionInvocationNamedParameters clone() => when(
+        fromSpread: (val) => TsFunctionInvocationNamedParameters.fromSpread(
+          tsFunctionInvocationNamedParametersSpread: val,
         ),
-        "}"
-      ].join("\n");
+        fromKeyValue: (val) => TsFunctionInvocationNamedParameters.fromKeyValue(
+          tsFunctionInvocationNamedParametersKeyValue: val,
+        ),
+      );
+
+  @override
+  Object get copyWith => when(
+        fromSpread: (val) => $TsFunctionInvocationNamedParametersCopyWith(
+          TsFunctionInvocationNamedParameters.fromSpread(
+            tsFunctionInvocationNamedParametersSpread: val,
+          ),
+          (val) => val,
+        ),
+        fromKeyValue: (val) => $TsFunctionInvocationNamedParametersCopyWith(
+          TsFunctionInvocationNamedParameters.fromKeyValue(
+            tsFunctionInvocationNamedParametersKeyValue: val,
+          ),
+          (val) => val,
+        ),
+      );
+  @override
+  ISwarsTermResult<String> transform({
+    required final ISwarsPipeline pipeline,
+  }) =>
+      SwarsTermResult.fromString(
+        [
+          "{",
+          when(
+            fromSpread: (val) => pipeline.reduceFromTerm(
+              val,
+            ),
+            fromKeyValue: (val) => pipeline.reduceFromTerm(
+              val,
+            ),
+          ),
+          "}"
+        ].join("\n"),
+      );
 }

@@ -1,7 +1,6 @@
-import 'package:meta/meta.dart';
 import 'package:path/path.dart' as path;
 
-String transformPackageUri({@required String packageUri}) {
+String transformPackageUri({required final String packageUri}) {
   var parts = packageUri.split(path.separator);
 
   parts = parts

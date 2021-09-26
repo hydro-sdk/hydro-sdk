@@ -6,12 +6,12 @@ import 'package:hydro_sdk/cfr/vm/closure.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
-Widget managedBuild(
-    {@required BuildContext context,
-    @required HydroState hydroState,
-    @required HydroTable hydroTable}) {
-  Closure managedBuild =
-      maybeFindInheritedMethod(managedObject: hydroTable, methodName: "build");
+Widget? managedBuild(
+    {required BuildContext context,
+    required HydroState hydroState,
+    required HydroTable hydroTable}) {
+  Closure? managedBuild =
+      maybeFindInheritedMethod(managedObject: hydroTable, methodName: "build")!;
   var buildResult = managedBuild.dispatch([
     hydroTable.map,
     maybeBoxObject(
@@ -20,16 +20,16 @@ Widget managedBuild(
       table: HydroTable(),
     )
   ], parentState: hydroState, resetEnclosingLexicalEnvironment: true);
-  if (buildResult == null || buildResult.isEmpty) {
+  if (buildResult.isEmpty) {
     String errMsg =
-        "A build function returned null ${managedBuild?.proto?.debugSymbol?.symbolName}\n";
+        "A build function returned null ${managedBuild.proto?.debugSymbol?.symbolName}\n";
     errMsg +=
-        "defined in   ${managedBuild?.proto?.debugSymbol?.originalFileName}:${managedBuild?.proto?.debugSymbol?.originalLineStart}\n";
+        "defined in   ${managedBuild.proto?.debugSymbol?.originalFileName}:${managedBuild.proto?.debugSymbol?.originalLineStart}\n";
 
     errMsg +=
-        "     (${managedBuild?.proto?.debugSymbol?.symbolFullyQualifiedMangleName})\n";
+        "     (${managedBuild.proto?.debugSymbol?.symbolFullyQualifiedMangleName})\n";
     throw errMsg;
   }
-  return maybeUnBoxAndBuildArgument<Widget>(buildResult[0],
+  return maybeUnBoxAndBuildArgument<Widget, dynamic>(buildResult[0],
       parentState: hydroState);
 }

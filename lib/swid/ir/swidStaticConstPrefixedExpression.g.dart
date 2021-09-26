@@ -9,9 +9,8 @@ part of 'swidStaticConstPrefixedExpression.dart';
 _$_$Data _$_$_$DataFromJson(Map<String, dynamic> json) {
   return _$_$Data(
     prefix: json['prefix'] as String,
-    expression: json['expression'] == null
-        ? null
-        : SwidStaticConst.fromJson(json['expression'] as Map<String, dynamic>),
+    expression:
+        SwidStaticConst.fromJson(json['expression'] as Map<String, dynamic>),
   );
 }
 
