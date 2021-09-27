@@ -95,7 +95,13 @@
                 "IsolateNameServer",
                 "LinkedList",
                 "LinkedListEntry",
-                "_LinkedListIterator"
+                "_LinkedListIterator",
+                "_DelayedDone",
+                "_DelayedError",
+                "_SyncStreamControllerDispatch",
+                "_FutureListener",
+                "_SyncStreamController",
+                "DeferredLibrary"
             ]
         },
         "tsEmitOptions": {
