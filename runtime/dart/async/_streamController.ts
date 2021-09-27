@@ -31,7 +31,7 @@ export interface I_StreamController<T> {
     getIsPaused: () => boolean;
     addStream: (
         source: IStream<T>,
-        props: { cancelOnError?: boolean | undefined }
+        props?: { cancelOnError?: boolean | undefined }
     ) => IFuture<any>;
     getDone: () => IFuture<void>;
     add: (value: T) => void;
@@ -97,7 +97,7 @@ export class _StreamController<T>
     private readonly _dart_getIsPaused: () => boolean = undefined as any;
     private readonly _dart_addStream: (
         source: IStream<T>,
-        props: { cancelOnError?: boolean | undefined }
+        props?: { cancelOnError?: boolean | undefined }
     ) => IFuture<any> = undefined as any;
     private readonly _dart_getDone: () => IFuture<void> = undefined as any;
     private readonly _dart_add: (value: T) => void = undefined as any;
@@ -143,7 +143,7 @@ export class _StreamController<T>
     }
     public addStream(
         source: IStream<T>,
-        props: { cancelOnError?: boolean | undefined }
+        props?: { cancelOnError?: boolean | undefined }
     ): IFuture<any> {
         return this._dart_addStream(source, props);
     }

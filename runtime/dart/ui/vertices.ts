@@ -12,7 +12,7 @@ declare const dart: {
             vertices: IVertices,
             mode: VertexMode,
             positions: IList<IOffset>,
-            props: {
+            props?: {
                 colors?: IList<IColor> | undefined;
                 indices?: IList<number> | undefined;
                 textureCoordinates?: IList<IOffset> | undefined;
@@ -21,7 +21,7 @@ declare const dart: {
         verticesRaw: (
             mode: VertexMode,
             positions: IFloat32List,
-            props: {
+            props?: {
                 colors?: IInt32List | undefined;
                 indices?: IUint16List | undefined;
                 textureCoordinates?: IFloat32List | undefined;
@@ -34,7 +34,7 @@ export class Vertices {
     public constructor(
         mode: VertexMode,
         positions: IList<IOffset>,
-        props: {
+        props?: {
             colors?: IList<IColor> | undefined;
             indices?: IList<number> | undefined;
             textureCoordinates?: IList<IOffset> | undefined;
@@ -45,7 +45,7 @@ export class Vertices {
     public static raw(
         mode: VertexMode,
         positions: IFloat32List,
-        props: {
+        props?: {
             colors?: IInt32List | undefined;
             indices?: IUint16List | undefined;
             textureCoordinates?: IFloat32List | undefined;

@@ -33,7 +33,7 @@ export interface I_MultiStreamController<T> {
     close: () => IFuture<any>;
     addStream: (
         source: IStream<T>,
-        props: { cancelOnError?: boolean | undefined }
+        props?: { cancelOnError?: boolean | undefined }
     ) => IFuture<any>;
     getOnListen: () => () => void | undefined;
     setOnListen: (_onListen?: () => void) => void;
@@ -115,7 +115,7 @@ export class _MultiStreamController<T>
     private readonly _dart_close: () => IFuture<any> = undefined as any;
     private readonly _dart_addStream: (
         source: IStream<T>,
-        props: { cancelOnError?: boolean | undefined }
+        props?: { cancelOnError?: boolean | undefined }
     ) => IFuture<any> = undefined as any;
     private readonly _dart_getOnListen: () => () => void | undefined =
         undefined as any;
@@ -168,7 +168,7 @@ export class _MultiStreamController<T>
     }
     public addStream(
         source: IStream<T>,
-        props: { cancelOnError?: boolean | undefined }
+        props?: { cancelOnError?: boolean | undefined }
     ): IFuture<any> {
         return this._dart_addStream(source, props);
     }

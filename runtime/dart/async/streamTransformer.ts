@@ -12,7 +12,7 @@ declare const dart: {
                 cancelOnError: boolean
             ) => IStreamSubscription<T>
         ) => IStreamTransformer<S, T>;
-        streamTransformerFromHandlers: <S, T>(props: {
+        streamTransformerFromHandlers: <S, T>(props?: {
             handleData?: (data: S, sink: IEventSink<T>) => void | undefined;
             handleDone?: (sink: IEventSink<T>) => void | undefined;
             handleError?: (
@@ -42,7 +42,7 @@ export class StreamTransformer<S, T> {
     ) {
         dart.async.streamTransformer(this, onListen);
     }
-    public static fromHandlers<S, T>(props: {
+    public static fromHandlers<S, T>(props?: {
         handleData?: (data: S, sink: IEventSink<T>) => void | undefined;
         handleDone?: (sink: IEventSink<T>) => void | undefined;
         handleError?: (

@@ -37,7 +37,7 @@ export interface I_BroadcastStreamController<T> {
     getDone: () => IFuture<void>;
     addStream: (
         stream: IStream<T>,
-        props: { cancelOnError?: boolean | undefined }
+        props?: { cancelOnError?: boolean | undefined }
     ) => IFuture<any>;
     getOnListen: () => () => void | undefined;
     setOnListen: (_onListen?: () => void) => void;
@@ -99,7 +99,7 @@ export class _BroadcastStreamController<T>
     private readonly _dart_getDone: () => IFuture<void> = undefined as any;
     private readonly _dart_addStream: (
         stream: IStream<T>,
-        props: { cancelOnError?: boolean | undefined }
+        props?: { cancelOnError?: boolean | undefined }
     ) => IFuture<any> = undefined as any;
     private readonly _dart_getOnListen: () => () => void | undefined =
         undefined as any;
@@ -154,7 +154,7 @@ export class _BroadcastStreamController<T>
     }
     public addStream(
         stream: IStream<T>,
-        props: { cancelOnError?: boolean | undefined }
+        props?: { cancelOnError?: boolean | undefined }
     ): IFuture<any> {
         return this._dart_addStream(stream, props);
     }

@@ -93,15 +93,15 @@ export interface IUnmodifiableInt16ListView {
     skipWhile: (test: (value: number) => boolean) => IIterable<number>;
     firstWhere: (
         test: (element: number) => boolean,
-        props: { orElse?: () => number | undefined }
+        props?: { orElse?: () => number | undefined }
     ) => number;
     lastWhere: (
         test: (element: number) => boolean,
-        props: { orElse?: () => number | undefined }
+        props?: { orElse?: () => number | undefined }
     ) => number;
     singleWhere: (
         test: (element: number) => boolean,
-        props: { orElse?: () => number | undefined }
+        props?: { orElse?: () => number | undefined }
     ) => number;
     elementAt: (index: number) => number;
     toString: () => string;
@@ -299,15 +299,15 @@ export class UnmodifiableInt16ListView
     ) => IIterable<number> = undefined as any;
     private readonly _dart_firstWhere: (
         test: (element: number) => boolean,
-        props: { orElse?: () => number | undefined }
+        props?: { orElse?: () => number | undefined }
     ) => number = undefined as any;
     private readonly _dart_lastWhere: (
         test: (element: number) => boolean,
-        props: { orElse?: () => number | undefined }
+        props?: { orElse?: () => number | undefined }
     ) => number = undefined as any;
     private readonly _dart_singleWhere: (
         test: (element: number) => boolean,
-        props: { orElse?: () => number | undefined }
+        props?: { orElse?: () => number | undefined }
     ) => number = undefined as any;
     private readonly _dart_elementAt: (index: number) => number =
         undefined as any;
@@ -499,19 +499,19 @@ export class UnmodifiableInt16ListView
     }
     public firstWhere(
         test: (element: number) => boolean,
-        props: { orElse?: () => number | undefined }
+        props?: { orElse?: () => number | undefined }
     ): number {
         return this._dart_firstWhere(test, props);
     }
     public lastWhere(
         test: (element: number) => boolean,
-        props: { orElse?: () => number | undefined }
+        props?: { orElse?: () => number | undefined }
     ): number {
         return this._dart_lastWhere(test, props);
     }
     public singleWhere(
         test: (element: number) => boolean,
-        props: { orElse?: () => number | undefined }
+        props?: { orElse?: () => number | undefined }
     ): number {
         return this._dart_singleWhere(test, props);
     }

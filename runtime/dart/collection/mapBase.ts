@@ -20,7 +20,7 @@ export interface IMapBase<K, V> {
     update: (
         key: K,
         update: (value: V) => V,
-        props: { ifAbsent?: () => V | undefined }
+        props?: { ifAbsent?: () => V | undefined }
     ) => V;
     updateAll: (update: (key: K, value: V) => V) => void;
     map: <K2, V2>(
@@ -61,7 +61,7 @@ export class MapBase<K, V> implements IMapMixin<K, V>, IMap<K, V> {
     private readonly _dart_update: (
         key: K,
         update: (value: V) => V,
-        props: { ifAbsent?: () => V | undefined }
+        props?: { ifAbsent?: () => V | undefined }
     ) => V = undefined as any;
     private readonly _dart_updateAll: (
         update: (key: K, value: V) => V
@@ -110,7 +110,7 @@ export class MapBase<K, V> implements IMapMixin<K, V>, IMap<K, V> {
     public update(
         key: K,
         update: (value: V) => V,
-        props: { ifAbsent?: () => V | undefined }
+        props?: { ifAbsent?: () => V | undefined }
     ): V {
         return this._dart_update(key, update, props);
     }

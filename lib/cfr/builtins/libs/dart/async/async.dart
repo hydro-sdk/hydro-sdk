@@ -1,6 +1,5 @@
 import 'package:hydro_sdk/cfr/builtins/libs/dart/async/asyncError.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/async/completer.dart';
-import 'package:hydro_sdk/cfr/builtins/libs/dart/async/deferredLibrary.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/async/deferredLoadException.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/async/eventSink.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/async/future.dart';
@@ -31,7 +30,6 @@ void loadasync({required HydroState hydroState, required HydroTable table}) {
   loadCompleter(table: async, hydroState: hydroState);
   loadStreamController(table: async, hydroState: hydroState);
   loadSynchronousStreamController(table: async, hydroState: hydroState);
-  loadDeferredLibrary(table: async, hydroState: hydroState);
   loadDeferredLoadException(table: async, hydroState: hydroState);
   loadStream(table: async, hydroState: hydroState);
   loadStreamSubscription(table: async, hydroState: hydroState);

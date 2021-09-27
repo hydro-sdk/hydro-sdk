@@ -14,7 +14,7 @@ export interface IZone {
     getParent: () => IZone | undefined;
     getErrorZone: () => IZone;
     inSameErrorZone: (otherZone: IZone) => boolean;
-    fork: (props: {
+    fork: (props?: {
         specification?: IZoneSpecification | undefined;
         zoneValues?: IMap<Object | undefined, Object | undefined> | undefined;
     }) => IZone;
@@ -74,7 +74,7 @@ export class Zone {
     private readonly _dart_getErrorZone: () => IZone = undefined as any;
     private readonly _dart_inSameErrorZone: (otherZone: IZone) => boolean =
         undefined as any;
-    private readonly _dart_fork: (props: {
+    private readonly _dart_fork: (props?: {
         specification?: IZoneSpecification | undefined;
         zoneValues?: IMap<Object | undefined, Object | undefined> | undefined;
     }) => IZone = undefined as any;
@@ -151,7 +151,7 @@ export class Zone {
     public inSameErrorZone(otherZone: IZone): boolean {
         return this._dart_inSameErrorZone(otherZone);
     }
-    public fork(props: {
+    public fork(props?: {
         specification?: IZoneSpecification | undefined;
         zoneValues?: IMap<Object | undefined, Object | undefined> | undefined;
     }): IZone {

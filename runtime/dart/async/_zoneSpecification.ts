@@ -11,7 +11,7 @@ declare const dart: {
         _zoneSpecification: (
             this: void,
             _zoneSpecification: I_ZoneSpecification,
-            props: {
+            props?: {
                 createPeriodicTimer?: (
                     self: IZone,
                     parent: IZoneDelegate,
@@ -195,7 +195,7 @@ export interface I_ZoneSpecification {
     getHashCode: () => number;
 }
 export class _ZoneSpecification implements IZoneSpecification {
-    public constructor(props: {
+    public constructor(props?: {
         createPeriodicTimer?: (
             self: IZone,
             parent: IZoneDelegate,

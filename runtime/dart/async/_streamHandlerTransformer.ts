@@ -8,7 +8,7 @@ declare const dart: {
         _streamHandlerTransformer: <S, T>(
             this: void,
             _streamHandlerTransformer: I_StreamHandlerTransformer<S, T>,
-            props: {
+            props?: {
                 handleData?: (data: S, sink: IEventSink<T>) => void | undefined;
                 handleDone?: (sink: IEventSink<T>) => void | undefined;
                 handleError?: (
@@ -29,7 +29,7 @@ export interface I_StreamHandlerTransformer<S, T> {
 export class _StreamHandlerTransformer<S, T>
     implements I_StreamSinkTransformer<S, T>, IStreamTransformer<S, T>
 {
-    public constructor(props: {
+    public constructor(props?: {
         handleData?: (data: S, sink: IEventSink<T>) => void | undefined;
         handleDone?: (sink: IEventSink<T>) => void | undefined;
         handleError?: (

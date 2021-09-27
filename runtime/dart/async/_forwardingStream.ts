@@ -23,13 +23,13 @@ export interface I_ForwardingStream<S, T> {
     getIsBroadcast: () => boolean;
     listen: (
         onData?: (value: T) => void,
-        props: {
+        props?: {
             cancelOnError?: boolean | undefined;
             onDone?: () => void | undefined;
             onError?: IFunction | undefined;
         }
     ) => IStreamSubscription<T>;
-    asBroadcastStream: (props: {
+    asBroadcastStream: (props?: {
         onCancel?: (subscription: IStreamSubscription<T>) => void | undefined;
         onListen?: (subscription: IStreamSubscription<T>) => void | undefined;
     }) => IStream<T>;
@@ -41,7 +41,7 @@ export interface I_ForwardingStream<S, T> {
     ) => IStream<E>;
     handleError: (
         onError: IFunction,
-        props: { test?: (error: any) => boolean | undefined }
+        props?: { test?: (error: any) => boolean | undefined }
     ) => IStream<T>;
     expand: <S>(convert: (element: T) => IIterable<S>) => IStream<S>;
     pipe: (streamConsumer: IStreamConsumer<T>) => IFuture<any>;
@@ -67,20 +67,20 @@ export interface I_ForwardingStream<S, T> {
     distinct: (equals?: (previous: T, next: T) => boolean) => IStream<T>;
     firstWhere: (
         test: (element: T) => boolean,
-        props: { orElse?: () => T | undefined }
+        props?: { orElse?: () => T | undefined }
     ) => IFuture<T>;
     lastWhere: (
         test: (element: T) => boolean,
-        props: { orElse?: () => T | undefined }
+        props?: { orElse?: () => T | undefined }
     ) => IFuture<T>;
     singleWhere: (
         test: (element: T) => boolean,
-        props: { orElse?: () => T | undefined }
+        props?: { orElse?: () => T | undefined }
     ) => IFuture<T>;
     elementAt: (index: number) => IFuture<T>;
     timeout: (
         timeLimit: IDuration,
-        props: { onTimeout?: (sink: IEventSink<T>) => void | undefined }
+        props?: { onTimeout?: (sink: IEventSink<T>) => void | undefined }
     ) => IStream<T>;
     getLength: () => IFuture<number>;
     getIsEmpty: () => IFuture<boolean>;
@@ -97,13 +97,13 @@ export class _ForwardingStream<S, T> implements IStream<T> {
     private readonly _dart_getIsBroadcast: () => boolean = undefined as any;
     private readonly _dart_listen: (
         onData?: (value: T) => void,
-        props: {
+        props?: {
             cancelOnError?: boolean | undefined;
             onDone?: () => void | undefined;
             onError?: IFunction | undefined;
         }
     ) => IStreamSubscription<T> = undefined as any;
-    private readonly _dart_asBroadcastStream: (props: {
+    private readonly _dart_asBroadcastStream: (props?: {
         onCancel?: (subscription: IStreamSubscription<T>) => void | undefined;
         onListen?: (subscription: IStreamSubscription<T>) => void | undefined;
     }) => IStream<T> = undefined as any;
@@ -119,7 +119,7 @@ export class _ForwardingStream<S, T> implements IStream<T> {
     ) => IStream<E> = undefined as any;
     private readonly _dart_handleError: (
         onError: IFunction,
-        props: { test?: (error: any) => boolean | undefined }
+        props?: { test?: (error: any) => boolean | undefined }
     ) => IStream<T> = undefined as any;
     private readonly _dart_expand: <S>(
         convert: (element: T) => IIterable<S>
@@ -172,21 +172,21 @@ export class _ForwardingStream<S, T> implements IStream<T> {
     ) => IStream<T> = undefined as any;
     private readonly _dart_firstWhere: (
         test: (element: T) => boolean,
-        props: { orElse?: () => T | undefined }
+        props?: { orElse?: () => T | undefined }
     ) => IFuture<T> = undefined as any;
     private readonly _dart_lastWhere: (
         test: (element: T) => boolean,
-        props: { orElse?: () => T | undefined }
+        props?: { orElse?: () => T | undefined }
     ) => IFuture<T> = undefined as any;
     private readonly _dart_singleWhere: (
         test: (element: T) => boolean,
-        props: { orElse?: () => T | undefined }
+        props?: { orElse?: () => T | undefined }
     ) => IFuture<T> = undefined as any;
     private readonly _dart_elementAt: (index: number) => IFuture<T> =
         undefined as any;
     private readonly _dart_timeout: (
         timeLimit: IDuration,
-        props: { onTimeout?: (sink: IEventSink<T>) => void | undefined }
+        props?: { onTimeout?: (sink: IEventSink<T>) => void | undefined }
     ) => IStream<T> = undefined as any;
     private readonly _dart_getLength: () => IFuture<number> = undefined as any;
     private readonly _dart_getIsEmpty: () => IFuture<boolean> =
@@ -201,7 +201,7 @@ export class _ForwardingStream<S, T> implements IStream<T> {
     }
     public listen(
         onData?: (value: T) => void,
-        props: {
+        props?: {
             cancelOnError?: boolean | undefined;
             onDone?: () => void | undefined;
             onError?: IFunction | undefined;
@@ -209,7 +209,7 @@ export class _ForwardingStream<S, T> implements IStream<T> {
     ): IStreamSubscription<T> {
         return this._dart_listen(onData, props);
     }
-    public asBroadcastStream(props: {
+    public asBroadcastStream(props?: {
         onCancel?: (subscription: IStreamSubscription<T>) => void | undefined;
         onListen?: (subscription: IStreamSubscription<T>) => void | undefined;
     }): IStream<T> {
@@ -231,7 +231,7 @@ export class _ForwardingStream<S, T> implements IStream<T> {
     }
     public handleError(
         onError: IFunction,
-        props: { test?: (error: any) => boolean | undefined }
+        props?: { test?: (error: any) => boolean | undefined }
     ): IStream<T> {
         return this._dart_handleError(onError, props);
     }
@@ -299,19 +299,19 @@ export class _ForwardingStream<S, T> implements IStream<T> {
     }
     public firstWhere(
         test: (element: T) => boolean,
-        props: { orElse?: () => T | undefined }
+        props?: { orElse?: () => T | undefined }
     ): IFuture<T> {
         return this._dart_firstWhere(test, props);
     }
     public lastWhere(
         test: (element: T) => boolean,
-        props: { orElse?: () => T | undefined }
+        props?: { orElse?: () => T | undefined }
     ): IFuture<T> {
         return this._dart_lastWhere(test, props);
     }
     public singleWhere(
         test: (element: T) => boolean,
-        props: { orElse?: () => T | undefined }
+        props?: { orElse?: () => T | undefined }
     ): IFuture<T> {
         return this._dart_singleWhere(test, props);
     }
@@ -320,7 +320,7 @@ export class _ForwardingStream<S, T> implements IStream<T> {
     }
     public timeout(
         timeLimit: IDuration,
-        props: { onTimeout?: (sink: IEventSink<T>) => void | undefined }
+        props?: { onTimeout?: (sink: IEventSink<T>) => void | undefined }
     ): IStream<T> {
         return this._dart_timeout(timeLimit, props);
     }

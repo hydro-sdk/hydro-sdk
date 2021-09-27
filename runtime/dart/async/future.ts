@@ -41,17 +41,17 @@ declare const dart: {
 export interface IFuture<T> {
     then: <R>(
         onValue: (value: T) => IFutureOr<R>,
-        props: { onError?: IFunction | undefined }
+        props?: { onError?: IFunction | undefined }
     ) => IFuture<R>;
     catchError: (
         onError: IFunction,
-        props: { test?: (error: Object) => boolean | undefined }
+        props?: { test?: (error: Object) => boolean | undefined }
     ) => IFuture<T>;
     whenComplete: (action: () => IFutureOr<void>) => IFuture<T>;
     asStream: () => IStream<T>;
     timeout: (
         timeLimit: IDuration,
-        props: { onTimeout?: () => IFutureOr<T> | undefined }
+        props?: { onTimeout?: () => IFutureOr<T> | undefined }
     ) => IFuture<T>;
 }
 export class Future<T> {
@@ -105,11 +105,11 @@ export class Future<T> {
     }
     private readonly _dart_then: <R>(
         onValue: (value: T) => IFutureOr<R>,
-        props: { onError?: IFunction | undefined }
+        props?: { onError?: IFunction | undefined }
     ) => IFuture<R> = undefined as any;
     private readonly _dart_catchError: (
         onError: IFunction,
-        props: { test?: (error: Object) => boolean | undefined }
+        props?: { test?: (error: Object) => boolean | undefined }
     ) => IFuture<T> = undefined as any;
     private readonly _dart_whenComplete: (
         action: () => IFutureOr<void>
@@ -117,17 +117,17 @@ export class Future<T> {
     private readonly _dart_asStream: () => IStream<T> = undefined as any;
     private readonly _dart_timeout: (
         timeLimit: IDuration,
-        props: { onTimeout?: () => IFutureOr<T> | undefined }
+        props?: { onTimeout?: () => IFutureOr<T> | undefined }
     ) => IFuture<T> = undefined as any;
     public then<R>(
         onValue: (value: T) => IFutureOr<R>,
-        props: { onError?: IFunction | undefined }
+        props?: { onError?: IFunction | undefined }
     ): IFuture<R> {
         return this._dart_then(onValue, props);
     }
     public catchError(
         onError: IFunction,
-        props: { test?: (error: Object) => boolean | undefined }
+        props?: { test?: (error: Object) => boolean | undefined }
     ): IFuture<T> {
         return this._dart_catchError(onError, props);
     }
@@ -139,7 +139,7 @@ export class Future<T> {
     }
     public timeout(
         timeLimit: IDuration,
-        props: { onTimeout?: () => IFutureOr<T> | undefined }
+        props?: { onTimeout?: () => IFutureOr<T> | undefined }
     ): IFuture<T> {
         return this._dart_timeout(timeLimit, props);
     }

@@ -38,7 +38,7 @@ export interface IStreamController<T> {
     getDone: () => IFuture<any>;
     addStream: (
         source: IStream<T>,
-        props: { cancelOnError?: boolean | undefined }
+        props?: { cancelOnError?: boolean | undefined }
     ) => IFuture<any>;
     toString: () => string;
     getHashCode: () => number;
@@ -82,7 +82,7 @@ export class StreamController<T>
     private readonly _dart_getDone: () => IFuture<any> = undefined as any;
     private readonly _dart_addStream: (
         source: IStream<T>,
-        props: { cancelOnError?: boolean | undefined }
+        props?: { cancelOnError?: boolean | undefined }
     ) => IFuture<any> = undefined as any;
     private readonly _dart_toString: () => string = undefined as any;
     private readonly _dart_getHashCode: () => number = undefined as any;
@@ -115,7 +115,7 @@ export class StreamController<T>
     }
     public addStream(
         source: IStream<T>,
-        props: { cancelOnError?: boolean | undefined }
+        props?: { cancelOnError?: boolean | undefined }
     ): IFuture<any> {
         return this._dart_addStream(source, props);
     }

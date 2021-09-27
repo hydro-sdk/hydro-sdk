@@ -11,7 +11,7 @@ declare const dart: {
         setUnmodifiable: <E>(elements: IIterable<E>) => ISet<E>;
         setCastFrom: <S, T>(
             source: ISet<S>,
-            props: { newSet?: <R>() => ISet<R> | undefined }
+            props?: { newSet?: <R>() => ISet<R> | undefined }
         ) => ISet<T>;
     };
 };
@@ -55,15 +55,15 @@ export interface ISet<E> {
     skipWhile: (test: (value: E) => boolean) => IIterable<E>;
     firstWhere: (
         test: (element: E) => boolean,
-        props: { orElse?: () => E | undefined }
+        props?: { orElse?: () => E | undefined }
     ) => E;
     lastWhere: (
         test: (element: E) => boolean,
-        props: { orElse?: () => E | undefined }
+        props?: { orElse?: () => E | undefined }
     ) => E;
     singleWhere: (
         test: (element: E) => boolean,
-        props: { orElse?: () => E | undefined }
+        props?: { orElse?: () => E | undefined }
     ) => E;
     elementAt: (index: number) => E;
     toString: () => string;
@@ -92,7 +92,7 @@ export class Set<E> implements IEfficientLengthIterable<E> {
     }
     public static castFrom<S, T>(
         source: ISet<S>,
-        props: { newSet?: <R>() => ISet<R> | undefined }
+        props?: { newSet?: <R>() => ISet<R> | undefined }
     ): ISet<T> {
         return dart.core.setCastFrom(source, props);
     }
@@ -173,15 +173,15 @@ export class Set<E> implements IEfficientLengthIterable<E> {
     ) => IIterable<E> = undefined as any;
     private readonly _dart_firstWhere: (
         test: (element: E) => boolean,
-        props: { orElse?: () => E | undefined }
+        props?: { orElse?: () => E | undefined }
     ) => E = undefined as any;
     private readonly _dart_lastWhere: (
         test: (element: E) => boolean,
-        props: { orElse?: () => E | undefined }
+        props?: { orElse?: () => E | undefined }
     ) => E = undefined as any;
     private readonly _dart_singleWhere: (
         test: (element: E) => boolean,
-        props: { orElse?: () => E | undefined }
+        props?: { orElse?: () => E | undefined }
     ) => E = undefined as any;
     private readonly _dart_elementAt: (index: number) => E = undefined as any;
     private readonly _dart_toString: () => string = undefined as any;
@@ -301,19 +301,19 @@ export class Set<E> implements IEfficientLengthIterable<E> {
     }
     public firstWhere(
         test: (element: E) => boolean,
-        props: { orElse?: () => E | undefined }
+        props?: { orElse?: () => E | undefined }
     ): E {
         return this._dart_firstWhere(test, props);
     }
     public lastWhere(
         test: (element: E) => boolean,
-        props: { orElse?: () => E | undefined }
+        props?: { orElse?: () => E | undefined }
     ): E {
         return this._dart_lastWhere(test, props);
     }
     public singleWhere(
         test: (element: E) => boolean,
-        props: { orElse?: () => E | undefined }
+        props?: { orElse?: () => E | undefined }
     ): E {
         return this._dart_singleWhere(test, props);
     }

@@ -13,7 +13,7 @@ import { IStreamTransformer } from "./streamTransformer";
 export interface I_StreamImpl<T> extends IStream<T> {
     listen: (
         onData?: (data: T) => void,
-        props: {
+        props?: {
             cancelOnError?: boolean | undefined;
             onDone?: () => void | undefined;
             onError?: IFunction | undefined;

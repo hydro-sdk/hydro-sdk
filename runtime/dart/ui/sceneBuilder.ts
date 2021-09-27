@@ -36,12 +36,12 @@ declare const dart: {
 export interface ISceneBuilder {
     pushTransform: (
         matrix4: IFloat64List,
-        props: { oldLayer?: ITransformEngineLayer | undefined }
+        props?: { oldLayer?: ITransformEngineLayer | undefined }
     ) => ITransformEngineLayer | undefined;
     pushOffset: (
         dx: number,
         dy: number,
-        props: { oldLayer?: IOffsetEngineLayer | undefined }
+        props?: { oldLayer?: IOffsetEngineLayer | undefined }
     ) => IOffsetEngineLayer | undefined;
     pushClipRect: (
         rect: IRect,
@@ -66,28 +66,28 @@ export interface ISceneBuilder {
     ) => IClipPathEngineLayer | undefined;
     pushOpacity: (
         alpha: number,
-        props: {
+        props?: {
             offset?: IOffset | undefined;
             oldLayer?: IOpacityEngineLayer | undefined;
         }
     ) => IOpacityEngineLayer | undefined;
     pushColorFilter: (
         filter: IColorFilter,
-        props: { oldLayer?: IColorFilterEngineLayer | undefined }
+        props?: { oldLayer?: IColorFilterEngineLayer | undefined }
     ) => IColorFilterEngineLayer | undefined;
     pushImageFilter: (
         filter: IImageFilter,
-        props: { oldLayer?: IImageFilterEngineLayer | undefined }
+        props?: { oldLayer?: IImageFilterEngineLayer | undefined }
     ) => IImageFilterEngineLayer | undefined;
     pushBackdropFilter: (
         filter: IImageFilter,
-        props: { oldLayer?: IBackdropFilterEngineLayer | undefined }
+        props?: { oldLayer?: IBackdropFilterEngineLayer | undefined }
     ) => IBackdropFilterEngineLayer | undefined;
     pushShaderMask: (
         shader: IShader,
         maskRect: IRect,
         blendMode: BlendMode,
-        props: { oldLayer?: IShaderMaskEngineLayer | undefined }
+        props?: { oldLayer?: IShaderMaskEngineLayer | undefined }
     ) => IShaderMaskEngineLayer | undefined;
     pushPhysicalShape: (props: {
         clipBehavior: Clip;
@@ -137,12 +137,12 @@ export class SceneBuilder {
     }
     private readonly _dart_pushTransform: (
         matrix4: IFloat64List,
-        props: { oldLayer?: ITransformEngineLayer | undefined }
+        props?: { oldLayer?: ITransformEngineLayer | undefined }
     ) => ITransformEngineLayer | undefined = undefined as any;
     private readonly _dart_pushOffset: (
         dx: number,
         dy: number,
-        props: { oldLayer?: IOffsetEngineLayer | undefined }
+        props?: { oldLayer?: IOffsetEngineLayer | undefined }
     ) => IOffsetEngineLayer | undefined = undefined as any;
     private readonly _dart_pushClipRect: (
         rect: IRect,
@@ -167,28 +167,28 @@ export class SceneBuilder {
     ) => IClipPathEngineLayer | undefined = undefined as any;
     private readonly _dart_pushOpacity: (
         alpha: number,
-        props: {
+        props?: {
             offset?: IOffset | undefined;
             oldLayer?: IOpacityEngineLayer | undefined;
         }
     ) => IOpacityEngineLayer | undefined = undefined as any;
     private readonly _dart_pushColorFilter: (
         filter: IColorFilter,
-        props: { oldLayer?: IColorFilterEngineLayer | undefined }
+        props?: { oldLayer?: IColorFilterEngineLayer | undefined }
     ) => IColorFilterEngineLayer | undefined = undefined as any;
     private readonly _dart_pushImageFilter: (
         filter: IImageFilter,
-        props: { oldLayer?: IImageFilterEngineLayer | undefined }
+        props?: { oldLayer?: IImageFilterEngineLayer | undefined }
     ) => IImageFilterEngineLayer | undefined = undefined as any;
     private readonly _dart_pushBackdropFilter: (
         filter: IImageFilter,
-        props: { oldLayer?: IBackdropFilterEngineLayer | undefined }
+        props?: { oldLayer?: IBackdropFilterEngineLayer | undefined }
     ) => IBackdropFilterEngineLayer | undefined = undefined as any;
     private readonly _dart_pushShaderMask: (
         shader: IShader,
         maskRect: IRect,
         blendMode: BlendMode,
-        props: { oldLayer?: IShaderMaskEngineLayer | undefined }
+        props?: { oldLayer?: IShaderMaskEngineLayer | undefined }
     ) => IShaderMaskEngineLayer | undefined = undefined as any;
     private readonly _dart_pushPhysicalShape: (props: {
         clipBehavior: Clip;
@@ -243,14 +243,14 @@ export class SceneBuilder {
     private readonly _dart_build: () => IScene = undefined as any;
     public pushTransform(
         matrix4: IFloat64List,
-        props: { oldLayer?: ITransformEngineLayer | undefined }
+        props?: { oldLayer?: ITransformEngineLayer | undefined }
     ): ITransformEngineLayer | undefined {
         return this._dart_pushTransform(matrix4, props);
     }
     public pushOffset(
         dx: number,
         dy: number,
-        props: { oldLayer?: IOffsetEngineLayer | undefined }
+        props?: { oldLayer?: IOffsetEngineLayer | undefined }
     ): IOffsetEngineLayer | undefined {
         return this._dart_pushOffset(dx, dy, props);
     }
@@ -292,7 +292,7 @@ export class SceneBuilder {
     }
     public pushOpacity(
         alpha: number,
-        props: {
+        props?: {
             offset?: IOffset | undefined;
             oldLayer?: IOpacityEngineLayer | undefined;
         }
@@ -304,19 +304,19 @@ export class SceneBuilder {
     }
     public pushColorFilter(
         filter: IColorFilter,
-        props: { oldLayer?: IColorFilterEngineLayer | undefined }
+        props?: { oldLayer?: IColorFilterEngineLayer | undefined }
     ): IColorFilterEngineLayer | undefined {
         return this._dart_pushColorFilter(filter, props);
     }
     public pushImageFilter(
         filter: IImageFilter,
-        props: { oldLayer?: IImageFilterEngineLayer | undefined }
+        props?: { oldLayer?: IImageFilterEngineLayer | undefined }
     ): IImageFilterEngineLayer | undefined {
         return this._dart_pushImageFilter(filter, props);
     }
     public pushBackdropFilter(
         filter: IImageFilter,
-        props: { oldLayer?: IBackdropFilterEngineLayer | undefined }
+        props?: { oldLayer?: IBackdropFilterEngineLayer | undefined }
     ): IBackdropFilterEngineLayer | undefined {
         return this._dart_pushBackdropFilter(filter, props);
     }
@@ -324,7 +324,7 @@ export class SceneBuilder {
         shader: IShader,
         maskRect: IRect,
         blendMode: BlendMode,
-        props: { oldLayer?: IShaderMaskEngineLayer | undefined }
+        props?: { oldLayer?: IShaderMaskEngineLayer | undefined }
     ): IShaderMaskEngineLayer | undefined {
         return this._dart_pushShaderMask(shader, maskRect, blendMode, props);
     }

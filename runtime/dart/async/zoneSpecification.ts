@@ -10,7 +10,7 @@ declare const dart: {
         zoneSpecification: (
             this: void,
             zoneSpecification: IZoneSpecification,
-            props: {
+            props?: {
                 createPeriodicTimer?: (
                     self: IZone,
                     parent: IZoneDelegate,
@@ -103,7 +103,7 @@ declare const dart: {
         ) => IZoneSpecification;
         zoneSpecificationFrom: (
             other: IZoneSpecification,
-            props: {
+            props?: {
                 createPeriodicTimer?: (
                     self: IZone,
                     parent: IZoneDelegate,
@@ -285,7 +285,7 @@ export interface IZoneSpecification {
     ) => IZone | undefined;
 }
 export class ZoneSpecification {
-    public constructor(props: {
+    public constructor(props?: {
         createPeriodicTimer?: (
             self: IZone,
             parent: IZoneDelegate,
@@ -379,7 +379,7 @@ export class ZoneSpecification {
     }
     public static from(
         other: IZoneSpecification,
-        props: {
+        props?: {
             createPeriodicTimer?: (
                 self: IZone,
                 parent: IZoneDelegate,

@@ -32,7 +32,7 @@ export interface I_RootZone {
         f: (arg1: T1, arg2: T2) => void
     ) => (__: T2) => void;
     handleUncaughtError: (error: Object, stackTrace: IStackTrace) => void;
-    fork: (props: {
+    fork: (props?: {
         specification?: IZoneSpecification | undefined;
         zoneValues?: IMap<Object | undefined, Object | undefined> | undefined;
     }) => IZone;
@@ -101,7 +101,7 @@ export class _RootZone implements I_Zone, IZone {
         error: Object,
         stackTrace: IStackTrace
     ) => void = undefined as any;
-    private readonly _dart_fork: (props: {
+    private readonly _dart_fork: (props?: {
         specification?: IZoneSpecification | undefined;
         zoneValues?: IMap<Object | undefined, Object | undefined> | undefined;
     }) => IZone = undefined as any;
@@ -184,7 +184,7 @@ export class _RootZone implements I_Zone, IZone {
     public handleUncaughtError(error: Object, stackTrace: IStackTrace): void {
         return this._dart_handleUncaughtError(error, stackTrace);
     }
-    public fork(props: {
+    public fork(props?: {
         specification?: IZoneSpecification | undefined;
         zoneValues?: IMap<Object | undefined, Object | undefined> | undefined;
     }): IZone {

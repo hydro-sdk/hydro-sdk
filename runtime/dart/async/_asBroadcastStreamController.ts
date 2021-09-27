@@ -31,7 +31,7 @@ export interface I_AsBroadcastStreamController<T> {
     getHashCode: () => number;
     addStream: (
         source: IStream<T>,
-        props: { cancelOnError?: boolean | undefined }
+        props?: { cancelOnError?: boolean | undefined }
     ) => IFuture<any>;
     getOnListen: () => () => void | undefined;
     setOnListen: (_onListen?: () => void) => void;
@@ -85,7 +85,7 @@ export class _AsBroadcastStreamController<T>
     private readonly _dart_getHashCode: () => number = undefined as any;
     private readonly _dart_addStream: (
         source: IStream<T>,
-        props: { cancelOnError?: boolean | undefined }
+        props?: { cancelOnError?: boolean | undefined }
     ) => IFuture<any> = undefined as any;
     private readonly _dart_getOnListen: () => () => void | undefined =
         undefined as any;
@@ -128,7 +128,7 @@ export class _AsBroadcastStreamController<T>
     }
     public addStream(
         source: IStream<T>,
-        props: { cancelOnError?: boolean | undefined }
+        props?: { cancelOnError?: boolean | undefined }
     ): IFuture<any> {
         return this._dart_addStream(source, props);
     }
