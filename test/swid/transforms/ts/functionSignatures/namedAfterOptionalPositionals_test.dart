@@ -1,7 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:hydro_sdk/swid/backend/ts/transforms/trailingReturnTypeKind.dart';
-import 'package:hydro_sdk/swid/backend/ts/transforms/transformFunctionTypeToTs.dart';
 import 'package:hydro_sdk/swid/backend/ts/transforms/transformTypeDeclarationToTs.dart';
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
@@ -140,6 +138,9 @@ void main() {
       ),
     );
 
-    print(res);
+    expect(
+      res,
+      "(onData? : (event: T) => void, props? : {  cancelOnError? : boolean | undefined, onDone? : () => void | undefined, onError? : Function | undefined,}) => void",
+    );
   }, tags: "swid");
 }
