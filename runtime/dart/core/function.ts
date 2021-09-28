@@ -10,9 +10,7 @@ declare const dart: {
         ) => any;
     };
 };
-export interface IFunction {
-    getHashCode: () => number;
-}
+export type IFunction = (...args: any[]) => any;
 export class Function {
     public static apply(
         phunction: IFunction,

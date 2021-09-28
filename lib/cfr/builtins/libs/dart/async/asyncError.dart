@@ -50,7 +50,7 @@ class VMManagedAsyncError extends VMManagedBox<AsyncError> {
 }
 
 class RTManagedAsyncError extends AsyncError implements Box<AsyncError> {
-  RTManagedAsyncError(Object error, StackTrace? stackTrace,
+  RTManagedAsyncError(Object error, StackTrace stackTrace,
       {required this.table, required this.hydroState})
       : super(
           error,
@@ -91,7 +91,7 @@ class RTManagedAsyncError extends AsyncError implements Box<AsyncError> {
   }
 
   @override
-  StackTrace? get stackTrace {
+  StackTrace get stackTrace {
     Closure closure = table["getStackTrace"];
     return maybeUnBoxAndBuildArgument<StackTrace?, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],

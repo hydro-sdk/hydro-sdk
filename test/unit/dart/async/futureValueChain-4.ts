@@ -15,7 +15,7 @@ Future.value()
         assert(n1 == 5);
         return [0, 1, 2];
     })
-    .then((a1: Array<number>): Future<IIterable<number>> => {
+    .then((a1: Array<number>) => {
         assert(a1 != undefined);
         assert(a1[0] == 0);
         assert(a1[1] == 1);
@@ -36,12 +36,12 @@ Future.value()
             }
         );
     })
-    .then((l2: Future<IIterable<number>>) => {
+    .then((l2: IIterable<number>) => {
         assert(l2 != undefined);
-        l2.then((l3: IIterable<number>) => {
-            assert(l3 != undefined);
-            assert(l3.elementAt(0) == 3);
-            assert(l3.elementAt(1) == 4);
-            assert(l3.elementAt(2) == 5);
-        });
+
+        assert(l2 != undefined);
+        assert(l2.elementAt(0) == 3);
+        assert(l2.elementAt(1) == 4);
+        assert(l2.elementAt(2) == 5);
+
     });
