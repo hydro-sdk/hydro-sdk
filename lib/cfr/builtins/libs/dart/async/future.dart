@@ -24,7 +24,9 @@ class VMManagedFuture extends VMManagedBox<Future<dynamic>> {
                         )[0],
                         parentState: hydroState),
                 onError: maybeUnBoxAndBuildArgument<Function?, dynamic>(
-                    luaCallerArguments[2]['onError'],
+                    luaCallerArguments.length >= 3
+                        ? luaCallerArguments[2]['onError']
+                        : null,
                     parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable()),
@@ -32,7 +34,8 @@ class VMManagedFuture extends VMManagedBox<Future<dynamic>> {
     });
     table['catchError'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      Closure? unpackedtest = luaCallerArguments[2]['test'];
+      Closure? unpackedtest =
+          luaCallerArguments.length >= 3 ? luaCallerArguments[2]['test'] : null;
       return [
         maybeBoxObject<Future>(
             object: vmObject.catchError(
@@ -78,7 +81,9 @@ class VMManagedFuture extends VMManagedBox<Future<dynamic>> {
     });
     table['timeout'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      Closure? unpackedonTimeout = luaCallerArguments[2]['onTimeout'];
+      Closure? unpackedonTimeout = luaCallerArguments.length >= 3
+          ? luaCallerArguments[2]['onTimeout']
+          : null;
       return [
         maybeBoxObject<Future>(
             object: vmObject.timeout(
@@ -215,7 +220,9 @@ void loadFuture({required HydroState hydroState, required HydroTable table}) {
   });
   table['futureWait'] =
       makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-    Closure? unpackedcleanUp = luaCallerArguments[2]['cleanUp'];
+    Closure? unpackedcleanUp = luaCallerArguments.length >= 3
+        ? luaCallerArguments[2]['cleanUp']
+        : null;
     return [
       maybeBoxObject<Future>(
           object: Future.wait(
@@ -228,7 +235,9 @@ void loadFuture({required HydroState hydroState, required HydroTable table}) {
                         parentState: hydroState,
                       )
                   : null,
-              eagerError: luaCallerArguments[2]['eagerError']),
+              eagerError: luaCallerArguments.length >= 3
+                  ? luaCallerArguments[2]['eagerError']
+                  : null),
           hydroState: hydroState,
           table: HydroTable()),
     ];

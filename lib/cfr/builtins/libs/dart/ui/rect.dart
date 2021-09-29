@@ -281,9 +281,13 @@ void loadRect({required HydroState hydroState, required HydroTable table}) {
       maybeBoxObject<Rect>(
           object: Rect.fromCircle(
               center: maybeUnBoxAndBuildArgument<Offset, dynamic>(
-                  luaCallerArguments[1]['center'],
+                  luaCallerArguments.length >= 2
+                      ? luaCallerArguments[1]['center']
+                      : null,
                   parentState: hydroState),
-              radius: luaCallerArguments[1]['radius']?.toDouble()),
+              radius: luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1]['radius']
+                  : null?.toDouble()),
           hydroState: hydroState,
           table: HydroTable()),
     ];
@@ -294,10 +298,16 @@ void loadRect({required HydroState hydroState, required HydroTable table}) {
       maybeBoxObject<Rect>(
           object: Rect.fromCenter(
               center: maybeUnBoxAndBuildArgument<Offset, dynamic>(
-                  luaCallerArguments[1]['center'],
+                  luaCallerArguments.length >= 2
+                      ? luaCallerArguments[1]['center']
+                      : null,
                   parentState: hydroState),
-              height: luaCallerArguments[1]['height']?.toDouble(),
-              width: luaCallerArguments[1]['width']?.toDouble()),
+              height: luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1]['height']
+                  : null?.toDouble(),
+              width: luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1]['width']
+                  : null?.toDouble()),
           hydroState: hydroState,
           table: HydroTable()),
     ];

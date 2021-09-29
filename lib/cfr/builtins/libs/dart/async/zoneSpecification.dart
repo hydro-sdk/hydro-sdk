@@ -153,25 +153,42 @@ void loadZoneSpecification(
     {required HydroState hydroState, required HydroTable table}) {
   table['zoneSpecification'] =
       makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-    Closure? unpackedcreatePeriodicTimer =
-        luaCallerArguments[1]['createPeriodicTimer'];
-    Closure? unpackedcreateTimer = luaCallerArguments[1]['createTimer'];
-    Closure? unpackederrorCallback = luaCallerArguments[1]['errorCallback'];
-    Closure? unpackedfork = luaCallerArguments[1]['fork'];
-    Closure? unpackedhandleUncaughtError =
-        luaCallerArguments[1]['handleUncaughtError'];
-    Closure? unpackedprint = luaCallerArguments[1]['print'];
-    Closure? unpackedregisterBinaryCallback =
-        luaCallerArguments[1]['registerBinaryCallback'];
-    Closure? unpackedregisterCallback =
-        luaCallerArguments[1]['registerCallback'];
-    Closure? unpackedregisterUnaryCallback =
-        luaCallerArguments[1]['registerUnaryCallback'];
-    Closure? unpackedrun = luaCallerArguments[1]['run'];
-    Closure? unpackedrunBinary = luaCallerArguments[1]['runBinary'];
-    Closure? unpackedrunUnary = luaCallerArguments[1]['runUnary'];
-    Closure? unpackedscheduleMicrotask =
-        luaCallerArguments[1]['scheduleMicrotask'];
+    Closure? unpackedcreatePeriodicTimer = luaCallerArguments.length >= 2
+        ? luaCallerArguments[1]['createPeriodicTimer']
+        : null;
+    Closure? unpackedcreateTimer = luaCallerArguments.length >= 2
+        ? luaCallerArguments[1]['createTimer']
+        : null;
+    Closure? unpackederrorCallback = luaCallerArguments.length >= 2
+        ? luaCallerArguments[1]['errorCallback']
+        : null;
+    Closure? unpackedfork =
+        luaCallerArguments.length >= 2 ? luaCallerArguments[1]['fork'] : null;
+    Closure? unpackedhandleUncaughtError = luaCallerArguments.length >= 2
+        ? luaCallerArguments[1]['handleUncaughtError']
+        : null;
+    Closure? unpackedprint =
+        luaCallerArguments.length >= 2 ? luaCallerArguments[1]['print'] : null;
+    Closure? unpackedregisterBinaryCallback = luaCallerArguments.length >= 2
+        ? luaCallerArguments[1]['registerBinaryCallback']
+        : null;
+    Closure? unpackedregisterCallback = luaCallerArguments.length >= 2
+        ? luaCallerArguments[1]['registerCallback']
+        : null;
+    Closure? unpackedregisterUnaryCallback = luaCallerArguments.length >= 2
+        ? luaCallerArguments[1]['registerUnaryCallback']
+        : null;
+    Closure? unpackedrun =
+        luaCallerArguments.length >= 2 ? luaCallerArguments[1]['run'] : null;
+    Closure? unpackedrunBinary = luaCallerArguments.length >= 2
+        ? luaCallerArguments[1]['runBinary']
+        : null;
+    Closure? unpackedrunUnary = luaCallerArguments.length >= 2
+        ? luaCallerArguments[1]['runUnary']
+        : null;
+    Closure? unpackedscheduleMicrotask = luaCallerArguments.length >= 2
+        ? luaCallerArguments[1]['scheduleMicrotask']
+        : null;
     return [
       maybeBoxObject<ZoneSpecification>(
           object: ZoneSpecification(
@@ -323,25 +340,42 @@ void loadZoneSpecification(
   });
   table['zoneSpecificationFrom'] =
       makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-    Closure? unpackedcreatePeriodicTimer =
-        luaCallerArguments[2]['createPeriodicTimer'];
-    Closure? unpackedcreateTimer = luaCallerArguments[2]['createTimer'];
-    Closure? unpackederrorCallback = luaCallerArguments[2]['errorCallback'];
-    Closure? unpackedfork = luaCallerArguments[2]['fork'];
-    Closure? unpackedhandleUncaughtError =
-        luaCallerArguments[2]['handleUncaughtError'];
-    Closure? unpackedprint = luaCallerArguments[2]['print'];
-    Closure? unpackedregisterBinaryCallback =
-        luaCallerArguments[2]['registerBinaryCallback'];
-    Closure? unpackedregisterCallback =
-        luaCallerArguments[2]['registerCallback'];
-    Closure? unpackedregisterUnaryCallback =
-        luaCallerArguments[2]['registerUnaryCallback'];
-    Closure? unpackedrun = luaCallerArguments[2]['run'];
-    Closure? unpackedrunBinary = luaCallerArguments[2]['runBinary'];
-    Closure? unpackedrunUnary = luaCallerArguments[2]['runUnary'];
-    Closure? unpackedscheduleMicrotask =
-        luaCallerArguments[2]['scheduleMicrotask'];
+    Closure? unpackedcreatePeriodicTimer = luaCallerArguments.length >= 3
+        ? luaCallerArguments[2]['createPeriodicTimer']
+        : null;
+    Closure? unpackedcreateTimer = luaCallerArguments.length >= 3
+        ? luaCallerArguments[2]['createTimer']
+        : null;
+    Closure? unpackederrorCallback = luaCallerArguments.length >= 3
+        ? luaCallerArguments[2]['errorCallback']
+        : null;
+    Closure? unpackedfork =
+        luaCallerArguments.length >= 3 ? luaCallerArguments[2]['fork'] : null;
+    Closure? unpackedhandleUncaughtError = luaCallerArguments.length >= 3
+        ? luaCallerArguments[2]['handleUncaughtError']
+        : null;
+    Closure? unpackedprint =
+        luaCallerArguments.length >= 3 ? luaCallerArguments[2]['print'] : null;
+    Closure? unpackedregisterBinaryCallback = luaCallerArguments.length >= 3
+        ? luaCallerArguments[2]['registerBinaryCallback']
+        : null;
+    Closure? unpackedregisterCallback = luaCallerArguments.length >= 3
+        ? luaCallerArguments[2]['registerCallback']
+        : null;
+    Closure? unpackedregisterUnaryCallback = luaCallerArguments.length >= 3
+        ? luaCallerArguments[2]['registerUnaryCallback']
+        : null;
+    Closure? unpackedrun =
+        luaCallerArguments.length >= 3 ? luaCallerArguments[2]['run'] : null;
+    Closure? unpackedrunBinary = luaCallerArguments.length >= 3
+        ? luaCallerArguments[2]['runBinary']
+        : null;
+    Closure? unpackedrunUnary = luaCallerArguments.length >= 3
+        ? luaCallerArguments[2]['runUnary']
+        : null;
+    Closure? unpackedscheduleMicrotask = luaCallerArguments.length >= 3
+        ? luaCallerArguments[2]['scheduleMicrotask']
+        : null;
     return [
       maybeBoxObject<ZoneSpecification>(
           object: ZoneSpecification.from(

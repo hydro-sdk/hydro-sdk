@@ -180,8 +180,12 @@ void loadTextRange(
       RTManagedTextRange(
           table: luaCallerArguments[0],
           hydroState: hydroState,
-          end: luaCallerArguments[1]['end'],
-          start: luaCallerArguments[1]['start'])
+          end: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['end']
+              : null,
+          start: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['start']
+              : null)
     ];
   });
   table['textRangeCollapsed'] =

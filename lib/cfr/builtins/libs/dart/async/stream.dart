@@ -19,8 +19,12 @@ class VMManagedStream extends VMManagedBox<Stream<dynamic>> {
     });
     table['asBroadcastStream'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      Closure? unpackedonCancel = luaCallerArguments[1]['onCancel'];
-      Closure? unpackedonListen = luaCallerArguments[1]['onListen'];
+      Closure? unpackedonCancel = luaCallerArguments.length >= 2
+          ? luaCallerArguments[1]['onCancel']
+          : null;
+      Closure? unpackedonListen = luaCallerArguments.length >= 2
+          ? luaCallerArguments[1]['onListen']
+          : null;
       return [
         maybeBoxObject<Stream>(
             object: vmObject.asBroadcastStream(
@@ -43,7 +47,9 @@ class VMManagedStream extends VMManagedBox<Stream<dynamic>> {
     table['listen'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       Closure? unpackedonData = luaCallerArguments[1];
 
-      Closure? unpackedonDone = luaCallerArguments[2]['onDone'];
+      Closure? unpackedonDone = luaCallerArguments.length >= 3
+          ? luaCallerArguments[2]['onDone']
+          : null;
       return [
         maybeBoxObject<StreamSubscription>(
             object: vmObject.listen(
@@ -53,7 +59,9 @@ class VMManagedStream extends VMManagedBox<Stream<dynamic>> {
                           parentState: hydroState,
                         )
                     : null,
-                cancelOnError: luaCallerArguments[2]['cancelOnError'],
+                cancelOnError: luaCallerArguments.length >= 3
+                    ? luaCallerArguments[2]['cancelOnError']
+                    : null,
                 onDone: unpackedonDone != null
                     ? () => unpackedonDone.dispatch(
                           [
@@ -63,7 +71,9 @@ class VMManagedStream extends VMManagedBox<Stream<dynamic>> {
                         )
                     : null,
                 onError: maybeUnBoxAndBuildArgument<Function?, dynamic>(
-                    luaCallerArguments[2]['onError'],
+                    luaCallerArguments.length >= 3
+                        ? luaCallerArguments[2]['onError']
+                        : null,
                     parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable()),
@@ -127,7 +137,8 @@ class VMManagedStream extends VMManagedBox<Stream<dynamic>> {
     });
     table['handleError'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      Closure? unpackedtest = luaCallerArguments[2]['test'];
+      Closure? unpackedtest =
+          luaCallerArguments.length >= 3 ? luaCallerArguments[2]['test'] : null;
       return [
         maybeBoxObject<Stream>(
             object: vmObject.handleError(
@@ -400,7 +411,9 @@ class VMManagedStream extends VMManagedBox<Stream<dynamic>> {
     table['firstWhere'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       Closure unpackedtest = luaCallerArguments[1];
-      Closure? unpackedorElse = luaCallerArguments[2]['orElse'];
+      Closure? unpackedorElse = luaCallerArguments.length >= 3
+          ? luaCallerArguments[2]['orElse']
+          : null;
       return [
         maybeBoxObject<Future>(
             object: vmObject.firstWhere(
@@ -423,7 +436,9 @@ class VMManagedStream extends VMManagedBox<Stream<dynamic>> {
     table['lastWhere'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       Closure unpackedtest = luaCallerArguments[1];
-      Closure? unpackedorElse = luaCallerArguments[2]['orElse'];
+      Closure? unpackedorElse = luaCallerArguments.length >= 3
+          ? luaCallerArguments[2]['orElse']
+          : null;
       return [
         maybeBoxObject<Future>(
             object: vmObject.lastWhere(
@@ -446,7 +461,9 @@ class VMManagedStream extends VMManagedBox<Stream<dynamic>> {
     table['singleWhere'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       Closure unpackedtest = luaCallerArguments[1];
-      Closure? unpackedorElse = luaCallerArguments[2]['orElse'];
+      Closure? unpackedorElse = luaCallerArguments.length >= 3
+          ? luaCallerArguments[2]['orElse']
+          : null;
       return [
         maybeBoxObject<Future>(
             object: vmObject.singleWhere(
@@ -477,7 +494,9 @@ class VMManagedStream extends VMManagedBox<Stream<dynamic>> {
     });
     table['timeout'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      Closure? unpackedonTimeout = luaCallerArguments[2]['onTimeout'];
+      Closure? unpackedonTimeout = luaCallerArguments.length >= 3
+          ? luaCallerArguments[2]['onTimeout']
+          : null;
       return [
         maybeBoxObject<Stream>(
             object: vmObject.timeout(
@@ -515,8 +534,12 @@ class RTManagedStream extends Stream implements Box<Stream> {
     });
     table['_dart_asBroadcastStream'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      Closure? unpackedonCancel = luaCallerArguments[1]['onCancel'];
-      Closure? unpackedonListen = luaCallerArguments[1]['onListen'];
+      Closure? unpackedonCancel = luaCallerArguments.length >= 2
+          ? luaCallerArguments[1]['onCancel']
+          : null;
+      Closure? unpackedonListen = luaCallerArguments.length >= 2
+          ? luaCallerArguments[1]['onListen']
+          : null;
       return [
         maybeBoxObject<Stream>(
             object: super.asBroadcastStream(
@@ -540,7 +563,9 @@ class RTManagedStream extends Stream implements Box<Stream> {
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       Closure? unpackedonData = luaCallerArguments[1];
 
-      Closure? unpackedonDone = luaCallerArguments[2]['onDone'];
+      Closure? unpackedonDone = luaCallerArguments.length >= 3
+          ? luaCallerArguments[2]['onDone']
+          : null;
       return [
         maybeBoxObject<StreamSubscription>(
             object: listen(
@@ -550,7 +575,9 @@ class RTManagedStream extends Stream implements Box<Stream> {
                           parentState: hydroState,
                         )
                     : null,
-                cancelOnError: luaCallerArguments[2]['cancelOnError'],
+                cancelOnError: luaCallerArguments.length >= 3
+                    ? luaCallerArguments[2]['cancelOnError']
+                    : null,
                 onDone: unpackedonDone != null
                     ? () => unpackedonDone.dispatch(
                           [
@@ -560,7 +587,9 @@ class RTManagedStream extends Stream implements Box<Stream> {
                         )
                     : null,
                 onError: maybeUnBoxAndBuildArgument<Function?, dynamic>(
-                    luaCallerArguments[2]['onError'],
+                    luaCallerArguments.length >= 3
+                        ? luaCallerArguments[2]['onError']
+                        : null,
                     parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable())
@@ -626,7 +655,8 @@ class RTManagedStream extends Stream implements Box<Stream> {
     });
     table['_dart_handleError'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      Closure? unpackedtest = luaCallerArguments[2]['test'];
+      Closure? unpackedtest =
+          luaCallerArguments.length >= 3 ? luaCallerArguments[2]['test'] : null;
       return [
         maybeBoxObject<Stream>(
             object: super.handleError(
@@ -882,7 +912,9 @@ class RTManagedStream extends Stream implements Box<Stream> {
     table['_dart_firstWhere'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       Closure unpackedtest = luaCallerArguments[1];
-      Closure? unpackedorElse = luaCallerArguments[2]['orElse'];
+      Closure? unpackedorElse = luaCallerArguments.length >= 3
+          ? luaCallerArguments[2]['orElse']
+          : null;
       return [
         maybeBoxObject<Future>(
             object: super.firstWhere(
@@ -905,7 +937,9 @@ class RTManagedStream extends Stream implements Box<Stream> {
     table['_dart_lastWhere'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       Closure unpackedtest = luaCallerArguments[1];
-      Closure? unpackedorElse = luaCallerArguments[2]['orElse'];
+      Closure? unpackedorElse = luaCallerArguments.length >= 3
+          ? luaCallerArguments[2]['orElse']
+          : null;
       return [
         maybeBoxObject<Future>(
             object: super.lastWhere(
@@ -928,7 +962,9 @@ class RTManagedStream extends Stream implements Box<Stream> {
     table['_dart_singleWhere'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       Closure unpackedtest = luaCallerArguments[1];
-      Closure? unpackedorElse = luaCallerArguments[2]['orElse'];
+      Closure? unpackedorElse = luaCallerArguments.length >= 3
+          ? luaCallerArguments[2]['orElse']
+          : null;
       return [
         maybeBoxObject<Future>(
             object: super.singleWhere(
@@ -959,7 +995,9 @@ class RTManagedStream extends Stream implements Box<Stream> {
     });
     table['_dart_timeout'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      Closure? unpackedonTimeout = luaCallerArguments[2]['onTimeout'];
+      Closure? unpackedonTimeout = luaCallerArguments.length >= 3
+          ? luaCallerArguments[2]['onTimeout']
+          : null;
       return [
         maybeBoxObject<Stream>(
             object: super.timeout(
@@ -1361,7 +1399,9 @@ void loadStream({required HydroState hydroState, required HydroTable table}) {
                     [luaCallerArguments[0], _],
                     parentState: hydroState,
                   ),
-              isBroadcast: luaCallerArguments[2]['isBroadcast']),
+              isBroadcast: luaCallerArguments.length >= 3
+                  ? luaCallerArguments[2]['isBroadcast']
+                  : null),
           hydroState: hydroState,
           table: HydroTable()),
     ];

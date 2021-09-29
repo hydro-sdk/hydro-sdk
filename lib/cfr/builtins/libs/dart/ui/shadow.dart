@@ -156,12 +156,18 @@ void loadShadow({required HydroState hydroState, required HydroTable table}) {
       RTManagedShadow(
           table: luaCallerArguments[0],
           hydroState: hydroState,
-          blurRadius: luaCallerArguments[1]['blurRadius']?.toDouble(),
+          blurRadius: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['blurRadius']
+              : null?.toDouble(),
           color: maybeUnBoxAndBuildArgument<Color, dynamic>(
-              luaCallerArguments[1]['color'],
+              luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1]['color']
+                  : null,
               parentState: hydroState),
           offset: maybeUnBoxAndBuildArgument<Offset, dynamic>(
-              luaCallerArguments[1]['offset'],
+              luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1]['offset']
+                  : null,
               parentState: hydroState))
     ];
   });

@@ -43,7 +43,9 @@ class VMManagedImage extends VMManagedBox<Image> {
             object: vmObject.toByteData(
                 format: maybeUnBoxEnum(
                     values: ImageByteFormat.values,
-                    boxedEnum: luaCallerArguments[1]['format'])),
+                    boxedEnum: luaCallerArguments.length >= 2
+                        ? luaCallerArguments[1]['format']
+                        : null)),
             hydroState: hydroState,
             table: HydroTable()),
       ];

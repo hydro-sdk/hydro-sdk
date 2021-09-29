@@ -27,11 +27,17 @@ void loadImageFilter(
     return [
       maybeBoxObject<ImageFilter>(
           object: ImageFilter.blur(
-              sigmaX: luaCallerArguments[1]['sigmaX']?.toDouble(),
-              sigmaY: luaCallerArguments[1]['sigmaY']?.toDouble(),
+              sigmaX: luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1]['sigmaX']
+                  : null?.toDouble(),
+              sigmaY: luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1]['sigmaY']
+                  : null?.toDouble(),
               tileMode: maybeUnBoxEnum(
                   values: TileMode.values,
-                  boxedEnum: luaCallerArguments[1]['tileMode'])),
+                  boxedEnum: luaCallerArguments.length >= 2
+                      ? luaCallerArguments[1]['tileMode']
+                      : null)),
           hydroState: hydroState,
           table: HydroTable()),
     ];
@@ -46,7 +52,9 @@ void loadImageFilter(
                   parentState: hydroState),
               filterQuality: maybeUnBoxEnum(
                   values: FilterQuality.values,
-                  boxedEnum: luaCallerArguments[2]['filterQuality'])),
+                  boxedEnum: luaCallerArguments.length >= 3
+                      ? luaCallerArguments[2]['filterQuality']
+                      : null)),
           hydroState: hydroState,
           table: HydroTable()),
     ];
@@ -57,10 +65,14 @@ void loadImageFilter(
       maybeBoxObject<ImageFilter>(
           object: ImageFilter.compose(
               inner: maybeUnBoxAndBuildArgument<ImageFilter, dynamic>(
-                  luaCallerArguments[1]['inner'],
+                  luaCallerArguments.length >= 2
+                      ? luaCallerArguments[1]['inner']
+                      : null,
                   parentState: hydroState),
               outer: maybeUnBoxAndBuildArgument<ImageFilter, dynamic>(
-                  luaCallerArguments[1]['outer'],
+                  luaCallerArguments.length >= 2
+                      ? luaCallerArguments[1]['outer']
+                      : null,
                   parentState: hydroState)),
           hydroState: hydroState,
           table: HydroTable()),

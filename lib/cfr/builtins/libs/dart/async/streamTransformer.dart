@@ -60,9 +60,15 @@ void loadStreamTransformer(
   });
   table['streamTransformerFromHandlers'] =
       makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-    Closure? unpackedhandleData = luaCallerArguments[1]['handleData'];
-    Closure? unpackedhandleDone = luaCallerArguments[1]['handleDone'];
-    Closure? unpackedhandleError = luaCallerArguments[1]['handleError'];
+    Closure? unpackedhandleData = luaCallerArguments.length >= 2
+        ? luaCallerArguments[1]['handleData']
+        : null;
+    Closure? unpackedhandleDone = luaCallerArguments.length >= 2
+        ? luaCallerArguments[1]['handleDone']
+        : null;
+    Closure? unpackedhandleError = luaCallerArguments.length >= 2
+        ? luaCallerArguments[1]['handleError']
+        : null;
     return [
       maybeBoxObject<StreamTransformer>(
           object: StreamTransformer.fromHandlers(

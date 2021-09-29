@@ -54,11 +54,15 @@ class VMManagedZone extends VMManagedBox<Zone> {
             object: vmObject.fork(
                 specification:
                     maybeUnBoxAndBuildArgument<ZoneSpecification?, dynamic>(
-                        luaCallerArguments[1]['specification'],
+                        luaCallerArguments.length >= 2
+                            ? luaCallerArguments[1]['specification']
+                            : null,
                         parentState: hydroState),
                 zoneValues:
                     maybeUnBoxAndBuildArgument<Map<Object?, Object?>?, Object?>(
-                        luaCallerArguments[1]['zoneValues'],
+                        luaCallerArguments.length >= 2
+                            ? luaCallerArguments[1]['zoneValues']
+                            : null,
                         parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable()),

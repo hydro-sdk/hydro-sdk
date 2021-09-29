@@ -18,49 +18,63 @@ class VMManagedSemanticsUpdateBuilder
       vmObject.updateNode(
           textDirection: maybeUnBoxEnum(
               values: TextDirection.values,
-              boxedEnum: luaCallerArguments[1]['textDirection']),
-          actions: luaCallerArguments[1]['actions'],
+              boxedEnum: luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1]['textDirection']
+                  : null),
+          actions: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['actions']
+              : null,
           additionalActions: maybeUnBoxAndBuildArgument<Int32List, dynamic>(
-              luaCallerArguments[1]['additionalActions'],
+              luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1]['additionalActions']
+                  : null,
               parentState: hydroState),
           childrenInHitTestOrder: maybeUnBoxAndBuildArgument<Int32List, dynamic>(
-              luaCallerArguments[1]['childrenInHitTestOrder'],
+              luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1]['childrenInHitTestOrder']
+                  : null,
               parentState: hydroState),
           childrenInTraversalOrder: maybeUnBoxAndBuildArgument<Int32List, dynamic>(
-              luaCallerArguments[1]['childrenInTraversalOrder'],
+              luaCallerArguments.length >= 2 ? luaCallerArguments[1]['childrenInTraversalOrder'] : null,
               parentState: hydroState),
-          currentValueLength: luaCallerArguments[1]['currentValueLength'],
-          decreasedValue: luaCallerArguments[1]['decreasedValue'],
-          elevation: luaCallerArguments[1]['elevation']?.toDouble(),
-          flags: luaCallerArguments[1]['flags'],
-          hint: luaCallerArguments[1]['hint'],
-          id: luaCallerArguments[1]['id'],
-          increasedValue: luaCallerArguments[1]['increasedValue'],
-          label: luaCallerArguments[1]['label'],
-          maxValueLength: luaCallerArguments[1]['maxValueLength'],
-          platformViewId: luaCallerArguments[1]['platformViewId'],
-          rect: maybeUnBoxAndBuildArgument<Rect, dynamic>(luaCallerArguments[1]['rect'],
-              parentState: hydroState),
-          scrollChildren: luaCallerArguments[1]['scrollChildren'],
-          scrollExtentMax: luaCallerArguments[1]['scrollExtentMax']?.toDouble(),
-          scrollExtentMin: luaCallerArguments[1]['scrollExtentMin']?.toDouble(),
-          scrollIndex: luaCallerArguments[1]['scrollIndex'],
-          scrollPosition: luaCallerArguments[1]['scrollPosition']?.toDouble(),
-          textSelectionBase: luaCallerArguments[1]['textSelectionBase'],
-          textSelectionExtent: luaCallerArguments[1]['textSelectionExtent'],
-          thickness: luaCallerArguments[1]['thickness']?.toDouble(),
-          transform: maybeUnBoxAndBuildArgument<Float64List, dynamic>(luaCallerArguments[1]['transform'],
-              parentState: hydroState),
-          value: luaCallerArguments[1]['value']);
+          currentValueLength: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['currentValueLength'] : null,
+          decreasedValue: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['decreasedValue'] : null,
+          elevation: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['elevation'] : null?.toDouble(),
+          flags: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['flags'] : null,
+          hint: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['hint'] : null,
+          id: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['id'] : null,
+          increasedValue: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['increasedValue'] : null,
+          label: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['label'] : null,
+          maxValueLength: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['maxValueLength'] : null,
+          platformViewId: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['platformViewId'] : null,
+          rect: maybeUnBoxAndBuildArgument<Rect, dynamic>(luaCallerArguments.length >= 2 ? luaCallerArguments[1]['rect'] : null, parentState: hydroState),
+          scrollChildren: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['scrollChildren'] : null,
+          scrollExtentMax: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['scrollExtentMax'] : null?.toDouble(),
+          scrollExtentMin: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['scrollExtentMin'] : null?.toDouble(),
+          scrollIndex: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['scrollIndex'] : null,
+          scrollPosition: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['scrollPosition'] : null?.toDouble(),
+          textSelectionBase: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['textSelectionBase'] : null,
+          textSelectionExtent: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['textSelectionExtent'] : null,
+          thickness: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['thickness'] : null?.toDouble(),
+          transform: maybeUnBoxAndBuildArgument<Float64List, dynamic>(luaCallerArguments.length >= 2 ? luaCallerArguments[1]['transform'] : null, parentState: hydroState),
+          value: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['value'] : null);
       return [];
     });
     table['updateCustomAction'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.updateCustomAction(
-          hint: luaCallerArguments[1]['hint'],
-          label: luaCallerArguments[1]['label'],
-          overrideId: luaCallerArguments[1]['overrideId'],
-          id: luaCallerArguments[1]['id']);
+          hint: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['hint']
+              : null,
+          label: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['label']
+              : null,
+          overrideId: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['overrideId']
+              : null,
+          id: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['id']
+              : null);
       return [];
     });
     table['build'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -94,49 +108,62 @@ class RTManagedSemanticsUpdateBuilder extends SemanticsUpdateBuilder
       super.updateNode(
           textDirection: maybeUnBoxEnum(
               values: TextDirection.values,
-              boxedEnum: luaCallerArguments[1]['textDirection']),
-          actions: luaCallerArguments[1]['actions'],
-          additionalActions: maybeUnBoxAndBuildArgument<Int32List, dynamic>(
-              luaCallerArguments[1]['additionalActions'],
+              boxedEnum: luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1]['textDirection']
+                  : null),
+          actions: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['actions']
+              : null,
+          additionalActions: maybeUnBoxAndBuildArgument<Int32List, dynamic>(luaCallerArguments.length >= 2 ? luaCallerArguments[1]['additionalActions'] : null,
               parentState: hydroState),
           childrenInHitTestOrder: maybeUnBoxAndBuildArgument<Int32List, dynamic>(
-              luaCallerArguments[1]['childrenInHitTestOrder'],
+              luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1]['childrenInHitTestOrder']
+                  : null,
               parentState: hydroState),
           childrenInTraversalOrder: maybeUnBoxAndBuildArgument<Int32List, dynamic>(
-              luaCallerArguments[1]['childrenInTraversalOrder'],
+              luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1]['childrenInTraversalOrder']
+                  : null,
               parentState: hydroState),
-          currentValueLength: luaCallerArguments[1]['currentValueLength'],
-          decreasedValue: luaCallerArguments[1]['decreasedValue'],
-          elevation: luaCallerArguments[1]['elevation']?.toDouble(),
-          flags: luaCallerArguments[1]['flags'],
-          hint: luaCallerArguments[1]['hint'],
-          id: luaCallerArguments[1]['id'],
-          increasedValue: luaCallerArguments[1]['increasedValue'],
-          label: luaCallerArguments[1]['label'],
-          maxValueLength: luaCallerArguments[1]['maxValueLength'],
-          platformViewId: luaCallerArguments[1]['platformViewId'],
-          rect: maybeUnBoxAndBuildArgument<Rect, dynamic>(luaCallerArguments[1]['rect'],
-              parentState: hydroState),
-          scrollChildren: luaCallerArguments[1]['scrollChildren'],
-          scrollExtentMax: luaCallerArguments[1]['scrollExtentMax']?.toDouble(),
-          scrollExtentMin: luaCallerArguments[1]['scrollExtentMin']?.toDouble(),
-          scrollIndex: luaCallerArguments[1]['scrollIndex'],
-          scrollPosition: luaCallerArguments[1]['scrollPosition']?.toDouble(),
-          textSelectionBase: luaCallerArguments[1]['textSelectionBase'],
-          textSelectionExtent: luaCallerArguments[1]['textSelectionExtent'],
-          thickness: luaCallerArguments[1]['thickness']?.toDouble(),
-          transform: maybeUnBoxAndBuildArgument<Float64List, dynamic>(luaCallerArguments[1]['transform'],
-              parentState: hydroState),
-          value: luaCallerArguments[1]['value']);
+          currentValueLength: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['currentValueLength'] : null,
+          decreasedValue: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['decreasedValue'] : null,
+          elevation: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['elevation'] : null?.toDouble(),
+          flags: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['flags'] : null,
+          hint: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['hint'] : null,
+          id: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['id'] : null,
+          increasedValue: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['increasedValue'] : null,
+          label: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['label'] : null,
+          maxValueLength: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['maxValueLength'] : null,
+          platformViewId: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['platformViewId'] : null,
+          rect: maybeUnBoxAndBuildArgument<Rect, dynamic>(luaCallerArguments.length >= 2 ? luaCallerArguments[1]['rect'] : null, parentState: hydroState),
+          scrollChildren: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['scrollChildren'] : null,
+          scrollExtentMax: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['scrollExtentMax'] : null?.toDouble(),
+          scrollExtentMin: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['scrollExtentMin'] : null?.toDouble(),
+          scrollIndex: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['scrollIndex'] : null,
+          scrollPosition: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['scrollPosition'] : null?.toDouble(),
+          textSelectionBase: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['textSelectionBase'] : null,
+          textSelectionExtent: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['textSelectionExtent'] : null,
+          thickness: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['thickness'] : null?.toDouble(),
+          transform: maybeUnBoxAndBuildArgument<Float64List, dynamic>(luaCallerArguments.length >= 2 ? luaCallerArguments[1]['transform'] : null, parentState: hydroState),
+          value: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['value'] : null);
       return [];
     });
     table['_dart_updateCustomAction'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       super.updateCustomAction(
-          hint: luaCallerArguments[1]['hint'],
-          label: luaCallerArguments[1]['label'],
-          overrideId: luaCallerArguments[1]['overrideId'],
-          id: luaCallerArguments[1]['id']);
+          hint: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['hint']
+              : null,
+          label: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['label']
+              : null,
+          overrideId: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['overrideId']
+              : null,
+          id: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['id']
+              : null);
       return [];
     });
     table['_dart_build'] =

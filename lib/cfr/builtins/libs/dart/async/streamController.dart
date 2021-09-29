@@ -83,7 +83,9 @@ class VMManagedStreamController
                 maybeUnBoxAndBuildArgument<Stream<dynamic>, dynamic>(
                     luaCallerArguments[1],
                     parentState: hydroState),
-                cancelOnError: luaCallerArguments[2]['cancelOnError']),
+                cancelOnError: luaCallerArguments.length >= 3
+                    ? luaCallerArguments[2]['cancelOnError']
+                    : null),
             hydroState: hydroState,
             table: HydroTable()),
       ];
@@ -113,10 +115,18 @@ void loadStreamController(
     {required HydroState hydroState, required HydroTable table}) {
   table['streamController'] =
       makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-    Closure? unpackedonCancel = luaCallerArguments[1]['onCancel'];
-    Closure? unpackedonListen = luaCallerArguments[1]['onListen'];
-    Closure? unpackedonPause = luaCallerArguments[1]['onPause'];
-    Closure? unpackedonResume = luaCallerArguments[1]['onResume'];
+    Closure? unpackedonCancel = luaCallerArguments.length >= 2
+        ? luaCallerArguments[1]['onCancel']
+        : null;
+    Closure? unpackedonListen = luaCallerArguments.length >= 2
+        ? luaCallerArguments[1]['onListen']
+        : null;
+    Closure? unpackedonPause = luaCallerArguments.length >= 2
+        ? luaCallerArguments[1]['onPause']
+        : null;
+    Closure? unpackedonResume = luaCallerArguments.length >= 2
+        ? luaCallerArguments[1]['onResume']
+        : null;
 
     return [
       maybeBoxObject<StreamController>(
@@ -155,15 +165,21 @@ void loadStreamController(
                         parentState: hydroState,
                       )
                   : null,
-              sync: luaCallerArguments[1]['sync']),
+              sync: luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1]['sync']
+                  : null),
           hydroState: hydroState,
           table: luaCallerArguments[0])
     ];
   });
   table['streamControllerBroadcast'] =
       makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-    Closure? unpackedonCancel = luaCallerArguments[1]['onCancel'];
-    Closure? unpackedonListen = luaCallerArguments[1]['onListen'];
+    Closure? unpackedonCancel = luaCallerArguments.length >= 2
+        ? luaCallerArguments[1]['onCancel']
+        : null;
+    Closure? unpackedonListen = luaCallerArguments.length >= 2
+        ? luaCallerArguments[1]['onListen']
+        : null;
     return [
       maybeBoxObject<StreamController>(
           object: StreamController.broadcast(
@@ -183,7 +199,9 @@ void loadStreamController(
                         parentState: hydroState,
                       )
                   : null,
-              sync: luaCallerArguments[1]['sync']),
+              sync: luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1]['sync']
+                  : null),
           hydroState: hydroState,
           table: HydroTable()),
     ];

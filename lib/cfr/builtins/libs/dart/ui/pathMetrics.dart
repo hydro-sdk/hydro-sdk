@@ -159,7 +159,10 @@ class VMManagedPathMetrics extends VMManagedBox<PathMetrics> {
       return [
         maybeBoxObject<List<dynamic>>(
             object: vmObject
-                .toList(growable: luaCallerArguments[1]['growable'])
+                .toList(
+                    growable: luaCallerArguments.length >= 2
+                        ? luaCallerArguments[1]['growable']
+                        : null)
                 .map((x) => maybeBoxObject<PathMetric>(
                     object: x, hydroState: hydroState, table: HydroTable()))
                 .toList(),
@@ -220,7 +223,9 @@ class VMManagedPathMetrics extends VMManagedBox<PathMetrics> {
     table['firstWhere'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       Closure unpackedtest = luaCallerArguments[1];
-      Closure? unpackedorElse = luaCallerArguments[2]['orElse'];
+      Closure? unpackedorElse = luaCallerArguments.length >= 3
+          ? luaCallerArguments[2]['orElse']
+          : null;
       return [
         maybeBoxObject<PathMetric>(
             object: vmObject.firstWhere(
@@ -245,7 +250,9 @@ class VMManagedPathMetrics extends VMManagedBox<PathMetrics> {
     table['lastWhere'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       Closure unpackedtest = luaCallerArguments[1];
-      Closure? unpackedorElse = luaCallerArguments[2]['orElse'];
+      Closure? unpackedorElse = luaCallerArguments.length >= 3
+          ? luaCallerArguments[2]['orElse']
+          : null;
       return [
         maybeBoxObject<PathMetric>(
             object: vmObject.lastWhere(
@@ -270,7 +277,9 @@ class VMManagedPathMetrics extends VMManagedBox<PathMetrics> {
     table['singleWhere'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       Closure unpackedtest = luaCallerArguments[1];
-      Closure? unpackedorElse = luaCallerArguments[2]['orElse'];
+      Closure? unpackedorElse = luaCallerArguments.length >= 3
+          ? luaCallerArguments[2]['orElse']
+          : null;
       return [
         maybeBoxObject<PathMetric>(
             object: vmObject.singleWhere(

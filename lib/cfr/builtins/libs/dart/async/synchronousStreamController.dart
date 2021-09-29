@@ -42,7 +42,9 @@ class VMManagedSynchronousStreamController
                 maybeUnBoxAndBuildArgument<Stream<dynamic>, dynamic>(
                     luaCallerArguments[1],
                     parentState: hydroState),
-                cancelOnError: luaCallerArguments[2]['cancelOnError']),
+                cancelOnError: luaCallerArguments.length >= 3
+                    ? luaCallerArguments[2]['cancelOnError']
+                    : null),
             hydroState: hydroState,
             table: HydroTable()),
       ];
