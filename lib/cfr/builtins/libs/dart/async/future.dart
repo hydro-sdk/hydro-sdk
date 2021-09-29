@@ -13,35 +13,42 @@ class VMManagedFuture extends VMManagedBox<Future<dynamic>> {
         ) {
     table['then'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       Closure unpackedonValue = luaCallerArguments[1];
+      Closure? unpackedOnError = luaCallerArguments.length >= 3
+          ? luaCallerArguments[2]['onError']
+          : null;
       return [
         maybeBoxObject<Future>(
             object: vmObject.then(
-                (value) =>
+                (value) => ((val) =>
+                        val != null && val.length >= 1 ? val[0] : null)(
                     maybeUnBoxAndBuildArgument<FutureOr<dynamic>, dynamic>(
                         unpackedonValue.dispatch(
                           [luaCallerArguments[0], value],
                           parentState: hydroState,
-                        )[0],
-                        parentState: hydroState),
-                onError: maybeUnBoxAndBuildArgument<Function?, dynamic>(
-                    luaCallerArguments.length >= 3
-                        ? luaCallerArguments[2]['onError']
-                        : null,
-                    parentState: hydroState)),
+                        ),
+                        parentState: hydroState)),
+                onError: unpackedOnError != null
+                    ? (err, stackTrace) => unpackedOnError.dispatch(
+                          [luaCallerArguments[0], err, stackTrace],
+                          parentState: hydroState,
+                        )
+                    : null),
             hydroState: hydroState,
             table: HydroTable()),
       ];
     });
     table['catchError'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      Closure unpackedOnError = luaCallerArguments[1];
       Closure? unpackedtest =
           luaCallerArguments.length >= 3 ? luaCallerArguments[2]['test'] : null;
       return [
         maybeBoxObject<Future>(
             object: vmObject.catchError(
-                maybeUnBoxAndBuildArgument<Function, dynamic>(
-                    luaCallerArguments[1],
-                    parentState: hydroState),
+                (err, stackTrace) => unpackedOnError.dispatch(
+                      [luaCallerArguments[0], err, stackTrace],
+                      parentState: hydroState,
+                    ),
                 test: unpackedtest != null
                     ? (error) => unpackedtest.dispatch(
                           [luaCallerArguments[0], error],
