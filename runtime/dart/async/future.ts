@@ -40,7 +40,7 @@ declare const dart: {
 };
 export interface IFuture<T> {
     then: <R>(
-        onValue: (value: T) => IFutureOr<R>,
+        onValue: (value: T) => R,
         props?: { onError?: IFunction | undefined }
     ) => IFuture<R>;
     catchError: (
@@ -120,7 +120,7 @@ export class Future<T> {
         props?: { onTimeout?: () => IFutureOr<T> | undefined }
     ) => IFuture<T> = undefined as any;
     public then<R>(
-        onValue: (value: T) => IFutureOr<R>,
+        onValue: (value: T) => R,
         props?: { onError?: IFunction | undefined }
     ): IFuture<R> {
         return this._dart_then(onValue, props);
