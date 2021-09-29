@@ -13,6 +13,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartBoxingExpression.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartBoxingProcedure.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartUnboxingExpression.dart';
+import 'package:hydro_sdk/swid/backend/dart/util/guardedLuaCallerNamedArgumentsIndex.dart';
 import 'package:hydro_sdk/swid/backend/dart/util/luaCallerArgumentsParameterName.dart';
 import 'package:hydro_sdk/swid/backend/dart/util/unpackedClosureName.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
@@ -248,19 +249,26 @@ class DartFunctionSelfBindingInvocation
                                                   str: x.key,
                                                 )
                                               : x.key,
-                                      expression: refer(
-                                              "$luaCallerArgumentsParameterName")
-                                          .index(
-                                            literalNum(
-                                              swidFunctionType
-                                                      .normalParameterNames
-                                                      .length +
-                                                  1,
-                                            ),
-                                          )
-                                          .index(
-                                            literalString(x.key),
-                                          ),
+                                      expression:
+                                          guardedLuaCallerNamedArgumentsIndex(
+                                        leadingIndex: swidFunctionType
+                                                .normalParameterNames.length +
+                                            1,
+                                        nonNullIndexBuilder: ({
+                                          required final Expression expression,
+                                        }) =>
+                                            expression
+                                                .index(
+                                                  literalString(x.key),
+                                                )
+                                                .code
+                                                .accept(
+                                                  DartEmitter(
+                                                    useNullSafetySyntax: true,
+                                                  ),
+                                                )
+                                                .toString(),
+                                      ),
                                     ),
                                   )
                                 : ""),
