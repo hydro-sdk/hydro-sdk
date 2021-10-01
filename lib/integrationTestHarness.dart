@@ -22,9 +22,9 @@ Widget integrationTestHarness(
     customNamespaces: customNamespaces,
     downloadHash: (String uri) async {
       try {
-      var file = File("$path.hc.sha256");
-      var res = file.readAsStringSync();
-      return res;
+        var file = File("$path.hc.sha256");
+        var res = file.readAsStringSync();
+        return res;
       } catch (err) {
         return "";
       }
