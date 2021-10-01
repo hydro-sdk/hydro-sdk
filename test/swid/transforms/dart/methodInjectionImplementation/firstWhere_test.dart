@@ -139,7 +139,6 @@ table['firstWhere'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
                 )[0]
             : null),
   ];
-});    
-""");
+});""");
   }, tags: "swid");
 }
