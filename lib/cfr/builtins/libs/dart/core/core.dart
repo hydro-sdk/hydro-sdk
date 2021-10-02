@@ -13,6 +13,8 @@ import 'package:hydro_sdk/cfr/builtins/libs/dart/core/sink.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/core/stackTrace.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/core/stringSink.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/core/symbol.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/dart/core/print.dart';
+
 import 'package:hydro_sdk/cfr/runtimeSupport.dart';
 
 void loadcore({required HydroState hydroState, required HydroTable table}) {
@@ -33,4 +35,5 @@ void loadcore({required HydroState hydroState, required HydroTable table}) {
   loadError(table: core, hydroState: hydroState);
   loadStackTrace(table: core, hydroState: hydroState);
   loadDuration(hydroState: hydroState, table: core);
+  loadPrint(core);
 }
