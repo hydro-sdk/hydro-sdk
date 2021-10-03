@@ -1,0 +1,4 @@
+const validAnnotationNames = [
+  "ignoreTransform",
+  "ignoreAnalysis",
+];

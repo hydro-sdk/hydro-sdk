@@ -91,5 +91,16 @@ class "dart:async"::AsyncError {
       """,
       expectation: const SwidiClassValidationState.valid(),
     );
+
+    validatorTestHarness(
+      input: """
+class "dart:async"::AsyncError {
+  "dart:core"::class::StackTrace stackTrace() -> {
+    @"isGetter": false,
+  };
+}
+      """,
+      expectation: const SwidiClassValidationState.valid(),
+    );
   }, tags: "swid");
 }

@@ -35,24 +35,6 @@ class SwidiClassValidationState
       SwidiClassValidationState.fromJson(json);
 }
 
-const validTransformNames = [
-  "referenceRewriting",
-  "tsClassMethodDeclaration",
-  "tsClassStaticMethodImplementation",
-  "tsClassVmDeclaration",
-  "dartStaticMethodNamespaceSymbolDeclaration",
-  "isGetter",
-];
-
-const validAnalysisNames = [
-  "referenceCollection",
-];
-
-const validAnnotationNames = [
-  "ignoreTransform",
-  "ignoreAnalysis",
-];
-
 @freezed
 class ValidateSwidiClass
     with
