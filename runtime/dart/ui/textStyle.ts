@@ -14,7 +14,7 @@ declare const dart: {
         textStyle: (
             this: void,
             textStyle: ITextStyle,
-            props: {
+            props?: {
                 background?: IPaint | undefined;
                 color?: IColor | undefined;
                 decoration?: ITextDecoration | undefined;
@@ -43,7 +43,7 @@ export interface ITextStyle {
     toString: () => string;
 }
 export class TextStyle {
-    public constructor(props: {
+    public constructor(props?: {
         background?: IPaint | undefined;
         color?: IColor | undefined;
         decoration?: ITextDecoration | undefined;

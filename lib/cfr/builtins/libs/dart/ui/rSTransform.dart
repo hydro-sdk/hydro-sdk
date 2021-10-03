@@ -123,12 +123,24 @@ void loadRSTransform(
     return [
       maybeBoxObject<RSTransform>(
           object: RSTransform.fromComponents(
-              anchorX: luaCallerArguments[1]['anchorX']?.toDouble(),
-              anchorY: luaCallerArguments[1]['anchorY']?.toDouble(),
-              rotation: luaCallerArguments[1]['rotation']?.toDouble(),
-              scale: luaCallerArguments[1]['scale']?.toDouble(),
-              translateX: luaCallerArguments[1]['translateX']?.toDouble(),
-              translateY: luaCallerArguments[1]['translateY']?.toDouble()),
+              anchorX: luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1]['anchorX']
+                  : null?.toDouble(),
+              anchorY: luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1]['anchorY']
+                  : null?.toDouble(),
+              rotation: luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1]['rotation']
+                  : null?.toDouble(),
+              scale: luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1]['scale']
+                  : null?.toDouble(),
+              translateX: luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1]['translateX']
+                  : null?.toDouble(),
+              translateY: luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1]['translateY']
+                  : null?.toDouble()),
           hydroState: hydroState,
           table: HydroTable()),
     ];

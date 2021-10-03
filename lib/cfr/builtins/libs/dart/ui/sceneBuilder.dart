@@ -19,7 +19,9 @@ class VMManagedSceneBuilder extends VMManagedBox<SceneBuilder> {
               luaCallerArguments[1],
               parentState: hydroState),
           oldLayer: maybeUnBoxAndBuildArgument<TransformEngineLayer?, dynamic>(
-              luaCallerArguments[2]['oldLayer'],
+              luaCallerArguments.length >= 3
+                  ? luaCallerArguments[2]['oldLayer']
+                  : null,
               parentState: hydroState));
       if (returnValue != null) {
         return [
@@ -34,7 +36,9 @@ class VMManagedSceneBuilder extends VMManagedBox<SceneBuilder> {
       final returnValue = vmObject.pushOffset(
           luaCallerArguments[1]?.toDouble(), luaCallerArguments[2]?.toDouble(),
           oldLayer: maybeUnBoxAndBuildArgument<OffsetEngineLayer?, dynamic>(
-              luaCallerArguments[3]['oldLayer'],
+              luaCallerArguments.length >= 4
+                  ? luaCallerArguments[3]['oldLayer']
+                  : null,
               parentState: hydroState));
       if (returnValue != null) {
         return [
@@ -51,9 +55,13 @@ class VMManagedSceneBuilder extends VMManagedBox<SceneBuilder> {
               parentState: hydroState),
           clipBehavior: maybeUnBoxEnum(
               values: Clip.values,
-              boxedEnum: luaCallerArguments[2]['clipBehavior']),
+              boxedEnum: luaCallerArguments.length >= 3
+                  ? luaCallerArguments[2]['clipBehavior']
+                  : null),
           oldLayer: maybeUnBoxAndBuildArgument<ClipRectEngineLayer?, dynamic>(
-              luaCallerArguments[2]['oldLayer'],
+              luaCallerArguments.length >= 3
+                  ? luaCallerArguments[2]['oldLayer']
+                  : null,
               parentState: hydroState));
       if (returnValue != null) {
         return [
@@ -70,9 +78,13 @@ class VMManagedSceneBuilder extends VMManagedBox<SceneBuilder> {
               parentState: hydroState),
           clipBehavior: maybeUnBoxEnum(
               values: Clip.values,
-              boxedEnum: luaCallerArguments[2]['clipBehavior']),
+              boxedEnum: luaCallerArguments.length >= 3
+                  ? luaCallerArguments[2]['clipBehavior']
+                  : null),
           oldLayer: maybeUnBoxAndBuildArgument<ClipRRectEngineLayer?, dynamic>(
-              luaCallerArguments[2]['oldLayer'],
+              luaCallerArguments.length >= 3
+                  ? luaCallerArguments[2]['oldLayer']
+                  : null,
               parentState: hydroState));
       if (returnValue != null) {
         return [
@@ -89,9 +101,13 @@ class VMManagedSceneBuilder extends VMManagedBox<SceneBuilder> {
               parentState: hydroState),
           clipBehavior: maybeUnBoxEnum(
               values: Clip.values,
-              boxedEnum: luaCallerArguments[2]['clipBehavior']),
+              boxedEnum: luaCallerArguments.length >= 3
+                  ? luaCallerArguments[2]['clipBehavior']
+                  : null),
           oldLayer: maybeUnBoxAndBuildArgument<ClipPathEngineLayer?, dynamic>(
-              luaCallerArguments[2]['oldLayer'],
+              luaCallerArguments.length >= 3
+                  ? luaCallerArguments[2]['oldLayer']
+                  : null,
               parentState: hydroState));
       if (returnValue != null) {
         return [
@@ -105,10 +121,14 @@ class VMManagedSceneBuilder extends VMManagedBox<SceneBuilder> {
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       final returnValue = vmObject.pushOpacity(luaCallerArguments[1],
           offset: maybeUnBoxAndBuildArgument<Offset?, dynamic>(
-              luaCallerArguments[2]['offset'],
+              luaCallerArguments.length >= 3
+                  ? luaCallerArguments[2]['offset']
+                  : null,
               parentState: hydroState),
           oldLayer: maybeUnBoxAndBuildArgument<OpacityEngineLayer?, dynamic>(
-              luaCallerArguments[2]['oldLayer'],
+              luaCallerArguments.length >= 3
+                  ? luaCallerArguments[2]['oldLayer']
+                  : null,
               parentState: hydroState));
       if (returnValue != null) {
         return [
@@ -126,7 +146,9 @@ class VMManagedSceneBuilder extends VMManagedBox<SceneBuilder> {
               parentState: hydroState),
           oldLayer:
               maybeUnBoxAndBuildArgument<ColorFilterEngineLayer?, dynamic>(
-                  luaCallerArguments[2]['oldLayer'],
+                  luaCallerArguments.length >= 3
+                      ? luaCallerArguments[2]['oldLayer']
+                      : null,
                   parentState: hydroState));
       if (returnValue != null) {
         return [
@@ -144,7 +166,9 @@ class VMManagedSceneBuilder extends VMManagedBox<SceneBuilder> {
               parentState: hydroState),
           oldLayer:
               maybeUnBoxAndBuildArgument<ImageFilterEngineLayer?, dynamic>(
-                  luaCallerArguments[2]['oldLayer'],
+                  luaCallerArguments.length >= 3
+                      ? luaCallerArguments[2]['oldLayer']
+                      : null,
                   parentState: hydroState));
       if (returnValue != null) {
         return [
@@ -162,7 +186,9 @@ class VMManagedSceneBuilder extends VMManagedBox<SceneBuilder> {
               parentState: hydroState),
           oldLayer:
               maybeUnBoxAndBuildArgument<BackdropFilterEngineLayer?, dynamic>(
-                  luaCallerArguments[2]['oldLayer'],
+                  luaCallerArguments.length >= 3
+                      ? luaCallerArguments[2]['oldLayer']
+                      : null,
                   parentState: hydroState));
       if (returnValue != null) {
         return [
@@ -182,7 +208,9 @@ class VMManagedSceneBuilder extends VMManagedBox<SceneBuilder> {
           maybeUnBoxEnum(
               values: BlendMode.values, boxedEnum: luaCallerArguments[3]),
           oldLayer: maybeUnBoxAndBuildArgument<ShaderMaskEngineLayer?, dynamic>(
-              luaCallerArguments[4]['oldLayer'],
+              luaCallerArguments.length >= 5
+                  ? luaCallerArguments[4]['oldLayer']
+                  : null,
               parentState: hydroState));
       if (returnValue != null) {
         return [
@@ -197,21 +225,23 @@ class VMManagedSceneBuilder extends VMManagedBox<SceneBuilder> {
       final returnValue = vmObject.pushPhysicalShape(
           clipBehavior: maybeUnBoxEnum(
               values: Clip.values,
-              boxedEnum: luaCallerArguments[1]['clipBehavior']),
+              boxedEnum: luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1]['clipBehavior']
+                  : null),
           oldLayer:
               maybeUnBoxAndBuildArgument<PhysicalShapeEngineLayer?, dynamic>(
-                  luaCallerArguments[1]['oldLayer'],
+                  luaCallerArguments.length >= 2
+                      ? luaCallerArguments[1]['oldLayer']
+                      : null,
                   parentState: hydroState),
-          shadowColor: maybeUnBoxAndBuildArgument<Color?, dynamic>(
-              luaCallerArguments[1]['shadowColor'],
-              parentState: hydroState),
+          shadowColor:
+              maybeUnBoxAndBuildArgument<Color?, dynamic>(luaCallerArguments.length >= 2 ? luaCallerArguments[1]['shadowColor'] : null,
+                  parentState: hydroState),
           color: maybeUnBoxAndBuildArgument<Color, dynamic>(
-              luaCallerArguments[1]['color'],
+              luaCallerArguments.length >= 2 ? luaCallerArguments[1]['color'] : null,
               parentState: hydroState),
-          elevation: luaCallerArguments[1]['elevation']?.toDouble(),
-          path: maybeUnBoxAndBuildArgument<Path, dynamic>(
-              luaCallerArguments[1]['path'],
-              parentState: hydroState));
+          elevation: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['elevation'] : null?.toDouble(),
+          path: maybeUnBoxAndBuildArgument<Path, dynamic>(luaCallerArguments.length >= 2 ? luaCallerArguments[1]['path'] : null, parentState: hydroState));
       if (returnValue != null) {
         return [
           maybeBoxObject<PhysicalShapeEngineLayer?>(
@@ -246,8 +276,12 @@ class VMManagedSceneBuilder extends VMManagedBox<SceneBuilder> {
               parentState: hydroState),
           maybeUnBoxAndBuildArgument<Picture, dynamic>(luaCallerArguments[2],
               parentState: hydroState),
-          isComplexHint: luaCallerArguments[3]['isComplexHint'],
-          willChangeHint: luaCallerArguments[3]['willChangeHint']);
+          isComplexHint: luaCallerArguments.length >= 4
+              ? luaCallerArguments[3]['isComplexHint']
+              : null,
+          willChangeHint: luaCallerArguments.length >= 4
+              ? luaCallerArguments[3]['willChangeHint']
+              : null);
       return [];
     });
     table['addTexture'] =
@@ -255,36 +289,62 @@ class VMManagedSceneBuilder extends VMManagedBox<SceneBuilder> {
       vmObject.addTexture(luaCallerArguments[1],
           filterQuality: maybeUnBoxEnum(
               values: FilterQuality.values,
-              boxedEnum: luaCallerArguments[2]['filterQuality']),
-          freeze: luaCallerArguments[2]['freeze'],
-          height: luaCallerArguments[2]['height']?.toDouble(),
+              boxedEnum: luaCallerArguments.length >= 3
+                  ? luaCallerArguments[2]['filterQuality']
+                  : null),
+          freeze: luaCallerArguments.length >= 3
+              ? luaCallerArguments[2]['freeze']
+              : null,
+          height: luaCallerArguments.length >= 3
+              ? luaCallerArguments[2]['height']
+              : null?.toDouble(),
           offset: maybeUnBoxAndBuildArgument<Offset, dynamic>(
-              luaCallerArguments[2]['offset'],
+              luaCallerArguments.length >= 3
+                  ? luaCallerArguments[2]['offset']
+                  : null,
               parentState: hydroState),
-          width: luaCallerArguments[2]['width']?.toDouble());
+          width: luaCallerArguments.length >= 3
+              ? luaCallerArguments[2]['width']
+              : null?.toDouble());
       return [];
     });
     table['addPlatformView'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.addPlatformView(luaCallerArguments[1],
-          height: luaCallerArguments[2]['height']?.toDouble(),
+          height: luaCallerArguments.length >= 3
+              ? luaCallerArguments[2]['height']
+              : null?.toDouble(),
           offset: maybeUnBoxAndBuildArgument<Offset, dynamic>(
-              luaCallerArguments[2]['offset'],
+              luaCallerArguments.length >= 3
+                  ? luaCallerArguments[2]['offset']
+                  : null,
               parentState: hydroState),
-          width: luaCallerArguments[2]['width']?.toDouble());
+          width: luaCallerArguments.length >= 3
+              ? luaCallerArguments[2]['width']
+              : null?.toDouble());
       return [];
     });
     table['addChildScene'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.addChildScene(
-          height: luaCallerArguments[1]['height']?.toDouble(),
-          hitTestable: luaCallerArguments[1]['hitTestable'],
+          height: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['height']
+              : null?.toDouble(),
+          hitTestable: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['hitTestable']
+              : null,
           offset: maybeUnBoxAndBuildArgument<Offset, dynamic>(
-              luaCallerArguments[1]['offset'],
+              luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1]['offset']
+                  : null,
               parentState: hydroState),
-          width: luaCallerArguments[1]['width']?.toDouble(),
+          width: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['width']
+              : null?.toDouble(),
           sceneHost: maybeUnBoxAndBuildArgument<SceneHost, dynamic>(
-              luaCallerArguments[1]['sceneHost'],
+              luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1]['sceneHost']
+                  : null,
               parentState: hydroState));
       return [];
     });
@@ -337,7 +397,9 @@ class RTManagedSceneBuilder extends SceneBuilder implements Box<SceneBuilder> {
                     parentState: hydroState),
                 oldLayer:
                     maybeUnBoxAndBuildArgument<TransformEngineLayer?, dynamic>(
-                        luaCallerArguments[2]['oldLayer'],
+                        luaCallerArguments.length >= 3
+                            ? luaCallerArguments[2]['oldLayer']
+                            : null,
                         parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable())
@@ -351,7 +413,9 @@ class RTManagedSceneBuilder extends SceneBuilder implements Box<SceneBuilder> {
                 luaCallerArguments[2]?.toDouble(),
                 oldLayer:
                     maybeUnBoxAndBuildArgument<OffsetEngineLayer?, dynamic>(
-                        luaCallerArguments[3]['oldLayer'],
+                        luaCallerArguments.length >= 4
+                            ? luaCallerArguments[3]['oldLayer']
+                            : null,
                         parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable())
@@ -366,10 +430,14 @@ class RTManagedSceneBuilder extends SceneBuilder implements Box<SceneBuilder> {
                     parentState: hydroState),
                 clipBehavior: maybeUnBoxEnum(
                     values: Clip.values,
-                    boxedEnum: luaCallerArguments[2]['clipBehavior']),
+                    boxedEnum: luaCallerArguments.length >= 3
+                        ? luaCallerArguments[2]['clipBehavior']
+                        : null),
                 oldLayer:
                     maybeUnBoxAndBuildArgument<ClipRectEngineLayer?, dynamic>(
-                        luaCallerArguments[2]['oldLayer'],
+                        luaCallerArguments.length >= 3
+                            ? luaCallerArguments[2]['oldLayer']
+                            : null,
                         parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable())
@@ -385,10 +453,14 @@ class RTManagedSceneBuilder extends SceneBuilder implements Box<SceneBuilder> {
                     parentState: hydroState),
                 clipBehavior: maybeUnBoxEnum(
                     values: Clip.values,
-                    boxedEnum: luaCallerArguments[2]['clipBehavior']),
+                    boxedEnum: luaCallerArguments.length >= 3
+                        ? luaCallerArguments[2]['clipBehavior']
+                        : null),
                 oldLayer:
                     maybeUnBoxAndBuildArgument<ClipRRectEngineLayer?, dynamic>(
-                        luaCallerArguments[2]['oldLayer'],
+                        luaCallerArguments.length >= 3
+                            ? luaCallerArguments[2]['oldLayer']
+                            : null,
                         parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable())
@@ -403,10 +475,14 @@ class RTManagedSceneBuilder extends SceneBuilder implements Box<SceneBuilder> {
                     parentState: hydroState),
                 clipBehavior: maybeUnBoxEnum(
                     values: Clip.values,
-                    boxedEnum: luaCallerArguments[2]['clipBehavior']),
+                    boxedEnum: luaCallerArguments.length >= 3
+                        ? luaCallerArguments[2]['clipBehavior']
+                        : null),
                 oldLayer:
                     maybeUnBoxAndBuildArgument<ClipPathEngineLayer?, dynamic>(
-                        luaCallerArguments[2]['oldLayer'],
+                        luaCallerArguments.length >= 3
+                            ? luaCallerArguments[2]['oldLayer']
+                            : null,
                         parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable())
@@ -418,11 +494,15 @@ class RTManagedSceneBuilder extends SceneBuilder implements Box<SceneBuilder> {
         maybeBoxObject<OpacityEngineLayer?>(
             object: super.pushOpacity(luaCallerArguments[1],
                 offset: maybeUnBoxAndBuildArgument<Offset?, dynamic>(
-                    luaCallerArguments[2]['offset'],
+                    luaCallerArguments.length >= 3
+                        ? luaCallerArguments[2]['offset']
+                        : null,
                     parentState: hydroState),
                 oldLayer:
                     maybeUnBoxAndBuildArgument<OpacityEngineLayer?, dynamic>(
-                        luaCallerArguments[2]['oldLayer'],
+                        luaCallerArguments.length >= 3
+                            ? luaCallerArguments[2]['oldLayer']
+                            : null,
                         parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable())
@@ -437,7 +517,10 @@ class RTManagedSceneBuilder extends SceneBuilder implements Box<SceneBuilder> {
                     luaCallerArguments[1],
                     parentState: hydroState),
                 oldLayer: maybeUnBoxAndBuildArgument<ColorFilterEngineLayer?,
-                        dynamic>(luaCallerArguments[2]['oldLayer'],
+                        dynamic>(
+                    luaCallerArguments.length >= 3
+                        ? luaCallerArguments[2]['oldLayer']
+                        : null,
                     parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable())
@@ -452,7 +535,10 @@ class RTManagedSceneBuilder extends SceneBuilder implements Box<SceneBuilder> {
                     luaCallerArguments[1],
                     parentState: hydroState),
                 oldLayer: maybeUnBoxAndBuildArgument<ImageFilterEngineLayer?,
-                        dynamic>(luaCallerArguments[2]['oldLayer'],
+                        dynamic>(
+                    luaCallerArguments.length >= 3
+                        ? luaCallerArguments[2]['oldLayer']
+                        : null,
                     parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable())
@@ -467,7 +553,10 @@ class RTManagedSceneBuilder extends SceneBuilder implements Box<SceneBuilder> {
                     luaCallerArguments[1],
                     parentState: hydroState),
                 oldLayer: maybeUnBoxAndBuildArgument<BackdropFilterEngineLayer?,
-                        dynamic>(luaCallerArguments[2]['oldLayer'],
+                        dynamic>(
+                    luaCallerArguments.length >= 3
+                        ? luaCallerArguments[2]['oldLayer']
+                        : null,
                     parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable())
@@ -487,7 +576,9 @@ class RTManagedSceneBuilder extends SceneBuilder implements Box<SceneBuilder> {
                     values: BlendMode.values, boxedEnum: luaCallerArguments[3]),
                 oldLayer:
                     maybeUnBoxAndBuildArgument<ShaderMaskEngineLayer?, dynamic>(
-                        luaCallerArguments[4]['oldLayer'],
+                        luaCallerArguments.length >= 5
+                            ? luaCallerArguments[4]['oldLayer']
+                            : null,
                         parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable())
@@ -500,21 +591,23 @@ class RTManagedSceneBuilder extends SceneBuilder implements Box<SceneBuilder> {
             object: super.pushPhysicalShape(
                 clipBehavior: maybeUnBoxEnum(
                     values: Clip.values,
-                    boxedEnum: luaCallerArguments[1]['clipBehavior']),
+                    boxedEnum: luaCallerArguments.length >= 2
+                        ? luaCallerArguments[1]['clipBehavior']
+                        : null),
                 oldLayer:
                     maybeUnBoxAndBuildArgument<PhysicalShapeEngineLayer?, dynamic>(
-                        luaCallerArguments[1]['oldLayer'],
+                        luaCallerArguments.length >= 2
+                            ? luaCallerArguments[1]['oldLayer']
+                            : null,
                         parentState: hydroState),
-                shadowColor: maybeUnBoxAndBuildArgument<Color?, dynamic>(
-                    luaCallerArguments[1]['shadowColor'],
-                    parentState: hydroState),
+                shadowColor:
+                    maybeUnBoxAndBuildArgument<Color?, dynamic>(luaCallerArguments.length >= 2 ? luaCallerArguments[1]['shadowColor'] : null,
+                        parentState: hydroState),
                 color: maybeUnBoxAndBuildArgument<Color, dynamic>(
-                    luaCallerArguments[1]['color'],
+                    luaCallerArguments.length >= 2 ? luaCallerArguments[1]['color'] : null,
                     parentState: hydroState),
-                elevation: luaCallerArguments[1]['elevation']?.toDouble(),
-                path: maybeUnBoxAndBuildArgument<Path, dynamic>(
-                    luaCallerArguments[1]['path'],
-                    parentState: hydroState)),
+                elevation: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['elevation'] : null?.toDouble(),
+                path: maybeUnBoxAndBuildArgument<Path, dynamic>(luaCallerArguments.length >= 2 ? luaCallerArguments[1]['path'] : null, parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable())
       ];
@@ -546,8 +639,12 @@ class RTManagedSceneBuilder extends SceneBuilder implements Box<SceneBuilder> {
               parentState: hydroState),
           maybeUnBoxAndBuildArgument<Picture, dynamic>(luaCallerArguments[2],
               parentState: hydroState),
-          isComplexHint: luaCallerArguments[3]['isComplexHint'],
-          willChangeHint: luaCallerArguments[3]['willChangeHint']);
+          isComplexHint: luaCallerArguments.length >= 4
+              ? luaCallerArguments[3]['isComplexHint']
+              : null,
+          willChangeHint: luaCallerArguments.length >= 4
+              ? luaCallerArguments[3]['willChangeHint']
+              : null);
       return [];
     });
     table['_dart_addTexture'] =
@@ -555,36 +652,62 @@ class RTManagedSceneBuilder extends SceneBuilder implements Box<SceneBuilder> {
       super.addTexture(luaCallerArguments[1],
           filterQuality: maybeUnBoxEnum(
               values: FilterQuality.values,
-              boxedEnum: luaCallerArguments[2]['filterQuality']),
-          freeze: luaCallerArguments[2]['freeze'],
-          height: luaCallerArguments[2]['height']?.toDouble(),
+              boxedEnum: luaCallerArguments.length >= 3
+                  ? luaCallerArguments[2]['filterQuality']
+                  : null),
+          freeze: luaCallerArguments.length >= 3
+              ? luaCallerArguments[2]['freeze']
+              : null,
+          height: luaCallerArguments.length >= 3
+              ? luaCallerArguments[2]['height']
+              : null?.toDouble(),
           offset: maybeUnBoxAndBuildArgument<Offset, dynamic>(
-              luaCallerArguments[2]['offset'],
+              luaCallerArguments.length >= 3
+                  ? luaCallerArguments[2]['offset']
+                  : null,
               parentState: hydroState),
-          width: luaCallerArguments[2]['width']?.toDouble());
+          width: luaCallerArguments.length >= 3
+              ? luaCallerArguments[2]['width']
+              : null?.toDouble());
       return [];
     });
     table['_dart_addPlatformView'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       super.addPlatformView(luaCallerArguments[1],
-          height: luaCallerArguments[2]['height']?.toDouble(),
+          height: luaCallerArguments.length >= 3
+              ? luaCallerArguments[2]['height']
+              : null?.toDouble(),
           offset: maybeUnBoxAndBuildArgument<Offset, dynamic>(
-              luaCallerArguments[2]['offset'],
+              luaCallerArguments.length >= 3
+                  ? luaCallerArguments[2]['offset']
+                  : null,
               parentState: hydroState),
-          width: luaCallerArguments[2]['width']?.toDouble());
+          width: luaCallerArguments.length >= 3
+              ? luaCallerArguments[2]['width']
+              : null?.toDouble());
       return [];
     });
     table['_dart_addChildScene'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       super.addChildScene(
-          height: luaCallerArguments[1]['height']?.toDouble(),
-          hitTestable: luaCallerArguments[1]['hitTestable'],
+          height: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['height']
+              : null?.toDouble(),
+          hitTestable: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['hitTestable']
+              : null,
           offset: maybeUnBoxAndBuildArgument<Offset, dynamic>(
-              luaCallerArguments[1]['offset'],
+              luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1]['offset']
+                  : null,
               parentState: hydroState),
-          width: luaCallerArguments[1]['width']?.toDouble(),
+          width: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['width']
+              : null?.toDouble(),
           sceneHost: maybeUnBoxAndBuildArgument<SceneHost, dynamic>(
-              luaCallerArguments[1]['sceneHost'],
+              luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1]['sceneHost']
+                  : null,
               parentState: hydroState));
       return [];
     });

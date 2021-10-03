@@ -78,20 +78,36 @@ void loadStrutStyle(
       RTManagedStrutStyle(
           table: luaCallerArguments[0],
           hydroState: hydroState,
-          fontFamily: luaCallerArguments[1]['fontFamily'],
+          fontFamily: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['fontFamily']
+              : null,
           fontFamilyFallback: maybeUnBoxAndBuildArgument<List<String>?, String>(
-              luaCallerArguments[1]['fontFamilyFallback'],
+              luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1]['fontFamilyFallback']
+                  : null,
               parentState: hydroState),
-          fontSize: luaCallerArguments[1]['fontSize']?.toDouble(),
+          fontSize: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['fontSize']
+              : null?.toDouble(),
           fontStyle: maybeUnBoxEnum(
               values: FontStyle.values,
-              boxedEnum: luaCallerArguments[1]['fontStyle']),
+              boxedEnum: luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1]['fontStyle']
+                  : null),
           fontWeight: maybeUnBoxAndBuildArgument<FontWeight?, dynamic>(
-              luaCallerArguments[1]['fontWeight'],
+              luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1]['fontWeight']
+                  : null,
               parentState: hydroState),
-          forceStrutHeight: luaCallerArguments[1]['forceStrutHeight'],
-          height: luaCallerArguments[1]['height']?.toDouble(),
-          leading: luaCallerArguments[1]['leading']?.toDouble())
+          forceStrutHeight: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['forceStrutHeight']
+              : null,
+          height: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['height']
+              : null?.toDouble(),
+          leading: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['leading']
+              : null?.toDouble())
     ];
   });
   registerBoxer<StrutStyle>(boxer: (

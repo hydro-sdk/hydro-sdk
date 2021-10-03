@@ -11,7 +11,7 @@ export interface I_UnmodifiableMapMixin<K, V> extends IMap<K, V> {
     update: (
         key: K,
         update: (value: V) => V,
-        props: { ifAbsent?: () => V | undefined }
+        props?: { ifAbsent?: () => V | undefined }
     ) => V;
     updateAll: (update: (key: K, value: V) => V) => void;
 }

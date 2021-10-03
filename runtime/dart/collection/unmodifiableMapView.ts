@@ -23,7 +23,7 @@ export interface IUnmodifiableMapView<K, V> {
     update: (
         key: K,
         update: (value: V) => V,
-        props: { ifAbsent?: () => V | undefined }
+        props?: { ifAbsent?: () => V | undefined }
     ) => V;
     updateAll: (update: (key: K, value: V) => V) => void;
     containsValue: (value?: Object | undefined) => boolean;
@@ -64,7 +64,7 @@ export class UnmodifiableMapView<K, V>
     private readonly _dart_update: (
         key: K,
         update: (value: V) => V,
-        props: { ifAbsent?: () => V | undefined }
+        props?: { ifAbsent?: () => V | undefined }
     ) => V = undefined as any;
     private readonly _dart_updateAll: (
         update: (key: K, value: V) => V
@@ -113,7 +113,7 @@ export class UnmodifiableMapView<K, V>
     public update(
         key: K,
         update: (value: V) => V,
-        props: { ifAbsent?: () => V | undefined }
+        props?: { ifAbsent?: () => V | undefined }
     ): V {
         return this._dart_update(key, update, props);
     }

@@ -392,7 +392,10 @@ class VMManagedFloat32x4List extends VMManagedBox<Float32x4List> {
       return [
         maybeBoxObject<List<dynamic>>(
             object: vmObject
-                .toList(growable: luaCallerArguments[1]['growable'])
+                .toList(
+                    growable: luaCallerArguments.length >= 2
+                        ? luaCallerArguments[1]['growable']
+                        : null)
                 .map((x) => maybeBoxObject<Float32x4>(
                     object: x, hydroState: hydroState, table: HydroTable()))
                 .toList(),
@@ -453,7 +456,9 @@ class VMManagedFloat32x4List extends VMManagedBox<Float32x4List> {
     table['firstWhere'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       Closure unpackedtest = luaCallerArguments[1];
-      Closure? unpackedorElse = luaCallerArguments[2]['orElse'];
+      Closure? unpackedorElse = luaCallerArguments.length >= 3
+          ? luaCallerArguments[2]['orElse']
+          : null;
       return [
         maybeBoxObject<Float32x4>(
             object: vmObject.firstWhere(
@@ -478,7 +483,9 @@ class VMManagedFloat32x4List extends VMManagedBox<Float32x4List> {
     table['lastWhere'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       Closure unpackedtest = luaCallerArguments[1];
-      Closure? unpackedorElse = luaCallerArguments[2]['orElse'];
+      Closure? unpackedorElse = luaCallerArguments.length >= 3
+          ? luaCallerArguments[2]['orElse']
+          : null;
       return [
         maybeBoxObject<Float32x4>(
             object: vmObject.lastWhere(
@@ -503,7 +510,9 @@ class VMManagedFloat32x4List extends VMManagedBox<Float32x4List> {
     table['singleWhere'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       Closure unpackedtest = luaCallerArguments[1];
-      Closure? unpackedorElse = luaCallerArguments[2]['orElse'];
+      Closure? unpackedorElse = luaCallerArguments.length >= 3
+          ? luaCallerArguments[2]['orElse']
+          : null;
       return [
         maybeBoxObject<Float32x4>(
             object: vmObject.singleWhere(

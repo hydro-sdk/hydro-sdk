@@ -68,7 +68,9 @@ class VMManagedMap extends VMManagedBox<Map<dynamic, dynamic>> {
     });
     table['update'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       Closure unpackedupdate = luaCallerArguments[2];
-      Closure? unpackedifAbsent = luaCallerArguments[3]['ifAbsent'];
+      Closure? unpackedifAbsent = luaCallerArguments.length >= 4
+          ? luaCallerArguments[3]['ifAbsent']
+          : null;
       return [
         vmObject.update(
             luaCallerArguments[1],
@@ -238,8 +240,10 @@ void loadMap({required HydroState hydroState, required HydroTable table}) {
   });
   table['mapFromIterable'] =
       makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-    Closure? unpackedkey = luaCallerArguments[2]['key'];
-    Closure? unpackedvalue = luaCallerArguments[2]['value'];
+    Closure? unpackedkey =
+        luaCallerArguments.length >= 3 ? luaCallerArguments[2]['key'] : null;
+    Closure? unpackedvalue =
+        luaCallerArguments.length >= 3 ? luaCallerArguments[2]['value'] : null;
     return [
       maybeBoxObject<Map>(
           object: Map.fromIterable(

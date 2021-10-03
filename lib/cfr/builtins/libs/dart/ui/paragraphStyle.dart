@@ -103,33 +103,42 @@ void loadParagraphStyle(
       RTManagedParagraphStyle(
           table: luaCallerArguments[0],
           hydroState: hydroState,
-          ellipsis: luaCallerArguments[1]['ellipsis'],
-          fontFamily: luaCallerArguments[1]['fontFamily'],
-          fontSize: luaCallerArguments[1]['fontSize']?.toDouble(),
+          ellipsis: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['ellipsis']
+              : null,
+          fontFamily: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['fontFamily']
+              : null,
+          fontSize: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['fontSize']
+              : null?.toDouble(),
           fontStyle: maybeUnBoxEnum(
               values: FontStyle.values,
-              boxedEnum: luaCallerArguments[1]['fontStyle']),
+              boxedEnum: luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1]['fontStyle']
+                  : null),
           fontWeight: maybeUnBoxAndBuildArgument<FontWeight?, dynamic>(
-              luaCallerArguments[1]['fontWeight'],
+              luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1]['fontWeight']
+                  : null,
               parentState: hydroState),
-          height: luaCallerArguments[1]['height']?.toDouble(),
+          height: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['height']
+              : null?.toDouble(),
           locale: maybeUnBoxAndBuildArgument<Locale?, dynamic>(
-              luaCallerArguments[1]['locale'],
+              luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1]['locale']
+                  : null,
               parentState: hydroState),
-          maxLines: luaCallerArguments[1]['maxLines'],
+          maxLines: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['maxLines']
+              : null,
           strutStyle: maybeUnBoxAndBuildArgument<StrutStyle?, dynamic>(
-              luaCallerArguments[1]['strutStyle'],
+              luaCallerArguments.length >= 2 ? luaCallerArguments[1]['strutStyle'] : null,
               parentState: hydroState),
-          textAlign: maybeUnBoxEnum(
-              values: TextAlign.values,
-              boxedEnum: luaCallerArguments[1]['textAlign']),
-          textDirection: maybeUnBoxEnum(
-              values: TextDirection.values,
-              boxedEnum: luaCallerArguments[1]['textDirection']),
-          textHeightBehavior:
-              maybeUnBoxAndBuildArgument<TextHeightBehavior?, dynamic>(
-                  luaCallerArguments[1]['textHeightBehavior'],
-                  parentState: hydroState))
+          textAlign: maybeUnBoxEnum(values: TextAlign.values, boxedEnum: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['textAlign'] : null),
+          textDirection: maybeUnBoxEnum(values: TextDirection.values, boxedEnum: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['textDirection'] : null),
+          textHeightBehavior: maybeUnBoxAndBuildArgument<TextHeightBehavior?, dynamic>(luaCallerArguments.length >= 2 ? luaCallerArguments[1]['textHeightBehavior'] : null, parentState: hydroState))
     ];
   });
   registerBoxer<ParagraphStyle>(boxer: (

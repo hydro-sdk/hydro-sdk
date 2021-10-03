@@ -122,12 +122,20 @@ class VMManagedPath extends VMManagedBox<Path> {
       vmObject.arcToPoint(
           maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[1],
               parentState: hydroState),
-          clockwise: luaCallerArguments[2]['clockwise'],
-          largeArc: luaCallerArguments[2]['largeArc'],
+          clockwise: luaCallerArguments.length >= 3
+              ? luaCallerArguments[2]['clockwise']
+              : null,
+          largeArc: luaCallerArguments.length >= 3
+              ? luaCallerArguments[2]['largeArc']
+              : null,
           radius: maybeUnBoxAndBuildArgument<Radius, dynamic>(
-              luaCallerArguments[2]['radius'],
+              luaCallerArguments.length >= 3
+                  ? luaCallerArguments[2]['radius']
+                  : null,
               parentState: hydroState),
-          rotation: luaCallerArguments[2]['rotation']?.toDouble());
+          rotation: luaCallerArguments.length >= 3
+              ? luaCallerArguments[2]['rotation']
+              : null?.toDouble());
       return [];
     });
     table['relativeArcToPoint'] =
@@ -135,12 +143,20 @@ class VMManagedPath extends VMManagedBox<Path> {
       vmObject.relativeArcToPoint(
           maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[1],
               parentState: hydroState),
-          clockwise: luaCallerArguments[2]['clockwise'],
-          largeArc: luaCallerArguments[2]['largeArc'],
+          clockwise: luaCallerArguments.length >= 3
+              ? luaCallerArguments[2]['clockwise']
+              : null,
+          largeArc: luaCallerArguments.length >= 3
+              ? luaCallerArguments[2]['largeArc']
+              : null,
           radius: maybeUnBoxAndBuildArgument<Radius, dynamic>(
-              luaCallerArguments[2]['radius'],
+              luaCallerArguments.length >= 3
+                  ? luaCallerArguments[2]['radius']
+                  : null,
               parentState: hydroState),
-          rotation: luaCallerArguments[2]['rotation']?.toDouble());
+          rotation: luaCallerArguments.length >= 3
+              ? luaCallerArguments[2]['rotation']
+              : null?.toDouble());
       return [];
     });
     table['addRect'] =
@@ -189,7 +205,9 @@ class VMManagedPath extends VMManagedBox<Path> {
           maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[2],
               parentState: hydroState),
           matrix4: maybeUnBoxAndBuildArgument<Float64List?, dynamic>(
-              luaCallerArguments[3]['matrix4'],
+              luaCallerArguments.length >= 4
+                  ? luaCallerArguments[3]['matrix4']
+                  : null,
               parentState: hydroState));
       return [];
     });
@@ -201,7 +219,9 @@ class VMManagedPath extends VMManagedBox<Path> {
           maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[2],
               parentState: hydroState),
           matrix4: maybeUnBoxAndBuildArgument<Float64List?, dynamic>(
-              luaCallerArguments[3]['matrix4'],
+              luaCallerArguments.length >= 4
+                  ? luaCallerArguments[3]['matrix4']
+                  : null,
               parentState: hydroState));
       return [];
     });
@@ -257,7 +277,9 @@ class VMManagedPath extends VMManagedBox<Path> {
       return [
         maybeBoxObject<PathMetrics>(
             object: vmObject.computeMetrics(
-                forceClosed: luaCallerArguments[1]['forceClosed']),
+                forceClosed: luaCallerArguments.length >= 2
+                    ? luaCallerArguments[1]['forceClosed']
+                    : null),
             hydroState: hydroState,
             table: HydroTable()),
       ];
@@ -386,12 +408,20 @@ class RTManagedPath extends Path implements Box<Path> {
       super.arcToPoint(
           maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[1],
               parentState: hydroState),
-          clockwise: luaCallerArguments[2]['clockwise'],
-          largeArc: luaCallerArguments[2]['largeArc'],
+          clockwise: luaCallerArguments.length >= 3
+              ? luaCallerArguments[2]['clockwise']
+              : null,
+          largeArc: luaCallerArguments.length >= 3
+              ? luaCallerArguments[2]['largeArc']
+              : null,
           radius: maybeUnBoxAndBuildArgument<Radius, dynamic>(
-              luaCallerArguments[2]['radius'],
+              luaCallerArguments.length >= 3
+                  ? luaCallerArguments[2]['radius']
+                  : null,
               parentState: hydroState),
-          rotation: luaCallerArguments[2]['rotation']?.toDouble());
+          rotation: luaCallerArguments.length >= 3
+              ? luaCallerArguments[2]['rotation']
+              : null?.toDouble());
       return [];
     });
     table['_dart_relativeArcToPoint'] =
@@ -399,12 +429,20 @@ class RTManagedPath extends Path implements Box<Path> {
       super.relativeArcToPoint(
           maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[1],
               parentState: hydroState),
-          clockwise: luaCallerArguments[2]['clockwise'],
-          largeArc: luaCallerArguments[2]['largeArc'],
+          clockwise: luaCallerArguments.length >= 3
+              ? luaCallerArguments[2]['clockwise']
+              : null,
+          largeArc: luaCallerArguments.length >= 3
+              ? luaCallerArguments[2]['largeArc']
+              : null,
           radius: maybeUnBoxAndBuildArgument<Radius, dynamic>(
-              luaCallerArguments[2]['radius'],
+              luaCallerArguments.length >= 3
+                  ? luaCallerArguments[2]['radius']
+                  : null,
               parentState: hydroState),
-          rotation: luaCallerArguments[2]['rotation']?.toDouble());
+          rotation: luaCallerArguments.length >= 3
+              ? luaCallerArguments[2]['rotation']
+              : null?.toDouble());
       return [];
     });
     table['_dart_addRect'] =
@@ -454,7 +492,9 @@ class RTManagedPath extends Path implements Box<Path> {
           maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[2],
               parentState: hydroState),
           matrix4: maybeUnBoxAndBuildArgument<Float64List?, dynamic>(
-              luaCallerArguments[3]['matrix4'],
+              luaCallerArguments.length >= 4
+                  ? luaCallerArguments[3]['matrix4']
+                  : null,
               parentState: hydroState));
       return [];
     });
@@ -466,7 +506,9 @@ class RTManagedPath extends Path implements Box<Path> {
           maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[2],
               parentState: hydroState),
           matrix4: maybeUnBoxAndBuildArgument<Float64List?, dynamic>(
-              luaCallerArguments[3]['matrix4'],
+              luaCallerArguments.length >= 4
+                  ? luaCallerArguments[3]['matrix4']
+                  : null,
               parentState: hydroState));
       return [];
     });
@@ -525,7 +567,9 @@ class RTManagedPath extends Path implements Box<Path> {
       return [
         maybeBoxObject<PathMetrics>(
             object: super.computeMetrics(
-                forceClosed: luaCallerArguments[1]['forceClosed']),
+                forceClosed: luaCallerArguments.length >= 2
+                    ? luaCallerArguments[1]['forceClosed']
+                    : null),
             hydroState: hydroState,
             table: HydroTable())
       ];

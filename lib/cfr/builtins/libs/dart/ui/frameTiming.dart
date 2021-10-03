@@ -76,11 +76,21 @@ void loadFrameTiming(
     return [
       maybeBoxObject<FrameTiming>(
           object: FrameTiming(
-              buildFinish: luaCallerArguments[1]['buildFinish'],
-              buildStart: luaCallerArguments[1]['buildStart'],
-              rasterFinish: luaCallerArguments[1]['rasterFinish'],
-              rasterStart: luaCallerArguments[1]['rasterStart'],
-              vsyncStart: luaCallerArguments[1]['vsyncStart']),
+              buildFinish: luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1]['buildFinish']
+                  : null,
+              buildStart: luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1]['buildStart']
+                  : null,
+              rasterFinish: luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1]['rasterFinish']
+                  : null,
+              rasterStart: luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1]['rasterStart']
+                  : null,
+              vsyncStart: luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1]['vsyncStart']
+                  : null),
           hydroState: hydroState,
           table: luaCallerArguments[0])
     ];

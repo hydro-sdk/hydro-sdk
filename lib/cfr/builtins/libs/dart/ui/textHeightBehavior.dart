@@ -102,10 +102,12 @@ void loadTextHeightBehavior(
       RTManagedTextHeightBehavior(
           table: luaCallerArguments[0],
           hydroState: hydroState,
-          applyHeightToFirstAscent: luaCallerArguments[1]
-              ['applyHeightToFirstAscent'],
-          applyHeightToLastDescent: luaCallerArguments[1]
-              ['applyHeightToLastDescent'])
+          applyHeightToFirstAscent: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['applyHeightToFirstAscent']
+              : null,
+          applyHeightToLastDescent: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['applyHeightToLastDescent']
+              : null)
     ];
   });
   table['textHeightBehaviorFromEncoded'] =

@@ -54,7 +54,9 @@ void loadPointerDataPacket(
           table: luaCallerArguments[0],
           hydroState: hydroState,
           data: maybeUnBoxAndBuildArgument<List<PointerData>, PointerData>(
-              luaCallerArguments[1]['data'],
+              luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1]['data']
+                  : null,
               parentState: hydroState))
     ];
   });

@@ -114,15 +114,33 @@ void loadLineMetrics(
       RTManagedLineMetrics(
           table: luaCallerArguments[0],
           hydroState: hydroState,
-          ascent: luaCallerArguments[1]['ascent']?.toDouble(),
-          baseline: luaCallerArguments[1]['baseline']?.toDouble(),
-          descent: luaCallerArguments[1]['descent']?.toDouble(),
-          hardBreak: luaCallerArguments[1]['hardBreak'],
-          height: luaCallerArguments[1]['height']?.toDouble(),
-          left: luaCallerArguments[1]['left']?.toDouble(),
-          lineNumber: luaCallerArguments[1]['lineNumber'],
-          unscaledAscent: luaCallerArguments[1]['unscaledAscent']?.toDouble(),
-          width: luaCallerArguments[1]['width']?.toDouble())
+          ascent: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['ascent']
+              : null?.toDouble(),
+          baseline: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['baseline']
+              : null?.toDouble(),
+          descent: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['descent']
+              : null?.toDouble(),
+          hardBreak: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['hardBreak']
+              : null,
+          height: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['height']
+              : null?.toDouble(),
+          left: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['left']
+              : null?.toDouble(),
+          lineNumber: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['lineNumber']
+              : null,
+          unscaledAscent: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['unscaledAscent']
+              : null?.toDouble(),
+          width: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['width']
+              : null?.toDouble())
     ];
   });
   registerBoxer<LineMetrics>(boxer: (

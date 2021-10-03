@@ -40,8 +40,12 @@ class VMManagedImageDescriptor extends VMManagedBox<ImageDescriptor> {
       return [
         maybeBoxObject<Future>(
             object: vmObject.instantiateCodec(
-                targetHeight: luaCallerArguments[1]['targetHeight'],
-                targetWidth: luaCallerArguments[1]['targetWidth']),
+                targetHeight: luaCallerArguments.length >= 2
+                    ? luaCallerArguments[1]['targetHeight']
+                    : null,
+                targetWidth: luaCallerArguments.length >= 2
+                    ? luaCallerArguments[1]['targetWidth']
+                    : null),
             hydroState: hydroState,
             table: HydroTable()),
       ];
@@ -65,12 +69,20 @@ void loadImageDescriptor(
               maybeUnBoxAndBuildArgument<ImmutableBuffer, dynamic>(
                   luaCallerArguments[1],
                   parentState: hydroState),
-              rowBytes: luaCallerArguments[2]['rowBytes'],
-              height: luaCallerArguments[2]['height'],
+              rowBytes: luaCallerArguments.length >= 3
+                  ? luaCallerArguments[2]['rowBytes']
+                  : null,
+              height: luaCallerArguments.length >= 3
+                  ? luaCallerArguments[2]['height']
+                  : null,
               pixelFormat: maybeUnBoxEnum(
                   values: PixelFormat.values,
-                  boxedEnum: luaCallerArguments[2]['pixelFormat']),
-              width: luaCallerArguments[2]['width']),
+                  boxedEnum: luaCallerArguments.length >= 3
+                      ? luaCallerArguments[2]['pixelFormat']
+                      : null),
+              width: luaCallerArguments.length >= 3
+                  ? luaCallerArguments[2]['width']
+                  : null),
           hydroState: hydroState,
           table: HydroTable()),
     ];

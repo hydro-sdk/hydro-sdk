@@ -232,7 +232,12 @@ class TransformFunctionTypeToTs
     }
 
     if (swidFunctionType.namedParameterTypes.isNotEmpty) {
-      res += " props : { ";
+      if (swidFunctionType.namedParameterTypes.entries.every(
+          (x) => x.value.nullabilitySuffix == SwidNullabilitySuffix.question)) {
+        res += " props? : { ";
+      } else {
+        res += " props : { ";
+      }
 
       swidFunctionType.namedParameterTypes.entries.forEach((x) {
         res += [
