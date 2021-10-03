@@ -1,3 +1,3 @@
-const validAnnotationArguments =[
+const validAnnotationArguments = [
   "referenceCollection",
 ];
