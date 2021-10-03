@@ -81,7 +81,7 @@ class "dart:core"::List {
       expectation: const SwidiClassValidationState.valid(),
     );
 
-      validatorTestHarness(
+    validatorTestHarness(
       input: """
 class "dart:async"::AsyncError {
   "dart:core"::class::StackTrace stackTrace() -> {
