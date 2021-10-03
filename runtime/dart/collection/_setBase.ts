@@ -47,15 +47,15 @@ export interface I_SetBase<E> {
     skipWhile: (test: (value: E) => boolean) => IIterable<E>;
     firstWhere: (
         test: (value: E) => boolean,
-        props: { orElse?: () => E | undefined }
+        props?: { orElse?: () => E | undefined }
     ) => E;
     lastWhere: (
         test: (value: E) => boolean,
-        props: { orElse?: () => E | undefined }
+        props?: { orElse?: () => E | undefined }
     ) => E;
     singleWhere: (
         test: (value: E) => boolean,
-        props: { orElse?: () => E | undefined }
+        props?: { orElse?: () => E | undefined }
     ) => E;
     elementAt: (index: number) => E;
     getIterator: () => IIterator<E>;
@@ -144,15 +144,15 @@ export class _SetBase<E> implements ISetMixin<E>, ISet<E> {
     ) => IIterable<E> = undefined as any;
     private readonly _dart_firstWhere: (
         test: (value: E) => boolean,
-        props: { orElse?: () => E | undefined }
+        props?: { orElse?: () => E | undefined }
     ) => E = undefined as any;
     private readonly _dart_lastWhere: (
         test: (value: E) => boolean,
-        props: { orElse?: () => E | undefined }
+        props?: { orElse?: () => E | undefined }
     ) => E = undefined as any;
     private readonly _dart_singleWhere: (
         test: (value: E) => boolean,
-        props: { orElse?: () => E | undefined }
+        props?: { orElse?: () => E | undefined }
     ) => E = undefined as any;
     private readonly _dart_elementAt: (index: number) => E = undefined as any;
     private readonly _dart_getIterator: () => IIterator<E> = undefined as any;
@@ -270,19 +270,19 @@ export class _SetBase<E> implements ISetMixin<E>, ISet<E> {
     }
     public firstWhere(
         test: (value: E) => boolean,
-        props: { orElse?: () => E | undefined }
+        props?: { orElse?: () => E | undefined }
     ): E {
         return this._dart_firstWhere(test, props);
     }
     public lastWhere(
         test: (value: E) => boolean,
-        props: { orElse?: () => E | undefined }
+        props?: { orElse?: () => E | undefined }
     ): E {
         return this._dart_lastWhere(test, props);
     }
     public singleWhere(
         test: (value: E) => boolean,
-        props: { orElse?: () => E | undefined }
+        props?: { orElse?: () => E | undefined }
     ): E {
         return this._dart_singleWhere(test, props);
     }

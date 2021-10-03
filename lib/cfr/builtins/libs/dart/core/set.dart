@@ -269,8 +269,10 @@ class VMManagedSet extends VMManagedBox<Set<dynamic>> {
     table['toList'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<List<dynamic>>(
-            object:
-                vmObject.toList(growable: luaCallerArguments[1]['growable']),
+            object: vmObject.toList(
+                growable: luaCallerArguments.length >= 2
+                    ? luaCallerArguments[1]['growable']
+                    : null),
             hydroState: hydroState,
             table: HydroTable()),
       ];
@@ -320,7 +322,9 @@ class VMManagedSet extends VMManagedBox<Set<dynamic>> {
     table['firstWhere'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       Closure unpackedtest = luaCallerArguments[1];
-      Closure? unpackedorElse = luaCallerArguments[2]['orElse'];
+      Closure? unpackedorElse = luaCallerArguments.length >= 3
+          ? luaCallerArguments[2]['orElse']
+          : null;
       return [
         vmObject.firstWhere(
             (element) => unpackedtest.dispatch(
@@ -340,7 +344,9 @@ class VMManagedSet extends VMManagedBox<Set<dynamic>> {
     table['lastWhere'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       Closure unpackedtest = luaCallerArguments[1];
-      Closure? unpackedorElse = luaCallerArguments[2]['orElse'];
+      Closure? unpackedorElse = luaCallerArguments.length >= 3
+          ? luaCallerArguments[2]['orElse']
+          : null;
       return [
         vmObject.lastWhere(
             (element) => unpackedtest.dispatch(
@@ -360,7 +366,9 @@ class VMManagedSet extends VMManagedBox<Set<dynamic>> {
     table['singleWhere'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       Closure unpackedtest = luaCallerArguments[1];
-      Closure? unpackedorElse = luaCallerArguments[2]['orElse'];
+      Closure? unpackedorElse = luaCallerArguments.length >= 3
+          ? luaCallerArguments[2]['orElse']
+          : null;
       return [
         vmObject.singleWhere(
             (element) => unpackedtest.dispatch(
@@ -483,7 +491,8 @@ void loadSet({required HydroState hydroState, required HydroTable table}) {
   });
   table['setCastFrom'] =
       makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-    Closure? unpackednewSet = luaCallerArguments[2]['newSet'];
+    Closure? unpackednewSet =
+        luaCallerArguments.length >= 3 ? luaCallerArguments[2]['newSet'] : null;
     return [
       maybeBoxObject<Set>(
           object: Set.castFrom(

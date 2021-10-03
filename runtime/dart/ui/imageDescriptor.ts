@@ -23,7 +23,7 @@ export interface IImageDescriptor {
     getHeight: () => number;
     getBytesPerPixel: () => number;
     dispose: () => void;
-    instantiateCodec: (props: {
+    instantiateCodec: (props?: {
         targetHeight?: number | undefined;
         targetWidth?: number | undefined;
     }) => IFuture<ICodec>;
@@ -47,7 +47,7 @@ export class ImageDescriptor {
     private readonly _dart_getHeight: () => number = undefined as any;
     private readonly _dart_getBytesPerPixel: () => number = undefined as any;
     private readonly _dart_dispose: () => void = undefined as any;
-    private readonly _dart_instantiateCodec: (props: {
+    private readonly _dart_instantiateCodec: (props?: {
         targetHeight?: number | undefined;
         targetWidth?: number | undefined;
     }) => IFuture<ICodec> = undefined as any;
@@ -63,7 +63,7 @@ export class ImageDescriptor {
     public dispose(): void {
         return this._dart_dispose();
     }
-    public instantiateCodec(props: {
+    public instantiateCodec(props?: {
         targetHeight?: number | undefined;
         targetWidth?: number | undefined;
     }): IFuture<ICodec> {

@@ -6,7 +6,7 @@ declare const dart: {
         strutStyle: (
             this: void,
             strutStyle: IStrutStyle,
-            props: {
+            props?: {
                 fontFamily?: string | undefined;
                 fontFamilyFallback?: IList<string> | undefined;
                 fontSize?: number | undefined;
@@ -23,7 +23,7 @@ export interface IStrutStyle {
     getHashCode: () => number;
 }
 export class StrutStyle {
-    public constructor(props: {
+    public constructor(props?: {
         fontFamily?: string | undefined;
         fontFamilyFallback?: IList<string> | undefined;
         fontSize?: number | undefined;

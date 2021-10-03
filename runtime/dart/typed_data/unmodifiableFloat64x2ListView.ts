@@ -99,15 +99,15 @@ export interface IUnmodifiableFloat64x2ListView {
     skipWhile: (test: (value: IFloat64x2) => boolean) => IIterable<IFloat64x2>;
     firstWhere: (
         test: (element: IFloat64x2) => boolean,
-        props: { orElse?: () => IFloat64x2 | undefined }
+        props?: { orElse?: () => IFloat64x2 | undefined }
     ) => IFloat64x2;
     lastWhere: (
         test: (element: IFloat64x2) => boolean,
-        props: { orElse?: () => IFloat64x2 | undefined }
+        props?: { orElse?: () => IFloat64x2 | undefined }
     ) => IFloat64x2;
     singleWhere: (
         test: (element: IFloat64x2) => boolean,
-        props: { orElse?: () => IFloat64x2 | undefined }
+        props?: { orElse?: () => IFloat64x2 | undefined }
     ) => IFloat64x2;
     elementAt: (index: number) => IFloat64x2;
     toString: () => string;
@@ -309,15 +309,15 @@ export class UnmodifiableFloat64x2ListView
     ) => IIterable<IFloat64x2> = undefined as any;
     private readonly _dart_firstWhere: (
         test: (element: IFloat64x2) => boolean,
-        props: { orElse?: () => IFloat64x2 | undefined }
+        props?: { orElse?: () => IFloat64x2 | undefined }
     ) => IFloat64x2 = undefined as any;
     private readonly _dart_lastWhere: (
         test: (element: IFloat64x2) => boolean,
-        props: { orElse?: () => IFloat64x2 | undefined }
+        props?: { orElse?: () => IFloat64x2 | undefined }
     ) => IFloat64x2 = undefined as any;
     private readonly _dart_singleWhere: (
         test: (element: IFloat64x2) => boolean,
-        props: { orElse?: () => IFloat64x2 | undefined }
+        props?: { orElse?: () => IFloat64x2 | undefined }
     ) => IFloat64x2 = undefined as any;
     private readonly _dart_elementAt: (index: number) => IFloat64x2 =
         undefined as any;
@@ -517,19 +517,19 @@ export class UnmodifiableFloat64x2ListView
     }
     public firstWhere(
         test: (element: IFloat64x2) => boolean,
-        props: { orElse?: () => IFloat64x2 | undefined }
+        props?: { orElse?: () => IFloat64x2 | undefined }
     ): IFloat64x2 {
         return this._dart_firstWhere(test, props);
     }
     public lastWhere(
         test: (element: IFloat64x2) => boolean,
-        props: { orElse?: () => IFloat64x2 | undefined }
+        props?: { orElse?: () => IFloat64x2 | undefined }
     ): IFloat64x2 {
         return this._dart_lastWhere(test, props);
     }
     public singleWhere(
         test: (element: IFloat64x2) => boolean,
-        props: { orElse?: () => IFloat64x2 | undefined }
+        props?: { orElse?: () => IFloat64x2 | undefined }
     ): IFloat64x2 {
         return this._dart_singleWhere(test, props);
     }

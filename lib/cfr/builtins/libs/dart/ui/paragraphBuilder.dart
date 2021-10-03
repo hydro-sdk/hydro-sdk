@@ -52,9 +52,15 @@ class VMManagedParagraphBuilder extends VMManagedBox<ParagraphBuilder> {
               boxedEnum: luaCallerArguments[3]),
           baseline: maybeUnBoxEnum(
               values: TextBaseline.values,
-              boxedEnum: luaCallerArguments[4]['baseline']),
-          baselineOffset: luaCallerArguments[4]['baselineOffset']?.toDouble(),
-          scale: luaCallerArguments[4]['scale']?.toDouble());
+              boxedEnum: luaCallerArguments.length >= 5
+                  ? luaCallerArguments[4]['baseline']
+                  : null),
+          baselineOffset: luaCallerArguments.length >= 5
+              ? luaCallerArguments[4]['baselineOffset']
+              : null?.toDouble(),
+          scale: luaCallerArguments.length >= 5
+              ? luaCallerArguments[4]['scale']
+              : null?.toDouble());
       return [];
     });
     table['build'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -120,9 +126,15 @@ class RTManagedParagraphBuilder extends ParagraphBuilder
               boxedEnum: luaCallerArguments[3]),
           baseline: maybeUnBoxEnum(
               values: TextBaseline.values,
-              boxedEnum: luaCallerArguments[4]['baseline']),
-          baselineOffset: luaCallerArguments[4]['baselineOffset']?.toDouble(),
-          scale: luaCallerArguments[4]['scale']?.toDouble());
+              boxedEnum: luaCallerArguments.length >= 5
+                  ? luaCallerArguments[4]['baseline']
+                  : null),
+          baselineOffset: luaCallerArguments.length >= 5
+              ? luaCallerArguments[4]['baselineOffset']
+              : null?.toDouble(),
+          scale: luaCallerArguments.length >= 5
+              ? luaCallerArguments[4]['scale']
+              : null?.toDouble());
       return [];
     });
     table['_dart_build'] =

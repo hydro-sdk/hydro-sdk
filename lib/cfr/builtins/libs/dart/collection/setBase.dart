@@ -164,8 +164,10 @@ class VMManagedSetBase extends VMManagedBox<SetBase<dynamic>> {
     table['toList'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<List<dynamic>>(
-            object:
-                vmObject.toList(growable: luaCallerArguments[1]['growable']),
+            object: vmObject.toList(
+                growable: luaCallerArguments.length >= 2
+                    ? luaCallerArguments[1]['growable']
+                    : null),
             hydroState: hydroState,
             table: HydroTable()),
       ];
@@ -312,7 +314,9 @@ class VMManagedSetBase extends VMManagedBox<SetBase<dynamic>> {
     table['firstWhere'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       Closure unpackedtest = luaCallerArguments[1];
-      Closure? unpackedorElse = luaCallerArguments[2]['orElse'];
+      Closure? unpackedorElse = luaCallerArguments.length >= 3
+          ? luaCallerArguments[2]['orElse']
+          : null;
       return [
         vmObject.firstWhere(
             (value) => unpackedtest.dispatch(
@@ -332,7 +336,9 @@ class VMManagedSetBase extends VMManagedBox<SetBase<dynamic>> {
     table['lastWhere'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       Closure unpackedtest = luaCallerArguments[1];
-      Closure? unpackedorElse = luaCallerArguments[2]['orElse'];
+      Closure? unpackedorElse = luaCallerArguments.length >= 3
+          ? luaCallerArguments[2]['orElse']
+          : null;
       return [
         vmObject.lastWhere(
             (value) => unpackedtest.dispatch(
@@ -352,7 +358,9 @@ class VMManagedSetBase extends VMManagedBox<SetBase<dynamic>> {
     table['singleWhere'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       Closure unpackedtest = luaCallerArguments[1];
-      Closure? unpackedorElse = luaCallerArguments[2]['orElse'];
+      Closure? unpackedorElse = luaCallerArguments.length >= 3
+          ? luaCallerArguments[2]['orElse']
+          : null;
       return [
         vmObject.singleWhere(
             (value) => unpackedtest.dispatch(

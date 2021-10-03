@@ -270,8 +270,10 @@ class VMManagedHashSet extends VMManagedBox<HashSet<dynamic>> {
     table['toList'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<List<dynamic>>(
-            object:
-                vmObject.toList(growable: luaCallerArguments[1]['growable']),
+            object: vmObject.toList(
+                growable: luaCallerArguments.length >= 2
+                    ? luaCallerArguments[1]['growable']
+                    : null),
             hydroState: hydroState,
             table: HydroTable()),
       ];
@@ -321,7 +323,9 @@ class VMManagedHashSet extends VMManagedBox<HashSet<dynamic>> {
     table['firstWhere'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       Closure unpackedtest = luaCallerArguments[1];
-      Closure? unpackedorElse = luaCallerArguments[2]['orElse'];
+      Closure? unpackedorElse = luaCallerArguments.length >= 3
+          ? luaCallerArguments[2]['orElse']
+          : null;
       return [
         vmObject.firstWhere(
             (element) => unpackedtest.dispatch(
@@ -341,7 +345,9 @@ class VMManagedHashSet extends VMManagedBox<HashSet<dynamic>> {
     table['lastWhere'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       Closure unpackedtest = luaCallerArguments[1];
-      Closure? unpackedorElse = luaCallerArguments[2]['orElse'];
+      Closure? unpackedorElse = luaCallerArguments.length >= 3
+          ? luaCallerArguments[2]['orElse']
+          : null;
       return [
         vmObject.lastWhere(
             (element) => unpackedtest.dispatch(
@@ -361,7 +367,9 @@ class VMManagedHashSet extends VMManagedBox<HashSet<dynamic>> {
     table['singleWhere'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       Closure unpackedtest = luaCallerArguments[1];
-      Closure? unpackedorElse = luaCallerArguments[2]['orElse'];
+      Closure? unpackedorElse = luaCallerArguments.length >= 3
+          ? luaCallerArguments[2]['orElse']
+          : null;
       return [
         vmObject.singleWhere(
             (element) => unpackedtest.dispatch(
@@ -437,9 +445,14 @@ class VMManagedHashSet extends VMManagedBox<HashSet<dynamic>> {
 
 void loadHashSet({required HydroState hydroState, required HydroTable table}) {
   table['hashSet'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-    Closure? unpackedequals = luaCallerArguments[1]['equals'];
-    Closure? unpackedhashCode = luaCallerArguments[1]['hashCode'];
-    Closure? unpackedisValidKey = luaCallerArguments[1]['isValidKey'];
+    Closure? unpackedequals =
+        luaCallerArguments.length >= 2 ? luaCallerArguments[1]['equals'] : null;
+    Closure? unpackedhashCode = luaCallerArguments.length >= 2
+        ? luaCallerArguments[1]['hashCode']
+        : null;
+    Closure? unpackedisValidKey = luaCallerArguments.length >= 2
+        ? luaCallerArguments[1]['isValidKey']
+        : null;
     return [
       maybeBoxObject<HashSet>(
           object: HashSet(

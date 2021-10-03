@@ -1,9 +1,10 @@
 import 'package:code_builder/code_builder.dart'
-    show DartEmitter, refer, literalString, literalNum;
+    show DartEmitter, refer, literalString, literalNum, Expression;
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:tuple/tuple.dart';
 
+import 'package:hydro_sdk/swid/backend/dart/util/guardedLuaCallerNamedArgumentsIndex.dart';
 import 'package:hydro_sdk/swid/backend/dart/util/luaCallerArgumentsParameterName.dart';
 import 'package:hydro_sdk/swid/backend/dart/util/unpackedClosureName.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
@@ -143,15 +144,28 @@ class DartUnpackClosures
                           str: parameterName,
                         ),
                         "=",
-                        refer("$luaCallerArgumentsParameterName")
-                            .index(literalNum(
-                                swidFunctionType.normalParameterNames.length +
-                                    1))
-                            .index(literalString(parameterName))
+                        guardedLuaCallerNamedArgumentsIndex(
+                          leadingIndex:
+                              swidFunctionType.normalParameterNames.length + 1,
+                          nonNullIndexBuilder: ({
+                            required final Expression expression,
+                          }) =>
+                              expression
+                                  .index(literalString(parameterName))
+                                  .code
+                                  .accept(
+                                    DartEmitter(
+                                      useNullSafetySyntax: true,
+                                    ),
+                                  )
+                                  .toString(),
+                        )
                             .statement
-                            .accept(DartEmitter(
-                              useNullSafetySyntax: true,
-                            ))
+                            .accept(
+                              DartEmitter(
+                                useNullSafetySyntax: true,
+                              ),
+                            )
                             .toString(),
                       ]).join(""),
                     ))(

@@ -70,7 +70,9 @@ class VMManagedMapBase extends VMManagedBox<MapBase<dynamic, dynamic>> {
     });
     table['update'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       Closure unpackedupdate = luaCallerArguments[2];
-      Closure? unpackedifAbsent = luaCallerArguments[3]['ifAbsent'];
+      Closure? unpackedifAbsent = luaCallerArguments.length >= 4
+          ? luaCallerArguments[3]['ifAbsent']
+          : null;
       return [
         vmObject.update(
             luaCallerArguments[1],

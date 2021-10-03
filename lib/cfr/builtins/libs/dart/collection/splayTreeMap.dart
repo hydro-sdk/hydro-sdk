@@ -137,7 +137,9 @@ class VMManagedSplayTreeMap
     });
     table['update'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       Closure unpackedupdate = luaCallerArguments[2];
-      Closure? unpackedifAbsent = luaCallerArguments[3]['ifAbsent'];
+      Closure? unpackedifAbsent = luaCallerArguments.length >= 4
+          ? luaCallerArguments[3]['ifAbsent']
+          : null;
       return [
         vmObject.update(
             luaCallerArguments[1],
@@ -342,7 +344,9 @@ class RTManagedSplayTreeMap extends SplayTreeMap implements Box<SplayTreeMap> {
     table['_dart_update'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       Closure unpackedupdate = luaCallerArguments[2];
-      Closure? unpackedifAbsent = luaCallerArguments[3]['ifAbsent'];
+      Closure? unpackedifAbsent = luaCallerArguments.length >= 4
+          ? luaCallerArguments[3]['ifAbsent']
+          : null;
       return [
         super.update(
             luaCallerArguments[1],
@@ -662,10 +666,16 @@ void loadSplayTreeMap(
   });
   table['splayTreeMapFromIterable'] =
       makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-    Closure? unpackedcompare = luaCallerArguments[2]['compare'];
-    Closure? unpackedisValidKey = luaCallerArguments[2]['isValidKey'];
-    Closure? unpackedkey = luaCallerArguments[2]['key'];
-    Closure? unpackedvalue = luaCallerArguments[2]['value'];
+    Closure? unpackedcompare = luaCallerArguments.length >= 3
+        ? luaCallerArguments[2]['compare']
+        : null;
+    Closure? unpackedisValidKey = luaCallerArguments.length >= 3
+        ? luaCallerArguments[2]['isValidKey']
+        : null;
+    Closure? unpackedkey =
+        luaCallerArguments.length >= 3 ? luaCallerArguments[2]['key'] : null;
+    Closure? unpackedvalue =
+        luaCallerArguments.length >= 3 ? luaCallerArguments[2]['value'] : null;
     return [
       maybeBoxObject<SplayTreeMap>(
           object: SplayTreeMap.fromIterable(

@@ -6,7 +6,7 @@ declare const dart: {
         linkedHashMap: <K, V>(
             this: void,
             linkedHashMap: ILinkedHashMap<K, V>,
-            props: {
+            props?: {
                 equals?: (__: K) => boolean | undefined;
                 hashCode?: (__: K) => number | undefined;
                 isValidKey?: (__: any) => boolean | undefined;
@@ -19,7 +19,7 @@ declare const dart: {
         linkedHashMapOf: <K, V>(other: IMap<K, V>) => ILinkedHashMap<K, V>;
         linkedHashMapFromIterable: <K, V>(
             iterable: IIterable<any>,
-            props: {
+            props?: {
                 key?: (element: any) => K | undefined;
                 value?: (element: any) => V | undefined;
             }
@@ -44,7 +44,7 @@ export interface ILinkedHashMap<K, V> {
     update: (
         key: K,
         update: (value: V) => V,
-        props: { ifAbsent?: () => V | undefined }
+        props?: { ifAbsent?: () => V | undefined }
     ) => V;
     updateAll: (update: (key: K, value: V) => V) => void;
     removeWhere: (test: (key: K, value: V) => boolean) => void;
@@ -63,7 +63,7 @@ export interface ILinkedHashMap<K, V> {
     getHashCode: () => number;
 }
 export class LinkedHashMap<K, V> implements IMap<K, V> {
-    public constructor(props: {
+    public constructor(props?: {
         equals?: (__: K) => boolean | undefined;
         hashCode?: (__: K) => number | undefined;
         isValidKey?: (__: any) => boolean | undefined;
@@ -81,7 +81,7 @@ export class LinkedHashMap<K, V> implements IMap<K, V> {
     }
     public static fromIterable<K, V>(
         iterable: IIterable<any>,
-        props: {
+        props?: {
             key?: (element: any) => K | undefined;
             value?: (element: any) => V | undefined;
         }
@@ -114,7 +114,7 @@ export class LinkedHashMap<K, V> implements IMap<K, V> {
     private readonly _dart_update: (
         key: K,
         update: (value: V) => V,
-        props: { ifAbsent?: () => V | undefined }
+        props?: { ifAbsent?: () => V | undefined }
     ) => V = undefined as any;
     private readonly _dart_updateAll: (
         update: (key: K, value: V) => V
@@ -161,7 +161,7 @@ export class LinkedHashMap<K, V> implements IMap<K, V> {
     public update(
         key: K,
         update: (value: V) => V,
-        props: { ifAbsent?: () => V | undefined }
+        props?: { ifAbsent?: () => V | undefined }
     ): V {
         return this._dart_update(key, update, props);
     }

@@ -71,7 +71,9 @@ class VMManagedUnmodifiableMapView
     });
     table['update'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       Closure unpackedupdate = luaCallerArguments[2];
-      Closure? unpackedifAbsent = luaCallerArguments[3]['ifAbsent'];
+      Closure? unpackedifAbsent = luaCallerArguments.length >= 4
+          ? luaCallerArguments[3]['ifAbsent']
+          : null;
       return [
         vmObject.update(
             luaCallerArguments[1],
@@ -274,7 +276,9 @@ class RTManagedUnmodifiableMapView extends UnmodifiableMapView
     table['_dart_update'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       Closure unpackedupdate = luaCallerArguments[2];
-      Closure? unpackedifAbsent = luaCallerArguments[3]['ifAbsent'];
+      Closure? unpackedifAbsent = luaCallerArguments.length >= 4
+          ? luaCallerArguments[3]['ifAbsent']
+          : null;
       return [
         super.update(
             luaCallerArguments[1],

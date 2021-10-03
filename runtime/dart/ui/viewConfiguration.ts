@@ -28,7 +28,7 @@ export interface IViewConfiguration {
     viewPadding: IWindowPadding;
     systemGestureInsets: IWindowPadding;
     padding: IWindowPadding;
-    copyWith: (props: {
+    copyWith: (props?: {
         devicePixelRatio?: number | undefined;
         geometry?: IRect | undefined;
         padding?: IWindowPadding | undefined;
@@ -64,7 +64,7 @@ export class ViewConfiguration {
             ...props,
         });
     }
-    private readonly _dart_copyWith: (props: {
+    private readonly _dart_copyWith: (props?: {
         devicePixelRatio?: number | undefined;
         geometry?: IRect | undefined;
         padding?: IWindowPadding | undefined;
@@ -75,7 +75,7 @@ export class ViewConfiguration {
         window?: IFlutterView | undefined;
     }) => IViewConfiguration = undefined as any;
     private readonly _dart_toString: () => string = undefined as any;
-    public copyWith(props: {
+    public copyWith(props?: {
         devicePixelRatio?: number | undefined;
         geometry?: IRect | undefined;
         padding?: IWindowPadding | undefined;

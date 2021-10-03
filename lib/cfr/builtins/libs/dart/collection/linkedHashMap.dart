@@ -61,7 +61,9 @@ class VMManagedLinkedHashMap
     });
     table['update'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       Closure unpackedupdate = luaCallerArguments[2];
-      Closure? unpackedifAbsent = luaCallerArguments[3]['ifAbsent'];
+      Closure? unpackedifAbsent = luaCallerArguments.length >= 4
+          ? luaCallerArguments[3]['ifAbsent']
+          : null;
       return [
         vmObject.update(
             luaCallerArguments[1],
@@ -206,9 +208,14 @@ void loadLinkedHashMap(
     {required HydroState hydroState, required HydroTable table}) {
   table['linkedHashMap'] =
       makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-    Closure? unpackedequals = luaCallerArguments[1]['equals'];
-    Closure? unpackedhashCode = luaCallerArguments[1]['hashCode'];
-    Closure? unpackedisValidKey = luaCallerArguments[1]['isValidKey'];
+    Closure? unpackedequals =
+        luaCallerArguments.length >= 2 ? luaCallerArguments[1]['equals'] : null;
+    Closure? unpackedhashCode = luaCallerArguments.length >= 2
+        ? luaCallerArguments[1]['hashCode']
+        : null;
+    Closure? unpackedisValidKey = luaCallerArguments.length >= 2
+        ? luaCallerArguments[1]['isValidKey']
+        : null;
     return [
       maybeBoxObject<LinkedHashMap>(
           object: LinkedHashMap(
@@ -269,8 +276,10 @@ void loadLinkedHashMap(
   });
   table['linkedHashMapFromIterable'] =
       makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-    Closure? unpackedkey = luaCallerArguments[2]['key'];
-    Closure? unpackedvalue = luaCallerArguments[2]['value'];
+    Closure? unpackedkey =
+        luaCallerArguments.length >= 3 ? luaCallerArguments[2]['key'] : null;
+    Closure? unpackedvalue =
+        luaCallerArguments.length >= 3 ? luaCallerArguments[2]['value'] : null;
     return [
       maybeBoxObject<LinkedHashMap>(
           object: LinkedHashMap.fromIterable(

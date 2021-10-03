@@ -392,7 +392,10 @@ class VMManagedUnmodifiableFloat64x2ListView
       return [
         maybeBoxObject<List<dynamic>>(
             object: vmObject
-                .toList(growable: luaCallerArguments[1]['growable'])
+                .toList(
+                    growable: luaCallerArguments.length >= 2
+                        ? luaCallerArguments[1]['growable']
+                        : null)
                 .map((x) => maybeBoxObject<Float64x2>(
                     object: x, hydroState: hydroState, table: HydroTable()))
                 .toList(),
@@ -453,7 +456,9 @@ class VMManagedUnmodifiableFloat64x2ListView
     table['firstWhere'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       Closure unpackedtest = luaCallerArguments[1];
-      Closure? unpackedorElse = luaCallerArguments[2]['orElse'];
+      Closure? unpackedorElse = luaCallerArguments.length >= 3
+          ? luaCallerArguments[2]['orElse']
+          : null;
       return [
         maybeBoxObject<Float64x2>(
             object: vmObject.firstWhere(
@@ -478,7 +483,9 @@ class VMManagedUnmodifiableFloat64x2ListView
     table['lastWhere'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       Closure unpackedtest = luaCallerArguments[1];
-      Closure? unpackedorElse = luaCallerArguments[2]['orElse'];
+      Closure? unpackedorElse = luaCallerArguments.length >= 3
+          ? luaCallerArguments[2]['orElse']
+          : null;
       return [
         maybeBoxObject<Float64x2>(
             object: vmObject.lastWhere(
@@ -503,7 +510,9 @@ class VMManagedUnmodifiableFloat64x2ListView
     table['singleWhere'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       Closure unpackedtest = luaCallerArguments[1];
-      Closure? unpackedorElse = luaCallerArguments[2]['orElse'];
+      Closure? unpackedorElse = luaCallerArguments.length >= 3
+          ? luaCallerArguments[2]['orElse']
+          : null;
       return [
         maybeBoxObject<Float64x2>(
             object: vmObject.singleWhere(
@@ -1017,7 +1026,10 @@ class RTManagedUnmodifiableFloat64x2ListView
       return [
         maybeBoxObject<List<dynamic>>(
             object: super
-                .toList(growable: luaCallerArguments[1]['growable'])
+                .toList(
+                    growable: luaCallerArguments.length >= 2
+                        ? luaCallerArguments[1]['growable']
+                        : null)
                 .map((x) => maybeBoxObject<Float64x2>(
                     object: x, hydroState: hydroState, table: HydroTable()))
                 .toList(),
@@ -1079,7 +1091,9 @@ class RTManagedUnmodifiableFloat64x2ListView
     table['_dart_firstWhere'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       Closure unpackedtest = luaCallerArguments[1];
-      Closure? unpackedorElse = luaCallerArguments[2]['orElse'];
+      Closure? unpackedorElse = luaCallerArguments.length >= 3
+          ? luaCallerArguments[2]['orElse']
+          : null;
       return [
         maybeBoxObject<Float64x2>(
             object: super.firstWhere(
@@ -1104,7 +1118,9 @@ class RTManagedUnmodifiableFloat64x2ListView
     table['_dart_lastWhere'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       Closure unpackedtest = luaCallerArguments[1];
-      Closure? unpackedorElse = luaCallerArguments[2]['orElse'];
+      Closure? unpackedorElse = luaCallerArguments.length >= 3
+          ? luaCallerArguments[2]['orElse']
+          : null;
       return [
         maybeBoxObject<Float64x2>(
             object: super.lastWhere(
@@ -1129,7 +1145,9 @@ class RTManagedUnmodifiableFloat64x2ListView
     table['_dart_singleWhere'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       Closure unpackedtest = luaCallerArguments[1];
-      Closure? unpackedorElse = luaCallerArguments[2]['orElse'];
+      Closure? unpackedorElse = luaCallerArguments.length >= 3
+          ? luaCallerArguments[2]['orElse']
+          : null;
       return [
         maybeBoxObject<Float64x2>(
             object: super.singleWhere(

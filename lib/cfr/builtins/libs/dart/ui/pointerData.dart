@@ -210,42 +210,100 @@ void loadPointerData(
       RTManagedPointerData(
           table: luaCallerArguments[0],
           hydroState: hydroState,
-          buttons: luaCallerArguments[1]['buttons'],
+          buttons: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['buttons']
+              : null,
           change: maybeUnBoxEnum(
               values: PointerChange.values,
-              boxedEnum: luaCallerArguments[1]['change']),
-          device: luaCallerArguments[1]['device'],
-          distance: luaCallerArguments[1]['distance']?.toDouble(),
-          distanceMax: luaCallerArguments[1]['distanceMax']?.toDouble(),
-          embedderId: luaCallerArguments[1]['embedderId'],
+              boxedEnum: luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1]['change']
+                  : null),
+          device: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['device']
+              : null,
+          distance: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['distance']
+              : null?.toDouble(),
+          distanceMax: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['distanceMax']
+              : null?.toDouble(),
+          embedderId: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['embedderId']
+              : null,
           kind: maybeUnBoxEnum(
               values: PointerDeviceKind.values,
-              boxedEnum: luaCallerArguments[1]['kind']),
-          obscured: luaCallerArguments[1]['obscured'],
-          orientation: luaCallerArguments[1]['orientation']?.toDouble(),
-          physicalDeltaX: luaCallerArguments[1]['physicalDeltaX']?.toDouble(),
-          physicalDeltaY: luaCallerArguments[1]['physicalDeltaY']?.toDouble(),
-          physicalX: luaCallerArguments[1]['physicalX']?.toDouble(),
-          physicalY: luaCallerArguments[1]['physicalY']?.toDouble(),
-          platformData: luaCallerArguments[1]['platformData'],
-          pointerIdentifier: luaCallerArguments[1]['pointerIdentifier'],
-          pressure: luaCallerArguments[1]['pressure']?.toDouble(),
-          pressureMax: luaCallerArguments[1]['pressureMax']?.toDouble(),
-          pressureMin: luaCallerArguments[1]['pressureMin']?.toDouble(),
-          radiusMajor: luaCallerArguments[1]['radiusMajor']?.toDouble(),
-          radiusMax: luaCallerArguments[1]['radiusMax']?.toDouble(),
-          radiusMin: luaCallerArguments[1]['radiusMin']?.toDouble(),
-          radiusMinor: luaCallerArguments[1]['radiusMinor']?.toDouble(),
-          scrollDeltaX: luaCallerArguments[1]['scrollDeltaX']?.toDouble(),
-          scrollDeltaY: luaCallerArguments[1]['scrollDeltaY']?.toDouble(),
+              boxedEnum: luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1]['kind']
+                  : null),
+          obscured: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['obscured']
+              : null,
+          orientation: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['orientation']
+              : null?.toDouble(),
+          physicalDeltaX: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['physicalDeltaX']
+              : null?.toDouble(),
+          physicalDeltaY: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['physicalDeltaY']
+              : null?.toDouble(),
+          physicalX: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['physicalX']
+              : null?.toDouble(),
+          physicalY: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['physicalY']
+              : null?.toDouble(),
+          platformData: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['platformData']
+              : null,
+          pointerIdentifier: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['pointerIdentifier']
+              : null,
+          pressure: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['pressure']
+              : null?.toDouble(),
+          pressureMax: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['pressureMax']
+              : null?.toDouble(),
+          pressureMin: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['pressureMin']
+              : null?.toDouble(),
+          radiusMajor: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['radiusMajor']
+              : null?.toDouble(),
+          radiusMax: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['radiusMax']
+              : null?.toDouble(),
+          radiusMin: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['radiusMin']
+              : null?.toDouble(),
+          radiusMinor: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['radiusMinor']
+              : null?.toDouble(),
+          scrollDeltaX: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['scrollDeltaX']
+              : null?.toDouble(),
+          scrollDeltaY: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['scrollDeltaY']
+              : null?.toDouble(),
           signalKind: maybeUnBoxEnum(
               values: PointerSignalKind.values,
-              boxedEnum: luaCallerArguments[1]['signalKind']),
-          size: luaCallerArguments[1]['size']?.toDouble(),
-          synthesized: luaCallerArguments[1]['synthesized'],
-          tilt: luaCallerArguments[1]['tilt']?.toDouble(),
+              boxedEnum: luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1]['signalKind']
+                  : null),
+          size: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['size']
+              : null?.toDouble(),
+          synthesized: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['synthesized']
+              : null,
+          tilt: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['tilt']
+              : null?.toDouble(),
           timeStamp: maybeUnBoxAndBuildArgument<Duration, dynamic>(
-              luaCallerArguments[1]['timeStamp'],
+              luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1]['timeStamp']
+                  : null,
               parentState: hydroState))
     ];
   });

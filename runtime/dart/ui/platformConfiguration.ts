@@ -27,7 +27,7 @@ export interface IPlatformConfiguration {
     textScaleFactor: number;
     locales: IList<ILocale>;
     defaultRouteName: string | undefined;
-    copyWith: (props: {
+    copyWith: (props?: {
         accessibilityFeatures?: IAccessibilityFeatures | undefined;
         alwaysUse24HourFormat?: boolean | undefined;
         defaultRouteName?: string | undefined;
@@ -60,7 +60,7 @@ export class PlatformConfiguration {
             ...props,
         });
     }
-    private readonly _dart_copyWith: (props: {
+    private readonly _dart_copyWith: (props?: {
         accessibilityFeatures?: IAccessibilityFeatures | undefined;
         alwaysUse24HourFormat?: boolean | undefined;
         defaultRouteName?: string | undefined;
@@ -69,7 +69,7 @@ export class PlatformConfiguration {
         semanticsEnabled?: boolean | undefined;
         textScaleFactor?: number | undefined;
     }) => IPlatformConfiguration = undefined as any;
-    public copyWith(props: {
+    public copyWith(props?: {
         accessibilityFeatures?: IAccessibilityFeatures | undefined;
         alwaysUse24HourFormat?: boolean | undefined;
         defaultRouteName?: string | undefined;
