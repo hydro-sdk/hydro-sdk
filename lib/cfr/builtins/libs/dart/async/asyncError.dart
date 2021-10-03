@@ -48,7 +48,7 @@ class VMManagedAsyncError extends VMManagedBox<AsyncError> {
 }
 
 class RTManagedAsyncError extends AsyncError implements Box<AsyncError> {
-  RTManagedAsyncError(Object error, StackTrace? stackTrace,
+  RTManagedAsyncError(Object error, StackTrace stackTrace,
       {required this.table, required this.hydroState})
       : super(
           error,
