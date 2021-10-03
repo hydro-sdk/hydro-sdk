@@ -41,6 +41,7 @@ const validTransformNames = [
   "tsClassStaticMethodImplementation",
   "tsClassVmDeclaration",
   "dartStaticMethodNamespaceSymbolDeclaration",
+  "isGetter",
 ];
 
 const validAnalysisNames = [

@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConst.dart';
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 
@@ -6,6 +7,25 @@ SwidDeclarationModifiers swidiShortHandOverrideToSwidDeclarationModifiers({
 }) =>
     SwidDeclarationModifiers.clone(
       declarationModifiers: SwidDeclarationModifiers.empty(),
+      isGetter: shortHandOverride.maybeWhen(
+        fromSwidiConstMap: (val) =>
+            val.entries.firstWhereOrNull(
+              (x) =>
+                  x.item1.maybeWhen(
+                    fromSwidiConstString: (val) => val.value == "isGetter",
+                    orElse: () => false,
+                  ) &&
+                  x.item2.maybeWhen(
+                    fromSwidiConstBoolean: (val) => val.maybeWhen(
+                      fromSwidiConstBooleanTrue: (_) => true,
+                      orElse: () => false,
+                    ),
+                    orElse: () => false,
+                  ),
+            ) !=
+            null,
+        orElse: () => false,
+      ),
       overridenTransforms: shortHandOverride
           .maybeWhen(
             fromSwidiConstMap: (val) => val.entries
