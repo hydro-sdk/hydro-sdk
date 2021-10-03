@@ -116,37 +116,37 @@ void loadTextStyle(
       RTManagedTextStyle(
           table: luaCallerArguments[0],
           hydroState: hydroState,
-          background: maybeUnBoxAndBuildArgument<Paint?, dynamic>(
-              luaCallerArguments[1]['background'],
+          background: maybeUnBoxAndBuildArgument<Paint?, dynamic>(luaCallerArguments.length >= 2 ? luaCallerArguments[1]['background'] : null,
               parentState: hydroState),
-          color: maybeUnBoxAndBuildArgument<Color?, dynamic>(luaCallerArguments[1]['color'],
+          color: maybeUnBoxAndBuildArgument<Color?, dynamic>(luaCallerArguments.length >= 2 ? luaCallerArguments[1]['color'] : null,
               parentState: hydroState),
           decoration: maybeUnBoxAndBuildArgument<TextDecoration?, dynamic>(
-              luaCallerArguments[1]['decoration'],
+              luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1]['decoration']
+                  : null,
               parentState: hydroState),
           decorationColor: maybeUnBoxAndBuildArgument<Color?, dynamic>(
-              luaCallerArguments[1]['decorationColor'],
+              luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1]['decorationColor']
+                  : null,
               parentState: hydroState),
           decorationStyle: maybeUnBoxEnum(
               values: TextDecorationStyle.values,
-              boxedEnum: luaCallerArguments[1]['decorationStyle']),
-          decorationThickness:
-              luaCallerArguments[1]['decorationThickness']?.toDouble(),
-          fontFamily: luaCallerArguments[1]['fontFamily'],
-          fontFamilyFallback: maybeUnBoxAndBuildArgument<List<String>?, String>(
-              luaCallerArguments[1]['fontFamilyFallback'],
-              parentState: hydroState),
-          fontFeatures: maybeUnBoxAndBuildArgument<List<FontFeature>?, FontFeature>(luaCallerArguments[1]['fontFeatures'], parentState: hydroState),
-          fontSize: luaCallerArguments[1]['fontSize']?.toDouble(),
-          fontStyle: maybeUnBoxEnum(values: FontStyle.values, boxedEnum: luaCallerArguments[1]['fontStyle']),
-          fontWeight: maybeUnBoxAndBuildArgument<FontWeight?, dynamic>(luaCallerArguments[1]['fontWeight'], parentState: hydroState),
-          foreground: maybeUnBoxAndBuildArgument<Paint?, dynamic>(luaCallerArguments[1]['foreground'], parentState: hydroState),
-          height: luaCallerArguments[1]['height']?.toDouble(),
-          letterSpacing: luaCallerArguments[1]['letterSpacing']?.toDouble(),
-          locale: maybeUnBoxAndBuildArgument<Locale?, dynamic>(luaCallerArguments[1]['locale'], parentState: hydroState),
-          shadows: maybeUnBoxAndBuildArgument<List<Shadow>?, Shadow>(luaCallerArguments[1]['shadows'], parentState: hydroState),
-          textBaseline: maybeUnBoxEnum(values: TextBaseline.values, boxedEnum: luaCallerArguments[1]['textBaseline']),
-          wordSpacing: luaCallerArguments[1]['wordSpacing']?.toDouble())
+              boxedEnum: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['decorationStyle'] : null),
+          decorationThickness: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['decorationThickness'] : null?.toDouble(),
+          fontFamily: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['fontFamily'] : null,
+          fontFamilyFallback: maybeUnBoxAndBuildArgument<List<String>?, String>(luaCallerArguments.length >= 2 ? luaCallerArguments[1]['fontFamilyFallback'] : null, parentState: hydroState),
+          fontFeatures: maybeUnBoxAndBuildArgument<List<FontFeature>?, FontFeature>(luaCallerArguments.length >= 2 ? luaCallerArguments[1]['fontFeatures'] : null, parentState: hydroState),
+          fontSize: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['fontSize'] : null?.toDouble(),
+          fontStyle: maybeUnBoxEnum(values: FontStyle.values, boxedEnum: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['fontStyle'] : null),
+          fontWeight: maybeUnBoxAndBuildArgument<FontWeight?, dynamic>(luaCallerArguments.length >= 2 ? luaCallerArguments[1]['fontWeight'] : null, parentState: hydroState),
+          foreground: maybeUnBoxAndBuildArgument<Paint?, dynamic>(luaCallerArguments.length >= 2 ? luaCallerArguments[1]['foreground'] : null, parentState: hydroState),
+          height: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['height'] : null?.toDouble(),
+          letterSpacing: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['letterSpacing'] : null?.toDouble(),
+          locale: maybeUnBoxAndBuildArgument<Locale?, dynamic>(luaCallerArguments.length >= 2 ? luaCallerArguments[1]['locale'] : null, parentState: hydroState),
+          shadows: maybeUnBoxAndBuildArgument<List<Shadow>?, Shadow>(luaCallerArguments.length >= 2 ? luaCallerArguments[1]['shadows'] : null, parentState: hydroState),
+          textBaseline: maybeUnBoxEnum(values: TextBaseline.values, boxedEnum: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['textBaseline'] : null),
+          wordSpacing: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['wordSpacing'] : null?.toDouble())
     ];
   });
   registerBoxer<TextStyle>(boxer: (

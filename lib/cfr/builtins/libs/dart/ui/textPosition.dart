@@ -90,8 +90,12 @@ void loadTextPosition(
           hydroState: hydroState,
           affinity: maybeUnBoxEnum(
               values: TextAffinity.values,
-              boxedEnum: luaCallerArguments[1]['affinity']),
-          offset: luaCallerArguments[1]['offset'])
+              boxedEnum: luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1]['affinity']
+                  : null),
+          offset: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['offset']
+              : null)
     ];
   });
   registerBoxer<TextPosition>(boxer: (

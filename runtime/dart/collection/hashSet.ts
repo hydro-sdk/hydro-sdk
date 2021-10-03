@@ -8,7 +8,7 @@ declare const dart: {
         hashSet: <E>(
             this: void,
             hashSet: IHashSet<E>,
-            props: {
+            props?: {
                 equals?: (__: E) => boolean | undefined;
                 hashCode?: (__: E) => number | undefined;
                 isValidKey?: (__: any) => boolean | undefined;
@@ -59,15 +59,15 @@ export interface IHashSet<E> {
     skipWhile: (test: (value: E) => boolean) => IIterable<E>;
     firstWhere: (
         test: (element: E) => boolean,
-        props: { orElse?: () => E | undefined }
+        props?: { orElse?: () => E | undefined }
     ) => E;
     lastWhere: (
         test: (element: E) => boolean,
-        props: { orElse?: () => E | undefined }
+        props?: { orElse?: () => E | undefined }
     ) => E;
     singleWhere: (
         test: (element: E) => boolean,
-        props: { orElse?: () => E | undefined }
+        props?: { orElse?: () => E | undefined }
     ) => E;
     elementAt: (index: number) => E;
     toString: () => string;
@@ -79,7 +79,7 @@ export interface IHashSet<E> {
     getHashCode: () => number;
 }
 export class HashSet<E> implements IEfficientLengthIterable<E>, ISet<E> {
-    public constructor(props: {
+    public constructor(props?: {
         equals?: (__: E) => boolean | undefined;
         hashCode?: (__: E) => number | undefined;
         isValidKey?: (__: any) => boolean | undefined;
@@ -172,15 +172,15 @@ export class HashSet<E> implements IEfficientLengthIterable<E>, ISet<E> {
     ) => IIterable<E> = undefined as any;
     private readonly _dart_firstWhere: (
         test: (element: E) => boolean,
-        props: { orElse?: () => E | undefined }
+        props?: { orElse?: () => E | undefined }
     ) => E = undefined as any;
     private readonly _dart_lastWhere: (
         test: (element: E) => boolean,
-        props: { orElse?: () => E | undefined }
+        props?: { orElse?: () => E | undefined }
     ) => E = undefined as any;
     private readonly _dart_singleWhere: (
         test: (element: E) => boolean,
-        props: { orElse?: () => E | undefined }
+        props?: { orElse?: () => E | undefined }
     ) => E = undefined as any;
     private readonly _dart_elementAt: (index: number) => E = undefined as any;
     private readonly _dart_toString: () => string = undefined as any;
@@ -300,19 +300,19 @@ export class HashSet<E> implements IEfficientLengthIterable<E>, ISet<E> {
     }
     public firstWhere(
         test: (element: E) => boolean,
-        props: { orElse?: () => E | undefined }
+        props?: { orElse?: () => E | undefined }
     ): E {
         return this._dart_firstWhere(test, props);
     }
     public lastWhere(
         test: (element: E) => boolean,
-        props: { orElse?: () => E | undefined }
+        props?: { orElse?: () => E | undefined }
     ): E {
         return this._dart_lastWhere(test, props);
     }
     public singleWhere(
         test: (element: E) => boolean,
-        props: { orElse?: () => E | undefined }
+        props?: { orElse?: () => E | undefined }
     ): E {
         return this._dart_singleWhere(test, props);
     }

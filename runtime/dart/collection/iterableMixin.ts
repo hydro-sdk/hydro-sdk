@@ -32,15 +32,15 @@ export interface IIterableMixin<E> extends IIterable<E> {
     getSingle: () => E;
     firstWhere: (
         test: (value: E) => boolean,
-        props: { orElse?: () => E | undefined }
+        props?: { orElse?: () => E | undefined }
     ) => E;
     lastWhere: (
         test: (value: E) => boolean,
-        props: { orElse?: () => E | undefined }
+        props?: { orElse?: () => E | undefined }
     ) => E;
     singleWhere: (
         test: (element: E) => boolean,
-        props: { orElse?: () => E | undefined }
+        props?: { orElse?: () => E | undefined }
     ) => E;
     elementAt: (index: number) => E;
     toString: () => string;

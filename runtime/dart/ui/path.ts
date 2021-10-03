@@ -94,12 +94,12 @@ export interface IPath {
     addPath: (
         path: IPath,
         offset: IOffset,
-        props: { matrix4?: IFloat64List | undefined }
+        props?: { matrix4?: IFloat64List | undefined }
     ) => void;
     extendWithPath: (
         path: IPath,
         offset: IOffset,
-        props: { matrix4?: IFloat64List | undefined }
+        props?: { matrix4?: IFloat64List | undefined }
     ) => void;
     close: () => void;
     reset: () => void;
@@ -215,12 +215,12 @@ export class Path {
     private readonly _dart_addPath: (
         path: IPath,
         offset: IOffset,
-        props: { matrix4?: IFloat64List | undefined }
+        props?: { matrix4?: IFloat64List | undefined }
     ) => void = undefined as any;
     private readonly _dart_extendWithPath: (
         path: IPath,
         offset: IOffset,
-        props: { matrix4?: IFloat64List | undefined }
+        props?: { matrix4?: IFloat64List | undefined }
     ) => void = undefined as any;
     private readonly _dart_close: () => void = undefined as any;
     private readonly _dart_reset: () => void = undefined as any;
@@ -359,14 +359,14 @@ export class Path {
     public addPath(
         path: IPath,
         offset: IOffset,
-        props: { matrix4?: IFloat64List | undefined }
+        props?: { matrix4?: IFloat64List | undefined }
     ): void {
         return this._dart_addPath(path, offset, props);
     }
     public extendWithPath(
         path: IPath,
         offset: IOffset,
-        props: { matrix4?: IFloat64List | undefined }
+        props?: { matrix4?: IFloat64List | undefined }
     ): void {
         return this._dart_extendWithPath(path, offset, props);
     }

@@ -225,7 +225,9 @@ class VMManagedIterable extends VMManagedBox<Iterable<dynamic>> {
     table[\'firstWhere\'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       Closure unpackedtest = luaCallerArguments[1];
-      Closure? unpackedorElse = luaCallerArguments[2][\'orElse\'];
+      Closure? unpackedorElse = luaCallerArguments.length >= 3
+          ? luaCallerArguments[2][\'orElse\']
+          : null;
       return [
         vmObject.firstWhere(
             (element) => unpackedtest.dispatch(

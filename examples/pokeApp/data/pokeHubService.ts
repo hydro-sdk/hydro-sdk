@@ -1,3 +1,4 @@
+import { IFutureOr } from "../../../runtime/dart/async/futureOr";
 import { jsonDecode } from "../../../runtime/dart/convert/jsonDecode";
 import { Type } from "../../../runtime/dart/core/type";
 import { ChangeNotifier } from "../../../runtime/flutter/foundation/changeNotifier";
@@ -17,6 +18,8 @@ export class PokeHubService extends ChangeNotifier {
                 this.pokeHub = jsonDecode(getResponse.body);
             }
             this.notifyListeners();
+
+            return <IFutureOr<unknown>>{};
         });
     }
 

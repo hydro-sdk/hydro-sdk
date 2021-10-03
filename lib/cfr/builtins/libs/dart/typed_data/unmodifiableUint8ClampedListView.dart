@@ -362,8 +362,10 @@ class VMManagedUnmodifiableUint8ClampedListView
     table['toList'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<List<dynamic>>(
-            object:
-                vmObject.toList(growable: luaCallerArguments[1]['growable']),
+            object: vmObject.toList(
+                growable: luaCallerArguments.length >= 2
+                    ? luaCallerArguments[1]['growable']
+                    : null),
             hydroState: hydroState,
             table: HydroTable()),
       ];
@@ -421,7 +423,9 @@ class VMManagedUnmodifiableUint8ClampedListView
     table['firstWhere'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       Closure unpackedtest = luaCallerArguments[1];
-      Closure? unpackedorElse = luaCallerArguments[2]['orElse'];
+      Closure? unpackedorElse = luaCallerArguments.length >= 3
+          ? luaCallerArguments[2]['orElse']
+          : null;
       return [
         vmObject.firstWhere(
             (element) => unpackedtest.dispatch(
@@ -441,7 +445,9 @@ class VMManagedUnmodifiableUint8ClampedListView
     table['lastWhere'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       Closure unpackedtest = luaCallerArguments[1];
-      Closure? unpackedorElse = luaCallerArguments[2]['orElse'];
+      Closure? unpackedorElse = luaCallerArguments.length >= 3
+          ? luaCallerArguments[2]['orElse']
+          : null;
       return [
         vmObject.lastWhere(
             (element) => unpackedtest.dispatch(
@@ -461,7 +467,9 @@ class VMManagedUnmodifiableUint8ClampedListView
     table['singleWhere'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       Closure unpackedtest = luaCallerArguments[1];
-      Closure? unpackedorElse = luaCallerArguments[2]['orElse'];
+      Closure? unpackedorElse = luaCallerArguments.length >= 3
+          ? luaCallerArguments[2]['orElse']
+          : null;
       return [
         vmObject.singleWhere(
             (element) => unpackedtest.dispatch(
@@ -930,7 +938,10 @@ class RTManagedUnmodifiableUint8ClampedListView
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<List<dynamic>>(
-            object: super.toList(growable: luaCallerArguments[1]['growable']),
+            object: super.toList(
+                growable: luaCallerArguments.length >= 2
+                    ? luaCallerArguments[1]['growable']
+                    : null),
             hydroState: hydroState,
             table: HydroTable())
       ];
@@ -989,7 +1000,9 @@ class RTManagedUnmodifiableUint8ClampedListView
     table['_dart_firstWhere'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       Closure unpackedtest = luaCallerArguments[1];
-      Closure? unpackedorElse = luaCallerArguments[2]['orElse'];
+      Closure? unpackedorElse = luaCallerArguments.length >= 3
+          ? luaCallerArguments[2]['orElse']
+          : null;
       return [
         super.firstWhere(
             (element) => unpackedtest.dispatch(
@@ -1009,7 +1022,9 @@ class RTManagedUnmodifiableUint8ClampedListView
     table['_dart_lastWhere'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       Closure unpackedtest = luaCallerArguments[1];
-      Closure? unpackedorElse = luaCallerArguments[2]['orElse'];
+      Closure? unpackedorElse = luaCallerArguments.length >= 3
+          ? luaCallerArguments[2]['orElse']
+          : null;
       return [
         super.lastWhere(
             (element) => unpackedtest.dispatch(
@@ -1029,7 +1044,9 @@ class RTManagedUnmodifiableUint8ClampedListView
     table['_dart_singleWhere'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       Closure unpackedtest = luaCallerArguments[1];
-      Closure? unpackedorElse = luaCallerArguments[2]['orElse'];
+      Closure? unpackedorElse = luaCallerArguments.length >= 3
+          ? luaCallerArguments[2]['orElse']
+          : null;
       return [
         super.singleWhere(
             (element) => unpackedtest.dispatch(

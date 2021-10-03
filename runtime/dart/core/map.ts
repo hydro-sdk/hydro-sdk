@@ -9,7 +9,7 @@ declare const dart: {
         mapIdentity: <K, V>() => IMap<K, V>;
         mapFromIterable: <K, V>(
             iterable: IIterable<any>,
-            props: {
+            props?: {
                 key?: (element: any) => K | undefined;
                 value?: (element: any) => V | undefined;
             }
@@ -36,7 +36,7 @@ export interface IMap<K, V> {
     update: (
         key: K,
         update: (value: V) => V,
-        props: { ifAbsent?: () => V | undefined }
+        props?: { ifAbsent?: () => V | undefined }
     ) => V;
     updateAll: (update: (key: K, value: V) => V) => void;
     removeWhere: (test: (key: K, value: V) => boolean) => void;
@@ -69,7 +69,7 @@ export class Map<K, V> {
     }
     public static fromIterable<K, V>(
         iterable: IIterable<any>,
-        props: {
+        props?: {
             key?: (element: any) => K | undefined;
             value?: (element: any) => V | undefined;
         }
@@ -107,7 +107,7 @@ export class Map<K, V> {
     private readonly _dart_update: (
         key: K,
         update: (value: V) => V,
-        props: { ifAbsent?: () => V | undefined }
+        props?: { ifAbsent?: () => V | undefined }
     ) => V = undefined as any;
     private readonly _dart_updateAll: (
         update: (key: K, value: V) => V
@@ -153,7 +153,7 @@ export class Map<K, V> {
     public update(
         key: K,
         update: (value: V) => V,
-        props: { ifAbsent?: () => V | undefined }
+        props?: { ifAbsent?: () => V | undefined }
     ): V {
         return this._dart_update(key, update, props);
     }

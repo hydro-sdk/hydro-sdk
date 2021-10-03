@@ -138,9 +138,15 @@ void loadLocale({required HydroState hydroState, required HydroTable table}) {
     return [
       maybeBoxObject<Locale>(
           object: Locale.fromSubtags(
-              countryCode: luaCallerArguments[1]['countryCode'],
-              languageCode: luaCallerArguments[1]['languageCode'],
-              scriptCode: luaCallerArguments[1]['scriptCode']),
+              countryCode: luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1]['countryCode']
+                  : null,
+              languageCode: luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1]['languageCode']
+                  : null,
+              scriptCode: luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1]['scriptCode']
+                  : null),
           hydroState: hydroState,
           table: HydroTable()),
     ];

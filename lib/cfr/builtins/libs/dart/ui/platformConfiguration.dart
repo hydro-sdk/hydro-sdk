@@ -32,20 +32,25 @@ class VMManagedPlatformConfiguration
             object: vmObject.copyWith(
                 accessibilityFeatures:
                     maybeUnBoxAndBuildArgument<AccessibilityFeatures?, dynamic>(
-                        luaCallerArguments[1]['accessibilityFeatures'],
+                        luaCallerArguments.length >= 2
+                            ? luaCallerArguments[1]['accessibilityFeatures']
+                            : null,
                         parentState: hydroState),
-                alwaysUse24HourFormat: luaCallerArguments[1]
-                    ['alwaysUse24HourFormat'],
-                defaultRouteName: luaCallerArguments[1]['defaultRouteName'],
-                locales: maybeUnBoxAndBuildArgument<List<Locale>?, Locale>(
-                    luaCallerArguments[1]['locales'],
+                alwaysUse24HourFormat: luaCallerArguments.length >= 2
+                    ? luaCallerArguments[1]['alwaysUse24HourFormat']
+                    : null,
+                defaultRouteName: luaCallerArguments.length >= 2
+                    ? luaCallerArguments[1]['defaultRouteName']
+                    : null,
+                locales: maybeUnBoxAndBuildArgument<List<Locale>?, Locale>(luaCallerArguments.length >= 2 ? luaCallerArguments[1]['locales'] : null,
                     parentState: hydroState),
                 platformBrightness: maybeUnBoxEnum(
                     values: Brightness.values,
-                    boxedEnum: luaCallerArguments[1]['platformBrightness']),
-                semanticsEnabled: luaCallerArguments[1]['semanticsEnabled'],
-                textScaleFactor:
-                    luaCallerArguments[1]['textScaleFactor']?.toDouble()),
+                    boxedEnum: luaCallerArguments.length >= 2
+                        ? luaCallerArguments[1]['platformBrightness']
+                        : null),
+                semanticsEnabled: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['semanticsEnabled'] : null,
+                textScaleFactor: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['textScaleFactor'] : null?.toDouble()),
             hydroState: hydroState,
             table: HydroTable()),
       ];
@@ -103,20 +108,25 @@ class RTManagedPlatformConfiguration extends PlatformConfiguration
             object: super.copyWith(
                 accessibilityFeatures:
                     maybeUnBoxAndBuildArgument<AccessibilityFeatures?, dynamic>(
-                        luaCallerArguments[1]['accessibilityFeatures'],
+                        luaCallerArguments.length >= 2
+                            ? luaCallerArguments[1]['accessibilityFeatures']
+                            : null,
                         parentState: hydroState),
-                alwaysUse24HourFormat: luaCallerArguments[1]
-                    ['alwaysUse24HourFormat'],
-                defaultRouteName: luaCallerArguments[1]['defaultRouteName'],
-                locales: maybeUnBoxAndBuildArgument<List<Locale>?, Locale>(
-                    luaCallerArguments[1]['locales'],
+                alwaysUse24HourFormat: luaCallerArguments.length >= 2
+                    ? luaCallerArguments[1]['alwaysUse24HourFormat']
+                    : null,
+                defaultRouteName: luaCallerArguments.length >= 2
+                    ? luaCallerArguments[1]['defaultRouteName']
+                    : null,
+                locales: maybeUnBoxAndBuildArgument<List<Locale>?, Locale>(luaCallerArguments.length >= 2 ? luaCallerArguments[1]['locales'] : null,
                     parentState: hydroState),
                 platformBrightness: maybeUnBoxEnum(
                     values: Brightness.values,
-                    boxedEnum: luaCallerArguments[1]['platformBrightness']),
-                semanticsEnabled: luaCallerArguments[1]['semanticsEnabled'],
-                textScaleFactor:
-                    luaCallerArguments[1]['textScaleFactor']?.toDouble()),
+                    boxedEnum: luaCallerArguments.length >= 2
+                        ? luaCallerArguments[1]['platformBrightness']
+                        : null),
+                semanticsEnabled: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['semanticsEnabled'] : null,
+                textScaleFactor: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['textScaleFactor'] : null?.toDouble()),
             hydroState: hydroState,
             table: HydroTable())
       ];
@@ -153,20 +163,31 @@ void loadPlatformConfiguration(
       RTManagedPlatformConfiguration(
           table: luaCallerArguments[0],
           hydroState: hydroState,
-          accessibilityFeatures:
-              maybeUnBoxAndBuildArgument<AccessibilityFeatures, dynamic>(
-                  luaCallerArguments[1]['accessibilityFeatures'],
-                  parentState: hydroState),
-          alwaysUse24HourFormat: luaCallerArguments[1]['alwaysUse24HourFormat'],
-          defaultRouteName: luaCallerArguments[1]['defaultRouteName'],
+          accessibilityFeatures: maybeUnBoxAndBuildArgument<AccessibilityFeatures, dynamic>(
+              luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1]['accessibilityFeatures']
+                  : null,
+              parentState: hydroState),
+          alwaysUse24HourFormat: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['alwaysUse24HourFormat']
+              : null,
+          defaultRouteName: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['defaultRouteName']
+              : null,
           locales: maybeUnBoxAndBuildArgument<List<Locale>, Locale>(
-              luaCallerArguments[1]['locales'],
+              luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1]['locales']
+                  : null,
               parentState: hydroState),
           platformBrightness: maybeUnBoxEnum(
               values: Brightness.values,
-              boxedEnum: luaCallerArguments[1]['platformBrightness']),
-          semanticsEnabled: luaCallerArguments[1]['semanticsEnabled'],
-          textScaleFactor: luaCallerArguments[1]['textScaleFactor']?.toDouble())
+              boxedEnum: luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1]['platformBrightness']
+                  : null),
+          semanticsEnabled: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['semanticsEnabled']
+              : null,
+          textScaleFactor: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['textScaleFactor'] : null?.toDouble())
     ];
   });
   registerBoxer<PlatformConfiguration>(boxer: (

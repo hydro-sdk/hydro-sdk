@@ -96,15 +96,15 @@ export interface IUnmodifiableInt32x4ListView {
     skipWhile: (test: (value: IInt32x4) => boolean) => IIterable<IInt32x4>;
     firstWhere: (
         test: (element: IInt32x4) => boolean,
-        props: { orElse?: () => IInt32x4 | undefined }
+        props?: { orElse?: () => IInt32x4 | undefined }
     ) => IInt32x4;
     lastWhere: (
         test: (element: IInt32x4) => boolean,
-        props: { orElse?: () => IInt32x4 | undefined }
+        props?: { orElse?: () => IInt32x4 | undefined }
     ) => IInt32x4;
     singleWhere: (
         test: (element: IInt32x4) => boolean,
-        props: { orElse?: () => IInt32x4 | undefined }
+        props?: { orElse?: () => IInt32x4 | undefined }
     ) => IInt32x4;
     elementAt: (index: number) => IInt32x4;
     toString: () => string;
@@ -304,15 +304,15 @@ export class UnmodifiableInt32x4ListView
     ) => IIterable<IInt32x4> = undefined as any;
     private readonly _dart_firstWhere: (
         test: (element: IInt32x4) => boolean,
-        props: { orElse?: () => IInt32x4 | undefined }
+        props?: { orElse?: () => IInt32x4 | undefined }
     ) => IInt32x4 = undefined as any;
     private readonly _dart_lastWhere: (
         test: (element: IInt32x4) => boolean,
-        props: { orElse?: () => IInt32x4 | undefined }
+        props?: { orElse?: () => IInt32x4 | undefined }
     ) => IInt32x4 = undefined as any;
     private readonly _dart_singleWhere: (
         test: (element: IInt32x4) => boolean,
-        props: { orElse?: () => IInt32x4 | undefined }
+        props?: { orElse?: () => IInt32x4 | undefined }
     ) => IInt32x4 = undefined as any;
     private readonly _dart_elementAt: (index: number) => IInt32x4 =
         undefined as any;
@@ -506,19 +506,19 @@ export class UnmodifiableInt32x4ListView
     }
     public firstWhere(
         test: (element: IInt32x4) => boolean,
-        props: { orElse?: () => IInt32x4 | undefined }
+        props?: { orElse?: () => IInt32x4 | undefined }
     ): IInt32x4 {
         return this._dart_firstWhere(test, props);
     }
     public lastWhere(
         test: (element: IInt32x4) => boolean,
-        props: { orElse?: () => IInt32x4 | undefined }
+        props?: { orElse?: () => IInt32x4 | undefined }
     ): IInt32x4 {
         return this._dart_lastWhere(test, props);
     }
     public singleWhere(
         test: (element: IInt32x4) => boolean,
-        props: { orElse?: () => IInt32x4 | undefined }
+        props?: { orElse?: () => IInt32x4 | undefined }
     ): IInt32x4 {
         return this._dart_singleWhere(test, props);
     }

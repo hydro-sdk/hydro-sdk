@@ -76,8 +76,10 @@ class VMManagedListQueue extends VMManagedBox<ListQueue<dynamic>> {
     table['toList'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<List<dynamic>>(
-            object:
-                vmObject.toList(growable: luaCallerArguments[1]['growable']),
+            object: vmObject.toList(
+                growable: luaCallerArguments.length >= 2
+                    ? luaCallerArguments[1]['growable']
+                    : null),
             hydroState: hydroState,
             table: HydroTable()),
       ];
@@ -313,7 +315,9 @@ class VMManagedListQueue extends VMManagedBox<ListQueue<dynamic>> {
     table['firstWhere'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       Closure unpackedtest = luaCallerArguments[1];
-      Closure? unpackedorElse = luaCallerArguments[2]['orElse'];
+      Closure? unpackedorElse = luaCallerArguments.length >= 3
+          ? luaCallerArguments[2]['orElse']
+          : null;
       return [
         vmObject.firstWhere(
             (element) => unpackedtest.dispatch(
@@ -333,7 +337,9 @@ class VMManagedListQueue extends VMManagedBox<ListQueue<dynamic>> {
     table['lastWhere'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       Closure unpackedtest = luaCallerArguments[1];
-      Closure? unpackedorElse = luaCallerArguments[2]['orElse'];
+      Closure? unpackedorElse = luaCallerArguments.length >= 3
+          ? luaCallerArguments[2]['orElse']
+          : null;
       return [
         vmObject.lastWhere(
             (element) => unpackedtest.dispatch(
@@ -353,7 +359,9 @@ class VMManagedListQueue extends VMManagedBox<ListQueue<dynamic>> {
     table['singleWhere'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       Closure unpackedtest = luaCallerArguments[1];
-      Closure? unpackedorElse = luaCallerArguments[2]['orElse'];
+      Closure? unpackedorElse = luaCallerArguments.length >= 3
+          ? luaCallerArguments[2]['orElse']
+          : null;
       return [
         vmObject.singleWhere(
             (element) => unpackedtest.dispatch(
@@ -449,7 +457,10 @@ class RTManagedListQueue extends ListQueue implements Box<ListQueue> {
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<List<dynamic>>(
-            object: super.toList(growable: luaCallerArguments[1]['growable']),
+            object: super.toList(
+                growable: luaCallerArguments.length >= 2
+                    ? luaCallerArguments[1]['growable']
+                    : null),
             hydroState: hydroState,
             table: HydroTable())
       ];
@@ -690,7 +701,9 @@ class RTManagedListQueue extends ListQueue implements Box<ListQueue> {
     table['_dart_firstWhere'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       Closure unpackedtest = luaCallerArguments[1];
-      Closure? unpackedorElse = luaCallerArguments[2]['orElse'];
+      Closure? unpackedorElse = luaCallerArguments.length >= 3
+          ? luaCallerArguments[2]['orElse']
+          : null;
       return [
         super.firstWhere(
             (element) => unpackedtest.dispatch(
@@ -710,7 +723,9 @@ class RTManagedListQueue extends ListQueue implements Box<ListQueue> {
     table['_dart_lastWhere'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       Closure unpackedtest = luaCallerArguments[1];
-      Closure? unpackedorElse = luaCallerArguments[2]['orElse'];
+      Closure? unpackedorElse = luaCallerArguments.length >= 3
+          ? luaCallerArguments[2]['orElse']
+          : null;
       return [
         super.lastWhere(
             (element) => unpackedtest.dispatch(
@@ -730,7 +745,9 @@ class RTManagedListQueue extends ListQueue implements Box<ListQueue> {
     table['_dart_singleWhere'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       Closure unpackedtest = luaCallerArguments[1];
-      Closure? unpackedorElse = luaCallerArguments[2]['orElse'];
+      Closure? unpackedorElse = luaCallerArguments.length >= 3
+          ? luaCallerArguments[2]['orElse']
+          : null;
       return [
         super.singleWhere(
             (element) => unpackedtest.dispatch(

@@ -29,13 +29,23 @@ void loadDiagnosticsNode(
       RTManagedDiagnosticsNode(
           table: luaCallerArguments[0],
           hydroState: hydroState,
-          linePrefix: luaCallerArguments[1][\'linePrefix\'],
-          showName: luaCallerArguments[1][\'showName\'],
-          showSeparator: luaCallerArguments[1][\'showSeparator\'],
+          linePrefix: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1][\'linePrefix\']
+              : null,
+          showName: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1][\'showName\']
+              : null,
+          showSeparator: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1][\'showSeparator\']
+              : null,
           style: maybeUnBoxEnum(
               values: DiagnosticsTreeStyle.values,
-              boxedEnum: luaCallerArguments[1][\'style\']),
-          name: luaCallerArguments[1][\'name\'])
+              boxedEnum: luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1][\'style\']
+                  : null),
+          name: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1][\'name\']
+              : null)
     ];
   });
   table[\'diagnosticsNodeMessage\'] =
@@ -43,13 +53,19 @@ void loadDiagnosticsNode(
     return [
       maybeBoxObject<DiagnosticsNode>(
           object: DiagnosticsNode.message(luaCallerArguments[1],
-              allowWrap: luaCallerArguments[2][\'allowWrap\'],
+              allowWrap: luaCallerArguments.length >= 3
+                  ? luaCallerArguments[2][\'allowWrap\']
+                  : null,
               level: maybeUnBoxEnum(
                   values: DiagnosticLevel.values,
-                  boxedEnum: luaCallerArguments[2][\'level\']),
+                  boxedEnum: luaCallerArguments.length >= 3
+                      ? luaCallerArguments[2][\'level\']
+                      : null),
               style: maybeUnBoxEnum(
                   values: DiagnosticsTreeStyle.values,
-                  boxedEnum: luaCallerArguments[2][\'style\'])),
+                  boxedEnum: luaCallerArguments.length >= 3
+                      ? luaCallerArguments[2][\'style\']
+                      : null)),
           hydroState: hydroState,
           table: HydroTable()),
     ];

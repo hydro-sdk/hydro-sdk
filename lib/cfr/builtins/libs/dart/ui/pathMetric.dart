@@ -32,7 +32,9 @@ class VMManagedPathMetric extends VMManagedBox<PathMetric> {
         maybeBoxObject<Path>(
             object: vmObject.extractPath(luaCallerArguments[1]?.toDouble(),
                 luaCallerArguments[2]?.toDouble(),
-                startWithMoveTo: luaCallerArguments[3]['startWithMoveTo']),
+                startWithMoveTo: luaCallerArguments.length >= 4
+                    ? luaCallerArguments[3]['startWithMoveTo']
+                    : null),
             hydroState: hydroState,
             table: HydroTable()),
       ];

@@ -24,7 +24,7 @@ declare const dart: {
         ) => ISplayTreeMap<K, V>;
         splayTreeMapFromIterable: <K, V>(
             iterable: IIterable<any>,
-            props: {
+            props?: {
                 compare?: (key1: K, key2: K) => number | undefined;
                 isValidKey?: (potentialKey: any) => boolean | undefined;
                 key?: (element: any) => K | undefined;
@@ -60,7 +60,7 @@ export interface ISplayTreeMap<K, V> {
     update: (
         key: K,
         update: (value: V) => V,
-        props: { ifAbsent?: () => V | undefined }
+        props?: { ifAbsent?: () => V | undefined }
     ) => V;
     updateAll: (update: (key: K, value: V) => V) => void;
     map: <K2, V2>(
@@ -100,7 +100,7 @@ export class SplayTreeMap<K, V>
     }
     public static fromIterable<K, V>(
         iterable: IIterable<any>,
-        props: {
+        props?: {
             compare?: (key1: K, key2: K) => number | undefined;
             isValidKey?: (potentialKey: any) => boolean | undefined;
             key?: (element: any) => K | undefined;
@@ -151,7 +151,7 @@ export class SplayTreeMap<K, V>
     private readonly _dart_update: (
         key: K,
         update: (value: V) => V,
-        props: { ifAbsent?: () => V | undefined }
+        props?: { ifAbsent?: () => V | undefined }
     ) => V = undefined as any;
     private readonly _dart_updateAll: (
         update: (key: K, value: V) => V
@@ -223,7 +223,7 @@ export class SplayTreeMap<K, V>
     public update(
         key: K,
         update: (value: V) => V,
-        props: { ifAbsent?: () => V | undefined }
+        props?: { ifAbsent?: () => V | undefined }
     ): V {
         return this._dart_update(key, update, props);
     }

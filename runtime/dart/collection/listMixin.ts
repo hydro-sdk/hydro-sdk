@@ -20,15 +20,15 @@ export interface IListMixin<E> extends IList<E> {
     any: (test: (element: E) => boolean) => boolean;
     firstWhere: (
         test: (element: E) => boolean,
-        props: { orElse?: () => E | undefined }
+        props?: { orElse?: () => E | undefined }
     ) => E;
     lastWhere: (
         test: (element: E) => boolean,
-        props: { orElse?: () => E | undefined }
+        props?: { orElse?: () => E | undefined }
     ) => E;
     singleWhere: (
         test: (element: E) => boolean,
-        props: { orElse?: () => E | undefined }
+        props?: { orElse?: () => E | undefined }
     ) => E;
     join: (separator: string) => string;
     where: (test: (element: E) => boolean) => IIterable<E>;

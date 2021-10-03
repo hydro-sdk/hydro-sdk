@@ -10,7 +10,7 @@ declare const dart: {
         paragraphStyle: (
             this: void,
             paragraphStyle: IParagraphStyle,
-            props: {
+            props?: {
                 ellipsis?: string | undefined;
                 fontFamily?: string | undefined;
                 fontSize?: number | undefined;
@@ -32,7 +32,7 @@ export interface IParagraphStyle {
     toString: () => string;
 }
 export class ParagraphStyle {
-    public constructor(props: {
+    public constructor(props?: {
         ellipsis?: string | undefined;
         fontFamily?: string | undefined;
         fontSize?: number | undefined;

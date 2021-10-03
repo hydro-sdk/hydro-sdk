@@ -28,9 +28,15 @@ void loadIconData({required HydroState hydroState, required HydroTable table}) {
       RTManagedIconData(luaCallerArguments[1],
           table: luaCallerArguments[0],
           hydroState: hydroState,
-          fontFamily: luaCallerArguments[2][\'fontFamily\'],
-          fontPackage: luaCallerArguments[2][\'fontPackage\'],
-          matchTextDirection: luaCallerArguments[2][\'matchTextDirection\'])
+          fontFamily: luaCallerArguments.length >= 3
+              ? luaCallerArguments[2][\'fontFamily\']
+              : null,
+          fontPackage: luaCallerArguments.length >= 3
+              ? luaCallerArguments[2][\'fontPackage\']
+              : null,
+          matchTextDirection: luaCallerArguments.length >= 3
+              ? luaCallerArguments[2][\'matchTextDirection\']
+              : null)
     ];
   });
   registerBoxer<IconData>(boxer: (

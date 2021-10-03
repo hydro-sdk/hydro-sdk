@@ -80,7 +80,9 @@ void loadParagraphConstraints(
       RTManagedParagraphConstraints(
           table: luaCallerArguments[0],
           hydroState: hydroState,
-          width: luaCallerArguments[1]['width']?.toDouble())
+          width: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['width']
+              : null?.toDouble())
     ];
   });
   registerBoxer<ParagraphConstraints>(boxer: (

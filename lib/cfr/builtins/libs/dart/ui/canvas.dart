@@ -70,8 +70,12 @@ class VMManagedCanvas extends VMManagedBox<Canvas> {
               parentState: hydroState),
           clipOp: maybeUnBoxEnum(
               values: ClipOp.values,
-              boxedEnum: luaCallerArguments[2]['clipOp']),
-          doAntiAlias: luaCallerArguments[2]['doAntiAlias']);
+              boxedEnum: luaCallerArguments.length >= 3
+                  ? luaCallerArguments[2]['clipOp']
+                  : null),
+          doAntiAlias: luaCallerArguments.length >= 3
+              ? luaCallerArguments[2]['doAntiAlias']
+              : null);
       return [];
     });
     table['clipRRect'] =
@@ -79,7 +83,9 @@ class VMManagedCanvas extends VMManagedBox<Canvas> {
       vmObject.clipRRect(
           maybeUnBoxAndBuildArgument<RRect, dynamic>(luaCallerArguments[1],
               parentState: hydroState),
-          doAntiAlias: luaCallerArguments[2]['doAntiAlias']);
+          doAntiAlias: luaCallerArguments.length >= 3
+              ? luaCallerArguments[2]['doAntiAlias']
+              : null);
       return [];
     });
     table['clipPath'] =
@@ -87,7 +93,9 @@ class VMManagedCanvas extends VMManagedBox<Canvas> {
       vmObject.clipPath(
           maybeUnBoxAndBuildArgument<Path, dynamic>(luaCallerArguments[1],
               parentState: hydroState),
-          doAntiAlias: luaCallerArguments[2]['doAntiAlias']);
+          doAntiAlias: luaCallerArguments.length >= 3
+              ? luaCallerArguments[2]['doAntiAlias']
+              : null);
       return [];
     });
     table['drawColor'] =
@@ -406,8 +414,12 @@ class RTManagedCanvas extends Canvas implements Box<Canvas> {
               parentState: hydroState),
           clipOp: maybeUnBoxEnum(
               values: ClipOp.values,
-              boxedEnum: luaCallerArguments[2]['clipOp']),
-          doAntiAlias: luaCallerArguments[2]['doAntiAlias']);
+              boxedEnum: luaCallerArguments.length >= 3
+                  ? luaCallerArguments[2]['clipOp']
+                  : null),
+          doAntiAlias: luaCallerArguments.length >= 3
+              ? luaCallerArguments[2]['doAntiAlias']
+              : null);
       return [];
     });
     table['_dart_clipRRect'] =
@@ -415,7 +427,9 @@ class RTManagedCanvas extends Canvas implements Box<Canvas> {
       super.clipRRect(
           maybeUnBoxAndBuildArgument<RRect, dynamic>(luaCallerArguments[1],
               parentState: hydroState),
-          doAntiAlias: luaCallerArguments[2]['doAntiAlias']);
+          doAntiAlias: luaCallerArguments.length >= 3
+              ? luaCallerArguments[2]['doAntiAlias']
+              : null);
       return [];
     });
     table['_dart_clipPath'] =
@@ -423,7 +437,9 @@ class RTManagedCanvas extends Canvas implements Box<Canvas> {
       super.clipPath(
           maybeUnBoxAndBuildArgument<Path, dynamic>(luaCallerArguments[1],
               parentState: hydroState),
-          doAntiAlias: luaCallerArguments[2]['doAntiAlias']);
+          doAntiAlias: luaCallerArguments.length >= 3
+              ? luaCallerArguments[2]['doAntiAlias']
+              : null);
       return [];
     });
     table['_dart_drawColor'] =

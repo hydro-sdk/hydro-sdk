@@ -184,6 +184,14 @@ class InstantiateAllGenericsAs
                           )
                           .toList()
                       : swidFunctionType.normalParameterTypes,
+                  returnType: pipeline.reduceFromTerm(
+                    InstantiateAllGenericsAs(
+                      swidType: val.returnType,
+                      instantiatedGeneric: instantiatedGeneric,
+                      instantiateNormalParameterTypes:
+                          instantiateNormalParameterTypes,
+                    ),
+                  ),
                 ))(
               swidFunctionType: val.typeFormals.fold<SwidFunctionType>(
                 val,

@@ -73,10 +73,14 @@ class VMManagedParagraph extends VMManagedBox<Paragraph> {
                 .getBoxesForRange(luaCallerArguments[1], luaCallerArguments[2],
                     boxHeightStyle: maybeUnBoxEnum(
                         values: BoxHeightStyle.values,
-                        boxedEnum: luaCallerArguments[3]['boxHeightStyle']),
+                        boxedEnum: luaCallerArguments.length >= 4
+                            ? luaCallerArguments[3]['boxHeightStyle']
+                            : null),
                     boxWidthStyle: maybeUnBoxEnum(
                         values: BoxWidthStyle.values,
-                        boxedEnum: luaCallerArguments[3]['boxWidthStyle']))
+                        boxedEnum: luaCallerArguments.length >= 4
+                            ? luaCallerArguments[3]['boxWidthStyle']
+                            : null))
                 .map((x) => maybeBoxObject<TextBox>(
                     object: x, hydroState: hydroState, table: HydroTable()))
                 .toList(),
