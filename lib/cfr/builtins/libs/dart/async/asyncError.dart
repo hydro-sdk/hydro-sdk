@@ -17,22 +17,20 @@ class VMManagedAsyncError extends VMManagedBox<AsyncError> {
         object: vmObject.stackTrace,
         hydroState: hydroState,
         table: HydroTable());
+    table['getStackTrace'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        maybeBoxObject<StackTrace>(
+            object: vmObject.stackTrace,
+            hydroState: hydroState,
+            table: HydroTable()),
+      ];
+    });
     table['toString'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         vmObject.toString(),
       ];
-    });
-    table['getStackTrace'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      final returnValue = vmObject.stackTrace;
-      if (returnValue != null) {
-        return [
-          maybeBoxObject<StackTrace?>(
-              object: returnValue, hydroState: hydroState, table: HydroTable()),
-        ];
-      }
-      return [];
     });
     table['getHashCode'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -50,7 +48,7 @@ class VMManagedAsyncError extends VMManagedBox<AsyncError> {
 }
 
 class RTManagedAsyncError extends AsyncError implements Box<AsyncError> {
-  RTManagedAsyncError(Object error, StackTrace stackTrace,
+  RTManagedAsyncError(Object error, StackTrace? stackTrace,
       {required this.table, required this.hydroState})
       : super(
           error,
@@ -64,13 +62,13 @@ class RTManagedAsyncError extends AsyncError implements Box<AsyncError> {
         object: error, hydroState: hydroState, table: HydroTable());
     table['stackTrace'] = maybeBoxObject<StackTrace>(
         object: stackTrace, hydroState: hydroState, table: HydroTable());
-    table['_dart_toString'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [super.toString()];
-    });
     table['_dart_getStackTrace'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.stackTrace];
+    });
+    table['_dart_toString'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.toString()];
     });
     table['_dart_getHashCode'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -85,17 +83,17 @@ class RTManagedAsyncError extends AsyncError implements Box<AsyncError> {
   AsyncError unwrap() => this;
   AsyncError get vmObject => this;
   @override
-  String toString() {
-    Closure closure = table["__tostring"];
-    return closure.dispatch([table], parentState: hydroState)[0];
+  StackTrace get stackTrace {
+    Closure closure = table["getStackTrace"];
+    return maybeUnBoxAndBuildArgument<StackTrace, dynamic>(
+        closure.dispatch([table], parentState: hydroState)[0],
+        parentState: hydroState);
   }
 
   @override
-  StackTrace get stackTrace {
-    Closure closure = table["getStackTrace"];
-    return maybeUnBoxAndBuildArgument<StackTrace?, dynamic>(
-        closure.dispatch([table], parentState: hydroState)[0],
-        parentState: hydroState);
+  String toString() {
+    Closure closure = table["__tostring"];
+    return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
