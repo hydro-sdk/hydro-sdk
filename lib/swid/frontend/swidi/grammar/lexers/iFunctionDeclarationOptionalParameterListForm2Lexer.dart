@@ -1,8 +1,13 @@
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iFunctionDeclarationOptionalParameterLexer.dart';
+import 'package:meta/meta.dart';
+import 'package:petitparser/petitparser.dart';
 
-abstract class IFunctionDeclarationOptionalParameterListForm2Lexer<T>
-    implements IFunctionDeclarationOptionalParameterLexer<T> {
+@optionalTypeArgs
+@immutable
+abstract class IFunctionDeclarationOptionalParameterListForm2Lexer<
+        T extends dynamic, U extends Parser<T>>
+    implements IFunctionDeclarationOptionalParameterLexer<T, U> {
   const IFunctionDeclarationOptionalParameterListForm2Lexer();
 
-  T functionDeclarationOptionalParameterListForm2();
+  U functionDeclarationOptionalParameterListForm2();
 }

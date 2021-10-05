@@ -1,7 +1,12 @@
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iTypeLexer.dart';
+import 'package:meta/meta.dart';
+import 'package:petitparser/petitparser.dart';
 
-abstract class IReturnTypeLexer<T> implements ITypeLexer<T> {
+@optionalTypeArgs
+@immutable
+abstract class IReturnTypeLexer<T extends dynamic, U extends Parser<T>>
+    implements ITypeLexer<T, U> {
   const IReturnTypeLexer();
 
-  T returnType();
+  U returnType();
 }

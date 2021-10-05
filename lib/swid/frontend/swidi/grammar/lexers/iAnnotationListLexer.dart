@@ -1,7 +1,13 @@
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iAnnotationLexer.dart';
 
-abstract class IAnnotationListLexer<T> implements IAnnotationLexer<T> {
+import 'package:meta/meta.dart';
+import 'package:petitparser/petitparser.dart';
+
+@optionalTypeArgs
+@immutable
+abstract class IAnnotationListLexer<T extends dynamic, U extends Parser<T>>
+    implements IAnnotationLexer<T, U> {
   const IAnnotationListLexer();
 
-  T annotationList();
+  U annotationList();
 }

@@ -1,9 +1,13 @@
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iConstNumberLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iConstStringLexer.dart';
+import 'package:meta/meta.dart';
+import 'package:petitparser/petitparser.dart';
 
-abstract class IConstLexer<T>
-    implements IConstNumberLexer<T>, IConstStringLexer<T> {
+@optionalTypeArgs
+@immutable
+abstract class IConstLexer<T extends dynamic, U extends Parser<T>>
+    implements IConstNumberLexer<T, U>, IConstStringLexer<T, U> {
   const IConstLexer();
 
-  T lexicalConst();
+  U lexicalConst();
 }

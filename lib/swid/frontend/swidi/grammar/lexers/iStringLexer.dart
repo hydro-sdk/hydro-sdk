@@ -1,9 +1,14 @@
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iMultiLineStringLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iSingleLineStringLexer.dart';
 
-abstract class IStringLexer<T>
-    implements IMultiLineStringLexer<T>, ISingleLineStringLexer<T> {
+import 'package:meta/meta.dart';
+import 'package:petitparser/petitparser.dart';
+
+@optionalTypeArgs
+@immutable
+abstract class IStringLexer<T extends dynamic, U extends Parser<T>>
+    implements IMultiLineStringLexer<T, U>, ISingleLineStringLexer<T, U> {
   const IStringLexer();
 
-  T lexicalString();
+  U lexicalString();
 }

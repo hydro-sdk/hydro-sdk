@@ -1,8 +1,13 @@
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iConstNamedParameterLexer.dart';
 
-abstract class IConstNamedParameterListLexer<T>
-    implements IConstNamedParameterLexer<T> {
+import 'package:meta/meta.dart';
+import 'package:petitparser/petitparser.dart';
+
+@optionalTypeArgs
+@immutable
+abstract class IConstNamedParameterListLexer<T extends dynamic,
+    U extends Parser<T>> implements IConstNamedParameterLexer<T, U> {
   const IConstNamedParameterListLexer();
 
-  T constNamedParameterList();
+  U constNamedParameterList();
 }

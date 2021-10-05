@@ -1,7 +1,13 @@
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iClassDefinitionLexer.dart';
 
-abstract class ITopLevelDefinitionLexer<T> implements IClassDefinitionLexer<T> {
+import 'package:meta/meta.dart';
+import 'package:petitparser/petitparser.dart';
+
+@optionalTypeArgs
+@immutable
+abstract class ITopLevelDefinitionLexer<T extends dynamic, U extends Parser<T>>
+    implements IClassDefinitionLexer<T, U> {
   const ITopLevelDefinitionLexer();
 
-  T topLevelDefinition();
+  U topLevelDefinition();
 }

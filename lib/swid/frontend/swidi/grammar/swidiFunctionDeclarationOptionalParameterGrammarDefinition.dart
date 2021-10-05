@@ -6,14 +6,12 @@ import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iFunctionDeclaratio
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iFunctionDeclarationOptionalParameterListForm2Lexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iFunctionDeclarationOptionalParameterListForm3Lexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iFunctionDeclarationOptionalParameterTailLexer.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiDeclarationGrammarDefinition.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiGrammarTokenizer.dart';
 
 mixin SwidiFunctionDeclarationOptionalParameterGrammarDefinition
     on
         GrammarDefinition,
-        SwidiGrammarTokenizer,
-        SwidiDeclarationGrammarDefinition
+        SwidiGrammarTokenizer
     implements
         IFunctionDeclarationOptionalParameterLexer,
         IFunctionDeclarationOptionalParameterTailLexer,

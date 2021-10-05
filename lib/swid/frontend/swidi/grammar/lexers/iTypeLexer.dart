@@ -3,13 +3,18 @@ import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iLibraryScopePrefix
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iQualifiedLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iReferenceDeclarationPrefixLexer.dart';
 
-abstract class ITypeLexer<T>
+import 'package:meta/meta.dart';
+import 'package:petitparser/petitparser.dart';
+
+@optionalTypeArgs
+@immutable
+abstract class ITypeLexer<T extends dynamic, U extends Parser<T>>
     implements
-        IAnnotationListLexer<T>,
-        ILibraryScopePrefixLexer<T>,
-        IReferenceDeclarationPrefixLexer<T>,
-        IQualifiedLexer<T> {
+        IAnnotationListLexer<T, U>,
+        ILibraryScopePrefixLexer<T, U>,
+        IReferenceDeclarationPrefixLexer<T, U>,
+        IQualifiedLexer<T, U> {
   const ITypeLexer();
 
-  T type();
+  U type();
 }

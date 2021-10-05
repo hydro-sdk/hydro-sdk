@@ -1,8 +1,13 @@
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iFunctionDeclarationOptionalParameterLexer.dart';
+import 'package:meta/meta.dart';
+import 'package:petitparser/petitparser.dart';
 
-abstract class IFunctionDeclarationOptionalParameterTailLexer<T>
-    implements IFunctionDeclarationOptionalParameterLexer<T> {
+@optionalTypeArgs
+@immutable
+abstract class IFunctionDeclarationOptionalParameterTailLexer<T extends dynamic,
+        U extends Parser<T>>
+    implements IFunctionDeclarationOptionalParameterLexer<T, U> {
   const IFunctionDeclarationOptionalParameterTailLexer();
 
-  T functionDeclarationOptionalParameterTail();
+  U functionDeclarationOptionalParameterTail();
 }

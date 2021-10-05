@@ -1,9 +1,14 @@
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iIdentifierLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iTypeLexer.dart';
 
-abstract class ITypeFormalLexer<T>
-    implements IIdentifierLexer<T>, ITypeLexer<T> {
+import 'package:meta/meta.dart';
+import 'package:petitparser/petitparser.dart';
+
+@optionalTypeArgs
+@immutable
+abstract class ITypeFormalLexer<T extends dynamic, U extends Parser<T>>
+    implements IIdentifierLexer<T, U>, ITypeLexer<T, U> {
   const ITypeFormalLexer();
 
-  T typeFormal();
+  U typeFormal();
 }
