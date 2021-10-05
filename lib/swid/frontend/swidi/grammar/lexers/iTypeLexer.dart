@@ -1,10 +1,10 @@
+import 'package:meta/meta.dart';
+import 'package:petitparser/petitparser.dart';
+
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iAnnotationListLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iLibraryScopePrefixLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iQualifiedLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iReferenceDeclarationPrefixLexer.dart';
-
-import 'package:meta/meta.dart';
-import 'package:petitparser/petitparser.dart';
 
 @optionalTypeArgs
 @immutable

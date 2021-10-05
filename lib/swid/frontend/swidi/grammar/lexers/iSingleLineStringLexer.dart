@@ -1,8 +1,8 @@
-import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iStringContentDqLexer.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iStringContentSqLexer.dart';
-
 import 'package:meta/meta.dart';
 import 'package:petitparser/petitparser.dart';
+
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iStringContentDqLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iStringContentSqLexer.dart';
 
 @optionalTypeArgs
 @immutable

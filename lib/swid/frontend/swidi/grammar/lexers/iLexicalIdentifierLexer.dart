@@ -1,7 +1,8 @@
-import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iIdentifierPartLexer.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iIdentifierStartLexer.dart';
 import 'package:meta/meta.dart';
 import 'package:petitparser/petitparser.dart';
+
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iIdentifierPartLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iIdentifierStartLexer.dart';
 
 @optionalTypeArgs
 @immutable

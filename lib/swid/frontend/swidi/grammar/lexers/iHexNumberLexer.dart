@@ -1,6 +1,7 @@
-import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iHexDigitLexer.dart';
 import 'package:meta/meta.dart';
 import 'package:petitparser/petitparser.dart';
+
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iHexDigitLexer.dart';
 
 @optionalTypeArgs
 @immutable

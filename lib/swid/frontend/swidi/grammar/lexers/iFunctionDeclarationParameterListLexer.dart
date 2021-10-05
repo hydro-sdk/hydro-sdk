@@ -1,3 +1,6 @@
+import 'package:meta/meta.dart';
+import 'package:petitparser/petitparser.dart';
+
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iFunctionDeclarationNamedParameterListForm1Lexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iFunctionDeclarationNamedParameterListForm2Lexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iFunctionDeclarationNamedParameterListForm3Lexer.dart';
@@ -7,8 +10,6 @@ import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iFunctionDeclaratio
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iFunctionDeclarationPositionalParameterListForm1Lexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iFunctionDeclarationPositionalParameterListForm2Lexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iFunctionDeclarationPositionalParameterListForm3Lexer.dart';
-import 'package:meta/meta.dart';
-import 'package:petitparser/petitparser.dart';
 
 @optionalTypeArgs
 @immutable

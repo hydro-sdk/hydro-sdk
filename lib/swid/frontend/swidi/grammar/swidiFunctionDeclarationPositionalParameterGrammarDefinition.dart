@@ -9,9 +9,7 @@ import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iFunctionDeclaratio
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiGrammarTokenizer.dart';
 
 mixin SwidiFunctionDeclarationPositionalParameterGrammarDefinition
-    on
-        GrammarDefinition,
-        SwidiGrammarTokenizer
+    on GrammarDefinition, SwidiGrammarTokenizer
     implements
         IFunctionDeclarationPositionalParameterLexer,
         IFunctionDeclarationPositionalParameterTailLexer,
