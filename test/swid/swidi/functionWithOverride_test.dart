@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiType.dart';
 import 'package:tuple/tuple.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiClass.dart';
@@ -48,14 +49,16 @@ void foo(int bar,int baz)->@"foo";
               ),
               typeFormals: [],
               name: "foo",
-              returnType: SwidiInterface(
-                annotations: [],
-                typeArguments: [],
-                name: "void",
-                libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                referenceDeclarationPrefix:
-                    SwidiReferenceDeclarationPrefix.empty,
-                nullabilitySuffix: SwidiNullabilitySuffix.none,
+              returnType: SwidiType.fromSwidiInterface(
+                swidiInterface: SwidiInterface(
+                  annotations: [],
+                  typeArguments: [],
+                  name: "void",
+                  libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                  referenceDeclarationPrefix:
+                      SwidiReferenceDeclarationPrefix.empty,
+                  nullabilitySuffix: SwidiNullabilitySuffix.none,
+                ),
               ),
               optionalParameters: [],
               namedParameters: [],
@@ -66,14 +69,16 @@ void foo(int bar,int baz)->@"foo";
                       swidiEmptyConst: SwidiEmptyConst(),
                     ),
                     name: "bar",
-                    type: SwidiInterface(
-                      annotations: [],
-                      typeArguments: [],
-                      name: "int",
-                      libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                      referenceDeclarationPrefix:
-                          SwidiReferenceDeclarationPrefix.empty,
-                      nullabilitySuffix: SwidiNullabilitySuffix.none,
+                    type: SwidiType.fromSwidiInterface(
+                      swidiInterface: SwidiInterface(
+                        annotations: [],
+                        typeArguments: [],
+                        name: "int",
+                        libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                        referenceDeclarationPrefix:
+                            SwidiReferenceDeclarationPrefix.empty,
+                        nullabilitySuffix: SwidiNullabilitySuffix.none,
+                      ),
                     ),
                   ),
                 ),
@@ -83,14 +88,16 @@ void foo(int bar,int baz)->@"foo";
                       swidiEmptyConst: SwidiEmptyConst(),
                     ),
                     name: "baz",
-                    type: SwidiInterface(
-                      annotations: [],
-                      typeArguments: [],
-                      name: "int",
-                      libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                      referenceDeclarationPrefix:
-                          SwidiReferenceDeclarationPrefix.empty,
-                      nullabilitySuffix: SwidiNullabilitySuffix.none,
+                    type: SwidiType.fromSwidiInterface(
+                      swidiInterface: SwidiInterface(
+                        annotations: [],
+                        typeArguments: [],
+                        name: "int",
+                        libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                        referenceDeclarationPrefix:
+                            SwidiReferenceDeclarationPrefix.empty,
+                        nullabilitySuffix: SwidiNullabilitySuffix.none,
+                      ),
                     ),
                   ),
                 )
@@ -118,14 +125,16 @@ class IconData {
           methods: [
             SwidiFunctionDeclaration(
               name: "foo",
-              returnType: SwidiInterface(
-                name: "void",
-                libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                referenceDeclarationPrefix:
-                    SwidiReferenceDeclarationPrefix.empty,
-                nullabilitySuffix: SwidiNullabilitySuffix.none,
-                typeArguments: [],
-                annotations: [],
+              returnType: SwidiType.fromSwidiInterface(
+                swidiInterface: SwidiInterface(
+                  name: "void",
+                  libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                  referenceDeclarationPrefix:
+                      SwidiReferenceDeclarationPrefix.empty,
+                  nullabilitySuffix: SwidiNullabilitySuffix.none,
+                  typeArguments: [],
+                  annotations: [],
+                ),
               ),
               positionalParameters: [],
               optionalParameters: [],
@@ -172,14 +181,16 @@ class IconData {
           methods: [
             SwidiFunctionDeclaration(
               name: "foo",
-              returnType: SwidiInterface(
-                name: "void",
-                libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                referenceDeclarationPrefix:
-                    SwidiReferenceDeclarationPrefix.empty,
-                nullabilitySuffix: SwidiNullabilitySuffix.none,
-                typeArguments: [],
-                annotations: [],
+              returnType: SwidiType.fromSwidiInterface(
+                swidiInterface: SwidiInterface(
+                  name: "void",
+                  libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                  referenceDeclarationPrefix:
+                      SwidiReferenceDeclarationPrefix.empty,
+                  nullabilitySuffix: SwidiNullabilitySuffix.none,
+                  typeArguments: [],
+                  annotations: [],
+                ),
               ),
               positionalParameters: [],
               optionalParameters: [],

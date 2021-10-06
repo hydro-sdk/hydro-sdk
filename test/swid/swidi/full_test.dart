@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiType.dart';
 import 'package:tuple/tuple.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiAnnotation.dart';
@@ -59,14 +60,16 @@ void main() {
               ),
               typeFormals: [],
               name: "foo",
-              returnType: SwidiInterface(
-                annotations: [],
-                typeArguments: [],
-                name: "void",
-                libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                referenceDeclarationPrefix:
-                    SwidiReferenceDeclarationPrefix(name: "void"),
-                nullabilitySuffix: SwidiNullabilitySuffix.none,
+              returnType: SwidiType.fromSwidiInterface(
+                swidiInterface: SwidiInterface(
+                  annotations: [],
+                  typeArguments: [],
+                  name: "void",
+                  libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                  referenceDeclarationPrefix:
+                      SwidiReferenceDeclarationPrefix(name: "void"),
+                  nullabilitySuffix: SwidiNullabilitySuffix.none,
+                ),
               ),
               optionalParameters: [],
               positionalParameters: [
@@ -76,15 +79,17 @@ void main() {
                       swidiEmptyConst: SwidiEmptyConst(),
                     ),
                     name: "bar",
-                    type: SwidiInterface(
-                      annotations: [],
-                      typeArguments: [],
-                      name: "int",
-                      libraryScopePrefix:
-                          SwidiLibraryScopePrefix(name: "dart:core"),
-                      referenceDeclarationPrefix:
-                          SwidiReferenceDeclarationPrefix(name: "class"),
-                      nullabilitySuffix: SwidiNullabilitySuffix.none,
+                    type: SwidiType.fromSwidiInterface(
+                      swidiInterface: SwidiInterface(
+                        annotations: [],
+                        typeArguments: [],
+                        name: "int",
+                        libraryScopePrefix:
+                            SwidiLibraryScopePrefix(name: "dart:core"),
+                        referenceDeclarationPrefix:
+                            SwidiReferenceDeclarationPrefix(name: "class"),
+                        nullabilitySuffix: SwidiNullabilitySuffix.none,
+                      ),
                     ),
                   ),
                 ),
@@ -96,15 +101,17 @@ void main() {
                       swidiEmptyConst: SwidiEmptyConst(),
                     ),
                     name: "baz",
-                    type: SwidiInterface(
-                      annotations: [],
-                      typeArguments: [],
-                      name: "int",
-                      libraryScopePrefix:
-                          SwidiLibraryScopePrefix(name: "dart:core"),
-                      referenceDeclarationPrefix:
-                          SwidiReferenceDeclarationPrefix(name: "class"),
-                      nullabilitySuffix: SwidiNullabilitySuffix.none,
+                    type: SwidiType.fromSwidiInterface(
+                      swidiInterface: SwidiInterface(
+                        annotations: [],
+                        typeArguments: [],
+                        name: "int",
+                        libraryScopePrefix:
+                            SwidiLibraryScopePrefix(name: "dart:core"),
+                        referenceDeclarationPrefix:
+                            SwidiReferenceDeclarationPrefix(name: "class"),
+                        nullabilitySuffix: SwidiNullabilitySuffix.none,
+                      ),
                     ),
                   ),
                 ),
@@ -114,15 +121,17 @@ void main() {
                       swidiEmptyConst: SwidiEmptyConst(),
                     ),
                     name: "qux",
-                    type: SwidiInterface(
-                      annotations: [],
-                      typeArguments: [],
-                      name: "int?",
-                      libraryScopePrefix:
-                          SwidiLibraryScopePrefix(name: "dart:core"),
-                      referenceDeclarationPrefix:
-                          SwidiReferenceDeclarationPrefix(name: "class"),
-                      nullabilitySuffix: SwidiNullabilitySuffix.question,
+                    type: SwidiType.fromSwidiInterface(
+                      swidiInterface: SwidiInterface(
+                        annotations: [],
+                        typeArguments: [],
+                        name: "int?",
+                        libraryScopePrefix:
+                            SwidiLibraryScopePrefix(name: "dart:core"),
+                        referenceDeclarationPrefix:
+                            SwidiReferenceDeclarationPrefix(name: "class"),
+                        nullabilitySuffix: SwidiNullabilitySuffix.question,
+                      ),
                     ),
                   ),
                 )
@@ -176,15 +185,17 @@ class "package:flutter/src/widgets/icon_data.dart"::IconData {
                   ),
                 )
               ],
-              returnType: SwidiInterface(
-                annotations: [],
-                name: "T",
-                libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                referenceDeclarationPrefix: SwidiReferenceDeclarationPrefix(
-                  name: "type",
+              returnType: SwidiType.fromSwidiInterface(
+                swidiInterface: SwidiInterface(
+                  annotations: [],
+                  name: "T",
+                  libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                  referenceDeclarationPrefix: SwidiReferenceDeclarationPrefix(
+                    name: "type",
+                  ),
+                  nullabilitySuffix: SwidiNullabilitySuffix.none,
+                  typeArguments: [],
                 ),
-                nullabilitySuffix: SwidiNullabilitySuffix.none,
-                typeArguments: [],
               ),
               positionalParameters: [],
               optionalParameters: [
@@ -196,26 +207,28 @@ class "package:flutter/src/widgets/icon_data.dart"::IconData {
                         value: "foo bar default",
                       ),
                     ),
-                    type: SwidiInterface(
-                      annotations: [],
-                      name: "T?",
-                      libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                      referenceDeclarationPrefix:
-                          SwidiReferenceDeclarationPrefix(name: "type"),
-                      nullabilitySuffix: SwidiNullabilitySuffix.question,
-                      typeArguments: [
-                        SwidiInterface(
-                          annotations: [],
-                          name: "dynamic",
-                          libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                          referenceDeclarationPrefix:
-                              SwidiReferenceDeclarationPrefix(
+                    type: SwidiType.fromSwidiInterface(
+                      swidiInterface: SwidiInterface(
+                        annotations: [],
+                        name: "T?",
+                        libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                        referenceDeclarationPrefix:
+                            SwidiReferenceDeclarationPrefix(name: "type"),
+                        nullabilitySuffix: SwidiNullabilitySuffix.question,
+                        typeArguments: [
+                          SwidiInterface(
+                            annotations: [],
                             name: "dynamic",
-                          ),
-                          nullabilitySuffix: SwidiNullabilitySuffix.none,
-                          typeArguments: [],
-                        )
-                      ],
+                            libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                            referenceDeclarationPrefix:
+                                SwidiReferenceDeclarationPrefix(
+                              name: "dynamic",
+                            ),
+                            nullabilitySuffix: SwidiNullabilitySuffix.none,
+                            typeArguments: [],
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 )
@@ -253,27 +266,29 @@ class "dart:core"::List {
                 swidiEmptyConst: SwidiEmptyConst(),
               ),
               name: "fromArray",
-              returnType: SwidiInterface(
-                name: "List",
-                libraryScopePrefix: SwidiLibraryScopePrefix(
-                  name: "dart:core",
+              returnType: SwidiType.fromSwidiInterface(
+                swidiInterface: SwidiInterface(
+                  name: "List",
+                  libraryScopePrefix: SwidiLibraryScopePrefix(
+                    name: "dart:core",
+                  ),
+                  referenceDeclarationPrefix: SwidiReferenceDeclarationPrefix(
+                    name: "class",
+                  ),
+                  nullabilitySuffix: SwidiNullabilitySuffix.none,
+                  typeArguments: [
+                    SwidiInterface(
+                      name: "T",
+                      libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                      referenceDeclarationPrefix:
+                          SwidiReferenceDeclarationPrefix.empty,
+                      nullabilitySuffix: SwidiNullabilitySuffix.none,
+                      typeArguments: [],
+                      annotations: [],
+                    )
+                  ],
+                  annotations: [],
                 ),
-                referenceDeclarationPrefix: SwidiReferenceDeclarationPrefix(
-                  name: "class",
-                ),
-                nullabilitySuffix: SwidiNullabilitySuffix.none,
-                typeArguments: [
-                  SwidiInterface(
-                    name: "T",
-                    libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                    referenceDeclarationPrefix:
-                        SwidiReferenceDeclarationPrefix.empty,
-                    nullabilitySuffix: SwidiNullabilitySuffix.none,
-                    typeArguments: [],
-                    annotations: [],
-                  )
-                ],
-                annotations: [],
               ),
               positionalParameters: [],
               optionalParameters: [
@@ -283,59 +298,61 @@ class "dart:core"::List {
                       swidiEmptyConst: SwidiEmptyConst(),
                     ),
                     name: "array",
-                    type: SwidiInterface(
-                      name: "Array?",
-                      libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                      referenceDeclarationPrefix:
-                          SwidiReferenceDeclarationPrefix(
-                        name: "class",
+                    type: SwidiType.fromSwidiInterface(
+                      swidiInterface: SwidiInterface(
+                        name: "Array?",
+                        libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                        referenceDeclarationPrefix:
+                            SwidiReferenceDeclarationPrefix(
+                          name: "class",
+                        ),
+                        nullabilitySuffix: SwidiNullabilitySuffix.question,
+                        typeArguments: [
+                          SwidiInterface(
+                            name: "T",
+                            libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                            referenceDeclarationPrefix:
+                                SwidiReferenceDeclarationPrefix.empty,
+                            nullabilitySuffix: SwidiNullabilitySuffix.none,
+                            typeArguments: [],
+                            annotations: [],
+                          )
+                        ],
+                        annotations: [
+                          SwidiAnnotation(
+                            value: SwidiConst.fromSwidiConstFunctionInvocation(
+                              swidiConstFunctionInvocation:
+                                  SwidiConstFunctionInvocation(
+                                value: "ignoreTransform",
+                                positionalParameters: [
+                                  SwidiConst.fromSwidiConstString(
+                                    swidiConstString: SwidiConstString(
+                                      value: "referenceRewriting",
+                                    ),
+                                  )
+                                ],
+                                namedParameters: {},
+                              ),
+                            ),
+                          ),
+                          SwidiAnnotation(
+                            value: SwidiConst.fromSwidiConstFunctionInvocation(
+                              swidiConstFunctionInvocation:
+                                  SwidiConstFunctionInvocation(
+                                value: "ignoreAnalysis",
+                                positionalParameters: [
+                                  SwidiConst.fromSwidiConstString(
+                                    swidiConstString: SwidiConstString(
+                                      value: "referenceCollection",
+                                    ),
+                                  )
+                                ],
+                                namedParameters: {},
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
-                      nullabilitySuffix: SwidiNullabilitySuffix.question,
-                      typeArguments: [
-                        SwidiInterface(
-                          name: "T",
-                          libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                          referenceDeclarationPrefix:
-                              SwidiReferenceDeclarationPrefix.empty,
-                          nullabilitySuffix: SwidiNullabilitySuffix.none,
-                          typeArguments: [],
-                          annotations: [],
-                        )
-                      ],
-                      annotations: [
-                        SwidiAnnotation(
-                          value: SwidiConst.fromSwidiConstFunctionInvocation(
-                            swidiConstFunctionInvocation:
-                                SwidiConstFunctionInvocation(
-                              value: "ignoreTransform",
-                              positionalParameters: [
-                                SwidiConst.fromSwidiConstString(
-                                  swidiConstString: SwidiConstString(
-                                    value: "referenceRewriting",
-                                  ),
-                                )
-                              ],
-                              namedParameters: {},
-                            ),
-                          ),
-                        ),
-                        SwidiAnnotation(
-                          value: SwidiConst.fromSwidiConstFunctionInvocation(
-                            swidiConstFunctionInvocation:
-                                SwidiConstFunctionInvocation(
-                              value: "ignoreAnalysis",
-                              positionalParameters: [
-                                SwidiConst.fromSwidiConstString(
-                                  swidiConstString: SwidiConstString(
-                                    value: "referenceCollection",
-                                  ),
-                                )
-                              ],
-                              namedParameters: {},
-                            ),
-                          ),
-                        ),
-                      ],
                     ),
                   ),
                 )
@@ -407,27 +424,29 @@ class "dart:core"::List {
                 ),
               ),
               name: "fromArray",
-              returnType: SwidiInterface(
-                name: "List",
-                libraryScopePrefix: SwidiLibraryScopePrefix(
-                  name: "dart:core",
+              returnType: SwidiType.fromSwidiInterface(
+                swidiInterface: SwidiInterface(
+                  name: "List",
+                  libraryScopePrefix: SwidiLibraryScopePrefix(
+                    name: "dart:core",
+                  ),
+                  referenceDeclarationPrefix: SwidiReferenceDeclarationPrefix(
+                    name: "class",
+                  ),
+                  nullabilitySuffix: SwidiNullabilitySuffix.none,
+                  typeArguments: [
+                    SwidiInterface(
+                      name: "T",
+                      libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                      referenceDeclarationPrefix:
+                          SwidiReferenceDeclarationPrefix.empty,
+                      nullabilitySuffix: SwidiNullabilitySuffix.none,
+                      typeArguments: [],
+                      annotations: [],
+                    )
+                  ],
+                  annotations: [],
                 ),
-                referenceDeclarationPrefix: SwidiReferenceDeclarationPrefix(
-                  name: "class",
-                ),
-                nullabilitySuffix: SwidiNullabilitySuffix.none,
-                typeArguments: [
-                  SwidiInterface(
-                    name: "T",
-                    libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                    referenceDeclarationPrefix:
-                        SwidiReferenceDeclarationPrefix.empty,
-                    nullabilitySuffix: SwidiNullabilitySuffix.none,
-                    typeArguments: [],
-                    annotations: [],
-                  )
-                ],
-                annotations: [],
               ),
               positionalParameters: [],
               optionalParameters: [
@@ -437,59 +456,61 @@ class "dart:core"::List {
                       swidiEmptyConst: SwidiEmptyConst(),
                     ),
                     name: "array",
-                    type: SwidiInterface(
-                      name: "Array?",
-                      libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                      referenceDeclarationPrefix:
-                          SwidiReferenceDeclarationPrefix(
-                        name: "class",
+                    type: SwidiType.fromSwidiInterface(
+                      swidiInterface: SwidiInterface(
+                        name: "Array?",
+                        libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                        referenceDeclarationPrefix:
+                            SwidiReferenceDeclarationPrefix(
+                          name: "class",
+                        ),
+                        nullabilitySuffix: SwidiNullabilitySuffix.question,
+                        typeArguments: [
+                          SwidiInterface(
+                            name: "T",
+                            libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                            referenceDeclarationPrefix:
+                                SwidiReferenceDeclarationPrefix.empty,
+                            nullabilitySuffix: SwidiNullabilitySuffix.none,
+                            typeArguments: [],
+                            annotations: [],
+                          )
+                        ],
+                        annotations: [
+                          SwidiAnnotation(
+                            value: SwidiConst.fromSwidiConstFunctionInvocation(
+                              swidiConstFunctionInvocation:
+                                  SwidiConstFunctionInvocation(
+                                value: "ignoreTransform",
+                                positionalParameters: [
+                                  SwidiConst.fromSwidiConstString(
+                                    swidiConstString: SwidiConstString(
+                                      value: "referenceRewriting",
+                                    ),
+                                  )
+                                ],
+                                namedParameters: {},
+                              ),
+                            ),
+                          ),
+                          SwidiAnnotation(
+                            value: SwidiConst.fromSwidiConstFunctionInvocation(
+                              swidiConstFunctionInvocation:
+                                  SwidiConstFunctionInvocation(
+                                value: "ignoreAnalysis",
+                                positionalParameters: [
+                                  SwidiConst.fromSwidiConstString(
+                                    swidiConstString: SwidiConstString(
+                                      value: "referenceCollection",
+                                    ),
+                                  )
+                                ],
+                                namedParameters: {},
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
-                      nullabilitySuffix: SwidiNullabilitySuffix.question,
-                      typeArguments: [
-                        SwidiInterface(
-                          name: "T",
-                          libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                          referenceDeclarationPrefix:
-                              SwidiReferenceDeclarationPrefix.empty,
-                          nullabilitySuffix: SwidiNullabilitySuffix.none,
-                          typeArguments: [],
-                          annotations: [],
-                        )
-                      ],
-                      annotations: [
-                        SwidiAnnotation(
-                          value: SwidiConst.fromSwidiConstFunctionInvocation(
-                            swidiConstFunctionInvocation:
-                                SwidiConstFunctionInvocation(
-                              value: "ignoreTransform",
-                              positionalParameters: [
-                                SwidiConst.fromSwidiConstString(
-                                  swidiConstString: SwidiConstString(
-                                    value: "referenceRewriting",
-                                  ),
-                                )
-                              ],
-                              namedParameters: {},
-                            ),
-                          ),
-                        ),
-                        SwidiAnnotation(
-                          value: SwidiConst.fromSwidiConstFunctionInvocation(
-                            swidiConstFunctionInvocation:
-                                SwidiConstFunctionInvocation(
-                              value: "ignoreAnalysis",
-                              positionalParameters: [
-                                SwidiConst.fromSwidiConstString(
-                                  swidiConstString: SwidiConstString(
-                                    value: "referenceCollection",
-                                  ),
-                                )
-                              ],
-                              namedParameters: {},
-                            ),
-                          ),
-                        ),
-                      ],
                     ),
                   ),
                 )
@@ -560,27 +581,29 @@ class "dart:core"::List {
                 ),
               ),
               name: "fromArray",
-              returnType: SwidiInterface(
-                name: "List",
-                libraryScopePrefix: SwidiLibraryScopePrefix(
-                  name: "dart:core",
+              returnType: SwidiType.fromSwidiInterface(
+                swidiInterface: SwidiInterface(
+                  name: "List",
+                  libraryScopePrefix: SwidiLibraryScopePrefix(
+                    name: "dart:core",
+                  ),
+                  referenceDeclarationPrefix: SwidiReferenceDeclarationPrefix(
+                    name: "class",
+                  ),
+                  nullabilitySuffix: SwidiNullabilitySuffix.none,
+                  typeArguments: [
+                    SwidiInterface(
+                      name: "T",
+                      libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                      referenceDeclarationPrefix:
+                          SwidiReferenceDeclarationPrefix.empty,
+                      nullabilitySuffix: SwidiNullabilitySuffix.none,
+                      typeArguments: [],
+                      annotations: [],
+                    )
+                  ],
+                  annotations: [],
                 ),
-                referenceDeclarationPrefix: SwidiReferenceDeclarationPrefix(
-                  name: "class",
-                ),
-                nullabilitySuffix: SwidiNullabilitySuffix.none,
-                typeArguments: [
-                  SwidiInterface(
-                    name: "T",
-                    libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                    referenceDeclarationPrefix:
-                        SwidiReferenceDeclarationPrefix.empty,
-                    nullabilitySuffix: SwidiNullabilitySuffix.none,
-                    typeArguments: [],
-                    annotations: [],
-                  )
-                ],
-                annotations: [],
               ),
               positionalParameters: [],
               optionalParameters: [
@@ -590,59 +613,61 @@ class "dart:core"::List {
                       swidiEmptyConst: SwidiEmptyConst(),
                     ),
                     name: "array",
-                    type: SwidiInterface(
-                      name: "Array?",
-                      libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                      referenceDeclarationPrefix:
-                          SwidiReferenceDeclarationPrefix(
-                        name: "class",
+                    type: SwidiType.fromSwidiInterface(
+                      swidiInterface: SwidiInterface(
+                        name: "Array?",
+                        libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                        referenceDeclarationPrefix:
+                            SwidiReferenceDeclarationPrefix(
+                          name: "class",
+                        ),
+                        nullabilitySuffix: SwidiNullabilitySuffix.question,
+                        typeArguments: [
+                          SwidiInterface(
+                            name: "T",
+                            libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                            referenceDeclarationPrefix:
+                                SwidiReferenceDeclarationPrefix.empty,
+                            nullabilitySuffix: SwidiNullabilitySuffix.none,
+                            typeArguments: [],
+                            annotations: [],
+                          )
+                        ],
+                        annotations: [
+                          SwidiAnnotation(
+                            value: SwidiConst.fromSwidiConstFunctionInvocation(
+                              swidiConstFunctionInvocation:
+                                  SwidiConstFunctionInvocation(
+                                value: "ignoreTransform",
+                                positionalParameters: [
+                                  SwidiConst.fromSwidiConstString(
+                                    swidiConstString: SwidiConstString(
+                                      value: "referenceRewriting",
+                                    ),
+                                  )
+                                ],
+                                namedParameters: {},
+                              ),
+                            ),
+                          ),
+                          SwidiAnnotation(
+                            value: SwidiConst.fromSwidiConstFunctionInvocation(
+                              swidiConstFunctionInvocation:
+                                  SwidiConstFunctionInvocation(
+                                value: "ignoreAnalysis",
+                                positionalParameters: [
+                                  SwidiConst.fromSwidiConstString(
+                                    swidiConstString: SwidiConstString(
+                                      value: "referenceCollection",
+                                    ),
+                                  )
+                                ],
+                                namedParameters: {},
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
-                      nullabilitySuffix: SwidiNullabilitySuffix.question,
-                      typeArguments: [
-                        SwidiInterface(
-                          name: "T",
-                          libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                          referenceDeclarationPrefix:
-                              SwidiReferenceDeclarationPrefix.empty,
-                          nullabilitySuffix: SwidiNullabilitySuffix.none,
-                          typeArguments: [],
-                          annotations: [],
-                        )
-                      ],
-                      annotations: [
-                        SwidiAnnotation(
-                          value: SwidiConst.fromSwidiConstFunctionInvocation(
-                            swidiConstFunctionInvocation:
-                                SwidiConstFunctionInvocation(
-                              value: "ignoreTransform",
-                              positionalParameters: [
-                                SwidiConst.fromSwidiConstString(
-                                  swidiConstString: SwidiConstString(
-                                    value: "referenceRewriting",
-                                  ),
-                                )
-                              ],
-                              namedParameters: {},
-                            ),
-                          ),
-                        ),
-                        SwidiAnnotation(
-                          value: SwidiConst.fromSwidiConstFunctionInvocation(
-                            swidiConstFunctionInvocation:
-                                SwidiConstFunctionInvocation(
-                              value: "ignoreAnalysis",
-                              positionalParameters: [
-                                SwidiConst.fromSwidiConstString(
-                                  swidiConstString: SwidiConstString(
-                                    value: "referenceCollection",
-                                  ),
-                                )
-                              ],
-                              namedParameters: {},
-                            ),
-                          ),
-                        ),
-                      ],
                     ),
                   ),
                 )

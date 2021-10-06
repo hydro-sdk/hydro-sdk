@@ -7,6 +7,7 @@ import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiInterface.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiLibraryScopePrefix.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiReferenceDeclarationPrefix.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiType.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiGrammarDefinition.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiAnnotationListParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiAnnotationParser.dart';
@@ -62,21 +63,23 @@ void main() {
       ),
       parser:
           const SimpleTypeParser().build(start: const SimpleTypeParser().type),
-      result: SwidiInterface(
-        name: "void",
-        libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-        referenceDeclarationPrefix: SwidiReferenceDeclarationPrefix.empty,
-        nullabilitySuffix: SwidiNullabilitySuffix.none,
-        typeArguments: [],
-        annotations: [
-          SwidiAnnotation(
-            value: SwidiConst.fromSwidiConstString(
-              swidiConstString: SwidiConstString(
-                value: "foo",
+      result: SwidiType.fromSwidiInterface(
+        swidiInterface: SwidiInterface(
+          name: "void",
+          libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+          referenceDeclarationPrefix: SwidiReferenceDeclarationPrefix.empty,
+          nullabilitySuffix: SwidiNullabilitySuffix.none,
+          typeArguments: [],
+          annotations: [
+            SwidiAnnotation(
+              value: SwidiConst.fromSwidiConstString(
+                swidiConstString: SwidiConstString(
+                  value: "foo",
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }, tags: "swid");

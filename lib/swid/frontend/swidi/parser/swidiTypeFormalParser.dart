@@ -1,4 +1,6 @@
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiType.dart';
 import 'package:petitparser/petitparser.dart';
+import 'package:collection/collection.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiInterface.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiTypeFormal.dart';
@@ -16,7 +18,7 @@ mixin SwidiTypeFormalParser
         ITypeFormalLexer,
         ITypeLexer,
         ITypeFormalParser<Parser<SwidiTypeFormal>>,
-        ITypeParser<Parser<SwidiInterface>> {
+        ITypeParser<Parser<SwidiType>> {
   @override
   Parser<SwidiTypeFormal> typeFormal() => super.typeFormal().map(
         (x) => SwidiTypeFormal(
@@ -25,7 +27,15 @@ mixin SwidiTypeFormalParser
             required final List<SwidiInterface> bound,
           }) =>
               bound.isNotEmpty ? bound.first : SwidiInterface.empty)(
-            bound: collectTokens<SwidiInterface>(x),
+            bound: collectTokens<SwidiType>(x)
+                .map(
+                  (x) => x.maybeWhen(
+                    fromSwidiInterface: (val) => val,
+                    orElse: () => null,
+                  ),
+                )
+                .whereNotNull()
+                .toList(),
           ),
         ),
       );

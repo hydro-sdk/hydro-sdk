@@ -7,6 +7,7 @@ import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiInterface.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiLibraryScopePrefix.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiReferenceDeclarationPrefix.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiType.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiGrammarDefinition.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiAnnotationListParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiAnnotationParser.dart';
@@ -68,13 +69,15 @@ void main() {
         defaultConstValue: SwidiConst.fromSwidiEmptyConst(
           swidiEmptyConst: SwidiEmptyConst(),
         ),
-        type: SwidiInterface(
-          annotations: [],
-          typeArguments: [],
-          name: "void",
-          libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-          referenceDeclarationPrefix: SwidiReferenceDeclarationPrefix.empty,
-          nullabilitySuffix: SwidiNullabilitySuffix.none,
+        type: SwidiType.fromSwidiInterface(
+          swidiInterface: SwidiInterface(
+            annotations: [],
+            typeArguments: [],
+            name: "void",
+            libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+            referenceDeclarationPrefix: SwidiReferenceDeclarationPrefix.empty,
+            nullabilitySuffix: SwidiNullabilitySuffix.none,
+          ),
         ),
         name: "foo",
       ),
@@ -88,13 +91,15 @@ void main() {
         defaultConstValue: SwidiConst.fromSwidiEmptyConst(
           swidiEmptyConst: SwidiEmptyConst(),
         ),
-        type: SwidiInterface(
-          annotations: [],
-          typeArguments: [],
-          name: "int",
-          libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-          referenceDeclarationPrefix: SwidiReferenceDeclarationPrefix.empty,
-          nullabilitySuffix: SwidiNullabilitySuffix.none,
+        type: SwidiType.fromSwidiInterface(
+          swidiInterface: SwidiInterface(
+            annotations: [],
+            typeArguments: [],
+            name: "int",
+            libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+            referenceDeclarationPrefix: SwidiReferenceDeclarationPrefix.empty,
+            nullabilitySuffix: SwidiNullabilitySuffix.none,
+          ),
         ),
         name: "foo",
       ),
@@ -108,13 +113,15 @@ void main() {
         defaultConstValue: SwidiConst.fromSwidiEmptyConst(
           swidiEmptyConst: SwidiEmptyConst(),
         ),
-        type: SwidiInterface(
-          annotations: [],
-          typeArguments: [],
-          name: "int?",
-          libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-          referenceDeclarationPrefix: SwidiReferenceDeclarationPrefix.empty,
-          nullabilitySuffix: SwidiNullabilitySuffix.question,
+        type: SwidiType.fromSwidiInterface(
+          swidiInterface: SwidiInterface(
+            annotations: [],
+            typeArguments: [],
+            name: "int?",
+            libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+            referenceDeclarationPrefix: SwidiReferenceDeclarationPrefix.empty,
+            nullabilitySuffix: SwidiNullabilitySuffix.question,
+          ),
         ),
         name: "foo",
       ),

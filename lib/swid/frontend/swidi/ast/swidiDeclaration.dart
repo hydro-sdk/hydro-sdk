@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConst.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiInterface.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiType.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
 import 'package:hydro_sdk/swid/util/iCopyable.dart';
@@ -21,14 +21,14 @@ class SwidiDeclaration
 
   factory SwidiDeclaration({
     required final String name,
-    required final SwidiInterface type,
+    required final SwidiType type,
     required final SwidiConst defaultConstValue,
   }) = _$SwidiDeclarationCtor;
 
   factory SwidiDeclaration._clone({
     required final SwidiDeclaration swidiDeclaration,
     final String? name,
-    final SwidiInterface? type,
+    final SwidiType? type,
     final SwidiConst? defaultConstValue,
   }) =>
       SwidiDeclaration(
@@ -48,7 +48,7 @@ class SwidiDeclaration
   @override
   SwidiDeclaration clone({
     final String? name,
-    final SwidiInterface? type,
+    final SwidiType? type,
     final SwidiConst? defaultConstValue,
   }) =>
       SwidiDeclaration._clone(

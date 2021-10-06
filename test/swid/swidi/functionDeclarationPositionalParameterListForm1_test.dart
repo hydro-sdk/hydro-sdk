@@ -9,6 +9,7 @@ import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiPositionalOrOptionalOrNamedParameter.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiPositionalParameter.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiReferenceDeclarationPrefix.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiType.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiGrammarDefinition.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiAnnotationListParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiAnnotationParser.dart';
@@ -83,14 +84,16 @@ void main() {
                 swidiEmptyConst: SwidiEmptyConst(),
               ),
               name: "foo",
-              type: SwidiInterface(
-                annotations: [],
-                typeArguments: [],
-                name: "void",
-                libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                referenceDeclarationPrefix:
-                    SwidiReferenceDeclarationPrefix.empty,
-                nullabilitySuffix: SwidiNullabilitySuffix.none,
+              type: SwidiType.fromSwidiInterface(
+                swidiInterface: SwidiInterface(
+                  annotations: [],
+                  typeArguments: [],
+                  name: "void",
+                  libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                  referenceDeclarationPrefix:
+                      SwidiReferenceDeclarationPrefix.empty,
+                  nullabilitySuffix: SwidiNullabilitySuffix.none,
+                ),
               ),
             ),
           ),

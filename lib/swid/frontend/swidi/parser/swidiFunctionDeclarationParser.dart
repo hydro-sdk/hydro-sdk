@@ -4,12 +4,12 @@ import 'package:hydro_sdk/swid/frontend/swidi/ast/constantPrimitives.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConst.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiEmptyConst.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionDeclaration.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiInterface.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiNamedParameter.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiOptionalParameter.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiPositionalOrOptionalOrNamedParameter.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiPositionalParameter.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiTypeFormalList.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiType.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iConstLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iFunctionDeclarationLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iFunctionDeclarationNamedParameterLexer.dart';
@@ -60,7 +60,7 @@ mixin SwidiFunctionDeclarationParser
       .map(
         (x) => SwidiFunctionDeclaration(
           name: x[1].input,
-          returnType: collectTokens<SwidiInterface>(x).first,
+          returnType: collectTokens<SwidiType>(x).first,
           optionalParameters: [
             ...collectTokens<SwidiOptionalParameter>(x),
             ...collectTokens<SwidiPositionalOrOptionalOrNamedParameter>(x)

@@ -1,4 +1,5 @@
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConst.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiType.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiDeclaration.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiEmptyConst.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiInterface.dart';
@@ -18,9 +19,13 @@ final swidiUnknownInterface = SwidiInterface(
   nullabilitySuffix: SwidiNullabilitySuffix.none,
 );
 
+final swidiUnknownType = SwidiType.fromSwidiInterface(
+  swidiInterface: swidiUnknownInterface,
+);
+
 final swidiUnkownDeclaration = SwidiDeclaration(
   name: "Unknown",
-  type: swidiUnknownInterface,
+  type: swidiUnknownType,
   defaultConstValue: SwidiConst.fromSwidiEmptyConst(
     swidiEmptyConst: swidiEmptyConst,
   ),

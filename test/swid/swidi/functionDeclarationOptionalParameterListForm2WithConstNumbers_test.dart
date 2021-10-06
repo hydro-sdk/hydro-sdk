@@ -9,6 +9,7 @@ import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiOptionalParameter.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiPositionalOrOptionalOrNamedParameter.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiReferenceDeclarationPrefix.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiType.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiGrammarDefinition.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiAnnotationListParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiAnnotationParser.dart';
@@ -81,14 +82,16 @@ void main() {
           optionalParameter: SwidiOptionalParameter(
             declaration: SwidiDeclaration(
               name: "foo",
-              type: SwidiInterface(
-                annotations: [],
-                typeArguments: [],
-                name: "void",
-                libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                referenceDeclarationPrefix:
-                    SwidiReferenceDeclarationPrefix.empty,
-                nullabilitySuffix: SwidiNullabilitySuffix.none,
+              type: SwidiType.fromSwidiInterface(
+                swidiInterface: SwidiInterface(
+                  annotations: [],
+                  typeArguments: [],
+                  name: "void",
+                  libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                  referenceDeclarationPrefix:
+                      SwidiReferenceDeclarationPrefix.empty,
+                  nullabilitySuffix: SwidiNullabilitySuffix.none,
+                ),
               ),
               defaultConstValue: SwidiConst.fromSwidiConstNumber(
                 swidiConstNumber: SwidiConstNumber(
@@ -102,14 +105,16 @@ void main() {
           optionalParameter: SwidiOptionalParameter(
             declaration: SwidiDeclaration(
               name: "bar",
-              type: SwidiInterface(
-                annotations: [],
-                typeArguments: [],
-                name: "int",
-                libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                referenceDeclarationPrefix:
-                    SwidiReferenceDeclarationPrefix.empty,
-                nullabilitySuffix: SwidiNullabilitySuffix.none,
+              type: SwidiType.fromSwidiInterface(
+                swidiInterface: SwidiInterface(
+                  annotations: [],
+                  typeArguments: [],
+                  name: "int",
+                  libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                  referenceDeclarationPrefix:
+                      SwidiReferenceDeclarationPrefix.empty,
+                  nullabilitySuffix: SwidiNullabilitySuffix.none,
+                ),
               ),
               defaultConstValue: SwidiConst.fromSwidiConstNumber(
                 swidiConstNumber: SwidiConstNumber(
@@ -123,14 +128,16 @@ void main() {
           optionalParameter: SwidiOptionalParameter(
             declaration: SwidiDeclaration(
               name: "baz",
-              type: SwidiInterface(
-                annotations: [],
-                typeArguments: [],
-                name: "int",
-                libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                referenceDeclarationPrefix:
-                    SwidiReferenceDeclarationPrefix.empty,
-                nullabilitySuffix: SwidiNullabilitySuffix.none,
+              type: SwidiType.fromSwidiInterface(
+                swidiInterface: SwidiInterface(
+                  annotations: [],
+                  typeArguments: [],
+                  name: "int",
+                  libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                  referenceDeclarationPrefix:
+                      SwidiReferenceDeclarationPrefix.empty,
+                  nullabilitySuffix: SwidiNullabilitySuffix.none,
+                ),
               ),
               defaultConstValue: SwidiConst.fromSwidiConstNumber(
                 swidiConstNumber: SwidiConstNumber(
@@ -154,14 +161,16 @@ void main() {
           optionalParameter: SwidiOptionalParameter(
             declaration: SwidiDeclaration(
               name: "foo",
-              type: SwidiInterface(
-                annotations: [],
-                typeArguments: [],
-                name: "void",
-                libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                referenceDeclarationPrefix:
-                    SwidiReferenceDeclarationPrefix.empty,
-                nullabilitySuffix: SwidiNullabilitySuffix.none,
+              type: SwidiType.fromSwidiInterface(
+                swidiInterface: SwidiInterface(
+                  annotations: [],
+                  typeArguments: [],
+                  name: "void",
+                  libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                  referenceDeclarationPrefix:
+                      SwidiReferenceDeclarationPrefix.empty,
+                  nullabilitySuffix: SwidiNullabilitySuffix.none,
+                ),
               ),
               defaultConstValue: SwidiConst.fromSwidiConstNumber(
                 swidiConstNumber: SwidiConstNumber(
@@ -175,14 +184,16 @@ void main() {
           optionalParameter: SwidiOptionalParameter(
             declaration: SwidiDeclaration(
               name: "bar",
-              type: SwidiInterface(
-                annotations: [],
-                typeArguments: [],
-                name: "int",
-                libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                referenceDeclarationPrefix:
-                    SwidiReferenceDeclarationPrefix.empty,
-                nullabilitySuffix: SwidiNullabilitySuffix.none,
+              type: SwidiType.fromSwidiInterface(
+                swidiInterface: SwidiInterface(
+                  annotations: [],
+                  typeArguments: [],
+                  name: "int",
+                  libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                  referenceDeclarationPrefix:
+                      SwidiReferenceDeclarationPrefix.empty,
+                  nullabilitySuffix: SwidiNullabilitySuffix.none,
+                ),
               ),
               defaultConstValue: SwidiConst.fromSwidiConstNumber(
                 swidiConstNumber: SwidiConstNumber(
@@ -196,14 +207,16 @@ void main() {
           optionalParameter: SwidiOptionalParameter(
             declaration: SwidiDeclaration(
               name: "baz",
-              type: SwidiInterface(
-                annotations: [],
-                typeArguments: [],
-                name: "int?",
-                libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                referenceDeclarationPrefix:
-                    SwidiReferenceDeclarationPrefix.empty,
-                nullabilitySuffix: SwidiNullabilitySuffix.question,
+              type: SwidiType.fromSwidiInterface(
+                swidiInterface: SwidiInterface(
+                  annotations: [],
+                  typeArguments: [],
+                  name: "int?",
+                  libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                  referenceDeclarationPrefix:
+                      SwidiReferenceDeclarationPrefix.empty,
+                  nullabilitySuffix: SwidiNullabilitySuffix.question,
+                ),
               ),
               defaultConstValue: SwidiConst.fromSwidiConstNumber(
                 swidiConstNumber: SwidiConstNumber(

@@ -1,3 +1,4 @@
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiType.dart';
 import 'package:petitparser/petitparser.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiAnnotationList.dart';
@@ -34,44 +35,49 @@ mixin SwidiTypeParser
         ILibraryScopePrefixLexer,
         IReferenceDeclarationPrefixLexer,
         ITypeArgumentsLexer,
-        ITypeParser<Parser<SwidiInterface>>,
+        ITypeParser<Parser<SwidiType>>,
         IAnnotationListParser<Parser<SwidiAnnotationList>>,
         ILibraryScopePrefixParser<Parser<SwidiLibraryScopePrefix>>,
         IReferenceDeclarationPrefixParser<
             Parser<SwidiReferenceDeclarationPrefix>>,
         ITypeArgumentListParser<Parser<SwidiTypeArgumentList>> {
   @override
-  Parser<SwidiInterface> type() => super.type().map((x) {
-        final tokenList = collectTokens<Token>(x);
-        String? token;
-        String? nullabilitySuffix;
-        if (tokenList.isNotEmpty) {
-          token = tokenList.last.input;
-          nullabilitySuffix = tokenList.first.input;
-        }
+  Parser<SwidiType> type() => super.type().map(
+        (x) {
+          final tokenList = collectTokens<Token>(x);
+          String? token;
+          String? nullabilitySuffix;
+          if (tokenList.isNotEmpty) {
+            token = tokenList.last.input;
+            nullabilitySuffix = tokenList.first.input;
+          }
 
-        final annotationList = collectTokens<SwidiAnnotationList>(x);
-        final typeArguments = collectTokens<SwidiTypeArgumentList>(x);
+          final annotationList = collectTokens<SwidiAnnotationList>(x);
+          final typeArguments = collectTokens<SwidiTypeArgumentList>(x);
 
-        return SwidiInterface(
-          name:
-              token != nullabilitySuffix ? token! + nullabilitySuffix! : token!,
-          nullabilitySuffix: nullabilitySuffix == "?"
-              ? SwidiNullabilitySuffix.question
-              : SwidiNullabilitySuffix.none,
-          libraryScopePrefix:
-              collectTokens<SwidiLibraryScopePrefix>(x).isNotEmpty
-                  ? collectTokens<SwidiLibraryScopePrefix>(x).first
-                  : SwidiLibraryScopePrefix.empty,
-          referenceDeclarationPrefix:
-              collectTokens<SwidiReferenceDeclarationPrefix>(x).isNotEmpty
-                  ? collectTokens<SwidiReferenceDeclarationPrefix>(x).first
-                  : SwidiReferenceDeclarationPrefix.empty,
-          typeArguments:
-              typeArguments.isNotEmpty ? typeArguments.first.typeList : [],
-          annotations: annotationList.isNotEmpty
-              ? annotationList.first.annotationList
-              : [],
-        );
-      });
+          return SwidiType.fromSwidiInterface(
+            swidiInterface: SwidiInterface(
+              name: token != nullabilitySuffix
+                  ? token! + nullabilitySuffix!
+                  : token!,
+              nullabilitySuffix: nullabilitySuffix == "?"
+                  ? SwidiNullabilitySuffix.question
+                  : SwidiNullabilitySuffix.none,
+              libraryScopePrefix:
+                  collectTokens<SwidiLibraryScopePrefix>(x).isNotEmpty
+                      ? collectTokens<SwidiLibraryScopePrefix>(x).first
+                      : SwidiLibraryScopePrefix.empty,
+              referenceDeclarationPrefix:
+                  collectTokens<SwidiReferenceDeclarationPrefix>(x).isNotEmpty
+                      ? collectTokens<SwidiReferenceDeclarationPrefix>(x).first
+                      : SwidiReferenceDeclarationPrefix.empty,
+              typeArguments:
+                  typeArguments.isNotEmpty ? typeArguments.first.typeList : [],
+              annotations: annotationList.isNotEmpty
+                  ? annotationList.first.annotationList
+                  : [],
+            ),
+          );
+        },
+      );
 }

@@ -1,10 +1,10 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConst.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiInterface.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiNamedParameter.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiOptionalParameter.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiPositionalParameter.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiType.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiTypeFormal.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
@@ -25,7 +25,7 @@ class SwidiFunctionDeclaration
 
   factory SwidiFunctionDeclaration({
     required final String name,
-    required final SwidiInterface returnType,
+    required final SwidiType returnType,
     required final List<SwidiPositionalParameter> positionalParameters,
     required final List<SwidiOptionalParameter> optionalParameters,
     required final List<SwidiNamedParameter> namedParameters,
@@ -36,7 +36,7 @@ class SwidiFunctionDeclaration
   factory SwidiFunctionDeclaration._clone({
     required final SwidiFunctionDeclaration swidiFunctionDeclaration,
     final String? name,
-    final SwidiInterface? returnType,
+    final SwidiType? returnType,
     final List<SwidiPositionalParameter>? positionalParameters,
     final List<SwidiOptionalParameter>? optionalParameters,
     final List<SwidiNamedParameter>? namedParameters,
@@ -96,7 +96,7 @@ class SwidiFunctionDeclaration
   @override
   SwidiFunctionDeclaration clone({
     final String? name,
-    final SwidiInterface? returnType,
+    final SwidiType? returnType,
     final List<SwidiPositionalParameter>? positionalParameters,
     final List<SwidiOptionalParameter>? optionalParameters,
     final List<SwidiNamedParameter>? namedParameters,

@@ -10,6 +10,7 @@ import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiLibraryScopePrefix.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiNamedParameter.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiReferenceDeclarationPrefix.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiType.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiParser.dart';
 import 'lib/parserTestHarness.dart';
 
@@ -37,14 +38,16 @@ void main() {
               ),
               typeFormals: [],
               name: "foo",
-              returnType: SwidiInterface(
-                annotations: [],
-                typeArguments: [],
-                name: "void",
-                libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                referenceDeclarationPrefix:
-                    SwidiReferenceDeclarationPrefix.empty,
-                nullabilitySuffix: SwidiNullabilitySuffix.none,
+              returnType: SwidiType.fromSwidiInterface(
+                swidiInterface: SwidiInterface(
+                  annotations: [],
+                  typeArguments: [],
+                  name: "void",
+                  libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                  referenceDeclarationPrefix:
+                      SwidiReferenceDeclarationPrefix.empty,
+                  nullabilitySuffix: SwidiNullabilitySuffix.none,
+                ),
               ),
               optionalParameters: [],
               positionalParameters: [],
@@ -55,46 +58,54 @@ void main() {
                       swidiEmptyConst: SwidiEmptyConst(),
                     ),
                     name: "bar",
-                    type: SwidiInterface(
-                      annotations: [],
-                      typeArguments: [],
-                      name: "int",
-                      libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                      referenceDeclarationPrefix:
-                          SwidiReferenceDeclarationPrefix.empty,
-                      nullabilitySuffix: SwidiNullabilitySuffix.none,
+                    type: SwidiType.fromSwidiInterface(
+                      swidiInterface: SwidiInterface(
+                        annotations: [],
+                        typeArguments: [],
+                        name: "int",
+                        libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                        referenceDeclarationPrefix:
+                            SwidiReferenceDeclarationPrefix.empty,
+                        nullabilitySuffix: SwidiNullabilitySuffix.none,
+                      ),
                     ),
                   ),
                 ),
                 SwidiNamedParameter(
-                    declaration: SwidiDeclaration(
-                        defaultConstValue: SwidiConst.fromSwidiEmptyConst(
-                          swidiEmptyConst: SwidiEmptyConst(),
-                        ),
-                        name: "baz",
-                        type: SwidiInterface(
-                          annotations: [],
-                          typeArguments: [],
-                          name: "int",
-                          libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                          referenceDeclarationPrefix:
-                              SwidiReferenceDeclarationPrefix.empty,
-                          nullabilitySuffix: SwidiNullabilitySuffix.none,
-                        ))),
+                  declaration: SwidiDeclaration(
+                    defaultConstValue: SwidiConst.fromSwidiEmptyConst(
+                      swidiEmptyConst: SwidiEmptyConst(),
+                    ),
+                    name: "baz",
+                    type: SwidiType.fromSwidiInterface(
+                      swidiInterface: SwidiInterface(
+                        annotations: [],
+                        typeArguments: [],
+                        name: "int",
+                        libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                        referenceDeclarationPrefix:
+                            SwidiReferenceDeclarationPrefix.empty,
+                        nullabilitySuffix: SwidiNullabilitySuffix.none,
+                      ),
+                    ),
+                  ),
+                ),
                 SwidiNamedParameter(
                   declaration: SwidiDeclaration(
                     defaultConstValue: SwidiConst.fromSwidiEmptyConst(
                       swidiEmptyConst: SwidiEmptyConst(),
                     ),
                     name: "qux",
-                    type: SwidiInterface(
-                      annotations: [],
-                      typeArguments: [],
-                      name: "int",
-                      libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                      referenceDeclarationPrefix:
-                          SwidiReferenceDeclarationPrefix.empty,
-                      nullabilitySuffix: SwidiNullabilitySuffix.none,
+                    type: SwidiType.fromSwidiInterface(
+                      swidiInterface: SwidiInterface(
+                        annotations: [],
+                        typeArguments: [],
+                        name: "int",
+                        libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                        referenceDeclarationPrefix:
+                            SwidiReferenceDeclarationPrefix.empty,
+                        nullabilitySuffix: SwidiNullabilitySuffix.none,
+                      ),
                     ),
                   ),
                 )
@@ -126,14 +137,16 @@ void main() {
               ),
               typeFormals: [],
               name: "foo",
-              returnType: SwidiInterface(
-                annotations: [],
-                typeArguments: [],
-                name: "void",
-                libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                referenceDeclarationPrefix:
-                    SwidiReferenceDeclarationPrefix.empty,
-                nullabilitySuffix: SwidiNullabilitySuffix.none,
+              returnType: SwidiType.fromSwidiInterface(
+                swidiInterface: SwidiInterface(
+                  annotations: [],
+                  typeArguments: [],
+                  name: "void",
+                  libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                  referenceDeclarationPrefix:
+                      SwidiReferenceDeclarationPrefix.empty,
+                  nullabilitySuffix: SwidiNullabilitySuffix.none,
+                ),
               ),
               optionalParameters: [],
               positionalParameters: [],
@@ -144,14 +157,16 @@ void main() {
                       swidiEmptyConst: SwidiEmptyConst(),
                     ),
                     name: "bar",
-                    type: SwidiInterface(
-                      annotations: [],
-                      typeArguments: [],
-                      name: "int",
-                      libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                      referenceDeclarationPrefix:
-                          SwidiReferenceDeclarationPrefix.empty,
-                      nullabilitySuffix: SwidiNullabilitySuffix.none,
+                    type: SwidiType.fromSwidiInterface(
+                      swidiInterface: SwidiInterface(
+                        annotations: [],
+                        typeArguments: [],
+                        name: "int",
+                        libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                        referenceDeclarationPrefix:
+                            SwidiReferenceDeclarationPrefix.empty,
+                        nullabilitySuffix: SwidiNullabilitySuffix.none,
+                      ),
                     ),
                   ),
                 ),
@@ -161,14 +176,16 @@ void main() {
                       swidiEmptyConst: SwidiEmptyConst(),
                     ),
                     name: "baz",
-                    type: SwidiInterface(
-                      annotations: [],
-                      typeArguments: [],
-                      name: "int?",
-                      libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                      referenceDeclarationPrefix:
-                          SwidiReferenceDeclarationPrefix.empty,
-                      nullabilitySuffix: SwidiNullabilitySuffix.question,
+                    type: SwidiType.fromSwidiInterface(
+                      swidiInterface: SwidiInterface(
+                        annotations: [],
+                        typeArguments: [],
+                        name: "int?",
+                        libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                        referenceDeclarationPrefix:
+                            SwidiReferenceDeclarationPrefix.empty,
+                        nullabilitySuffix: SwidiNullabilitySuffix.question,
+                      ),
                     ),
                   ),
                 ),
@@ -178,14 +195,16 @@ void main() {
                       swidiEmptyConst: SwidiEmptyConst(),
                     ),
                     name: "qux",
-                    type: SwidiInterface(
-                      annotations: [],
-                      typeArguments: [],
-                      name: "int",
-                      libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                      referenceDeclarationPrefix:
-                          SwidiReferenceDeclarationPrefix.empty,
-                      nullabilitySuffix: SwidiNullabilitySuffix.none,
+                    type: SwidiType.fromSwidiInterface(
+                      swidiInterface: SwidiInterface(
+                        annotations: [],
+                        typeArguments: [],
+                        name: "int",
+                        libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                        referenceDeclarationPrefix:
+                            SwidiReferenceDeclarationPrefix.empty,
+                        nullabilitySuffix: SwidiNullabilitySuffix.none,
+                      ),
                     ),
                   ),
                 )
