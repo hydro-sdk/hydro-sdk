@@ -1,3 +1,5 @@
+import 'package:collection/collection.dart';
+
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionDeclaration.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/swidiInterfaceToSwidInterface.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/swidiShortHandOverrideToSwidDeclarationModifiers.dart';
@@ -13,7 +15,6 @@ import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/swidStringLiteral.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
-import 'package:collection/collection.dart';
 
 SwidFunctionType swidiFunctionDeclarationToSwidFunctionType({
   required final SwidiFunctionDeclaration swidiFunctionDeclaration,

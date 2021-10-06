@@ -1,7 +1,7 @@
-import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiType.dart';
-import 'package:petitparser/petitparser.dart';
 import 'package:collection/collection.dart';
+import 'package:petitparser/petitparser.dart';
 
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiType.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiTypeArgumentList.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iTypeArgumentsLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iTypeListLexer.dart';
