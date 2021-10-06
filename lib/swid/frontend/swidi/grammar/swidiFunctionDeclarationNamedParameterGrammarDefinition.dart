@@ -1,3 +1,4 @@
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiDeclarationGrammarDefinition.dart';
 import 'package:petitparser/definition.dart';
 import 'package:petitparser/petitparser.dart';
 
@@ -10,7 +11,10 @@ import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iSimpleDeclarationL
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiGrammarTokenizer.dart';
 
 mixin SwidiFunctionDeclarationNamedParameterGrammarDefinition
-    on GrammarDefinition, SwidiGrammarTokenizer
+    on
+        GrammarDefinition,
+        SwidiGrammarTokenizer,
+        SwidiDeclarationGrammarDefinition
     implements
         ISimpleDeclarationLexer,
         IFunctionDeclarationNamedParameterLexer,
