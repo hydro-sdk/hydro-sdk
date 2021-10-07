@@ -14,8 +14,10 @@ class SwidiFunctionDeclarationPositionalParameter
         HashKeyMixin<SwidiFunctionDeclarationPositionalParameter>,
         HashComparableMixin<SwidiFunctionDeclarationPositionalParameter>
     implements
-        ICopyable<SwidiFunctionDeclarationPositionalParameter,
-            $SwidiFunctionDeclarationPositionalParameterCopyWith<SwidiFunctionDeclarationPositionalParameter>> {
+        ICopyable<
+            SwidiFunctionDeclarationPositionalParameter,
+            $SwidiFunctionDeclarationPositionalParameterCopyWith<
+                SwidiFunctionDeclarationPositionalParameter>> {
   SwidiFunctionDeclarationPositionalParameter._();
 
   factory SwidiFunctionDeclarationPositionalParameter({
@@ -23,7 +25,8 @@ class SwidiFunctionDeclarationPositionalParameter
   }) = _$SwidiPositionalParameterCtor;
 
   factory SwidiFunctionDeclarationPositionalParameter._clone({
-    required final SwidiFunctionDeclarationPositionalParameter swidiPositionalParameter,
+    required final SwidiFunctionDeclarationPositionalParameter
+        swidiPositionalParameter,
     final SwidiDeclaration? declaration,
   }) =>
       SwidiFunctionDeclarationPositionalParameter(

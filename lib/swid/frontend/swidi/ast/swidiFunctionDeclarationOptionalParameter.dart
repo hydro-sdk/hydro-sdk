@@ -14,8 +14,10 @@ class SwidiFunctionDeclarationOptionalParameter
         HashKeyMixin<SwidiFunctionDeclarationOptionalParameter>,
         HashComparableMixin<SwidiFunctionDeclarationOptionalParameter>
     implements
-        ICopyable<SwidiFunctionDeclarationOptionalParameter,
-            $SwidiFunctionDeclarationOptionalParameterCopyWith<SwidiFunctionDeclarationOptionalParameter>> {
+        ICopyable<
+            SwidiFunctionDeclarationOptionalParameter,
+            $SwidiFunctionDeclarationOptionalParameterCopyWith<
+                SwidiFunctionDeclarationOptionalParameter>> {
   SwidiFunctionDeclarationOptionalParameter._();
 
   factory SwidiFunctionDeclarationOptionalParameter({
@@ -23,7 +25,8 @@ class SwidiFunctionDeclarationOptionalParameter
   }) = _$SwidiOptionalParameterCtor;
 
   factory SwidiFunctionDeclarationOptionalParameter._clone({
-    required final SwidiFunctionDeclarationOptionalParameter swidiOptionalParameter,
+    required final SwidiFunctionDeclarationOptionalParameter
+        swidiOptionalParameter,
     final SwidiDeclaration? declaration,
   }) =>
       SwidiFunctionDeclarationOptionalParameter(

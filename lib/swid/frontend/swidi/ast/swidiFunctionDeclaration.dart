@@ -26,8 +26,10 @@ class SwidiFunctionDeclaration
   factory SwidiFunctionDeclaration({
     required final String name,
     required final SwidiType returnType,
-    required final List<SwidiFunctionDeclarationPositionalParameter> positionalParameters,
-    required final List<SwidiFunctionDeclarationOptionalParameter> optionalParameters,
+    required final List<SwidiFunctionDeclarationPositionalParameter>
+        positionalParameters,
+    required final List<SwidiFunctionDeclarationOptionalParameter>
+        optionalParameters,
     required final List<SwidiFunctionDeclarationNamedParameter> namedParameters,
     required final List<SwidiTypeFormal> typeFormals,
     required final SwidiConst shortHandOverride,
@@ -37,7 +39,8 @@ class SwidiFunctionDeclaration
     required final SwidiFunctionDeclaration swidiFunctionDeclaration,
     final String? name,
     final SwidiType? returnType,
-    final List<SwidiFunctionDeclarationPositionalParameter>? positionalParameters,
+    final List<SwidiFunctionDeclarationPositionalParameter>?
+        positionalParameters,
     final List<SwidiFunctionDeclarationOptionalParameter>? optionalParameters,
     final List<SwidiFunctionDeclarationNamedParameter>? namedParameters,
     final List<SwidiTypeFormal>? typeFormals,
@@ -97,7 +100,8 @@ class SwidiFunctionDeclaration
   SwidiFunctionDeclaration clone({
     final String? name,
     final SwidiType? returnType,
-    final List<SwidiFunctionDeclarationPositionalParameter>? positionalParameters,
+    final List<SwidiFunctionDeclarationPositionalParameter>?
+        positionalParameters,
     final List<SwidiFunctionDeclarationOptionalParameter>? optionalParameters,
     final List<SwidiFunctionDeclarationNamedParameter>? namedParameters,
     final List<SwidiTypeFormal>? typeFormals,

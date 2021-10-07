@@ -12,8 +12,10 @@ part 'swidiFunctionDeclarationPositionalOrOptionalOrNamedParameter.freezed.dart'
 class SwidiFunctionDeclarationPositionalOrOptionalOrNamedParameter
     with
         _$SwidiFunctionDeclarationPositionalOrOptionalOrNamedParameter,
-        HashKeyMixin<SwidiFunctionDeclarationPositionalOrOptionalOrNamedParameter>,
-        HashComparableMixin<SwidiFunctionDeclarationPositionalOrOptionalOrNamedParameter> {
+        HashKeyMixin<
+            SwidiFunctionDeclarationPositionalOrOptionalOrNamedParameter>,
+        HashComparableMixin<
+            SwidiFunctionDeclarationPositionalOrOptionalOrNamedParameter> {
   SwidiFunctionDeclarationPositionalOrOptionalOrNamedParameter._();
 
   factory SwidiFunctionDeclarationPositionalOrOptionalOrNamedParameter._clone({
@@ -32,20 +34,24 @@ class SwidiFunctionDeclarationPositionalOrOptionalOrNamedParameter
           optionalParameter: val.clone(),
         ),
         fromSwidiFunctionDeclarationNamedParameter: (val) =>
-            SwidiFunctionDeclarationPositionalOrOptionalOrNamedParameter.fromSwidiFunctionDeclarationNamedParameter(
+            SwidiFunctionDeclarationPositionalOrOptionalOrNamedParameter
+                .fromSwidiFunctionDeclarationNamedParameter(
           namedParameter: val.clone(),
         ),
       );
 
   @override
   List<int> get hashableParts => when(
-        fromSwidiFunctionDeclarationPositionalParameter: (val) => val.hashableParts,
-        fromSwidiFunctionDeclarationOptionalParameter: (val) => val.hashableParts,
+        fromSwidiFunctionDeclarationPositionalParameter: (val) =>
+            val.hashableParts,
+        fromSwidiFunctionDeclarationOptionalParameter: (val) =>
+            val.hashableParts,
         fromSwidiFunctionDeclarationNamedParameter: (val) => val.hashableParts,
       );
 
   factory SwidiFunctionDeclarationPositionalOrOptionalOrNamedParameter.fromSwidiFunctionDeclarationPositionalParameter({
-    required final SwidiFunctionDeclarationPositionalParameter positionalParameter,
+    required final SwidiFunctionDeclarationPositionalParameter
+        positionalParameter,
   }) = _$SwidiPositionalOrOptionalParameterFromSwidiPositionalParameter;
 
   factory SwidiFunctionDeclarationPositionalOrOptionalOrNamedParameter.fromSwidiFunctionDeclarationOptionalParameter({

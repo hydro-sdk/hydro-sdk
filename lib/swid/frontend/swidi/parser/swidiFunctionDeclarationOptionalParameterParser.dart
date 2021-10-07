@@ -24,11 +24,12 @@ mixin SwidiFunctionDeclarationOptionalParameterParser
         IDeclarationWithDefaultConstValueParser<Parser<SwidiDeclaration>>,
         ISimpleDeclarationParser<Parser<SwidiDeclaration>> {
   @override
-  Parser<SwidiFunctionDeclarationOptionalParameter?> functionDeclarationOptionalParameter() =>
-      super.functionDeclarationOptionalParameter().map((x) {
-        if (x is SwidiDeclaration) {
-          return SwidiFunctionDeclarationOptionalParameter(declaration: x);
-        }
-        return null;
-      });
+  Parser<SwidiFunctionDeclarationOptionalParameter?>
+      functionDeclarationOptionalParameter() =>
+          super.functionDeclarationOptionalParameter().map((x) {
+            if (x is SwidiDeclaration) {
+              return SwidiFunctionDeclarationOptionalParameter(declaration: x);
+            }
+            return null;
+          });
 }

@@ -268,7 +268,8 @@ class _$_$SwidiPositionalOrOptionalParameterFromSwidiPositionalParameter
     required TResult orElse(),
   }) {
     if (fromSwidiFunctionDeclarationPositionalParameter != null) {
-      return fromSwidiFunctionDeclarationPositionalParameter(positionalParameter);
+      return fromSwidiFunctionDeclarationPositionalParameter(
+          positionalParameter);
     }
     return orElse();
   }

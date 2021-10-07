@@ -12,20 +12,24 @@ import 'package:hydro_sdk/swid/frontend/swidi/parser/parsers/iSimpleDeclarationP
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiSimpleDeclarationParser.dart';
 
 mixin SwidiFunctionDeclarationNamedParameterParser
-    on SwidiGrammarDefinition, SwidiSimpleDeclarationParser
+    on
+        SwidiGrammarDefinition,
+        SwidiSimpleDeclarationParser
     implements
         IFunctionDeclarationNamedParameterLexer,
         IDeclarationWithDefaultConstValueLexer,
         ISimpleDeclarationLexer,
-        IFunctionDeclarationNamedParameterParser<Parser<SwidiFunctionDeclarationNamedParameter?>>,
+        IFunctionDeclarationNamedParameterParser<
+            Parser<SwidiFunctionDeclarationNamedParameter?>>,
         IDeclarationWithDefaultConstValueParser<Parser<SwidiDeclaration>>,
         ISimpleDeclarationParser<Parser<SwidiDeclaration>> {
   @override
-  Parser<SwidiFunctionDeclarationNamedParameter?> functionDeclarationNamedParameter() =>
-      super.functionDeclarationNamedParameter().map((x) {
-        if (x is SwidiDeclaration) {
-          return SwidiFunctionDeclarationNamedParameter(declaration: x);
-        }
-        return null;
-      });
+  Parser<SwidiFunctionDeclarationNamedParameter?>
+      functionDeclarationNamedParameter() =>
+          super.functionDeclarationNamedParameter().map((x) {
+            if (x is SwidiDeclaration) {
+              return SwidiFunctionDeclarationNamedParameter(declaration: x);
+            }
+            return null;
+          });
 }

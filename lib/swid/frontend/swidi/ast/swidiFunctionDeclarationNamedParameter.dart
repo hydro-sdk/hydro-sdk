@@ -14,8 +14,10 @@ class SwidiFunctionDeclarationNamedParameter
         HashKeyMixin<SwidiFunctionDeclarationNamedParameter>,
         HashComparableMixin<SwidiFunctionDeclarationNamedParameter>
     implements
-        ICopyable<SwidiFunctionDeclarationNamedParameter,
-            $SwidiFunctionDeclarationNamedParameterCopyWith<SwidiFunctionDeclarationNamedParameter>> {
+        ICopyable<
+            SwidiFunctionDeclarationNamedParameter,
+            $SwidiFunctionDeclarationNamedParameterCopyWith<
+                SwidiFunctionDeclarationNamedParameter>> {
   SwidiFunctionDeclarationNamedParameter._();
 
   factory SwidiFunctionDeclarationNamedParameter({

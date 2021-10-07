@@ -24,11 +24,13 @@ mixin SwidiFunctionDeclarationPositionalParameterParser
         IDeclarationWithDefaultConstValueParser<Parser<SwidiDeclaration>>,
         ISimpleDeclarationParser<Parser<SwidiDeclaration>> {
   @override
-  Parser<SwidiFunctionDeclarationPositionalParameter?> functionDeclarationPositionalParameter() =>
-      super.functionDeclarationPositionalParameter().map((x) {
-        if (x is SwidiDeclaration) {
-          return SwidiFunctionDeclarationPositionalParameter(declaration: x);
-        }
-        return null;
-      });
+  Parser<SwidiFunctionDeclarationPositionalParameter?>
+      functionDeclarationPositionalParameter() =>
+          super.functionDeclarationPositionalParameter().map((x) {
+            if (x is SwidiDeclaration) {
+              return SwidiFunctionDeclarationPositionalParameter(
+                  declaration: x);
+            }
+            return null;
+          });
 }
