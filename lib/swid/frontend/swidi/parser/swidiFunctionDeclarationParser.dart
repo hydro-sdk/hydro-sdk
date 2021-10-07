@@ -4,10 +4,10 @@ import 'package:hydro_sdk/swid/frontend/swidi/ast/constantPrimitives.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConst.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiEmptyConst.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionDeclaration.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiNamedParameter.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiOptionalParameter.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiPositionalOrOptionalOrNamedParameter.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiPositionalParameter.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionDeclarationNamedParameter.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionDeclarationOptionalParameter.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionDeclarationPositionalOrOptionalOrNamedParameter.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionDeclarationPositionalParameter.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiType.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiTypeFormalList.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iConstLexer.dart';
@@ -46,13 +46,13 @@ mixin SwidiFunctionDeclarationParser
         ITypeFormalListLexer,
         IConstLexer,
         IFunctionDeclarationParser<Parser<SwidiFunctionDeclaration>>,
-        IFunctionDeclarationNamedParameterParser<Parser<SwidiNamedParameter?>>,
+        IFunctionDeclarationNamedParameterParser<Parser<SwidiFunctionDeclarationNamedParameter?>>,
         IFunctionDeclarationOptionalParameterParser<
-            Parser<SwidiOptionalParameter?>>,
+            Parser<SwidiFunctionDeclarationOptionalParameter?>>,
         IFunctionDeclarationParameterListParser<
-            Parser<List<SwidiPositionalOrOptionalOrNamedParameter>>>,
+            Parser<List<SwidiFunctionDeclarationPositionalOrOptionalOrNamedParameter>>>,
         IFunctionDeclarationPositionalParameterParser<
-            Parser<SwidiPositionalParameter?>>,
+            Parser<SwidiFunctionDeclarationPositionalParameter?>>,
         IConstParser<Parser<SwidiConst>> {
   @override
   Parser<SwidiFunctionDeclaration> functionDeclaration() => super
@@ -62,30 +62,30 @@ mixin SwidiFunctionDeclarationParser
           name: x[1].input,
           returnType: collectTokens<SwidiType>(x).first,
           optionalParameters: [
-            ...collectTokens<SwidiOptionalParameter>(x),
-            ...collectTokens<SwidiPositionalOrOptionalOrNamedParameter>(x)
+            ...collectTokens<SwidiFunctionDeclarationOptionalParameter>(x),
+            ...collectTokens<SwidiFunctionDeclarationPositionalOrOptionalOrNamedParameter>(x)
                 .map((e) => e.maybeWhen(
-                      fromSwidiOptionalParameter: (val) => val,
+                      fromSwidiFunctionDeclarationOptionalParameter: (val) => val,
                       orElse: () => swidiUnknownOptionalParameter,
                     ))
                 .where((e) => e != swidiUnknownOptionalParameter)
                 .toList()
           ],
           positionalParameters: [
-            ...collectTokens<SwidiPositionalParameter>(x),
-            ...collectTokens<SwidiPositionalOrOptionalOrNamedParameter>(x)
+            ...collectTokens<SwidiFunctionDeclarationPositionalParameter>(x),
+            ...collectTokens<SwidiFunctionDeclarationPositionalOrOptionalOrNamedParameter>(x)
                 .map((e) => e.maybeWhen(
-                      fromSwidiPositionalParameter: (val) => val,
+                      fromSwidiFunctionDeclarationPositionalParameter: (val) => val,
                       orElse: () => swidiUnknownPositionalParameter,
                     ))
                 .where((e) => e != swidiUnknownPositionalParameter)
                 .toList()
           ],
           namedParameters: [
-            ...collectTokens<SwidiNamedParameter>(x),
-            ...collectTokens<SwidiPositionalOrOptionalOrNamedParameter>(x)
+            ...collectTokens<SwidiFunctionDeclarationNamedParameter>(x),
+            ...collectTokens<SwidiFunctionDeclarationPositionalOrOptionalOrNamedParameter>(x)
                 .map((e) => e.maybeWhen(
-                      fromSwidiNamedParameter: (val) => val,
+                      fromSwidiFunctionDeclarationNamedParameter: (val) => val,
                       orElse: () => swidiUnknownNamedParameter,
                     ))
                 .where((e) => e != swidiUnknownNamedParameter)

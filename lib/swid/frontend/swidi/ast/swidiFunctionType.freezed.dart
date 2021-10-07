@@ -18,7 +18,8 @@ class _$SwidiFunctionTypeTearOff {
 
   _$SwidiFunctionTypeCtor call(
       {required SwidiInterface returnType,
-      required List<SwidiPositionalParameter> positionalParameters,
+      required List<SwidiFunctionDeclarationPositionalParameter>
+          positionalParameters,
       required List<SwidiInterface> optionalParameters,
       required List<SwidiFunctionTypeNamedArgument> namedParameters,
       required List<SwidiInterface> typeArguments,
@@ -40,7 +41,7 @@ const $SwidiFunctionType = _$SwidiFunctionTypeTearOff();
 /// @nodoc
 mixin _$SwidiFunctionType {
   SwidiInterface get returnType => throw _privateConstructorUsedError;
-  List<SwidiPositionalParameter> get positionalParameters =>
+  List<SwidiFunctionDeclarationPositionalParameter> get positionalParameters =>
       throw _privateConstructorUsedError;
   List<SwidiInterface> get optionalParameters =>
       throw _privateConstructorUsedError;
@@ -61,7 +62,7 @@ abstract class $SwidiFunctionTypeCopyWith<$Res> {
       _$SwidiFunctionTypeCopyWithImpl<$Res>;
   $Res call(
       {SwidiInterface returnType,
-      List<SwidiPositionalParameter> positionalParameters,
+      List<SwidiFunctionDeclarationPositionalParameter> positionalParameters,
       List<SwidiInterface> optionalParameters,
       List<SwidiFunctionTypeNamedArgument> namedParameters,
       List<SwidiInterface> typeArguments,
@@ -96,7 +97,7 @@ class _$SwidiFunctionTypeCopyWithImpl<$Res>
       positionalParameters: positionalParameters == freezed
           ? _value.positionalParameters
           : positionalParameters // ignore: cast_nullable_to_non_nullable
-              as List<SwidiPositionalParameter>,
+              as List<SwidiFunctionDeclarationPositionalParameter>,
       optionalParameters: optionalParameters == freezed
           ? _value.optionalParameters
           : optionalParameters // ignore: cast_nullable_to_non_nullable
@@ -133,7 +134,7 @@ abstract class _$$SwidiFunctionTypeCtorCopyWith<$Res>
   @override
   $Res call(
       {SwidiInterface returnType,
-      List<SwidiPositionalParameter> positionalParameters,
+      List<SwidiFunctionDeclarationPositionalParameter> positionalParameters,
       List<SwidiInterface> optionalParameters,
       List<SwidiFunctionTypeNamedArgument> namedParameters,
       List<SwidiInterface> typeArguments,
@@ -171,7 +172,7 @@ class __$$SwidiFunctionTypeCtorCopyWithImpl<$Res>
       positionalParameters: positionalParameters == freezed
           ? _value.positionalParameters
           : positionalParameters // ignore: cast_nullable_to_non_nullable
-              as List<SwidiPositionalParameter>,
+              as List<SwidiFunctionDeclarationPositionalParameter>,
       optionalParameters: optionalParameters == freezed
           ? _value.optionalParameters
           : optionalParameters // ignore: cast_nullable_to_non_nullable
@@ -207,7 +208,7 @@ class _$_$SwidiFunctionTypeCtor extends _$SwidiFunctionTypeCtor {
   @override
   final SwidiInterface returnType;
   @override
-  final List<SwidiPositionalParameter> positionalParameters;
+  final List<SwidiFunctionDeclarationPositionalParameter> positionalParameters;
   @override
   final List<SwidiInterface> optionalParameters;
   @override
@@ -266,7 +267,8 @@ class _$_$SwidiFunctionTypeCtor extends _$SwidiFunctionTypeCtor {
 abstract class _$SwidiFunctionTypeCtor extends SwidiFunctionType {
   factory _$SwidiFunctionTypeCtor(
       {required SwidiInterface returnType,
-      required List<SwidiPositionalParameter> positionalParameters,
+      required List<SwidiFunctionDeclarationPositionalParameter>
+          positionalParameters,
       required List<SwidiInterface> optionalParameters,
       required List<SwidiFunctionTypeNamedArgument> namedParameters,
       required List<SwidiInterface> typeArguments,
@@ -276,7 +278,7 @@ abstract class _$SwidiFunctionTypeCtor extends SwidiFunctionType {
   @override
   SwidiInterface get returnType => throw _privateConstructorUsedError;
   @override
-  List<SwidiPositionalParameter> get positionalParameters =>
+  List<SwidiFunctionDeclarationPositionalParameter> get positionalParameters =>
       throw _privateConstructorUsedError;
   @override
   List<SwidiInterface> get optionalParameters =>

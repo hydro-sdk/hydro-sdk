@@ -5,9 +5,9 @@ import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiDeclaration.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiEmptyConst.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiInterface.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiLibraryScopePrefix.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiNamedParameter.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionDeclarationNamedParameter.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiNullabilitySuffix.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiPositionalOrOptionalOrNamedParameter.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionDeclarationPositionalOrOptionalOrNamedParameter.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiReferenceDeclarationPrefix.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiType.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiGrammarDefinition.dart';
@@ -78,8 +78,8 @@ void main() {
             start: const BasicFunctionParameterListParser()
                 .functionDeclarationParameterList),
         result: [
-          SwidiPositionalOrOptionalOrNamedParameter.fromSwidiNamedParameter(
-            namedParameter: SwidiNamedParameter(
+          SwidiFunctionDeclarationPositionalOrOptionalOrNamedParameter.fromSwidiFunctionDeclarationNamedParameter(
+            namedParameter: SwidiFunctionDeclarationNamedParameter(
               declaration: SwidiDeclaration(
                 defaultConstValue: SwidiConst.fromSwidiEmptyConst(
                   swidiEmptyConst: SwidiEmptyConst(),
@@ -99,8 +99,8 @@ void main() {
               ),
             ),
           ),
-          SwidiPositionalOrOptionalOrNamedParameter.fromSwidiNamedParameter(
-            namedParameter: SwidiNamedParameter(
+          SwidiFunctionDeclarationPositionalOrOptionalOrNamedParameter.fromSwidiFunctionDeclarationNamedParameter(
+            namedParameter: SwidiFunctionDeclarationNamedParameter(
               declaration: SwidiDeclaration(
                 defaultConstValue: SwidiConst.fromSwidiEmptyConst(
                   swidiEmptyConst: SwidiEmptyConst(),
@@ -120,8 +120,8 @@ void main() {
               ),
             ),
           ),
-          SwidiPositionalOrOptionalOrNamedParameter.fromSwidiNamedParameter(
-            namedParameter: SwidiNamedParameter(
+          SwidiFunctionDeclarationPositionalOrOptionalOrNamedParameter.fromSwidiFunctionDeclarationNamedParameter(
+            namedParameter: SwidiFunctionDeclarationNamedParameter(
               declaration: SwidiDeclaration(
                 defaultConstValue: SwidiConst.fromSwidiEmptyConst(
                   swidiEmptyConst: SwidiEmptyConst(),

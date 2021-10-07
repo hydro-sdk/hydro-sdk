@@ -1,7 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
-part of 'swidiNamedParameter.dart';
+part of 'swidiFunctionDeclarationNamedParameter.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -13,8 +13,8 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-class _$SwidiNamedParameterTearOff {
-  const _$SwidiNamedParameterTearOff();
+class _$SwidiFunctionDeclarationNamedParameterTearOff {
+  const _$SwidiFunctionDeclarationNamedParameterTearOff();
 
   _$SwidiNamedParameterCtor call({required SwidiDeclaration declaration}) {
     return _$SwidiNamedParameterCtor(
@@ -24,35 +24,38 @@ class _$SwidiNamedParameterTearOff {
 }
 
 /// @nodoc
-const $SwidiNamedParameter = _$SwidiNamedParameterTearOff();
+const $SwidiFunctionDeclarationNamedParameter =
+    _$SwidiFunctionDeclarationNamedParameterTearOff();
 
 /// @nodoc
-mixin _$SwidiNamedParameter {
+mixin _$SwidiFunctionDeclarationNamedParameter {
   SwidiDeclaration get declaration => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $SwidiNamedParameterCopyWith<SwidiNamedParameter> get copyWith =>
-      throw _privateConstructorUsedError;
+  $SwidiFunctionDeclarationNamedParameterCopyWith<
+          SwidiFunctionDeclarationNamedParameter>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $SwidiNamedParameterCopyWith<$Res> {
-  factory $SwidiNamedParameterCopyWith(
-          SwidiNamedParameter value, $Res Function(SwidiNamedParameter) then) =
-      _$SwidiNamedParameterCopyWithImpl<$Res>;
+abstract class $SwidiFunctionDeclarationNamedParameterCopyWith<$Res> {
+  factory $SwidiFunctionDeclarationNamedParameterCopyWith(
+          SwidiFunctionDeclarationNamedParameter value,
+          $Res Function(SwidiFunctionDeclarationNamedParameter) then) =
+      _$SwidiFunctionDeclarationNamedParameterCopyWithImpl<$Res>;
   $Res call({SwidiDeclaration declaration});
 
   $SwidiDeclarationCopyWith<$Res> get declaration;
 }
 
 /// @nodoc
-class _$SwidiNamedParameterCopyWithImpl<$Res>
-    implements $SwidiNamedParameterCopyWith<$Res> {
-  _$SwidiNamedParameterCopyWithImpl(this._value, this._then);
+class _$SwidiFunctionDeclarationNamedParameterCopyWithImpl<$Res>
+    implements $SwidiFunctionDeclarationNamedParameterCopyWith<$Res> {
+  _$SwidiFunctionDeclarationNamedParameterCopyWithImpl(this._value, this._then);
 
-  final SwidiNamedParameter _value;
+  final SwidiFunctionDeclarationNamedParameter _value;
   // ignore: unused_field
-  final $Res Function(SwidiNamedParameter) _then;
+  final $Res Function(SwidiFunctionDeclarationNamedParameter) _then;
 
   @override
   $Res call({
@@ -76,7 +79,7 @@ class _$SwidiNamedParameterCopyWithImpl<$Res>
 
 /// @nodoc
 abstract class _$$SwidiNamedParameterCtorCopyWith<$Res>
-    implements $SwidiNamedParameterCopyWith<$Res> {
+    implements $SwidiFunctionDeclarationNamedParameterCopyWith<$Res> {
   factory _$$SwidiNamedParameterCtorCopyWith(_$SwidiNamedParameterCtor value,
           $Res Function(_$SwidiNamedParameterCtor) then) =
       __$$SwidiNamedParameterCtorCopyWithImpl<$Res>;
@@ -89,7 +92,7 @@ abstract class _$$SwidiNamedParameterCtorCopyWith<$Res>
 
 /// @nodoc
 class __$$SwidiNamedParameterCtorCopyWithImpl<$Res>
-    extends _$SwidiNamedParameterCopyWithImpl<$Res>
+    extends _$SwidiFunctionDeclarationNamedParameterCopyWithImpl<$Res>
     implements _$$SwidiNamedParameterCtorCopyWith<$Res> {
   __$$SwidiNamedParameterCtorCopyWithImpl(_$SwidiNamedParameterCtor _value,
       $Res Function(_$SwidiNamedParameterCtor) _then)
@@ -122,7 +125,7 @@ class _$_$SwidiNamedParameterCtor extends _$SwidiNamedParameterCtor {
 
   @override
   String toString() {
-    return 'SwidiNamedParameter(declaration: $declaration)';
+    return 'SwidiFunctionDeclarationNamedParameter(declaration: $declaration)';
   }
 
   @override
@@ -145,7 +148,8 @@ class _$_$SwidiNamedParameterCtor extends _$SwidiNamedParameterCtor {
           this, _$identity);
 }
 
-abstract class _$SwidiNamedParameterCtor extends SwidiNamedParameter {
+abstract class _$SwidiNamedParameterCtor
+    extends SwidiFunctionDeclarationNamedParameter {
   factory _$SwidiNamedParameterCtor({required SwidiDeclaration declaration}) =
       _$_$SwidiNamedParameterCtor;
   _$SwidiNamedParameterCtor._() : super._();

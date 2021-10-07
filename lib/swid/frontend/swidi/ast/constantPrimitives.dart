@@ -3,10 +3,10 @@ import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiDeclaration.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiEmptyConst.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiInterface.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiLibraryScopePrefix.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiNamedParameter.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionDeclarationNamedParameter.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiNullabilitySuffix.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiOptionalParameter.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiPositionalParameter.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionDeclarationOptionalParameter.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionDeclarationPositionalParameter.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiReferenceDeclarationPrefix.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiType.dart';
 
@@ -31,15 +31,15 @@ final swidiUnkownDeclaration = SwidiDeclaration(
   ),
 );
 
-final swidiUnknownOptionalParameter = SwidiOptionalParameter(
+final swidiUnknownOptionalParameter = SwidiFunctionDeclarationOptionalParameter(
   declaration: swidiUnkownDeclaration,
 );
 
-final swidiUnknownPositionalParameter = SwidiPositionalParameter(
+final swidiUnknownPositionalParameter = SwidiFunctionDeclarationPositionalParameter(
   declaration: swidiUnkownDeclaration,
 );
 
-final swidiUnknownNamedParameter = SwidiNamedParameter(
+final swidiUnknownNamedParameter = SwidiFunctionDeclarationNamedParameter(
   declaration: swidiUnkownDeclaration,
 );
 

@@ -12,10 +12,10 @@ import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiEmptyConst.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionDeclaration.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiInterface.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiLibraryScopePrefix.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiNamedParameter.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionDeclarationNamedParameter.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiNullabilitySuffix.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiOptionalParameter.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiPositionalParameter.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionDeclarationOptionalParameter.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionDeclarationPositionalParameter.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiReferenceDeclarationPrefix.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiType.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiTypeFormal.dart';
@@ -73,7 +73,7 @@ void main() {
               ),
               optionalParameters: [],
               positionalParameters: [
-                SwidiPositionalParameter(
+                SwidiFunctionDeclarationPositionalParameter(
                   declaration: SwidiDeclaration(
                     defaultConstValue: SwidiConst.fromSwidiEmptyConst(
                       swidiEmptyConst: SwidiEmptyConst(),
@@ -95,7 +95,7 @@ void main() {
                 ),
               ],
               namedParameters: [
-                SwidiNamedParameter(
+                SwidiFunctionDeclarationNamedParameter(
                   declaration: SwidiDeclaration(
                     defaultConstValue: SwidiConst.fromSwidiEmptyConst(
                       swidiEmptyConst: SwidiEmptyConst(),
@@ -115,7 +115,7 @@ void main() {
                     ),
                   ),
                 ),
-                SwidiNamedParameter(
+                SwidiFunctionDeclarationNamedParameter(
                   declaration: SwidiDeclaration(
                     defaultConstValue: SwidiConst.fromSwidiEmptyConst(
                       swidiEmptyConst: SwidiEmptyConst(),
@@ -199,7 +199,7 @@ class "package:flutter/src/widgets/icon_data.dart"::IconData {
               ),
               positionalParameters: [],
               optionalParameters: [
-                SwidiOptionalParameter(
+                SwidiFunctionDeclarationOptionalParameter(
                   declaration: SwidiDeclaration(
                     name: "default",
                     defaultConstValue: SwidiConst.fromSwidiConstString(
@@ -292,7 +292,7 @@ class "dart:core"::List {
               ),
               positionalParameters: [],
               optionalParameters: [
-                SwidiOptionalParameter(
+                SwidiFunctionDeclarationOptionalParameter(
                   declaration: SwidiDeclaration(
                     defaultConstValue: SwidiConst.fromSwidiEmptyConst(
                       swidiEmptyConst: SwidiEmptyConst(),
@@ -450,7 +450,7 @@ class "dart:core"::List {
               ),
               positionalParameters: [],
               optionalParameters: [
-                SwidiOptionalParameter(
+                SwidiFunctionDeclarationOptionalParameter(
                   declaration: SwidiDeclaration(
                     defaultConstValue: SwidiConst.fromSwidiEmptyConst(
                       swidiEmptyConst: SwidiEmptyConst(),
@@ -607,7 +607,7 @@ class "dart:core"::List {
               ),
               positionalParameters: [],
               optionalParameters: [
-                SwidiOptionalParameter(
+                SwidiFunctionDeclarationOptionalParameter(
                   declaration: SwidiDeclaration(
                     defaultConstValue: SwidiConst.fromSwidiEmptyConst(
                       swidiEmptyConst: SwidiEmptyConst(),

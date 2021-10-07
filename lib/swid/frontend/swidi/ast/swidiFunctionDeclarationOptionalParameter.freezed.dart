@@ -1,7 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
-part of 'swidiOptionalParameter.dart';
+part of 'swidiFunctionDeclarationOptionalParameter.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -13,8 +13,8 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-class _$SwidiOptionalParameterTearOff {
-  const _$SwidiOptionalParameterTearOff();
+class _$SwidiFunctionDeclarationOptionalParameterTearOff {
+  const _$SwidiFunctionDeclarationOptionalParameterTearOff();
 
   _$SwidiOptionalParameterCtor call({required SwidiDeclaration declaration}) {
     return _$SwidiOptionalParameterCtor(
@@ -24,35 +24,39 @@ class _$SwidiOptionalParameterTearOff {
 }
 
 /// @nodoc
-const $SwidiOptionalParameter = _$SwidiOptionalParameterTearOff();
+const $SwidiFunctionDeclarationOptionalParameter =
+    _$SwidiFunctionDeclarationOptionalParameterTearOff();
 
 /// @nodoc
-mixin _$SwidiOptionalParameter {
+mixin _$SwidiFunctionDeclarationOptionalParameter {
   SwidiDeclaration get declaration => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $SwidiOptionalParameterCopyWith<SwidiOptionalParameter> get copyWith =>
-      throw _privateConstructorUsedError;
+  $SwidiFunctionDeclarationOptionalParameterCopyWith<
+          SwidiFunctionDeclarationOptionalParameter>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $SwidiOptionalParameterCopyWith<$Res> {
-  factory $SwidiOptionalParameterCopyWith(SwidiOptionalParameter value,
-          $Res Function(SwidiOptionalParameter) then) =
-      _$SwidiOptionalParameterCopyWithImpl<$Res>;
+abstract class $SwidiFunctionDeclarationOptionalParameterCopyWith<$Res> {
+  factory $SwidiFunctionDeclarationOptionalParameterCopyWith(
+          SwidiFunctionDeclarationOptionalParameter value,
+          $Res Function(SwidiFunctionDeclarationOptionalParameter) then) =
+      _$SwidiFunctionDeclarationOptionalParameterCopyWithImpl<$Res>;
   $Res call({SwidiDeclaration declaration});
 
   $SwidiDeclarationCopyWith<$Res> get declaration;
 }
 
 /// @nodoc
-class _$SwidiOptionalParameterCopyWithImpl<$Res>
-    implements $SwidiOptionalParameterCopyWith<$Res> {
-  _$SwidiOptionalParameterCopyWithImpl(this._value, this._then);
+class _$SwidiFunctionDeclarationOptionalParameterCopyWithImpl<$Res>
+    implements $SwidiFunctionDeclarationOptionalParameterCopyWith<$Res> {
+  _$SwidiFunctionDeclarationOptionalParameterCopyWithImpl(
+      this._value, this._then);
 
-  final SwidiOptionalParameter _value;
+  final SwidiFunctionDeclarationOptionalParameter _value;
   // ignore: unused_field
-  final $Res Function(SwidiOptionalParameter) _then;
+  final $Res Function(SwidiFunctionDeclarationOptionalParameter) _then;
 
   @override
   $Res call({
@@ -76,7 +80,7 @@ class _$SwidiOptionalParameterCopyWithImpl<$Res>
 
 /// @nodoc
 abstract class _$$SwidiOptionalParameterCtorCopyWith<$Res>
-    implements $SwidiOptionalParameterCopyWith<$Res> {
+    implements $SwidiFunctionDeclarationOptionalParameterCopyWith<$Res> {
   factory _$$SwidiOptionalParameterCtorCopyWith(
           _$SwidiOptionalParameterCtor value,
           $Res Function(_$SwidiOptionalParameterCtor) then) =
@@ -90,7 +94,7 @@ abstract class _$$SwidiOptionalParameterCtorCopyWith<$Res>
 
 /// @nodoc
 class __$$SwidiOptionalParameterCtorCopyWithImpl<$Res>
-    extends _$SwidiOptionalParameterCopyWithImpl<$Res>
+    extends _$SwidiFunctionDeclarationOptionalParameterCopyWithImpl<$Res>
     implements _$$SwidiOptionalParameterCtorCopyWith<$Res> {
   __$$SwidiOptionalParameterCtorCopyWithImpl(
       _$SwidiOptionalParameterCtor _value,
@@ -124,7 +128,7 @@ class _$_$SwidiOptionalParameterCtor extends _$SwidiOptionalParameterCtor {
 
   @override
   String toString() {
-    return 'SwidiOptionalParameter(declaration: $declaration)';
+    return 'SwidiFunctionDeclarationOptionalParameter(declaration: $declaration)';
   }
 
   @override
@@ -147,7 +151,8 @@ class _$_$SwidiOptionalParameterCtor extends _$SwidiOptionalParameterCtor {
           _$SwidiOptionalParameterCtor>(this, _$identity);
 }
 
-abstract class _$SwidiOptionalParameterCtor extends SwidiOptionalParameter {
+abstract class _$SwidiOptionalParameterCtor
+    extends SwidiFunctionDeclarationOptionalParameter {
   factory _$SwidiOptionalParameterCtor(
       {required SwidiDeclaration declaration}) = _$_$SwidiOptionalParameterCtor;
   _$SwidiOptionalParameterCtor._() : super._();

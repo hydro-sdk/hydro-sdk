@@ -1,7 +1,7 @@
 import 'package:petitparser/petitparser.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiDeclaration.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiNamedParameter.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionDeclarationNamedParameter.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iDeclarationWithDefaultConstValueLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iFunctionDeclarationNamedParameterLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iSimpleDeclarationLexer.dart';
@@ -17,14 +17,14 @@ mixin SwidiFunctionDeclarationNamedParameterParser
         IFunctionDeclarationNamedParameterLexer,
         IDeclarationWithDefaultConstValueLexer,
         ISimpleDeclarationLexer,
-        IFunctionDeclarationNamedParameterParser<Parser<SwidiNamedParameter?>>,
+        IFunctionDeclarationNamedParameterParser<Parser<SwidiFunctionDeclarationNamedParameter?>>,
         IDeclarationWithDefaultConstValueParser<Parser<SwidiDeclaration>>,
         ISimpleDeclarationParser<Parser<SwidiDeclaration>> {
   @override
-  Parser<SwidiNamedParameter?> functionDeclarationNamedParameter() =>
+  Parser<SwidiFunctionDeclarationNamedParameter?> functionDeclarationNamedParameter() =>
       super.functionDeclarationNamedParameter().map((x) {
         if (x is SwidiDeclaration) {
-          return SwidiNamedParameter(declaration: x);
+          return SwidiFunctionDeclarationNamedParameter(declaration: x);
         }
         return null;
       });

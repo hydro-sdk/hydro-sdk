@@ -7,7 +7,7 @@ import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiEmptyConst.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionDeclaration.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiInterface.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiLibraryScopePrefix.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiNamedParameter.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionDeclarationNamedParameter.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiReferenceDeclarationPrefix.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiType.dart';
@@ -52,7 +52,7 @@ void main() {
               optionalParameters: [],
               positionalParameters: [],
               namedParameters: [
-                SwidiNamedParameter(
+                SwidiFunctionDeclarationNamedParameter(
                   declaration: SwidiDeclaration(
                     defaultConstValue: SwidiConst.fromSwidiEmptyConst(
                       swidiEmptyConst: SwidiEmptyConst(),
@@ -71,7 +71,7 @@ void main() {
                     ),
                   ),
                 ),
-                SwidiNamedParameter(
+                SwidiFunctionDeclarationNamedParameter(
                   declaration: SwidiDeclaration(
                     defaultConstValue: SwidiConst.fromSwidiEmptyConst(
                       swidiEmptyConst: SwidiEmptyConst(),
@@ -90,7 +90,7 @@ void main() {
                     ),
                   ),
                 ),
-                SwidiNamedParameter(
+                SwidiFunctionDeclarationNamedParameter(
                   declaration: SwidiDeclaration(
                     defaultConstValue: SwidiConst.fromSwidiEmptyConst(
                       swidiEmptyConst: SwidiEmptyConst(),

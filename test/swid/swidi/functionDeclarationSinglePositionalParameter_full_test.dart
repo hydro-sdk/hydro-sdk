@@ -8,7 +8,7 @@ import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionDeclaration.dart'
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiInterface.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiLibraryScopePrefix.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiNullabilitySuffix.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiPositionalParameter.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionDeclarationPositionalParameter.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiReferenceDeclarationPrefix.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiType.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiParser.dart';
@@ -57,7 +57,7 @@ void main() {
               optionalParameters: [],
               namedParameters: [],
               positionalParameters: [
-                SwidiPositionalParameter(
+                SwidiFunctionDeclarationPositionalParameter(
                   declaration: SwidiDeclaration(
                     defaultConstValue: SwidiConst.fromSwidiEmptyConst(
                       swidiEmptyConst: SwidiEmptyConst(),

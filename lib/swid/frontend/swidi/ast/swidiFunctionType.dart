@@ -3,7 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiAnnotation.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionTypeNamedArgument.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiInterface.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiPositionalParameter.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionDeclarationPositionalParameter.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
 import 'package:hydro_sdk/swid/util/iCopyable.dart';
@@ -23,7 +23,7 @@ class SwidiFunctionType
 
   factory SwidiFunctionType({
     required final SwidiInterface returnType,
-    required final List<SwidiPositionalParameter> positionalParameters,
+    required final List<SwidiFunctionDeclarationPositionalParameter> positionalParameters,
     required final List<SwidiInterface> optionalParameters,
     required final List<SwidiFunctionTypeNamedArgument> namedParameters,
     required final List<SwidiInterface> typeArguments,
@@ -33,7 +33,7 @@ class SwidiFunctionType
   factory SwidiFunctionType._clone({
     required final SwidiFunctionType swidiFunctionType,
     final SwidiInterface? returnType,
-    final List<SwidiPositionalParameter>? positionalParameters,
+    final List<SwidiFunctionDeclarationPositionalParameter>? positionalParameters,
     final List<SwidiInterface>? optionalParameters,
     final List<SwidiFunctionTypeNamedArgument>? namedParameters,
     final List<SwidiInterface>? typeArguments,
@@ -63,7 +63,7 @@ class SwidiFunctionType
   @override
   SwidiFunctionType clone({
     final SwidiInterface? returnType,
-    final List<SwidiPositionalParameter>? positionalParameters,
+    final List<SwidiFunctionDeclarationPositionalParameter>? positionalParameters,
     final List<SwidiInterface>? optionalParameters,
     final List<SwidiFunctionTypeNamedArgument>? namedParameters,
     final List<SwidiInterface>? typeArguments,

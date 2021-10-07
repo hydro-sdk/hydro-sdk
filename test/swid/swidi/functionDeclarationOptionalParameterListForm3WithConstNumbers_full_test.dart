@@ -9,7 +9,7 @@ import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionDeclaration.dart'
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiInterface.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiLibraryScopePrefix.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiNullabilitySuffix.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiOptionalParameter.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionDeclarationOptionalParameter.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiReferenceDeclarationPrefix.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiType.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiParser.dart';
@@ -51,7 +51,7 @@ void main() {
                 ),
               ),
               optionalParameters: [
-                SwidiOptionalParameter(
+                SwidiFunctionDeclarationOptionalParameter(
                   declaration: SwidiDeclaration(
                     name: "bar",
                     type: SwidiType.fromSwidiInterface(
@@ -72,7 +72,7 @@ void main() {
                     ),
                   ),
                 ),
-                SwidiOptionalParameter(
+                SwidiFunctionDeclarationOptionalParameter(
                   declaration: SwidiDeclaration(
                     name: "baz",
                     type: SwidiType.fromSwidiInterface(
@@ -93,7 +93,7 @@ void main() {
                     ),
                   ),
                 ),
-                SwidiOptionalParameter(
+                SwidiFunctionDeclarationOptionalParameter(
                   declaration: SwidiDeclaration(
                     name: "qux",
                     type: SwidiType.fromSwidiInterface(
