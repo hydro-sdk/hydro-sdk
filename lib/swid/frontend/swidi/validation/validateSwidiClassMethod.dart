@@ -2,6 +2,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionDeclaration.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/validation/swidiValidationError.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/validation/validTransformNames.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/validation/validateSwidiClass.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/validation/validateSwidiType.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
@@ -170,8 +171,10 @@ class ValidateSwidiClassMethod
                           ),
                         ],
                         fromSwidiConstString: (val) => [
-                          validTransformNames.firstWhereOrNull(
-                                      (x) => x == val.value) !=
+                          [
+                                    ...validTransformNames,
+                                    isGetterName,
+                                  ].firstWhereOrNull((x) => x == val.value) !=
                                   null
                               ? const SwidiClassValidationState.valid()
                               : const SwidiClassValidationState.invalid(
