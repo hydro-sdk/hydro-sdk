@@ -13,5 +13,5 @@ abstract class IFunctionTypePositionalParameterListForm2Lexer<T extends dynamic,
         IFunctionTypePositionalParameterTailLexer<T, U> {
   const IFunctionTypePositionalParameterListForm2Lexer();
 
-  U functionDeclarationPositionalParameterListForm2();
+  U functionTypePositionalParameterListForm2();
 }

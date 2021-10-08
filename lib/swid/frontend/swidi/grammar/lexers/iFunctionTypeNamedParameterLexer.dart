@@ -13,5 +13,5 @@ abstract class IFunctionTypeNamedParameterLexer<T extends dynamic,
         ISimpleDeclarationLexer<T, U> {
   const IFunctionTypeNamedParameterLexer();
 
-  U functionDeclarationNamedParameter();
+  U functionTypeNamedParameter();
 }

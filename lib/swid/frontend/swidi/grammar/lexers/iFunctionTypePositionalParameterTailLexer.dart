@@ -10,5 +10,5 @@ abstract class IFunctionTypePositionalParameterTailLexer<T extends dynamic,
     implements IFunctionTypePositionalParameterLexer<T, U> {
   const IFunctionTypePositionalParameterTailLexer();
 
-  U functionDeclarationPositionalParameterTail();
+  U functionTypePositionalParameterTail();
 }

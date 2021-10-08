@@ -9,5 +9,5 @@ abstract class IFunctionTypePositionalParameterLexer<T extends dynamic,
     U extends Parser<T>> implements ISimpleDeclarationLexer<T, U> {
   const IFunctionTypePositionalParameterLexer();
 
-  U functionDeclarationPositionalParameter();
+  U functionTypePositionalParameter();
 }

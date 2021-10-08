@@ -9,5 +9,5 @@ abstract class IFunctionTypeOptionalParameterListForm2Lexer<T extends dynamic,
     U extends Parser<T>> implements IFunctionTypeOptionalParameterLexer<T, U> {
   const IFunctionTypeOptionalParameterListForm2Lexer();
 
-  U functionDeclarationOptionalParameterListForm2();
+  U functionTypeOptionalParameterListForm2();
 }

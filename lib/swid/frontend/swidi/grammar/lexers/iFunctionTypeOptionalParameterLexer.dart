@@ -13,5 +13,5 @@ abstract class IFunctionTypeOptionalParameterLexer<T extends dynamic,
         ISimpleDeclarationLexer<T, U> {
   const IFunctionTypeOptionalParameterLexer();
 
-  U functionDeclarationOptionalParameter();
+  U functionTypeOptionalParameter();
 }

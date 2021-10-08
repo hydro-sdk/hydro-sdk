@@ -9,5 +9,5 @@ abstract class IFunctionTypeOptionalParameterTailLexer<T extends dynamic,
     U extends Parser<T>> implements IFunctionTypeOptionalParameterLexer<T, U> {
   const IFunctionTypeOptionalParameterTailLexer();
 
-  U functionDeclarationOptionalParameterTail();
+  U functionTypeOptionalParameterTail();
 }

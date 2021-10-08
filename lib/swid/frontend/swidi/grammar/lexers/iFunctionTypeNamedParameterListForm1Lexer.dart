@@ -9,5 +9,5 @@ abstract class IFunctionTypeNamedParameterListForm1Lexer<T extends dynamic,
     U extends Parser<T>> implements IFunctionTypeNamedParameterLexer<T, U> {
   const IFunctionTypeNamedParameterListForm1Lexer();
 
-  U functionDeclarationNamedParameterListForm1();
+  U functionTypeNamedParameterListForm1();
 }

@@ -13,5 +13,5 @@ abstract class IFunctionTypeNamedParameterListForm3Lexer<T extends dynamic,
         IFunctionTypeNamedParameterTailLexer<T, U> {
   const IFunctionTypeNamedParameterListForm3Lexer();
 
-  U functionDeclarationNamedParameterListForm3();
+  U functionTypeNamedParameterListForm3();
 }
