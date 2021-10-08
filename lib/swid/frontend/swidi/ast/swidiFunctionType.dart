@@ -2,7 +2,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiAnnotation.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionDeclarationPositionalParameter.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionTypeNamedArgument.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionTypeNamedParameter.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiInterface.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiTypeFormal.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
@@ -27,7 +27,7 @@ class SwidiFunctionType
     required final List<SwidiFunctionDeclarationPositionalParameter>
         positionalParameters,
     required final List<SwidiInterface> optionalParameters,
-    required final List<SwidiFunctionTypeNamedArgument> namedParameters,
+    required final List<SwidiFunctionTypeNamedParameter> namedParameters,
     required final List<SwidiTypeFormal> typeFormals,
     required final List<SwidiAnnotation> annotations,
   }) = _$SwidiFunctionTypeCtor;
@@ -38,7 +38,7 @@ class SwidiFunctionType
     final List<SwidiFunctionDeclarationPositionalParameter>?
         positionalParameters,
     final List<SwidiInterface>? optionalParameters,
-    final List<SwidiFunctionTypeNamedArgument>? namedParameters,
+    final List<SwidiFunctionTypeNamedParameter>? namedParameters,
     final List<SwidiTypeFormal>? typeFormals,
     final List<SwidiAnnotation>? annotations,
   }) =>
@@ -49,7 +49,7 @@ class SwidiFunctionType
         optionalParameters:
             optionalParameters ?? swidiFunctionType.optionalParameters,
         namedParameters: namedParameters ?? swidiFunctionType.namedParameters,
-        typeFormals:typeFormals ?? swidiFunctionType.typeFormals,
+        typeFormals: typeFormals ?? swidiFunctionType.typeFormals,
         annotations: annotations ?? swidiFunctionType.annotations,
       );
 
@@ -69,7 +69,7 @@ class SwidiFunctionType
     final List<SwidiFunctionDeclarationPositionalParameter>?
         positionalParameters,
     final List<SwidiInterface>? optionalParameters,
-    final List<SwidiFunctionTypeNamedArgument>? namedParameters,
+    final List<SwidiFunctionTypeNamedParameter>? namedParameters,
     final List<SwidiTypeFormal>? typeFormals,
     final List<SwidiAnnotation>? annotations,
   }) =>

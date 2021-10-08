@@ -21,7 +21,7 @@ class _$SwidiFunctionTypeTearOff {
       required List<SwidiFunctionDeclarationPositionalParameter>
           positionalParameters,
       required List<SwidiInterface> optionalParameters,
-      required List<SwidiFunctionTypeNamedArgument> namedParameters,
+      required List<SwidiFunctionTypeNamedParameter> namedParameters,
       required List<SwidiTypeFormal> typeFormals,
       required List<SwidiAnnotation> annotations}) {
     return _$SwidiFunctionTypeCtor(
@@ -45,7 +45,7 @@ mixin _$SwidiFunctionType {
       throw _privateConstructorUsedError;
   List<SwidiInterface> get optionalParameters =>
       throw _privateConstructorUsedError;
-  List<SwidiFunctionTypeNamedArgument> get namedParameters =>
+  List<SwidiFunctionTypeNamedParameter> get namedParameters =>
       throw _privateConstructorUsedError;
   List<SwidiTypeFormal> get typeFormals => throw _privateConstructorUsedError;
   List<SwidiAnnotation> get annotations => throw _privateConstructorUsedError;
@@ -64,7 +64,7 @@ abstract class $SwidiFunctionTypeCopyWith<$Res> {
       {SwidiInterface returnType,
       List<SwidiFunctionDeclarationPositionalParameter> positionalParameters,
       List<SwidiInterface> optionalParameters,
-      List<SwidiFunctionTypeNamedArgument> namedParameters,
+      List<SwidiFunctionTypeNamedParameter> namedParameters,
       List<SwidiTypeFormal> typeFormals,
       List<SwidiAnnotation> annotations});
 
@@ -105,7 +105,7 @@ class _$SwidiFunctionTypeCopyWithImpl<$Res>
       namedParameters: namedParameters == freezed
           ? _value.namedParameters
           : namedParameters // ignore: cast_nullable_to_non_nullable
-              as List<SwidiFunctionTypeNamedArgument>,
+              as List<SwidiFunctionTypeNamedParameter>,
       typeFormals: typeFormals == freezed
           ? _value.typeFormals
           : typeFormals // ignore: cast_nullable_to_non_nullable
@@ -136,7 +136,7 @@ abstract class _$$SwidiFunctionTypeCtorCopyWith<$Res>
       {SwidiInterface returnType,
       List<SwidiFunctionDeclarationPositionalParameter> positionalParameters,
       List<SwidiInterface> optionalParameters,
-      List<SwidiFunctionTypeNamedArgument> namedParameters,
+      List<SwidiFunctionTypeNamedParameter> namedParameters,
       List<SwidiTypeFormal> typeFormals,
       List<SwidiAnnotation> annotations});
 
@@ -180,7 +180,7 @@ class __$$SwidiFunctionTypeCtorCopyWithImpl<$Res>
       namedParameters: namedParameters == freezed
           ? _value.namedParameters
           : namedParameters // ignore: cast_nullable_to_non_nullable
-              as List<SwidiFunctionTypeNamedArgument>,
+              as List<SwidiFunctionTypeNamedParameter>,
       typeFormals: typeFormals == freezed
           ? _value.typeFormals
           : typeFormals // ignore: cast_nullable_to_non_nullable
@@ -212,7 +212,7 @@ class _$_$SwidiFunctionTypeCtor extends _$SwidiFunctionTypeCtor {
   @override
   final List<SwidiInterface> optionalParameters;
   @override
-  final List<SwidiFunctionTypeNamedArgument> namedParameters;
+  final List<SwidiFunctionTypeNamedParameter> namedParameters;
   @override
   final List<SwidiTypeFormal> typeFormals;
   @override
@@ -270,7 +270,7 @@ abstract class _$SwidiFunctionTypeCtor extends SwidiFunctionType {
       required List<SwidiFunctionDeclarationPositionalParameter>
           positionalParameters,
       required List<SwidiInterface> optionalParameters,
-      required List<SwidiFunctionTypeNamedArgument> namedParameters,
+      required List<SwidiFunctionTypeNamedParameter> namedParameters,
       required List<SwidiTypeFormal> typeFormals,
       required List<SwidiAnnotation> annotations}) = _$_$SwidiFunctionTypeCtor;
   _$SwidiFunctionTypeCtor._() : super._();
@@ -284,7 +284,7 @@ abstract class _$SwidiFunctionTypeCtor extends SwidiFunctionType {
   List<SwidiInterface> get optionalParameters =>
       throw _privateConstructorUsedError;
   @override
-  List<SwidiFunctionTypeNamedArgument> get namedParameters =>
+  List<SwidiFunctionTypeNamedParameter> get namedParameters =>
       throw _privateConstructorUsedError;
   @override
   List<SwidiTypeFormal> get typeFormals => throw _privateConstructorUsedError;
