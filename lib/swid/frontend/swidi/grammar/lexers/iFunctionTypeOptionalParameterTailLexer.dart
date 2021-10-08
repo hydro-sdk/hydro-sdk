@@ -6,8 +6,7 @@ import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iFunctionTypeOption
 @optionalTypeArgs
 @immutable
 abstract class IFunctionTypeOptionalParameterTailLexer<T extends dynamic,
-        U extends Parser<T>>
-    implements IFunctionTypeOptionalParameterLexer<T, U> {
+    U extends Parser<T>> implements IFunctionTypeOptionalParameterLexer<T, U> {
   const IFunctionTypeOptionalParameterTailLexer();
 
   U functionDeclarationOptionalParameterTail();

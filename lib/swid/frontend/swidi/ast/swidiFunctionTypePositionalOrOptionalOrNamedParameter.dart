@@ -12,8 +12,7 @@ part 'swidiFunctionTypePositionalOrOptionalOrNamedParameter.freezed.dart';
 class SwidiFunctionTypePositionalOrOptionalOrNamedParameter
     with
         _$SwidiFunctionTypePositionalOrOptionalOrNamedParameter,
-        HashKeyMixin<
-            SwidiFunctionTypePositionalOrOptionalOrNamedParameter>,
+        HashKeyMixin<SwidiFunctionTypePositionalOrOptionalOrNamedParameter>,
         HashComparableMixin<
             SwidiFunctionTypePositionalOrOptionalOrNamedParameter> {
   SwidiFunctionTypePositionalOrOptionalOrNamedParameter._();
@@ -42,16 +41,13 @@ class SwidiFunctionTypePositionalOrOptionalOrNamedParameter
 
   @override
   List<int> get hashableParts => when(
-        fromSwidiFunctionTypePositionalParameter: (val) =>
-            val.hashableParts,
-        fromSwidiFunctionTypeOptionalParameter: (val) =>
-            val.hashableParts,
+        fromSwidiFunctionTypePositionalParameter: (val) => val.hashableParts,
+        fromSwidiFunctionTypeOptionalParameter: (val) => val.hashableParts,
         fromSwidiFunctionTypeNamedParameter: (val) => val.hashableParts,
       );
 
   factory SwidiFunctionTypePositionalOrOptionalOrNamedParameter.fromSwidiFunctionTypePositionalParameter({
-    required final SwidiFunctionTypePositionalParameter
-        positionalParameter,
+    required final SwidiFunctionTypePositionalParameter positionalParameter,
   }) = _$SwidiPositionalOrOptionalParameterFromSwidiPositionalParameter;
 
   factory SwidiFunctionTypePositionalOrOptionalOrNamedParameter.fromSwidiFunctionTypeOptionalParameter({

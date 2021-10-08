@@ -5,9 +5,8 @@ import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iFunctionTypeNamedP
 
 @optionalTypeArgs
 @immutable
-abstract class IFunctionTypeNamedParameterListForm1Lexer<
-        T extends dynamic, U extends Parser<T>>
-    implements IFunctionTypeNamedParameterLexer<T, U> {
+abstract class IFunctionTypeNamedParameterListForm1Lexer<T extends dynamic,
+    U extends Parser<T>> implements IFunctionTypeNamedParameterLexer<T, U> {
   const IFunctionTypeNamedParameterListForm1Lexer();
 
   U functionDeclarationNamedParameterListForm1();

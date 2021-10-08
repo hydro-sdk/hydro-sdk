@@ -5,8 +5,8 @@ import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iFunctionTypePositi
 
 @optionalTypeArgs
 @immutable
-abstract class IFunctionTypePositionalParameterListForm1Lexer<
-        T extends dynamic, U extends Parser<T>>
+abstract class IFunctionTypePositionalParameterListForm1Lexer<T extends dynamic,
+        U extends Parser<T>>
     implements IFunctionTypePositionalParameterLexer<T, U> {
   const IFunctionTypePositionalParameterListForm1Lexer();
 
