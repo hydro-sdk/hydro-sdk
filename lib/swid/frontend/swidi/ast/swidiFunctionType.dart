@@ -4,6 +4,7 @@ import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiAnnotation.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionDeclarationPositionalParameter.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionTypeNamedArgument.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiInterface.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiTypeFormal.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
 import 'package:hydro_sdk/swid/util/iCopyable.dart';
@@ -27,7 +28,7 @@ class SwidiFunctionType
         positionalParameters,
     required final List<SwidiInterface> optionalParameters,
     required final List<SwidiFunctionTypeNamedArgument> namedParameters,
-    required final List<SwidiInterface> typeArguments,
+    required final List<SwidiTypeFormal> typeFormals,
     required final List<SwidiAnnotation> annotations,
   }) = _$SwidiFunctionTypeCtor;
 
@@ -38,7 +39,7 @@ class SwidiFunctionType
         positionalParameters,
     final List<SwidiInterface>? optionalParameters,
     final List<SwidiFunctionTypeNamedArgument>? namedParameters,
-    final List<SwidiInterface>? typeArguments,
+    final List<SwidiTypeFormal>? typeFormals,
     final List<SwidiAnnotation>? annotations,
   }) =>
       SwidiFunctionType(
@@ -48,7 +49,7 @@ class SwidiFunctionType
         optionalParameters:
             optionalParameters ?? swidiFunctionType.optionalParameters,
         namedParameters: namedParameters ?? swidiFunctionType.namedParameters,
-        typeArguments: typeArguments ?? swidiFunctionType.typeArguments,
+        typeFormals:typeFormals ?? swidiFunctionType.typeFormals,
         annotations: annotations ?? swidiFunctionType.annotations,
       );
 
@@ -58,7 +59,7 @@ class SwidiFunctionType
         ...positionalParameters.hashableParts,
         ...optionalParameters.hashableParts,
         ...namedParameters.hashableParts,
-        ...typeArguments.hashableParts,
+        ...typeFormals.hashableParts,
         ...annotations.hashableParts,
       ];
 
@@ -69,7 +70,7 @@ class SwidiFunctionType
         positionalParameters,
     final List<SwidiInterface>? optionalParameters,
     final List<SwidiFunctionTypeNamedArgument>? namedParameters,
-    final List<SwidiInterface>? typeArguments,
+    final List<SwidiTypeFormal>? typeFormals,
     final List<SwidiAnnotation>? annotations,
   }) =>
       SwidiFunctionType._clone(
@@ -78,7 +79,7 @@ class SwidiFunctionType
         positionalParameters: positionalParameters,
         optionalParameters: optionalParameters,
         namedParameters: namedParameters,
-        typeArguments: typeArguments,
+        typeFormals: typeFormals,
         annotations: annotations,
       );
 }

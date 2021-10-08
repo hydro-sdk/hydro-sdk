@@ -22,14 +22,14 @@ class _$SwidiFunctionTypeTearOff {
           positionalParameters,
       required List<SwidiInterface> optionalParameters,
       required List<SwidiFunctionTypeNamedArgument> namedParameters,
-      required List<SwidiInterface> typeArguments,
+      required List<SwidiTypeFormal> typeFormals,
       required List<SwidiAnnotation> annotations}) {
     return _$SwidiFunctionTypeCtor(
       returnType: returnType,
       positionalParameters: positionalParameters,
       optionalParameters: optionalParameters,
       namedParameters: namedParameters,
-      typeArguments: typeArguments,
+      typeFormals: typeFormals,
       annotations: annotations,
     );
   }
@@ -47,7 +47,7 @@ mixin _$SwidiFunctionType {
       throw _privateConstructorUsedError;
   List<SwidiFunctionTypeNamedArgument> get namedParameters =>
       throw _privateConstructorUsedError;
-  List<SwidiInterface> get typeArguments => throw _privateConstructorUsedError;
+  List<SwidiTypeFormal> get typeFormals => throw _privateConstructorUsedError;
   List<SwidiAnnotation> get annotations => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -65,7 +65,7 @@ abstract class $SwidiFunctionTypeCopyWith<$Res> {
       List<SwidiFunctionDeclarationPositionalParameter> positionalParameters,
       List<SwidiInterface> optionalParameters,
       List<SwidiFunctionTypeNamedArgument> namedParameters,
-      List<SwidiInterface> typeArguments,
+      List<SwidiTypeFormal> typeFormals,
       List<SwidiAnnotation> annotations});
 
   $SwidiInterfaceCopyWith<$Res> get returnType;
@@ -86,7 +86,7 @@ class _$SwidiFunctionTypeCopyWithImpl<$Res>
     Object? positionalParameters = freezed,
     Object? optionalParameters = freezed,
     Object? namedParameters = freezed,
-    Object? typeArguments = freezed,
+    Object? typeFormals = freezed,
     Object? annotations = freezed,
   }) {
     return _then(_value.copyWith(
@@ -106,10 +106,10 @@ class _$SwidiFunctionTypeCopyWithImpl<$Res>
           ? _value.namedParameters
           : namedParameters // ignore: cast_nullable_to_non_nullable
               as List<SwidiFunctionTypeNamedArgument>,
-      typeArguments: typeArguments == freezed
-          ? _value.typeArguments
-          : typeArguments // ignore: cast_nullable_to_non_nullable
-              as List<SwidiInterface>,
+      typeFormals: typeFormals == freezed
+          ? _value.typeFormals
+          : typeFormals // ignore: cast_nullable_to_non_nullable
+              as List<SwidiTypeFormal>,
       annotations: annotations == freezed
           ? _value.annotations
           : annotations // ignore: cast_nullable_to_non_nullable
@@ -137,7 +137,7 @@ abstract class _$$SwidiFunctionTypeCtorCopyWith<$Res>
       List<SwidiFunctionDeclarationPositionalParameter> positionalParameters,
       List<SwidiInterface> optionalParameters,
       List<SwidiFunctionTypeNamedArgument> namedParameters,
-      List<SwidiInterface> typeArguments,
+      List<SwidiTypeFormal> typeFormals,
       List<SwidiAnnotation> annotations});
 
   @override
@@ -161,7 +161,7 @@ class __$$SwidiFunctionTypeCtorCopyWithImpl<$Res>
     Object? positionalParameters = freezed,
     Object? optionalParameters = freezed,
     Object? namedParameters = freezed,
-    Object? typeArguments = freezed,
+    Object? typeFormals = freezed,
     Object? annotations = freezed,
   }) {
     return _then(_$SwidiFunctionTypeCtor(
@@ -181,10 +181,10 @@ class __$$SwidiFunctionTypeCtorCopyWithImpl<$Res>
           ? _value.namedParameters
           : namedParameters // ignore: cast_nullable_to_non_nullable
               as List<SwidiFunctionTypeNamedArgument>,
-      typeArguments: typeArguments == freezed
-          ? _value.typeArguments
-          : typeArguments // ignore: cast_nullable_to_non_nullable
-              as List<SwidiInterface>,
+      typeFormals: typeFormals == freezed
+          ? _value.typeFormals
+          : typeFormals // ignore: cast_nullable_to_non_nullable
+              as List<SwidiTypeFormal>,
       annotations: annotations == freezed
           ? _value.annotations
           : annotations // ignore: cast_nullable_to_non_nullable
@@ -201,7 +201,7 @@ class _$_$SwidiFunctionTypeCtor extends _$SwidiFunctionTypeCtor {
       required this.positionalParameters,
       required this.optionalParameters,
       required this.namedParameters,
-      required this.typeArguments,
+      required this.typeFormals,
       required this.annotations})
       : super._();
 
@@ -214,13 +214,13 @@ class _$_$SwidiFunctionTypeCtor extends _$SwidiFunctionTypeCtor {
   @override
   final List<SwidiFunctionTypeNamedArgument> namedParameters;
   @override
-  final List<SwidiInterface> typeArguments;
+  final List<SwidiTypeFormal> typeFormals;
   @override
   final List<SwidiAnnotation> annotations;
 
   @override
   String toString() {
-    return 'SwidiFunctionType(returnType: $returnType, positionalParameters: $positionalParameters, optionalParameters: $optionalParameters, namedParameters: $namedParameters, typeArguments: $typeArguments, annotations: $annotations)';
+    return 'SwidiFunctionType(returnType: $returnType, positionalParameters: $positionalParameters, optionalParameters: $optionalParameters, namedParameters: $namedParameters, typeFormals: $typeFormals, annotations: $annotations)';
   }
 
   @override
@@ -239,9 +239,9 @@ class _$_$SwidiFunctionTypeCtor extends _$SwidiFunctionTypeCtor {
             (identical(other.namedParameters, namedParameters) ||
                 const DeepCollectionEquality()
                     .equals(other.namedParameters, namedParameters)) &&
-            (identical(other.typeArguments, typeArguments) ||
+            (identical(other.typeFormals, typeFormals) ||
                 const DeepCollectionEquality()
-                    .equals(other.typeArguments, typeArguments)) &&
+                    .equals(other.typeFormals, typeFormals)) &&
             (identical(other.annotations, annotations) ||
                 const DeepCollectionEquality()
                     .equals(other.annotations, annotations)));
@@ -254,7 +254,7 @@ class _$_$SwidiFunctionTypeCtor extends _$SwidiFunctionTypeCtor {
       const DeepCollectionEquality().hash(positionalParameters) ^
       const DeepCollectionEquality().hash(optionalParameters) ^
       const DeepCollectionEquality().hash(namedParameters) ^
-      const DeepCollectionEquality().hash(typeArguments) ^
+      const DeepCollectionEquality().hash(typeFormals) ^
       const DeepCollectionEquality().hash(annotations);
 
   @JsonKey(ignore: true)
@@ -271,7 +271,7 @@ abstract class _$SwidiFunctionTypeCtor extends SwidiFunctionType {
           positionalParameters,
       required List<SwidiInterface> optionalParameters,
       required List<SwidiFunctionTypeNamedArgument> namedParameters,
-      required List<SwidiInterface> typeArguments,
+      required List<SwidiTypeFormal> typeFormals,
       required List<SwidiAnnotation> annotations}) = _$_$SwidiFunctionTypeCtor;
   _$SwidiFunctionTypeCtor._() : super._();
 
@@ -287,7 +287,7 @@ abstract class _$SwidiFunctionTypeCtor extends SwidiFunctionType {
   List<SwidiFunctionTypeNamedArgument> get namedParameters =>
       throw _privateConstructorUsedError;
   @override
-  List<SwidiInterface> get typeArguments => throw _privateConstructorUsedError;
+  List<SwidiTypeFormal> get typeFormals => throw _privateConstructorUsedError;
   @override
   List<SwidiAnnotation> get annotations => throw _privateConstructorUsedError;
   @override
