@@ -37,28 +37,37 @@ mixin SwidiFunctionDeclarationParameterListParser
         ISimpleDeclarationParser<Parser<SwidiDeclaration>> {
   @override
   Parser<List<SwidiFunctionDeclarationPositionalOrOptionalOrNamedParameter>>
-      functionDeclarationParameterList() =>
-          super.functionDeclarationParameterList().map((x) {
-            var res = [
+      functionDeclarationParameterList() => super
+          .functionDeclarationParameterList()
+          .map(
+            (x) => [
               ...collectTokens<SwidiFunctionDeclarationPositionalParameter>(x)
-                  .map((e) =>
-                      SwidiFunctionDeclarationPositionalOrOptionalOrNamedParameter
-                          .fromSwidiFunctionDeclarationPositionalParameter(
-                              positionalParameter: e))
+                  .map(
+                    (e) =>
+                        SwidiFunctionDeclarationPositionalOrOptionalOrNamedParameter
+                            .fromSwidiFunctionDeclarationPositionalParameter(
+                      positionalParameter: e,
+                    ),
+                  )
                   .toList(),
               ...collectTokens<SwidiFunctionDeclarationOptionalParameter>(x)
-                  .map((e) =>
-                      SwidiFunctionDeclarationPositionalOrOptionalOrNamedParameter
-                          .fromSwidiFunctionDeclarationOptionalParameter(
-                              optionalParameter: e))
+                  .map(
+                    (e) =>
+                        SwidiFunctionDeclarationPositionalOrOptionalOrNamedParameter
+                            .fromSwidiFunctionDeclarationOptionalParameter(
+                      optionalParameter: e,
+                    ),
+                  )
                   .toList(),
               ...collectTokens<SwidiFunctionDeclarationNamedParameter>(x)
-                  .map((e) =>
-                      SwidiFunctionDeclarationPositionalOrOptionalOrNamedParameter
-                          .fromSwidiFunctionDeclarationNamedParameter(
-                              namedParameter: e))
+                  .map(
+                    (e) =>
+                        SwidiFunctionDeclarationPositionalOrOptionalOrNamedParameter
+                            .fromSwidiFunctionDeclarationNamedParameter(
+                      namedParameter: e,
+                    ),
+                  )
                   .toList(),
-            ];
-            return res;
-          });
+            ],
+          );
 }
