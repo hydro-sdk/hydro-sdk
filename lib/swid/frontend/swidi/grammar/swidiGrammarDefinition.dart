@@ -1,3 +1,7 @@
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiFunctionTypeGrammarDefinition.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiFunctionTypeNamedParameterGrammarDefinition.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiFunctionTypeOptionalParameterGrammarDefinition.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiFunctionTypePositionalParameterGrammarDefinition.dart';
 import 'package:petitparser/petitparser.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iClassDefinitionLexer.dart';
@@ -26,7 +30,11 @@ class SwidiGrammarDefinition extends GrammarDefinition
         SwidiFunctionDeclarationPositionalParameterGrammarDefinition,
         SwidiFunctionDeclarationOptionalParameterGrammarDefinition,
         SwidiFunctionDeclarationNamedParameterGrammarDefinition,
-        SwidiFunctionDeclarationGrammarDefinition
+        SwidiFunctionDeclarationGrammarDefinition,
+        SwidiFunctionTypePositionalParameterGrammarDefinition,
+        SwidiFunctionTypeOptionalParameterGrammarDefinition,
+        SwidiFunctionTypeNamedParameterGrammarDefinition,
+        SwidiFunctionTypeGrammarDefinition
     implements
         IClassDefinitionLexer,
         ITopLevelDefinitionLexer,

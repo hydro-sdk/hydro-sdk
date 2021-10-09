@@ -1,9 +1,10 @@
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionTypeOptionalParameter.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiType.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiAnnotation.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionDeclarationPositionalParameter.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionTypeNamedParameter.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiInterface.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionTypePositionalParameter.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiTypeFormal.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
@@ -23,10 +24,10 @@ class SwidiFunctionType
   SwidiFunctionType._();
 
   factory SwidiFunctionType({
-    required final SwidiInterface returnType,
-    required final List<SwidiFunctionDeclarationPositionalParameter>
+    required final SwidiType returnType,
+    required final List<SwidiFunctionTypePositionalParameter>
         positionalParameters,
-    required final List<SwidiInterface> optionalParameters,
+    required final List<SwidiFunctionTypeOptionalParameter> optionalParameters,
     required final List<SwidiFunctionTypeNamedParameter> namedParameters,
     required final List<SwidiTypeFormal> typeFormals,
     required final List<SwidiAnnotation> annotations,
@@ -34,10 +35,10 @@ class SwidiFunctionType
 
   factory SwidiFunctionType._clone({
     required final SwidiFunctionType swidiFunctionType,
-    final SwidiInterface? returnType,
-    final List<SwidiFunctionDeclarationPositionalParameter>?
+    final SwidiType? returnType,
+    final List<SwidiFunctionTypePositionalParameter>?
         positionalParameters,
-    final List<SwidiInterface>? optionalParameters,
+    final List<SwidiFunctionTypeOptionalParameter>? optionalParameters,
     final List<SwidiFunctionTypeNamedParameter>? namedParameters,
     final List<SwidiTypeFormal>? typeFormals,
     final List<SwidiAnnotation>? annotations,
@@ -65,10 +66,10 @@ class SwidiFunctionType
 
   @override
   SwidiFunctionType clone({
-    final SwidiInterface? returnType,
-    final List<SwidiFunctionDeclarationPositionalParameter>?
+    final SwidiType? returnType,
+    final List<SwidiFunctionTypePositionalParameter>?
         positionalParameters,
-    final List<SwidiInterface>? optionalParameters,
+    final List<SwidiFunctionTypeOptionalParameter>? optionalParameters,
     final List<SwidiFunctionTypeNamedParameter>? namedParameters,
     final List<SwidiTypeFormal>? typeFormals,
     final List<SwidiAnnotation>? annotations,

@@ -17,10 +17,9 @@ class _$SwidiFunctionTypeTearOff {
   const _$SwidiFunctionTypeTearOff();
 
   _$SwidiFunctionTypeCtor call(
-      {required SwidiInterface returnType,
-      required List<SwidiFunctionDeclarationPositionalParameter>
-          positionalParameters,
-      required List<SwidiInterface> optionalParameters,
+      {required SwidiType returnType,
+      required List<SwidiFunctionTypePositionalParameter> positionalParameters,
+      required List<SwidiFunctionTypeOptionalParameter> optionalParameters,
       required List<SwidiFunctionTypeNamedParameter> namedParameters,
       required List<SwidiTypeFormal> typeFormals,
       required List<SwidiAnnotation> annotations}) {
@@ -40,10 +39,10 @@ const $SwidiFunctionType = _$SwidiFunctionTypeTearOff();
 
 /// @nodoc
 mixin _$SwidiFunctionType {
-  SwidiInterface get returnType => throw _privateConstructorUsedError;
-  List<SwidiFunctionDeclarationPositionalParameter> get positionalParameters =>
+  SwidiType get returnType => throw _privateConstructorUsedError;
+  List<SwidiFunctionTypePositionalParameter> get positionalParameters =>
       throw _privateConstructorUsedError;
-  List<SwidiInterface> get optionalParameters =>
+  List<SwidiFunctionTypeOptionalParameter> get optionalParameters =>
       throw _privateConstructorUsedError;
   List<SwidiFunctionTypeNamedParameter> get namedParameters =>
       throw _privateConstructorUsedError;
@@ -61,14 +60,14 @@ abstract class $SwidiFunctionTypeCopyWith<$Res> {
           SwidiFunctionType value, $Res Function(SwidiFunctionType) then) =
       _$SwidiFunctionTypeCopyWithImpl<$Res>;
   $Res call(
-      {SwidiInterface returnType,
-      List<SwidiFunctionDeclarationPositionalParameter> positionalParameters,
-      List<SwidiInterface> optionalParameters,
+      {SwidiType returnType,
+      List<SwidiFunctionTypePositionalParameter> positionalParameters,
+      List<SwidiFunctionTypeOptionalParameter> optionalParameters,
       List<SwidiFunctionTypeNamedParameter> namedParameters,
       List<SwidiTypeFormal> typeFormals,
       List<SwidiAnnotation> annotations});
 
-  $SwidiInterfaceCopyWith<$Res> get returnType;
+  $SwidiTypeCopyWith<$Res> get returnType;
 }
 
 /// @nodoc
@@ -93,15 +92,15 @@ class _$SwidiFunctionTypeCopyWithImpl<$Res>
       returnType: returnType == freezed
           ? _value.returnType
           : returnType // ignore: cast_nullable_to_non_nullable
-              as SwidiInterface,
+              as SwidiType,
       positionalParameters: positionalParameters == freezed
           ? _value.positionalParameters
           : positionalParameters // ignore: cast_nullable_to_non_nullable
-              as List<SwidiFunctionDeclarationPositionalParameter>,
+              as List<SwidiFunctionTypePositionalParameter>,
       optionalParameters: optionalParameters == freezed
           ? _value.optionalParameters
           : optionalParameters // ignore: cast_nullable_to_non_nullable
-              as List<SwidiInterface>,
+              as List<SwidiFunctionTypeOptionalParameter>,
       namedParameters: namedParameters == freezed
           ? _value.namedParameters
           : namedParameters // ignore: cast_nullable_to_non_nullable
@@ -118,8 +117,8 @@ class _$SwidiFunctionTypeCopyWithImpl<$Res>
   }
 
   @override
-  $SwidiInterfaceCopyWith<$Res> get returnType {
-    return $SwidiInterfaceCopyWith<$Res>(_value.returnType, (value) {
+  $SwidiTypeCopyWith<$Res> get returnType {
+    return $SwidiTypeCopyWith<$Res>(_value.returnType, (value) {
       return _then(_value.copyWith(returnType: value));
     });
   }
@@ -133,15 +132,15 @@ abstract class _$$SwidiFunctionTypeCtorCopyWith<$Res>
       __$$SwidiFunctionTypeCtorCopyWithImpl<$Res>;
   @override
   $Res call(
-      {SwidiInterface returnType,
-      List<SwidiFunctionDeclarationPositionalParameter> positionalParameters,
-      List<SwidiInterface> optionalParameters,
+      {SwidiType returnType,
+      List<SwidiFunctionTypePositionalParameter> positionalParameters,
+      List<SwidiFunctionTypeOptionalParameter> optionalParameters,
       List<SwidiFunctionTypeNamedParameter> namedParameters,
       List<SwidiTypeFormal> typeFormals,
       List<SwidiAnnotation> annotations});
 
   @override
-  $SwidiInterfaceCopyWith<$Res> get returnType;
+  $SwidiTypeCopyWith<$Res> get returnType;
 }
 
 /// @nodoc
@@ -168,15 +167,15 @@ class __$$SwidiFunctionTypeCtorCopyWithImpl<$Res>
       returnType: returnType == freezed
           ? _value.returnType
           : returnType // ignore: cast_nullable_to_non_nullable
-              as SwidiInterface,
+              as SwidiType,
       positionalParameters: positionalParameters == freezed
           ? _value.positionalParameters
           : positionalParameters // ignore: cast_nullable_to_non_nullable
-              as List<SwidiFunctionDeclarationPositionalParameter>,
+              as List<SwidiFunctionTypePositionalParameter>,
       optionalParameters: optionalParameters == freezed
           ? _value.optionalParameters
           : optionalParameters // ignore: cast_nullable_to_non_nullable
-              as List<SwidiInterface>,
+              as List<SwidiFunctionTypeOptionalParameter>,
       namedParameters: namedParameters == freezed
           ? _value.namedParameters
           : namedParameters // ignore: cast_nullable_to_non_nullable
@@ -206,11 +205,11 @@ class _$_$SwidiFunctionTypeCtor extends _$SwidiFunctionTypeCtor {
       : super._();
 
   @override
-  final SwidiInterface returnType;
+  final SwidiType returnType;
   @override
-  final List<SwidiFunctionDeclarationPositionalParameter> positionalParameters;
+  final List<SwidiFunctionTypePositionalParameter> positionalParameters;
   @override
-  final List<SwidiInterface> optionalParameters;
+  final List<SwidiFunctionTypeOptionalParameter> optionalParameters;
   @override
   final List<SwidiFunctionTypeNamedParameter> namedParameters;
   @override
@@ -266,22 +265,21 @@ class _$_$SwidiFunctionTypeCtor extends _$SwidiFunctionTypeCtor {
 
 abstract class _$SwidiFunctionTypeCtor extends SwidiFunctionType {
   factory _$SwidiFunctionTypeCtor(
-      {required SwidiInterface returnType,
-      required List<SwidiFunctionDeclarationPositionalParameter>
-          positionalParameters,
-      required List<SwidiInterface> optionalParameters,
+      {required SwidiType returnType,
+      required List<SwidiFunctionTypePositionalParameter> positionalParameters,
+      required List<SwidiFunctionTypeOptionalParameter> optionalParameters,
       required List<SwidiFunctionTypeNamedParameter> namedParameters,
       required List<SwidiTypeFormal> typeFormals,
       required List<SwidiAnnotation> annotations}) = _$_$SwidiFunctionTypeCtor;
   _$SwidiFunctionTypeCtor._() : super._();
 
   @override
-  SwidiInterface get returnType => throw _privateConstructorUsedError;
+  SwidiType get returnType => throw _privateConstructorUsedError;
   @override
-  List<SwidiFunctionDeclarationPositionalParameter> get positionalParameters =>
+  List<SwidiFunctionTypePositionalParameter> get positionalParameters =>
       throw _privateConstructorUsedError;
   @override
-  List<SwidiInterface> get optionalParameters =>
+  List<SwidiFunctionTypeOptionalParameter> get optionalParameters =>
       throw _privateConstructorUsedError;
   @override
   List<SwidiFunctionTypeNamedParameter> get namedParameters =>
