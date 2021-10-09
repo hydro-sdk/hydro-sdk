@@ -50,5 +50,5 @@ mixin SwidiFunctionTypeNamedParameterGrammarDefinition
       ref1(token, "}");
 
   @override
-  Parser functionTypeNamedParameter() => ref0(type);
+  Parser functionTypeNamedParameter() => ref0(simpleDeclaration);
 }
