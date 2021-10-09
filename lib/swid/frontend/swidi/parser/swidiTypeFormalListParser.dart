@@ -1,3 +1,5 @@
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionType.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/parsers/iFunctionTypeParser.dart';
 import 'package:petitparser/petitparser.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiTypeFormal.dart';
@@ -15,7 +17,9 @@ mixin SwidiTypeFormalListParser
         ITypeFormalListLexer,
         ITypeFormalLexer,
         ITypeFormalListParser<Parser<List<SwidiTypeFormal>>>,
-        ITypeFormalParser<Parser<SwidiTypeFormal>> {
+        ITypeFormalParser<Parser<SwidiTypeFormal>>,
+        IFunctionTypeParser<Parser<SwidiFunctionType>>
+         {
   @override
   Parser<List<SwidiTypeFormal>> typeFormalList() =>
       super.typeFormalList().map((x) => collectTokens<SwidiTypeFormal>(x));

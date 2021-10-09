@@ -1,3 +1,4 @@
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iFunctionTypeLexer.dart';
 import 'package:petitparser/definition.dart';
 import 'package:petitparser/petitparser.dart';
 
@@ -41,7 +42,8 @@ mixin SwidiDeclarationGrammarDefinition
         IReturnTypeLexer,
         IDeclarationWithDefaultConstValueLexer,
         IAnnotationLexer,
-        IAnnotationListLexer {
+        IAnnotationListLexer,
+        IFunctionTypeLexer {
   @override
   Parser returnType() => ref0(type);
 
@@ -64,7 +66,10 @@ mixin SwidiDeclarationGrammarDefinition
   Parser annotationList() => (ref0(annotation)).star();
 
   @override
-  Parser type() =>
+  Parser type() => ref0(functionType) | ref0(interfaceType);
+
+  @override
+  Parser interfaceType() =>
       ref0(annotationList).optional() &
       ref0(libraryScopePrefix).optional() &
       ref0(referenceDeclarationPrefix).optional() &

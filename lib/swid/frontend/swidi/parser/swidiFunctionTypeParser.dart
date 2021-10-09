@@ -1,4 +1,7 @@
 import 'package:collection/collection.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiDeclarationGrammarDefinition.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiFunctionTypeGrammarDefinition.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiIdentifierGrammarDefinition.dart';
 import 'package:petitparser/petitparser.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiAnnotationList.dart';
@@ -23,17 +26,14 @@ import 'package:hydro_sdk/swid/frontend/swidi/parser/parsers/iFunctionTypeOption
 import 'package:hydro_sdk/swid/frontend/swidi/parser/parsers/iFunctionTypeParameterListParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/parsers/iFunctionTypeParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/parsers/iFunctionTypePositionalParameterParser.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiFunctionTypeParameterListParser.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiTypeFormalListDeclarationParser.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiTypeFormalListParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/util/collectTokens.dart';
 
 mixin SwidiFunctionTypeParser
     on
         SwidiGrammarDefinition,
-        SwidiTypeFormalListParser,
-        SwidiTypeFormalListDeclarationParser,
-        SwidiFunctionTypeParameterListParser
+        SwidiFunctionTypeGrammarDefinition,
+        SwidiIdentifierGrammarDefinition,
+        SwidiDeclarationGrammarDefinition
     implements
         IFunctionTypeLexer,
         IAnnotationListLexer,

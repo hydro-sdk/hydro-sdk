@@ -15,7 +15,7 @@ mixin SwidiTypeListParser
         ITypeListLexer,
         ITypeLexer,
         ITypeListParser<Parser<List<SwidiType>>>,
-        ITypeParser<Parser<SwidiType>> {
+        ITypeParser<Parser<SwidiType?>> {
   @override
   Parser<List<SwidiType>> typeList() =>
       super.typeList().map((x) => collectTokens<SwidiType>(x));

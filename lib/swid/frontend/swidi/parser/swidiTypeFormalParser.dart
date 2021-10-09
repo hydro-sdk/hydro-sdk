@@ -18,7 +18,7 @@ mixin SwidiTypeFormalParser
         ITypeFormalLexer,
         ITypeLexer,
         ITypeFormalParser<Parser<SwidiTypeFormal>>,
-        ITypeParser<Parser<SwidiType>> {
+        ITypeParser<Parser<SwidiType?>> {
   @override
   Parser<SwidiTypeFormal> typeFormal() => super.typeFormal().map(
         (x) => SwidiTypeFormal(

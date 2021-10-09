@@ -26,6 +26,12 @@ import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiTypeArgumentListParser
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiTypeListParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiTypeParser.dart';
 import 'lib/parserTestHarness.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiFunctionTypeNamedParameterParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiFunctionTypeOptionalParameterParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiFunctionTypeParameterListParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiFunctionTypeParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiFunctionTypePositionalParameterParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiInterfaceTypeParser.dart';
 
 class SimpleTypeArgumentListParser extends SwidiGrammarDefinition
     with
@@ -47,7 +53,13 @@ class SimpleTypeArgumentListParser extends SwidiGrammarDefinition
         SwidiAnnotationListParser,
         SwidiTypeParser,
         SwidiTypeListParser,
-        SwidiTypeArgumentListParser {
+        SwidiTypeArgumentListParser,
+        SwidiInterfaceTypeParser,
+        SwidiFunctionTypeOptionalParameterParser,
+        SwidiFunctionTypePositionalParameterParser,
+        SwidiFunctionTypeNamedParameterParser,
+        SwidiFunctionTypeParameterListParser,
+        SwidiFunctionTypeParser {
   const SimpleTypeArgumentListParser();
 }
 

@@ -20,7 +20,7 @@ mixin SwidiFunctionTypeNamedParameterParser
         IIdentifierLexer,
         IFunctionTypeNamedParameterParser<
             Parser<SwidiFunctionTypeNamedParameter?>>,
-        ITypeParser<Parser<SwidiType>> {
+        ITypeParser<Parser<SwidiType?>> {
   @override
   Parser<SwidiFunctionTypeNamedParameter?> functionTypeNamedParameter() =>
       super.functionTypeNamedParameter().map(

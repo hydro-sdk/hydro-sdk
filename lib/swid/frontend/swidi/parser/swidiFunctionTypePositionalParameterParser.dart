@@ -18,7 +18,7 @@ mixin SwidiFunctionTypePositionalParameterParser
         ITypeLexer,
         IFunctionTypePositionalParameterParser<
             Parser<SwidiFunctionTypePositionalParameter?>>,
-        ITypeParser<Parser<SwidiType>> {
+        ITypeParser<Parser<SwidiType?>> {
   @override
   Parser<SwidiFunctionTypePositionalParameter?>
       functionTypePositionalParameter() =>

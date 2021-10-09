@@ -18,7 +18,7 @@ mixin SwidiFunctionTypeOptionalParameterParser
         ITypeLexer,
         IFunctionTypeOptionalParameterParser<
             Parser<SwidiFunctionTypeOptionalParameter?>>,
-        ITypeParser<Parser<SwidiType>> {
+        ITypeParser<Parser<SwidiType?>> {
   @override
   Parser<SwidiFunctionTypeOptionalParameter?> functionTypeOptionalParameter() =>
       super.functionTypeOptionalParameter().map(

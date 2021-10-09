@@ -20,8 +20,8 @@ mixin SwidiFunctionTypeGrammarDefinition
     implements IFunctionTypeLexer, IFunctionTypeParameterListLexer {
   @override
   Parser functionType() =>
-      ref0(returnType) &
       ref1(token, "Function") &
+      ref0(returnType) &
       ref0(typeFormalListDeclaration).optional() &
       ref0(functionTypeParameterList);
 
