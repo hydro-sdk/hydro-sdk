@@ -1,11 +1,14 @@
-import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiAnnotationList.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiTypeFormalList.dart';
 import 'package:collection/collection.dart';
+import 'package:petitparser/petitparser.dart';
+
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiAnnotationList.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionType.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionTypeNamedParameter.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionTypeOptionalParameter.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionTypePositionalOrOptionalOrNamedParameter.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionTypePositionalParameter.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiType.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiTypeFormalList.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iAnnotationListLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iFunctionTypeLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iFunctionTypeNamedParameterLexer.dart';
@@ -23,9 +26,7 @@ import 'package:hydro_sdk/swid/frontend/swidi/parser/parsers/iFunctionTypePositi
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiFunctionTypeParameterListParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiTypeFormalListDeclarationParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiTypeFormalListParser.dart';
-import 'package:petitparser/petitparser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/util/collectTokens.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiType.dart';
 
 mixin SwidiFunctionTypeParser
     on
@@ -107,7 +108,9 @@ mixin SwidiFunctionTypeParser
             ...((({
               required final List<SwidiAnnotationList> annotationList,
             }) =>
-                annotationList.isNotEmpty ? annotationList.first.annotationList : [])(
+                annotationList.isNotEmpty
+                    ? annotationList.first.annotationList
+                    : [])(
               annotationList: collectTokens<SwidiAnnotationList>(x),
             )),
           ],

@@ -1,3 +1,6 @@
+import 'package:petitparser/definition.dart';
+import 'package:petitparser/petitparser.dart';
+
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iFunctionTypeLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iFunctionTypeParameterListLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiDeclarationGrammarDefinition.dart';
@@ -5,8 +8,6 @@ import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiFunctionTypeNamedPara
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiFunctionTypeOptionalParameterGrammarDefinition.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiFunctionTypePositionalParameterGrammarDefinition.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiGrammarTokenizer.dart';
-import 'package:petitparser/definition.dart';
-import 'package:petitparser/petitparser.dart';
 
 mixin SwidiFunctionTypeGrammarDefinition
     on

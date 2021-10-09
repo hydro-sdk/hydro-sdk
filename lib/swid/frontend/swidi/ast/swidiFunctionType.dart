@@ -1,10 +1,10 @@
-import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionTypeOptionalParameter.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiType.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiAnnotation.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionTypeNamedParameter.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionTypeOptionalParameter.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionTypePositionalParameter.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiType.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiTypeFormal.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
@@ -36,8 +36,7 @@ class SwidiFunctionType
   factory SwidiFunctionType._clone({
     required final SwidiFunctionType swidiFunctionType,
     final SwidiType? returnType,
-    final List<SwidiFunctionTypePositionalParameter>?
-        positionalParameters,
+    final List<SwidiFunctionTypePositionalParameter>? positionalParameters,
     final List<SwidiFunctionTypeOptionalParameter>? optionalParameters,
     final List<SwidiFunctionTypeNamedParameter>? namedParameters,
     final List<SwidiTypeFormal>? typeFormals,
@@ -67,8 +66,7 @@ class SwidiFunctionType
   @override
   SwidiFunctionType clone({
     final SwidiType? returnType,
-    final List<SwidiFunctionTypePositionalParameter>?
-        positionalParameters,
+    final List<SwidiFunctionTypePositionalParameter>? positionalParameters,
     final List<SwidiFunctionTypeOptionalParameter>? optionalParameters,
     final List<SwidiFunctionTypeNamedParameter>? namedParameters,
     final List<SwidiTypeFormal>? typeFormals,
