@@ -31,12 +31,20 @@ void main(List<String> args) async {
 
   var results = parser.parse(args);
 
-  final String privateKeyFile = results["private-key-file"];
+  final String privateKeyPath = results["private-key-file"];
   final String registryScheme = results["registry-scheme"];
   final String registryHost = results["registry-host"];
   final int? registryPort = int.tryParse(results["registry-port"]);
 
-  final String privateKey = await File(privateKeyFile).readAsString();
+  if (!await File(privateKeyPath).exists()) {
+    print("Could not read private key file at $privateKeyPath");
+  }
+
+  final String privateKey = await File(privateKeyPath).readAsString();
+
+  if (privateKey != (await File(privateKeyPath).readAsString()).trim()) {
+    print("Extra whitespace in private key detected");
+  }
 
   final RegistryApi registryApi = RegistryApi(
     scheme: registryScheme,
@@ -49,6 +57,10 @@ void main(List<String> args) async {
   final String? pubspeclockPath = results["pubspeclock"];
   final String version = results["version"];
   final String channel = results["channel"];
+
+  if (!await File(results["project"]).exists()) {
+    print("Could not read project manifest at ${results["project"]}");
+  }
 
   ProjectConfig projectConfig = ProjectConfig.fromJson(
       jsonDecode(await File(results["project"]).readAsString()));
@@ -82,6 +94,29 @@ void main(List<String> args) async {
     signingKey: privateKey,
   );
 
+  if (!await File(componentBuilder.unpackedOutputPath() + ".ota").exists()) {
+    print(
+        "Could not read .ota file at ${componentBuilder.unpackedOutputPath() + ".ota"}");
+  }
+
+  if (readmePath != null) {
+    if (!await File(readmePath).exists()) {
+      print("Could not read readme at $readmePath");
+    }
+  }
+
+  if (pubspecyamlPath != null) {
+    if (!await File(pubspecyamlPath).exists()) {
+      print("Could not read pubspec at $pubspecyamlPath");
+    }
+  }
+
+  if (pubspeclockPath != null) {
+    if (!await File(pubspeclockPath).exists()) {
+      print("Could not read pubspec at $pubspeclockPath");
+    }
+  }
+
   final createPackageResult = await registryApi.createPackage(
     createPackageDto: CreatePackageDto(
       publishingPrivateKeySha256: sha256Data(privateKey.codeUnits),
@@ -113,6 +148,11 @@ void main(List<String> args) async {
 
   if (createPackageSuccessResult == null) {
     print("Failed to publish");
+
+    createPackageResult.maybeWhen(
+      failure: (val) => print(val.message),
+      orElse: () => null,
+    );
 
     exit(1);
   } else {
