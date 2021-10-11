@@ -48,8 +48,9 @@ class Hydroc {
     }: {
         toolName: string;
     }): Readonly<string> {
-        return `${toolName}-${process.platform}-${process.arch}${process.platform == "win32" ? ".exe" : ""
-            }`;
+        return `${toolName}-${process.platform}-${process.arch}${
+            process.platform == "win32" ? ".exe" : ""
+        }`;
     }
 
     public makeSdkToolPlatformPath({
@@ -68,7 +69,8 @@ class Hydroc {
         return this.sdkTools
             .map((x) =>
                 !fs.existsSync(
-                    `${this.sdkToolsDir}${path.sep
+                    `${this.sdkToolsDir}${
+                        path.sep
                     }${this.makeSdkToolPlatformName({ toolName: x })}`
                 )
                     ? x
@@ -88,10 +90,11 @@ class Hydroc {
             for (let i = 0; i != missingSdkTools.length; ++i) {
                 const missingSdkTool = missingSdkTools[i];
                 await new Promise(async (resolve, reject) => {
-                    const url = `https://github.com/hydro-sdk/hydro-sdk/releases/download/${this.sdkToolsVersion
-                        }/${this.makeSdkToolPlatformName({
-                            toolName: missingSdkTool,
-                        })}`;
+                    const url = `https://github.com/hydro-sdk/hydro-sdk/releases/download/${
+                        this.sdkToolsVersion
+                    }/${this.makeSdkToolPlatformName({
+                        toolName: missingSdkTool,
+                    })}`;
 
                     const { data, headers } = await Axios({
                         url,
@@ -114,7 +117,8 @@ class Hydroc {
                     );
 
                     const writer = fs.createWriteStream(
-                        `${this.sdkToolsDir}${path.sep
+                        `${this.sdkToolsDir}${
+                            path.sep
                         }${this.makeSdkToolPlatformName({
                             toolName: missingSdkTool,
                         })}`
@@ -305,8 +309,7 @@ class Hydroc {
                 pubspeclock,
                 "--version",
                 version,
-                (trimKey ?
-                    "--trim-key" : "--no-trim-key"),
+                trimKey ? "--trim-key" : "--no-trim-key",
             ],
             {
                 stdio: "inherit",
@@ -317,8 +320,8 @@ class Hydroc {
 
 async function readSdkPackage({ directory }: { directory: string }): Promise<
     | Readonly<{
-        version: string;
-    }>
+          version: string;
+      }>
     | undefined
 > {
     try {
@@ -574,12 +577,13 @@ async function readSdkPackage({ directory }: { directory: string }): Promise<
                 "--trim-key",
                 "Trim leading and trailing whitespace from private key before using it to sign and submit the release"
             )
-
         )
-        .addOption(new Option(
-            "--no-trim-key",
-            "Do not trim leading and trailing whitespace from private key"
-        ))
+        .addOption(
+            new Option(
+                "--no-trim-key",
+                "Do not trim leading and trailing whitespace from private key"
+            )
+        )
         .action(async (options) => {
             const hydroc = new Hydroc({
                 sdkToolsVersion: options.toolsVersion ?? sdkPackage.version,
@@ -601,7 +605,8 @@ async function readSdkPackage({ directory }: { directory: string }): Promise<
                     pubspecyaml: options.pubspecyaml,
                     pubspeclock: options.pubspeclock,
                     version: options.version,
-                    trimKey: (options.trimKey !== undefined ? options.trimKey : true),
+                    trimKey:
+                        options.trimKey !== undefined ? options.trimKey : true,
                     ts2hc: hydroc.makeSdkToolPlatformPath({
                         toolName: "ts2hc",
                     }),
