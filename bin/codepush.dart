@@ -28,6 +28,7 @@ void main(List<String> args) async {
   parser.addOption("pubspecyaml");
   parser.addOption("pubspeclock");
   parser.addOption("version");
+  parser.addFlag("trim-key");
 
   var results = parser.parse(args);
 
@@ -35,15 +36,20 @@ void main(List<String> args) async {
   final String registryScheme = results["registry-scheme"];
   final String registryHost = results["registry-host"];
   final int? registryPort = int.tryParse(results["registry-port"]);
+  final bool trimKey = results["trim-key"];
 
   if (!await File(privateKeyPath).exists()) {
     print("Could not read private key file at $privateKeyPath");
   }
 
-  final String privateKey = await File(privateKeyPath).readAsString();
+  String privateKey = await File(privateKeyPath).readAsString();
 
   if (privateKey != (await File(privateKeyPath).readAsString()).trim()) {
     print("Extra whitespace in private key detected");
+  }
+
+  if (trimKey) {
+    privateKey = privateKey.trim();
   }
 
   final RegistryApi registryApi = RegistryApi(
