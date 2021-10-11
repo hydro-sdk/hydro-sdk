@@ -1,4 +1,5 @@
 import 'package:collection/collection.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiNullabilitySuffix.dart';
 import 'package:petitparser/petitparser.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiAnnotationList.dart';
@@ -56,64 +57,75 @@ mixin SwidiFunctionTypeParser
   @override
   Parser<SwidiFunctionType> functionType() => super.functionType().map(
         (x) => SwidiFunctionType(
-          returnType: collectTokens<SwidiType>(x).first,
-          optionalParameters: [
-            ...collectTokens<SwidiFunctionTypeOptionalParameter>(x),
-            ...collectTokens<
-                    SwidiFunctionTypePositionalOrOptionalOrNamedParameter>(x)
-                .map(
-                  (e) => e.maybeWhen(
-                    fromSwidiFunctionTypeOptionalParameter: (val) => val,
-                    orElse: () => null,
-                  ),
-                )
-                .whereNotNull()
-                .toList()
-          ],
-          positionalParameters: [
-            ...collectTokens<SwidiFunctionTypePositionalParameter>(x),
-            ...collectTokens<
-                    SwidiFunctionTypePositionalOrOptionalOrNamedParameter>(x)
-                .map(
-                  (e) => e.maybeWhen(
-                    fromSwidiFunctionTypePositionalParameter: (val) => val,
-                    orElse: () => null,
-                  ),
-                )
-                .whereNotNull()
-                .toList()
-          ],
-          namedParameters: [
-            ...collectTokens<SwidiFunctionTypeNamedParameter>(x),
-            ...collectTokens<
-                    SwidiFunctionTypePositionalOrOptionalOrNamedParameter>(x)
-                .map(
-                  (e) => e.maybeWhen(
-                    fromSwidiFunctionTypeNamedParameter: (val) => val,
-                    orElse: () => null,
-                  ),
-                )
-                .whereNotNull()
-                .toList()
-          ],
-          typeFormals: [
-            ...((({
-              required final List<SwidiTypeFormalList> typeFormals,
+            returnType: collectTokens<SwidiType>(x).first,
+            optionalParameters: [
+              ...collectTokens<SwidiFunctionTypeOptionalParameter>(x),
+              ...collectTokens<
+                      SwidiFunctionTypePositionalOrOptionalOrNamedParameter>(x)
+                  .map(
+                    (e) => e.maybeWhen(
+                      fromSwidiFunctionTypeOptionalParameter: (val) => val,
+                      orElse: () => null,
+                    ),
+                  )
+                  .whereNotNull()
+                  .toList()
+            ],
+            positionalParameters: [
+              ...collectTokens<SwidiFunctionTypePositionalParameter>(x),
+              ...collectTokens<
+                      SwidiFunctionTypePositionalOrOptionalOrNamedParameter>(x)
+                  .map(
+                    (e) => e.maybeWhen(
+                      fromSwidiFunctionTypePositionalParameter: (val) => val,
+                      orElse: () => null,
+                    ),
+                  )
+                  .whereNotNull()
+                  .toList()
+            ],
+            namedParameters: [
+              ...collectTokens<SwidiFunctionTypeNamedParameter>(x),
+              ...collectTokens<
+                      SwidiFunctionTypePositionalOrOptionalOrNamedParameter>(x)
+                  .map(
+                    (e) => e.maybeWhen(
+                      fromSwidiFunctionTypeNamedParameter: (val) => val,
+                      orElse: () => null,
+                    ),
+                  )
+                  .whereNotNull()
+                  .toList()
+            ],
+            typeFormals: [
+              ...((({
+                required final List<SwidiTypeFormalList> typeFormals,
+              }) =>
+                  typeFormals.isNotEmpty
+                      ? typeFormals.first.typeFormalList
+                      : [])(
+                typeFormals: collectTokens<SwidiTypeFormalList>(x),
+              )),
+            ],
+            annotations: [
+              ...((({
+                required final List<SwidiAnnotationList> annotationList,
+              }) =>
+                  annotationList.isNotEmpty
+                      ? annotationList.first.annotationList
+                      : [])(
+                annotationList: collectTokens<SwidiAnnotationList>(x),
+              )),
+            ],
+            nullabilitySuffix: (({
+              required final List<Token> tokenList,
             }) =>
-                typeFormals.isNotEmpty ? typeFormals.first.typeFormalList : [])(
-              typeFormals: collectTokens<SwidiTypeFormalList>(x),
+                tokenList.isNotEmpty
+                    ? tokenList.last.input == "?"
+                        ? SwidiNullabilitySuffix.question
+                        : SwidiNullabilitySuffix.none
+                    : SwidiNullabilitySuffix.none)(
+              tokenList: collectTokens<Token>(x),
             )),
-          ],
-          annotations: [
-            ...((({
-              required final List<SwidiAnnotationList> annotationList,
-            }) =>
-                annotationList.isNotEmpty
-                    ? annotationList.first.annotationList
-                    : [])(
-              annotationList: collectTokens<SwidiAnnotationList>(x),
-            )),
-          ],
-        ),
       );
 }

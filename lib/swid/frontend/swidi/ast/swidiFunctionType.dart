@@ -1,9 +1,11 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/iSwidiType.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiAnnotation.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionTypeNamedParameter.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionTypeOptionalParameter.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionTypePositionalParameter.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiType.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiTypeFormal.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
@@ -19,6 +21,7 @@ class SwidiFunctionType
         HashKeyMixin<SwidiFunctionType>,
         HashComparableMixin<SwidiFunctionType>
     implements
+        ISwidiType<SwidiFunctionType>,
         ICopyable<SwidiFunctionType,
             $SwidiFunctionTypeCopyWith<SwidiFunctionType>> {
   SwidiFunctionType._();
@@ -29,6 +32,7 @@ class SwidiFunctionType
         positionalParameters,
     required final List<SwidiFunctionTypeOptionalParameter> optionalParameters,
     required final List<SwidiFunctionTypeNamedParameter> namedParameters,
+    required final SwidiNullabilitySuffix nullabilitySuffix,
     required final List<SwidiTypeFormal> typeFormals,
     required final List<SwidiAnnotation> annotations,
   }) = _$SwidiFunctionTypeCtor;
@@ -39,6 +43,7 @@ class SwidiFunctionType
     final List<SwidiFunctionTypePositionalParameter>? positionalParameters,
     final List<SwidiFunctionTypeOptionalParameter>? optionalParameters,
     final List<SwidiFunctionTypeNamedParameter>? namedParameters,
+    final SwidiNullabilitySuffix? nullabilitySuffix,
     final List<SwidiTypeFormal>? typeFormals,
     final List<SwidiAnnotation>? annotations,
   }) =>
@@ -49,6 +54,8 @@ class SwidiFunctionType
         optionalParameters:
             optionalParameters ?? swidiFunctionType.optionalParameters,
         namedParameters: namedParameters ?? swidiFunctionType.namedParameters,
+        nullabilitySuffix:
+            nullabilitySuffix ?? swidiFunctionType.nullabilitySuffix,
         typeFormals: typeFormals ?? swidiFunctionType.typeFormals,
         annotations: annotations ?? swidiFunctionType.annotations,
       );
@@ -59,6 +66,7 @@ class SwidiFunctionType
         ...positionalParameters.hashableParts,
         ...optionalParameters.hashableParts,
         ...namedParameters.hashableParts,
+        nullabilitySuffix.index,
         ...typeFormals.hashableParts,
         ...annotations.hashableParts,
       ];
@@ -69,6 +77,7 @@ class SwidiFunctionType
     final List<SwidiFunctionTypePositionalParameter>? positionalParameters,
     final List<SwidiFunctionTypeOptionalParameter>? optionalParameters,
     final List<SwidiFunctionTypeNamedParameter>? namedParameters,
+    final SwidiNullabilitySuffix? nullabilitySuffix,
     final List<SwidiTypeFormal>? typeFormals,
     final List<SwidiAnnotation>? annotations,
   }) =>
@@ -78,6 +87,7 @@ class SwidiFunctionType
         positionalParameters: positionalParameters,
         optionalParameters: optionalParameters,
         namedParameters: namedParameters,
+        nullabilitySuffix: nullabilitySuffix,
         typeFormals: typeFormals,
         annotations: annotations,
       );

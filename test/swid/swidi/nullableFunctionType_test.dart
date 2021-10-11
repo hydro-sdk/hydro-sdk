@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionType.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionTypeOptionalParameter.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionTypePositionalParameter.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiInterface.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiLibraryScopePrefix.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiNullabilitySuffix.dart';
@@ -74,14 +74,15 @@ void main() {
   testWidgets('', (WidgetTester tester) async {
     parserTestHarness(
       input: const ParserTestHarnessInput.fromList(inputs: [
-        "Function void ([int ,int,int, ])",
-        "Function void ([int ,int,int,])",
+        "Function void (void)?",
+        "Function void (void )?",
+        "Function void ( void )?",
       ]),
       parser: const BasicFunctionTypeParameterListParser().build(
         start: const BasicFunctionTypeParameterListParser().functionType,
       ),
       result: SwidiFunctionType(
-        nullabilitySuffix: SwidiNullabilitySuffix.none,
+        nullabilitySuffix: SwidiNullabilitySuffix.question,
         returnType: SwidiType.fromSwidiInterface(
           swidiInterface: SwidiInterface(
             annotations: [],
@@ -92,40 +93,13 @@ void main() {
             nullabilitySuffix: SwidiNullabilitySuffix.none,
           ),
         ),
-        positionalParameters: [],
-        optionalParameters: [
-          SwidiFunctionTypeOptionalParameter(
+        positionalParameters: [
+          SwidiFunctionTypePositionalParameter(
             type: SwidiType.fromSwidiInterface(
               swidiInterface: SwidiInterface(
                 annotations: [],
                 typeArguments: [],
-                name: "int",
-                libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                referenceDeclarationPrefix:
-                    SwidiReferenceDeclarationPrefix.empty,
-                nullabilitySuffix: SwidiNullabilitySuffix.none,
-              ),
-            ),
-          ),
-          SwidiFunctionTypeOptionalParameter(
-            type: SwidiType.fromSwidiInterface(
-              swidiInterface: SwidiInterface(
-                annotations: [],
-                typeArguments: [],
-                name: "int",
-                libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                referenceDeclarationPrefix:
-                    SwidiReferenceDeclarationPrefix.empty,
-                nullabilitySuffix: SwidiNullabilitySuffix.none,
-              ),
-            ),
-          ),
-          SwidiFunctionTypeOptionalParameter(
-            type: SwidiType.fromSwidiInterface(
-              swidiInterface: SwidiInterface(
-                annotations: [],
-                typeArguments: [],
-                name: "int",
+                name: "void",
                 libraryScopePrefix: SwidiLibraryScopePrefix.empty,
                 referenceDeclarationPrefix:
                     SwidiReferenceDeclarationPrefix.empty,
@@ -134,6 +108,7 @@ void main() {
             ),
           ),
         ],
+        optionalParameters: [],
         namedParameters: [],
         typeFormals: [],
         annotations: [],

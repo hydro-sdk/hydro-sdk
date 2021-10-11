@@ -79,6 +79,7 @@ void main() {
         start: const BasicFunctionTypeParameterListParser().functionType,
       ),
       result: SwidiFunctionType(
+        nullabilitySuffix: SwidiNullabilitySuffix.none,
         returnType: SwidiType.fromSwidiInterface(
           swidiInterface: SwidiInterface(
             annotations: [],

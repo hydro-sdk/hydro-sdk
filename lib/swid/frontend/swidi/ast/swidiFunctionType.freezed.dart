@@ -21,6 +21,7 @@ class _$SwidiFunctionTypeTearOff {
       required List<SwidiFunctionTypePositionalParameter> positionalParameters,
       required List<SwidiFunctionTypeOptionalParameter> optionalParameters,
       required List<SwidiFunctionTypeNamedParameter> namedParameters,
+      required SwidiNullabilitySuffix nullabilitySuffix,
       required List<SwidiTypeFormal> typeFormals,
       required List<SwidiAnnotation> annotations}) {
     return _$SwidiFunctionTypeCtor(
@@ -28,6 +29,7 @@ class _$SwidiFunctionTypeTearOff {
       positionalParameters: positionalParameters,
       optionalParameters: optionalParameters,
       namedParameters: namedParameters,
+      nullabilitySuffix: nullabilitySuffix,
       typeFormals: typeFormals,
       annotations: annotations,
     );
@@ -45,6 +47,8 @@ mixin _$SwidiFunctionType {
   List<SwidiFunctionTypeOptionalParameter> get optionalParameters =>
       throw _privateConstructorUsedError;
   List<SwidiFunctionTypeNamedParameter> get namedParameters =>
+      throw _privateConstructorUsedError;
+  SwidiNullabilitySuffix get nullabilitySuffix =>
       throw _privateConstructorUsedError;
   List<SwidiTypeFormal> get typeFormals => throw _privateConstructorUsedError;
   List<SwidiAnnotation> get annotations => throw _privateConstructorUsedError;
@@ -64,6 +68,7 @@ abstract class $SwidiFunctionTypeCopyWith<$Res> {
       List<SwidiFunctionTypePositionalParameter> positionalParameters,
       List<SwidiFunctionTypeOptionalParameter> optionalParameters,
       List<SwidiFunctionTypeNamedParameter> namedParameters,
+      SwidiNullabilitySuffix nullabilitySuffix,
       List<SwidiTypeFormal> typeFormals,
       List<SwidiAnnotation> annotations});
 
@@ -85,6 +90,7 @@ class _$SwidiFunctionTypeCopyWithImpl<$Res>
     Object? positionalParameters = freezed,
     Object? optionalParameters = freezed,
     Object? namedParameters = freezed,
+    Object? nullabilitySuffix = freezed,
     Object? typeFormals = freezed,
     Object? annotations = freezed,
   }) {
@@ -105,6 +111,10 @@ class _$SwidiFunctionTypeCopyWithImpl<$Res>
           ? _value.namedParameters
           : namedParameters // ignore: cast_nullable_to_non_nullable
               as List<SwidiFunctionTypeNamedParameter>,
+      nullabilitySuffix: nullabilitySuffix == freezed
+          ? _value.nullabilitySuffix
+          : nullabilitySuffix // ignore: cast_nullable_to_non_nullable
+              as SwidiNullabilitySuffix,
       typeFormals: typeFormals == freezed
           ? _value.typeFormals
           : typeFormals // ignore: cast_nullable_to_non_nullable
@@ -136,6 +146,7 @@ abstract class _$$SwidiFunctionTypeCtorCopyWith<$Res>
       List<SwidiFunctionTypePositionalParameter> positionalParameters,
       List<SwidiFunctionTypeOptionalParameter> optionalParameters,
       List<SwidiFunctionTypeNamedParameter> namedParameters,
+      SwidiNullabilitySuffix nullabilitySuffix,
       List<SwidiTypeFormal> typeFormals,
       List<SwidiAnnotation> annotations});
 
@@ -160,6 +171,7 @@ class __$$SwidiFunctionTypeCtorCopyWithImpl<$Res>
     Object? positionalParameters = freezed,
     Object? optionalParameters = freezed,
     Object? namedParameters = freezed,
+    Object? nullabilitySuffix = freezed,
     Object? typeFormals = freezed,
     Object? annotations = freezed,
   }) {
@@ -180,6 +192,10 @@ class __$$SwidiFunctionTypeCtorCopyWithImpl<$Res>
           ? _value.namedParameters
           : namedParameters // ignore: cast_nullable_to_non_nullable
               as List<SwidiFunctionTypeNamedParameter>,
+      nullabilitySuffix: nullabilitySuffix == freezed
+          ? _value.nullabilitySuffix
+          : nullabilitySuffix // ignore: cast_nullable_to_non_nullable
+              as SwidiNullabilitySuffix,
       typeFormals: typeFormals == freezed
           ? _value.typeFormals
           : typeFormals // ignore: cast_nullable_to_non_nullable
@@ -200,6 +216,7 @@ class _$_$SwidiFunctionTypeCtor extends _$SwidiFunctionTypeCtor {
       required this.positionalParameters,
       required this.optionalParameters,
       required this.namedParameters,
+      required this.nullabilitySuffix,
       required this.typeFormals,
       required this.annotations})
       : super._();
@@ -213,13 +230,15 @@ class _$_$SwidiFunctionTypeCtor extends _$SwidiFunctionTypeCtor {
   @override
   final List<SwidiFunctionTypeNamedParameter> namedParameters;
   @override
+  final SwidiNullabilitySuffix nullabilitySuffix;
+  @override
   final List<SwidiTypeFormal> typeFormals;
   @override
   final List<SwidiAnnotation> annotations;
 
   @override
   String toString() {
-    return 'SwidiFunctionType(returnType: $returnType, positionalParameters: $positionalParameters, optionalParameters: $optionalParameters, namedParameters: $namedParameters, typeFormals: $typeFormals, annotations: $annotations)';
+    return 'SwidiFunctionType(returnType: $returnType, positionalParameters: $positionalParameters, optionalParameters: $optionalParameters, namedParameters: $namedParameters, nullabilitySuffix: $nullabilitySuffix, typeFormals: $typeFormals, annotations: $annotations)';
   }
 
   @override
@@ -238,6 +257,9 @@ class _$_$SwidiFunctionTypeCtor extends _$SwidiFunctionTypeCtor {
             (identical(other.namedParameters, namedParameters) ||
                 const DeepCollectionEquality()
                     .equals(other.namedParameters, namedParameters)) &&
+            (identical(other.nullabilitySuffix, nullabilitySuffix) ||
+                const DeepCollectionEquality()
+                    .equals(other.nullabilitySuffix, nullabilitySuffix)) &&
             (identical(other.typeFormals, typeFormals) ||
                 const DeepCollectionEquality()
                     .equals(other.typeFormals, typeFormals)) &&
@@ -253,6 +275,7 @@ class _$_$SwidiFunctionTypeCtor extends _$SwidiFunctionTypeCtor {
       const DeepCollectionEquality().hash(positionalParameters) ^
       const DeepCollectionEquality().hash(optionalParameters) ^
       const DeepCollectionEquality().hash(namedParameters) ^
+      const DeepCollectionEquality().hash(nullabilitySuffix) ^
       const DeepCollectionEquality().hash(typeFormals) ^
       const DeepCollectionEquality().hash(annotations);
 
@@ -269,6 +292,7 @@ abstract class _$SwidiFunctionTypeCtor extends SwidiFunctionType {
       required List<SwidiFunctionTypePositionalParameter> positionalParameters,
       required List<SwidiFunctionTypeOptionalParameter> optionalParameters,
       required List<SwidiFunctionTypeNamedParameter> namedParameters,
+      required SwidiNullabilitySuffix nullabilitySuffix,
       required List<SwidiTypeFormal> typeFormals,
       required List<SwidiAnnotation> annotations}) = _$_$SwidiFunctionTypeCtor;
   _$SwidiFunctionTypeCtor._() : super._();
@@ -283,6 +307,9 @@ abstract class _$SwidiFunctionTypeCtor extends SwidiFunctionType {
       throw _privateConstructorUsedError;
   @override
   List<SwidiFunctionTypeNamedParameter> get namedParameters =>
+      throw _privateConstructorUsedError;
+  @override
+  SwidiNullabilitySuffix get nullabilitySuffix =>
       throw _privateConstructorUsedError;
   @override
   List<SwidiTypeFormal> get typeFormals => throw _privateConstructorUsedError;
