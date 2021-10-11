@@ -261,6 +261,7 @@ class Hydroc {
         pubspecyaml,
         pubspeclock,
         version,
+        trimKey,
     }: {
         project: string;
         ts2hc: string;
@@ -275,6 +276,7 @@ class Hydroc {
         pubspecyaml: string;
         pubspeclock: string;
         version: string;
+        trimKey: boolean;
     }) {
         return cp.spawn(
             this.makeSdkToolPlatformPath({ toolName: "codepush" }),
@@ -307,6 +309,7 @@ class Hydroc {
                 pubspeclock,
                 "--version",
                 version,
+                trimKey ? "--trim-key" : "--no-trim-key",
             ],
             {
                 stdio: "inherit",
@@ -569,6 +572,18 @@ async function readSdkPackage({ directory }: { directory: string }): Promise<
                 "The version name to assign to this release"
             ).default(new humanhash().uuid().humanhash)
         )
+        .addOption(
+            new Option(
+                "--trim-key",
+                "Trim leading and trailing whitespace from private key before using it to sign and submit the release"
+            )
+        )
+        .addOption(
+            new Option(
+                "--no-trim-key",
+                "Do not trim leading and trailing whitespace from private key"
+            )
+        )
         .action(async (options) => {
             const hydroc = new Hydroc({
                 sdkToolsVersion: options.toolsVersion ?? sdkPackage.version,
@@ -590,6 +605,8 @@ async function readSdkPackage({ directory }: { directory: string }): Promise<
                     pubspecyaml: options.pubspecyaml,
                     pubspeclock: options.pubspeclock,
                     version: options.version,
+                    trimKey:
+                        options.trimKey !== undefined ? options.trimKey : true,
                     ts2hc: hydroc.makeSdkToolPlatformPath({
                         toolName: "ts2hc",
                     }),
