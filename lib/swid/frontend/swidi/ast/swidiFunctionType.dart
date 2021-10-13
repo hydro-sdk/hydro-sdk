@@ -1,3 +1,4 @@
+import 'package:hydro_sdk/swid/frontend/swidi/ast/iTypeFormals.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/iSwidiType.dart';
@@ -22,6 +23,7 @@ class SwidiFunctionType
         HashComparableMixin<SwidiFunctionType>
     implements
         ISwidiType<SwidiFunctionType>,
+        ITypeFormals<SwidiFunctionType>,
         ICopyable<SwidiFunctionType,
             $SwidiFunctionTypeCopyWith<SwidiFunctionType>> {
   SwidiFunctionType._();

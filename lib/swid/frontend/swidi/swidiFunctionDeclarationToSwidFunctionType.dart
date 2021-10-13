@@ -1,20 +1,18 @@
 import 'package:collection/collection.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionDeclaration.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/swidiFunctionTypeToSwidFunctionType.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/swidiInterfaceToSwidInterface.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/swidiShortHandOverrideToSwidDeclarationModifiers.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/swidiTypeFormalsToSwidTypeFormals.dart';
 import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
-import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidDefaultFormalParameter.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidIntegerLiteral.dart';
-import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
-import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/swidStringLiteral.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
-import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
 
 SwidFunctionType swidiFunctionDeclarationToSwidFunctionType({
   required final SwidiFunctionDeclaration swidiFunctionDeclaration,
@@ -38,7 +36,14 @@ SwidFunctionType swidiFunctionDeclarationToSwidFunctionType({
                     ),
                   ),
                 ),
-                fromSwidiFunctionType: (_) => null,
+                fromSwidiFunctionType: (val) => MapEntry(
+                  x.declaration.name,
+                  SwidType.fromSwidFunctionType(
+                    swidFunctionType: swidiFunctionTypeToSwidFunctionType(
+                      swidiFunctionType: val,
+                    ),
+                  ),
+                ),
               ),
             )
             .whereNotNull()
@@ -71,7 +76,12 @@ SwidFunctionType swidiFunctionDeclarationToSwidFunctionType({
                         swidiInterface: val,
                       ),
                     ),
-                    fromSwidiFunctionType: (_) => dartUnknownType,
+                    fromSwidiFunctionType: (val) =>
+                        SwidType.fromSwidFunctionType(
+                      swidFunctionType: swidiFunctionTypeToSwidFunctionType(
+                        swidiFunctionType: val,
+                      ),
+                    ),
                   ),
                 ),
               ),
@@ -92,7 +102,12 @@ SwidFunctionType swidiFunctionDeclarationToSwidFunctionType({
                         swidiInterface: val,
                       ),
                     ),
-                    fromSwidiFunctionType: (_) => dartUnknownType,
+                    fromSwidiFunctionType: (val) =>
+                        SwidType.fromSwidFunctionType(
+                      swidFunctionType: swidiFunctionTypeToSwidFunctionType(
+                        swidiFunctionType: val,
+                      ),
+                    ),
                   ),
                 ),
               ),
@@ -111,7 +126,11 @@ SwidFunctionType swidiFunctionDeclarationToSwidFunctionType({
                   swidiInterface: val,
                 ),
               ),
-              fromSwidiFunctionType: (_) => dartUnknownType,
+              fromSwidiFunctionType: (val) => SwidType.fromSwidFunctionType(
+                swidFunctionType: swidiFunctionTypeToSwidFunctionType(
+                  swidiFunctionType: val,
+                ),
+              ),
             ),
           )
           .toList(),
@@ -126,7 +145,11 @@ SwidFunctionType swidiFunctionDeclarationToSwidFunctionType({
                   swidiInterface: val,
                 ),
               ),
-              fromSwidiFunctionType: (_) => dartUnknownType,
+              fromSwidiFunctionType: (val) => SwidType.fromSwidFunctionType(
+                swidFunctionType: swidiFunctionTypeToSwidFunctionType(
+                  swidiFunctionType: val,
+                ),
+              ),
             ),
           )
           .toList(),
@@ -136,26 +159,14 @@ SwidFunctionType swidiFunctionDeclarationToSwidFunctionType({
             swidiInterface: val,
           ),
         ),
-        fromSwidiFunctionType: (_) => dartUnknownType,
+        fromSwidiFunctionType: (val) => SwidType.fromSwidFunctionType(
+          swidFunctionType: swidiFunctionTypeToSwidFunctionType(
+            swidiFunctionType: val,
+          ),
+        ),
       ),
       isFactory: false,
-      typeFormals: swidiFunctionDeclaration.typeFormals
-          .map(
-            (x) => SwidTypeFormal(
-              value: SwidTypeFormalValue.fromSwidInterface(
-                swidInterface: SwidInterface(
-                  name: x.name,
-                  nullabilitySuffix: SwidNullabilitySuffix.none,
-                  originalPackagePath: "",
-                  typeArguments: [],
-                  referenceDeclarationKind:
-                      SwidReferenceDeclarationKind.typeParameterType,
-                  declarationModifiers: SwidDeclarationModifiers.empty(),
-                ),
-              ),
-              swidReferenceDeclarationKind:
-                  SwidReferenceDeclarationKind.typeParameterType,
-            ),
-          )
-          .toList(),
+      typeFormals: swidiTypeFormalsToSwidTypeFormals(
+        type: swidiFunctionDeclaration,
+      ),
     );
