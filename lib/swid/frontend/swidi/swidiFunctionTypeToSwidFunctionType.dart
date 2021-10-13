@@ -1,4 +1,5 @@
 import 'package:collection/collection.dart';
+
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionType.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/swidiInterfaceToSwidInterface.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/swidiNullabilitySuffixToSwidNullabilitySuffix.dart';

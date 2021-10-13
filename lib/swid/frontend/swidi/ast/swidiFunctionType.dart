@@ -1,7 +1,7 @@
-import 'package:hydro_sdk/swid/frontend/swidi/ast/iTypeFormals.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/iSwidiType.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/iTypeFormals.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiAnnotation.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionTypeNamedParameter.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionTypeOptionalParameter.dart';
