@@ -49,6 +49,7 @@ void main(List<String> args) async {
   }
 
   if (trimKey) {
+    print("Trimming private key");
     privateKey = privateKey.trim();
   }
 
