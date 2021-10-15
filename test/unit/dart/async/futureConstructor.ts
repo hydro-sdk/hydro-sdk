@@ -5,7 +5,7 @@ declare const assert: (this: void, arg: boolean, message?: string) => void;
 function compare<T>(func: () => T) {
     const f1 = new Future(func);
     const f2 = Future.value().then(() => func());
-    f2.catchError(() => {});
+    f2.catchError(() => undefined);
     f1.then(
         (v1) => {
             f2.then((v2) => {
