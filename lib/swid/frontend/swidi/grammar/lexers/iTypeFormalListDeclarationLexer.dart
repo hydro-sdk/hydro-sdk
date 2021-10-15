@@ -1,8 +1,13 @@
+import 'package:meta/meta.dart';
+import 'package:petitparser/petitparser.dart';
+
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iTypeFormalListLexer.dart';
 
-abstract class ITypeFormalListDeclarationLexer<T>
-    implements ITypeFormalListLexer<T> {
+@optionalTypeArgs
+@immutable
+abstract class ITypeFormalListDeclarationLexer<T extends dynamic,
+    U extends Parser<T>> implements ITypeFormalListLexer<T, U> {
   const ITypeFormalListDeclarationLexer();
 
-  T typeFormalListDeclaration();
+  U typeFormalListDeclaration();
 }

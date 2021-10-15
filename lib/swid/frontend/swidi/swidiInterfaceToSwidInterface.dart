@@ -1,8 +1,7 @@
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiInterface.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiNullabilitySuffix.dart';
-import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/swidiNullabilitySuffixToSwidNullabilitySuffix.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/swidiTypeDeclarationModifiersToSwidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
-import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 
@@ -11,10 +10,9 @@ SwidInterface swidiInterfaceToSwidInterface({
 }) =>
     SwidInterface(
       name: swidiInterface.name,
-      nullabilitySuffix:
-          swidiInterface.nullabilitySuffix == SwidiNullabilitySuffix.question
-              ? SwidNullabilitySuffix.question
-              : SwidNullabilitySuffix.none,
+      nullabilitySuffix: swidiNullabilitySuffixToSwidNullabilitySuffix(
+        swidiNullabilitySuffix: swidiInterface.nullabilitySuffix,
+      ),
       originalPackagePath: swidiInterface.libraryScopePrefix.name,
       typeArguments: swidiInterface.typeArguments
           .map(
@@ -38,37 +36,8 @@ SwidInterface swidiInterfaceToSwidInterface({
                                   "dynamic"
                               ? SwidReferenceDeclarationKind.dynamicType
                               : SwidReferenceDeclarationKind.unknown,
-      declarationModifiers: SwidDeclarationModifiers.clone(
-        declarationModifiers: SwidDeclarationModifiers.empty(),
-        ignoredAnalyses: swidiInterface.annotations
-            .map(
-              (x) => x.value.maybeWhen(
-                fromSwidiConstFunctionInvocation: (val) =>
-                    val.value == "ignoreAnalysis"
-                        ? val.positionalParameters.first.maybeWhen(
-                            fromSwidiConstString: (val) => val.value,
-                            orElse: () => "",
-                          )
-                        : "",
-                orElse: () => "",
-              ),
-            )
-            .where((x) => x != "")
-            .toList(),
-        ignoredTransforms: swidiInterface.annotations
-            .map(
-              (x) => x.value.maybeWhen(
-                fromSwidiConstFunctionInvocation: (val) =>
-                    val.value == "ignoreTransform"
-                        ? val.positionalParameters.first.maybeWhen(
-                            fromSwidiConstString: (val) => val.value,
-                            orElse: () => "",
-                          )
-                        : "",
-                orElse: () => "",
-              ),
-            )
-            .where((x) => x != "")
-            .toList(),
+      declarationModifiers:
+          swidiTypeDeclarationModifiersToSwidDeclarationModifiers(
+        swidiType: swidiInterface,
       ),
     );

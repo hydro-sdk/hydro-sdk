@@ -1,18 +1,18 @@
+import 'package:collection/collection.dart';
+
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionDeclaration.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/swidiFunctionTypeToSwidFunctionType.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/swidiInterfaceToSwidInterface.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/swidiShortHandOverrideToSwidDeclarationModifiers.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/swidiTypeFormalsToSwidTypeFormals.dart';
 import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
-import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidDefaultFormalParameter.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidIntegerLiteral.dart';
-import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
-import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/swidStringLiteral.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
-import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
 
 SwidFunctionType swidiFunctionDeclarationToSwidFunctionType({
   required final SwidiFunctionDeclaration swidiFunctionDeclaration,
@@ -24,19 +24,31 @@ SwidFunctionType swidiFunctionDeclarationToSwidFunctionType({
       declarationModifiers: swidiShortHandOverrideToSwidDeclarationModifiers(
         shortHandOverride: swidiFunctionDeclaration.shortHandOverride,
       ),
-      namedParameterTypes:
-          Map.fromEntries(swidiFunctionDeclaration.namedParameters
-              .map(
-                (x) => MapEntry(
+      namedParameterTypes: Map.fromEntries(
+        swidiFunctionDeclaration.namedParameters
+            .map(
+              (x) => x.declaration.type.when(
+                fromSwidiInterface: (val) => MapEntry(
                   x.declaration.name,
                   SwidType.fromSwidInterface(
                     swidInterface: swidiInterfaceToSwidInterface(
-                      swidiInterface: x.declaration.type,
+                      swidiInterface: val,
                     ),
                   ),
                 ),
-              )
-              .toList()),
+                fromSwidiFunctionType: (val) => MapEntry(
+                  x.declaration.name,
+                  SwidType.fromSwidFunctionType(
+                    swidFunctionType: swidiFunctionTypeToSwidFunctionType(
+                      swidiFunctionType: val,
+                    ),
+                  ),
+                ),
+              ),
+            )
+            .whereNotNull()
+            .toList(),
+      ),
       namedDefaults: Map.fromEntries(swidiFunctionDeclaration.optionalParameters
           .map(
             (x) => x.declaration.defaultConstValue.when(
@@ -58,9 +70,17 @@ SwidFunctionType swidiFunctionDeclarationToSwidFunctionType({
                       value: val.value,
                     ),
                   ),
-                  staticType: SwidType.fromSwidInterface(
-                    swidInterface: swidiInterfaceToSwidInterface(
-                      swidiInterface: x.declaration.type,
+                  staticType: x.declaration.type.when(
+                    fromSwidiInterface: (val) => SwidType.fromSwidInterface(
+                      swidInterface: swidiInterfaceToSwidInterface(
+                        swidiInterface: val,
+                      ),
+                    ),
+                    fromSwidiFunctionType: (val) =>
+                        SwidType.fromSwidFunctionType(
+                      swidFunctionType: swidiFunctionTypeToSwidFunctionType(
+                        swidiFunctionType: val,
+                      ),
                     ),
                   ),
                 ),
@@ -76,9 +96,17 @@ SwidFunctionType swidiFunctionDeclarationToSwidFunctionType({
                       value: val.value,
                     ),
                   ),
-                  staticType: SwidType.fromSwidInterface(
-                    swidInterface: swidiInterfaceToSwidInterface(
-                      swidiInterface: x.declaration.type,
+                  staticType: x.declaration.type.when(
+                    fromSwidiInterface: (val) => SwidType.fromSwidInterface(
+                      swidInterface: swidiInterfaceToSwidInterface(
+                        swidiInterface: val,
+                      ),
+                    ),
+                    fromSwidiFunctionType: (val) =>
+                        SwidType.fromSwidFunctionType(
+                      swidFunctionType: swidiFunctionTypeToSwidFunctionType(
+                        swidiFunctionType: val,
+                      ),
                     ),
                   ),
                 ),
@@ -92,9 +120,16 @@ SwidFunctionType swidiFunctionDeclarationToSwidFunctionType({
           .toList(),
       normalParameterTypes: swidiFunctionDeclaration.positionalParameters
           .map(
-            (x) => SwidType.fromSwidInterface(
-              swidInterface: swidiInterfaceToSwidInterface(
-                swidiInterface: x.declaration.type,
+            (x) => x.declaration.type.when(
+              fromSwidiInterface: (val) => SwidType.fromSwidInterface(
+                swidInterface: swidiInterfaceToSwidInterface(
+                  swidiInterface: val,
+                ),
+              ),
+              fromSwidiFunctionType: (val) => SwidType.fromSwidFunctionType(
+                swidFunctionType: swidiFunctionTypeToSwidFunctionType(
+                  swidiFunctionType: val,
+                ),
               ),
             ),
           )
@@ -104,34 +139,34 @@ SwidFunctionType swidiFunctionDeclarationToSwidFunctionType({
           .toList(),
       optionalParameterTypes: swidiFunctionDeclaration.optionalParameters
           .map(
-            (x) => SwidType.fromSwidInterface(
-              swidInterface: swidiInterfaceToSwidInterface(
-                swidiInterface: x.declaration.type,
-              ),
-            ),
-          )
-          .toList(),
-      returnType: SwidType.fromSwidInterface(
-          swidInterface: swidiInterfaceToSwidInterface(
-              swidiInterface: swidiFunctionDeclaration.returnType)),
-      isFactory: false,
-      typeFormals: swidiFunctionDeclaration.typeFormals
-          .map(
-            (x) => SwidTypeFormal(
-              value: SwidTypeFormalValue.fromSwidInterface(
-                swidInterface: SwidInterface(
-                  name: x.name,
-                  nullabilitySuffix: SwidNullabilitySuffix.none,
-                  originalPackagePath: "",
-                  typeArguments: [],
-                  referenceDeclarationKind:
-                      SwidReferenceDeclarationKind.typeParameterType,
-                  declarationModifiers: SwidDeclarationModifiers.empty(),
+            (x) => x.declaration.type.when(
+              fromSwidiInterface: (val) => SwidType.fromSwidInterface(
+                swidInterface: swidiInterfaceToSwidInterface(
+                  swidiInterface: val,
                 ),
               ),
-              swidReferenceDeclarationKind:
-                  SwidReferenceDeclarationKind.typeParameterType,
+              fromSwidiFunctionType: (val) => SwidType.fromSwidFunctionType(
+                swidFunctionType: swidiFunctionTypeToSwidFunctionType(
+                  swidiFunctionType: val,
+                ),
+              ),
             ),
           )
           .toList(),
+      returnType: swidiFunctionDeclaration.returnType.when(
+        fromSwidiInterface: (val) => SwidType.fromSwidInterface(
+          swidInterface: swidiInterfaceToSwidInterface(
+            swidiInterface: val,
+          ),
+        ),
+        fromSwidiFunctionType: (val) => SwidType.fromSwidFunctionType(
+          swidFunctionType: swidiFunctionTypeToSwidFunctionType(
+            swidiFunctionType: val,
+          ),
+        ),
+      ),
+      isFactory: false,
+      typeFormals: swidiTypeFormalsToSwidTypeFormals(
+        type: swidiFunctionDeclaration,
+      ),
     );

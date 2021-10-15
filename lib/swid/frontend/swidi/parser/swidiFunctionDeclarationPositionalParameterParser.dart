@@ -1,7 +1,7 @@
 import 'package:petitparser/petitparser.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiDeclaration.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiPositionalParameter.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionDeclarationPositionalParameter.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iDeclarationWithDefaultConstValueLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iFunctionDeclarationPositionalParameterLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iSimpleDeclarationLexer.dart';
@@ -20,15 +20,17 @@ mixin SwidiFunctionDeclarationPositionalParameterParser
         IDeclarationWithDefaultConstValueLexer,
         ISimpleDeclarationLexer,
         IFunctionDeclarationPositionalParameterParser<
-            Parser<SwidiPositionalParameter?>>,
+            Parser<SwidiFunctionDeclarationPositionalParameter?>>,
         IDeclarationWithDefaultConstValueParser<Parser<SwidiDeclaration>>,
         ISimpleDeclarationParser<Parser<SwidiDeclaration>> {
   @override
-  Parser<SwidiPositionalParameter?> functionDeclarationPositionalParameter() =>
-      super.functionDeclarationPositionalParameter().map((x) {
-        if (x is SwidiDeclaration) {
-          return SwidiPositionalParameter(declaration: x);
-        }
-        return null;
-      });
+  Parser<SwidiFunctionDeclarationPositionalParameter?>
+      functionDeclarationPositionalParameter() =>
+          super.functionDeclarationPositionalParameter().map((x) {
+            if (x is SwidiDeclaration) {
+              return SwidiFunctionDeclarationPositionalParameter(
+                  declaration: x);
+            }
+            return null;
+          });
 }

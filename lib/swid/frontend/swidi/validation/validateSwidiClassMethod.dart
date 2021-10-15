@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionDeclaration.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiType.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/validation/swidiValidationError.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/validation/validTransformNames.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/validation/validateSwidiClass.dart';
@@ -61,7 +62,7 @@ class ValidateSwidiClassMethod
         [
           ...pipeline.reduceFromTerm(
             ValidateSwidiType(
-              swidiInterface: swidiFunctionDeclaration.returnType,
+              swidiType: swidiFunctionDeclaration.returnType,
             ),
           ),
           ...([
@@ -70,7 +71,7 @@ class ValidateSwidiClassMethod
                     .map(
                       (x) => pipeline.reduceFromTerm(
                         ValidateSwidiType(
-                          swidiInterface: x.declaration.type,
+                          swidiType: x.declaration.type,
                         ),
                       ),
                     )
@@ -86,7 +87,7 @@ class ValidateSwidiClassMethod
                     .map(
                       (x) => pipeline.reduceFromTerm(
                         ValidateSwidiType(
-                          swidiInterface: x.declaration.type,
+                          swidiType: x.declaration.type,
                         ),
                       ),
                     )
@@ -102,7 +103,7 @@ class ValidateSwidiClassMethod
                     .map(
                       (x) => pipeline.reduceFromTerm(
                         ValidateSwidiType(
-                          swidiInterface: x.declaration.type,
+                          swidiType: x.declaration.type,
                         ),
                       ),
                     )
@@ -118,7 +119,9 @@ class ValidateSwidiClassMethod
                     .map(
                       (x) => pipeline.reduceFromTerm(
                         ValidateSwidiType(
-                          swidiInterface: x.bound,
+                          swidiType: SwidiType.fromSwidiInterface(
+                            swidiInterface: x.bound,
+                          ),
                         ),
                       ),
                     )

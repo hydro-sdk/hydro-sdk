@@ -3,7 +3,7 @@ import 'package:petitparser/petitparser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConst.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiDeclaration.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiEmptyConst.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiInterface.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiType.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iDeclarationWithDefaultConstValueLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iSimpleDeclarationLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiGrammarDefinition.dart';
@@ -24,7 +24,7 @@ mixin SwidiSimpleDeclarationParser
       super.simpleDeclaration().map((x) {
         return SwidiDeclaration(
           name: List.from(x).whereType<Token?>().first?.input ?? "",
-          type: List.from(x).whereType<SwidiInterface>().first,
+          type: List.from(x).whereType<SwidiType>().first,
           defaultConstValue: SwidiConst.fromSwidiEmptyConst(
             swidiEmptyConst: SwidiEmptyConst(),
           ),

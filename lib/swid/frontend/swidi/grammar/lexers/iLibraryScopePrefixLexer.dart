@@ -1,7 +1,13 @@
+import 'package:meta/meta.dart';
+import 'package:petitparser/petitparser.dart';
+
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iStringContentDqLexer.dart';
 
-abstract class ILibraryScopePrefixLexer<T> implements IStringContentDqLexer<T> {
+@optionalTypeArgs
+@immutable
+abstract class ILibraryScopePrefixLexer<T extends dynamic, U extends Parser<T>>
+    implements IStringContentDqLexer<T, U> {
   const ILibraryScopePrefixLexer();
 
-  T libraryScopePrefix();
+  U libraryScopePrefix();
 }

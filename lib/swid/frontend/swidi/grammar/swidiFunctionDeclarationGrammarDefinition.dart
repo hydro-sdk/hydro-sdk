@@ -11,7 +11,7 @@ import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiFunctionDeclarationOp
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiFunctionDeclarationPositionalParameterGrammarDefinition.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiGrammarTokenizer.dart';
 
-mixin SwidiFunctionGrammarDefinition
+mixin SwidiFunctionDeclarationGrammarDefinition
     on
         GrammarDefinition,
         SwidiGrammarTokenizer,

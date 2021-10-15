@@ -1,10 +1,10 @@
 import 'package:petitparser/petitparser.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiDeclaration.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiNamedParameter.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiOptionalParameter.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiPositionalOrOptionalOrNamedParameter.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiPositionalParameter.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionDeclarationNamedParameter.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionDeclarationOptionalParameter.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionDeclarationPositionalOrOptionalOrNamedParameter.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionDeclarationPositionalParameter.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iDeclarationWithDefaultConstValueLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iFunctionDeclarationParameterListLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iSimpleDeclarationLexer.dart';
@@ -30,27 +30,44 @@ mixin SwidiFunctionDeclarationParameterListParser
         IDeclarationWithDefaultConstValueLexer,
         ISimpleDeclarationLexer,
         IFunctionDeclarationParameterListParser<
-            Parser<List<SwidiPositionalOrOptionalOrNamedParameter>>>,
+            Parser<
+                List<
+                    SwidiFunctionDeclarationPositionalOrOptionalOrNamedParameter>>>,
         IDeclarationWithDefaultConstValueParser<Parser<SwidiDeclaration>>,
         ISimpleDeclarationParser<Parser<SwidiDeclaration>> {
   @override
-  Parser<List<SwidiPositionalOrOptionalOrNamedParameter>>
-      functionDeclarationParameterList() =>
-          super.functionDeclarationParameterList().map((x) {
-            var res = [
-              ...collectTokens<SwidiPositionalParameter>(x)
-                  .map((e) => SwidiPositionalOrOptionalOrNamedParameter
-                      .fromSwidiPositionalParameter(positionalParameter: e))
+  Parser<List<SwidiFunctionDeclarationPositionalOrOptionalOrNamedParameter>>
+      functionDeclarationParameterList() => super
+          .functionDeclarationParameterList()
+          .map(
+            (x) => [
+              ...collectTokens<SwidiFunctionDeclarationPositionalParameter>(x)
+                  .map(
+                    (e) =>
+                        SwidiFunctionDeclarationPositionalOrOptionalOrNamedParameter
+                            .fromSwidiFunctionDeclarationPositionalParameter(
+                      positionalParameter: e,
+                    ),
+                  )
                   .toList(),
-              ...collectTokens<SwidiOptionalParameter>(x)
-                  .map((e) => SwidiPositionalOrOptionalOrNamedParameter
-                      .fromSwidiOptionalParameter(optionalParameter: e))
+              ...collectTokens<SwidiFunctionDeclarationOptionalParameter>(x)
+                  .map(
+                    (e) =>
+                        SwidiFunctionDeclarationPositionalOrOptionalOrNamedParameter
+                            .fromSwidiFunctionDeclarationOptionalParameter(
+                      optionalParameter: e,
+                    ),
+                  )
                   .toList(),
-              ...collectTokens<SwidiNamedParameter>(x)
-                  .map((e) => SwidiPositionalOrOptionalOrNamedParameter
-                      .fromSwidiNamedParameter(namedParameter: e))
+              ...collectTokens<SwidiFunctionDeclarationNamedParameter>(x)
+                  .map(
+                    (e) =>
+                        SwidiFunctionDeclarationPositionalOrOptionalOrNamedParameter
+                            .fromSwidiFunctionDeclarationNamedParameter(
+                      namedParameter: e,
+                    ),
+                  )
                   .toList(),
-            ];
-            return res;
-          });
+            ],
+          );
 }

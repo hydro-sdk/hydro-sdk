@@ -1,9 +1,14 @@
+import 'package:meta/meta.dart';
+import 'package:petitparser/petitparser.dart';
+
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iIdentifierPartLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iIdentifierStartLexer.dart';
 
-abstract class ILexicalIdentifierLexer<T>
-    implements IIdentifierStartLexer<T>, IIdentifierPartLexer<T> {
+@optionalTypeArgs
+@immutable
+abstract class ILexicalIdentifierLexer<T extends dynamic, U extends Parser<T>>
+    implements IIdentifierStartLexer<T, U>, IIdentifierPartLexer<T, U> {
   const ILexicalIdentifierLexer();
 
-  T lexicalIdentifier();
+  U lexicalIdentifier();
 }

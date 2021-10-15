@@ -1,10 +1,11 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'package:hydro_sdk/swid/frontend/swidi/ast/iTypeFormals.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConst.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiInterface.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiNamedParameter.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiOptionalParameter.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiPositionalParameter.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionDeclarationNamedParameter.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionDeclarationOptionalParameter.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionDeclarationPositionalParameter.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiType.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiTypeFormal.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
@@ -19,16 +20,19 @@ class SwidiFunctionDeclaration
         HashKeyMixin<SwidiFunctionDeclaration>,
         HashComparableMixin<SwidiFunctionDeclaration>
     implements
+        ITypeFormals<SwidiFunctionDeclaration>,
         ICopyable<SwidiFunctionDeclaration,
             $SwidiFunctionDeclarationCopyWith<SwidiFunctionDeclaration>> {
   SwidiFunctionDeclaration._();
 
   factory SwidiFunctionDeclaration({
     required final String name,
-    required final SwidiInterface returnType,
-    required final List<SwidiPositionalParameter> positionalParameters,
-    required final List<SwidiOptionalParameter> optionalParameters,
-    required final List<SwidiNamedParameter> namedParameters,
+    required final SwidiType returnType,
+    required final List<SwidiFunctionDeclarationPositionalParameter>
+        positionalParameters,
+    required final List<SwidiFunctionDeclarationOptionalParameter>
+        optionalParameters,
+    required final List<SwidiFunctionDeclarationNamedParameter> namedParameters,
     required final List<SwidiTypeFormal> typeFormals,
     required final SwidiConst shortHandOverride,
   }) = _$SwidiFunctionDeclarationCtor;
@@ -36,10 +40,11 @@ class SwidiFunctionDeclaration
   factory SwidiFunctionDeclaration._clone({
     required final SwidiFunctionDeclaration swidiFunctionDeclaration,
     final String? name,
-    final SwidiInterface? returnType,
-    final List<SwidiPositionalParameter>? positionalParameters,
-    final List<SwidiOptionalParameter>? optionalParameters,
-    final List<SwidiNamedParameter>? namedParameters,
+    final SwidiType? returnType,
+    final List<SwidiFunctionDeclarationPositionalParameter>?
+        positionalParameters,
+    final List<SwidiFunctionDeclarationOptionalParameter>? optionalParameters,
+    final List<SwidiFunctionDeclarationNamedParameter>? namedParameters,
     final List<SwidiTypeFormal>? typeFormals,
     final SwidiConst? shortHandOverride,
   }) =>
@@ -96,10 +101,11 @@ class SwidiFunctionDeclaration
   @override
   SwidiFunctionDeclaration clone({
     final String? name,
-    final SwidiInterface? returnType,
-    final List<SwidiPositionalParameter>? positionalParameters,
-    final List<SwidiOptionalParameter>? optionalParameters,
-    final List<SwidiNamedParameter>? namedParameters,
+    final SwidiType? returnType,
+    final List<SwidiFunctionDeclarationPositionalParameter>?
+        positionalParameters,
+    final List<SwidiFunctionDeclarationOptionalParameter>? optionalParameters,
+    final List<SwidiFunctionDeclarationNamedParameter>? namedParameters,
     final List<SwidiTypeFormal>? typeFormals,
     final SwidiConst? shortHandOverride,
   }) =>

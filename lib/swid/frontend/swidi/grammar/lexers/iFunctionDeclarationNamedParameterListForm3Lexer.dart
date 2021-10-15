@@ -1,11 +1,17 @@
+import 'package:meta/meta.dart';
+import 'package:petitparser/petitparser.dart';
+
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iFunctionDeclarationNamedParameterLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iFunctionDeclarationNamedParameterTailLexer.dart';
 
-abstract class IFunctionDeclarationNamedParameterListForm3Lexer<T>
+@optionalTypeArgs
+@immutable
+abstract class IFunctionDeclarationNamedParameterListForm3Lexer<
+        T extends dynamic, U extends Parser<T>>
     implements
-        IFunctionDeclarationNamedParameterLexer<T>,
-        IFunctionDeclarationNamedParameterTailLexer<T> {
+        IFunctionDeclarationNamedParameterLexer<T, U>,
+        IFunctionDeclarationNamedParameterTailLexer<T, U> {
   const IFunctionDeclarationNamedParameterListForm3Lexer();
 
-  T functionDeclarationNamedParameterListForm3();
+  U functionDeclarationNamedParameterListForm3();
 }

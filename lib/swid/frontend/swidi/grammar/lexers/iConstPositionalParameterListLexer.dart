@@ -1,7 +1,13 @@
+import 'package:meta/meta.dart';
+import 'package:petitparser/petitparser.dart';
+
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iConstLexer.dart';
 
-abstract class IConstPositionalParameterListLexer<T> implements IConstLexer<T> {
+@optionalTypeArgs
+@immutable
+abstract class IConstPositionalParameterListLexer<T extends dynamic,
+    U extends Parser<T>> implements IConstLexer<T, U> {
   const IConstPositionalParameterListLexer();
 
-  T constPositionalParameterList();
+  U constPositionalParameterList();
 }

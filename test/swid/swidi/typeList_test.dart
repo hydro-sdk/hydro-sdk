@@ -4,6 +4,7 @@ import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiInterface.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiLibraryScopePrefix.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiReferenceDeclarationPrefix.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiType.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiGrammarDefinition.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiAnnotationListParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiAnnotationParser.dart';
@@ -19,6 +20,12 @@ import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstParameterListPars
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstPositionalParameterListParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstStringParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiFunctionTypeNamedParameterParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiFunctionTypeOptionalParameterParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiFunctionTypeParameterListParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiFunctionTypeParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiFunctionTypePositionalParameterParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiInterfaceTypeParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiLibraryScopePrefixParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiReferenceDeclarationPrefixParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiTypeArgumentListParser.dart';
@@ -47,7 +54,13 @@ class SimpleTypeListParser extends SwidiGrammarDefinition
         SwidiTypeParser,
         SwidiTypeListParser,
         SwidiTypeArgumentListParser,
-        SwidiTypeListParser {
+        SwidiTypeListParser,
+        SwidiInterfaceTypeParser,
+        SwidiFunctionTypeOptionalParameterParser,
+        SwidiFunctionTypePositionalParameterParser,
+        SwidiFunctionTypeNamedParameterParser,
+        SwidiFunctionTypeParameterListParser,
+        SwidiFunctionTypeParser {
   const SimpleTypeListParser();
 }
 
@@ -59,21 +72,25 @@ void main() {
       parser: const SimpleTypeListParser()
           .build(start: const SimpleTypeListParser().typeList),
       result: [
-        SwidiInterface(
-          annotations: [],
-          name: "int",
-          libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-          referenceDeclarationPrefix: SwidiReferenceDeclarationPrefix.empty,
-          nullabilitySuffix: SwidiNullabilitySuffix.none,
-          typeArguments: [],
+        SwidiType.fromSwidiInterface(
+          swidiInterface: SwidiInterface(
+            annotations: [],
+            name: "int",
+            libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+            referenceDeclarationPrefix: SwidiReferenceDeclarationPrefix.empty,
+            nullabilitySuffix: SwidiNullabilitySuffix.none,
+            typeArguments: [],
+          ),
         ),
-        SwidiInterface(
-          annotations: [],
-          typeArguments: [],
-          name: "int",
-          libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-          referenceDeclarationPrefix: SwidiReferenceDeclarationPrefix.empty,
-          nullabilitySuffix: SwidiNullabilitySuffix.none,
+        SwidiType.fromSwidiInterface(
+          swidiInterface: SwidiInterface(
+            annotations: [],
+            typeArguments: [],
+            name: "int",
+            libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+            referenceDeclarationPrefix: SwidiReferenceDeclarationPrefix.empty,
+            nullabilitySuffix: SwidiNullabilitySuffix.none,
+          ),
         ),
       ],
     );
@@ -84,25 +101,29 @@ void main() {
       parser: const SimpleTypeListParser()
           .build(start: const SimpleTypeListParser().typeList),
       result: [
-        SwidiInterface(
-          annotations: [],
-          typeArguments: [],
-          name: "int?",
-          libraryScopePrefix: SwidiLibraryScopePrefix(
-            name: "dart:core",
+        SwidiType.fromSwidiInterface(
+          swidiInterface: SwidiInterface(
+            annotations: [],
+            typeArguments: [],
+            name: "int?",
+            libraryScopePrefix: SwidiLibraryScopePrefix(
+              name: "dart:core",
+            ),
+            referenceDeclarationPrefix: SwidiReferenceDeclarationPrefix(
+              name: "class",
+            ),
+            nullabilitySuffix: SwidiNullabilitySuffix.question,
           ),
-          referenceDeclarationPrefix: SwidiReferenceDeclarationPrefix(
-            name: "class",
-          ),
-          nullabilitySuffix: SwidiNullabilitySuffix.question,
         ),
-        SwidiInterface(
-          annotations: [],
-          typeArguments: [],
-          name: "int",
-          libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-          referenceDeclarationPrefix: SwidiReferenceDeclarationPrefix.empty,
-          nullabilitySuffix: SwidiNullabilitySuffix.none,
+        SwidiType.fromSwidiInterface(
+          swidiInterface: SwidiInterface(
+            annotations: [],
+            typeArguments: [],
+            name: "int",
+            libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+            referenceDeclarationPrefix: SwidiReferenceDeclarationPrefix.empty,
+            nullabilitySuffix: SwidiNullabilitySuffix.none,
+          ),
         ),
       ],
     );

@@ -1,13 +1,18 @@
+import 'package:meta/meta.dart';
+import 'package:petitparser/petitparser.dart';
+
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iIdentifierLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iReturnTypeLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iTypeFormalListDeclarationLexer.dart';
 
-abstract class IFunctionDeclarationLexer<T>
+@optionalTypeArgs
+@immutable
+abstract class IFunctionDeclarationLexer<T extends dynamic, U extends Parser<T>>
     implements
-        IReturnTypeLexer<T>,
-        IIdentifierLexer<T>,
-        ITypeFormalListDeclarationLexer<T> {
+        IReturnTypeLexer<T, U>,
+        IIdentifierLexer<T, U>,
+        ITypeFormalListDeclarationLexer<T, U> {
   const IFunctionDeclarationLexer();
 
-  T functionDeclaration();
+  U functionDeclaration();
 }

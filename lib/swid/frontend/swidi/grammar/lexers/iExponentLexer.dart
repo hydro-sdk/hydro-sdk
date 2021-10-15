@@ -1,7 +1,13 @@
+import 'package:meta/meta.dart';
+import 'package:petitparser/petitparser.dart';
+
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iDigitLexer.dart';
 
-abstract class IExponentLexer<T> implements IDigitLexer<T> {
+@optionalTypeArgs
+@immutable
+abstract class IExponentLexer<T extends dynamic, U extends Parser<T>>
+    implements IDigitLexer<T, U> {
   const IExponentLexer();
 
-  T exponent();
+  U exponent();
 }

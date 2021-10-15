@@ -4,6 +4,7 @@ import 'package:petitparser/petitparser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iAnnotationLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iAnnotationListLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iDeclarationWithDefaultConstValueLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iFunctionTypeLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iLibraryScopePrefixLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iQualifiedLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iReferenceDeclarationPrefixLexer.dart';
@@ -41,7 +42,8 @@ mixin SwidiDeclarationGrammarDefinition
         IReturnTypeLexer,
         IDeclarationWithDefaultConstValueLexer,
         IAnnotationLexer,
-        IAnnotationListLexer {
+        IAnnotationListLexer,
+        IFunctionTypeLexer {
   @override
   Parser returnType() => ref0(type);
 
@@ -64,7 +66,10 @@ mixin SwidiDeclarationGrammarDefinition
   Parser annotationList() => (ref0(annotation)).star();
 
   @override
-  Parser type() =>
+  Parser type() => ref0(functionType) | ref0(interfaceType);
+
+  @override
+  Parser interfaceType() =>
       ref0(annotationList).optional() &
       ref0(libraryScopePrefix).optional() &
       ref0(referenceDeclarationPrefix).optional() &
