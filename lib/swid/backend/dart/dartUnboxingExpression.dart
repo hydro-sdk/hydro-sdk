@@ -60,6 +60,25 @@ class DartUnboxingExpression
         identifierName: identifierName ?? this.identifierName,
       );
 
+  String _destructureReturnType({
+    required final SwidFunctionType swidFunctionType,
+  }) =>
+      swidFunctionType.returnType.when(
+        fromSwidInterface: (val) => narrowSwidInterfaceByReferenceDeclaration(
+          swidInterface: val,
+          onPrimitive: (_) => "[0]",
+          onClass: (_) => "[0]",
+          onEnum: (_) => "[0]",
+          onVoid: (_) => "",
+          onTypeParameter: (_) => "[0]",
+          onDynamic: (_) => "[0]",
+          onUnknown: (_) => "",
+        ),
+        fromSwidClass: (_) => "[0]",
+        fromSwidDefaultFormalParameter: (_) => "[0]",
+        fromSwidFunctionType: (_) => "[0]",
+      );
+
   @override
   ISwarsTermResult<String> transform({
     required final ISwarsPipeline pipeline,
@@ -168,6 +187,17 @@ class DartUnboxingExpression
                             expression: CodeExpression(
                               Code(
                                 ([
+                                  ...(val.returnType.nullabilitySuffix ==
+                                          SwidNullabilitySuffix.question
+                                      ? [
+                                          "((final List<dynamic>? val,) => val != null && val.length >= 1 ?",
+                                          "val",
+                                          _destructureReturnType(
+                                            swidFunctionType: val,
+                                          ),
+                                          " : null)(",
+                                        ]
+                                      : []),
                                   identifierName,
                                   ".dispatch([$luaCallerArgumentsParameterName[0],",
                                   val.normalParameterNames
@@ -175,23 +205,20 @@ class DartUnboxingExpression
                                       .toList()
                                       .join(","),
                                   "],parentState:hydroState,)",
-                                  val.returnType.when(
-                                    fromSwidInterface: (val) =>
-                                        narrowSwidInterfaceByReferenceDeclaration(
-                                      swidInterface: val,
-                                      onPrimitive: (_) => "[0]",
-                                      onClass: (_) => "[0]",
-                                      onEnum: (_) => "[0]",
-                                      onVoid: (_) => "",
-                                      onTypeParameter: (_) => "[0]",
-                                      onDynamic: (_) => "[0]",
-                                      onUnknown: (_) => "",
-                                    ),
-                                    fromSwidClass: (_) => "[0]",
-                                    fromSwidDefaultFormalParameter: (_) =>
-                                        "[0]",
-                                    fromSwidFunctionType: (_) => "[0]",
-                                  )
+                                  ...(val.returnType.nullabilitySuffix !=
+                                          SwidNullabilitySuffix.question
+                                      ? [
+                                          _destructureReturnType(
+                                            swidFunctionType: val,
+                                          ),
+                                        ]
+                                      : []),
+                                  ...(val.returnType.nullabilitySuffix ==
+                                          SwidNullabilitySuffix.question
+                                      ? [
+                                          ",)",
+                                        ]
+                                      : []),
                                 ]).join(""),
                               ),
                             ),
