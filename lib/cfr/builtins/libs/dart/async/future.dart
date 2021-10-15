@@ -13,24 +13,30 @@ class VMManagedFuture extends VMManagedBox<Future<dynamic>> {
         ) {
     table['then'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       Closure unpackedonValue = luaCallerArguments[1];
-      Closure? unpackedOnError = luaCallerArguments.length >= 3
+      Closure? unpackedonError = luaCallerArguments.length >= 3
           ? luaCallerArguments[2]['onError']
           : null;
       return [
         maybeBoxObject<Future>(
             object: vmObject.then(
-                (value) => ((val) =>
+                (_) => ((
+                      final List<dynamic>? val,
+                    ) =>
                         val != null && val.length >= 1 ? val[0] : null)(
-                    maybeUnBoxAndBuildArgument<FutureOr<dynamic>, dynamic>(
-                        unpackedonValue.dispatch(
-                          [luaCallerArguments[0], value],
-                          parentState: hydroState,
-                        ),
-                        parentState: hydroState)),
-                onError: unpackedOnError != null
-                    ? (err, stackTrace) => unpackedOnError.dispatch(
-                          [luaCallerArguments[0], err, stackTrace],
-                          parentState: hydroState,
+                      unpackedonValue.dispatch(
+                        [luaCallerArguments[0], _],
+                        parentState: hydroState,
+                      ),
+                    ),
+                onError: unpackedonError != null
+                    ? (_, __) => ((
+                          final List<dynamic>? val,
+                        ) =>
+                            val != null && val.length >= 1 ? val[0] : null)(
+                          unpackedonError.dispatch(
+                            [luaCallerArguments[0], _, __],
+                            parentState: hydroState,
+                          ),
                         )
                     : null),
             hydroState: hydroState,
@@ -39,19 +45,24 @@ class VMManagedFuture extends VMManagedBox<Future<dynamic>> {
     });
     table['catchError'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      Closure unpackedOnError = luaCallerArguments[1];
+      Closure unpackedonError = luaCallerArguments[1];
       Closure? unpackedtest =
           luaCallerArguments.length >= 3 ? luaCallerArguments[2]['test'] : null;
       return [
         maybeBoxObject<Future>(
             object: vmObject.catchError(
-                (err, stackTrace) => unpackedOnError.dispatch(
-                      [luaCallerArguments[0], err, stackTrace],
-                      parentState: hydroState,
+                (_, __) => ((
+                      final List<dynamic>? val,
+                    ) =>
+                        val != null && val.length >= 1 ? val[0] : null)(
+                      unpackedonError.dispatch(
+                        [luaCallerArguments[0], _, __],
+                        parentState: hydroState,
+                      ),
                     ),
                 test: unpackedtest != null
-                    ? (error) => unpackedtest.dispatch(
-                          [luaCallerArguments[0], error],
+                    ? (_) => unpackedtest.dispatch(
+                          [luaCallerArguments[0], _],
                           parentState: hydroState,
                         )[0]
                     : null),

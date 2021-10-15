@@ -82,7 +82,7 @@ class VMManagedDoubleLinkedQueueEntry
 
 class RTManagedDoubleLinkedQueueEntry extends DoubleLinkedQueueEntry
     implements Box<DoubleLinkedQueueEntry> {
-  RTManagedDoubleLinkedQueueEntry(dynamic _element,
+  RTManagedDoubleLinkedQueueEntry(dynamic? _element,
       {required this.table, required this.hydroState})
       : super(
           _element,

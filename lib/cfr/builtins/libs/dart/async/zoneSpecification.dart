@@ -227,17 +227,22 @@ void loadZoneSpecification(
               errorCallback: unpackederrorCallback != null
                   ? (self, parent, zone, error, stackTrace) =>
                       maybeUnBoxAndBuildArgument<AsyncError?, dynamic>(
-                          unpackederrorCallback.dispatch(
-                            [
-                              luaCallerArguments[0],
-                              self,
-                              parent,
-                              zone,
-                              error,
-                              stackTrace
-                            ],
-                            parentState: hydroState,
-                          )[0],
+                          ((
+                            final List<dynamic>? val,
+                          ) =>
+                              val != null && val.length >= 1 ? val[0] : null)(
+                            unpackederrorCallback.dispatch(
+                              [
+                                luaCallerArguments[0],
+                                self,
+                                parent,
+                                zone,
+                                error,
+                                stackTrace
+                              ],
+                              parentState: hydroState,
+                            ),
+                          ),
                           parentState: hydroState)
                   : null,
               fork: unpackedfork != null
@@ -417,17 +422,22 @@ void loadZoneSpecification(
               errorCallback: unpackederrorCallback != null
                   ? (self, parent, zone, error, stackTrace) =>
                       maybeUnBoxAndBuildArgument<AsyncError?, dynamic>(
-                          unpackederrorCallback.dispatch(
-                            [
-                              luaCallerArguments[0],
-                              self,
-                              parent,
-                              zone,
-                              error,
-                              stackTrace
-                            ],
-                            parentState: hydroState,
-                          )[0],
+                          ((
+                            final List<dynamic>? val,
+                          ) =>
+                              val != null && val.length >= 1 ? val[0] : null)(
+                            unpackederrorCallback.dispatch(
+                              [
+                                luaCallerArguments[0],
+                                self,
+                                parent,
+                                zone,
+                                error,
+                                stackTrace
+                              ],
+                              parentState: hydroState,
+                            ),
+                          ),
                           parentState: hydroState)
                   : null,
               fork: unpackedfork != null
