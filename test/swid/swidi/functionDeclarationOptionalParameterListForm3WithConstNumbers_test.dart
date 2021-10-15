@@ -3,12 +3,13 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConst.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConstNumber.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiDeclaration.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionDeclarationOptionalParameter.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionDeclarationPositionalOrOptionalOrNamedParameter.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiInterface.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiLibraryScopePrefix.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiNullabilitySuffix.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiOptionalParameter.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiPositionalOrOptionalOrNamedParameter.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiReferenceDeclarationPrefix.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiType.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiGrammarDefinition.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiAnnotationListParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiAnnotationParser.dart';
@@ -29,6 +30,12 @@ import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiFunctionDeclarationNam
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiFunctionDeclarationOptionalParameterParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiFunctionDeclarationParameterListParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiFunctionDeclarationPositionalParameterParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiFunctionTypeNamedParameterParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiFunctionTypeOptionalParameterParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiFunctionTypeParameterListParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiFunctionTypeParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiFunctionTypePositionalParameterParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiInterfaceTypeParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiLibraryScopePrefixParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiReferenceDeclarationPrefixParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiSimpleDeclarationParser.dart';
@@ -64,7 +71,13 @@ class BasicFunctionParameterListParser extends SwidiGrammarDefinition
         SwidiFunctionDeclarationOptionalParameterParser,
         SwidiFunctionDeclarationPositionalParameterParser,
         SwidiFunctionDeclarationNamedParameterParser,
-        SwidiFunctionDeclarationParameterListParser {
+        SwidiFunctionDeclarationParameterListParser,
+        SwidiInterfaceTypeParser,
+        SwidiFunctionTypeOptionalParameterParser,
+        SwidiFunctionTypePositionalParameterParser,
+        SwidiFunctionTypeNamedParameterParser,
+        SwidiFunctionTypeParameterListParser,
+        SwidiFunctionTypeParser {
   const BasicFunctionParameterListParser();
 }
 
@@ -78,18 +91,21 @@ void main() {
           start: const BasicFunctionParameterListParser()
               .functionDeclarationParameterList),
       result: [
-        SwidiPositionalOrOptionalOrNamedParameter.fromSwidiOptionalParameter(
-          optionalParameter: SwidiOptionalParameter(
+        SwidiFunctionDeclarationPositionalOrOptionalOrNamedParameter
+            .fromSwidiFunctionDeclarationOptionalParameter(
+          optionalParameter: SwidiFunctionDeclarationOptionalParameter(
             declaration: SwidiDeclaration(
               name: "foo",
-              type: SwidiInterface(
-                annotations: [],
-                typeArguments: [],
-                name: "void",
-                libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                referenceDeclarationPrefix:
-                    SwidiReferenceDeclarationPrefix.empty,
-                nullabilitySuffix: SwidiNullabilitySuffix.none,
+              type: SwidiType.fromSwidiInterface(
+                swidiInterface: SwidiInterface(
+                  annotations: [],
+                  typeArguments: [],
+                  name: "void",
+                  libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                  referenceDeclarationPrefix:
+                      SwidiReferenceDeclarationPrefix.empty,
+                  nullabilitySuffix: SwidiNullabilitySuffix.none,
+                ),
               ),
               defaultConstValue: SwidiConst.fromSwidiConstNumber(
                 swidiConstNumber: SwidiConstNumber(
@@ -99,18 +115,21 @@ void main() {
             ),
           ),
         ),
-        SwidiPositionalOrOptionalOrNamedParameter.fromSwidiOptionalParameter(
-          optionalParameter: SwidiOptionalParameter(
+        SwidiFunctionDeclarationPositionalOrOptionalOrNamedParameter
+            .fromSwidiFunctionDeclarationOptionalParameter(
+          optionalParameter: SwidiFunctionDeclarationOptionalParameter(
             declaration: SwidiDeclaration(
               name: "bar",
-              type: SwidiInterface(
-                annotations: [],
-                typeArguments: [],
-                name: "int",
-                libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                referenceDeclarationPrefix:
-                    SwidiReferenceDeclarationPrefix.empty,
-                nullabilitySuffix: SwidiNullabilitySuffix.none,
+              type: SwidiType.fromSwidiInterface(
+                swidiInterface: SwidiInterface(
+                  annotations: [],
+                  typeArguments: [],
+                  name: "int",
+                  libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                  referenceDeclarationPrefix:
+                      SwidiReferenceDeclarationPrefix.empty,
+                  nullabilitySuffix: SwidiNullabilitySuffix.none,
+                ),
               ),
               defaultConstValue: SwidiConst.fromSwidiConstNumber(
                 swidiConstNumber: SwidiConstNumber(
@@ -120,18 +139,21 @@ void main() {
             ),
           ),
         ),
-        SwidiPositionalOrOptionalOrNamedParameter.fromSwidiOptionalParameter(
-          optionalParameter: SwidiOptionalParameter(
+        SwidiFunctionDeclarationPositionalOrOptionalOrNamedParameter
+            .fromSwidiFunctionDeclarationOptionalParameter(
+          optionalParameter: SwidiFunctionDeclarationOptionalParameter(
             declaration: SwidiDeclaration(
               name: "baz",
-              type: SwidiInterface(
-                annotations: [],
-                typeArguments: [],
-                name: "int",
-                libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                referenceDeclarationPrefix:
-                    SwidiReferenceDeclarationPrefix.empty,
-                nullabilitySuffix: SwidiNullabilitySuffix.none,
+              type: SwidiType.fromSwidiInterface(
+                swidiInterface: SwidiInterface(
+                  annotations: [],
+                  typeArguments: [],
+                  name: "int",
+                  libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                  referenceDeclarationPrefix:
+                      SwidiReferenceDeclarationPrefix.empty,
+                  nullabilitySuffix: SwidiNullabilitySuffix.none,
+                ),
               ),
               defaultConstValue: SwidiConst.fromSwidiConstNumber(
                 swidiConstNumber: SwidiConstNumber(

@@ -18,7 +18,7 @@ class _$SwidiDeclarationTearOff {
 
   _$SwidiDeclarationCtor call(
       {required String name,
-      required SwidiInterface type,
+      required SwidiType type,
       required SwidiConst defaultConstValue}) {
     return _$SwidiDeclarationCtor(
       name: name,
@@ -34,7 +34,7 @@ const $SwidiDeclaration = _$SwidiDeclarationTearOff();
 /// @nodoc
 mixin _$SwidiDeclaration {
   String get name => throw _privateConstructorUsedError;
-  SwidiInterface get type => throw _privateConstructorUsedError;
+  SwidiType get type => throw _privateConstructorUsedError;
   SwidiConst get defaultConstValue => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -47,9 +47,9 @@ abstract class $SwidiDeclarationCopyWith<$Res> {
   factory $SwidiDeclarationCopyWith(
           SwidiDeclaration value, $Res Function(SwidiDeclaration) then) =
       _$SwidiDeclarationCopyWithImpl<$Res>;
-  $Res call({String name, SwidiInterface type, SwidiConst defaultConstValue});
+  $Res call({String name, SwidiType type, SwidiConst defaultConstValue});
 
-  $SwidiInterfaceCopyWith<$Res> get type;
+  $SwidiTypeCopyWith<$Res> get type;
   $SwidiConstCopyWith<$Res> get defaultConstValue;
 }
 
@@ -76,7 +76,7 @@ class _$SwidiDeclarationCopyWithImpl<$Res>
       type: type == freezed
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as SwidiInterface,
+              as SwidiType,
       defaultConstValue: defaultConstValue == freezed
           ? _value.defaultConstValue
           : defaultConstValue // ignore: cast_nullable_to_non_nullable
@@ -85,8 +85,8 @@ class _$SwidiDeclarationCopyWithImpl<$Res>
   }
 
   @override
-  $SwidiInterfaceCopyWith<$Res> get type {
-    return $SwidiInterfaceCopyWith<$Res>(_value.type, (value) {
+  $SwidiTypeCopyWith<$Res> get type {
+    return $SwidiTypeCopyWith<$Res>(_value.type, (value) {
       return _then(_value.copyWith(type: value));
     });
   }
@@ -106,10 +106,10 @@ abstract class _$$SwidiDeclarationCtorCopyWith<$Res>
           $Res Function(_$SwidiDeclarationCtor) then) =
       __$$SwidiDeclarationCtorCopyWithImpl<$Res>;
   @override
-  $Res call({String name, SwidiInterface type, SwidiConst defaultConstValue});
+  $Res call({String name, SwidiType type, SwidiConst defaultConstValue});
 
   @override
-  $SwidiInterfaceCopyWith<$Res> get type;
+  $SwidiTypeCopyWith<$Res> get type;
   @override
   $SwidiConstCopyWith<$Res> get defaultConstValue;
 }
@@ -139,7 +139,7 @@ class __$$SwidiDeclarationCtorCopyWithImpl<$Res>
       type: type == freezed
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as SwidiInterface,
+              as SwidiType,
       defaultConstValue: defaultConstValue == freezed
           ? _value.defaultConstValue
           : defaultConstValue // ignore: cast_nullable_to_non_nullable
@@ -158,7 +158,7 @@ class _$_$SwidiDeclarationCtor extends _$SwidiDeclarationCtor {
   @override
   final String name;
   @override
-  final SwidiInterface type;
+  final SwidiType type;
   @override
   final SwidiConst defaultConstValue;
 
@@ -197,14 +197,14 @@ class _$_$SwidiDeclarationCtor extends _$SwidiDeclarationCtor {
 abstract class _$SwidiDeclarationCtor extends SwidiDeclaration {
   factory _$SwidiDeclarationCtor(
       {required String name,
-      required SwidiInterface type,
+      required SwidiType type,
       required SwidiConst defaultConstValue}) = _$_$SwidiDeclarationCtor;
   _$SwidiDeclarationCtor._() : super._();
 
   @override
   String get name => throw _privateConstructorUsedError;
   @override
-  SwidiInterface get type => throw _privateConstructorUsedError;
+  SwidiType get type => throw _privateConstructorUsedError;
   @override
   SwidiConst get defaultConstValue => throw _privateConstructorUsedError;
   @override

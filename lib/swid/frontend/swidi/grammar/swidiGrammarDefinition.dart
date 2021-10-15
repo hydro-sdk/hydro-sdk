@@ -6,10 +6,14 @@ import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iStartLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iTopLevelDefinitionLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiConstGrammarDefinition.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiDeclarationGrammarDefinition.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiFunctionDeclarationGrammarDefinition.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiFunctionDeclarationNamedParameterGrammarDefinition.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiFunctionDeclarationOptionalParameterGrammarDefinition.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiFunctionDeclarationPositionalParameterGrammarDefinition.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiFunctionGrammarDefinition.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiFunctionTypeGrammarDefinition.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiFunctionTypeNamedParameterGrammarDefinition.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiFunctionTypeOptionalParameterGrammarDefinition.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiFunctionTypePositionalParameterGrammarDefinition.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiGrammarTokenizer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiIdentifierGrammarDefinition.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiLexicalTokensGrammarDefinition.dart';
@@ -26,7 +30,11 @@ class SwidiGrammarDefinition extends GrammarDefinition
         SwidiFunctionDeclarationPositionalParameterGrammarDefinition,
         SwidiFunctionDeclarationOptionalParameterGrammarDefinition,
         SwidiFunctionDeclarationNamedParameterGrammarDefinition,
-        SwidiFunctionGrammarDefinition
+        SwidiFunctionDeclarationGrammarDefinition,
+        SwidiFunctionTypePositionalParameterGrammarDefinition,
+        SwidiFunctionTypeOptionalParameterGrammarDefinition,
+        SwidiFunctionTypeNamedParameterGrammarDefinition,
+        SwidiFunctionTypeGrammarDefinition
     implements
         IClassDefinitionLexer,
         ITopLevelDefinitionLexer,

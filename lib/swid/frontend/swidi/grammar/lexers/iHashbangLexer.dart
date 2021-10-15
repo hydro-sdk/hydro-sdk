@@ -1,7 +1,13 @@
+import 'package:meta/meta.dart';
+import 'package:petitparser/petitparser.dart';
+
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iNewlineLexer.dart';
 
-abstract class IHashbangLexer<T> implements INewlineLexer<T> {
+@optionalTypeArgs
+@immutable
+abstract class IHashbangLexer<T extends dynamic, U extends Parser<T>>
+    implements INewlineLexer<T, U> {
   const IHashbangLexer();
 
-  T hashbang();
+  U hashbang();
 }

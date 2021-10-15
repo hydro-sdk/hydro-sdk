@@ -1,8 +1,13 @@
+import 'package:meta/meta.dart';
+import 'package:petitparser/petitparser.dart';
+
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iIdentifierStartNoDollarLexer.dart';
 
-abstract class IIdentifierStartLexer<T>
-    implements IIdentifierStartNoDollarLexer<T> {
+@optionalTypeArgs
+@immutable
+abstract class IIdentifierStartLexer<T extends dynamic, U extends Parser<T>>
+    implements IIdentifierStartNoDollarLexer<T, U> {
   const IIdentifierStartLexer();
 
-  T identifierStart();
+  U identifierStart();
 }

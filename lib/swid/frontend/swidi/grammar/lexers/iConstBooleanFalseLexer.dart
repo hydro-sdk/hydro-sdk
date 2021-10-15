@@ -1,5 +1,10 @@
-abstract class IConstBooleanFalseLexer<T> {
+import 'package:meta/meta.dart';
+import 'package:petitparser/petitparser.dart';
+
+@optionalTypeArgs
+@immutable
+abstract class IConstBooleanFalseLexer<T extends dynamic, U extends Parser<T>> {
   const IConstBooleanFalseLexer();
 
-  T constBooleanFalse();
+  U constBooleanFalse();
 }

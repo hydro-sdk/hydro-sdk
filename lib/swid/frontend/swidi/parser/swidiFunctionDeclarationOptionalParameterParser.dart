@@ -1,7 +1,7 @@
 import 'package:petitparser/petitparser.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiDeclaration.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiOptionalParameter.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionDeclarationOptionalParameter.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iDeclarationWithDefaultConstValueLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iFunctionDeclarationOptionalParameterLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iSimpleDeclarationLexer.dart';
@@ -20,15 +20,16 @@ mixin SwidiFunctionDeclarationOptionalParameterParser
         IDeclarationWithDefaultConstValueLexer,
         ISimpleDeclarationLexer,
         IFunctionDeclarationOptionalParameterParser<
-            Parser<SwidiOptionalParameter?>>,
+            Parser<SwidiFunctionDeclarationOptionalParameter?>>,
         IDeclarationWithDefaultConstValueParser<Parser<SwidiDeclaration>>,
         ISimpleDeclarationParser<Parser<SwidiDeclaration>> {
   @override
-  Parser<SwidiOptionalParameter?> functionDeclarationOptionalParameter() =>
-      super.functionDeclarationOptionalParameter().map((x) {
-        if (x is SwidiDeclaration) {
-          return SwidiOptionalParameter(declaration: x);
-        }
-        return null;
-      });
+  Parser<SwidiFunctionDeclarationOptionalParameter?>
+      functionDeclarationOptionalParameter() =>
+          super.functionDeclarationOptionalParameter().map((x) {
+            if (x is SwidiDeclaration) {
+              return SwidiFunctionDeclarationOptionalParameter(declaration: x);
+            }
+            return null;
+          });
 }

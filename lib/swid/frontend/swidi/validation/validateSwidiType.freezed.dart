@@ -16,9 +16,9 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$ValidateSwidiTypeTearOff {
   const _$ValidateSwidiTypeTearOff();
 
-  _$ValidateSwidiTypeCtor call({required SwidiInterface swidiInterface}) {
+  _$ValidateSwidiTypeCtor call({required SwidiType swidiType}) {
     return _$ValidateSwidiTypeCtor(
-      swidiInterface: swidiInterface,
+      swidiType: swidiType,
     );
   }
 }
@@ -28,7 +28,7 @@ const $ValidateSwidiType = _$ValidateSwidiTypeTearOff();
 
 /// @nodoc
 mixin _$ValidateSwidiType {
-  SwidiInterface get swidiInterface => throw _privateConstructorUsedError;
+  SwidiType get swidiType => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ValidateSwidiTypeCopyWith<ValidateSwidiType> get copyWith =>
@@ -40,9 +40,9 @@ abstract class $ValidateSwidiTypeCopyWith<$Res> {
   factory $ValidateSwidiTypeCopyWith(
           ValidateSwidiType value, $Res Function(ValidateSwidiType) then) =
       _$ValidateSwidiTypeCopyWithImpl<$Res>;
-  $Res call({SwidiInterface swidiInterface});
+  $Res call({SwidiType swidiType});
 
-  $SwidiInterfaceCopyWith<$Res> get swidiInterface;
+  $SwidiTypeCopyWith<$Res> get swidiType;
 }
 
 /// @nodoc
@@ -56,20 +56,20 @@ class _$ValidateSwidiTypeCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? swidiInterface = freezed,
+    Object? swidiType = freezed,
   }) {
     return _then(_value.copyWith(
-      swidiInterface: swidiInterface == freezed
-          ? _value.swidiInterface
-          : swidiInterface // ignore: cast_nullable_to_non_nullable
-              as SwidiInterface,
+      swidiType: swidiType == freezed
+          ? _value.swidiType
+          : swidiType // ignore: cast_nullable_to_non_nullable
+              as SwidiType,
     ));
   }
 
   @override
-  $SwidiInterfaceCopyWith<$Res> get swidiInterface {
-    return $SwidiInterfaceCopyWith<$Res>(_value.swidiInterface, (value) {
-      return _then(_value.copyWith(swidiInterface: value));
+  $SwidiTypeCopyWith<$Res> get swidiType {
+    return $SwidiTypeCopyWith<$Res>(_value.swidiType, (value) {
+      return _then(_value.copyWith(swidiType: value));
     });
   }
 }
@@ -81,10 +81,10 @@ abstract class _$$ValidateSwidiTypeCtorCopyWith<$Res>
           $Res Function(_$ValidateSwidiTypeCtor) then) =
       __$$ValidateSwidiTypeCtorCopyWithImpl<$Res>;
   @override
-  $Res call({SwidiInterface swidiInterface});
+  $Res call({SwidiType swidiType});
 
   @override
-  $SwidiInterfaceCopyWith<$Res> get swidiInterface;
+  $SwidiTypeCopyWith<$Res> get swidiType;
 }
 
 /// @nodoc
@@ -100,13 +100,13 @@ class __$$ValidateSwidiTypeCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? swidiInterface = freezed,
+    Object? swidiType = freezed,
   }) {
     return _then(_$ValidateSwidiTypeCtor(
-      swidiInterface: swidiInterface == freezed
-          ? _value.swidiInterface
-          : swidiInterface // ignore: cast_nullable_to_non_nullable
-              as SwidiInterface,
+      swidiType: swidiType == freezed
+          ? _value.swidiType
+          : swidiType // ignore: cast_nullable_to_non_nullable
+              as SwidiType,
     ));
   }
 }
@@ -114,29 +114,28 @@ class __$$ValidateSwidiTypeCtorCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_$ValidateSwidiTypeCtor extends _$ValidateSwidiTypeCtor {
-  _$_$ValidateSwidiTypeCtor({required this.swidiInterface}) : super._();
+  _$_$ValidateSwidiTypeCtor({required this.swidiType}) : super._();
 
   @override
-  final SwidiInterface swidiInterface;
+  final SwidiType swidiType;
 
   @override
   String toString() {
-    return 'ValidateSwidiType(swidiInterface: $swidiInterface)';
+    return 'ValidateSwidiType(swidiType: $swidiType)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _$ValidateSwidiTypeCtor &&
-            (identical(other.swidiInterface, swidiInterface) ||
+            (identical(other.swidiType, swidiType) ||
                 const DeepCollectionEquality()
-                    .equals(other.swidiInterface, swidiInterface)));
+                    .equals(other.swidiType, swidiType)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(swidiInterface);
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(swidiType);
 
   @JsonKey(ignore: true)
   @override
@@ -146,12 +145,12 @@ class _$_$ValidateSwidiTypeCtor extends _$ValidateSwidiTypeCtor {
 }
 
 abstract class _$ValidateSwidiTypeCtor extends ValidateSwidiType {
-  factory _$ValidateSwidiTypeCtor({required SwidiInterface swidiInterface}) =
+  factory _$ValidateSwidiTypeCtor({required SwidiType swidiType}) =
       _$_$ValidateSwidiTypeCtor;
   _$ValidateSwidiTypeCtor._() : super._();
 
   @override
-  SwidiInterface get swidiInterface => throw _privateConstructorUsedError;
+  SwidiType get swidiType => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$ValidateSwidiTypeCtorCopyWith<_$ValidateSwidiTypeCtor> get copyWith =>

@@ -102,5 +102,17 @@ class "dart:async"::AsyncError {
       """,
       expectation: const SwidiClassValidationState.valid(),
     );
+
+    validatorTestHarness(
+      input: """
+class "dart:async"::Future {
+  "dart:async"::class::Future<type::R> then<R extends "dart:core"::class::Object?>(
+    Function type::R (type::T) onValue, {
+      Function "dart:async"::class::FutureOr<type::R> (dynamic::dynamic, "dart:core"::class::StackTrace)? onError,
+  });
+}
+      """,
+      expectation: const SwidiClassValidationState.valid(),
+    );
   }, tags: "swid");
 }
