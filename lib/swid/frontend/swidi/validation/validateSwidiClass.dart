@@ -79,46 +79,48 @@ class ValidateSwidiClass
   ISwarsTermResult<SwidiClassValidationState> analyze({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromJsonTransformable((({
-        required final List<SwidiClassValidationState> aggregateValidations,
-      }) =>
-          aggregateValidations.firstWhereOrNull(
+      SwarsTermResult.fromJsonTransformable(
+        (({
+          required final List<SwidiClassValidationState> aggregateValidations,
+        }) =>
+            aggregateValidations.firstWhereOrNull(
+                      (x) => x.when(
+                        valid: () => false,
+                        invalid: (_) => true,
+                      ),
+                    ) !=
+                    null
+                ? aggregateValidations.firstWhere(
                     (x) => x.when(
                       valid: () => false,
                       invalid: (_) => true,
                     ),
-                  ) !=
-                  null
-              ? aggregateValidations.firstWhere(
-                  (x) => x.when(
-                    valid: () => false,
-                    invalid: (_) => true,
-                  ),
-                )
-              : const SwidiClassValidationState.valid())(
-        aggregateValidations: [
-          ...(swidiClass.methods.isNotEmpty
-              ? swidiClass.methods
-                  .map(
-                    (x) => pipeline.reduceFromTerm(
-                      ValidateSwidiClassMethod(
-                        swidiFunctionDeclaration: x,
+                  )
+                : const SwidiClassValidationState.valid())(
+          aggregateValidations: [
+            ...(swidiClass.methods.isNotEmpty
+                ? swidiClass.methods
+                    .map(
+                      (x) => pipeline.reduceFromTerm(
+                        ValidateSwidiClassMethod(
+                          swidiFunctionDeclaration: x,
+                        ),
                       ),
-                    ),
-                  )
-                  .reduce(
-                    (value, element) => [
-                      ...value,
-                      ...element,
-                    ],
-                  )
-              : []),
-          ...pipeline.reduceFromTerm(
-            ValidateShortHandOverride(
-              swidiConst: swidiClass.shortHandOverride,
-              validKeys: validClassShortHandOverrideKeys,
-            ),
-          )
-        ],
-      ),);
+                    )
+                    .reduce(
+                      (value, element) => [
+                        ...value,
+                        ...element,
+                      ],
+                    )
+                : []),
+            ...pipeline.reduceFromTerm(
+              ValidateShortHandOverride(
+                swidiConst: swidiClass.shortHandOverride,
+                validKeys: validClassShortHandOverrideKeys,
+              ),
+            )
+          ],
+        ),
+      );
 }
