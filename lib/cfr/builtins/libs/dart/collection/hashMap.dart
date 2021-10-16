@@ -120,11 +120,15 @@ class VMManagedHashMap extends VMManagedBox<HashMap<dynamic, dynamic>> {
       return [];
     });
     table['remove'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        vmObject.remove(maybeUnBoxAndBuildArgument<Object?, dynamic>(
-            luaCallerArguments[1],
-            parentState: hydroState)),
-      ];
+      final returnValue = vmObject.remove(
+          maybeUnBoxAndBuildArgument<Object?, dynamic>(luaCallerArguments[1],
+              parentState: hydroState));
+      if (returnValue != null) {
+        return [
+          returnValue,
+        ];
+      }
+      return [];
     });
     table['clear'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.clear();

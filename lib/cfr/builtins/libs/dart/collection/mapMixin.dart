@@ -19,11 +19,15 @@ class VMManagedMapMixin extends VMManagedBox<MapMixin<dynamic, dynamic>> {
       ];
     });
     table['remove'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        vmObject.remove(maybeUnBoxAndBuildArgument<Object?, dynamic>(
-            luaCallerArguments[1],
-            parentState: hydroState)),
-      ];
+      final returnValue = vmObject.remove(
+          maybeUnBoxAndBuildArgument<Object?, dynamic>(luaCallerArguments[1],
+              parentState: hydroState));
+      if (returnValue != null) {
+        return [
+          returnValue,
+        ];
+      }
+      return [];
     });
     table['clear'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.clear();

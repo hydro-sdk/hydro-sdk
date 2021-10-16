@@ -130,12 +130,22 @@ class InstantiateGeneric
                     genericInstantiator.name
                 ? genericInstantiator.instantiatedGeneric.instantiableGeneric
                     .when(
-                    fromSwidClass: (val) =>
-                        SwidType.fromSwidClass(swidClass: val),
-                    fromSwidInterface: (val) =>
-                        SwidType.fromSwidInterface(swidInterface: val),
+                    fromSwidClass: (val) => SwidType.fromSwidClass(
+                      swidClass: val.clone(
+                        nullabilitySuffix: swidType.nullabilitySuffix,
+                      ),
+                    ),
+                    fromSwidInterface: (val) => SwidType.fromSwidInterface(
+                      swidInterface: val.clone(
+                        nullabilitySuffix: swidType.nullabilitySuffix,
+                      ),
+                    ),
                     fromSwidFunctionType: (val) =>
-                        SwidType.fromSwidFunctionType(swidFunctionType: val),
+                        SwidType.fromSwidFunctionType(
+                      swidFunctionType: val.clone(
+                        nullabilitySuffix: swidType.nullabilitySuffix,
+                      ),
+                    ),
                   )
                 : SwidType.fromSwidInterface(
                     swidInterface: val,
@@ -182,14 +192,26 @@ class InstantiateGeneric
                                       .when(
                                     fromSwidClass: (val) =>
                                         SwidTypeFormalValue.fromSwidClass(
-                                            swidClass: val),
+                                      swidClass: val.clone(
+                                        nullabilitySuffix:
+                                            swidType.nullabilitySuffix,
+                                      ),
+                                    ),
                                     fromSwidInterface: (val) =>
                                         SwidTypeFormalValue.fromSwidInterface(
-                                            swidInterface: val),
+                                      swidInterface: val.clone(
+                                        nullabilitySuffix:
+                                            swidType.nullabilitySuffix,
+                                      ),
+                                    ),
                                     fromSwidFunctionType: (val) =>
                                         SwidTypeFormalValue
                                             .fromSwidFunctionType(
-                                                swidFunctionType: val),
+                                      swidFunctionType: val.clone(
+                                        nullabilitySuffix:
+                                            swidType.nullabilitySuffix,
+                                      ),
+                                    ),
                                   ),
                                   swidReferenceDeclarationKind:
                                       genericInstantiator.instantiatedGeneric

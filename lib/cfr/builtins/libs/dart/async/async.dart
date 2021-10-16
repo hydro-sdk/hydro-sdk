@@ -24,8 +24,8 @@ import 'package:hydro_sdk/cfr/runtimeSupport.dart';
 void loadasync({required HydroState hydroState, required HydroTable table}) {
   final async = HydroTable();
   table['async'] = async;
-  loadAsyncError(table: async, hydroState: hydroState);
   loadFuture(table: async, hydroState: hydroState);
+  loadAsyncError(table: async, hydroState: hydroState);
   loadTimeoutException(table: async, hydroState: hydroState);
   loadCompleter(table: async, hydroState: hydroState);
   loadStreamController(table: async, hydroState: hydroState);

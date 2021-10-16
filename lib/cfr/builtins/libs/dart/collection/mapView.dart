@@ -95,11 +95,15 @@ class VMManagedMapView extends VMManagedBox<MapView<dynamic, dynamic>> {
       ];
     });
     table['remove'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        vmObject.remove(maybeUnBoxAndBuildArgument<Object?, dynamic>(
-            luaCallerArguments[1],
-            parentState: hydroState)),
-      ];
+      final returnValue = vmObject.remove(
+          maybeUnBoxAndBuildArgument<Object?, dynamic>(luaCallerArguments[1],
+              parentState: hydroState));
+      if (returnValue != null) {
+        return [
+          returnValue,
+        ];
+      }
+      return [];
     });
     table['toString'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -455,7 +459,7 @@ class RTManagedMapView extends MapView implements Box<MapView> {
   }
 
   @override
-  dynamic remove(Object? key) {
+  dynamic? remove(Object? key) {
     Closure closure = table["remove"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }

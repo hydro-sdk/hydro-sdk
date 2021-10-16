@@ -1,5 +1,4 @@
 import { IDuration } from "../core/duration";
-import { IFunction } from "../core/function";
 import { IStackTrace } from "../core/stackTrace";
 import { I_Zone } from "./_zone";
 import { IFuture } from "./future";
@@ -19,12 +18,12 @@ declare const dart: {
 };
 export interface I_Future<T> {
     then: <R>(
-        f: (value: T) => IFutureOr<R>,
-        props?: { onError?: IFunction | undefined }
+        onValue: (__: T) => R | undefined,
+        props?: { onError?: (__: IStackTrace) => R | undefined | undefined }
     ) => IFuture<R>;
     catchError: (
-        onError: IFunction,
-        props?: { test?: (error: Object) => boolean | undefined }
+        onError: (__: IStackTrace) => T | undefined,
+        props?: { test?: (__: Object) => boolean | undefined }
     ) => IFuture<T>;
     whenComplete: (action: () => any) => IFuture<T>;
     asStream: () => IStream<T>;
@@ -60,12 +59,12 @@ export class _Future<T> implements IFuture<T> {
         return dart.async._futureValue(value);
     }
     private readonly _dart_then: <R>(
-        f: (value: T) => IFutureOr<R>,
-        props?: { onError?: IFunction | undefined }
+        onValue: (__: T) => R | undefined,
+        props?: { onError?: (__: IStackTrace) => R | undefined | undefined }
     ) => IFuture<R> = undefined as any;
     private readonly _dart_catchError: (
-        onError: IFunction,
-        props?: { test?: (error: Object) => boolean | undefined }
+        onError: (__: IStackTrace) => T | undefined,
+        props?: { test?: (__: Object) => boolean | undefined }
     ) => IFuture<T> = undefined as any;
     private readonly _dart_whenComplete: (action: () => any) => IFuture<T> =
         undefined as any;
@@ -77,14 +76,14 @@ export class _Future<T> implements IFuture<T> {
     private readonly _dart_toString: () => string = undefined as any;
     private readonly _dart_getHashCode: () => number = undefined as any;
     public then<R>(
-        f: (value: T) => IFutureOr<R>,
-        props?: { onError?: IFunction | undefined }
+        onValue: (__: T) => R | undefined,
+        props?: { onError?: (__: IStackTrace) => R | undefined | undefined }
     ): IFuture<R> {
-        return this._dart_then(f, props);
+        return this._dart_then(onValue, props);
     }
     public catchError(
-        onError: IFunction,
-        props?: { test?: (error: Object) => boolean | undefined }
+        onError: (__: IStackTrace) => T | undefined,
+        props?: { test?: (__: Object) => boolean | undefined }
     ): IFuture<T> {
         return this._dart_catchError(onError, props);
     }
