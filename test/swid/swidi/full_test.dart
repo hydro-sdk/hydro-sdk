@@ -922,5 +922,44 @@ class "dart:async"::Future {
         ),
       ],
     );
+
+    parserTestHarness(
+      input: const ParserTestHarnessInput.fromString(
+        input: """
+class "dart:core"::Function { } -> {
+  @"tsInterface": @"export type IFunction = (...args: any[]) => any;",
+}
+""",
+      ),
+      parser: const SwidiParser().build(),
+      result: [
+        SwidiClass(
+          name: "Function",
+          libraryScopePrefix: SwidiLibraryScopePrefix(
+            name: "dart:core",
+          ),
+          methods: [],
+          staticMethods: [],
+          shortHandOverride: SwidiConst.fromSwidiConstMap(
+            swidiConstMap: SwidiConstMap(
+              entries: [
+                Tuple2(
+                  SwidiConst.fromSwidiConstString(
+                    swidiConstString: SwidiConstString(
+                      value: "tsInterface",
+                    ),
+                  ),
+                  SwidiConst.fromSwidiConstString(
+                    swidiConstString: SwidiConstString(
+                      value: "export type IFunction = (...args: any[]) => any;",
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
+        )
+      ],
+    );
   }, tags: "swid");
 }
