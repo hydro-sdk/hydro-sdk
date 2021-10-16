@@ -1,7 +1,7 @@
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiClass.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/swidiFunctionDeclarationToSwidFunctionType.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/swidiShortHandOverrideToSwidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
-import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 
 SwidClass swidiClassToSwidClass({
@@ -29,7 +29,9 @@ SwidClass swidiClassToSwidClass({
           .toList(),
       staticConstFieldDeclarations: [],
       instanceFieldDeclarations: {},
-      declarationModifiers: SwidDeclarationModifiers.empty(),
+      declarationModifiers: swidiShortHandOverrideToSwidDeclarationModifiers(
+        shortHandOverride: swidiClass.shortHandOverride,
+      ),
       mixedInClasses: [],
       implementedClasses: [],
       extendedClass: null,
