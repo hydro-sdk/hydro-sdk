@@ -210,10 +210,10 @@ class VMManagedUnmodifiableMapView
 
 class RTManagedUnmodifiableMapView extends UnmodifiableMapView
     implements Box<UnmodifiableMapView> {
-  RTManagedUnmodifiableMapView(Map<dynamic, dynamic> map,
+  RTManagedUnmodifiableMapView(Map<dynamic, dynamic> map$,
       {required this.table, required this.hydroState})
       : super(
-          map,
+          map$,
         ) {
     table['vmObject'] = vmObject;
     table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
