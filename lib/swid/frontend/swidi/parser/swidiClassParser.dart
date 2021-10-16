@@ -1,3 +1,5 @@
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConst.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiEmptyConst.dart';
 import 'package:petitparser/petitparser.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiClass.dart';
@@ -45,6 +47,9 @@ mixin SwidiClassParser on SwidiGrammarDefinition
                 (x) => x.functionDeclaration,
               )
               .toList(),
+          shortHandOverride: SwidiConst.fromSwidiEmptyConst(
+            swidiEmptyConst: SwidiEmptyConst(),
+          ),
         );
       });
 }

@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConst.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionDeclaration.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiLibraryScopePrefix.dart';
@@ -19,6 +20,7 @@ class SwidiClass
     required SwidiLibraryScopePrefix libraryScopePrefix,
     required List<SwidiFunctionDeclaration> methods,
     required List<SwidiFunctionDeclaration> staticMethods,
+    required final SwidiConst shortHandOverride,
   }) = _$SwidiClassCtor;
 
   factory SwidiClass._clone({
@@ -27,6 +29,7 @@ class SwidiClass
     final SwidiLibraryScopePrefix? libraryScopePrefix,
     final List<SwidiFunctionDeclaration>? methods,
     final List<SwidiFunctionDeclaration>? staticMethods,
+    final SwidiConst? shortHandOverride,
   }) =>
       SwidiClass(
         name: name ?? swidiClass.name,
@@ -34,6 +37,7 @@ class SwidiClass
             libraryScopePrefix ?? swidiClass.libraryScopePrefix.clone(),
         methods: methods ?? swidiClass.methods,
         staticMethods: staticMethods ?? swidiClass.staticMethods,
+        shortHandOverride: shortHandOverride ?? swidiClass.shortHandOverride,
       );
 
   @override
@@ -50,6 +54,7 @@ class SwidiClass
     final SwidiLibraryScopePrefix? libraryScopePrefix,
     final List<SwidiFunctionDeclaration>? methods,
     final List<SwidiFunctionDeclaration>? staticMethods,
+    final SwidiConst? shortHandOverride,
   }) =>
       SwidiClass._clone(
         swidiClass: this,
@@ -57,5 +62,6 @@ class SwidiClass
         libraryScopePrefix: libraryScopePrefix,
         methods: methods,
         staticMethods: staticMethods,
+        shortHandOverride: shortHandOverride,
       );
 }

@@ -119,6 +119,9 @@ void main() {
               ],
             )
           ],
+          shortHandOverride: SwidiConst.fromSwidiEmptyConst(
+            swidiEmptyConst: SwidiEmptyConst(),
+          ),
         ),
       ],
     );

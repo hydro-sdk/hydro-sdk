@@ -29,96 +29,100 @@ void main() {
       parser: const SwidiParser().build(),
       result: [
         SwidiClass(
-            name: "IconData",
-            libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-            staticMethods: [],
-            methods: [
-              SwidiFunctionDeclaration(
-                shortHandOverride: SwidiConst.fromSwidiEmptyConst(
-                  swidiEmptyConst: SwidiEmptyConst(),
+          name: "IconData",
+          libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+          staticMethods: [],
+          methods: [
+            SwidiFunctionDeclaration(
+              shortHandOverride: SwidiConst.fromSwidiEmptyConst(
+                swidiEmptyConst: SwidiEmptyConst(),
+              ),
+              typeFormals: [],
+              name: "foo",
+              returnType: SwidiType.fromSwidiInterface(
+                swidiInterface: SwidiInterface(
+                  annotations: [],
+                  typeArguments: [],
+                  name: "void",
+                  libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                  referenceDeclarationPrefix:
+                      SwidiReferenceDeclarationPrefix.empty,
+                  nullabilitySuffix: SwidiNullabilitySuffix.none,
                 ),
-                typeFormals: [],
-                name: "foo",
-                returnType: SwidiType.fromSwidiInterface(
-                  swidiInterface: SwidiInterface(
-                    annotations: [],
-                    typeArguments: [],
-                    name: "void",
-                    libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                    referenceDeclarationPrefix:
-                        SwidiReferenceDeclarationPrefix.empty,
-                    nullabilitySuffix: SwidiNullabilitySuffix.none,
+              ),
+              optionalParameters: [],
+              positionalParameters: [],
+              namedParameters: [
+                SwidiFunctionDeclarationNamedParameter(
+                  declaration: SwidiDeclaration(
+                    name: "bar",
+                    type: SwidiType.fromSwidiInterface(
+                      swidiInterface: SwidiInterface(
+                        annotations: [],
+                        typeArguments: [],
+                        name: "int",
+                        libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                        referenceDeclarationPrefix:
+                            SwidiReferenceDeclarationPrefix.empty,
+                        nullabilitySuffix: SwidiNullabilitySuffix.none,
+                      ),
+                    ),
+                    defaultConstValue: SwidiConst.fromSwidiConstNumber(
+                      swidiConstNumber: SwidiConstNumber(
+                        value: "100",
+                      ),
+                    ),
                   ),
                 ),
-                optionalParameters: [],
-                positionalParameters: [],
-                namedParameters: [
-                  SwidiFunctionDeclarationNamedParameter(
-                    declaration: SwidiDeclaration(
-                      name: "bar",
-                      type: SwidiType.fromSwidiInterface(
-                        swidiInterface: SwidiInterface(
-                          annotations: [],
-                          typeArguments: [],
-                          name: "int",
-                          libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                          referenceDeclarationPrefix:
-                              SwidiReferenceDeclarationPrefix.empty,
-                          nullabilitySuffix: SwidiNullabilitySuffix.none,
-                        ),
+                SwidiFunctionDeclarationNamedParameter(
+                  declaration: SwidiDeclaration(
+                    name: "baz",
+                    type: SwidiType.fromSwidiInterface(
+                      swidiInterface: SwidiInterface(
+                        annotations: [],
+                        typeArguments: [],
+                        name: "int",
+                        libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                        referenceDeclarationPrefix:
+                            SwidiReferenceDeclarationPrefix.empty,
+                        nullabilitySuffix: SwidiNullabilitySuffix.none,
                       ),
-                      defaultConstValue: SwidiConst.fromSwidiConstNumber(
-                        swidiConstNumber: SwidiConstNumber(
-                          value: "100",
-                        ),
+                    ),
+                    defaultConstValue: SwidiConst.fromSwidiConstNumber(
+                      swidiConstNumber: SwidiConstNumber(
+                        value: "100",
                       ),
                     ),
                   ),
-                  SwidiFunctionDeclarationNamedParameter(
-                    declaration: SwidiDeclaration(
-                      name: "baz",
-                      type: SwidiType.fromSwidiInterface(
-                        swidiInterface: SwidiInterface(
-                          annotations: [],
-                          typeArguments: [],
-                          name: "int",
-                          libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                          referenceDeclarationPrefix:
-                              SwidiReferenceDeclarationPrefix.empty,
-                          nullabilitySuffix: SwidiNullabilitySuffix.none,
-                        ),
+                ),
+                SwidiFunctionDeclarationNamedParameter(
+                  declaration: SwidiDeclaration(
+                    name: "qux",
+                    type: SwidiType.fromSwidiInterface(
+                      swidiInterface: SwidiInterface(
+                        annotations: [],
+                        typeArguments: [],
+                        name: "int",
+                        libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                        referenceDeclarationPrefix:
+                            SwidiReferenceDeclarationPrefix.empty,
+                        nullabilitySuffix: SwidiNullabilitySuffix.none,
                       ),
-                      defaultConstValue: SwidiConst.fromSwidiConstNumber(
-                        swidiConstNumber: SwidiConstNumber(
-                          value: "100",
-                        ),
+                    ),
+                    defaultConstValue: SwidiConst.fromSwidiConstNumber(
+                      swidiConstNumber: SwidiConstNumber(
+                        value: "100",
                       ),
                     ),
                   ),
-                  SwidiFunctionDeclarationNamedParameter(
-                    declaration: SwidiDeclaration(
-                      name: "qux",
-                      type: SwidiType.fromSwidiInterface(
-                        swidiInterface: SwidiInterface(
-                          annotations: [],
-                          typeArguments: [],
-                          name: "int",
-                          libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                          referenceDeclarationPrefix:
-                              SwidiReferenceDeclarationPrefix.empty,
-                          nullabilitySuffix: SwidiNullabilitySuffix.none,
-                        ),
-                      ),
-                      defaultConstValue: SwidiConst.fromSwidiConstNumber(
-                        swidiConstNumber: SwidiConstNumber(
-                          value: "100",
-                        ),
-                      ),
-                    ),
-                  )
-                ],
-              )
-            ]),
+                )
+              ],
+            ),
+          ],
+          shortHandOverride: SwidiConst.fromSwidiEmptyConst(
+            swidiEmptyConst: SwidiEmptyConst(),
+          ),
+        ),
       ],
     );
 
@@ -221,8 +225,11 @@ void main() {
                   ),
                 )
               ],
-            )
+            ),
           ],
+          shortHandOverride: SwidiConst.fromSwidiEmptyConst(
+            swidiEmptyConst: SwidiEmptyConst(),
+          ),
         ),
       ],
     );

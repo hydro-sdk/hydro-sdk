@@ -132,6 +132,9 @@ void main() {
               namedParameters: [],
             )
           ],
+          shortHandOverride: SwidiConst.fromSwidiEmptyConst(
+            swidiEmptyConst: SwidiEmptyConst(),
+          ),
         ),
       ],
     );
@@ -261,6 +264,9 @@ void main() {
               namedParameters: [],
             )
           ],
+          shortHandOverride: SwidiConst.fromSwidiEmptyConst(
+            swidiEmptyConst: SwidiEmptyConst(),
+          ),
         ),
       ],
     );
@@ -385,6 +391,9 @@ void main() {
               namedParameters: [],
             )
           ],
+          shortHandOverride: SwidiConst.fromSwidiEmptyConst(
+            swidiEmptyConst: SwidiEmptyConst(),
+          ),
         ),
       ],
     );
@@ -474,6 +483,9 @@ void main() {
               namedParameters: [],
             )
           ],
+          shortHandOverride: SwidiConst.fromSwidiEmptyConst(
+            swidiEmptyConst: SwidiEmptyConst(),
+          ),
         ),
       ],
     );

@@ -140,6 +140,9 @@ void main() {
               ],
             ),
           ],
+          shortHandOverride: SwidiConst.fromSwidiEmptyConst(
+            swidiEmptyConst: SwidiEmptyConst(),
+          ),
         ),
       ],
     );
@@ -238,6 +241,9 @@ class "package:flutter/src/widgets/icon_data.dart"::IconData {
               namedParameters: [],
             )
           ],
+          shortHandOverride: SwidiConst.fromSwidiEmptyConst(
+            swidiEmptyConst: SwidiEmptyConst(),
+          ),
         ),
       ],
     );
@@ -379,6 +385,9 @@ class "dart:core"::List {
               ],
             )
           ],
+          shortHandOverride: SwidiConst.fromSwidiEmptyConst(
+            swidiEmptyConst: SwidiEmptyConst(),
+          ),
         ),
       ],
     );
@@ -537,6 +546,9 @@ class "dart:core"::List {
               ],
             )
           ],
+          shortHandOverride: SwidiConst.fromSwidiEmptyConst(
+            swidiEmptyConst: SwidiEmptyConst(),
+          ),
         ),
       ],
     );
@@ -695,6 +707,9 @@ class "dart:core"::List {
             )
           ],
           methods: [],
+          shortHandOverride: SwidiConst.fromSwidiEmptyConst(
+            swidiEmptyConst: SwidiEmptyConst(),
+          ),
         ),
       ],
     );
@@ -901,7 +916,10 @@ class "dart:async"::Future {
             )
           ],
           staticMethods: [],
-        )
+          shortHandOverride: SwidiConst.fromSwidiEmptyConst(
+            swidiEmptyConst: SwidiEmptyConst(),
+          ),
+        ),
       ],
     );
   }, tags: "swid");
