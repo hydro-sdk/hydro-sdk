@@ -1,8 +1,8 @@
-import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConst.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiEmptyConst.dart';
 import 'package:petitparser/petitparser.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiClass.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConst.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiEmptyConst.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionDeclaration.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiLibraryScopePrefix.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiStaticFunctionDeclaration.dart';

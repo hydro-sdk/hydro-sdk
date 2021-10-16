@@ -1,8 +1,8 @@
-import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iConstLexer.dart';
 import 'package:petitparser/petitparser.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iClassDefinitionLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iCompilationUnitLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iConstLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iStartLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iTopLevelDefinitionLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiConstGrammarDefinition.dart';

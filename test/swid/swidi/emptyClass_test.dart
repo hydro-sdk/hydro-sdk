@@ -100,8 +100,8 @@ void main() {
         methods: [],
         staticMethods: [],
         shortHandOverride: SwidiConst.fromSwidiEmptyConst(
-            swidiEmptyConst: SwidiEmptyConst(),
-          ),
+          swidiEmptyConst: SwidiEmptyConst(),
+        ),
       ),
     );
   }, tags: "swid");

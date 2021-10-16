@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 import 'package:hydro_sdk/swid/frontend/swidi/ast/iShortHandOverride.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConst.dart';
-
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionDeclaration.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiLibraryScopePrefix.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
