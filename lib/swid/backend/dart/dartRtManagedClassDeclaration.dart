@@ -33,6 +33,7 @@ import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/transforms/instantiateAllGenericsAsDynamic.dart';
+import 'package:hydro_sdk/swid/ir/transforms/rewriteShadowingNormalConstructorParameters.dart';
 import 'package:hydro_sdk/swid/ir/transforms/thisPrefixMethodsShadowedByConstructorParameters.dart';
 import 'package:hydro_sdk/swid/ir/util/isOperator.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
@@ -343,8 +344,13 @@ class DartRTManagedClassDeclaration
                                   InstantiateAllGenericsAsDynamic(
                                     instantiateNormalParameterTypes: true,
                                     swidType: SwidType.fromSwidFunctionType(
-                                      swidFunctionType:
-                                          swidClass.constructorType!,
+                                      swidFunctionType: pipeline
+                                          .reduceFromTerm(
+                                            RewriteShadowingNormalConstructorParameters(
+                                              swidClass: swidClass,
+                                            ),
+                                          )
+                                          .constructorType!,
                                     ),
                                   ),
                                 )
