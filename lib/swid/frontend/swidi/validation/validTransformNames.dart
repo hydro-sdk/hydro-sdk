@@ -8,6 +8,7 @@ const validMethodShortHandOverrideKeys = [
 
 const validClassShortHandOverrideKeys = [
   "tsInterface",
+  "tsTranslationUnit",
 ];
 
 const isGetterName = "isGetter";

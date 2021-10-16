@@ -180,6 +180,15 @@ class _$TsIrTearOff {
           tsTopLevelStaticConstFieldDeclaration,
     );
   }
+
+  _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate
+      fromTsTranslationUnitOverrideDelegate(
+          {required TsTranslationUnitOverrideDelegate
+              tsTranslationUnitOverrideDelegate}) {
+    return _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate(
+      tsTranslationUnitOverrideDelegate: tsTranslationUnitOverrideDelegate,
+    );
+  }
 }
 
 /// @nodoc
@@ -247,6 +256,9 @@ mixin _$TsIr {
             TsTopLevelStaticConstFieldDeclaration
                 tsTopLevelStaticConstFieldDeclaration)
         fromTsTopLevelStaticConstFieldDeclaration,
+    required TResult Function(
+            TsTranslationUnitOverrideDelegate tsTranslationUnitOverrideDelegate)
+        fromTsTranslationUnitOverrideDelegate,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -305,6 +317,10 @@ mixin _$TsIr {
             TsTopLevelStaticConstFieldDeclaration
                 tsTopLevelStaticConstFieldDeclaration)?
         fromTsTopLevelStaticConstFieldDeclaration,
+    TResult Function(
+            TsTranslationUnitOverrideDelegate
+                tsTranslationUnitOverrideDelegate)?
+        fromTsTranslationUnitOverrideDelegate,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -350,6 +366,10 @@ mixin _$TsIr {
         fromTsResolvedImport,
     required TResult Function(_$FromTsTopLevelStaticConstFieldDeclaration value)
         fromTsTopLevelStaticConstFieldDeclaration,
+    required TResult Function(
+            _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate
+                value)
+        fromTsTranslationUnitOverrideDelegate,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -390,6 +410,10 @@ mixin _$TsIr {
     TResult Function(_$FromTsResolvedImport value)? fromTsResolvedImport,
     TResult Function(_$FromTsTopLevelStaticConstFieldDeclaration value)?
         fromTsTopLevelStaticConstFieldDeclaration,
+    TResult Function(
+            _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate
+                value)?
+        fromTsTranslationUnitOverrideDelegate,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -560,6 +584,9 @@ class _$_$FromTsClassConstructorImplementation
             TsTopLevelStaticConstFieldDeclaration
                 tsTopLevelStaticConstFieldDeclaration)
         fromTsTopLevelStaticConstFieldDeclaration,
+    required TResult Function(
+            TsTranslationUnitOverrideDelegate tsTranslationUnitOverrideDelegate)
+        fromTsTranslationUnitOverrideDelegate,
   }) {
     return fromTsClassConstructorImplementation(
         tsClassConstructorImplementation);
@@ -622,6 +649,10 @@ class _$_$FromTsClassConstructorImplementation
             TsTopLevelStaticConstFieldDeclaration
                 tsTopLevelStaticConstFieldDeclaration)?
         fromTsTopLevelStaticConstFieldDeclaration,
+    TResult Function(
+            TsTranslationUnitOverrideDelegate
+                tsTranslationUnitOverrideDelegate)?
+        fromTsTranslationUnitOverrideDelegate,
     required TResult orElse(),
   }) {
     if (fromTsClassConstructorImplementation != null) {
@@ -674,6 +705,10 @@ class _$_$FromTsClassConstructorImplementation
         fromTsResolvedImport,
     required TResult Function(_$FromTsTopLevelStaticConstFieldDeclaration value)
         fromTsTopLevelStaticConstFieldDeclaration,
+    required TResult Function(
+            _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate
+                value)
+        fromTsTranslationUnitOverrideDelegate,
   }) {
     return fromTsClassConstructorImplementation(this);
   }
@@ -717,6 +752,10 @@ class _$_$FromTsClassConstructorImplementation
     TResult Function(_$FromTsResolvedImport value)? fromTsResolvedImport,
     TResult Function(_$FromTsTopLevelStaticConstFieldDeclaration value)?
         fromTsTopLevelStaticConstFieldDeclaration,
+    TResult Function(
+            _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate
+                value)?
+        fromTsTranslationUnitOverrideDelegate,
     required TResult orElse(),
   }) {
     if (fromTsClassConstructorImplementation != null) {
@@ -885,6 +924,9 @@ class _$_$FromTsFunctionDefaultNamedProps
             TsTopLevelStaticConstFieldDeclaration
                 tsTopLevelStaticConstFieldDeclaration)
         fromTsTopLevelStaticConstFieldDeclaration,
+    required TResult Function(
+            TsTranslationUnitOverrideDelegate tsTranslationUnitOverrideDelegate)
+        fromTsTranslationUnitOverrideDelegate,
   }) {
     return fromTsFunctionDefaultNamedProps(tsFunctionDefaultNamedProps);
   }
@@ -946,6 +988,10 @@ class _$_$FromTsFunctionDefaultNamedProps
             TsTopLevelStaticConstFieldDeclaration
                 tsTopLevelStaticConstFieldDeclaration)?
         fromTsTopLevelStaticConstFieldDeclaration,
+    TResult Function(
+            TsTranslationUnitOverrideDelegate
+                tsTranslationUnitOverrideDelegate)?
+        fromTsTranslationUnitOverrideDelegate,
     required TResult orElse(),
   }) {
     if (fromTsFunctionDefaultNamedProps != null) {
@@ -997,6 +1043,10 @@ class _$_$FromTsFunctionDefaultNamedProps
         fromTsResolvedImport,
     required TResult Function(_$FromTsTopLevelStaticConstFieldDeclaration value)
         fromTsTopLevelStaticConstFieldDeclaration,
+    required TResult Function(
+            _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate
+                value)
+        fromTsTranslationUnitOverrideDelegate,
   }) {
     return fromTsFunctionDefaultNamedProps(this);
   }
@@ -1040,6 +1090,10 @@ class _$_$FromTsFunctionDefaultNamedProps
     TResult Function(_$FromTsResolvedImport value)? fromTsResolvedImport,
     TResult Function(_$FromTsTopLevelStaticConstFieldDeclaration value)?
         fromTsTopLevelStaticConstFieldDeclaration,
+    TResult Function(
+            _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate
+                value)?
+        fromTsTranslationUnitOverrideDelegate,
     required TResult orElse(),
   }) {
     if (fromTsFunctionDefaultNamedProps != null) {
@@ -1211,6 +1265,9 @@ class _$_$FromClassInstanceFieldDeclarations
             TsTopLevelStaticConstFieldDeclaration
                 tsTopLevelStaticConstFieldDeclaration)
         fromTsTopLevelStaticConstFieldDeclaration,
+    required TResult Function(
+            TsTranslationUnitOverrideDelegate tsTranslationUnitOverrideDelegate)
+        fromTsTranslationUnitOverrideDelegate,
   }) {
     return fromTsClassInstanceFieldDeclarations(
         tsClassInstanceFieldDeclarations);
@@ -1273,6 +1330,10 @@ class _$_$FromClassInstanceFieldDeclarations
             TsTopLevelStaticConstFieldDeclaration
                 tsTopLevelStaticConstFieldDeclaration)?
         fromTsTopLevelStaticConstFieldDeclaration,
+    TResult Function(
+            TsTranslationUnitOverrideDelegate
+                tsTranslationUnitOverrideDelegate)?
+        fromTsTranslationUnitOverrideDelegate,
     required TResult orElse(),
   }) {
     if (fromTsClassInstanceFieldDeclarations != null) {
@@ -1325,6 +1386,10 @@ class _$_$FromClassInstanceFieldDeclarations
         fromTsResolvedImport,
     required TResult Function(_$FromTsTopLevelStaticConstFieldDeclaration value)
         fromTsTopLevelStaticConstFieldDeclaration,
+    required TResult Function(
+            _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate
+                value)
+        fromTsTranslationUnitOverrideDelegate,
   }) {
     return fromTsClassInstanceFieldDeclarations(this);
   }
@@ -1368,6 +1433,10 @@ class _$_$FromClassInstanceFieldDeclarations
     TResult Function(_$FromTsResolvedImport value)? fromTsResolvedImport,
     TResult Function(_$FromTsTopLevelStaticConstFieldDeclaration value)?
         fromTsTopLevelStaticConstFieldDeclaration,
+    TResult Function(
+            _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate
+                value)?
+        fromTsTranslationUnitOverrideDelegate,
     required TResult orElse(),
   }) {
     if (fromTsClassInstanceFieldDeclarations != null) {
@@ -1535,6 +1604,9 @@ class _$_$FromTsClassMethodDeclarations
             TsTopLevelStaticConstFieldDeclaration
                 tsTopLevelStaticConstFieldDeclaration)
         fromTsTopLevelStaticConstFieldDeclaration,
+    required TResult Function(
+            TsTranslationUnitOverrideDelegate tsTranslationUnitOverrideDelegate)
+        fromTsTranslationUnitOverrideDelegate,
   }) {
     return fromTsClassMethodDeclarations(tsClassMethodDeclarations);
   }
@@ -1596,6 +1668,10 @@ class _$_$FromTsClassMethodDeclarations
             TsTopLevelStaticConstFieldDeclaration
                 tsTopLevelStaticConstFieldDeclaration)?
         fromTsTopLevelStaticConstFieldDeclaration,
+    TResult Function(
+            TsTranslationUnitOverrideDelegate
+                tsTranslationUnitOverrideDelegate)?
+        fromTsTranslationUnitOverrideDelegate,
     required TResult orElse(),
   }) {
     if (fromTsClassMethodDeclarations != null) {
@@ -1647,6 +1723,10 @@ class _$_$FromTsClassMethodDeclarations
         fromTsResolvedImport,
     required TResult Function(_$FromTsTopLevelStaticConstFieldDeclaration value)
         fromTsTopLevelStaticConstFieldDeclaration,
+    required TResult Function(
+            _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate
+                value)
+        fromTsTranslationUnitOverrideDelegate,
   }) {
     return fromTsClassMethodDeclarations(this);
   }
@@ -1690,6 +1770,10 @@ class _$_$FromTsClassMethodDeclarations
     TResult Function(_$FromTsResolvedImport value)? fromTsResolvedImport,
     TResult Function(_$FromTsTopLevelStaticConstFieldDeclaration value)?
         fromTsTopLevelStaticConstFieldDeclaration,
+    TResult Function(
+            _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate
+                value)?
+        fromTsTranslationUnitOverrideDelegate,
     required TResult orElse(),
   }) {
     if (fromTsClassMethodDeclarations != null) {
@@ -1867,6 +1951,9 @@ class _$_$FromTsClassMethodInjectionFieldDeclarations
             TsTopLevelStaticConstFieldDeclaration
                 tsTopLevelStaticConstFieldDeclaration)
         fromTsTopLevelStaticConstFieldDeclaration,
+    required TResult Function(
+            TsTranslationUnitOverrideDelegate tsTranslationUnitOverrideDelegate)
+        fromTsTranslationUnitOverrideDelegate,
   }) {
     return fromTsClassMethodInjectionFieldDeclarations(
         tsClassMethodInjectionFieldDeclarations);
@@ -1929,6 +2016,10 @@ class _$_$FromTsClassMethodInjectionFieldDeclarations
             TsTopLevelStaticConstFieldDeclaration
                 tsTopLevelStaticConstFieldDeclaration)?
         fromTsTopLevelStaticConstFieldDeclaration,
+    TResult Function(
+            TsTranslationUnitOverrideDelegate
+                tsTranslationUnitOverrideDelegate)?
+        fromTsTranslationUnitOverrideDelegate,
     required TResult orElse(),
   }) {
     if (fromTsClassMethodInjectionFieldDeclarations != null) {
@@ -1981,6 +2072,10 @@ class _$_$FromTsClassMethodInjectionFieldDeclarations
         fromTsResolvedImport,
     required TResult Function(_$FromTsTopLevelStaticConstFieldDeclaration value)
         fromTsTopLevelStaticConstFieldDeclaration,
+    required TResult Function(
+            _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate
+                value)
+        fromTsTranslationUnitOverrideDelegate,
   }) {
     return fromTsClassMethodInjectionFieldDeclarations(this);
   }
@@ -2024,6 +2119,10 @@ class _$_$FromTsClassMethodInjectionFieldDeclarations
     TResult Function(_$FromTsResolvedImport value)? fromTsResolvedImport,
     TResult Function(_$FromTsTopLevelStaticConstFieldDeclaration value)?
         fromTsTopLevelStaticConstFieldDeclaration,
+    TResult Function(
+            _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate
+                value)?
+        fromTsTranslationUnitOverrideDelegate,
     required TResult orElse(),
   }) {
     if (fromTsClassMethodInjectionFieldDeclarations != null) {
@@ -2197,6 +2296,9 @@ class _$_$FromTsClassMethodInjectionFieldName
             TsTopLevelStaticConstFieldDeclaration
                 tsTopLevelStaticConstFieldDeclaration)
         fromTsTopLevelStaticConstFieldDeclaration,
+    required TResult Function(
+            TsTranslationUnitOverrideDelegate tsTranslationUnitOverrideDelegate)
+        fromTsTranslationUnitOverrideDelegate,
   }) {
     return fromTsClassMethodInjectionFieldName(tsClassMethodInjectionFieldName);
   }
@@ -2258,6 +2360,10 @@ class _$_$FromTsClassMethodInjectionFieldName
             TsTopLevelStaticConstFieldDeclaration
                 tsTopLevelStaticConstFieldDeclaration)?
         fromTsTopLevelStaticConstFieldDeclaration,
+    TResult Function(
+            TsTranslationUnitOverrideDelegate
+                tsTranslationUnitOverrideDelegate)?
+        fromTsTranslationUnitOverrideDelegate,
     required TResult orElse(),
   }) {
     if (fromTsClassMethodInjectionFieldName != null) {
@@ -2310,6 +2416,10 @@ class _$_$FromTsClassMethodInjectionFieldName
         fromTsResolvedImport,
     required TResult Function(_$FromTsTopLevelStaticConstFieldDeclaration value)
         fromTsTopLevelStaticConstFieldDeclaration,
+    required TResult Function(
+            _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate
+                value)
+        fromTsTranslationUnitOverrideDelegate,
   }) {
     return fromTsClassMethodInjectionFieldName(this);
   }
@@ -2353,6 +2463,10 @@ class _$_$FromTsClassMethodInjectionFieldName
     TResult Function(_$FromTsResolvedImport value)? fromTsResolvedImport,
     TResult Function(_$FromTsTopLevelStaticConstFieldDeclaration value)?
         fromTsTopLevelStaticConstFieldDeclaration,
+    TResult Function(
+            _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate
+                value)?
+        fromTsTranslationUnitOverrideDelegate,
     required TResult orElse(),
   }) {
     if (fromTsClassMethodInjectionFieldName != null) {
@@ -2512,6 +2626,9 @@ class _$_$FromTsClassPostamble extends _$FromTsClassPostamble {
             TsTopLevelStaticConstFieldDeclaration
                 tsTopLevelStaticConstFieldDeclaration)
         fromTsTopLevelStaticConstFieldDeclaration,
+    required TResult Function(
+            TsTranslationUnitOverrideDelegate tsTranslationUnitOverrideDelegate)
+        fromTsTranslationUnitOverrideDelegate,
   }) {
     return fromTsClassPostamble(tsClassPostamble);
   }
@@ -2573,6 +2690,10 @@ class _$_$FromTsClassPostamble extends _$FromTsClassPostamble {
             TsTopLevelStaticConstFieldDeclaration
                 tsTopLevelStaticConstFieldDeclaration)?
         fromTsTopLevelStaticConstFieldDeclaration,
+    TResult Function(
+            TsTranslationUnitOverrideDelegate
+                tsTranslationUnitOverrideDelegate)?
+        fromTsTranslationUnitOverrideDelegate,
     required TResult orElse(),
   }) {
     if (fromTsClassPostamble != null) {
@@ -2624,6 +2745,10 @@ class _$_$FromTsClassPostamble extends _$FromTsClassPostamble {
         fromTsResolvedImport,
     required TResult Function(_$FromTsTopLevelStaticConstFieldDeclaration value)
         fromTsTopLevelStaticConstFieldDeclaration,
+    required TResult Function(
+            _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate
+                value)
+        fromTsTranslationUnitOverrideDelegate,
   }) {
     return fromTsClassPostamble(this);
   }
@@ -2667,6 +2792,10 @@ class _$_$FromTsClassPostamble extends _$FromTsClassPostamble {
     TResult Function(_$FromTsResolvedImport value)? fromTsResolvedImport,
     TResult Function(_$FromTsTopLevelStaticConstFieldDeclaration value)?
         fromTsTopLevelStaticConstFieldDeclaration,
+    TResult Function(
+            _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate
+                value)?
+        fromTsTranslationUnitOverrideDelegate,
     required TResult orElse(),
   }) {
     if (fromTsClassPostamble != null) {
@@ -2821,6 +2950,9 @@ class _$_$FromTsClassPreamble extends _$FromTsClassPreamble {
             TsTopLevelStaticConstFieldDeclaration
                 tsTopLevelStaticConstFieldDeclaration)
         fromTsTopLevelStaticConstFieldDeclaration,
+    required TResult Function(
+            TsTranslationUnitOverrideDelegate tsTranslationUnitOverrideDelegate)
+        fromTsTranslationUnitOverrideDelegate,
   }) {
     return fromTsClassPreamble(tsClassPreamble);
   }
@@ -2882,6 +3014,10 @@ class _$_$FromTsClassPreamble extends _$FromTsClassPreamble {
             TsTopLevelStaticConstFieldDeclaration
                 tsTopLevelStaticConstFieldDeclaration)?
         fromTsTopLevelStaticConstFieldDeclaration,
+    TResult Function(
+            TsTranslationUnitOverrideDelegate
+                tsTranslationUnitOverrideDelegate)?
+        fromTsTranslationUnitOverrideDelegate,
     required TResult orElse(),
   }) {
     if (fromTsClassPreamble != null) {
@@ -2933,6 +3069,10 @@ class _$_$FromTsClassPreamble extends _$FromTsClassPreamble {
         fromTsResolvedImport,
     required TResult Function(_$FromTsTopLevelStaticConstFieldDeclaration value)
         fromTsTopLevelStaticConstFieldDeclaration,
+    required TResult Function(
+            _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate
+                value)
+        fromTsTranslationUnitOverrideDelegate,
   }) {
     return fromTsClassPreamble(this);
   }
@@ -2976,6 +3116,10 @@ class _$_$FromTsClassPreamble extends _$FromTsClassPreamble {
     TResult Function(_$FromTsResolvedImport value)? fromTsResolvedImport,
     TResult Function(_$FromTsTopLevelStaticConstFieldDeclaration value)?
         fromTsTopLevelStaticConstFieldDeclaration,
+    TResult Function(
+            _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate
+                value)?
+        fromTsTranslationUnitOverrideDelegate,
     required TResult orElse(),
   }) {
     if (fromTsClassPreamble != null) {
@@ -3147,6 +3291,9 @@ class _$_$FromTsClassStaticConstFieldDeclarations
             TsTopLevelStaticConstFieldDeclaration
                 tsTopLevelStaticConstFieldDeclaration)
         fromTsTopLevelStaticConstFieldDeclaration,
+    required TResult Function(
+            TsTranslationUnitOverrideDelegate tsTranslationUnitOverrideDelegate)
+        fromTsTranslationUnitOverrideDelegate,
   }) {
     return fromTsClassStaticConstFieldDeclarations(
         tsClassStaticConstFieldDeclarations);
@@ -3209,6 +3356,10 @@ class _$_$FromTsClassStaticConstFieldDeclarations
             TsTopLevelStaticConstFieldDeclaration
                 tsTopLevelStaticConstFieldDeclaration)?
         fromTsTopLevelStaticConstFieldDeclaration,
+    TResult Function(
+            TsTranslationUnitOverrideDelegate
+                tsTranslationUnitOverrideDelegate)?
+        fromTsTranslationUnitOverrideDelegate,
     required TResult orElse(),
   }) {
     if (fromTsClassStaticConstFieldDeclarations != null) {
@@ -3261,6 +3412,10 @@ class _$_$FromTsClassStaticConstFieldDeclarations
         fromTsResolvedImport,
     required TResult Function(_$FromTsTopLevelStaticConstFieldDeclaration value)
         fromTsTopLevelStaticConstFieldDeclaration,
+    required TResult Function(
+            _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate
+                value)
+        fromTsTranslationUnitOverrideDelegate,
   }) {
     return fromTsClassStaticConstFieldDeclarations(this);
   }
@@ -3304,6 +3459,10 @@ class _$_$FromTsClassStaticConstFieldDeclarations
     TResult Function(_$FromTsResolvedImport value)? fromTsResolvedImport,
     TResult Function(_$FromTsTopLevelStaticConstFieldDeclaration value)?
         fromTsTopLevelStaticConstFieldDeclaration,
+    TResult Function(
+            _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate
+                value)?
+        fromTsTranslationUnitOverrideDelegate,
     required TResult orElse(),
   }) {
     if (fromTsClassStaticConstFieldDeclarations != null) {
@@ -3478,6 +3637,9 @@ class _$_$FromTsClassStaticMethodImplementation
             TsTopLevelStaticConstFieldDeclaration
                 tsTopLevelStaticConstFieldDeclaration)
         fromTsTopLevelStaticConstFieldDeclaration,
+    required TResult Function(
+            TsTranslationUnitOverrideDelegate tsTranslationUnitOverrideDelegate)
+        fromTsTranslationUnitOverrideDelegate,
   }) {
     return fromTsClassStaticMethodImplementation(
         tsClassStaticMethodImplementation);
@@ -3540,6 +3702,10 @@ class _$_$FromTsClassStaticMethodImplementation
             TsTopLevelStaticConstFieldDeclaration
                 tsTopLevelStaticConstFieldDeclaration)?
         fromTsTopLevelStaticConstFieldDeclaration,
+    TResult Function(
+            TsTranslationUnitOverrideDelegate
+                tsTranslationUnitOverrideDelegate)?
+        fromTsTranslationUnitOverrideDelegate,
     required TResult orElse(),
   }) {
     if (fromTsClassStaticMethodImplementation != null) {
@@ -3592,6 +3758,10 @@ class _$_$FromTsClassStaticMethodImplementation
         fromTsResolvedImport,
     required TResult Function(_$FromTsTopLevelStaticConstFieldDeclaration value)
         fromTsTopLevelStaticConstFieldDeclaration,
+    required TResult Function(
+            _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate
+                value)
+        fromTsTranslationUnitOverrideDelegate,
   }) {
     return fromTsClassStaticMethodImplementation(this);
   }
@@ -3635,6 +3805,10 @@ class _$_$FromTsClassStaticMethodImplementation
     TResult Function(_$FromTsResolvedImport value)? fromTsResolvedImport,
     TResult Function(_$FromTsTopLevelStaticConstFieldDeclaration value)?
         fromTsTopLevelStaticConstFieldDeclaration,
+    TResult Function(
+            _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate
+                value)?
+        fromTsTranslationUnitOverrideDelegate,
     required TResult orElse(),
   }) {
     if (fromTsClassStaticMethodImplementation != null) {
@@ -3790,6 +3964,9 @@ class _$_$FromTsEnum extends _$FromTsEnum {
             TsTopLevelStaticConstFieldDeclaration
                 tsTopLevelStaticConstFieldDeclaration)
         fromTsTopLevelStaticConstFieldDeclaration,
+    required TResult Function(
+            TsTranslationUnitOverrideDelegate tsTranslationUnitOverrideDelegate)
+        fromTsTranslationUnitOverrideDelegate,
   }) {
     return fromTsEnum(tsEnum);
   }
@@ -3851,6 +4028,10 @@ class _$_$FromTsEnum extends _$FromTsEnum {
             TsTopLevelStaticConstFieldDeclaration
                 tsTopLevelStaticConstFieldDeclaration)?
         fromTsTopLevelStaticConstFieldDeclaration,
+    TResult Function(
+            TsTranslationUnitOverrideDelegate
+                tsTranslationUnitOverrideDelegate)?
+        fromTsTranslationUnitOverrideDelegate,
     required TResult orElse(),
   }) {
     if (fromTsEnum != null) {
@@ -3902,6 +4083,10 @@ class _$_$FromTsEnum extends _$FromTsEnum {
         fromTsResolvedImport,
     required TResult Function(_$FromTsTopLevelStaticConstFieldDeclaration value)
         fromTsTopLevelStaticConstFieldDeclaration,
+    required TResult Function(
+            _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate
+                value)
+        fromTsTranslationUnitOverrideDelegate,
   }) {
     return fromTsEnum(this);
   }
@@ -3945,6 +4130,10 @@ class _$_$FromTsEnum extends _$FromTsEnum {
     TResult Function(_$FromTsResolvedImport value)? fromTsResolvedImport,
     TResult Function(_$FromTsTopLevelStaticConstFieldDeclaration value)?
         fromTsTopLevelStaticConstFieldDeclaration,
+    TResult Function(
+            _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate
+                value)?
+        fromTsTranslationUnitOverrideDelegate,
     required TResult orElse(),
   }) {
     if (fromTsEnum != null) {
@@ -4096,6 +4285,9 @@ class _$_$FromTsInterface extends _$FromTsInterface {
             TsTopLevelStaticConstFieldDeclaration
                 tsTopLevelStaticConstFieldDeclaration)
         fromTsTopLevelStaticConstFieldDeclaration,
+    required TResult Function(
+            TsTranslationUnitOverrideDelegate tsTranslationUnitOverrideDelegate)
+        fromTsTranslationUnitOverrideDelegate,
   }) {
     return fromTsInterface(tsInterface);
   }
@@ -4157,6 +4349,10 @@ class _$_$FromTsInterface extends _$FromTsInterface {
             TsTopLevelStaticConstFieldDeclaration
                 tsTopLevelStaticConstFieldDeclaration)?
         fromTsTopLevelStaticConstFieldDeclaration,
+    TResult Function(
+            TsTranslationUnitOverrideDelegate
+                tsTranslationUnitOverrideDelegate)?
+        fromTsTranslationUnitOverrideDelegate,
     required TResult orElse(),
   }) {
     if (fromTsInterface != null) {
@@ -4208,6 +4404,10 @@ class _$_$FromTsInterface extends _$FromTsInterface {
         fromTsResolvedImport,
     required TResult Function(_$FromTsTopLevelStaticConstFieldDeclaration value)
         fromTsTopLevelStaticConstFieldDeclaration,
+    required TResult Function(
+            _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate
+                value)
+        fromTsTranslationUnitOverrideDelegate,
   }) {
     return fromTsInterface(this);
   }
@@ -4251,6 +4451,10 @@ class _$_$FromTsInterface extends _$FromTsInterface {
     TResult Function(_$FromTsResolvedImport value)? fromTsResolvedImport,
     TResult Function(_$FromTsTopLevelStaticConstFieldDeclaration value)?
         fromTsTopLevelStaticConstFieldDeclaration,
+    TResult Function(
+            _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate
+                value)?
+        fromTsTranslationUnitOverrideDelegate,
     required TResult orElse(),
   }) {
     if (fromTsInterface != null) {
@@ -4410,6 +4614,9 @@ class _$_$FromTsClassVmDeclaration extends _$FromTsClassVmDeclaration {
             TsTopLevelStaticConstFieldDeclaration
                 tsTopLevelStaticConstFieldDeclaration)
         fromTsTopLevelStaticConstFieldDeclaration,
+    required TResult Function(
+            TsTranslationUnitOverrideDelegate tsTranslationUnitOverrideDelegate)
+        fromTsTranslationUnitOverrideDelegate,
   }) {
     return fromTsClassVmDeclaration(tsClassVmDeclaration);
   }
@@ -4471,6 +4678,10 @@ class _$_$FromTsClassVmDeclaration extends _$FromTsClassVmDeclaration {
             TsTopLevelStaticConstFieldDeclaration
                 tsTopLevelStaticConstFieldDeclaration)?
         fromTsTopLevelStaticConstFieldDeclaration,
+    TResult Function(
+            TsTranslationUnitOverrideDelegate
+                tsTranslationUnitOverrideDelegate)?
+        fromTsTranslationUnitOverrideDelegate,
     required TResult orElse(),
   }) {
     if (fromTsClassVmDeclaration != null) {
@@ -4522,6 +4733,10 @@ class _$_$FromTsClassVmDeclaration extends _$FromTsClassVmDeclaration {
         fromTsResolvedImport,
     required TResult Function(_$FromTsTopLevelStaticConstFieldDeclaration value)
         fromTsTopLevelStaticConstFieldDeclaration,
+    required TResult Function(
+            _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate
+                value)
+        fromTsTranslationUnitOverrideDelegate,
   }) {
     return fromTsClassVmDeclaration(this);
   }
@@ -4565,6 +4780,10 @@ class _$_$FromTsClassVmDeclaration extends _$FromTsClassVmDeclaration {
     TResult Function(_$FromTsResolvedImport value)? fromTsResolvedImport,
     TResult Function(_$FromTsTopLevelStaticConstFieldDeclaration value)?
         fromTsTopLevelStaticConstFieldDeclaration,
+    TResult Function(
+            _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate
+                value)?
+        fromTsTranslationUnitOverrideDelegate,
     required TResult orElse(),
   }) {
     if (fromTsClassVmDeclaration != null) {
@@ -4726,6 +4945,9 @@ class _$_$FromTsFunctionInvocation extends _$FromTsFunctionInvocation {
             TsTopLevelStaticConstFieldDeclaration
                 tsTopLevelStaticConstFieldDeclaration)
         fromTsTopLevelStaticConstFieldDeclaration,
+    required TResult Function(
+            TsTranslationUnitOverrideDelegate tsTranslationUnitOverrideDelegate)
+        fromTsTranslationUnitOverrideDelegate,
   }) {
     return fromTsFunctionInvocation(tsFunctionInvocation);
   }
@@ -4787,6 +5009,10 @@ class _$_$FromTsFunctionInvocation extends _$FromTsFunctionInvocation {
             TsTopLevelStaticConstFieldDeclaration
                 tsTopLevelStaticConstFieldDeclaration)?
         fromTsTopLevelStaticConstFieldDeclaration,
+    TResult Function(
+            TsTranslationUnitOverrideDelegate
+                tsTranslationUnitOverrideDelegate)?
+        fromTsTranslationUnitOverrideDelegate,
     required TResult orElse(),
   }) {
     if (fromTsFunctionInvocation != null) {
@@ -4838,6 +5064,10 @@ class _$_$FromTsFunctionInvocation extends _$FromTsFunctionInvocation {
         fromTsResolvedImport,
     required TResult Function(_$FromTsTopLevelStaticConstFieldDeclaration value)
         fromTsTopLevelStaticConstFieldDeclaration,
+    required TResult Function(
+            _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate
+                value)
+        fromTsTranslationUnitOverrideDelegate,
   }) {
     return fromTsFunctionInvocation(this);
   }
@@ -4881,6 +5111,10 @@ class _$_$FromTsFunctionInvocation extends _$FromTsFunctionInvocation {
     TResult Function(_$FromTsResolvedImport value)? fromTsResolvedImport,
     TResult Function(_$FromTsTopLevelStaticConstFieldDeclaration value)?
         fromTsTopLevelStaticConstFieldDeclaration,
+    TResult Function(
+            _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate
+                value)?
+        fromTsTranslationUnitOverrideDelegate,
     required TResult orElse(),
   }) {
     if (fromTsFunctionInvocation != null) {
@@ -5054,6 +5288,9 @@ class _$_$FromTsFunctionInvocationNamedParameters
             TsTopLevelStaticConstFieldDeclaration
                 tsTopLevelStaticConstFieldDeclaration)
         fromTsTopLevelStaticConstFieldDeclaration,
+    required TResult Function(
+            TsTranslationUnitOverrideDelegate tsTranslationUnitOverrideDelegate)
+        fromTsTranslationUnitOverrideDelegate,
   }) {
     return fromTsFunctionInvocationNamedParameters(
         tsFunctionInvocationNamedParameters);
@@ -5116,6 +5353,10 @@ class _$_$FromTsFunctionInvocationNamedParameters
             TsTopLevelStaticConstFieldDeclaration
                 tsTopLevelStaticConstFieldDeclaration)?
         fromTsTopLevelStaticConstFieldDeclaration,
+    TResult Function(
+            TsTranslationUnitOverrideDelegate
+                tsTranslationUnitOverrideDelegate)?
+        fromTsTranslationUnitOverrideDelegate,
     required TResult orElse(),
   }) {
     if (fromTsFunctionInvocationNamedParameters != null) {
@@ -5168,6 +5409,10 @@ class _$_$FromTsFunctionInvocationNamedParameters
         fromTsResolvedImport,
     required TResult Function(_$FromTsTopLevelStaticConstFieldDeclaration value)
         fromTsTopLevelStaticConstFieldDeclaration,
+    required TResult Function(
+            _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate
+                value)
+        fromTsTranslationUnitOverrideDelegate,
   }) {
     return fromTsFunctionInvocationNamedParameters(this);
   }
@@ -5211,6 +5456,10 @@ class _$_$FromTsFunctionInvocationNamedParameters
     TResult Function(_$FromTsResolvedImport value)? fromTsResolvedImport,
     TResult Function(_$FromTsTopLevelStaticConstFieldDeclaration value)?
         fromTsTopLevelStaticConstFieldDeclaration,
+    TResult Function(
+            _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate
+                value)?
+        fromTsTranslationUnitOverrideDelegate,
     required TResult orElse(),
   }) {
     if (fromTsFunctionInvocationNamedParameters != null) {
@@ -5396,6 +5645,9 @@ class _$_$FromTsFunctionInvocationNamedParametersKeyValue
             TsTopLevelStaticConstFieldDeclaration
                 tsTopLevelStaticConstFieldDeclaration)
         fromTsTopLevelStaticConstFieldDeclaration,
+    required TResult Function(
+            TsTranslationUnitOverrideDelegate tsTranslationUnitOverrideDelegate)
+        fromTsTranslationUnitOverrideDelegate,
   }) {
     return fromTsFunctionInvocationNamedParametersKeyValue(
         tsFunctionInvocationNamedParametersKeyValue);
@@ -5458,6 +5710,10 @@ class _$_$FromTsFunctionInvocationNamedParametersKeyValue
             TsTopLevelStaticConstFieldDeclaration
                 tsTopLevelStaticConstFieldDeclaration)?
         fromTsTopLevelStaticConstFieldDeclaration,
+    TResult Function(
+            TsTranslationUnitOverrideDelegate
+                tsTranslationUnitOverrideDelegate)?
+        fromTsTranslationUnitOverrideDelegate,
     required TResult orElse(),
   }) {
     if (fromTsFunctionInvocationNamedParametersKeyValue != null) {
@@ -5510,6 +5766,10 @@ class _$_$FromTsFunctionInvocationNamedParametersKeyValue
         fromTsResolvedImport,
     required TResult Function(_$FromTsTopLevelStaticConstFieldDeclaration value)
         fromTsTopLevelStaticConstFieldDeclaration,
+    required TResult Function(
+            _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate
+                value)
+        fromTsTranslationUnitOverrideDelegate,
   }) {
     return fromTsFunctionInvocationNamedParametersKeyValue(this);
   }
@@ -5553,6 +5813,10 @@ class _$_$FromTsFunctionInvocationNamedParametersKeyValue
     TResult Function(_$FromTsResolvedImport value)? fromTsResolvedImport,
     TResult Function(_$FromTsTopLevelStaticConstFieldDeclaration value)?
         fromTsTopLevelStaticConstFieldDeclaration,
+    TResult Function(
+            _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate
+                value)?
+        fromTsTranslationUnitOverrideDelegate,
     required TResult orElse(),
   }) {
     if (fromTsFunctionInvocationNamedParametersKeyValue != null) {
@@ -5732,6 +5996,9 @@ class _$_$TsFunctionInvocationNamedParametersSpread
             TsTopLevelStaticConstFieldDeclaration
                 tsTopLevelStaticConstFieldDeclaration)
         fromTsTopLevelStaticConstFieldDeclaration,
+    required TResult Function(
+            TsTranslationUnitOverrideDelegate tsTranslationUnitOverrideDelegate)
+        fromTsTranslationUnitOverrideDelegate,
   }) {
     return fromTsFunctionInvocationNamedParametersSpread(
         tsFunctionInvocationNamedParametersSpread);
@@ -5794,6 +6061,10 @@ class _$_$TsFunctionInvocationNamedParametersSpread
             TsTopLevelStaticConstFieldDeclaration
                 tsTopLevelStaticConstFieldDeclaration)?
         fromTsTopLevelStaticConstFieldDeclaration,
+    TResult Function(
+            TsTranslationUnitOverrideDelegate
+                tsTranslationUnitOverrideDelegate)?
+        fromTsTranslationUnitOverrideDelegate,
     required TResult orElse(),
   }) {
     if (fromTsFunctionInvocationNamedParametersSpread != null) {
@@ -5846,6 +6117,10 @@ class _$_$TsFunctionInvocationNamedParametersSpread
         fromTsResolvedImport,
     required TResult Function(_$FromTsTopLevelStaticConstFieldDeclaration value)
         fromTsTopLevelStaticConstFieldDeclaration,
+    required TResult Function(
+            _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate
+                value)
+        fromTsTranslationUnitOverrideDelegate,
   }) {
     return fromTsFunctionInvocationNamedParametersSpread(this);
   }
@@ -5889,6 +6164,10 @@ class _$_$TsFunctionInvocationNamedParametersSpread
     TResult Function(_$FromTsResolvedImport value)? fromTsResolvedImport,
     TResult Function(_$FromTsTopLevelStaticConstFieldDeclaration value)?
         fromTsTopLevelStaticConstFieldDeclaration,
+    TResult Function(
+            _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate
+                value)?
+        fromTsTranslationUnitOverrideDelegate,
     required TResult orElse(),
   }) {
     if (fromTsFunctionInvocationNamedParametersSpread != null) {
@@ -6037,6 +6316,9 @@ class _$_$FromTsLinebreak extends _$FromTsLinebreak {
             TsTopLevelStaticConstFieldDeclaration
                 tsTopLevelStaticConstFieldDeclaration)
         fromTsTopLevelStaticConstFieldDeclaration,
+    required TResult Function(
+            TsTranslationUnitOverrideDelegate tsTranslationUnitOverrideDelegate)
+        fromTsTranslationUnitOverrideDelegate,
   }) {
     return fromTsLinebreak(tsLinebreak);
   }
@@ -6098,6 +6380,10 @@ class _$_$FromTsLinebreak extends _$FromTsLinebreak {
             TsTopLevelStaticConstFieldDeclaration
                 tsTopLevelStaticConstFieldDeclaration)?
         fromTsTopLevelStaticConstFieldDeclaration,
+    TResult Function(
+            TsTranslationUnitOverrideDelegate
+                tsTranslationUnitOverrideDelegate)?
+        fromTsTranslationUnitOverrideDelegate,
     required TResult orElse(),
   }) {
     if (fromTsLinebreak != null) {
@@ -6149,6 +6435,10 @@ class _$_$FromTsLinebreak extends _$FromTsLinebreak {
         fromTsResolvedImport,
     required TResult Function(_$FromTsTopLevelStaticConstFieldDeclaration value)
         fromTsTopLevelStaticConstFieldDeclaration,
+    required TResult Function(
+            _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate
+                value)
+        fromTsTranslationUnitOverrideDelegate,
   }) {
     return fromTsLinebreak(this);
   }
@@ -6192,6 +6482,10 @@ class _$_$FromTsLinebreak extends _$FromTsLinebreak {
     TResult Function(_$FromTsResolvedImport value)? fromTsResolvedImport,
     TResult Function(_$FromTsTopLevelStaticConstFieldDeclaration value)?
         fromTsTopLevelStaticConstFieldDeclaration,
+    TResult Function(
+            _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate
+                value)?
+        fromTsTranslationUnitOverrideDelegate,
     required TResult orElse(),
   }) {
     if (fromTsLinebreak != null) {
@@ -6360,6 +6654,9 @@ class _$_$FromTsFunctionSelfBindingInvocation
             TsTopLevelStaticConstFieldDeclaration
                 tsTopLevelStaticConstFieldDeclaration)
         fromTsTopLevelStaticConstFieldDeclaration,
+    required TResult Function(
+            TsTranslationUnitOverrideDelegate tsTranslationUnitOverrideDelegate)
+        fromTsTranslationUnitOverrideDelegate,
   }) {
     return fromTsFunctionSelfBindingInvocation(tsFunctionSelfBindingInvocation);
   }
@@ -6421,6 +6718,10 @@ class _$_$FromTsFunctionSelfBindingInvocation
             TsTopLevelStaticConstFieldDeclaration
                 tsTopLevelStaticConstFieldDeclaration)?
         fromTsTopLevelStaticConstFieldDeclaration,
+    TResult Function(
+            TsTranslationUnitOverrideDelegate
+                tsTranslationUnitOverrideDelegate)?
+        fromTsTranslationUnitOverrideDelegate,
     required TResult orElse(),
   }) {
     if (fromTsFunctionSelfBindingInvocation != null) {
@@ -6473,6 +6774,10 @@ class _$_$FromTsFunctionSelfBindingInvocation
         fromTsResolvedImport,
     required TResult Function(_$FromTsTopLevelStaticConstFieldDeclaration value)
         fromTsTopLevelStaticConstFieldDeclaration,
+    required TResult Function(
+            _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate
+                value)
+        fromTsTranslationUnitOverrideDelegate,
   }) {
     return fromTsFunctionSelfBindingInvocation(this);
   }
@@ -6516,6 +6821,10 @@ class _$_$FromTsFunctionSelfBindingInvocation
     TResult Function(_$FromTsResolvedImport value)? fromTsResolvedImport,
     TResult Function(_$FromTsTopLevelStaticConstFieldDeclaration value)?
         fromTsTopLevelStaticConstFieldDeclaration,
+    TResult Function(
+            _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate
+                value)?
+        fromTsTranslationUnitOverrideDelegate,
     required TResult orElse(),
   }) {
     if (fromTsFunctionSelfBindingInvocation != null) {
@@ -6675,6 +6984,9 @@ class _$_$FromTsResolvedImport extends _$FromTsResolvedImport {
             TsTopLevelStaticConstFieldDeclaration
                 tsTopLevelStaticConstFieldDeclaration)
         fromTsTopLevelStaticConstFieldDeclaration,
+    required TResult Function(
+            TsTranslationUnitOverrideDelegate tsTranslationUnitOverrideDelegate)
+        fromTsTranslationUnitOverrideDelegate,
   }) {
     return fromTsResolvedImport(tsResolvedImport);
   }
@@ -6736,6 +7048,10 @@ class _$_$FromTsResolvedImport extends _$FromTsResolvedImport {
             TsTopLevelStaticConstFieldDeclaration
                 tsTopLevelStaticConstFieldDeclaration)?
         fromTsTopLevelStaticConstFieldDeclaration,
+    TResult Function(
+            TsTranslationUnitOverrideDelegate
+                tsTranslationUnitOverrideDelegate)?
+        fromTsTranslationUnitOverrideDelegate,
     required TResult orElse(),
   }) {
     if (fromTsResolvedImport != null) {
@@ -6787,6 +7103,10 @@ class _$_$FromTsResolvedImport extends _$FromTsResolvedImport {
         fromTsResolvedImport,
     required TResult Function(_$FromTsTopLevelStaticConstFieldDeclaration value)
         fromTsTopLevelStaticConstFieldDeclaration,
+    required TResult Function(
+            _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate
+                value)
+        fromTsTranslationUnitOverrideDelegate,
   }) {
     return fromTsResolvedImport(this);
   }
@@ -6830,6 +7150,10 @@ class _$_$FromTsResolvedImport extends _$FromTsResolvedImport {
     TResult Function(_$FromTsResolvedImport value)? fromTsResolvedImport,
     TResult Function(_$FromTsTopLevelStaticConstFieldDeclaration value)?
         fromTsTopLevelStaticConstFieldDeclaration,
+    TResult Function(
+            _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate
+                value)?
+        fromTsTranslationUnitOverrideDelegate,
     required TResult orElse(),
   }) {
     if (fromTsResolvedImport != null) {
@@ -7004,6 +7328,9 @@ class _$_$FromTsTopLevelStaticConstFieldDeclaration
             TsTopLevelStaticConstFieldDeclaration
                 tsTopLevelStaticConstFieldDeclaration)
         fromTsTopLevelStaticConstFieldDeclaration,
+    required TResult Function(
+            TsTranslationUnitOverrideDelegate tsTranslationUnitOverrideDelegate)
+        fromTsTranslationUnitOverrideDelegate,
   }) {
     return fromTsTopLevelStaticConstFieldDeclaration(
         tsTopLevelStaticConstFieldDeclaration);
@@ -7066,6 +7393,10 @@ class _$_$FromTsTopLevelStaticConstFieldDeclaration
             TsTopLevelStaticConstFieldDeclaration
                 tsTopLevelStaticConstFieldDeclaration)?
         fromTsTopLevelStaticConstFieldDeclaration,
+    TResult Function(
+            TsTranslationUnitOverrideDelegate
+                tsTranslationUnitOverrideDelegate)?
+        fromTsTranslationUnitOverrideDelegate,
     required TResult orElse(),
   }) {
     if (fromTsTopLevelStaticConstFieldDeclaration != null) {
@@ -7118,6 +7449,10 @@ class _$_$FromTsTopLevelStaticConstFieldDeclaration
         fromTsResolvedImport,
     required TResult Function(_$FromTsTopLevelStaticConstFieldDeclaration value)
         fromTsTopLevelStaticConstFieldDeclaration,
+    required TResult Function(
+            _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate
+                value)
+        fromTsTranslationUnitOverrideDelegate,
   }) {
     return fromTsTopLevelStaticConstFieldDeclaration(this);
   }
@@ -7161,6 +7496,10 @@ class _$_$FromTsTopLevelStaticConstFieldDeclaration
     TResult Function(_$FromTsResolvedImport value)? fromTsResolvedImport,
     TResult Function(_$FromTsTopLevelStaticConstFieldDeclaration value)?
         fromTsTopLevelStaticConstFieldDeclaration,
+    TResult Function(
+            _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate
+                value)?
+        fromTsTranslationUnitOverrideDelegate,
     required TResult orElse(),
   }) {
     if (fromTsTopLevelStaticConstFieldDeclaration != null) {
@@ -7183,5 +7522,357 @@ abstract class _$FromTsTopLevelStaticConstFieldDeclaration extends TsIr {
   @JsonKey(ignore: true)
   _$$FromTsTopLevelStaticConstFieldDeclarationCopyWith<
           _$FromTsTopLevelStaticConstFieldDeclaration>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegateCopyWith<
+    $Res> {
+  factory _$$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegateCopyWith(
+          _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate
+              value,
+          $Res Function(
+                  _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate)
+              then) =
+      __$$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegateCopyWithImpl<
+          $Res>;
+  $Res call(
+      {TsTranslationUnitOverrideDelegate tsTranslationUnitOverrideDelegate});
+}
+
+/// @nodoc
+class __$$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegateCopyWithImpl<
+        $Res> extends _$TsIrCopyWithImpl<$Res>
+    implements
+        _$$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegateCopyWith<
+            $Res> {
+  __$$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegateCopyWithImpl(
+      _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate
+          _value,
+      $Res Function(
+              _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate)
+          _then)
+      : super(
+            _value,
+            (v) => _then(v
+                as _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate));
+
+  @override
+  _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate
+      get _value => super._value
+          as _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate;
+
+  @override
+  $Res call({
+    Object? tsTranslationUnitOverrideDelegate = freezed,
+  }) {
+    return _then(
+        _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate(
+      tsTranslationUnitOverrideDelegate: tsTranslationUnitOverrideDelegate ==
+              freezed
+          ? _value.tsTranslationUnitOverrideDelegate
+          : tsTranslationUnitOverrideDelegate // ignore: cast_nullable_to_non_nullable
+              as TsTranslationUnitOverrideDelegate,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate
+    extends _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate {
+  _$_$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate(
+      {required this.tsTranslationUnitOverrideDelegate})
+      : super._();
+
+  @override
+  final TsTranslationUnitOverrideDelegate tsTranslationUnitOverrideDelegate;
+
+  @override
+  String toString() {
+    return 'TsIr.fromTsTranslationUnitOverrideDelegate(tsTranslationUnitOverrideDelegate: $tsTranslationUnitOverrideDelegate)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate &&
+            (identical(other.tsTranslationUnitOverrideDelegate,
+                    tsTranslationUnitOverrideDelegate) ||
+                const DeepCollectionEquality().equals(
+                    other.tsTranslationUnitOverrideDelegate,
+                    tsTranslationUnitOverrideDelegate)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(tsTranslationUnitOverrideDelegate);
+
+  @JsonKey(ignore: true)
+  @override
+  _$$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegateCopyWith<
+          _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate>
+      get copyWith =>
+          __$$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegateCopyWithImpl<
+                  _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            TsClassConstructorImplementation tsClassConstructorImplementation)
+        fromTsClassConstructorImplementation,
+    required TResult Function(
+            TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps)
+        fromTsFunctionDefaultNamedProps,
+    required TResult Function(
+            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations)
+        fromTsClassInstanceFieldDeclarations,
+    required TResult Function(
+            TsClassMethodDeclarations tsClassMethodDeclarations)
+        fromTsClassMethodDeclarations,
+    required TResult Function(
+            TsClassMethodInjectionFieldDeclarations
+                tsClassMethodInjectionFieldDeclarations)
+        fromTsClassMethodInjectionFieldDeclarations,
+    required TResult Function(
+            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName)
+        fromTsClassMethodInjectionFieldName,
+    required TResult Function(TsClassPostamble tsClassPostamble)
+        fromTsClassPostamble,
+    required TResult Function(TsClassPreamble tsClassPreamble)
+        fromTsClassPreamble,
+    required TResult Function(
+            TsClassStaticConstFieldDeclarations
+                tsClassStaticConstFieldDeclarations)
+        fromTsClassStaticConstFieldDeclarations,
+    required TResult Function(
+            TsClassStaticMethodImplementation tsClassStaticMethodImplementation)
+        fromTsClassStaticMethodImplementation,
+    required TResult Function(TsEnum tsEnum) fromTsEnum,
+    required TResult Function(TsInterface tsInterface) fromTsInterface,
+    required TResult Function(TsClassVmDeclaration tsClassVmDeclaration)
+        fromTsClassVmDeclaration,
+    required TResult Function(TsFunctionInvocation tsFunctionInvocation)
+        fromTsFunctionInvocation,
+    required TResult Function(
+            TsFunctionInvocationNamedParameters
+                tsFunctionInvocationNamedParameters)
+        fromTsFunctionInvocationNamedParameters,
+    required TResult Function(
+            TsFunctionInvocationNamedParametersKeyValue
+                tsFunctionInvocationNamedParametersKeyValue)
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    required TResult Function(
+            TsFunctionInvocationNamedParametersSpread
+                tsFunctionInvocationNamedParametersSpread)
+        fromTsFunctionInvocationNamedParametersSpread,
+    required TResult Function(TsLinebreak tsLinebreak) fromTsLinebreak,
+    required TResult Function(
+            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation)
+        fromTsFunctionSelfBindingInvocation,
+    required TResult Function(TsResolvedImport tsResolvedImport)
+        fromTsResolvedImport,
+    required TResult Function(
+            TsTopLevelStaticConstFieldDeclaration
+                tsTopLevelStaticConstFieldDeclaration)
+        fromTsTopLevelStaticConstFieldDeclaration,
+    required TResult Function(
+            TsTranslationUnitOverrideDelegate tsTranslationUnitOverrideDelegate)
+        fromTsTranslationUnitOverrideDelegate,
+  }) {
+    return fromTsTranslationUnitOverrideDelegate(
+        tsTranslationUnitOverrideDelegate);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            TsClassConstructorImplementation tsClassConstructorImplementation)?
+        fromTsClassConstructorImplementation,
+    TResult Function(TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps)?
+        fromTsFunctionDefaultNamedProps,
+    TResult Function(
+            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations)?
+        fromTsClassInstanceFieldDeclarations,
+    TResult Function(TsClassMethodDeclarations tsClassMethodDeclarations)?
+        fromTsClassMethodDeclarations,
+    TResult Function(
+            TsClassMethodInjectionFieldDeclarations
+                tsClassMethodInjectionFieldDeclarations)?
+        fromTsClassMethodInjectionFieldDeclarations,
+    TResult Function(
+            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName)?
+        fromTsClassMethodInjectionFieldName,
+    TResult Function(TsClassPostamble tsClassPostamble)? fromTsClassPostamble,
+    TResult Function(TsClassPreamble tsClassPreamble)? fromTsClassPreamble,
+    TResult Function(
+            TsClassStaticConstFieldDeclarations
+                tsClassStaticConstFieldDeclarations)?
+        fromTsClassStaticConstFieldDeclarations,
+    TResult Function(
+            TsClassStaticMethodImplementation
+                tsClassStaticMethodImplementation)?
+        fromTsClassStaticMethodImplementation,
+    TResult Function(TsEnum tsEnum)? fromTsEnum,
+    TResult Function(TsInterface tsInterface)? fromTsInterface,
+    TResult Function(TsClassVmDeclaration tsClassVmDeclaration)?
+        fromTsClassVmDeclaration,
+    TResult Function(TsFunctionInvocation tsFunctionInvocation)?
+        fromTsFunctionInvocation,
+    TResult Function(
+            TsFunctionInvocationNamedParameters
+                tsFunctionInvocationNamedParameters)?
+        fromTsFunctionInvocationNamedParameters,
+    TResult Function(
+            TsFunctionInvocationNamedParametersKeyValue
+                tsFunctionInvocationNamedParametersKeyValue)?
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    TResult Function(
+            TsFunctionInvocationNamedParametersSpread
+                tsFunctionInvocationNamedParametersSpread)?
+        fromTsFunctionInvocationNamedParametersSpread,
+    TResult Function(TsLinebreak tsLinebreak)? fromTsLinebreak,
+    TResult Function(
+            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation)?
+        fromTsFunctionSelfBindingInvocation,
+    TResult Function(TsResolvedImport tsResolvedImport)? fromTsResolvedImport,
+    TResult Function(
+            TsTopLevelStaticConstFieldDeclaration
+                tsTopLevelStaticConstFieldDeclaration)?
+        fromTsTopLevelStaticConstFieldDeclaration,
+    TResult Function(
+            TsTranslationUnitOverrideDelegate
+                tsTranslationUnitOverrideDelegate)?
+        fromTsTranslationUnitOverrideDelegate,
+    required TResult orElse(),
+  }) {
+    if (fromTsTranslationUnitOverrideDelegate != null) {
+      return fromTsTranslationUnitOverrideDelegate(
+          tsTranslationUnitOverrideDelegate);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_$FromTsClassConstructorImplementation value)
+        fromTsClassConstructorImplementation,
+    required TResult Function(_$FromTsFunctionDefaultNamedProps value)
+        fromTsFunctionDefaultNamedProps,
+    required TResult Function(_$FromClassInstanceFieldDeclarations value)
+        fromTsClassInstanceFieldDeclarations,
+    required TResult Function(_$FromTsClassMethodDeclarations value)
+        fromTsClassMethodDeclarations,
+    required TResult Function(
+            _$FromTsClassMethodInjectionFieldDeclarations value)
+        fromTsClassMethodInjectionFieldDeclarations,
+    required TResult Function(_$FromTsClassMethodInjectionFieldName value)
+        fromTsClassMethodInjectionFieldName,
+    required TResult Function(_$FromTsClassPostamble value)
+        fromTsClassPostamble,
+    required TResult Function(_$FromTsClassPreamble value) fromTsClassPreamble,
+    required TResult Function(_$FromTsClassStaticConstFieldDeclarations value)
+        fromTsClassStaticConstFieldDeclarations,
+    required TResult Function(_$FromTsClassStaticMethodImplementation value)
+        fromTsClassStaticMethodImplementation,
+    required TResult Function(_$FromTsEnum value) fromTsEnum,
+    required TResult Function(_$FromTsInterface value) fromTsInterface,
+    required TResult Function(_$FromTsClassVmDeclaration value)
+        fromTsClassVmDeclaration,
+    required TResult Function(_$FromTsFunctionInvocation value)
+        fromTsFunctionInvocation,
+    required TResult Function(_$FromTsFunctionInvocationNamedParameters value)
+        fromTsFunctionInvocationNamedParameters,
+    required TResult Function(
+            _$FromTsFunctionInvocationNamedParametersKeyValue value)
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    required TResult Function(_$TsFunctionInvocationNamedParametersSpread value)
+        fromTsFunctionInvocationNamedParametersSpread,
+    required TResult Function(_$FromTsLinebreak value) fromTsLinebreak,
+    required TResult Function(_$FromTsFunctionSelfBindingInvocation value)
+        fromTsFunctionSelfBindingInvocation,
+    required TResult Function(_$FromTsResolvedImport value)
+        fromTsResolvedImport,
+    required TResult Function(_$FromTsTopLevelStaticConstFieldDeclaration value)
+        fromTsTopLevelStaticConstFieldDeclaration,
+    required TResult Function(
+            _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate
+                value)
+        fromTsTranslationUnitOverrideDelegate,
+  }) {
+    return fromTsTranslationUnitOverrideDelegate(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$FromTsClassConstructorImplementation value)?
+        fromTsClassConstructorImplementation,
+    TResult Function(_$FromTsFunctionDefaultNamedProps value)?
+        fromTsFunctionDefaultNamedProps,
+    TResult Function(_$FromClassInstanceFieldDeclarations value)?
+        fromTsClassInstanceFieldDeclarations,
+    TResult Function(_$FromTsClassMethodDeclarations value)?
+        fromTsClassMethodDeclarations,
+    TResult Function(_$FromTsClassMethodInjectionFieldDeclarations value)?
+        fromTsClassMethodInjectionFieldDeclarations,
+    TResult Function(_$FromTsClassMethodInjectionFieldName value)?
+        fromTsClassMethodInjectionFieldName,
+    TResult Function(_$FromTsClassPostamble value)? fromTsClassPostamble,
+    TResult Function(_$FromTsClassPreamble value)? fromTsClassPreamble,
+    TResult Function(_$FromTsClassStaticConstFieldDeclarations value)?
+        fromTsClassStaticConstFieldDeclarations,
+    TResult Function(_$FromTsClassStaticMethodImplementation value)?
+        fromTsClassStaticMethodImplementation,
+    TResult Function(_$FromTsEnum value)? fromTsEnum,
+    TResult Function(_$FromTsInterface value)? fromTsInterface,
+    TResult Function(_$FromTsClassVmDeclaration value)?
+        fromTsClassVmDeclaration,
+    TResult Function(_$FromTsFunctionInvocation value)?
+        fromTsFunctionInvocation,
+    TResult Function(_$FromTsFunctionInvocationNamedParameters value)?
+        fromTsFunctionInvocationNamedParameters,
+    TResult Function(_$FromTsFunctionInvocationNamedParametersKeyValue value)?
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    TResult Function(_$TsFunctionInvocationNamedParametersSpread value)?
+        fromTsFunctionInvocationNamedParametersSpread,
+    TResult Function(_$FromTsLinebreak value)? fromTsLinebreak,
+    TResult Function(_$FromTsFunctionSelfBindingInvocation value)?
+        fromTsFunctionSelfBindingInvocation,
+    TResult Function(_$FromTsResolvedImport value)? fromTsResolvedImport,
+    TResult Function(_$FromTsTopLevelStaticConstFieldDeclaration value)?
+        fromTsTopLevelStaticConstFieldDeclaration,
+    TResult Function(
+            _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate
+                value)?
+        fromTsTranslationUnitOverrideDelegate,
+    required TResult orElse(),
+  }) {
+    if (fromTsTranslationUnitOverrideDelegate != null) {
+      return fromTsTranslationUnitOverrideDelegate(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate
+    extends TsIr {
+  factory _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate(
+          {required TsTranslationUnitOverrideDelegate
+              tsTranslationUnitOverrideDelegate}) =
+      _$_$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate;
+  _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate._()
+      : super._();
+
+  TsTranslationUnitOverrideDelegate get tsTranslationUnitOverrideDelegate =>
+      throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegateCopyWith<
+          _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate>
       get copyWith => throw _privateConstructorUsedError;
 }
