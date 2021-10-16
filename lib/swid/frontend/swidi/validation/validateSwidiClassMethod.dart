@@ -2,6 +2,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionDeclaration.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiType.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/validation/validTransformNames.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/validation/validateShortHandOverride.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/validation/validateSwidiClass.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/validation/validateSwidiType.dart';
@@ -134,6 +135,10 @@ class ValidateSwidiClassMethod
             ...pipeline.reduceFromTerm(
               ValidateShortHandOverride(
                 swidiConst: swidiFunctionDeclaration.shortHandOverride,
+                validKeys: [
+                  ...validMethodShortHandOverrideKeys,
+                  isGetterName,
+                ],
               ),
             ),
           ])

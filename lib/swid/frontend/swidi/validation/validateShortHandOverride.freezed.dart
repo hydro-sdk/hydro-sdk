@@ -16,9 +16,11 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$ValidateShortHandOverrideTearOff {
   const _$ValidateShortHandOverrideTearOff();
 
-  _$ValidateShortHandOverrideCtor call({required SwidiConst swidiConst}) {
+  _$ValidateShortHandOverrideCtor call(
+      {required SwidiConst swidiConst, required List<String> validKeys}) {
     return _$ValidateShortHandOverrideCtor(
       swidiConst: swidiConst,
+      validKeys: validKeys,
     );
   }
 }
@@ -29,6 +31,7 @@ const $ValidateShortHandOverride = _$ValidateShortHandOverrideTearOff();
 /// @nodoc
 mixin _$ValidateShortHandOverride {
   SwidiConst get swidiConst => throw _privateConstructorUsedError;
+  List<String> get validKeys => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ValidateShortHandOverrideCopyWith<ValidateShortHandOverride> get copyWith =>
@@ -40,7 +43,7 @@ abstract class $ValidateShortHandOverrideCopyWith<$Res> {
   factory $ValidateShortHandOverrideCopyWith(ValidateShortHandOverride value,
           $Res Function(ValidateShortHandOverride) then) =
       _$ValidateShortHandOverrideCopyWithImpl<$Res>;
-  $Res call({SwidiConst swidiConst});
+  $Res call({SwidiConst swidiConst, List<String> validKeys});
 
   $SwidiConstCopyWith<$Res> get swidiConst;
 }
@@ -57,12 +60,17 @@ class _$ValidateShortHandOverrideCopyWithImpl<$Res>
   @override
   $Res call({
     Object? swidiConst = freezed,
+    Object? validKeys = freezed,
   }) {
     return _then(_value.copyWith(
       swidiConst: swidiConst == freezed
           ? _value.swidiConst
           : swidiConst // ignore: cast_nullable_to_non_nullable
               as SwidiConst,
+      validKeys: validKeys == freezed
+          ? _value.validKeys
+          : validKeys // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ));
   }
 
@@ -82,7 +90,7 @@ abstract class _$$ValidateShortHandOverrideCtorCopyWith<$Res>
           $Res Function(_$ValidateShortHandOverrideCtor) then) =
       __$$ValidateShortHandOverrideCtorCopyWithImpl<$Res>;
   @override
-  $Res call({SwidiConst swidiConst});
+  $Res call({SwidiConst swidiConst, List<String> validKeys});
 
   @override
   $SwidiConstCopyWith<$Res> get swidiConst;
@@ -104,12 +112,17 @@ class __$$ValidateShortHandOverrideCtorCopyWithImpl<$Res>
   @override
   $Res call({
     Object? swidiConst = freezed,
+    Object? validKeys = freezed,
   }) {
     return _then(_$ValidateShortHandOverrideCtor(
       swidiConst: swidiConst == freezed
           ? _value.swidiConst
           : swidiConst // ignore: cast_nullable_to_non_nullable
               as SwidiConst,
+      validKeys: validKeys == freezed
+          ? _value.validKeys
+          : validKeys // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ));
   }
 }
@@ -118,14 +131,18 @@ class __$$ValidateShortHandOverrideCtorCopyWithImpl<$Res>
 
 class _$_$ValidateShortHandOverrideCtor
     extends _$ValidateShortHandOverrideCtor {
-  _$_$ValidateShortHandOverrideCtor({required this.swidiConst}) : super._();
+  _$_$ValidateShortHandOverrideCtor(
+      {required this.swidiConst, required this.validKeys})
+      : super._();
 
   @override
   final SwidiConst swidiConst;
+  @override
+  final List<String> validKeys;
 
   @override
   String toString() {
-    return 'ValidateShortHandOverride(swidiConst: $swidiConst)';
+    return 'ValidateShortHandOverride(swidiConst: $swidiConst, validKeys: $validKeys)';
   }
 
   @override
@@ -134,12 +151,17 @@ class _$_$ValidateShortHandOverrideCtor
         (other is _$ValidateShortHandOverrideCtor &&
             (identical(other.swidiConst, swidiConst) ||
                 const DeepCollectionEquality()
-                    .equals(other.swidiConst, swidiConst)));
+                    .equals(other.swidiConst, swidiConst)) &&
+            (identical(other.validKeys, validKeys) ||
+                const DeepCollectionEquality()
+                    .equals(other.validKeys, validKeys)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(swidiConst);
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(swidiConst) ^
+      const DeepCollectionEquality().hash(validKeys);
 
   @JsonKey(ignore: true)
   @override
@@ -150,12 +172,15 @@ class _$_$ValidateShortHandOverrideCtor
 
 abstract class _$ValidateShortHandOverrideCtor
     extends ValidateShortHandOverride {
-  factory _$ValidateShortHandOverrideCtor({required SwidiConst swidiConst}) =
-      _$_$ValidateShortHandOverrideCtor;
+  factory _$ValidateShortHandOverrideCtor(
+      {required SwidiConst swidiConst,
+      required List<String> validKeys}) = _$_$ValidateShortHandOverrideCtor;
   _$ValidateShortHandOverrideCtor._() : super._();
 
   @override
   SwidiConst get swidiConst => throw _privateConstructorUsedError;
+  @override
+  List<String> get validKeys => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$ValidateShortHandOverrideCtorCopyWith<_$ValidateShortHandOverrideCtor>

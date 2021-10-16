@@ -19,5 +19,16 @@ class "package:flutter/src/widgets/icon_data.dart"::IconData {
         swidiValidationError: SwidiValidationError.e17,
       ),
     );
+
+    validatorTestHarness(
+      input: """
+class "package:flutter/src/widgets/icon_data.dart"::IconData {} -> {
+      @"foo" : @"bar",
+    }
+""",
+      expectation: const SwidiClassValidationState.invalid(
+        swidiValidationError: SwidiValidationError.e17,
+      ),
+    );
   }, tags: "swid");
 }

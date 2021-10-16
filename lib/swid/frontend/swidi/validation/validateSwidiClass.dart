@@ -2,6 +2,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiClass.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/validation/swidiValidationError.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/validation/validTransformNames.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/validation/validateShortHandOverride.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/validation/validateSwidiClassMethod.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsAnalysisMixin.dart';
@@ -77,26 +79,26 @@ class ValidateSwidiClass
   ISwarsTermResult<SwidiClassValidationState> analyze({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromJsonTransformable(swidiClass.methods.isNotEmpty
-          ? (({
-              required final List<SwidiClassValidationState>
-                  aggregateValidations,
-            }) =>
-              aggregateValidations.firstWhereOrNull(
-                        (x) => x.when(
-                          valid: () => false,
-                          invalid: (_) => true,
-                        ),
-                      ) !=
-                      null
-                  ? aggregateValidations.firstWhere(
-                      (x) => x.when(
-                        valid: () => false,
-                        invalid: (_) => true,
-                      ),
-                    )
-                  : const SwidiClassValidationState.valid())(
-              aggregateValidations: swidiClass.methods
+      SwarsTermResult.fromJsonTransformable((({
+        required final List<SwidiClassValidationState> aggregateValidations,
+      }) =>
+          aggregateValidations.firstWhereOrNull(
+                    (x) => x.when(
+                      valid: () => false,
+                      invalid: (_) => true,
+                    ),
+                  ) !=
+                  null
+              ? aggregateValidations.firstWhere(
+                  (x) => x.when(
+                    valid: () => false,
+                    invalid: (_) => true,
+                  ),
+                )
+              : const SwidiClassValidationState.valid())(
+        aggregateValidations: [
+          ...(swidiClass.methods.isNotEmpty
+              ? swidiClass.methods
                   .map(
                     (x) => pipeline.reduceFromTerm(
                       ValidateSwidiClassMethod(
@@ -109,7 +111,14 @@ class ValidateSwidiClass
                       ...value,
                       ...element,
                     ],
-                  ),
-            )
-          : const SwidiClassValidationState.valid());
+                  )
+              : []),
+          ...pipeline.reduceFromTerm(
+            ValidateShortHandOverride(
+              swidiConst: swidiClass.shortHandOverride,
+              validKeys: validClassShortHandOverrideKeys,
+            ),
+          )
+        ],
+      ),);
 }
