@@ -47,8 +47,15 @@ mixin SwidiClassParser on SwidiGrammarDefinition
                 (x) => x.functionDeclaration,
               )
               .toList(),
-          shortHandOverride: SwidiConst.fromSwidiEmptyConst(
-            swidiEmptyConst: SwidiEmptyConst(),
+          shortHandOverride: (({
+            required final List<SwidiConst> consts,
+          }) =>
+              consts.isNotEmpty
+                  ? consts.first
+                  : SwidiConst.fromSwidiEmptyConst(
+                      swidiEmptyConst: SwidiEmptyConst(),
+                    ))(
+            consts: collectTokens<SwidiConst>(x),
           ),
         );
       });

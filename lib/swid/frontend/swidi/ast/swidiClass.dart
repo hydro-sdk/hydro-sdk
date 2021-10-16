@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/iShortHandOverride.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConst.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionDeclaration.dart';
@@ -12,7 +13,9 @@ part 'swidiClass.freezed.dart';
 @freezed
 class SwidiClass
     with _$SwidiClass, HashKeyMixin<SwidiClass>, HashComparableMixin<SwidiClass>
-    implements ICopyable<SwidiClass, $SwidiClassCopyWith<SwidiClass>> {
+    implements
+        ICopyable<SwidiClass, $SwidiClassCopyWith<SwidiClass>>,
+        IShortHandOverride<SwidiClass> {
   SwidiClass._();
 
   factory SwidiClass({

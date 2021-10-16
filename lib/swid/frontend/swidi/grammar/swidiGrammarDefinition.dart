@@ -1,3 +1,4 @@
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iConstLexer.dart';
 import 'package:petitparser/petitparser.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iClassDefinitionLexer.dart';
@@ -39,7 +40,8 @@ class SwidiGrammarDefinition extends GrammarDefinition
         IClassDefinitionLexer,
         ITopLevelDefinitionLexer,
         ICompilationUnitLexer,
-        IStartLexer {
+        IStartLexer,
+        IConstLexer {
   const SwidiGrammarDefinition();
 
   @override
@@ -59,5 +61,6 @@ class SwidiGrammarDefinition extends GrammarDefinition
       ref0(identifier) &
       ref1(token, "{") &
       (ref0(functionDeclaration) | ref0(staticFunctionDeclaration)).star() &
-      ref1(token, "}");
+      ref1(token, "}") &
+      (ref1(token, "->") & ref0(lexicalConst)).optional();
 }
