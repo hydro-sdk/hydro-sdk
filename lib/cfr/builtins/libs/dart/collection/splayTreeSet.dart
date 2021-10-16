@@ -105,11 +105,15 @@ class VMManagedSplayTreeSet extends VMManagedBox<SplayTreeSet<dynamic>> {
       return [];
     });
     table['lookup'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        vmObject.lookup(maybeUnBoxAndBuildArgument<Object?, dynamic>(
-            luaCallerArguments[1],
-            parentState: hydroState)),
-      ];
+      final returnValue = vmObject.lookup(
+          maybeUnBoxAndBuildArgument<Object?, dynamic>(luaCallerArguments[1],
+              parentState: hydroState));
+      if (returnValue != null) {
+        return [
+          returnValue,
+        ];
+      }
+      return [];
     });
     table['intersection'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -962,7 +966,7 @@ class RTManagedSplayTreeSet extends SplayTreeSet implements Box<SplayTreeSet> {
   }
 
   @override
-  dynamic lookup(Object? object) {
+  dynamic? lookup(Object? object) {
     Closure closure = table["lookup"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }

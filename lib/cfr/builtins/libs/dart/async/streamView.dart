@@ -126,10 +126,15 @@ class VMManagedStreamView extends VMManagedBox<StreamView<dynamic>> {
         maybeBoxObject<Stream>(
             object: vmObject.asyncExpand((event) =>
                 maybeUnBoxAndBuildArgument<Stream<dynamic>?, dynamic>(
-                    unpackedconvert.dispatch(
-                      [luaCallerArguments[0], event],
-                      parentState: hydroState,
-                    )[0],
+                    ((
+                      final List<dynamic>? val,
+                    ) =>
+                        val != null && val.length >= 1 ? val[0] : null)(
+                      unpackedconvert.dispatch(
+                        [luaCallerArguments[0], event],
+                        parentState: hydroState,
+                      ),
+                    ),
                     parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable()),
@@ -660,10 +665,15 @@ class RTManagedStreamView extends StreamView implements Box<StreamView> {
         maybeBoxObject<Stream>(
             object: super.asyncExpand((event) =>
                 maybeUnBoxAndBuildArgument<Stream<dynamic>?, dynamic>(
-                    unpackedconvert.dispatch(
-                      [luaCallerArguments[0], event],
-                      parentState: hydroState,
-                    )[0],
+                    ((
+                      final List<dynamic>? val,
+                    ) =>
+                        val != null && val.length >= 1 ? val[0] : null)(
+                      unpackedconvert.dispatch(
+                        [luaCallerArguments[0], event],
+                        parentState: hydroState,
+                      ),
+                    ),
                     parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable())

@@ -13,11 +13,15 @@ class VMManagedSplayTreeMap
           hydroState: hydroState,
         ) {
     table['remove'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        vmObject.remove(maybeUnBoxAndBuildArgument<Object?, dynamic>(
-            luaCallerArguments[1],
-            parentState: hydroState)),
-      ];
+      final returnValue = vmObject.remove(
+          maybeUnBoxAndBuildArgument<Object?, dynamic>(luaCallerArguments[1],
+              parentState: hydroState));
+      if (returnValue != null) {
+        return [
+          returnValue,
+        ];
+      }
+      return [];
     });
     table['putIfAbsent'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -105,27 +109,43 @@ class VMManagedSplayTreeMap
     });
     table['firstKey'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        vmObject.firstKey(),
-      ];
+      final returnValue = vmObject.firstKey();
+      if (returnValue != null) {
+        return [
+          returnValue,
+        ];
+      }
+      return [];
     });
     table['lastKey'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        vmObject.lastKey(),
-      ];
+      final returnValue = vmObject.lastKey();
+      if (returnValue != null) {
+        return [
+          returnValue,
+        ];
+      }
+      return [];
     });
     table['lastKeyBefore'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        vmObject.lastKeyBefore(luaCallerArguments[1]),
-      ];
+      final returnValue = vmObject.lastKeyBefore(luaCallerArguments[1]);
+      if (returnValue != null) {
+        return [
+          returnValue,
+        ];
+      }
+      return [];
     });
     table['firstKeyAfter'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        vmObject.firstKeyAfter(luaCallerArguments[1]),
-      ];
+      final returnValue = vmObject.firstKeyAfter(luaCallerArguments[1]);
+      if (returnValue != null) {
+        return [
+          returnValue,
+        ];
+      }
+      return [];
     });
     table['cast'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
@@ -427,7 +447,7 @@ class RTManagedSplayTreeMap extends SplayTreeMap implements Box<SplayTreeMap> {
   SplayTreeMap unwrap() => this;
   SplayTreeMap get vmObject => this;
   @override
-  dynamic remove(Object? key) {
+  dynamic? remove(Object? key) {
     Closure closure = table["remove"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -503,25 +523,25 @@ class RTManagedSplayTreeMap extends SplayTreeMap implements Box<SplayTreeMap> {
   }
 
   @override
-  dynamic firstKey() {
+  dynamic? firstKey() {
     Closure closure = table["firstKey"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  dynamic lastKey() {
+  dynamic? lastKey() {
     Closure closure = table["lastKey"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  dynamic lastKeyBefore(dynamic key) {
+  dynamic? lastKeyBefore(dynamic key) {
     Closure closure = table["lastKeyBefore"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  dynamic firstKeyAfter(dynamic key) {
+  dynamic? firstKeyAfter(dynamic key) {
     Closure closure = table["firstKeyAfter"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }

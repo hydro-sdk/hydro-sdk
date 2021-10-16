@@ -1209,7 +1209,7 @@ class RTManagedUnmodifiableListView extends UnmodifiableListView
   }
 
   @override
-  void fillRange(int start, int end, [dynamic fillValue]) {
+  void fillRange(int start, int end, [dynamic? fillValue]) {
     Closure closure = table["fillRange"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }

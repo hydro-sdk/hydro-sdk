@@ -25,11 +25,15 @@ class VMManagedSetBase extends VMManagedBox<SetBase<dynamic>> {
       ];
     });
     table['lookup'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        vmObject.lookup(maybeUnBoxAndBuildArgument<Object?, dynamic>(
-            luaCallerArguments[1],
-            parentState: hydroState)),
-      ];
+      final returnValue = vmObject.lookup(
+          maybeUnBoxAndBuildArgument<Object?, dynamic>(luaCallerArguments[1],
+              parentState: hydroState));
+      if (returnValue != null) {
+        return [
+          returnValue,
+        ];
+      }
+      return [];
     });
     table['remove'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [

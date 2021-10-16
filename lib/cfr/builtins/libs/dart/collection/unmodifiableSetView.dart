@@ -21,11 +21,15 @@ class VMManagedUnmodifiableSetView
       ];
     });
     table['lookup'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        vmObject.lookup(maybeUnBoxAndBuildArgument<Object?, dynamic>(
-            luaCallerArguments[1],
-            parentState: hydroState)),
-      ];
+      final returnValue = vmObject.lookup(
+          maybeUnBoxAndBuildArgument<Object?, dynamic>(luaCallerArguments[1],
+              parentState: hydroState));
+      if (returnValue != null) {
+        return [
+          returnValue,
+        ];
+      }
+      return [];
     });
     table['getLength'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -879,7 +883,7 @@ class RTManagedUnmodifiableSetView extends UnmodifiableSetView
   }
 
   @override
-  dynamic lookup(Object? element) {
+  dynamic? lookup(Object? element) {
     Closure closure = table["lookup"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
