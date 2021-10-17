@@ -213,6 +213,43 @@ class SwidFunctionType
         " ",
         "Function",
         "(",
+        normalParameterTypes
+            .mapIndexed(
+              (i, x) => [
+                x.displayName,
+                (normalParameterNames.length > i
+                    ? normalParameterNames.elementAt(i)
+                    : ""),
+              ].join(" "),
+            )
+            .join(", "),
+        (optionalParameterTypes.isNotEmpty ? "," : ""),
+        (optionalParameterTypes.isNotEmpty ? "[" : ""),
+        optionalParameterTypes
+            .mapIndexed(
+              (i, x) => [
+                x.displayName,
+                (optionalParameterNames.length > i
+                    ? optionalParameterNames.elementAt(i)
+                    : "")
+              ].join(" "),
+            )
+            .join(", "),
+        (optionalParameterTypes.isNotEmpty ? "]" : ""),
+        (namedParameterTypes.isNotEmpty ? "," : ""),
+        (namedParameterTypes.isNotEmpty ? "{" : ""),
+        namedParameterTypes.entries
+            .map(
+              (x) => [
+                (x.value.nullabilitySuffix == SwidNullabilitySuffix.question
+                    ? "required"
+                    : ""),
+                x.value.displayName,
+                x.key,
+              ],
+            )
+            .join(", "),
+        (namedParameterTypes.isNotEmpty ? "}" : ""),
         ")",
       ].join("");
 }
