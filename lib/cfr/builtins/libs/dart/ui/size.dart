@@ -204,11 +204,11 @@ class VMManagedSize extends VMManagedBox<Size> {
 }
 
 class RTManagedSize extends Size implements Box<Size> {
-  RTManagedSize(double width, double height,
+  RTManagedSize(double width$, double height$,
       {required this.table, required this.hydroState})
       : super(
-          width,
-          height,
+          width$,
+          height$,
         ) {
     table['vmObject'] = vmObject;
     table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {

@@ -30,13 +30,13 @@ void main() {
     expect(iconDataClass.instanceFieldDeclarations.length, 4);
     expect(res, """
 class RTManagedIconData extends IconData implements Box<IconData> {
-  RTManagedIconData(int codePoint,
+  RTManagedIconData(int codePoint\$,
       {String? fontFamily,
       String? fontPackage,
       required bool matchTextDirection,
       required this.table,
       required this.hydroState})
-      : super(codePoint,
+      : super(codePoint\$,
             fontFamily: fontFamily,
             fontPackage: fontPackage,
             matchTextDirection: matchTextDirection) {

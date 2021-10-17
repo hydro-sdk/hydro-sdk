@@ -208,10 +208,10 @@ class VMManagedMapView extends VMManagedBox<MapView<dynamic, dynamic>> {
 }
 
 class RTManagedMapView extends MapView implements Box<MapView> {
-  RTManagedMapView(Map<dynamic, dynamic> map,
+  RTManagedMapView(Map<dynamic, dynamic> map$,
       {required this.table, required this.hydroState})
       : super(
-          map,
+          map$,
         ) {
     table['vmObject'] = vmObject;
     table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {

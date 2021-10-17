@@ -92,11 +92,11 @@ class VMManagedOffset extends VMManagedBox<Offset> {
 }
 
 class RTManagedOffset extends Offset implements Box<Offset> {
-  RTManagedOffset(double dx, double dy,
+  RTManagedOffset(double dx$, double dy$,
       {required this.table, required this.hydroState})
       : super(
-          dx,
-          dy,
+          dx$,
+          dy$,
         ) {
     table['vmObject'] = vmObject;
     table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {

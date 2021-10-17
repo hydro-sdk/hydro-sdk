@@ -31,11 +31,11 @@ class VMManagedTangent extends VMManagedBox<Tangent> {
 }
 
 class RTManagedTangent extends Tangent implements Box<Tangent> {
-  RTManagedTangent(Offset position, Offset vector,
+  RTManagedTangent(Offset position$, Offset vector$,
       {required this.table, required this.hydroState})
       : super(
-          position,
-          vector,
+          position$,
+          vector$,
         ) {
     table['vmObject'] = vmObject;
     table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
