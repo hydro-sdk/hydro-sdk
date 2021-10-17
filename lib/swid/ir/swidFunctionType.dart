@@ -207,4 +207,12 @@ class SwidFunctionType
         typeFormals: typeFormals,
         declarationModifiers: declarationModifiers,
       );
+
+  String get displayName => [
+        returnType.displayName,
+        " ",
+        "Function",
+        "(",
+        ")",
+      ].join("");
 }
