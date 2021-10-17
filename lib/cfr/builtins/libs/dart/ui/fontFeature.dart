@@ -35,11 +35,11 @@ class VMManagedFontFeature extends VMManagedBox<FontFeature> {
 }
 
 class RTManagedFontFeature extends FontFeature implements Box<FontFeature> {
-  RTManagedFontFeature(String feature, int value,
+  RTManagedFontFeature(String feature$, int value$,
       {required this.table, required this.hydroState})
       : super(
-          feature,
-          value,
+          feature$,
+          value$,
         ) {
     table['vmObject'] = vmObject;
     table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {

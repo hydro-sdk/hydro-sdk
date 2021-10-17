@@ -43,13 +43,13 @@ class VMManagedRSTransform extends VMManagedBox<RSTransform> {
 }
 
 class RTManagedRSTransform extends RSTransform implements Box<RSTransform> {
-  RTManagedRSTransform(double scos, double ssin, double tx, double ty,
+  RTManagedRSTransform(double scos$, double ssin$, double tx$, double ty$,
       {required this.table, required this.hydroState})
       : super(
-          scos,
-          ssin,
-          tx,
-          ty,
+          scos$,
+          ssin$,
+          tx$,
+          ty$,
         ) {
     table['vmObject'] = vmObject;
     table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {

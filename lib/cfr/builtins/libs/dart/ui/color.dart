@@ -114,9 +114,9 @@ class VMManagedColor extends VMManagedBox<Color> {
 }
 
 class RTManagedColor extends Color implements Box<Color> {
-  RTManagedColor(int value, {required this.table, required this.hydroState})
+  RTManagedColor(int value$, {required this.table, required this.hydroState})
       : super(
-          value,
+          value$,
         ) {
     table['vmObject'] = vmObject;
     table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {

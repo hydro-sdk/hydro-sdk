@@ -37,11 +37,11 @@ class VMManagedTimeoutException extends VMManagedBox<TimeoutException> {
 
 class RTManagedTimeoutException extends TimeoutException
     implements Box<TimeoutException> {
-  RTManagedTimeoutException(String? message, Duration? duration,
+  RTManagedTimeoutException(String? message$, Duration? duration$,
       {required this.table, required this.hydroState})
       : super(
-          message,
-          duration,
+          message$,
+          duration$,
         ) {
     table['vmObject'] = vmObject;
     table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {

@@ -14,8 +14,8 @@ declare const dart: {
 export interface IAsyncError {
     error: Object;
     stackTrace: IStackTrace;
+    getStackTrace: () => IStackTrace;
     toString: () => string;
-    getStackTrace: () => IStackTrace | undefined;
     getHashCode: () => number;
 }
 export class AsyncError implements IError {
@@ -27,15 +27,14 @@ export class AsyncError implements IError {
     public static defaultStackTrace(error: Object): IStackTrace {
         return dart.async.asyncErrorDefaultStackTrace(error);
     }
+    private readonly _dart_getStackTrace: () => IStackTrace = undefined as any;
     private readonly _dart_toString: () => string = undefined as any;
-    private readonly _dart_getStackTrace: () => IStackTrace | undefined =
-        undefined as any;
     private readonly _dart_getHashCode: () => number = undefined as any;
+    public getStackTrace(): IStackTrace {
+        return this._dart_getStackTrace();
+    }
     public toString(): string {
         return this._dart_toString();
-    }
-    public getStackTrace(): IStackTrace | undefined {
-        return this._dart_getStackTrace();
     }
     public getHashCode(): number {
         return this._dart_getHashCode();
