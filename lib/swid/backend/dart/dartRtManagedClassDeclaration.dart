@@ -385,7 +385,6 @@ class DartRTManagedClassDeclaration
                         swidFunctionType: x,
                       ),
                     )
-                    .where((x) => !x.declarationModifiers.hasProtected)
                     .where((x) => x.returnType.displayName.isNotEmpty
                         ? x.returnType.displayName[0] != "_"
                         : true)
