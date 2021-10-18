@@ -61,7 +61,7 @@ SwidDeclarationModifiers swidiShortHandOverrideToSwidDeclarationModifiers({
                 .where(
                   (x) => x.item1.maybeWhen(
                     fromSwidiConstString: (val) =>
-                        validTransformNames
+                        validMethodShortHandOverrideKeys
                             .firstWhereOrNull((x) => x == val.value) !=
                         null,
                     orElse: () => false,

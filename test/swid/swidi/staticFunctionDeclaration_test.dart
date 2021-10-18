@@ -52,6 +52,9 @@ void main() {
             )
           ],
           methods: [],
+          shortHandOverride: SwidiConst.fromSwidiEmptyConst(
+            swidiEmptyConst: SwidiEmptyConst(),
+          ),
         ),
       ],
     );

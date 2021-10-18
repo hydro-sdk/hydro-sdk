@@ -114,7 +114,7 @@ class ValidateSwidiType
                                                     SwidiValidationError.e7,
                                               ),
                                               fromSwidiConstString: (val) => [
-                                                        ...validTransformNames,
+                                                        ...validMethodShortHandOverrideKeys,
                                                         ...validAnnotationArguments
                                                       ].firstWhereOrNull((x) =>
                                                           x == val.value) ==

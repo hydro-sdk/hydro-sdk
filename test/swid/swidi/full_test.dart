@@ -140,6 +140,9 @@ void main() {
               ],
             ),
           ],
+          shortHandOverride: SwidiConst.fromSwidiEmptyConst(
+            swidiEmptyConst: SwidiEmptyConst(),
+          ),
         ),
       ],
     );
@@ -238,6 +241,9 @@ class "package:flutter/src/widgets/icon_data.dart"::IconData {
               namedParameters: [],
             )
           ],
+          shortHandOverride: SwidiConst.fromSwidiEmptyConst(
+            swidiEmptyConst: SwidiEmptyConst(),
+          ),
         ),
       ],
     );
@@ -379,6 +385,9 @@ class "dart:core"::List {
               ],
             )
           ],
+          shortHandOverride: SwidiConst.fromSwidiEmptyConst(
+            swidiEmptyConst: SwidiEmptyConst(),
+          ),
         ),
       ],
     );
@@ -537,6 +546,9 @@ class "dart:core"::List {
               ],
             )
           ],
+          shortHandOverride: SwidiConst.fromSwidiEmptyConst(
+            swidiEmptyConst: SwidiEmptyConst(),
+          ),
         ),
       ],
     );
@@ -695,6 +707,9 @@ class "dart:core"::List {
             )
           ],
           methods: [],
+          shortHandOverride: SwidiConst.fromSwidiEmptyConst(
+            swidiEmptyConst: SwidiEmptyConst(),
+          ),
         ),
       ],
     );
@@ -901,6 +916,48 @@ class "dart:async"::Future {
             )
           ],
           staticMethods: [],
+          shortHandOverride: SwidiConst.fromSwidiEmptyConst(
+            swidiEmptyConst: SwidiEmptyConst(),
+          ),
+        ),
+      ],
+    );
+
+    parserTestHarness(
+      input: const ParserTestHarnessInput.fromString(
+        input: """
+class "dart:core"::Function { } -> {
+  @"tsInterface": @"export type IFunction = (...args: any[]) => any;",
+}
+""",
+      ),
+      parser: const SwidiParser().build(),
+      result: [
+        SwidiClass(
+          name: "Function",
+          libraryScopePrefix: SwidiLibraryScopePrefix(
+            name: "dart:core",
+          ),
+          methods: [],
+          staticMethods: [],
+          shortHandOverride: SwidiConst.fromSwidiConstMap(
+            swidiConstMap: SwidiConstMap(
+              entries: [
+                Tuple2(
+                  SwidiConst.fromSwidiConstString(
+                    swidiConstString: SwidiConstString(
+                      value: "tsInterface",
+                    ),
+                  ),
+                  SwidiConst.fromSwidiConstString(
+                    swidiConstString: SwidiConstString(
+                      value: "export type IFunction = (...args: any[]) => any;",
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
         )
       ],
     );
