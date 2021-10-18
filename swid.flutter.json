@@ -6,7 +6,9 @@
             "runtime"
         ],
         "allowList": {
-            "packagePaths": [],
+            "packagePaths": [
+                "package:flutter/src/widgets/framework.dart"
+            ],
             "classNames": []
         },
         "denyList": {
