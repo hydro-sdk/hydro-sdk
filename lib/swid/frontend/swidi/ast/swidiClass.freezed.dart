@@ -20,12 +20,14 @@ class _$SwidiClassTearOff {
       {required String name,
       required SwidiLibraryScopePrefix libraryScopePrefix,
       required List<SwidiFunctionDeclaration> methods,
-      required List<SwidiFunctionDeclaration> staticMethods}) {
+      required List<SwidiFunctionDeclaration> staticMethods,
+      required SwidiConst shortHandOverride}) {
     return _$SwidiClassCtor(
       name: name,
       libraryScopePrefix: libraryScopePrefix,
       methods: methods,
       staticMethods: staticMethods,
+      shortHandOverride: shortHandOverride,
     );
   }
 }
@@ -42,6 +44,7 @@ mixin _$SwidiClass {
       throw _privateConstructorUsedError;
   List<SwidiFunctionDeclaration> get staticMethods =>
       throw _privateConstructorUsedError;
+  SwidiConst get shortHandOverride => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SwidiClassCopyWith<SwidiClass> get copyWith =>
@@ -57,9 +60,11 @@ abstract class $SwidiClassCopyWith<$Res> {
       {String name,
       SwidiLibraryScopePrefix libraryScopePrefix,
       List<SwidiFunctionDeclaration> methods,
-      List<SwidiFunctionDeclaration> staticMethods});
+      List<SwidiFunctionDeclaration> staticMethods,
+      SwidiConst shortHandOverride});
 
   $SwidiLibraryScopePrefixCopyWith<$Res> get libraryScopePrefix;
+  $SwidiConstCopyWith<$Res> get shortHandOverride;
 }
 
 /// @nodoc
@@ -76,6 +81,7 @@ class _$SwidiClassCopyWithImpl<$Res> implements $SwidiClassCopyWith<$Res> {
     Object? libraryScopePrefix = freezed,
     Object? methods = freezed,
     Object? staticMethods = freezed,
+    Object? shortHandOverride = freezed,
   }) {
     return _then(_value.copyWith(
       name: name == freezed
@@ -94,6 +100,10 @@ class _$SwidiClassCopyWithImpl<$Res> implements $SwidiClassCopyWith<$Res> {
           ? _value.staticMethods
           : staticMethods // ignore: cast_nullable_to_non_nullable
               as List<SwidiFunctionDeclaration>,
+      shortHandOverride: shortHandOverride == freezed
+          ? _value.shortHandOverride
+          : shortHandOverride // ignore: cast_nullable_to_non_nullable
+              as SwidiConst,
     ));
   }
 
@@ -102,6 +112,13 @@ class _$SwidiClassCopyWithImpl<$Res> implements $SwidiClassCopyWith<$Res> {
     return $SwidiLibraryScopePrefixCopyWith<$Res>(_value.libraryScopePrefix,
         (value) {
       return _then(_value.copyWith(libraryScopePrefix: value));
+    });
+  }
+
+  @override
+  $SwidiConstCopyWith<$Res> get shortHandOverride {
+    return $SwidiConstCopyWith<$Res>(_value.shortHandOverride, (value) {
+      return _then(_value.copyWith(shortHandOverride: value));
     });
   }
 }
@@ -117,10 +134,13 @@ abstract class _$$SwidiClassCtorCopyWith<$Res>
       {String name,
       SwidiLibraryScopePrefix libraryScopePrefix,
       List<SwidiFunctionDeclaration> methods,
-      List<SwidiFunctionDeclaration> staticMethods});
+      List<SwidiFunctionDeclaration> staticMethods,
+      SwidiConst shortHandOverride});
 
   @override
   $SwidiLibraryScopePrefixCopyWith<$Res> get libraryScopePrefix;
+  @override
+  $SwidiConstCopyWith<$Res> get shortHandOverride;
 }
 
 /// @nodoc
@@ -140,6 +160,7 @@ class __$$SwidiClassCtorCopyWithImpl<$Res>
     Object? libraryScopePrefix = freezed,
     Object? methods = freezed,
     Object? staticMethods = freezed,
+    Object? shortHandOverride = freezed,
   }) {
     return _then(_$SwidiClassCtor(
       name: name == freezed
@@ -158,6 +179,10 @@ class __$$SwidiClassCtorCopyWithImpl<$Res>
           ? _value.staticMethods
           : staticMethods // ignore: cast_nullable_to_non_nullable
               as List<SwidiFunctionDeclaration>,
+      shortHandOverride: shortHandOverride == freezed
+          ? _value.shortHandOverride
+          : shortHandOverride // ignore: cast_nullable_to_non_nullable
+              as SwidiConst,
     ));
   }
 }
@@ -169,7 +194,8 @@ class _$_$SwidiClassCtor extends _$SwidiClassCtor {
       {required this.name,
       required this.libraryScopePrefix,
       required this.methods,
-      required this.staticMethods})
+      required this.staticMethods,
+      required this.shortHandOverride})
       : super._();
 
   @override
@@ -180,10 +206,12 @@ class _$_$SwidiClassCtor extends _$SwidiClassCtor {
   final List<SwidiFunctionDeclaration> methods;
   @override
   final List<SwidiFunctionDeclaration> staticMethods;
+  @override
+  final SwidiConst shortHandOverride;
 
   @override
   String toString() {
-    return 'SwidiClass(name: $name, libraryScopePrefix: $libraryScopePrefix, methods: $methods, staticMethods: $staticMethods)';
+    return 'SwidiClass(name: $name, libraryScopePrefix: $libraryScopePrefix, methods: $methods, staticMethods: $staticMethods, shortHandOverride: $shortHandOverride)';
   }
 
   @override
@@ -200,7 +228,10 @@ class _$_$SwidiClassCtor extends _$SwidiClassCtor {
                     .equals(other.methods, methods)) &&
             (identical(other.staticMethods, staticMethods) ||
                 const DeepCollectionEquality()
-                    .equals(other.staticMethods, staticMethods)));
+                    .equals(other.staticMethods, staticMethods)) &&
+            (identical(other.shortHandOverride, shortHandOverride) ||
+                const DeepCollectionEquality()
+                    .equals(other.shortHandOverride, shortHandOverride)));
   }
 
   @override
@@ -209,7 +240,8 @@ class _$_$SwidiClassCtor extends _$SwidiClassCtor {
       const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(libraryScopePrefix) ^
       const DeepCollectionEquality().hash(methods) ^
-      const DeepCollectionEquality().hash(staticMethods);
+      const DeepCollectionEquality().hash(staticMethods) ^
+      const DeepCollectionEquality().hash(shortHandOverride);
 
   @JsonKey(ignore: true)
   @override
@@ -219,11 +251,11 @@ class _$_$SwidiClassCtor extends _$SwidiClassCtor {
 
 abstract class _$SwidiClassCtor extends SwidiClass {
   factory _$SwidiClassCtor(
-          {required String name,
-          required SwidiLibraryScopePrefix libraryScopePrefix,
-          required List<SwidiFunctionDeclaration> methods,
-          required List<SwidiFunctionDeclaration> staticMethods}) =
-      _$_$SwidiClassCtor;
+      {required String name,
+      required SwidiLibraryScopePrefix libraryScopePrefix,
+      required List<SwidiFunctionDeclaration> methods,
+      required List<SwidiFunctionDeclaration> staticMethods,
+      required SwidiConst shortHandOverride}) = _$_$SwidiClassCtor;
   _$SwidiClassCtor._() : super._();
 
   @override
@@ -237,6 +269,8 @@ abstract class _$SwidiClassCtor extends SwidiClass {
   @override
   List<SwidiFunctionDeclaration> get staticMethods =>
       throw _privateConstructorUsedError;
+  @override
+  SwidiConst get shortHandOverride => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$SwidiClassCtorCopyWith<_$SwidiClassCtor> get copyWith =>

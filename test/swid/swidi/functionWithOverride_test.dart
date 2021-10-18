@@ -104,6 +104,9 @@ void foo(int bar,int baz)->@"foo";
               ],
             ),
           ],
+          shortHandOverride: SwidiConst.fromSwidiEmptyConst(
+            swidiEmptyConst: SwidiEmptyConst(),
+          ),
         ),
       ],
     );
@@ -160,6 +163,9 @@ class IconData {
               ),
             ),
           ],
+          shortHandOverride: SwidiConst.fromSwidiEmptyConst(
+            swidiEmptyConst: SwidiEmptyConst(),
+          ),
         ),
       ],
     );
@@ -216,6 +222,9 @@ class IconData {
               ),
             ),
           ],
+          shortHandOverride: SwidiConst.fromSwidiEmptyConst(
+            swidiEmptyConst: SwidiEmptyConst(),
+          ),
         ),
       ],
     );
