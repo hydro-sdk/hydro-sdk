@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
@@ -116,6 +117,7 @@ void main() {
       ),
     );
 
-    expect(ir.displayName, "List<Map<String,Object?>> Function(List<DiagnosticsNode>? nodes, DiagnosticsNode? parent, DiagnosticsSerializationDelegate delegate)");
+    expect(ir.displayName,
+        "List<Map<String,Object?>> Function(List<DiagnosticsNode>? nodes, DiagnosticsNode? parent, DiagnosticsSerializationDelegate delegate)");
   }, tags: "swid");
 }

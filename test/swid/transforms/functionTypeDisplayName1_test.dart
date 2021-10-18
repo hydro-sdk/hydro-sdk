@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
@@ -34,6 +35,6 @@ void main() {
       declarationModifiers: SwidDeclarationModifiers.empty(),
     );
 
-    expect(ir.displayName,"void Function()");
+    expect(ir.displayName, "void Function()");
   }, tags: "swid");
 }
