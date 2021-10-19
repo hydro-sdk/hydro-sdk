@@ -80,7 +80,8 @@ void main() {
               isFactory: false,
               typeFormals: [
                 SwidTypeFormal(
-                  value: SwidTypeFormalValue.fromString(string: "R"),
+                  swidTypeFormalBound: null,
+                  value: SwidTypeFormalValue.fromString(string: "R",),
                   swidReferenceDeclarationKind:
                       SwidReferenceDeclarationKind.typeParameterType,
                 )
@@ -140,12 +141,14 @@ void main() {
       isFactory: false,
       typeFormals: [
         SwidTypeFormal(
-          value: SwidTypeFormalValue.fromString(string: "S"),
+          swidTypeFormalBound: null,
+          value: SwidTypeFormalValue.fromString(string: "S",),
           swidReferenceDeclarationKind:
               SwidReferenceDeclarationKind.typeParameterType,
         ),
         SwidTypeFormal(
-          value: SwidTypeFormalValue.fromString(string: "T"),
+          swidTypeFormalBound: null,
+          value: SwidTypeFormalValue.fromString(string: "T",),
           swidReferenceDeclarationKind:
               SwidReferenceDeclarationKind.typeParameterType,
         ),

@@ -41,6 +41,7 @@ void main() {
         isMixin: false,
         typeFormals: [
           SwidTypeFormal(
+            swidTypeFormalBound: null,
             value: SwidTypeFormalValue.fromSwidInterface(
               swidInterface: SwidInterface(
                 name: "E",
@@ -56,6 +57,7 @@ void main() {
                 SwidReferenceDeclarationKind.typeParameterType,
           ),
           SwidTypeFormal(
+            swidTypeFormalBound: null,
             value: SwidTypeFormalValue.fromSwidClass(
               swidClass: SwidClass(
                 name: "_SplayTreeSetNode<E>",
@@ -73,6 +75,7 @@ void main() {
                 isMixin: false,
                 typeFormals: [
                   SwidTypeFormal(
+                    swidTypeFormalBound: null,
                     value: SwidTypeFormalValue.fromSwidInterface(
                       swidInterface: SwidInterface(
                         name: "E",
@@ -133,6 +136,7 @@ void main() {
       isMixin: false,
       typeFormals: [
         SwidTypeFormal(
+          swidTypeFormalBound: null,
           value: SwidTypeFormalValue.fromString(
             string: "E",
           ),

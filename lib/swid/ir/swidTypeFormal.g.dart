@@ -12,6 +12,10 @@ _$_$Data _$_$_$DataFromJson(Map<String, dynamic> json) {
     swidReferenceDeclarationKind: _$enumDecode(
         _$SwidReferenceDeclarationKindEnumMap,
         json['swidReferenceDeclarationKind']),
+    swidTypeFormalBound: json['swidTypeFormalBound'] == null
+        ? null
+        : SwidTypeFormalBound.fromJson(
+            json['swidTypeFormalBound'] as Map<String, dynamic>),
   );
 }
 
@@ -19,6 +23,7 @@ Map<String, dynamic> _$_$_$DataToJson(_$_$Data instance) => <String, dynamic>{
       'value': instance.value,
       'swidReferenceDeclarationKind': _$SwidReferenceDeclarationKindEnumMap[
           instance.swidReferenceDeclarationKind],
+      'swidTypeFormalBound': instance.swidTypeFormalBound,
     };
 
 K _$enumDecode<K, V>(

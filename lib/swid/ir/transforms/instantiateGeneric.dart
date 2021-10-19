@@ -217,6 +217,7 @@ class InstantiateGeneric
                                   swidReferenceDeclarationKind:
                                       genericInstantiator.instantiatedGeneric
                                           .referenceDeclarationKind,
+                                  swidTypeFormalBound: x.swidTypeFormalBound,
                                 )
                               : x)
                           .toList(),
@@ -334,6 +335,7 @@ class InstantiateGeneric
                             ),
                             swidReferenceDeclarationKind: genericInstantiator
                                 .instantiatedGeneric.referenceDeclarationKind,
+                            swidTypeFormalBound: null,
                           )
                         : x)
                     .toList(),

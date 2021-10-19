@@ -124,6 +124,7 @@ class "dart:core"::List {
           isFactory: false,
           typeFormals: [
             SwidTypeFormal(
+              swidTypeFormalBound: null,
               value: SwidTypeFormalValue.fromSwidInterface(
                 swidInterface: SwidInterface(
                   declarationModifiers: SwidDeclarationModifiers.empty(),

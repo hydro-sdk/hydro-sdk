@@ -89,7 +89,10 @@ void main() {
       isFactory: false,
       typeFormals: [
         SwidTypeFormal(
-          value: SwidTypeFormalValue.fromString(string: "T"),
+          swidTypeFormalBound: null,
+          value: SwidTypeFormalValue.fromString(
+            string: "T",
+          ),
           swidReferenceDeclarationKind:
               SwidReferenceDeclarationKind.typeParameterType,
         ),
@@ -123,17 +126,29 @@ void main() {
     expect(unsatisfiedTypesFromMapWithNoTypes.length, 3);
     expect(unsatisfiedTypesFromMapWithNoTypes, [
       SwidTypeFormal(
-          value: SwidTypeFormalValue.fromString(string: "E"),
-          swidReferenceDeclarationKind:
-              SwidReferenceDeclarationKind.typeParameterType),
+        swidTypeFormalBound: null,
+        value: SwidTypeFormalValue.fromString(
+          string: "E",
+        ),
+        swidReferenceDeclarationKind:
+            SwidReferenceDeclarationKind.typeParameterType,
+      ),
       SwidTypeFormal(
-          value: SwidTypeFormalValue.fromString(string: "T"),
-          swidReferenceDeclarationKind:
-              SwidReferenceDeclarationKind.typeParameterType),
+        swidTypeFormalBound: null,
+        value: SwidTypeFormalValue.fromString(
+          string: "T",
+        ),
+        swidReferenceDeclarationKind:
+            SwidReferenceDeclarationKind.typeParameterType,
+      ),
       SwidTypeFormal(
-          value: SwidTypeFormalValue.fromString(string: "T"),
-          swidReferenceDeclarationKind:
-              SwidReferenceDeclarationKind.typeParameterType),
+        swidTypeFormalBound: null,
+        value: SwidTypeFormalValue.fromString(
+          string: "T",
+        ),
+        swidReferenceDeclarationKind:
+            SwidReferenceDeclarationKind.typeParameterType,
+      ),
     ]);
 
     //factory Iterable<E> Iterable.empty()
@@ -181,12 +196,19 @@ void main() {
   */
     expect(unsatisfiedTypesFromEmpty, isNotNull);
     expect(unsatisfiedTypesFromEmpty.length, 1);
-    expect(unsatisfiedTypesFromEmpty, [
-      SwidTypeFormal(
-          value: SwidTypeFormalValue.fromString(string: "E"),
+    expect(
+      unsatisfiedTypesFromEmpty,
+      [
+        SwidTypeFormal(
+          swidTypeFormalBound: null,
+          value: SwidTypeFormalValue.fromString(
+            string: "E",
+          ),
           swidReferenceDeclarationKind:
-              SwidReferenceDeclarationKind.typeParameterType)
-    ]);
+              SwidReferenceDeclarationKind.typeParameterType,
+        )
+      ],
+    );
 
     //Iterable<E>  Iterable()
     var constructor = SwidFunctionType(
@@ -231,9 +253,13 @@ void main() {
     expect(unsatisfiedTypesFromConstructor.length, 1);
     expect(unsatisfiedTypesFromConstructor, [
       SwidTypeFormal(
-          value: SwidTypeFormalValue.fromString(string: "E"),
-          swidReferenceDeclarationKind:
-              SwidReferenceDeclarationKind.typeParameterType)
+        swidTypeFormalBound: null,
+        value: SwidTypeFormalValue.fromString(
+          string: "E",
+        ),
+        swidReferenceDeclarationKind:
+            SwidReferenceDeclarationKind.typeParameterType,
+      )
     ]);
     /*
     class Iterable<E> {
@@ -257,6 +283,7 @@ void main() {
         isMixin: false,
         typeFormals: [
           SwidTypeFormal(
+            swidTypeFormalBound: null,
             value: SwidTypeFormalValue.fromString(string: "E"),
             swidReferenceDeclarationKind:
                 SwidReferenceDeclarationKind.typeParameterType,
@@ -273,17 +300,25 @@ void main() {
 
     //Removing "E" should cause the use of "E" in the constructor to become unsatisfied
     expect(
-        unsatisfiedTypeParameters(
-            swidType: SwidType.fromSwidClass(
-                swidClass:
-                    SwidClass.clone(swidClass: iterable, typeFormals: []))),
-        [
-          SwidTypeFormal(
-            value: SwidTypeFormalValue.fromString(string: "E"),
-            swidReferenceDeclarationKind:
-                SwidReferenceDeclarationKind.typeParameterType,
-          )
-        ]);
+      unsatisfiedTypeParameters(
+        swidType: SwidType.fromSwidClass(
+          swidClass: SwidClass.clone(
+            swidClass: iterable,
+            typeFormals: [],
+          ),
+        ),
+      ),
+      [
+        SwidTypeFormal(
+          swidTypeFormalBound: null,
+          value: SwidTypeFormalValue.fromString(
+            string: "E",
+          ),
+          swidReferenceDeclarationKind:
+              SwidReferenceDeclarationKind.typeParameterType,
+        )
+      ],
+    );
     /*
     class Iterable<E> {
      Iterable<E> Iterable();
@@ -315,16 +350,18 @@ void main() {
                     swidClass: iterableWithMapMethod, typeFormals: []))),
         [
           SwidTypeFormal(
-            value: SwidTypeFormalValue.fromString(string: "E"),
+            swidTypeFormalBound: null,
+            value: SwidTypeFormalValue.fromString(string: "E",),
             swidReferenceDeclarationKind:
                 SwidReferenceDeclarationKind.typeParameterType,
           ),
           SwidTypeFormal(
-            value: SwidTypeFormalValue.fromString(string: "E"),
+            swidTypeFormalBound: null,
+            value: SwidTypeFormalValue.fromString(string: "E",),
             swidReferenceDeclarationKind:
                 SwidReferenceDeclarationKind.typeParameterType,
           )
-        ]);
+        ],);
 
     /*
     class Iterable<E> {
@@ -356,10 +393,11 @@ void main() {
     expect(unsatisfiedTypesFromIterableWithMapAndEmpty.length, 1);
     expect(unsatisfiedTypesFromIterableWithMapAndEmpty, [
       SwidTypeFormal(
-          value: SwidTypeFormalValue.fromString(string: "E"),
+        swidTypeFormalBound: null,
+          value: SwidTypeFormalValue.fromString(string: "E",),
           swidReferenceDeclarationKind:
-              SwidReferenceDeclarationKind.typeParameterType)
-    ]);
+              SwidReferenceDeclarationKind.typeParameterType,)
+    ],);
 
     /*
         Should be able to override propogation behaviour to class statics to get

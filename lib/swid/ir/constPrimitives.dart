@@ -347,6 +347,7 @@ final dartUnkownTypeFormal = SwidTypeFormal(
     swidInterface: dartUnknownInterface,
   ),
   swidReferenceDeclarationKind: SwidReferenceDeclarationKind.unknown,
+  swidTypeFormalBound: null,
 );
 
 final dartUnknownDefaultFormalParameter = SwidDefaultFormalParameter(

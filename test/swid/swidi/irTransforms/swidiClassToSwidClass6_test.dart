@@ -187,6 +187,7 @@ class "dart:async"::Future {
           isFactory: false,
           typeFormals: [
             SwidTypeFormal(
+              swidTypeFormalBound: null,
               value: SwidTypeFormalValue.fromSwidInterface(
                 swidInterface: SwidInterface(
                   declarationModifiers: SwidDeclarationModifiers.empty(),

@@ -13,4 +13,5 @@ SwidTypeFormal swidTypeFormalFromTypeParameter({
       ),
       swidReferenceDeclarationKind:
           SwidReferenceDeclarationKind.typeParameterType,
+          swidTypeFormalBound: null,
     );

@@ -83,6 +83,7 @@ void main() {
       isMixin: false,
       typeFormals: [
         SwidTypeFormal(
+          swidTypeFormalBound: null,
           value: SwidTypeFormalValue.fromString(
             string: "K",
           ),
@@ -90,6 +91,7 @@ void main() {
               SwidReferenceDeclarationKind.typeParameterType,
         ),
         SwidTypeFormal(
+          swidTypeFormalBound: null,
           value: SwidTypeFormalValue.fromString(
             string: "V",
           ),

@@ -171,11 +171,12 @@ void main() {
         isMixin: false,
         typeFormals: [
           SwidTypeFormal(
-            value: SwidTypeFormalValue.fromString(string: "E"),
+            swidTypeFormalBound: null,
+            value: SwidTypeFormalValue.fromString(string: "E",),
             swidReferenceDeclarationKind:
                 SwidReferenceDeclarationKind.typeParameterType,
           )
-        ]);
+        ],);
     expect(
         CachingPipeline(
           cacheMgr: const PipelineNoopCacheMgr(),

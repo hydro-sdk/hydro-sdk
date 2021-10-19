@@ -22,10 +22,12 @@ class _$SwidTypeFormalTearOff {
 
   _$Data call(
       {required SwidTypeFormalValue value,
-      required SwidReferenceDeclarationKind swidReferenceDeclarationKind}) {
+      required SwidReferenceDeclarationKind swidReferenceDeclarationKind,
+      required SwidTypeFormalBound? swidTypeFormalBound}) {
     return _$Data(
       value: value,
       swidReferenceDeclarationKind: swidReferenceDeclarationKind,
+      swidTypeFormalBound: swidTypeFormalBound,
     );
   }
 
@@ -42,6 +44,8 @@ mixin _$SwidTypeFormal {
   SwidTypeFormalValue get value => throw _privateConstructorUsedError;
   SwidReferenceDeclarationKind get swidReferenceDeclarationKind =>
       throw _privateConstructorUsedError;
+  SwidTypeFormalBound? get swidTypeFormalBound =>
+      throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -56,9 +60,11 @@ abstract class $SwidTypeFormalCopyWith<$Res> {
       _$SwidTypeFormalCopyWithImpl<$Res>;
   $Res call(
       {SwidTypeFormalValue value,
-      SwidReferenceDeclarationKind swidReferenceDeclarationKind});
+      SwidReferenceDeclarationKind swidReferenceDeclarationKind,
+      SwidTypeFormalBound? swidTypeFormalBound});
 
   $SwidTypeFormalValueCopyWith<$Res> get value;
+  $SwidTypeFormalBoundCopyWith<$Res>? get swidTypeFormalBound;
 }
 
 /// @nodoc
@@ -74,6 +80,7 @@ class _$SwidTypeFormalCopyWithImpl<$Res>
   $Res call({
     Object? value = freezed,
     Object? swidReferenceDeclarationKind = freezed,
+    Object? swidTypeFormalBound = freezed,
   }) {
     return _then(_value.copyWith(
       value: value == freezed
@@ -84,6 +91,10 @@ class _$SwidTypeFormalCopyWithImpl<$Res>
           ? _value.swidReferenceDeclarationKind
           : swidReferenceDeclarationKind // ignore: cast_nullable_to_non_nullable
               as SwidReferenceDeclarationKind,
+      swidTypeFormalBound: swidTypeFormalBound == freezed
+          ? _value.swidTypeFormalBound
+          : swidTypeFormalBound // ignore: cast_nullable_to_non_nullable
+              as SwidTypeFormalBound?,
     ));
   }
 
@@ -91,6 +102,18 @@ class _$SwidTypeFormalCopyWithImpl<$Res>
   $SwidTypeFormalValueCopyWith<$Res> get value {
     return $SwidTypeFormalValueCopyWith<$Res>(_value.value, (value) {
       return _then(_value.copyWith(value: value));
+    });
+  }
+
+  @override
+  $SwidTypeFormalBoundCopyWith<$Res>? get swidTypeFormalBound {
+    if (_value.swidTypeFormalBound == null) {
+      return null;
+    }
+
+    return $SwidTypeFormalBoundCopyWith<$Res>(_value.swidTypeFormalBound!,
+        (value) {
+      return _then(_value.copyWith(swidTypeFormalBound: value));
     });
   }
 }
@@ -102,10 +125,13 @@ abstract class _$$DataCopyWith<$Res> implements $SwidTypeFormalCopyWith<$Res> {
   @override
   $Res call(
       {SwidTypeFormalValue value,
-      SwidReferenceDeclarationKind swidReferenceDeclarationKind});
+      SwidReferenceDeclarationKind swidReferenceDeclarationKind,
+      SwidTypeFormalBound? swidTypeFormalBound});
 
   @override
   $SwidTypeFormalValueCopyWith<$Res> get value;
+  @override
+  $SwidTypeFormalBoundCopyWith<$Res>? get swidTypeFormalBound;
 }
 
 /// @nodoc
@@ -121,6 +147,7 @@ class __$$DataCopyWithImpl<$Res> extends _$SwidTypeFormalCopyWithImpl<$Res>
   $Res call({
     Object? value = freezed,
     Object? swidReferenceDeclarationKind = freezed,
+    Object? swidTypeFormalBound = freezed,
   }) {
     return _then(_$Data(
       value: value == freezed
@@ -131,6 +158,10 @@ class __$$DataCopyWithImpl<$Res> extends _$SwidTypeFormalCopyWithImpl<$Res>
           ? _value.swidReferenceDeclarationKind
           : swidReferenceDeclarationKind // ignore: cast_nullable_to_non_nullable
               as SwidReferenceDeclarationKind,
+      swidTypeFormalBound: swidTypeFormalBound == freezed
+          ? _value.swidTypeFormalBound
+          : swidTypeFormalBound // ignore: cast_nullable_to_non_nullable
+              as SwidTypeFormalBound?,
     ));
   }
 }
@@ -138,7 +169,10 @@ class __$$DataCopyWithImpl<$Res> extends _$SwidTypeFormalCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_$Data extends _$Data {
-  _$_$Data({required this.value, required this.swidReferenceDeclarationKind})
+  _$_$Data(
+      {required this.value,
+      required this.swidReferenceDeclarationKind,
+      required this.swidTypeFormalBound})
       : super._();
 
   factory _$_$Data.fromJson(Map<String, dynamic> json) =>
@@ -148,10 +182,12 @@ class _$_$Data extends _$Data {
   final SwidTypeFormalValue value;
   @override
   final SwidReferenceDeclarationKind swidReferenceDeclarationKind;
+  @override
+  final SwidTypeFormalBound? swidTypeFormalBound;
 
   @override
   String toString() {
-    return 'SwidTypeFormal(value: $value, swidReferenceDeclarationKind: $swidReferenceDeclarationKind)';
+    return 'SwidTypeFormal(value: $value, swidReferenceDeclarationKind: $swidReferenceDeclarationKind, swidTypeFormalBound: $swidTypeFormalBound)';
   }
 
   @override
@@ -164,14 +200,18 @@ class _$_$Data extends _$Data {
                     swidReferenceDeclarationKind) ||
                 const DeepCollectionEquality().equals(
                     other.swidReferenceDeclarationKind,
-                    swidReferenceDeclarationKind)));
+                    swidReferenceDeclarationKind)) &&
+            (identical(other.swidTypeFormalBound, swidTypeFormalBound) ||
+                const DeepCollectionEquality()
+                    .equals(other.swidTypeFormalBound, swidTypeFormalBound)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(value) ^
-      const DeepCollectionEquality().hash(swidReferenceDeclarationKind);
+      const DeepCollectionEquality().hash(swidReferenceDeclarationKind) ^
+      const DeepCollectionEquality().hash(swidTypeFormalBound);
 
   @JsonKey(ignore: true)
   @override
@@ -186,9 +226,9 @@ class _$_$Data extends _$Data {
 
 abstract class _$Data extends SwidTypeFormal {
   factory _$Data(
-          {required SwidTypeFormalValue value,
-          required SwidReferenceDeclarationKind swidReferenceDeclarationKind}) =
-      _$_$Data;
+      {required SwidTypeFormalValue value,
+      required SwidReferenceDeclarationKind swidReferenceDeclarationKind,
+      required SwidTypeFormalBound? swidTypeFormalBound}) = _$_$Data;
   _$Data._() : super._();
 
   factory _$Data.fromJson(Map<String, dynamic> json) = _$_$Data.fromJson;
@@ -197,6 +237,9 @@ abstract class _$Data extends SwidTypeFormal {
   SwidTypeFormalValue get value => throw _privateConstructorUsedError;
   @override
   SwidReferenceDeclarationKind get swidReferenceDeclarationKind =>
+      throw _privateConstructorUsedError;
+  @override
+  SwidTypeFormalBound? get swidTypeFormalBound =>
       throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)

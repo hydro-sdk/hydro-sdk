@@ -118,7 +118,8 @@ void main() {
           isFactory: false,
           typeFormals: [
             SwidTypeFormal(
-              value: SwidTypeFormalValue.fromString(string: "T"),
+              swidTypeFormalBound: null,
+              value: SwidTypeFormalValue.fromString(string: "T",),
               swidReferenceDeclarationKind:
                   SwidReferenceDeclarationKind.typeParameterType,
             )
@@ -134,7 +135,8 @@ void main() {
       isMixin: false,
       typeFormals: [
         SwidTypeFormal(
-          value: SwidTypeFormalValue.fromString(string: "E"),
+          swidTypeFormalBound: null,
+          value: SwidTypeFormalValue.fromString(string: "E",),
           swidReferenceDeclarationKind:
               SwidReferenceDeclarationKind.typeParameterType,
         )

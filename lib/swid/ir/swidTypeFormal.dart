@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
+import 'package:hydro_sdk/swid/ir/swidTypeFormalBound.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormalValue.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
@@ -22,6 +23,7 @@ class SwidTypeFormal
   factory SwidTypeFormal({
     required final SwidTypeFormalValue value,
     required final SwidReferenceDeclarationKind swidReferenceDeclarationKind,
+    required final SwidTypeFormalBound? swidTypeFormalBound,
   }) = _$Data;
 
   factory SwidTypeFormal.fromJson(Map<String, dynamic> json) =>
@@ -31,6 +33,7 @@ class SwidTypeFormal
     required final SwidTypeFormal swidTypeFormal,
     final SwidTypeFormalValue? value,
     final SwidReferenceDeclarationKind? swidReferenceDeclarationKind,
+    final SwidTypeFormalBound? swidTypeFormalBound,
   }) =>
       SwidTypeFormal(
         value: value ??
@@ -38,6 +41,8 @@ class SwidTypeFormal
                 swidTypeFormalValue: swidTypeFormal.value),
         swidReferenceDeclarationKind: swidReferenceDeclarationKind ??
             swidTypeFormal.swidReferenceDeclarationKind,
+        swidTypeFormalBound:
+            swidTypeFormalBound ?? swidTypeFormal.swidTypeFormalBound,
       );
 
   @override
@@ -50,10 +55,12 @@ class SwidTypeFormal
   SwidTypeFormal clone({
     final SwidTypeFormalValue? value,
     final SwidReferenceDeclarationKind? swidReferenceDeclarationKind,
+    final SwidTypeFormalBound? swidTypeFormalBound,
   }) =>
       SwidTypeFormal.clone(
         swidTypeFormal: this,
         value: value,
         swidReferenceDeclarationKind: swidReferenceDeclarationKind,
+        swidTypeFormalBound: swidTypeFormalBound,
       );
 }

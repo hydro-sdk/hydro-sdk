@@ -29,6 +29,7 @@ List<SwidTypeFormal> unsatisfiedTypeParameters({
                   ),
                   swidReferenceDeclarationKind:
                       SwidReferenceDeclarationKind.typeParameterType,
+                      swidTypeFormalBound: null,
                 )
               : dartUnkownTypeFormal),
           ...((List<List<SwidTypeFormal>> unsatisfiedTypes) =>

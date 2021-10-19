@@ -25,6 +25,7 @@ List<SwidTypeFormal> swidiTypeFormalsToSwidTypeFormals<T extends ITypeFormals>({
             ),
             swidReferenceDeclarationKind:
                 SwidReferenceDeclarationKind.typeParameterType,
+                swidTypeFormalBound: null,
           ),
         )
         .toList();

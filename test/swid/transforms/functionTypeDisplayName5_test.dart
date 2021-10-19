@@ -92,6 +92,7 @@ void main() {
       isFactory: false,
       typeFormals: [
         SwidTypeFormal(
+          swidTypeFormalBound: null,
           value: SwidTypeFormalValue.fromString(
             string: "T",
           ),
