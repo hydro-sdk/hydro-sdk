@@ -10,13 +10,13 @@ import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
+import 'package:hydro_sdk/swid/ir/swidTypeFormalValue.dart';
 
 import 'package:analyzer/dart/element/element.dart'
     show PropertyAccessorElement;
 
 import 'package:analyzer/dart/element/type.dart'
     show InterfaceType, TypeParameterType;
-import 'package:hydro_sdk/swid/ir/swidTypeFormalValue.dart';
 
 SwidClass swidClassFromInterfaceType({
   required final InterfaceType interfaceType,
