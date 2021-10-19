@@ -16,6 +16,7 @@ import 'package:analyzer/dart/element/element.dart'
 
 import 'package:analyzer/dart/element/type.dart'
     show InterfaceType, TypeParameterType;
+import 'package:hydro_sdk/swid/ir/swidTypeFormalValue.dart';
 
 SwidClass swidClassFromInterfaceType({
   required final InterfaceType interfaceType,

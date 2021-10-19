@@ -8,6 +8,7 @@ import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
+import 'package:hydro_sdk/swid/ir/swidTypeFormalValue.dart';
 import 'package:hydro_sdk/swid/ir/util/collectAllReferences.dart';
 
 void main() {
