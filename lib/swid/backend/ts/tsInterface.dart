@@ -62,26 +62,34 @@ class TsInterface
         required final List<SwidTypeFormal> typeFormals,
       }) =>
           SwarsTermResult.fromString(
-            ([
-              "export interface $name",
-              pipeline.reduceFromTerm(
-                TransformTypeFormalsToTs(
-                  swidTypeFormals: typeFormals,
-                ),
-              ),
-              emitSuperInterfaceExtensions ? superClause : "",
-              "{",
-              ...members.entries
-                  .map((x) => "${x.key}: ${pipeline.reduceFromTerm(
-                        TransformTypeDeclarationToTs(
-                          parentClass: null,
-                          swidType: x.value,
-                        ),
-                      )};")
-                  .toList(),
-              "}"
-            ]..removeWhere((x) => x == null))
-                .join("\n"),
+            swidClass.declarationModifiers.overridenTransforms.firstWhereOrNull(
+                      (x) => x.item1 == "tsInterface",
+                    ) ==
+                    null
+                ? ([
+                    "export interface $name",
+                    pipeline.reduceFromTerm(
+                      TransformTypeFormalsToTs(
+                        swidTypeFormals: typeFormals,
+                      ),
+                    ),
+                    emitSuperInterfaceExtensions ? superClause : "",
+                    "{",
+                    ...members.entries
+                        .map((x) => "${x.key}: ${pipeline.reduceFromTerm(
+                              TransformTypeDeclarationToTs(
+                                parentClass: null,
+                                swidType: x.value,
+                              ),
+                            )};")
+                        .toList(),
+                    "}"
+                  ]).join("\n")
+                : swidClass.declarationModifiers.overridenTransforms
+                    .firstWhere(
+                      (x) => x.item1 == "tsInterface",
+                    )
+                    .item2,
           ))(
         name: swidClass.name,
         members: {
