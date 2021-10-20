@@ -21,6 +21,7 @@ import 'package:hydro_sdk/swid/backend/ts/tsInterface.dart';
 import 'package:hydro_sdk/swid/backend/ts/tsLinebreak.dart';
 import 'package:hydro_sdk/swid/backend/ts/tsResolvedImport.dart';
 import 'package:hydro_sdk/swid/backend/ts/tsTopLevelStaticConstFieldDeclaration.dart';
+import 'package:hydro_sdk/swid/backend/ts/tsTranslationUnitOverrideDelegate.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 
 part 'tsir.freezed.dart';
@@ -123,6 +124,11 @@ class TsIr with _$TsIr {
     required final TsTopLevelStaticConstFieldDeclaration
         tsTopLevelStaticConstFieldDeclaration,
   }) = _$FromTsTopLevelStaticConstFieldDeclaration;
+
+  factory TsIr.fromTsTranslationUnitOverrideDelegate({
+    required final TsTranslationUnitOverrideDelegate
+        tsTranslationUnitOverrideDelegate,
+  }) = _$TsTranslationUnitOverrideDelegateFromTsTranslationUnitOverrideDelegate;
 
   String transform({
     required ISwarsPipeline pipeline,
@@ -229,5 +235,6 @@ class TsIr with _$TsIr {
               pipeline: pipeline,
             )
             .unwrap(),
+        fromTsTranslationUnitOverrideDelegate: (val) => val.toTsSource(),
       );
 }
