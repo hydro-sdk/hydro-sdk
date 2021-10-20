@@ -1,7 +1,10 @@
 import 'package:analyzer/dart/ast/ast.dart';
+import 'package:analyzer/dart/element/type.dart';
+import 'package:hydro_sdk/swid/frontend/dart/swidInterfaceFromInterface.dart';
 
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
+import 'package:hydro_sdk/swid/ir/swidTypeFormalBound.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormalValue.dart';
 
 SwidTypeFormal swidTypeFormalFromTypeParameter({
@@ -13,5 +16,14 @@ SwidTypeFormal swidTypeFormalFromTypeParameter({
       ),
       swidReferenceDeclarationKind:
           SwidReferenceDeclarationKind.typeParameterType,
-          swidTypeFormalBound: null,
+      swidTypeFormalBound: typeParameter.bound != null &&
+              typeParameter.bound is TypeName &&
+              typeParameter.bound!.type != null &&
+              typeParameter.bound!.type is InterfaceType
+          ? SwidTypeFormalBound.fromSwidInterface(
+              swidInterface: swidInterfaceFromInterface(
+                interfaceType: typeParameter.bound!.type as InterfaceType,
+              ),
+            )
+          : null,
     );

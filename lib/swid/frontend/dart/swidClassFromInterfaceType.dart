@@ -109,6 +109,7 @@ SwidClass swidClassFromInterfaceType({
           .map((x) => x is InterfaceType &&
                   interfaceTypeFormalResolutionDepth > 0
               ? SwidTypeFormal(
+                  swidTypeFormalBound: null,
                   value: SwidTypeFormalValue.fromSwidClass(
                     swidClass: swidClassFromInterfaceType(
                       interfaceType: x,
@@ -121,6 +122,7 @@ SwidClass swidClassFromInterfaceType({
                 )
               : x is TypeName
                   ? SwidTypeFormal(
+                      swidTypeFormalBound: null,
                       value: SwidTypeFormalValue.fromSwidClass(
                         swidClass: swidClassFromInterfaceType(
                             interfaceType:
@@ -131,6 +133,7 @@ SwidClass swidClassFromInterfaceType({
                     )
                   : x is TypeParameterType
                       ? SwidTypeFormal(
+                          swidTypeFormalBound: null,
                           value: SwidTypeFormalValue.fromSwidInterface(
                             swidInterface: swidInterfaceFromTypeParameterType(
                                 typeParameterType: x),
