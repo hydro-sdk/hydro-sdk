@@ -212,6 +212,18 @@ class SwidFunctionType
         returnType.displayName,
         " ",
         "Function",
+        ...(typeFormals.isNotEmpty
+            ? [
+                "<",
+                typeFormals
+                    .map(
+                      (x) => x.value.displayName,
+                    )
+                    .toList()
+                    .join(","),
+                ">"
+              ]
+            : []),
         "(",
         normalParameterTypes
             .mapIndexed(
