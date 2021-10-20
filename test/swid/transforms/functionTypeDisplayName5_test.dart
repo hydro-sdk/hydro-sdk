@@ -100,6 +100,6 @@ void main() {
       ],
     );
 
-    expect(ir.displayName, "Iterable<T> map<T>(T f(E e))");
+    expect(ir.displayName, "Iterable<T> Function<T>(T Function(E e) f)");
   }, tags: "swid");
 }
