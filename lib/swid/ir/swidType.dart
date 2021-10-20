@@ -151,7 +151,7 @@ class SwidType
                   : [])
             ].join(""),
             fromSwidDefaultFormalParameter: (val) => val.staticType.name,
-            fromSwidFunctionType: (val) => val.name,
+            fromSwidFunctionType: (val) => val.displayName,
           ),
         )
       ].join(""));
