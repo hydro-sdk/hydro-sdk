@@ -26,7 +26,7 @@ void main(List<String> args) async {
   assert((() {
     args = [
       "--config",
-      "swid.dart.json",
+      "swid.flutter.json",
       "--no-fs-cache",
     ];
     return true;
@@ -151,12 +151,14 @@ void main(List<String> args) async {
   );
 
   final classes = irClasses
-      .where((x) => (config.emitOptions.allowList.classNames
-                  .firstWhereOrNull((e) => x.name == e) !=
-              null ||
-          config.emitOptions.allowList.packagePaths
-                  .firstWhereOrNull((e) => x.originalPackagePath == e) !=
-              null))
+      .where((x) => (config.emitOptions.allowList.classNames.isNotEmpty ||
+              config.emitOptions.allowList.packagePaths.isNotEmpty)
+          ? (config.emitOptions.allowList.classNames.firstWhereOrNull((e) => x.name == e) !=
+                  null ||
+              config.emitOptions.allowList.packagePaths
+                      .firstWhereOrNull((e) => x.originalPackagePath == e) !=
+                  null)
+          : true)
       .where((x) => (config.emitOptions.denyList.classNames
                   .firstWhereOrNull((e) => x.name == e) ==
               null &&
