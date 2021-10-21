@@ -5,6 +5,7 @@ import 'package:analyzer/dart/ast/ast.dart'
         VariableDeclarationList,
         TypeParameterList;
 
+import 'package:analyzer/dart/element/element.dart' show ConstructorElement;
 import 'package:analyzer/dart/element/type.dart' show InterfaceType;
 import 'package:collection/collection.dart' show IterableExtension;
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -58,17 +59,21 @@ SwidClass swidClassFromDartClassOrMixinOrClassTypAliasDeclaration({
       .where((x) => x.name.name[0] != "_")
       .toList()
       .cast<MethodDeclarationImpl>()
-      .map((x) => swidFunctionTypeFromFunctionType(
+      .map(
+        (x) => swidFunctionTypeFromFunctionType(
           functionType: x.declaredElement!.type,
           declarationModifiers: narrowModifierProducer(
-              element: x.declaredElement,
-              onExecutablElement: (val) =>
-                  swidDeclarationModifiersFromExecutableElement(
-                      executableElement: val),
-              onPropertyAccessorElement: (val) =>
-                  swidDeclarationModifiersFromPropertyAccessorElement(
-                    propertyAccessorElement: val,
-                  ))!))
+            element: x.declaredElement,
+            onExecutablElement: (val) =>
+                swidDeclarationModifiersFromExecutableElement(
+                    executableElement: val),
+            onPropertyAccessorElement: (val) =>
+                swidDeclarationModifiersFromPropertyAccessorElement(
+              propertyAccessorElement: val,
+            ),
+          )!,
+        ),
+      )
       .toList()
       .cast<SwidFunctionType>();
   return SwidClass(
@@ -86,7 +91,23 @@ SwidClass swidClassFromDartClassOrMixinOrClassTypAliasDeclaration({
               ),
               isFactory: constructorDeclarationImpl.factoryKeyword != null,
             )
-          : null,
+          : dartClassOrMixinOrClassTypAliasDeclaration.when(
+              fromClassDeclaration: (val) => (({
+                required final ConstructorElement? constructorElement,
+              }) =>
+                  constructorElement != null
+                      ? swidFunctionTypeFromFunctionType(
+                          functionType: constructorElement.type,
+                          declarationModifiers:
+                              SwidDeclarationModifiers.empty(),
+                        )
+                      : null)(
+                constructorElement: val.declaredElement?.constructors
+                    .firstWhereOrNull((x) => x.name == ""),
+              ),
+              fromMixinDeclaration: (_) => null,
+              fromClassTypeAlias: (_) => null,
+            ),
       factoryConstructors: constructors
           .where((x) => x.name != null && x.name!.name[0] != "_")
           .toList()
