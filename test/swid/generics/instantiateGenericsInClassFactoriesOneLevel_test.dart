@@ -128,7 +128,9 @@ void main() {
       typeFormals: [
         SwidTypeFormal(
           swidTypeFormalBound: null,
-          value: SwidTypeFormalValue.fromString(string: "E",),
+          value: SwidTypeFormalValue.fromString(
+            string: "E",
+          ),
           swidReferenceDeclarationKind:
               SwidReferenceDeclarationKind.typeParameterType,
         )

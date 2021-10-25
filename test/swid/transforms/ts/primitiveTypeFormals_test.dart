@@ -44,6 +44,7 @@ void main() {
             isMixin: false,
             typeFormals: [
               SwidTypeFormal(
+                swidTypeFormalBound: null,
                 value: SwidTypeFormalValue.fromSwidClass(
                   swidClass: SwidClass(
                     name: "double",

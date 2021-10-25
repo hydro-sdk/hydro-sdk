@@ -81,7 +81,9 @@ void main() {
               typeFormals: [
                 SwidTypeFormal(
                   swidTypeFormalBound: null,
-                  value: SwidTypeFormalValue.fromString(string: "R",),
+                  value: SwidTypeFormalValue.fromString(
+                    string: "R",
+                  ),
                   swidReferenceDeclarationKind:
                       SwidReferenceDeclarationKind.typeParameterType,
                 )
@@ -142,13 +144,17 @@ void main() {
       typeFormals: [
         SwidTypeFormal(
           swidTypeFormalBound: null,
-          value: SwidTypeFormalValue.fromString(string: "S",),
+          value: SwidTypeFormalValue.fromString(
+            string: "S",
+          ),
           swidReferenceDeclarationKind:
               SwidReferenceDeclarationKind.typeParameterType,
         ),
         SwidTypeFormal(
           swidTypeFormalBound: null,
-          value: SwidTypeFormalValue.fromString(string: "T",),
+          value: SwidTypeFormalValue.fromString(
+            string: "T",
+          ),
           swidReferenceDeclarationKind:
               SwidReferenceDeclarationKind.typeParameterType,
         ),

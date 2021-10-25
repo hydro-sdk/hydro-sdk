@@ -27,156 +27,158 @@ void main() {
     }
   */
     var iterable = SwidClass(
-        name: "Iterable",
+      name: "Iterable",
+      nullabilitySuffix: SwidNullabilitySuffix.none,
+      originalPackagePath: "dart:core",
+      implementedClasses: [],
+      constructorType: SwidFunctionType(
+        name: "",
         nullabilitySuffix: SwidNullabilitySuffix.none,
-        originalPackagePath: "dart:core",
-        implementedClasses: [],
-        constructorType: SwidFunctionType(
-          name: "",
-          nullabilitySuffix: SwidNullabilitySuffix.none,
-          originalPackagePath: "",
-          declarationModifiers: SwidDeclarationModifiers.empty(),
-          namedParameterTypes: {},
-          namedDefaults: {},
-          normalParameterNames: [],
-          normalParameterTypes: [],
-          optionalParameterNames: [],
-          optionalParameterTypes: [],
-          returnType: SwidType.fromSwidInterface(
-            swidInterface: SwidInterface(
-              declarationModifiers: SwidDeclarationModifiers.empty(),
-              name: "Iterable<E>",
-              nullabilitySuffix: SwidNullabilitySuffix.none,
-              originalPackagePath: "dart:core",
-              typeArguments: [
-                SwidType.fromSwidInterface(
-                  swidInterface: SwidInterface(
-                      declarationModifiers: SwidDeclarationModifiers.empty(),
-                      name: "E",
-                      nullabilitySuffix: SwidNullabilitySuffix.none,
-                      originalPackagePath: "dart:core",
-                      typeArguments: [],
-                      referenceDeclarationKind:
-                          SwidReferenceDeclarationKind.typeParameterType),
-                ),
-              ],
-              referenceDeclarationKind:
-                  SwidReferenceDeclarationKind.classElement,
-            ),
-          ),
-          isFactory: false,
-          typeFormals: [],
-        ),
-        factoryConstructors: [],
-        staticMethods: [],
-        methods: [
-          SwidFunctionType(
-            name: "firstWhere",
+        originalPackagePath: "",
+        declarationModifiers: SwidDeclarationModifiers.empty(),
+        namedParameterTypes: {},
+        namedDefaults: {},
+        normalParameterNames: [],
+        normalParameterTypes: [],
+        optionalParameterNames: [],
+        optionalParameterTypes: [],
+        returnType: SwidType.fromSwidInterface(
+          swidInterface: SwidInterface(
+            declarationModifiers: SwidDeclarationModifiers.empty(),
+            name: "Iterable<E>",
             nullabilitySuffix: SwidNullabilitySuffix.none,
             originalPackagePath: "dart:core",
-            declarationModifiers: SwidDeclarationModifiers.empty(),
-            namedParameterTypes: {
-              "orElse": SwidType.fromSwidFunctionType(
-                swidFunctionType: SwidFunctionType(
-                  name: "",
-                  nullabilitySuffix: SwidNullabilitySuffix.question,
-                  originalPackagePath: "",
-                  declarationModifiers: SwidDeclarationModifiers.empty(),
-                  namedParameterTypes: {},
-                  namedDefaults: {},
-                  normalParameterNames: [],
-                  normalParameterTypes: [],
-                  optionalParameterNames: [],
-                  optionalParameterTypes: [],
-                  returnType: SwidType.fromSwidInterface(
-                      swidInterface: SwidInterface(
+            typeArguments: [
+              SwidType.fromSwidInterface(
+                swidInterface: SwidInterface(
                     declarationModifiers: SwidDeclarationModifiers.empty(),
                     name: "E",
                     nullabilitySuffix: SwidNullabilitySuffix.none,
                     originalPackagePath: "dart:core",
                     typeArguments: [],
                     referenceDeclarationKind:
-                        SwidReferenceDeclarationKind.typeParameterType,
-                  )),
-                  isFactory: false,
-                  typeFormals: [],
-                ),
+                        SwidReferenceDeclarationKind.typeParameterType),
               ),
-            },
-            namedDefaults: {},
-            normalParameterNames: ["test"],
-            normalParameterTypes: [
-              SwidType.fromSwidFunctionType(
-                swidFunctionType: SwidFunctionType(
-                  name: "",
-                  nullabilitySuffix: SwidNullabilitySuffix.none,
-                  originalPackagePath: "",
+            ],
+            referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
+          ),
+        ),
+        isFactory: false,
+        typeFormals: [],
+      ),
+      factoryConstructors: [],
+      staticMethods: [],
+      methods: [
+        SwidFunctionType(
+          name: "firstWhere",
+          nullabilitySuffix: SwidNullabilitySuffix.none,
+          originalPackagePath: "dart:core",
+          declarationModifiers: SwidDeclarationModifiers.empty(),
+          namedParameterTypes: {
+            "orElse": SwidType.fromSwidFunctionType(
+              swidFunctionType: SwidFunctionType(
+                name: "",
+                nullabilitySuffix: SwidNullabilitySuffix.question,
+                originalPackagePath: "",
+                declarationModifiers: SwidDeclarationModifiers.empty(),
+                namedParameterTypes: {},
+                namedDefaults: {},
+                normalParameterNames: [],
+                normalParameterTypes: [],
+                optionalParameterNames: [],
+                optionalParameterTypes: [],
+                returnType: SwidType.fromSwidInterface(
+                    swidInterface: SwidInterface(
                   declarationModifiers: SwidDeclarationModifiers.empty(),
-                  namedParameterTypes: {},
-                  namedDefaults: {},
-                  normalParameterNames: ["element"],
-                  normalParameterTypes: [
-                    SwidType.fromSwidInterface(
-                      swidInterface: SwidInterface(
-                        declarationModifiers: SwidDeclarationModifiers.empty(),
-                        name: "E",
-                        nullabilitySuffix: SwidNullabilitySuffix.none,
-                        originalPackagePath: "dart:core",
-                        typeArguments: [],
-                        referenceDeclarationKind:
-                            SwidReferenceDeclarationKind.typeParameterType,
-                      ),
-                    ),
-                  ],
-                  optionalParameterNames: [],
-                  optionalParameterTypes: [],
-                  returnType: SwidType.fromSwidInterface(
+                  name: "E",
+                  nullabilitySuffix: SwidNullabilitySuffix.none,
+                  originalPackagePath: "dart:core",
+                  typeArguments: [],
+                  referenceDeclarationKind:
+                      SwidReferenceDeclarationKind.typeParameterType,
+                )),
+                isFactory: false,
+                typeFormals: [],
+              ),
+            ),
+          },
+          namedDefaults: {},
+          normalParameterNames: ["test"],
+          normalParameterTypes: [
+            SwidType.fromSwidFunctionType(
+              swidFunctionType: SwidFunctionType(
+                name: "",
+                nullabilitySuffix: SwidNullabilitySuffix.none,
+                originalPackagePath: "",
+                declarationModifiers: SwidDeclarationModifiers.empty(),
+                namedParameterTypes: {},
+                namedDefaults: {},
+                normalParameterNames: ["element"],
+                normalParameterTypes: [
+                  SwidType.fromSwidInterface(
                     swidInterface: SwidInterface(
                       declarationModifiers: SwidDeclarationModifiers.empty(),
-                      name: "bool",
+                      name: "E",
                       nullabilitySuffix: SwidNullabilitySuffix.none,
                       originalPackagePath: "dart:core",
                       typeArguments: [],
                       referenceDeclarationKind:
-                          SwidReferenceDeclarationKind.classElement,
+                          SwidReferenceDeclarationKind.typeParameterType,
                     ),
                   ),
-                  isFactory: false,
-                  typeFormals: [],
+                ],
+                optionalParameterNames: [],
+                optionalParameterTypes: [],
+                returnType: SwidType.fromSwidInterface(
+                  swidInterface: SwidInterface(
+                    declarationModifiers: SwidDeclarationModifiers.empty(),
+                    name: "bool",
+                    nullabilitySuffix: SwidNullabilitySuffix.none,
+                    originalPackagePath: "dart:core",
+                    typeArguments: [],
+                    referenceDeclarationKind:
+                        SwidReferenceDeclarationKind.classElement,
+                  ),
                 ),
-              ),
-            ],
-            optionalParameterNames: [],
-            optionalParameterTypes: [],
-            returnType: SwidType.fromSwidInterface(
-              swidInterface: SwidInterface(
-                declarationModifiers: SwidDeclarationModifiers.empty(),
-                name: "E",
-                nullabilitySuffix: SwidNullabilitySuffix.none,
-                originalPackagePath: "dart:core",
-                typeArguments: [],
-                referenceDeclarationKind:
-                    SwidReferenceDeclarationKind.typeParameterType,
+                isFactory: false,
+                typeFormals: [],
               ),
             ),
-            isFactory: false,
-            typeFormals: [],
+          ],
+          optionalParameterNames: [],
+          optionalParameterTypes: [],
+          returnType: SwidType.fromSwidInterface(
+            swidInterface: SwidInterface(
+              declarationModifiers: SwidDeclarationModifiers.empty(),
+              name: "E",
+              nullabilitySuffix: SwidNullabilitySuffix.none,
+              originalPackagePath: "dart:core",
+              typeArguments: [],
+              referenceDeclarationKind:
+                  SwidReferenceDeclarationKind.typeParameterType,
+            ),
           ),
-        ],
-        staticConstFieldDeclarations: [],
-        instanceFieldDeclarations: {},
-        declarationModifiers: SwidDeclarationModifiers.empty(),
-        mixedInClasses: [],
-        extendedClass: null,
-        isMixin: false,
-        typeFormals: [
-          SwidTypeFormal(
-            swidTypeFormalBound: null,
-            value: SwidTypeFormalValue.fromString(string: "E",),
-            swidReferenceDeclarationKind:
-                SwidReferenceDeclarationKind.typeParameterType,
-          )
-        ],);
+          isFactory: false,
+          typeFormals: [],
+        ),
+      ],
+      staticConstFieldDeclarations: [],
+      instanceFieldDeclarations: {},
+      declarationModifiers: SwidDeclarationModifiers.empty(),
+      mixedInClasses: [],
+      extendedClass: null,
+      isMixin: false,
+      typeFormals: [
+        SwidTypeFormal(
+          swidTypeFormalBound: null,
+          value: SwidTypeFormalValue.fromString(
+            string: "E",
+          ),
+          swidReferenceDeclarationKind:
+              SwidReferenceDeclarationKind.typeParameterType,
+        )
+      ],
+    );
     expect(
         CachingPipeline(
           cacheMgr: const PipelineNoopCacheMgr(),

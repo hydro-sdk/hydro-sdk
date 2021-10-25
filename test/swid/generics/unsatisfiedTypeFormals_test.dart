@@ -344,24 +344,29 @@ void main() {
     //Removing "E" should cause the use of "E" in the constructor as well is
     //in the "map" method to become unsatisfied
     expect(
-        unsatisfiedTypeParameters(
-            swidType: SwidType.fromSwidClass(
-                swidClass: SwidClass.clone(
-                    swidClass: iterableWithMapMethod, typeFormals: []))),
-        [
-          SwidTypeFormal(
-            swidTypeFormalBound: null,
-            value: SwidTypeFormalValue.fromString(string: "E",),
-            swidReferenceDeclarationKind:
-                SwidReferenceDeclarationKind.typeParameterType,
+      unsatisfiedTypeParameters(
+          swidType: SwidType.fromSwidClass(
+              swidClass: SwidClass.clone(
+                  swidClass: iterableWithMapMethod, typeFormals: []))),
+      [
+        SwidTypeFormal(
+          swidTypeFormalBound: null,
+          value: SwidTypeFormalValue.fromString(
+            string: "E",
           ),
-          SwidTypeFormal(
-            swidTypeFormalBound: null,
-            value: SwidTypeFormalValue.fromString(string: "E",),
-            swidReferenceDeclarationKind:
-                SwidReferenceDeclarationKind.typeParameterType,
-          )
-        ],);
+          swidReferenceDeclarationKind:
+              SwidReferenceDeclarationKind.typeParameterType,
+        ),
+        SwidTypeFormal(
+          swidTypeFormalBound: null,
+          value: SwidTypeFormalValue.fromString(
+            string: "E",
+          ),
+          swidReferenceDeclarationKind:
+              SwidReferenceDeclarationKind.typeParameterType,
+        )
+      ],
+    );
 
     /*
     class Iterable<E> {
@@ -391,13 +396,19 @@ void main() {
     */
     expect(unsatisfiedTypesFromIterableWithMapAndEmpty, isNotNull);
     expect(unsatisfiedTypesFromIterableWithMapAndEmpty.length, 1);
-    expect(unsatisfiedTypesFromIterableWithMapAndEmpty, [
-      SwidTypeFormal(
-        swidTypeFormalBound: null,
-          value: SwidTypeFormalValue.fromString(string: "E",),
+    expect(
+      unsatisfiedTypesFromIterableWithMapAndEmpty,
+      [
+        SwidTypeFormal(
+          swidTypeFormalBound: null,
+          value: SwidTypeFormalValue.fromString(
+            string: "E",
+          ),
           swidReferenceDeclarationKind:
-              SwidReferenceDeclarationKind.typeParameterType,)
-    ],);
+              SwidReferenceDeclarationKind.typeParameterType,
+        )
+      ],
+    );
 
     /*
         Should be able to override propogation behaviour to class statics to get
