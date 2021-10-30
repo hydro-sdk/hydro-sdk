@@ -9,6 +9,7 @@ import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstFieldReference.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
+import 'package:hydro_sdk/swid/ir/swidTypeFormalValue.dart';
 
 bool _isConstPrimitive({
   required final SwidType swidType,
@@ -346,6 +347,7 @@ final dartUnkownTypeFormal = SwidTypeFormal(
     swidInterface: dartUnknownInterface,
   ),
   swidReferenceDeclarationKind: SwidReferenceDeclarationKind.unknown,
+  swidTypeFormalBound: null,
 );
 
 final dartUnknownDefaultFormalParameter = SwidDefaultFormalParameter(

@@ -10,6 +10,7 @@ import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
+import 'package:hydro_sdk/swid/ir/swidTypeFormalValue.dart';
 
 import 'package:analyzer/dart/element/element.dart'
     show PropertyAccessorElement;
@@ -108,6 +109,7 @@ SwidClass swidClassFromInterfaceType({
           .map((x) => x is InterfaceType &&
                   interfaceTypeFormalResolutionDepth > 0
               ? SwidTypeFormal(
+                  swidTypeFormalBound: null,
                   value: SwidTypeFormalValue.fromSwidClass(
                     swidClass: swidClassFromInterfaceType(
                       interfaceType: x,
@@ -120,6 +122,7 @@ SwidClass swidClassFromInterfaceType({
                 )
               : x is TypeName
                   ? SwidTypeFormal(
+                      swidTypeFormalBound: null,
                       value: SwidTypeFormalValue.fromSwidClass(
                         swidClass: swidClassFromInterfaceType(
                             interfaceType:
@@ -130,6 +133,7 @@ SwidClass swidClassFromInterfaceType({
                     )
                   : x is TypeParameterType
                       ? SwidTypeFormal(
+                          swidTypeFormalBound: null,
                           value: SwidTypeFormalValue.fromSwidInterface(
                             swidInterface: swidInterfaceFromTypeParameterType(
                                 typeParameterType: x),

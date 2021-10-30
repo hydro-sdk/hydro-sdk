@@ -8,6 +8,7 @@ import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
+import 'package:hydro_sdk/swid/ir/swidTypeFormalValue.dart';
 import 'package:hydro_sdk/swid/ir/util/irTermMixin.dart';
 import 'package:hydro_sdk/swid/ir/util/narrowSwidInterfaceByReferenceDeclaration.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
@@ -216,6 +217,7 @@ class InstantiateGeneric
                                   swidReferenceDeclarationKind:
                                       genericInstantiator.instantiatedGeneric
                                           .referenceDeclarationKind,
+                                  swidTypeFormalBound: x.swidTypeFormalBound,
                                 )
                               : x)
                           .toList(),
@@ -333,6 +335,7 @@ class InstantiateGeneric
                             ),
                             swidReferenceDeclarationKind: genericInstantiator
                                 .instantiatedGeneric.referenceDeclarationKind,
+                            swidTypeFormalBound: null,
                           )
                         : x)
                     .toList(),

@@ -9,6 +9,7 @@ import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
+import 'package:hydro_sdk/swid/ir/swidTypeFormalValue.dart';
 import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
 import 'package:hydro_sdk/swid/swars/pipelineNoopCacheMgr.dart';
 
@@ -162,7 +163,10 @@ void main() {
               isFactory: false,
               typeFormals: [
                 SwidTypeFormal(
-                  value: SwidTypeFormalValue.fromString(string: "T"),
+                  swidTypeFormalBound: null,
+                  value: SwidTypeFormalValue.fromString(
+                    string: "T",
+                  ),
                   swidReferenceDeclarationKind:
                       SwidReferenceDeclarationKind.typeParameterType,
                 ),

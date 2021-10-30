@@ -4,6 +4,7 @@ import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
+import 'package:hydro_sdk/swid/ir/swidTypeFormalValue.dart';
 
 List<SwidTypeFormal> swidiTypeFormalsToSwidTypeFormals<T extends ITypeFormals>({
   required final T type,
@@ -24,6 +25,7 @@ List<SwidTypeFormal> swidiTypeFormalsToSwidTypeFormals<T extends ITypeFormals>({
             ),
             swidReferenceDeclarationKind:
                 SwidReferenceDeclarationKind.typeParameterType,
+            swidTypeFormalBound: null,
           ),
         )
         .toList();
