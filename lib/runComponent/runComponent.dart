@@ -220,19 +220,27 @@ class _RunComponentState extends State<RunComponent> with ServiceAware {
   }
 }
 
-List<int> _getFileContentFromArchive({
+List<int>? _getFileContentFromArchive({
   required String fileName,
   required Archive archive,
 }) {
-  archive.files.map((x) => print(x.name));
-  return archive.fileData(archive.files.indexWhere((x) => x.name == fileName));
+  final index = archive.files.indexWhere((x) => x.name == fileName);
+
+  if (index != -1) {
+    return archive.fileData(index);
+  }
 }
 
-String _getFileContentFromArchiveAsString({
+String? _getFileContentFromArchiveAsString({
   required String fileName,
   required Archive archive,
-}) =>
-    String.fromCharCodes(_getFileContentFromArchive(
-      fileName: fileName,
-      archive: archive,
-    ));
+}) {
+  final content = _getFileContentFromArchive(
+    fileName: fileName,
+    archive: archive,
+  );
+
+  if (content != null) {
+    return String.fromCharCodes(content);
+  }
+}
