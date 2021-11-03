@@ -16,6 +16,9 @@ _$_$Data _$_$_$DataFromJson(Map<String, dynamic> json) {
         ? null
         : SwidFunctionType.fromJson(
             json['constructorType'] as Map<String, dynamic>),
+    generativeConstructors: (json['generativeConstructors'] as List<dynamic>)
+        .map((e) => SwidFunctionType.fromJson(e as Map<String, dynamic>))
+        .toList(),
     factoryConstructors: (json['factoryConstructors'] as List<dynamic>)
         .map((e) => SwidFunctionType.fromJson(e as Map<String, dynamic>))
         .toList(),
@@ -58,6 +61,7 @@ Map<String, dynamic> _$_$_$DataToJson(_$_$Data instance) => <String, dynamic>{
           _$SwidNullabilitySuffixEnumMap[instance.nullabilitySuffix],
       'originalPackagePath': instance.originalPackagePath,
       'constructorType': instance.constructorType,
+      'generativeConstructors': instance.generativeConstructors,
       'factoryConstructors': instance.factoryConstructors,
       'staticMethods': instance.staticMethods,
       'methods': instance.methods,

@@ -260,7 +260,7 @@ void main() {
         swidReferenceDeclarationKind:
             SwidReferenceDeclarationKind.typeParameterType,
       )
-    ]);
+    ],);
     /*
     class Iterable<E> {
      Iterable<E> Iterable();
@@ -271,6 +271,7 @@ void main() {
         nullabilitySuffix: SwidNullabilitySuffix.none,
         originalPackagePath: "dart:core",
         constructorType: constructor,
+        generativeConstructors: [],
         factoryConstructors: [],
         staticMethods: [],
         methods: [],
@@ -284,14 +285,14 @@ void main() {
         typeFormals: [
           SwidTypeFormal(
             swidTypeFormalBound: null,
-            value: SwidTypeFormalValue.fromString(string: "E"),
+            value: SwidTypeFormalValue.fromString(string: "E",),
             swidReferenceDeclarationKind:
                 SwidReferenceDeclarationKind.typeParameterType,
           )
-        ]);
+        ],);
 
     var unsatisfiedTypesFromIterable = unsatisfiedTypeParameters(
-        swidType: SwidType.fromSwidClass(swidClass: iterable));
+        swidType: SwidType.fromSwidClass(swidClass: iterable,),);
 
     //"iterable" is empty except for a constructor declaration
     //The declaration of "E" in "iterable" should satisfy the use of "E" in "iterable"'s constructor
@@ -384,10 +385,10 @@ void main() {
     ], factoryConstructors: [
       ...iterable.factoryConstructors,
       empty
-    ]);
+    ],);
 
     var unsatisfiedTypesFromIterableWithMapAndEmpty = unsatisfiedTypeParameters(
-        swidType: SwidType.fromSwidClass(swidClass: iterableWithMapAndEmpty));
+        swidType: SwidType.fromSwidClass(swidClass: iterableWithMapAndEmpty,),);
 
     /*
       By default, classes don't provide their type formals to their static children.

@@ -20,6 +20,7 @@ void main() {
         typeFormals: [],
         implementedClasses: [],
         originalPackagePath: "dart:ui",
+        generativeConstructors: [],
         constructorType: SwidFunctionType(
           name: "",
           nullabilitySuffix: SwidNullabilitySuffix.none,
@@ -72,7 +73,7 @@ void main() {
                 typeArguments: [],
                 referenceDeclarationKind:
                     SwidReferenceDeclarationKind.enumElement,
-              )),
+              ),),
             ],
             optionalParameterNames: [],
             optionalParameterTypes: [],
@@ -94,7 +95,7 @@ void main() {
         declarationModifiers: SwidDeclarationModifiers.empty(),
         mixedInClasses: [],
         extendedClass: null,
-        isMixin: false);
+        isMixin: false,);
     expect(
         CachingPipeline(
           cacheMgr: const PipelineNoopCacheMgr(),

@@ -27,6 +27,7 @@ void main() {
       factoryConstructors: [],
       instanceFieldDeclarations: {},
       declarationModifiers: SwidDeclarationModifiers.empty(),
+      generativeConstructors: [],
       constructorType: SwidFunctionType(
         name: "",
         typeFormals: [],
@@ -53,7 +54,7 @@ void main() {
       staticConstFieldDeclarations: [],
       methods: [],
       mixedInClasses: [],
-    ));
+    ),);
 
     expect(
         CachingPipeline(

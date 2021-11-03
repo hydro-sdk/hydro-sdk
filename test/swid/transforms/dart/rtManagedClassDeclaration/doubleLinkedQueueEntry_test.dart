@@ -20,13 +20,14 @@ void main() {
       name: "DoubleLinkedQueueEntry",
       nullabilitySuffix: SwidNullabilitySuffix.none,
       originalPackagePath: "dart:collection",
+      generativeConstructors: [],
       constructorType: SwidFunctionType(
         name: "",
         nullabilitySuffix: SwidNullabilitySuffix.none,
         originalPackagePath: "",
         namedParameterTypes: {},
         namedDefaults: {},
-        normalParameterNames: ["_element"],
+        normalParameterNames: ["_element",],
         normalParameterTypes: [
           SwidType.fromSwidInterface(
             swidInterface: SwidInterface(

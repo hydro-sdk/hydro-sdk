@@ -34,6 +34,7 @@ class "dart:async"::AsyncError {
       nullabilitySuffix: SwidNullabilitySuffix.none,
       originalPackagePath: "dart:async",
       constructorType: null,
+      generativeConstructors: [],
       factoryConstructors: [],
       staticMethods: [],
       methods: [

@@ -29,6 +29,7 @@ void main() {
         nullabilitySuffix: SwidNullabilitySuffix.none,
         originalPackagePath: "dart:core",
         implementedClasses: [],
+        generativeConstructors: [],
         constructorType: SwidFunctionType(
           name: "",
           nullabilitySuffix: SwidNullabilitySuffix.none,
@@ -55,7 +56,7 @@ void main() {
                       originalPackagePath: "dart:core",
                       typeArguments: [],
                       referenceDeclarationKind:
-                          SwidReferenceDeclarationKind.typeParameterType),
+                          SwidReferenceDeclarationKind.typeParameterType,),
                 ),
               ],
               referenceDeclarationKind:
@@ -75,7 +76,7 @@ void main() {
             declarationModifiers: SwidDeclarationModifiers.empty(),
             namedParameterTypes: {},
             namedDefaults: {},
-            normalParameterNames: ["combine"],
+            normalParameterNames: ["combine",],
             normalParameterTypes: [
               SwidType.fromSwidFunctionType(
                 swidFunctionType: SwidFunctionType(
@@ -85,7 +86,7 @@ void main() {
                   declarationModifiers: SwidDeclarationModifiers.empty(),
                   namedParameterTypes: {},
                   namedDefaults: {},
-                  normalParameterNames: ["value", "element"],
+                  normalParameterNames: ["value", "element",],
                   normalParameterTypes: [
                     SwidType.fromSwidInterface(
                       swidInterface: SwidInterface(
@@ -160,7 +161,7 @@ void main() {
             swidReferenceDeclarationKind:
                 SwidReferenceDeclarationKind.typeParameterType,
           )
-        ]);
+        ],);
     expect(
         CachingPipeline(
           cacheMgr: const PipelineNoopCacheMgr(),

@@ -34,6 +34,7 @@ class "dart:async"::AsyncError {
       nullabilitySuffix: SwidNullabilitySuffix.none,
       originalPackagePath: "dart:async",
       constructorType: null,
+      generativeConstructors: [],
       factoryConstructors: [],
       staticMethods: [],
       methods: [
@@ -55,7 +56,7 @@ class "dart:async"::AsyncError {
             typeArguments: [],
             referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
             declarationModifiers: SwidDeclarationModifiers.empty(),
-          )),
+          ),),
           isFactory: false,
           typeFormals: [],
           declarationModifiers: SwidDeclarationModifiers.empty().clone(

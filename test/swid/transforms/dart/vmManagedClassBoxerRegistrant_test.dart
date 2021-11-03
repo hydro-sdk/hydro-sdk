@@ -24,6 +24,7 @@ void main() {
       originalPackagePath: "",
       nullabilitySuffix: SwidNullabilitySuffix.none,
       staticMethods: [],
+      generativeConstructors: [],
       factoryConstructors: [],
       instanceFieldDeclarations: {},
       declarationModifiers: SwidDeclarationModifiers.empty(),
@@ -53,7 +54,7 @@ void main() {
       staticConstFieldDeclarations: [],
       methods: [],
       mixedInClasses: [],
-    ));
+    ),);
 
     expect(
         CachingPipeline(

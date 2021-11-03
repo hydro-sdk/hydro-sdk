@@ -24,6 +24,7 @@ void main() {
       originalPackagePath: "",
       nullabilitySuffix: SwidNullabilitySuffix.none,
       staticMethods: [],
+      generativeConstructors: [],
       factoryConstructors: [],
       declarationModifiers: SwidDeclarationModifiers.empty(),
       instanceFieldDeclarations: {
@@ -35,7 +36,7 @@ void main() {
           originalPackagePath: "",
           typeArguments: [],
           referenceDeclarationKind: SwidReferenceDeclarationKind.enumElement,
-        ))
+        ),)
       },
       constructorType: SwidFunctionType(
         name: "",
@@ -63,7 +64,7 @@ void main() {
       staticConstFieldDeclarations: [],
       methods: [],
       mixedInClasses: [],
-    ));
+    ),);
 
     expect(
         CachingPipeline(

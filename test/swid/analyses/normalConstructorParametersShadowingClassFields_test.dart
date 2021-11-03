@@ -100,6 +100,7 @@ void main() {
       implementedClasses: [],
       isMixin: false,
       typeFormals: [],
+      generativeConstructors: [],
     );
 
     final res = CachingPipeline(

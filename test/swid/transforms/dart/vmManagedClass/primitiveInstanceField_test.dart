@@ -24,6 +24,7 @@ void main() {
       originalPackagePath: "",
       nullabilitySuffix: SwidNullabilitySuffix.none,
       staticMethods: [],
+      generativeConstructors: [],
       factoryConstructors: [],
       declarationModifiers: SwidDeclarationModifiers.empty(),
       instanceFieldDeclarations: {
@@ -35,7 +36,7 @@ void main() {
           originalPackagePath: "dart:core",
           typeArguments: [],
           referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
-        ))
+        ),)
       },
       constructorType: SwidFunctionType(
         name: "",
@@ -57,13 +58,13 @@ void main() {
           originalPackagePath: "",
           referenceDeclarationKind: SwidReferenceDeclarationKind.voidType,
           typeArguments: [],
-        )),
+        ),),
         declarationModifiers: SwidDeclarationModifiers.empty(),
       ),
       staticConstFieldDeclarations: [],
       methods: [],
       mixedInClasses: [],
-    ));
+    ),);
 
     expect(
         CachingPipeline(

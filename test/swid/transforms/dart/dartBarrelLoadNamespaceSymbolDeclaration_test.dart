@@ -19,6 +19,7 @@ void main() {
               nullabilitySuffix: SwidNullabilitySuffix.none,
               originalPackagePath: "dart:core",
               constructorType: null,
+              generativeConstructors: [],
               factoryConstructors: [],
               staticMethods: [],
               methods: [],
@@ -29,13 +30,14 @@ void main() {
               mixedInClasses: [],
               extendedClass: null,
               isMixin: false,
-              typeFormals: [])),
+              typeFormals: [],),),
       BarrelMember.fromSwidClass(
           swidClass: SwidClass(
               name: "Offset",
               nullabilitySuffix: SwidNullabilitySuffix.none,
               originalPackagePath: "dart:ui",
               constructorType: null,
+              generativeConstructors: [],
               factoryConstructors: [],
               staticMethods: [],
               methods: [],
@@ -46,13 +48,14 @@ void main() {
               mixedInClasses: [],
               extendedClass: null,
               isMixin: false,
-              typeFormals: [])),
+              typeFormals: [],),),
       BarrelMember.fromSwidClass(
           swidClass: SwidClass(
               name: "RRect",
               nullabilitySuffix: SwidNullabilitySuffix.none,
               originalPackagePath: "dart:ui",
               constructorType: null,
+              generativeConstructors: [],
               factoryConstructors: [],
               staticMethods: [],
               methods: [],
@@ -63,13 +66,14 @@ void main() {
               mixedInClasses: [],
               extendedClass: null,
               isMixin: false,
-              typeFormals: [])),
+              typeFormals: [],),),
       BarrelMember.fromSwidClass(
           swidClass: SwidClass(
               name: "List",
               nullabilitySuffix: SwidNullabilitySuffix.none,
               originalPackagePath: "dart:core",
               constructorType: null,
+              generativeConstructors: [],
               factoryConstructors: [],
               staticMethods: [],
               methods: [],
@@ -80,13 +84,14 @@ void main() {
               mixedInClasses: [],
               extendedClass: null,
               isMixin: false,
-              typeFormals: [])),
+              typeFormals: [],),),
       BarrelMember.fromSwidClass(
           swidClass: SwidClass(
               name: "EfficientLengthIterable",
               nullabilitySuffix: SwidNullabilitySuffix.none,
               originalPackagePath: "dart:_internal",
               constructorType: null,
+              generativeConstructors: [],
               factoryConstructors: [],
               staticMethods: [],
               methods: [],
@@ -97,13 +102,14 @@ void main() {
               mixedInClasses: [],
               extendedClass: null,
               isMixin: false,
-              typeFormals: [])),
+              typeFormals: [],),),
       BarrelMember.fromSwidClass(
           swidClass: SwidClass(
               name: "Random",
               nullabilitySuffix: SwidNullabilitySuffix.none,
               originalPackagePath: "dart:math",
               constructorType: null,
+              generativeConstructors: [],
               factoryConstructors: [],
               staticMethods: [],
               methods: [],
@@ -114,8 +120,8 @@ void main() {
               mixedInClasses: [],
               extendedClass: null,
               isMixin: false,
-              typeFormals: []))
-    ]);
+              typeFormals: [],),),
+    ],);
 
     expect(barrelSpec.isTopLevel(), true);
 

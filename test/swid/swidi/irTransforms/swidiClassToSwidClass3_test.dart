@@ -41,6 +41,7 @@ class "dart:core"::List {
       nullabilitySuffix: SwidNullabilitySuffix.none,
       originalPackagePath: "dart:core",
       constructorType: null,
+      generativeConstructors: [],
       factoryConstructors: [],
       staticMethods: [
         SwidFunctionType(
@@ -156,6 +157,6 @@ class "dart:core"::List {
       SwidIr.fromSwidClass(
         swidClass: list,
       ),
-    ]);
+    ],);
   }, tags: "swid");
 }

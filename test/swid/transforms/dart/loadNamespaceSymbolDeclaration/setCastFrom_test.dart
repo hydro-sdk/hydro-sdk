@@ -23,6 +23,7 @@ void main() {
       nullabilitySuffix: SwidNullabilitySuffix.none,
       originalPackagePath: "dart:core",
       constructorType: null,
+      generativeConstructors: [],
       factoryConstructors: [],
       implementedClasses: [],
       instanceFieldDeclarations: {},
@@ -87,11 +88,11 @@ void main() {
                   swidReferenceDeclarationKind:
                       SwidReferenceDeclarationKind.typeParameterType,
                 )
-              ]),
+              ],),
         )
       },
       namedDefaults: {},
-      normalParameterNames: ["source"],
+      normalParameterNames: ["source",],
       normalParameterTypes: [
         SwidType.fromSwidInterface(
           swidInterface: SwidInterface(

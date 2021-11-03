@@ -20,13 +20,14 @@ void main() {
       name: "MapView",
       nullabilitySuffix: SwidNullabilitySuffix.none,
       originalPackagePath: "dart:collection",
+      generativeConstructors: [],
       constructorType: SwidFunctionType(
         name: "",
         nullabilitySuffix: SwidNullabilitySuffix.none,
         originalPackagePath: "",
         namedParameterTypes: {},
         namedDefaults: {},
-        normalParameterNames: ["map"],
+        normalParameterNames: ["map",],
         normalParameterTypes: [
           SwidType.fromSwidInterface(
             swidInterface: SwidInterface(

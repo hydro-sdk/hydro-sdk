@@ -108,6 +108,7 @@ SwidClass swidClassFromDartClassOrMixinOrClassTypAliasDeclaration({
               fromMixinDeclaration: (_) => null,
               fromClassTypeAlias: (_) => null,
             ),
+      generativeConstructors: [],
       factoryConstructors: constructors
           .where((x) => x.name != null && x.name!.name[0] != "_")
           .toList()

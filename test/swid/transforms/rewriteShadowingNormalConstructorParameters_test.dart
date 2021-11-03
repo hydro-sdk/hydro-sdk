@@ -19,6 +19,7 @@ void main() {
       name: "AsyncError",
       nullabilitySuffix: SwidNullabilitySuffix.none,
       originalPackagePath: "dart:async",
+      generativeConstructors: [],
       constructorType: SwidFunctionType(
         name: "",
         nullabilitySuffix: SwidNullabilitySuffix.none,

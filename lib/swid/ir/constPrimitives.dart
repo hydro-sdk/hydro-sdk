@@ -314,6 +314,7 @@ final dartUnknownClass = SwidClass(
   nullabilitySuffix: SwidNullabilitySuffix.none,
   originalPackagePath: "",
   constructorType: null,
+  generativeConstructors: [],
   factoryConstructors: [],
   staticMethods: [],
   methods: [],

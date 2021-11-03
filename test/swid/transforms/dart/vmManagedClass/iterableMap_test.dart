@@ -31,6 +31,7 @@ void main() {
       nullabilitySuffix: SwidNullabilitySuffix.none,
       originalPackagePath: "dart:core",
       implementedClasses: [],
+      generativeConstructors: [],
       constructorType: SwidFunctionType(
         name: "",
         nullabilitySuffix: SwidNullabilitySuffix.none,
@@ -76,7 +77,7 @@ void main() {
           declarationModifiers: SwidDeclarationModifiers.empty(),
           namedParameterTypes: {},
           namedDefaults: {},
-          normalParameterNames: ["f"],
+          normalParameterNames: ["f",],
           normalParameterTypes: [
             SwidType.fromSwidFunctionType(
               swidFunctionType: SwidFunctionType(
@@ -86,7 +87,7 @@ void main() {
                   declarationModifiers: SwidDeclarationModifiers.empty(),
                   namedParameterTypes: {},
                   namedDefaults: {},
-                  normalParameterNames: ["e"],
+                  normalParameterNames: ["e",],
                   normalParameterTypes: [
                     SwidType.fromSwidInterface(
                         swidInterface: SwidInterface(
@@ -111,9 +112,9 @@ void main() {
                     typeArguments: [],
                     referenceDeclarationKind:
                         SwidReferenceDeclarationKind.typeParameterType,
-                  )),
+                  ),),
                   isFactory: false,
-                  typeFormals: []),
+                  typeFormals: [],),
             ),
           ],
           optionalParameterNames: [],

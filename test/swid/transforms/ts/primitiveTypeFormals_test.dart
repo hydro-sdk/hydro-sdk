@@ -19,6 +19,7 @@ void main() {
         nullabilitySuffix: SwidNullabilitySuffix.none,
         originalPackagePath: "dart:typed_data",
         constructorType: null,
+        generativeConstructors: [],
         factoryConstructors: [],
         staticMethods: [],
         methods: [],
@@ -32,6 +33,7 @@ void main() {
             nullabilitySuffix: SwidNullabilitySuffix.none,
             originalPackagePath: "dart:core",
             constructorType: null,
+            generativeConstructors: [],
             factoryConstructors: [],
             staticMethods: [],
             methods: [],
@@ -50,6 +52,7 @@ void main() {
                     name: "double",
                     nullabilitySuffix: SwidNullabilitySuffix.none,
                     originalPackagePath: "dart:core",
+                    generativeConstructors: [],
                     constructorType: null,
                     factoryConstructors: [],
                     staticMethods: [],
@@ -67,9 +70,9 @@ void main() {
                 swidReferenceDeclarationKind:
                     SwidReferenceDeclarationKind.classElement,
               )
-            ]),
+            ],),
         isMixin: false,
-        typeFormals: []);
+        typeFormals: [],);
 
     expect(float32List.extendedClass!.displayName, "List<double>");
     expect(

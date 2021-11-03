@@ -23,6 +23,7 @@ void main() {
       nullabilitySuffix: SwidNullabilitySuffix.none,
       originalPackagePath: "package:flutter/material.dart",
       constructorType: null,
+      generativeConstructors: [],
       factoryConstructors: [],
       staticMethods: [],
       methods: [],
@@ -53,14 +54,14 @@ void main() {
                 )),
                 normalParameters: [
                   SwidStaticConst.fromSwidIntegerLiteral(
-                      swidIntegerLiteral: SwidIntegerLiteral(value: "0xe52a"))
+                      swidIntegerLiteral: SwidIntegerLiteral(value: "0xe52a",),)
                 ],
                 namedParameters: {
                   "fontFamily": SwidStaticConst.fromSwidStringLiteral(
                       swidStringLiteral:
-                          SwidStringLiteral(value: "MaterialIcons"))
+                          SwidStringLiteral(value: "MaterialIcons",),)
                 },
-                isConstructorInvocation: true)));
+                isConstructorInvocation: true,),),);
     expect(
         CachingPipeline(
           cacheMgr: const PipelineNoopCacheMgr(),

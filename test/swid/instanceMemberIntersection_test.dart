@@ -17,6 +17,7 @@ void main() {
       nullabilitySuffix: SwidNullabilitySuffix.none,
       originalPackagePath: "",
       constructorType: null,
+      generativeConstructors: [],
       factoryConstructors: [],
       staticMethods: [],
       methods: [
@@ -94,6 +95,7 @@ void main() {
       nullabilitySuffix: SwidNullabilitySuffix.none,
       originalPackagePath: "",
       constructorType: null,
+      generativeConstructors: [],
       factoryConstructors: [],
       staticMethods: [],
       methods: [
@@ -153,17 +155,18 @@ void main() {
     );
 
     expect(
-        instanceMemberIntersection(
-          first: first,
-          second: second,
-        ),
-        InstanceMemberIntersectionResult(
-          methods: [
-            "firstMethod",
-          ],
-          instanceFields: [
-            "firstField",
-          ],
-        ));
+      instanceMemberIntersection(
+        first: first,
+        second: second,
+      ),
+      InstanceMemberIntersectionResult(
+        methods: [
+          "firstMethod",
+        ],
+        instanceFields: [
+          "firstField",
+        ],
+      ),
+    );
   }, tags: "swid");
 }
