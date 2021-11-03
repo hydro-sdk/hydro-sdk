@@ -38,30 +38,37 @@ void main() {
     );
 
     var tenk = SwidStaticConstFieldDeclaration(
-        name: "ten_k",
-        value: SwidStaticConst.fromSwidStaticConstFunctionInvocation(
-            staticConstFunctionInvocation: SwidStaticConstFunctionInvocation(
-                value: "IconData",
-                staticType: SwidType.fromSwidInterface(
-                    swidInterface: SwidInterface(
-                  declarationModifiers: SwidDeclarationModifiers.empty(),
-                  name: "IconData",
-                  nullabilitySuffix: SwidNullabilitySuffix.none,
-                  originalPackagePath: "package:flutter/widgets.dart",
-                  typeArguments: [],
-                  referenceDeclarationKind:
-                      SwidReferenceDeclarationKind.classElement,
-                )),
-                normalParameters: [
-                  SwidStaticConst.fromSwidIntegerLiteral(
-                      swidIntegerLiteral: SwidIntegerLiteral(value: "0xe52a",),)
-                ],
-                namedParameters: {
-                  "fontFamily": SwidStaticConst.fromSwidStringLiteral(
-                      swidStringLiteral:
-                          SwidStringLiteral(value: "MaterialIcons",),)
-                },
-                isConstructorInvocation: true,),),);
+      name: "ten_k",
+      value: SwidStaticConst.fromSwidStaticConstFunctionInvocation(
+        staticConstFunctionInvocation: SwidStaticConstFunctionInvocation(
+          value: "IconData",
+          staticType: SwidType.fromSwidInterface(
+              swidInterface: SwidInterface(
+            declarationModifiers: SwidDeclarationModifiers.empty(),
+            name: "IconData",
+            nullabilitySuffix: SwidNullabilitySuffix.none,
+            originalPackagePath: "package:flutter/widgets.dart",
+            typeArguments: [],
+            referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
+          )),
+          normalParameters: [
+            SwidStaticConst.fromSwidIntegerLiteral(
+              swidIntegerLiteral: SwidIntegerLiteral(
+                value: "0xe52a",
+              ),
+            )
+          ],
+          namedParameters: {
+            "fontFamily": SwidStaticConst.fromSwidStringLiteral(
+              swidStringLiteral: SwidStringLiteral(
+                value: "MaterialIcons",
+              ),
+            )
+          },
+          isConstructorInvocation: true,
+        ),
+      ),
+    );
     expect(
         CachingPipeline(
           cacheMgr: const PipelineNoopCacheMgr(),

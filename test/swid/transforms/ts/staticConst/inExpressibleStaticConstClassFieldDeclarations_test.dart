@@ -47,7 +47,9 @@ void main() {
               ),
               normalParameters: [
                 SwidStaticConst.fromSwidBooleanLiteral(
-                  swidBooleanLiteral: SwidBooleanLiteral(value: "false",),
+                  swidBooleanLiteral: SwidBooleanLiteral(
+                    value: "false",
+                  ),
                 ),
               ],
               namedParameters: {},
@@ -73,7 +75,9 @@ void main() {
               ),
               normalParameters: [
                 SwidStaticConst.fromSwidBooleanLiteral(
-                  swidBooleanLiteral: SwidBooleanLiteral(value: "true",),
+                  swidBooleanLiteral: SwidBooleanLiteral(
+                    value: "true",
+                  ),
                 ),
               ],
               namedParameters: {},

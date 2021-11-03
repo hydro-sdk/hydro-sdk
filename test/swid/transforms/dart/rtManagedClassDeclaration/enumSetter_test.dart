@@ -15,57 +15,56 @@ void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
     var ast = SwidClass(
-        name: "Path",
+      name: "Path",
+      nullabilitySuffix: SwidNullabilitySuffix.none,
+      typeFormals: [],
+      implementedClasses: [],
+      originalPackagePath: "dart:ui",
+      generativeConstructors: [],
+      constructorType: SwidFunctionType(
+        name: "",
         nullabilitySuffix: SwidNullabilitySuffix.none,
         typeFormals: [],
-        implementedClasses: [],
-        originalPackagePath: "dart:ui",
-        generativeConstructors: [],
-        constructorType: SwidFunctionType(
-          name: "",
-          nullabilitySuffix: SwidNullabilitySuffix.none,
-          typeFormals: [],
-          originalPackagePath: "",
-          declarationModifiers: SwidDeclarationModifiers.empty(),
-          namedParameterTypes: {},
-          namedDefaults: {},
-          normalParameterNames: [],
-          normalParameterTypes: [],
-          optionalParameterNames: [],
-          optionalParameterTypes: [],
-          returnType: SwidType.fromSwidInterface(
-            swidInterface: SwidInterface(
-              declarationModifiers: SwidDeclarationModifiers.empty(),
-              name: "Path",
-              nullabilitySuffix: SwidNullabilitySuffix.none,
-              originalPackagePath: "dart:ui",
-              typeArguments: [],
-              referenceDeclarationKind:
-                  SwidReferenceDeclarationKind.classElement,
-            ),
-          ),
-          isFactory: false,
-        ),
-        factoryConstructors: [],
-        staticMethods: [],
-        methods: [
-          SwidFunctionType(
-            name: "fillType=",
-            typeFormals: [],
+        originalPackagePath: "",
+        declarationModifiers: SwidDeclarationModifiers.empty(),
+        namedParameterTypes: {},
+        namedDefaults: {},
+        normalParameterNames: [],
+        normalParameterTypes: [],
+        optionalParameterNames: [],
+        optionalParameterTypes: [],
+        returnType: SwidType.fromSwidInterface(
+          swidInterface: SwidInterface(
+            declarationModifiers: SwidDeclarationModifiers.empty(),
+            name: "Path",
             nullabilitySuffix: SwidNullabilitySuffix.none,
             originalPackagePath: "dart:ui",
-            declarationModifiers: SwidDeclarationModifiers.clone(
-              declarationModifiers: SwidDeclarationModifiers.empty(),
-              isSetter: true,
-            ),
-            namedParameterTypes: {},
-            namedDefaults: {},
-            normalParameterNames: [
-              "value",
-            ],
-            normalParameterTypes: [
-              SwidType.fromSwidInterface(
-                  swidInterface: SwidInterface(
+            typeArguments: [],
+            referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
+          ),
+        ),
+        isFactory: false,
+      ),
+      factoryConstructors: [],
+      staticMethods: [],
+      methods: [
+        SwidFunctionType(
+          name: "fillType=",
+          typeFormals: [],
+          nullabilitySuffix: SwidNullabilitySuffix.none,
+          originalPackagePath: "dart:ui",
+          declarationModifiers: SwidDeclarationModifiers.clone(
+            declarationModifiers: SwidDeclarationModifiers.empty(),
+            isSetter: true,
+          ),
+          namedParameterTypes: {},
+          namedDefaults: {},
+          normalParameterNames: [
+            "value",
+          ],
+          normalParameterTypes: [
+            SwidType.fromSwidInterface(
+              swidInterface: SwidInterface(
                 declarationModifiers: SwidDeclarationModifiers.empty(),
                 name: "PathFillType",
                 nullabilitySuffix: SwidNullabilitySuffix.none,
@@ -73,29 +72,31 @@ void main() {
                 typeArguments: [],
                 referenceDeclarationKind:
                     SwidReferenceDeclarationKind.enumElement,
-              ),),
-            ],
-            optionalParameterNames: [],
-            optionalParameterTypes: [],
-            returnType: SwidType.fromSwidInterface(
-              swidInterface: SwidInterface(
-                declarationModifiers: SwidDeclarationModifiers.empty(),
-                name: "void",
-                nullabilitySuffix: SwidNullabilitySuffix.none,
-                originalPackagePath: "",
-                typeArguments: [],
-                referenceDeclarationKind: SwidReferenceDeclarationKind.voidType,
               ),
             ),
-            isFactory: false,
+          ],
+          optionalParameterNames: [],
+          optionalParameterTypes: [],
+          returnType: SwidType.fromSwidInterface(
+            swidInterface: SwidInterface(
+              declarationModifiers: SwidDeclarationModifiers.empty(),
+              name: "void",
+              nullabilitySuffix: SwidNullabilitySuffix.none,
+              originalPackagePath: "",
+              typeArguments: [],
+              referenceDeclarationKind: SwidReferenceDeclarationKind.voidType,
+            ),
           ),
-        ],
-        staticConstFieldDeclarations: [],
-        instanceFieldDeclarations: {},
-        declarationModifiers: SwidDeclarationModifiers.empty(),
-        mixedInClasses: [],
-        extendedClass: null,
-        isMixin: false,);
+          isFactory: false,
+        ),
+      ],
+      staticConstFieldDeclarations: [],
+      instanceFieldDeclarations: {},
+      declarationModifiers: SwidDeclarationModifiers.empty(),
+      mixedInClasses: [],
+      extendedClass: null,
+      isMixin: false,
+    );
     expect(
         CachingPipeline(
           cacheMgr: const PipelineNoopCacheMgr(),

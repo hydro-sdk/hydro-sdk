@@ -15,46 +15,47 @@ void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
     var ir = DartVMManagedClassDeclaration(
-        swidClass: SwidClass(
-      name: "fooClass",
-      typeFormals: [],
-      isMixin: false,
-      extendedClass: null,
-      implementedClasses: [],
-      originalPackagePath: "",
-      nullabilitySuffix: SwidNullabilitySuffix.none,
-      staticMethods: [],
-      factoryConstructors: [],
-      instanceFieldDeclarations: {},
-      declarationModifiers: SwidDeclarationModifiers.empty(),
-      generativeConstructors: [],
-      constructorType: SwidFunctionType(
-        name: "",
+      swidClass: SwidClass(
+        name: "fooClass",
         typeFormals: [],
-        isFactory: false,
-        namedDefaults: {},
-        namedParameterTypes: {},
-        optionalParameterNames: [],
-        normalParameterNames: [],
-        normalParameterTypes: [],
-        nullabilitySuffix: SwidNullabilitySuffix.none,
-        optionalParameterTypes: [],
+        isMixin: false,
+        extendedClass: null,
+        implementedClasses: [],
         originalPackagePath: "",
-        returnType: SwidType.fromSwidInterface(
-            swidInterface: SwidInterface(
-          declarationModifiers: SwidDeclarationModifiers.empty(),
-          name: "",
-          nullabilitySuffix: SwidNullabilitySuffix.none,
-          originalPackagePath: "",
-          referenceDeclarationKind: SwidReferenceDeclarationKind.voidType,
-          typeArguments: [],
-        )),
+        nullabilitySuffix: SwidNullabilitySuffix.none,
+        staticMethods: [],
+        factoryConstructors: [],
+        instanceFieldDeclarations: {},
         declarationModifiers: SwidDeclarationModifiers.empty(),
+        generativeConstructors: [],
+        constructorType: SwidFunctionType(
+          name: "",
+          typeFormals: [],
+          isFactory: false,
+          namedDefaults: {},
+          namedParameterTypes: {},
+          optionalParameterNames: [],
+          normalParameterNames: [],
+          normalParameterTypes: [],
+          nullabilitySuffix: SwidNullabilitySuffix.none,
+          optionalParameterTypes: [],
+          originalPackagePath: "",
+          returnType: SwidType.fromSwidInterface(
+              swidInterface: SwidInterface(
+            declarationModifiers: SwidDeclarationModifiers.empty(),
+            name: "",
+            nullabilitySuffix: SwidNullabilitySuffix.none,
+            originalPackagePath: "",
+            referenceDeclarationKind: SwidReferenceDeclarationKind.voidType,
+            typeArguments: [],
+          )),
+          declarationModifiers: SwidDeclarationModifiers.empty(),
+        ),
+        staticConstFieldDeclarations: [],
+        methods: [],
+        mixedInClasses: [],
       ),
-      staticConstFieldDeclarations: [],
-      methods: [],
-      mixedInClasses: [],
-    ),);
+    );
 
     expect(
         CachingPipeline(

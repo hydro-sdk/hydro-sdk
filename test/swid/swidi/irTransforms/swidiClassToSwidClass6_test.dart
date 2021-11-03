@@ -37,7 +37,7 @@ class "dart:async"::Future {
       nullabilitySuffix: SwidNullabilitySuffix.none,
       originalPackagePath: "dart:async",
       constructorType: null,
-generativeConstructors: [],
+      generativeConstructors: [],
       factoryConstructors: [],
       staticMethods: [],
       methods: [

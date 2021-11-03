@@ -30,7 +30,9 @@ void main() {
           declarationModifiers: SwidDeclarationModifiers.empty(),
           namedParameterTypes: {},
           namedDefaults: {},
-          normalParameterNames: ["element",],
+          normalParameterNames: [
+            "element",
+          ],
           normalParameterTypes: [
             SwidType.fromSwidInterface(
               swidInterface: SwidInterface(

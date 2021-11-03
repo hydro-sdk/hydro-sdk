@@ -27,7 +27,9 @@ void main() {
         originalPackagePath: "",
         namedParameterTypes: {},
         namedDefaults: {},
-        normalParameterNames: ["_element",],
+        normalParameterNames: [
+          "_element",
+        ],
         normalParameterTypes: [
           SwidType.fromSwidInterface(
             swidInterface: SwidInterface(

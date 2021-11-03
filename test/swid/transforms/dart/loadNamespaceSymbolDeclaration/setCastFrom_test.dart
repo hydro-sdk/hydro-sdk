@@ -45,54 +45,57 @@ void main() {
       namedParameterTypes: {
         "newSet": SwidType.fromSwidFunctionType(
           swidFunctionType: SwidFunctionType(
-              name: "",
-              nullabilitySuffix: SwidNullabilitySuffix.question,
-              originalPackagePath: "",
-              declarationModifiers: SwidDeclarationModifiers.empty(),
-              namedParameterTypes: {},
-              namedDefaults: {},
-              normalParameterNames: [],
-              normalParameterTypes: [],
-              optionalParameterNames: [],
-              optionalParameterTypes: [],
-              returnType: SwidType.fromSwidInterface(
-                swidInterface: SwidInterface(
-                  declarationModifiers: SwidDeclarationModifiers.empty(),
-                  name: "Set<R>",
-                  nullabilitySuffix: SwidNullabilitySuffix.none,
-                  originalPackagePath: "dart:core",
-                  typeArguments: [
-                    SwidType.fromSwidInterface(
-                      swidInterface: SwidInterface(
-                        declarationModifiers: SwidDeclarationModifiers.empty(),
-                        name: "R",
-                        nullabilitySuffix: SwidNullabilitySuffix.none,
-                        originalPackagePath: "",
-                        typeArguments: [],
-                        referenceDeclarationKind:
-                            SwidReferenceDeclarationKind.typeParameterType,
-                      ),
+            name: "",
+            nullabilitySuffix: SwidNullabilitySuffix.question,
+            originalPackagePath: "",
+            declarationModifiers: SwidDeclarationModifiers.empty(),
+            namedParameterTypes: {},
+            namedDefaults: {},
+            normalParameterNames: [],
+            normalParameterTypes: [],
+            optionalParameterNames: [],
+            optionalParameterTypes: [],
+            returnType: SwidType.fromSwidInterface(
+              swidInterface: SwidInterface(
+                declarationModifiers: SwidDeclarationModifiers.empty(),
+                name: "Set<R>",
+                nullabilitySuffix: SwidNullabilitySuffix.none,
+                originalPackagePath: "dart:core",
+                typeArguments: [
+                  SwidType.fromSwidInterface(
+                    swidInterface: SwidInterface(
+                      declarationModifiers: SwidDeclarationModifiers.empty(),
+                      name: "R",
+                      nullabilitySuffix: SwidNullabilitySuffix.none,
+                      originalPackagePath: "",
+                      typeArguments: [],
+                      referenceDeclarationKind:
+                          SwidReferenceDeclarationKind.typeParameterType,
                     ),
-                  ],
-                  referenceDeclarationKind:
-                      SwidReferenceDeclarationKind.classElement,
-                ),
-              ),
-              isFactory: false,
-              typeFormals: [
-                SwidTypeFormal(
-                  swidTypeFormalBound: null,
-                  value: SwidTypeFormalValue.fromString(
-                    string: "R",
                   ),
-                  swidReferenceDeclarationKind:
-                      SwidReferenceDeclarationKind.typeParameterType,
-                )
-              ],),
+                ],
+                referenceDeclarationKind:
+                    SwidReferenceDeclarationKind.classElement,
+              ),
+            ),
+            isFactory: false,
+            typeFormals: [
+              SwidTypeFormal(
+                swidTypeFormalBound: null,
+                value: SwidTypeFormalValue.fromString(
+                  string: "R",
+                ),
+                swidReferenceDeclarationKind:
+                    SwidReferenceDeclarationKind.typeParameterType,
+              )
+            ],
+          ),
         )
       },
       namedDefaults: {},
-      normalParameterNames: ["source",],
+      normalParameterNames: [
+        "source",
+      ],
       normalParameterTypes: [
         SwidType.fromSwidInterface(
           swidInterface: SwidInterface(

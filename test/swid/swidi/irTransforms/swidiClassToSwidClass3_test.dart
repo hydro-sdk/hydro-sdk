@@ -153,10 +153,13 @@ class "dart:core"::List {
       typeFormals: [],
     );
 
-    expect(res, [
-      SwidIr.fromSwidClass(
-        swidClass: list,
-      ),
-    ],);
+    expect(
+      res,
+      [
+        SwidIr.fromSwidClass(
+          swidClass: list,
+        ),
+      ],
+    );
   }, tags: "swid");
 }
