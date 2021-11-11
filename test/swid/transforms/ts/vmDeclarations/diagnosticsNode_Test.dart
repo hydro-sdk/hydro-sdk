@@ -1,5 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 
+import 'package:hydro_sdk/swid/backend/ts/tsClassVmDeclaration.dart';
+import 'package:hydro_sdk/swid/backend/util/requiresDartBinding.dart';
 import 'package:hydro_sdk/swid/ir/swidBooleanLiteral.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
@@ -13,15 +15,13 @@ import 'package:hydro_sdk/swid/ir/swidStaticConstFieldReference.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstPrefixedIdentifier.dart';
 import 'package:hydro_sdk/swid/ir/swidStringLiteral.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
-import 'package:hydro_sdk/swid/backend/ts/tsClassVmDeclaration.dart';
-import 'package:hydro_sdk/swid/backend/util/requiresDartBinding.dart';
 import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
 import 'package:hydro_sdk/swid/swars/pipelineNoopCacheMgr.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
-     final diagnosticsNode = SwidClass(
+    final diagnosticsNode = SwidClass(
       name: "DiagnosticsNode",
       nullabilitySuffix: SwidNullabilitySuffix.none,
       originalPackagePath: "package:flutter/src/foundation/diagnostics.dart",
@@ -1133,12 +1133,18 @@ void main() {
       typeFormals: [],
     );
 
-    expect(requiresDartBinding(swidClass: diagnosticsNode,), true);
+    expect(
+        requiresDartBinding(
+          swidClass: diagnosticsNode,
+        ),
+        true);
     expect(
         CachingPipeline(
           cacheMgr: const PipelineNoopCacheMgr(),
         ).reduceFromTerm(
-          TsClassVmDeclaration(swidClass: diagnosticsNode,),
+          TsClassVmDeclaration(
+            swidClass: diagnosticsNode,
+          ),
         ),
         """
 declare const flutter: {
