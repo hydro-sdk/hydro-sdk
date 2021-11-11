@@ -1,6 +1,3 @@
-import 'dart:convert';
-import 'dart:io';
-
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:hydro_sdk/swid/backend/dart/dartLoadNamespaceSymbolDeclaration.dart';
@@ -15,6 +12,7 @@ import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstFieldReference.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstPrefixedIdentifier.dart';
+import 'package:hydro_sdk/swid/ir/swidStringLiteral.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
 import 'package:hydro_sdk/swid/swars/pipelineNoopCacheMgr.dart';
@@ -941,12 +939,64 @@ void main() {
           declarationModifiers: SwidDeclarationModifiers.empty(),
         ),
         SwidFunctionType(
-            name: "toStringDeep",
-            nullabilitySuffix: SwidNullabilitySuffix.none,
-            originalPackagePath:
-                "package:flutter/src/foundation/diagnostics.dart",
-            namedParameterTypes: {
-              "minLevel": SwidType.fromSwidInterface(
+          name: "toStringDeep",
+          nullabilitySuffix: SwidNullabilitySuffix.none,
+          originalPackagePath:
+              "package:flutter/src/foundation/diagnostics.dart",
+          namedParameterTypes: {
+            "minLevel": SwidType.fromSwidInterface(
+              swidInterface: SwidInterface(
+                name: "DiagnosticLevel",
+                nullabilitySuffix: SwidNullabilitySuffix.none,
+                originalPackagePath:
+                    "package:flutter/src/foundation/diagnostics.dart",
+                typeArguments: [],
+                referenceDeclarationKind:
+                    SwidReferenceDeclarationKind.enumElement,
+                declarationModifiers: SwidDeclarationModifiers.empty(),
+              ),
+            ),
+            "parentConfiguration": SwidType.fromSwidInterface(
+              swidInterface: SwidInterface(
+                name: "TextTreeConfiguration",
+                nullabilitySuffix: SwidNullabilitySuffix.question,
+                originalPackagePath:
+                    "package:flutter/src/foundation/diagnostics.dart",
+                typeArguments: [],
+                referenceDeclarationKind:
+                    SwidReferenceDeclarationKind.classElement,
+                declarationModifiers: SwidDeclarationModifiers.empty(),
+              ),
+            ),
+            "prefixLineOne": SwidType.fromSwidInterface(
+              swidInterface: SwidInterface(
+                name: "String",
+                nullabilitySuffix: SwidNullabilitySuffix.none,
+                originalPackagePath: "dart:core",
+                typeArguments: [],
+                referenceDeclarationKind:
+                    SwidReferenceDeclarationKind.classElement,
+                declarationModifiers: SwidDeclarationModifiers.empty(),
+              ),
+            ),
+            "prefixOtherLines": SwidType.fromSwidInterface(
+              swidInterface: SwidInterface(
+                name: "String",
+                nullabilitySuffix: SwidNullabilitySuffix.question,
+                originalPackagePath: "dart:core",
+                typeArguments: [],
+                referenceDeclarationKind:
+                    SwidReferenceDeclarationKind.classElement,
+                declarationModifiers: SwidDeclarationModifiers.empty(),
+              ),
+            ),
+          },
+          namedDefaults: {
+            "minLevel": SwidDefaultFormalParameter(
+              nullabilitySuffix: SwidNullabilitySuffix.none,
+              originalPackagePath:
+                  "package:flutter/src/foundation/diagnostics.dart",
+              staticType: SwidType.fromSwidInterface(
                 swidInterface: SwidInterface(
                   name: "DiagnosticLevel",
                   nullabilitySuffix: SwidNullabilitySuffix.none,
@@ -958,19 +1008,31 @@ void main() {
                   declarationModifiers: SwidDeclarationModifiers.empty(),
                 ),
               ),
-              "parentConfiguration": SwidType.fromSwidInterface(
-                swidInterface: SwidInterface(
-                  name: "TextTreeConfiguration",
-                  nullabilitySuffix: SwidNullabilitySuffix.question,
-                  originalPackagePath:
-                      "package:flutter/src/foundation/diagnostics.dart",
-                  typeArguments: [],
-                  referenceDeclarationKind:
-                      SwidReferenceDeclarationKind.classElement,
-                  declarationModifiers: SwidDeclarationModifiers.empty(),
+              value: SwidStaticConst.fromSwidStaticConstPrefixedIdentifier(
+                staticConstPrefixedIdentifier:
+                    SwidStaticConstPrefixedIdentifier(
+                  prefix: SwidInterface(
+                    name: "DiagnosticLevel",
+                    nullabilitySuffix: SwidNullabilitySuffix.none,
+                    originalPackagePath:
+                        "package:flutter/src/foundation/diagnostics.dart",
+                    typeArguments: [],
+                    referenceDeclarationKind:
+                        SwidReferenceDeclarationKind.classElement,
+                    declarationModifiers: SwidDeclarationModifiers.empty(),
+                  ),
+                  staticConstFieldReference: SwidStaticConstFieldReference(
+                    name: "debug",
+                  ),
                 ),
               ),
-              "prefixLineOne": SwidType.fromSwidInterface(
+              defaultValueCode: "DiagnosticLevel.debug",
+            ),
+            "prefixLineOne": SwidDefaultFormalParameter(
+              nullabilitySuffix: SwidNullabilitySuffix.none,
+              originalPackagePath:
+                  "package:flutter/src/foundation/diagnostics.dart",
+              staticType: SwidType.fromSwidInterface(
                 swidInterface: SwidInterface(
                   name: "String",
                   nullabilitySuffix: SwidNullabilitySuffix.none,
@@ -980,25 +1042,94 @@ void main() {
                       SwidReferenceDeclarationKind.classElement,
                   declarationModifiers: SwidDeclarationModifiers.empty(),
                 ),
-              )
-            },
-            namedDefaults: namedDefaults,
-            normalParameterNames: normalParameterNames,
-            normalParameterTypes: normalParameterTypes,
-            optionalParameterNames: optionalParameterNames,
-            optionalParameterTypes: optionalParameterTypes,
-            returnType: returnType,
-            isFactory: isFactory,
-            typeFormals: typeFormals,
-            declarationModifiers: declarationModifiers)
+              ),
+              value: SwidStaticConst.fromSwidStringLiteral(
+                swidStringLiteral: SwidStringLiteral(
+                  value: "",
+                ),
+              ),
+              defaultValueCode: "''",
+            ),
+          },
+          normalParameterNames: [],
+          normalParameterTypes: [],
+          optionalParameterNames: [],
+          optionalParameterTypes: [],
+          returnType: SwidType.fromSwidInterface(
+            swidInterface: SwidInterface(
+              name: "String",
+              nullabilitySuffix: SwidNullabilitySuffix.none,
+              originalPackagePath: "dart:core",
+              typeArguments: [],
+              referenceDeclarationKind:
+                  SwidReferenceDeclarationKind.classElement,
+              declarationModifiers: SwidDeclarationModifiers.empty(),
+            ),
+          ),
+          isFactory: false,
+          typeFormals: [],
+          declarationModifiers: SwidDeclarationModifiers.empty(),
+        )
       ],
-      staticConstFieldDeclarations: staticConstFieldDeclarations,
-      instanceFieldDeclarations: instanceFieldDeclarations,
-      declarationModifiers: declarationModifiers,
-      mixedInClasses: mixedInClasses,
-      implementedClasses: implementedClasses,
-      isMixin: isMixin,
-      typeFormals: typeFormals,
+      staticConstFieldDeclarations: [],
+      instanceFieldDeclarations: {
+        "name": SwidType.fromSwidInterface(
+          swidInterface: SwidInterface(
+            name: "String",
+            nullabilitySuffix: SwidNullabilitySuffix.question,
+            originalPackagePath: "dart:core",
+            typeArguments: [],
+            referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
+            declarationModifiers: SwidDeclarationModifiers.empty(),
+          ),
+        ),
+        "showSeparator": SwidType.fromSwidInterface(
+          swidInterface: SwidInterface(
+            name: "bool",
+            nullabilitySuffix: SwidNullabilitySuffix.none,
+            originalPackagePath: "dart:core",
+            typeArguments: [],
+            referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
+            declarationModifiers: SwidDeclarationModifiers.empty(),
+          ),
+        ),
+        "showName": SwidType.fromSwidInterface(
+          swidInterface: SwidInterface(
+            name: "bool",
+            nullabilitySuffix: SwidNullabilitySuffix.none,
+            originalPackagePath: "dart:core",
+            typeArguments: [],
+            referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
+            declarationModifiers: SwidDeclarationModifiers.empty(),
+          ),
+        ),
+        "linePrefix": SwidType.fromSwidInterface(
+          swidInterface: SwidInterface(
+            name: "String",
+            nullabilitySuffix: SwidNullabilitySuffix.question,
+            originalPackagePath: "dart:core",
+            typeArguments: [],
+            referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
+            declarationModifiers: SwidDeclarationModifiers.empty(),
+          ),
+        ),
+        "style": SwidType.fromSwidInterface(
+          swidInterface: SwidInterface(
+            name: "DiagnosticsTreeStyle",
+            nullabilitySuffix: SwidNullabilitySuffix.question,
+            originalPackagePath:
+                "package:flutter/src/foundation/diagnostics.dart",
+            typeArguments: [],
+            referenceDeclarationKind: SwidReferenceDeclarationKind.enumElement,
+            declarationModifiers: SwidDeclarationModifiers.empty(),
+          ),
+        )
+      },
+      declarationModifiers: SwidDeclarationModifiers.empty(),
+      mixedInClasses: [],
+      implementedClasses: [],
+      isMixin: false,
+      typeFormals: [],
     );
 
     expect(
