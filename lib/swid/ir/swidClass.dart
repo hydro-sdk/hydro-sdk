@@ -34,6 +34,7 @@ class SwidClass
     required final SwidNullabilitySuffix nullabilitySuffix,
     required final String originalPackagePath,
     required final SwidFunctionType? constructorType,
+    required final List<SwidFunctionType> generativeConstructors,
     required final List<SwidFunctionType> factoryConstructors,
     required final List<SwidFunctionType> staticMethods,
     required final List<SwidFunctionType> methods,
@@ -54,6 +55,7 @@ class SwidClass
     nullabilitySuffix.index,
     ...originalPackagePath.hashableParts,
     ...constructorType?.hashableParts ?? [],
+    ...generativeConstructors.hashableParts,
     ...factoryConstructors.hashableParts,
     ...staticMethods.hashableParts,
     ...methods.hashableParts,
@@ -79,6 +81,7 @@ class SwidClass
     final SwidNullabilitySuffix? nullabilitySuffix,
     final String? originalPackagePath,
     final SwidFunctionType? constructorType,
+    final List<SwidFunctionType>? generativeConstructors,
     final List<SwidFunctionType>? factoryConstructors,
     final List<SwidFunctionType>? staticMethods,
     final List<SwidFunctionType>? methods,
@@ -101,6 +104,8 @@ class SwidClass
             : swidClass.constructorType != null
                 ? swidClass.constructorType
                 : null,
+        generativeConstructors:
+            generativeConstructors ?? swidClass.generativeConstructors,
         factoryConstructors:
             factoryConstructors ?? swidClass.factoryConstructors,
         staticMethods: staticMethods ?? swidClass.staticMethods,
@@ -123,6 +128,7 @@ class SwidClass
         nullabilitySuffix: SwidNullabilitySuffix.none,
         originalPackagePath: "",
         constructorType: null,
+        generativeConstructors: [],
         factoryConstructors: [],
         staticMethods: [],
         methods: [],

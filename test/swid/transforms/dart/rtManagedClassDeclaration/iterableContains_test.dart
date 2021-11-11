@@ -19,6 +19,7 @@ void main() {
       nullabilitySuffix: SwidNullabilitySuffix.none,
       originalPackagePath: "dart:core",
       constructorType: null,
+      generativeConstructors: [],
       factoryConstructors: [],
       staticMethods: [],
       methods: [
@@ -29,7 +30,9 @@ void main() {
           declarationModifiers: SwidDeclarationModifiers.empty(),
           namedParameterTypes: {},
           namedDefaults: {},
-          normalParameterNames: ["element"],
+          normalParameterNames: [
+            "element",
+          ],
           normalParameterTypes: [
             SwidType.fromSwidInterface(
               swidInterface: SwidInterface(

@@ -34,6 +34,7 @@ class "dart:async"::AsyncError {
       nullabilitySuffix: SwidNullabilitySuffix.none,
       originalPackagePath: "dart:async",
       constructorType: null,
+      generativeConstructors: [],
       factoryConstructors: [],
       staticMethods: [],
       methods: [
@@ -48,14 +49,16 @@ class "dart:async"::AsyncError {
           optionalParameterNames: [],
           optionalParameterTypes: [],
           returnType: SwidType.fromSwidInterface(
-              swidInterface: SwidInterface(
-            name: "StackTrace",
-            nullabilitySuffix: SwidNullabilitySuffix.none,
-            originalPackagePath: "dart:core",
-            typeArguments: [],
-            referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
-            declarationModifiers: SwidDeclarationModifiers.empty(),
-          )),
+            swidInterface: SwidInterface(
+              name: "StackTrace",
+              nullabilitySuffix: SwidNullabilitySuffix.none,
+              originalPackagePath: "dart:core",
+              typeArguments: [],
+              referenceDeclarationKind:
+                  SwidReferenceDeclarationKind.classElement,
+              declarationModifiers: SwidDeclarationModifiers.empty(),
+            ),
+          ),
           isFactory: false,
           typeFormals: [],
           declarationModifiers: SwidDeclarationModifiers.empty().clone(

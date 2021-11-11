@@ -25,6 +25,7 @@ class _$SwidClassTearOff {
       required SwidNullabilitySuffix nullabilitySuffix,
       required String originalPackagePath,
       required SwidFunctionType? constructorType,
+      required List<SwidFunctionType> generativeConstructors,
       required List<SwidFunctionType> factoryConstructors,
       required List<SwidFunctionType> staticMethods,
       required List<SwidFunctionType> methods,
@@ -42,6 +43,7 @@ class _$SwidClassTearOff {
       nullabilitySuffix: nullabilitySuffix,
       originalPackagePath: originalPackagePath,
       constructorType: constructorType,
+      generativeConstructors: generativeConstructors,
       factoryConstructors: factoryConstructors,
       staticMethods: staticMethods,
       methods: methods,
@@ -71,6 +73,8 @@ mixin _$SwidClass {
       throw _privateConstructorUsedError;
   String get originalPackagePath => throw _privateConstructorUsedError;
   SwidFunctionType? get constructorType => throw _privateConstructorUsedError;
+  List<SwidFunctionType> get generativeConstructors =>
+      throw _privateConstructorUsedError;
   List<SwidFunctionType> get factoryConstructors =>
       throw _privateConstructorUsedError;
   List<SwidFunctionType> get staticMethods =>
@@ -103,6 +107,7 @@ abstract class $SwidClassCopyWith<$Res> {
       SwidNullabilitySuffix nullabilitySuffix,
       String originalPackagePath,
       SwidFunctionType? constructorType,
+      List<SwidFunctionType> generativeConstructors,
       List<SwidFunctionType> factoryConstructors,
       List<SwidFunctionType> staticMethods,
       List<SwidFunctionType> methods,
@@ -134,6 +139,7 @@ class _$SwidClassCopyWithImpl<$Res> implements $SwidClassCopyWith<$Res> {
     Object? nullabilitySuffix = freezed,
     Object? originalPackagePath = freezed,
     Object? constructorType = freezed,
+    Object? generativeConstructors = freezed,
     Object? factoryConstructors = freezed,
     Object? staticMethods = freezed,
     Object? methods = freezed,
@@ -163,6 +169,10 @@ class _$SwidClassCopyWithImpl<$Res> implements $SwidClassCopyWith<$Res> {
           ? _value.constructorType
           : constructorType // ignore: cast_nullable_to_non_nullable
               as SwidFunctionType?,
+      generativeConstructors: generativeConstructors == freezed
+          ? _value.generativeConstructors
+          : generativeConstructors // ignore: cast_nullable_to_non_nullable
+              as List<SwidFunctionType>,
       factoryConstructors: factoryConstructors == freezed
           ? _value.factoryConstructors
           : factoryConstructors // ignore: cast_nullable_to_non_nullable
@@ -251,6 +261,7 @@ abstract class _$$DataCopyWith<$Res> implements $SwidClassCopyWith<$Res> {
       SwidNullabilitySuffix nullabilitySuffix,
       String originalPackagePath,
       SwidFunctionType? constructorType,
+      List<SwidFunctionType> generativeConstructors,
       List<SwidFunctionType> factoryConstructors,
       List<SwidFunctionType> staticMethods,
       List<SwidFunctionType> methods,
@@ -286,6 +297,7 @@ class __$$DataCopyWithImpl<$Res> extends _$SwidClassCopyWithImpl<$Res>
     Object? nullabilitySuffix = freezed,
     Object? originalPackagePath = freezed,
     Object? constructorType = freezed,
+    Object? generativeConstructors = freezed,
     Object? factoryConstructors = freezed,
     Object? staticMethods = freezed,
     Object? methods = freezed,
@@ -315,6 +327,10 @@ class __$$DataCopyWithImpl<$Res> extends _$SwidClassCopyWithImpl<$Res>
           ? _value.constructorType
           : constructorType // ignore: cast_nullable_to_non_nullable
               as SwidFunctionType?,
+      generativeConstructors: generativeConstructors == freezed
+          ? _value.generativeConstructors
+          : generativeConstructors // ignore: cast_nullable_to_non_nullable
+              as List<SwidFunctionType>,
       factoryConstructors: factoryConstructors == freezed
           ? _value.factoryConstructors
           : factoryConstructors // ignore: cast_nullable_to_non_nullable
@@ -371,6 +387,7 @@ class _$_$Data extends _$Data {
       required this.nullabilitySuffix,
       required this.originalPackagePath,
       required this.constructorType,
+      required this.generativeConstructors,
       required this.factoryConstructors,
       required this.staticMethods,
       required this.methods,
@@ -396,6 +413,8 @@ class _$_$Data extends _$Data {
   @override
   final SwidFunctionType? constructorType;
   @override
+  final List<SwidFunctionType> generativeConstructors;
+  @override
   final List<SwidFunctionType> factoryConstructors;
   @override
   final List<SwidFunctionType> staticMethods;
@@ -420,7 +439,7 @@ class _$_$Data extends _$Data {
 
   @override
   String toString() {
-    return 'SwidClass(name: $name, nullabilitySuffix: $nullabilitySuffix, originalPackagePath: $originalPackagePath, constructorType: $constructorType, factoryConstructors: $factoryConstructors, staticMethods: $staticMethods, methods: $methods, staticConstFieldDeclarations: $staticConstFieldDeclarations, instanceFieldDeclarations: $instanceFieldDeclarations, declarationModifiers: $declarationModifiers, mixedInClasses: $mixedInClasses, implementedClasses: $implementedClasses, isMixin: $isMixin, typeFormals: $typeFormals, extendedClass: $extendedClass)';
+    return 'SwidClass(name: $name, nullabilitySuffix: $nullabilitySuffix, originalPackagePath: $originalPackagePath, constructorType: $constructorType, generativeConstructors: $generativeConstructors, factoryConstructors: $factoryConstructors, staticMethods: $staticMethods, methods: $methods, staticConstFieldDeclarations: $staticConstFieldDeclarations, instanceFieldDeclarations: $instanceFieldDeclarations, declarationModifiers: $declarationModifiers, mixedInClasses: $mixedInClasses, implementedClasses: $implementedClasses, isMixin: $isMixin, typeFormals: $typeFormals, extendedClass: $extendedClass)';
   }
 
   @override
@@ -438,6 +457,9 @@ class _$_$Data extends _$Data {
             (identical(other.constructorType, constructorType) ||
                 const DeepCollectionEquality()
                     .equals(other.constructorType, constructorType)) &&
+            (identical(other.generativeConstructors, generativeConstructors) ||
+                const DeepCollectionEquality().equals(
+                    other.generativeConstructors, generativeConstructors)) &&
             (identical(other.factoryConstructors, factoryConstructors) ||
                 const DeepCollectionEquality()
                     .equals(other.factoryConstructors, factoryConstructors)) &&
@@ -447,8 +469,7 @@ class _$_$Data extends _$Data {
             (identical(other.methods, methods) ||
                 const DeepCollectionEquality()
                     .equals(other.methods, methods)) &&
-            (identical(other.staticConstFieldDeclarations,
-                    staticConstFieldDeclarations) ||
+            (identical(other.staticConstFieldDeclarations, staticConstFieldDeclarations) ||
                 const DeepCollectionEquality().equals(
                     other.staticConstFieldDeclarations,
                     staticConstFieldDeclarations)) &&
@@ -483,6 +504,7 @@ class _$_$Data extends _$Data {
       const DeepCollectionEquality().hash(nullabilitySuffix) ^
       const DeepCollectionEquality().hash(originalPackagePath) ^
       const DeepCollectionEquality().hash(constructorType) ^
+      const DeepCollectionEquality().hash(generativeConstructors) ^
       const DeepCollectionEquality().hash(factoryConstructors) ^
       const DeepCollectionEquality().hash(staticMethods) ^
       const DeepCollectionEquality().hash(methods) ^
@@ -512,6 +534,7 @@ abstract class _$Data extends SwidClass {
       required SwidNullabilitySuffix nullabilitySuffix,
       required String originalPackagePath,
       required SwidFunctionType? constructorType,
+      required List<SwidFunctionType> generativeConstructors,
       required List<SwidFunctionType> factoryConstructors,
       required List<SwidFunctionType> staticMethods,
       required List<SwidFunctionType> methods,
@@ -537,6 +560,9 @@ abstract class _$Data extends SwidClass {
   String get originalPackagePath => throw _privateConstructorUsedError;
   @override
   SwidFunctionType? get constructorType => throw _privateConstructorUsedError;
+  @override
+  List<SwidFunctionType> get generativeConstructors =>
+      throw _privateConstructorUsedError;
   @override
   List<SwidFunctionType> get factoryConstructors =>
       throw _privateConstructorUsedError;

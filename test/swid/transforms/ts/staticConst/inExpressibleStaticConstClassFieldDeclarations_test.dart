@@ -23,6 +23,7 @@ void main() {
       nullabilitySuffix: SwidNullabilitySuffix.none,
       originalPackagePath: "dart:typed_data",
       constructorType: null,
+      generativeConstructors: [],
       factoryConstructors: [],
       staticMethods: [],
       methods: [],
@@ -46,7 +47,9 @@ void main() {
               ),
               normalParameters: [
                 SwidStaticConst.fromSwidBooleanLiteral(
-                  swidBooleanLiteral: SwidBooleanLiteral(value: "false"),
+                  swidBooleanLiteral: SwidBooleanLiteral(
+                    value: "false",
+                  ),
                 ),
               ],
               namedParameters: {},
@@ -72,7 +75,9 @@ void main() {
               ),
               normalParameters: [
                 SwidStaticConst.fromSwidBooleanLiteral(
-                  swidBooleanLiteral: SwidBooleanLiteral(value: "true"),
+                  swidBooleanLiteral: SwidBooleanLiteral(
+                    value: "true",
+                  ),
                 ),
               ],
               namedParameters: {},

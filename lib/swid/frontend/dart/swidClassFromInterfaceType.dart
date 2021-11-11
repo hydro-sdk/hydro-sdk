@@ -34,6 +34,7 @@ SwidClass swidClassFromInterfaceType({
       originalPackagePath:
           mapClassLibrarySourcePath(element: interfaceType.element),
       constructorType: null,
+      generativeConstructors: [],
       factoryConstructors: [],
       staticMethods: [],
       methods: [

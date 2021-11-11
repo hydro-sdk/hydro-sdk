@@ -19,13 +19,16 @@ void main() {
       name: "_UnmodifiableSet",
       nullabilitySuffix: SwidNullabilitySuffix.none,
       originalPackagePath: "dart:collection",
+      generativeConstructors: [],
       constructorType: SwidFunctionType(
         name: "",
         nullabilitySuffix: SwidNullabilitySuffix.none,
         originalPackagePath: "",
         namedParameterTypes: {},
         namedDefaults: {},
-        normalParameterNames: ["_map"],
+        normalParameterNames: [
+          "_map",
+        ],
         normalParameterTypes: [
           SwidType.fromSwidInterface(
             swidInterface: SwidInterface(

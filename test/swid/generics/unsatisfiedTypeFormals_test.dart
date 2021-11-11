@@ -251,47 +251,57 @@ void main() {
 
     expect(unsatisfiedTypesFromConstructor, isNotNull);
     expect(unsatisfiedTypesFromConstructor.length, 1);
-    expect(unsatisfiedTypesFromConstructor, [
-      SwidTypeFormal(
-        swidTypeFormalBound: null,
-        value: SwidTypeFormalValue.fromString(
-          string: "E",
-        ),
-        swidReferenceDeclarationKind:
-            SwidReferenceDeclarationKind.typeParameterType,
-      )
-    ]);
+    expect(
+      unsatisfiedTypesFromConstructor,
+      [
+        SwidTypeFormal(
+          swidTypeFormalBound: null,
+          value: SwidTypeFormalValue.fromString(
+            string: "E",
+          ),
+          swidReferenceDeclarationKind:
+              SwidReferenceDeclarationKind.typeParameterType,
+        )
+      ],
+    );
     /*
     class Iterable<E> {
      Iterable<E> Iterable();
     }
   */
     var iterable = SwidClass(
-        name: "Iterable",
-        nullabilitySuffix: SwidNullabilitySuffix.none,
-        originalPackagePath: "dart:core",
-        constructorType: constructor,
-        factoryConstructors: [],
-        staticMethods: [],
-        methods: [],
-        implementedClasses: [],
-        staticConstFieldDeclarations: [],
-        instanceFieldDeclarations: {},
-        declarationModifiers: SwidDeclarationModifiers.empty(),
-        mixedInClasses: [],
-        extendedClass: null,
-        isMixin: false,
-        typeFormals: [
-          SwidTypeFormal(
-            swidTypeFormalBound: null,
-            value: SwidTypeFormalValue.fromString(string: "E"),
-            swidReferenceDeclarationKind:
-                SwidReferenceDeclarationKind.typeParameterType,
-          )
-        ]);
+      name: "Iterable",
+      nullabilitySuffix: SwidNullabilitySuffix.none,
+      originalPackagePath: "dart:core",
+      constructorType: constructor,
+      generativeConstructors: [],
+      factoryConstructors: [],
+      staticMethods: [],
+      methods: [],
+      implementedClasses: [],
+      staticConstFieldDeclarations: [],
+      instanceFieldDeclarations: {},
+      declarationModifiers: SwidDeclarationModifiers.empty(),
+      mixedInClasses: [],
+      extendedClass: null,
+      isMixin: false,
+      typeFormals: [
+        SwidTypeFormal(
+          swidTypeFormalBound: null,
+          value: SwidTypeFormalValue.fromString(
+            string: "E",
+          ),
+          swidReferenceDeclarationKind:
+              SwidReferenceDeclarationKind.typeParameterType,
+        )
+      ],
+    );
 
     var unsatisfiedTypesFromIterable = unsatisfiedTypeParameters(
-        swidType: SwidType.fromSwidClass(swidClass: iterable));
+      swidType: SwidType.fromSwidClass(
+        swidClass: iterable,
+      ),
+    );
 
     //"iterable" is empty except for a constructor declaration
     //The declaration of "E" in "iterable" should satisfy the use of "E" in "iterable"'s constructor
@@ -377,17 +387,20 @@ void main() {
      factory Iterable<E> Iterable.empty()
     }
   */
-    var iterableWithMapAndEmpty =
-        SwidClass.clone(swidClass: iterable, methods: [
-      ...iterable.methods,
-      map,
-    ], factoryConstructors: [
-      ...iterable.factoryConstructors,
-      empty
-    ]);
+    var iterableWithMapAndEmpty = SwidClass.clone(
+      swidClass: iterable,
+      methods: [
+        ...iterable.methods,
+        map,
+      ],
+      factoryConstructors: [...iterable.factoryConstructors, empty],
+    );
 
     var unsatisfiedTypesFromIterableWithMapAndEmpty = unsatisfiedTypeParameters(
-        swidType: SwidType.fromSwidClass(swidClass: iterableWithMapAndEmpty));
+      swidType: SwidType.fromSwidClass(
+        swidClass: iterableWithMapAndEmpty,
+      ),
+    );
 
     /*
       By default, classes don't provide their type formals to their static children.

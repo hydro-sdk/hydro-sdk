@@ -15,55 +15,59 @@ void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
     var ir = DartVMManagedClassDeclaration(
-        swidClass: SwidClass(
-      name: "fooClass",
-      typeFormals: [],
-      implementedClasses: [],
-      isMixin: false,
-      extendedClass: null,
-      originalPackagePath: "",
-      nullabilitySuffix: SwidNullabilitySuffix.none,
-      staticMethods: [],
-      factoryConstructors: [],
-      declarationModifiers: SwidDeclarationModifiers.empty(),
-      instanceFieldDeclarations: {
-        "barField": SwidType.fromSwidInterface(
-            swidInterface: SwidInterface(
-          declarationModifiers: SwidDeclarationModifiers.empty(),
-          name: "BarEnum",
-          nullabilitySuffix: SwidNullabilitySuffix.question,
-          originalPackagePath: "",
-          typeArguments: [],
-          referenceDeclarationKind: SwidReferenceDeclarationKind.enumElement,
-        ))
-      },
-      constructorType: SwidFunctionType(
-        name: "",
-        isFactory: false,
+      swidClass: SwidClass(
+        name: "fooClass",
         typeFormals: [],
-        namedDefaults: {},
-        namedParameterTypes: {},
-        optionalParameterNames: [],
-        normalParameterNames: [],
-        normalParameterTypes: [],
-        nullabilitySuffix: SwidNullabilitySuffix.none,
-        optionalParameterTypes: [],
+        implementedClasses: [],
+        isMixin: false,
+        extendedClass: null,
         originalPackagePath: "",
-        returnType: SwidType.fromSwidInterface(
-            swidInterface: SwidInterface(
-          declarationModifiers: SwidDeclarationModifiers.empty(),
-          name: "",
-          nullabilitySuffix: SwidNullabilitySuffix.none,
-          originalPackagePath: "",
-          referenceDeclarationKind: SwidReferenceDeclarationKind.voidType,
-          typeArguments: [],
-        )),
+        nullabilitySuffix: SwidNullabilitySuffix.none,
+        staticMethods: [],
+        generativeConstructors: [],
+        factoryConstructors: [],
         declarationModifiers: SwidDeclarationModifiers.empty(),
+        instanceFieldDeclarations: {
+          "barField": SwidType.fromSwidInterface(
+            swidInterface: SwidInterface(
+              declarationModifiers: SwidDeclarationModifiers.empty(),
+              name: "BarEnum",
+              nullabilitySuffix: SwidNullabilitySuffix.question,
+              originalPackagePath: "",
+              typeArguments: [],
+              referenceDeclarationKind:
+                  SwidReferenceDeclarationKind.enumElement,
+            ),
+          )
+        },
+        constructorType: SwidFunctionType(
+          name: "",
+          isFactory: false,
+          typeFormals: [],
+          namedDefaults: {},
+          namedParameterTypes: {},
+          optionalParameterNames: [],
+          normalParameterNames: [],
+          normalParameterTypes: [],
+          nullabilitySuffix: SwidNullabilitySuffix.none,
+          optionalParameterTypes: [],
+          originalPackagePath: "",
+          returnType: SwidType.fromSwidInterface(
+              swidInterface: SwidInterface(
+            declarationModifiers: SwidDeclarationModifiers.empty(),
+            name: "",
+            nullabilitySuffix: SwidNullabilitySuffix.none,
+            originalPackagePath: "",
+            referenceDeclarationKind: SwidReferenceDeclarationKind.voidType,
+            typeArguments: [],
+          )),
+          declarationModifiers: SwidDeclarationModifiers.empty(),
+        ),
+        staticConstFieldDeclarations: [],
+        methods: [],
+        mixedInClasses: [],
       ),
-      staticConstFieldDeclarations: [],
-      methods: [],
-      mixedInClasses: [],
-    ));
+    );
 
     expect(
         CachingPipeline(

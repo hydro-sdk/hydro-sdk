@@ -15,55 +15,60 @@ void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
     var ir = DartVMManagedClassDeclaration(
-        swidClass: SwidClass(
-      name: "fooClass",
-      typeFormals: [],
-      implementedClasses: [],
-      isMixin: false,
-      extendedClass: null,
-      originalPackagePath: "",
-      nullabilitySuffix: SwidNullabilitySuffix.none,
-      staticMethods: [],
-      factoryConstructors: [],
-      declarationModifiers: SwidDeclarationModifiers.empty(),
-      instanceFieldDeclarations: {
-        "barField": SwidType.fromSwidInterface(
-            swidInterface: SwidInterface(
-          declarationModifiers: SwidDeclarationModifiers.empty(),
-          name: "String",
-          nullabilitySuffix: SwidNullabilitySuffix.question,
-          originalPackagePath: "dart:core",
-          typeArguments: [],
-          referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
-        ))
-      },
-      constructorType: SwidFunctionType(
-        name: "",
+      swidClass: SwidClass(
+        name: "fooClass",
         typeFormals: [],
-        isFactory: false,
-        namedDefaults: {},
-        namedParameterTypes: {},
-        optionalParameterNames: [],
-        normalParameterNames: [],
-        normalParameterTypes: [],
-        nullabilitySuffix: SwidNullabilitySuffix.none,
-        optionalParameterTypes: [],
+        implementedClasses: [],
+        isMixin: false,
+        extendedClass: null,
         originalPackagePath: "",
-        returnType: SwidType.fromSwidInterface(
-            swidInterface: SwidInterface(
-          declarationModifiers: SwidDeclarationModifiers.empty(),
-          name: "",
-          nullabilitySuffix: SwidNullabilitySuffix.none,
-          originalPackagePath: "",
-          referenceDeclarationKind: SwidReferenceDeclarationKind.voidType,
-          typeArguments: [],
-        )),
+        nullabilitySuffix: SwidNullabilitySuffix.none,
+        staticMethods: [],
+        generativeConstructors: [],
+        factoryConstructors: [],
         declarationModifiers: SwidDeclarationModifiers.empty(),
+        instanceFieldDeclarations: {
+          "barField": SwidType.fromSwidInterface(
+            swidInterface: SwidInterface(
+              declarationModifiers: SwidDeclarationModifiers.empty(),
+              name: "String",
+              nullabilitySuffix: SwidNullabilitySuffix.question,
+              originalPackagePath: "dart:core",
+              typeArguments: [],
+              referenceDeclarationKind:
+                  SwidReferenceDeclarationKind.classElement,
+            ),
+          )
+        },
+        constructorType: SwidFunctionType(
+          name: "",
+          typeFormals: [],
+          isFactory: false,
+          namedDefaults: {},
+          namedParameterTypes: {},
+          optionalParameterNames: [],
+          normalParameterNames: [],
+          normalParameterTypes: [],
+          nullabilitySuffix: SwidNullabilitySuffix.none,
+          optionalParameterTypes: [],
+          originalPackagePath: "",
+          returnType: SwidType.fromSwidInterface(
+            swidInterface: SwidInterface(
+              declarationModifiers: SwidDeclarationModifiers.empty(),
+              name: "",
+              nullabilitySuffix: SwidNullabilitySuffix.none,
+              originalPackagePath: "",
+              referenceDeclarationKind: SwidReferenceDeclarationKind.voidType,
+              typeArguments: [],
+            ),
+          ),
+          declarationModifiers: SwidDeclarationModifiers.empty(),
+        ),
+        staticConstFieldDeclarations: [],
+        methods: [],
+        mixedInClasses: [],
       ),
-      staticConstFieldDeclarations: [],
-      methods: [],
-      mixedInClasses: [],
-    ));
+    );
 
     expect(
         CachingPipeline(

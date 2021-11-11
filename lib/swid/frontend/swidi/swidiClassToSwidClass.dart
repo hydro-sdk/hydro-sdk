@@ -12,6 +12,7 @@ SwidClass swidiClassToSwidClass({
       nullabilitySuffix: SwidNullabilitySuffix.none,
       originalPackagePath: swidiClass.libraryScopePrefix.name,
       constructorType: null,
+      generativeConstructors: [],
       factoryConstructors: [],
       staticMethods: swidiClass.staticMethods
           .map(

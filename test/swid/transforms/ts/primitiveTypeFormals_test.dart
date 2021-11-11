@@ -15,10 +15,25 @@ void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
     var float32List = SwidClass(
-        name: "Float32List",
+      name: "Float32List",
+      nullabilitySuffix: SwidNullabilitySuffix.none,
+      originalPackagePath: "dart:typed_data",
+      constructorType: null,
+      generativeConstructors: [],
+      factoryConstructors: [],
+      staticMethods: [],
+      methods: [],
+      implementedClasses: [],
+      staticConstFieldDeclarations: [],
+      instanceFieldDeclarations: {},
+      declarationModifiers: SwidDeclarationModifiers.empty(),
+      mixedInClasses: [],
+      extendedClass: SwidClass(
+        name: "List<double>",
         nullabilitySuffix: SwidNullabilitySuffix.none,
-        originalPackagePath: "dart:typed_data",
+        originalPackagePath: "dart:core",
         constructorType: null,
+        generativeConstructors: [],
         factoryConstructors: [],
         staticMethods: [],
         methods: [],
@@ -27,49 +42,39 @@ void main() {
         instanceFieldDeclarations: {},
         declarationModifiers: SwidDeclarationModifiers.empty(),
         mixedInClasses: [],
-        extendedClass: SwidClass(
-            name: "List<double>",
-            nullabilitySuffix: SwidNullabilitySuffix.none,
-            originalPackagePath: "dart:core",
-            constructorType: null,
-            factoryConstructors: [],
-            staticMethods: [],
-            methods: [],
-            implementedClasses: [],
-            staticConstFieldDeclarations: [],
-            instanceFieldDeclarations: {},
-            declarationModifiers: SwidDeclarationModifiers.empty(),
-            mixedInClasses: [],
-            extendedClass: null,
-            isMixin: false,
-            typeFormals: [
-              SwidTypeFormal(
-                swidTypeFormalBound: null,
-                value: SwidTypeFormalValue.fromSwidClass(
-                  swidClass: SwidClass(
-                    name: "double",
-                    nullabilitySuffix: SwidNullabilitySuffix.none,
-                    originalPackagePath: "dart:core",
-                    constructorType: null,
-                    factoryConstructors: [],
-                    staticMethods: [],
-                    methods: [],
-                    implementedClasses: [],
-                    staticConstFieldDeclarations: [],
-                    instanceFieldDeclarations: {},
-                    declarationModifiers: SwidDeclarationModifiers.empty(),
-                    mixedInClasses: [],
-                    extendedClass: null,
-                    isMixin: false,
-                    typeFormals: [],
-                  ),
-                ),
-                swidReferenceDeclarationKind:
-                    SwidReferenceDeclarationKind.classElement,
-              )
-            ]),
+        extendedClass: null,
         isMixin: false,
-        typeFormals: []);
+        typeFormals: [
+          SwidTypeFormal(
+            swidTypeFormalBound: null,
+            value: SwidTypeFormalValue.fromSwidClass(
+              swidClass: SwidClass(
+                name: "double",
+                nullabilitySuffix: SwidNullabilitySuffix.none,
+                originalPackagePath: "dart:core",
+                generativeConstructors: [],
+                constructorType: null,
+                factoryConstructors: [],
+                staticMethods: [],
+                methods: [],
+                implementedClasses: [],
+                staticConstFieldDeclarations: [],
+                instanceFieldDeclarations: {},
+                declarationModifiers: SwidDeclarationModifiers.empty(),
+                mixedInClasses: [],
+                extendedClass: null,
+                isMixin: false,
+                typeFormals: [],
+              ),
+            ),
+            swidReferenceDeclarationKind:
+                SwidReferenceDeclarationKind.classElement,
+          )
+        ],
+      ),
+      isMixin: false,
+      typeFormals: [],
+    );
 
     expect(float32List.extendedClass!.displayName, "List<double>");
     expect(

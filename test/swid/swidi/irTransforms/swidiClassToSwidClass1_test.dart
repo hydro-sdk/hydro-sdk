@@ -35,6 +35,7 @@ class "package:flutter/src/widgets/icon_data.dart"::IconData {
       nullabilitySuffix: SwidNullabilitySuffix.none,
       originalPackagePath: "package:flutter/src/widgets/icon_data.dart",
       constructorType: null,
+      generativeConstructors: [],
       factoryConstructors: [],
       staticMethods: [],
       methods: [

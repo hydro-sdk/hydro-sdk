@@ -41,6 +41,7 @@ class "dart:core"::List {
       nullabilitySuffix: SwidNullabilitySuffix.none,
       originalPackagePath: "dart:core",
       constructorType: null,
+      generativeConstructors: [],
       factoryConstructors: [],
       staticMethods: [
         SwidFunctionType(
@@ -152,10 +153,13 @@ class "dart:core"::List {
       typeFormals: [],
     );
 
-    expect(res, [
-      SwidIr.fromSwidClass(
-        swidClass: list,
-      ),
-    ]);
+    expect(
+      res,
+      [
+        SwidIr.fromSwidClass(
+          swidClass: list,
+        ),
+      ],
+    );
   }, tags: "swid");
 }
