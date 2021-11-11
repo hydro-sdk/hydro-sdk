@@ -108,18 +108,37 @@ SwidClass swidClassFromDartClassOrMixinOrClassTypAliasDeclaration({
               fromMixinDeclaration: (_) => null,
               fromClassTypeAlias: (_) => null,
             ),
-      generativeConstructors: [],
-      factoryConstructors: constructors
-          .where((x) => x.name != null && x.name!.name[0] != "_")
+      generativeConstructors: constructors
+          .where((x) => x.name != null)
+          .where((x) => x.name!.name[0] != "_")
+          .where((x) => x.factoryKeyword == null)
           .toList()
-          .map((x) => SwidFunctionType.clone(
-                swidFunctionType: swidFunctionTypeFromFunctionType(
-                  functionType: x.declaredElement!.type,
-                  name: x.name!.name,
-                  declarationModifiers: SwidDeclarationModifiers.empty(),
-                ),
-                isFactory: true,
-              ))
+          .map(
+            (x) => SwidFunctionType.clone(
+              swidFunctionType: swidFunctionTypeFromFunctionType(
+                functionType: x.declaredElement!.type,
+                name: x.name!.name,
+                declarationModifiers: SwidDeclarationModifiers.empty(),
+              ),
+              isFactory: true,
+            ),
+          )
+          .toList(),
+      factoryConstructors: constructors
+          .where((x) => x.name != null)
+          .where((x) => x.name!.name[0] != "_")
+          .where((x) => x.factoryKeyword != null)
+          .toList()
+          .map(
+            (x) => SwidFunctionType.clone(
+              swidFunctionType: swidFunctionTypeFromFunctionType(
+                functionType: x.declaredElement!.type,
+                name: x.name!.name,
+                declarationModifiers: SwidDeclarationModifiers.empty(),
+              ),
+              isFactory: true,
+            ),
+          )
           .toList(),
       methods: methods.where((x) => !x.declarationModifiers.isStatic).toList(),
       staticMethods:
