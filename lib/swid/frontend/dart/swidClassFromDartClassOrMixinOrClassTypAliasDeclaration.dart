@@ -120,7 +120,7 @@ SwidClass swidClassFromDartClassOrMixinOrClassTypAliasDeclaration({
                 name: x.name!.name,
                 declarationModifiers: SwidDeclarationModifiers.empty(),
               ),
-              isFactory: true,
+              isFactory: false,
             ),
           )
           .toList(),
