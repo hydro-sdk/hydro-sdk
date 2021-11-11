@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'dart:io';
 
 import 'package:analyzer/dart/ast/ast.dart';
@@ -164,9 +163,6 @@ class _SwidVisitor extends RecursiveAstVisitor
                   mixinDeclaration: node));
 
       classes.add(res);
-
-      File("test/swid/res/Diagnosticable.json")
-          .writeAsStringSync(json.encode(classes.last.toJson()));
     }
 
     super.visitMixinDeclaration(node);
