@@ -181,7 +181,9 @@ void main() {
           ),
           isFactory: false,
           typeFormals: [],
-          declarationModifiers: SwidDeclarationModifiers.empty(),
+          declarationModifiers: SwidDeclarationModifiers.empty().clone(
+            isGetter: true,
+          ),
         ),
         SwidFunctionType(
           name: "toString",
