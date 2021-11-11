@@ -87,7 +87,7 @@ void main() {
           ),
         },
         namedDefaults: {
-          "namedDefaults": SwidDefaultFormalParameter(
+          "showName": SwidDefaultFormalParameter(
             nullabilitySuffix: SwidNullabilitySuffix.none,
             originalPackagePath:
                 "package:flutter/src/foundation/diagnostics.dart",
