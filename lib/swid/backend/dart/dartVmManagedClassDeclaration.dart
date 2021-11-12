@@ -16,9 +16,11 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartBindInstanceField.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartVmManagedClassMethodInjectionImplementation.dart';
 import 'package:hydro_sdk/swid/backend/util/methodIsEmitCandidate.dart';
+import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
+import 'package:hydro_sdk/swid/ir/transforms/instantiateTypeFormalsToLowestBound.dart';
 import 'package:hydro_sdk/swid/ir/util/isOperator.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
@@ -79,13 +81,32 @@ class DartVMManagedClassDeclaration
                   ..symbol = "VMManagedBox"
                   ..types.addAll(
                     [
-                      TypeReference(
-                        (t) => t
-                          ..symbol = removeNullabilitySuffixFromTypeNames(
-                            swidType: SwidType.fromSwidClass(
-                              swidClass: swidClass,
+                      (({
+                        required final SwidClass swidClass,
+                      }) =>
+                          TypeReference(
+                            (t) => t
+                              ..symbol = removeNullabilitySuffixFromTypeNames(
+                                swidType: SwidType.fromSwidClass(
+                                  swidClass: swidClass,
+                                ),
+                              ).displayName,
+                          ))(
+                        swidClass: pipeline
+                            .reduceFromTerm(
+                              InstantiateTypeFormalsToLowestBound(
+                                swidType: SwidType.fromSwidClass(
+                                  swidClass: swidClass,
+                                ),
+                              ),
+                            )
+                            .when(
+                              fromSwidInterface: (_) => dartUnknownClass,
+                              fromSwidClass: (val) => val,
+                              fromSwidDefaultFormalParameter: (_) =>
+                                  dartUnknownClass,
+                              fromSwidFunctionType: (_) => dartUnknownClass,
                             ),
-                          ).displayName,
                       ),
                     ],
                   ),
@@ -106,7 +127,28 @@ class DartVMManagedClassDeclaration
                 Field(
                   (k) => k
                     ..modifier = FieldModifier.final$
-                    ..type = TypeReference((i) => i..symbol = swidClass.name)
+                    ..type = (({
+                      required final SwidClass swidClass,
+                    }) =>
+                        TypeReference(
+                          (i) => i..symbol = swidClass.displayName,
+                        ))(
+                      swidClass: pipeline
+                          .reduceFromTerm(
+                            InstantiateTypeFormalsToLowestBound(
+                              swidType: SwidType.fromSwidClass(
+                                swidClass: swidClass,
+                              ),
+                            ),
+                          )
+                          .when(
+                            fromSwidInterface: (_) => dartUnknownClass,
+                            fromSwidClass: (val) => val,
+                            fromSwidDefaultFormalParameter: (_) =>
+                                dartUnknownClass,
+                            fromSwidFunctionType: (_) => dartUnknownClass,
+                          ),
+                    )
                     ..name = "vmObject",
                 ),
               ])
