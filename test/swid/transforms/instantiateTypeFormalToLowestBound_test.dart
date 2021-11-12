@@ -10,7 +10,7 @@ import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormalBound.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormalValue.dart';
-import 'package:hydro_sdk/swid/ir/transforms/instantiateGenericToLowestBound.dart';
+import 'package:hydro_sdk/swid/ir/transforms/instantiateTypeFormalToLowestBound.dart';
 import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
 import 'package:hydro_sdk/swid/swars/pipelineNoopCacheMgr.dart';
 
@@ -152,7 +152,7 @@ void main() {
     final transformedTypeFormal = CachingPipeline(
       cacheMgr: const PipelineNoopCacheMgr(),
     ).reduceFromTerm(
-      InstantiateGenericToLowestBound(
+      InstantiateTypeFormalToLowestBound(
         swidTypeFormal: ir.typeFormals.first,
       ),
     );

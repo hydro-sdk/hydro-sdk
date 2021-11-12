@@ -8,29 +8,29 @@ import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
 
-part 'instantiateGenericToLowestBound.freezed.dart';
+part 'instantiateTypeFormalToLowestBound.freezed.dart';
 
 @freezed
-class InstantiateGenericToLowestBound
+class InstantiateTypeFormalToLowestBound
     with
-        _$InstantiateGenericToLowestBound,
-        HashKeyMixin<InstantiateGenericToLowestBound>,
-        HashComparableMixin<InstantiateGenericToLowestBound>,
+        _$InstantiateTypeFormalToLowestBound,
+        HashKeyMixin<InstantiateTypeFormalToLowestBound>,
+        HashComparableMixin<InstantiateTypeFormalToLowestBound>,
         SwarsTransformMixin<
-            InstantiateGenericToLowestBound,
-            $InstantiateGenericToLowestBoundCopyWith<
-                InstantiateGenericToLowestBound>,
+            InstantiateTypeFormalToLowestBound,
+            $InstantiateTypeFormalToLowestBoundCopyWith<
+                InstantiateTypeFormalToLowestBound>,
             SwidTypeFormal>,
         SwarsTermJsonTransformableResultMixin {
-  InstantiateGenericToLowestBound._();
+  InstantiateTypeFormalToLowestBound._();
 
   /// Returns a type formal who's value is the same as it's lowest bound
-  factory InstantiateGenericToLowestBound({
+  factory InstantiateTypeFormalToLowestBound({
     required final SwidTypeFormal swidTypeFormal,
-  }) = _$InstantiateGenericToLowestBoundCtor;
+  }) = _$InstantiateTypeFormalToLowestBoundCtor;
 
   @override
-  String get cacheGroup => "instantiateGenericToLowestBound";
+  String get cacheGroup => "instantiateTypeFormalToLowestBound";
 
   @override
   late final List<int> hashableParts = [
@@ -38,10 +38,10 @@ class InstantiateGenericToLowestBound
   ];
 
   @override
-  InstantiateGenericToLowestBound clone({
+  InstantiateTypeFormalToLowestBound clone({
     final SwidTypeFormal? swidTypeFormal,
   }) =>
-      InstantiateGenericToLowestBound(
+      InstantiateTypeFormalToLowestBound(
         swidTypeFormal: swidTypeFormal ?? this.swidTypeFormal,
       );
 
