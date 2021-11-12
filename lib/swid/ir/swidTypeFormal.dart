@@ -6,6 +6,7 @@ import 'package:hydro_sdk/swid/ir/swidTypeFormalValue.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
 import 'package:hydro_sdk/swid/util/iCopyable.dart';
+import 'package:hydro_sdk/swid/util/iJsonTransformable.dart';
 
 part 'swidTypeFormal.freezed.dart';
 part 'swidTypeFormal.g.dart';
@@ -17,7 +18,8 @@ class SwidTypeFormal
         HashKeyMixin<SwidTypeFormal>,
         HashComparableMixin<SwidTypeFormal>
     implements
-        ICopyable<SwidTypeFormal, $SwidTypeFormalCopyWith<SwidTypeFormal>> {
+        ICopyable<SwidTypeFormal, $SwidTypeFormalCopyWith<SwidTypeFormal>>,
+        IJsonTransformable {
   SwidTypeFormal._();
 
   factory SwidTypeFormal({
@@ -44,6 +46,10 @@ class SwidTypeFormal
         swidTypeFormalBound:
             swidTypeFormalBound ?? swidTypeFormal.swidTypeFormalBound,
       );
+
+  @override
+  SwidTypeFormal fromJson(final Map<String, dynamic> json) =>
+      SwidTypeFormal.fromJson(json);
 
   @override
   late final List<int> hashableParts = [
