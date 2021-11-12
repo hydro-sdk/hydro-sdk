@@ -213,7 +213,7 @@ class VMManagedIterable extends VMManagedBox<Iterable<dynamic>> {
 
   final HydroState hydroState;
 
-  final Iterable vmObject;
+  final Iterable<dynamic> vmObject;
 }
 """);
   }, tags: "swid");
