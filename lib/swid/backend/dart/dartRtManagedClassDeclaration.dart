@@ -405,11 +405,6 @@ class DartRTManagedClassDeclaration
                               : x.declarationModifiers.isSetter
                                   ? MethodType.setter
                                   : null
-                          // ..types.addAll(
-                          //   x.typeFormals
-                          //       .map((e) => Reference(e.value.name))
-                          //       .toList(),
-                          // )
                           ..requiredParameters.addAll(
                             [
                               ...x.normalParameterNames
