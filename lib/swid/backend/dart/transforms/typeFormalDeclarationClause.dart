@@ -1,12 +1,11 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
-import 'package:hydro_sdk/swid/ir/swidTypeFormalValue.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
-import 'package:hydro_sdk/swid/swars/swarsTermJsonTransformableResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermStringResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
+import 'package:hydro_sdk/swid/transforms/removeTypeArguments.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
 
@@ -49,5 +48,17 @@ class TypeFormalDeclarationClause
   ISwarsTermResult<String> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromString("");
+      SwarsTermResult.fromString(
+        swidTypeFormal.swidTypeFormalBound != null
+            ? [
+                removeTypeArguments(
+                  str: swidTypeFormal.value.name,
+                ),
+                " extends ",
+                swidTypeFormal.swidTypeFormalBound!.name,
+              ].join("")
+            : removeTypeArguments(
+                str: swidTypeFormal.value.name,
+              ),
+      );
 }

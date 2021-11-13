@@ -14,12 +14,13 @@ import 'package:code_builder/code_builder.dart'
         MethodType,
         Block,
         Code,
-        CodeExpression,
-        Reference;
+        CodeExpression;
 
 import 'package:collection/collection.dart' show IterableExtension;
 import 'package:dart_style/dart_style.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/backend/dart/transforms/typeFormalDeclarationClause.dart';
+import 'package:hydro_sdk/swid/transforms/removeTypeArguments.dart';
 import 'package:tuple/tuple.dart';
 
 import 'package:hydro_sdk/swid/backend/dart/dartBindInstanceField.dart';
@@ -404,11 +405,11 @@ class DartRTManagedClassDeclaration
                               : x.declarationModifiers.isSetter
                                   ? MethodType.setter
                                   : null
-                          ..types.addAll(
-                            x.typeFormals
-                                .map((e) => Reference(e.value.name))
-                                .toList(),
-                          )
+                          // ..types.addAll(
+                          //   x.typeFormals
+                          //       .map((e) => Reference(e.value.name))
+                          //       .toList(),
+                          // )
                           ..requiredParameters.addAll(
                             [
                               ...x.normalParameterNames
@@ -497,7 +498,26 @@ class DartRTManagedClassDeclaration
                                   .toList(),
                             ],
                           )
-                          ..name = x.name
+                          ..name = [
+                            removeTypeArguments(
+                              str: x.name,
+                            ),
+                            x.typeFormals.isNotEmpty
+                                ? ([
+                                    "<",
+                                    x.typeFormals
+                                        .map(
+                                          (x) => pipeline.reduceFromTerm(
+                                            TypeFormalDeclarationClause(
+                                              swidTypeFormal: x,
+                                            ),
+                                          ),
+                                        )
+                                        .join(","),
+                                    ">",
+                                  ].join(""))
+                                : "",
+                          ].join()
                           ..returns = refer(x.returnType.displayName)
                           ..body = Block.of(
                             [
