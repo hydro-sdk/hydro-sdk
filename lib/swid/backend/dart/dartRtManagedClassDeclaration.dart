@@ -19,13 +19,12 @@ import 'package:code_builder/code_builder.dart'
 import 'package:collection/collection.dart' show IterableExtension;
 import 'package:dart_style/dart_style.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:hydro_sdk/swid/backend/dart/transforms/typeFormalDeclarationClause.dart';
-import 'package:hydro_sdk/swid/transforms/removeTypeArguments.dart';
 import 'package:tuple/tuple.dart';
 
 import 'package:hydro_sdk/swid/backend/dart/dartBindInstanceField.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartMethodInjectionImplementation.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartUnboxingExpression.dart';
+import 'package:hydro_sdk/swid/backend/dart/transforms/typeFormalDeclarationClause.dart';
 import 'package:hydro_sdk/swid/backend/dart/util/luaCallerArgumentsParameterName.dart';
 import 'package:hydro_sdk/swid/backend/dart/util/swidTypeToDartTypeReference.dart';
 import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
@@ -43,6 +42,7 @@ import 'package:hydro_sdk/swid/swars/swarsTermStringResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
 import 'package:hydro_sdk/swid/transforms/dart/removeNullabilitySuffixFromTypeNames.dart';
 import 'package:hydro_sdk/swid/transforms/removeNullabilitySuffix.dart';
+import 'package:hydro_sdk/swid/transforms/removeTypeArguments.dart';
 import 'package:hydro_sdk/swid/transforms/transformAccessorName.dart';
 import 'package:hydro_sdk/swid/transforms/tstl/transformTstlMethodNames.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
