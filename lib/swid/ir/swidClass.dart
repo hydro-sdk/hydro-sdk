@@ -153,38 +153,48 @@ class SwidClass
                   swidClass.extendedClass ?? superClass.extendedClass,
               implementedClasses: [
                 ...swidClass.implementedClasses
-                    .map((x) => SwidClass.clone(
-                          swidClass: x,
-                        ))
+                    .map(
+                      (x) => SwidClass.clone(
+                        swidClass: x,
+                      ),
+                    )
                     .toList(),
                 ...superClass.implementedClasses
-                    .where((x) =>
-                        <SwidClass?>[
-                          ...swidClass.implementedClasses,
-                        ].firstWhere(
-                          (k) => k?.name == x.name,
-                          orElse: () => null,
-                        ) ==
-                        null)
-                    .map((x) => SwidClass.clone(
-                          swidClass: x,
-                        ))
+                    .where(
+                      (x) =>
+                          <SwidClass?>[
+                            ...swidClass.implementedClasses,
+                          ].firstWhere(
+                            (k) => k?.name == x.name,
+                            orElse: () => null,
+                          ) ==
+                          null,
+                    )
+                    .map(
+                      (x) => SwidClass.clone(
+                        swidClass: x,
+                      ),
+                    )
                     .toList()
               ],
               mixedInClasses: [
                 ...swidClass.mixedInClasses,
                 ...superClass.mixedInClasses
-                    .where((x) =>
-                        <SwidClass?>[
-                          ...swidClass.mixedInClasses,
-                        ].firstWhere(
-                          (k) => k?.name == x.name,
-                          orElse: () => null,
-                        ) ==
-                        null)
-                    .map((x) => SwidClass.clone(
-                          swidClass: x,
-                        ))
+                    .where(
+                      (x) =>
+                          <SwidClass?>[
+                            ...swidClass.mixedInClasses,
+                          ].firstWhere(
+                            (k) => k?.name == x.name,
+                            orElse: () => null,
+                          ) ==
+                          null,
+                    )
+                    .map(
+                      (x) => SwidClass.clone(
+                        swidClass: x,
+                      ),
+                    )
                     .toList()
               ],
               constructorType:
@@ -201,28 +211,63 @@ class SwidClass
                 ...swidClass.staticConstFieldDeclarations,
                 ...superClass.staticConstFieldDeclarations,
               ],
-              instanceFieldDeclarations: Map.fromEntries([
-                ...swidClass.instanceFieldDeclarations.entries
-                    .map((x) => MapEntry(x.key, x.value))
-                    .toList(),
-                ...superClass.instanceFieldDeclarations.entries
-                    .where((x) =>
-                        swidClass.instanceFieldDeclarations.entries
-                            .firstWhereOrNull((k) => k.key == x.key) ==
-                        null)
-                    .map((x) => MapEntry(x.key, x.value))
-                    .toList()
-              ]),
-              methods: List.from([
-                ...swidClass.methods,
-                ...superClass.methods
-                    .where((x) =>
-                        <SwidFunctionType?>[...swidClass.methods].firstWhere(
-                            (k) => k?.name == x.name,
-                            orElse: () => null) ==
-                        null)
-                    .toList()
-              ]))
+              instanceFieldDeclarations: Map.fromEntries(
+                [
+                  ...swidClass.instanceFieldDeclarations.entries
+                      .map((x) => MapEntry(x.key, x.value))
+                      .toList(),
+                  ...superClass.instanceFieldDeclarations.entries
+                      .where(
+                        (x) =>
+                            swidClass.instanceFieldDeclarations.entries
+                                .firstWhereOrNull(
+                              (k) => k.key == x.key,
+                            ) ==
+                            null,
+                      )
+                      .map(
+                        (x) => MapEntry(
+                          x.key,
+                          x.value,
+                        ),
+                      )
+                      .toList()
+                ],
+              ),
+              methods: List.from(
+                [
+                  ...swidClass.methods.map(
+                    (x) => (({
+                      required final SwidFunctionType? superClassMethod,
+                    }) =>
+                        superClassMethod == null
+                            ? x
+                            : x.clone(
+                                declarationModifiers:
+                                    x.declarationModifiers.clone(
+                                  hasMustCallSuper: superClassMethod
+                                      .declarationModifiers.hasMustCallSuper,
+                                ),
+                              ))(
+                      superClassMethod: superClass.methods.firstWhereOrNull(
+                        (k) => k.name == x.name,
+                      ),
+                    ),
+                  ),
+                  ...superClass.methods
+                      .where(
+                        (x) =>
+                            <SwidFunctionType?>[...swidClass.methods]
+                                .firstWhere(
+                              (k) => k?.name == x.name,
+                              orElse: () => null,
+                            ) ==
+                            null,
+                      )
+                      .toList()
+                ],
+              ),
+            )
           : SwidClass.clone(
               swidClass: swidClass,
             );
@@ -251,10 +296,11 @@ class SwidClass
                     ? swidClassWithMergedInterfaces.mixedInClasses.fold(
                         swidClassWithMergedInterfaces,
                         (previousValue, element) => SwidClass.mergeDeclarations(
-                            swidClass: previousValue,
-                            superClass: SwidClass.mergeSuperClasses(
-                              swidClass: element,
-                            )))
+                              swidClass: previousValue,
+                              superClass: SwidClass.mergeSuperClasses(
+                                swidClass: element,
+                              ),
+                            ))
                     : SwidClass.clone(
                         swidClass: swidClassWithMergedInterfaces,
                       ),
@@ -263,10 +309,11 @@ class SwidClass
             ? swidClass.implementedClasses.fold(
                 swidClass,
                 (previousValue, element) => SwidClass.mergeDeclarations(
-                    swidClass: previousValue,
-                    superClass: SwidClass.mergeSuperClasses(
-                      swidClass: element,
-                    )))
+                      swidClass: previousValue,
+                      superClass: SwidClass.mergeSuperClasses(
+                        swidClass: element,
+                      ),
+                    ))
             : SwidClass.clone(
                 swidClass: swidClass,
               ),
@@ -298,26 +345,31 @@ class SwidClass
       .toList();
 
   bool hasMixinApplicationThatConflictsWithSuperClassOrInterface() =>
-      implementedClasses.firstWhereOrNull((x) => mixedInClasses
-              .map(
-                (k) => (({
-                  required final ConflictingInstanceMembersResult
-                      conflictingInstanceMembersResult,
-                }) =>
-                    conflictingInstanceMembersResult
-                        .instanceFields.isNotEmpty ||
-                    conflictingInstanceMembersResult.methods.isNotEmpty)(
-                  conflictingInstanceMembersResult: conflictingInstanceMembers(
-                    first: SwidClass.mergeSuperClasses(
-                      swidClass: x,
-                    ),
-                    second: SwidClass.mergeSuperClasses(
-                      swidClass: k,
+      implementedClasses.firstWhereOrNull(
+            (x) => mixedInClasses
+                .map(
+                  (k) => (({
+                    required final ConflictingInstanceMembersResult
+                        conflictingInstanceMembersResult,
+                  }) =>
+                      conflictingInstanceMembersResult
+                          .instanceFields.isNotEmpty ||
+                      conflictingInstanceMembersResult.methods.isNotEmpty)(
+                    conflictingInstanceMembersResult:
+                        conflictingInstanceMembers(
+                      first: SwidClass.mergeSuperClasses(
+                        swidClass: x,
+                      ),
+                      second: SwidClass.mergeSuperClasses(
+                        swidClass: k,
+                      ),
                     ),
                   ),
+                )
+                .any(
+                  (e) => e,
                 ),
-              )
-              .any((e) => e)) !=
+          ) !=
           null ||
       (extendedClass != null &&
           mixedInClasses
@@ -339,7 +391,9 @@ class SwidClass
                   ),
                 ),
               )
-              .any((e) => e));
+              .any(
+                (e) => e,
+              ));
 
   @override
   SwidClass clone({
