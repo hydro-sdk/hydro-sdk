@@ -2,6 +2,7 @@ import 'package:analyzer/dart/ast/ast.dart' show TypeName;
 
 import 'package:hydro_sdk/swid/frontend/dart/mapAnalyzerNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/frontend/dart/mapClassLibrarySourcePath.dart';
+import 'package:hydro_sdk/swid/frontend/dart/swidDeclarationModifiersFromElement.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidFunctionTypeFromFunctionType.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidFunctionTypeFromPropertyAccessor.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidInterfaceFromTypeParameterType.dart';
@@ -52,7 +53,9 @@ SwidClass swidClassFromInterfaceType({
                 baseClassMethod: swidFunctionTypeFromFunctionType(
                   functionType: x.declaration.type,
                   declarationModifiers: SwidDeclarationModifiers.clone(
-                    declarationModifiers: SwidDeclarationModifiers.empty(),
+                    declarationModifiers: swidDeclarationModifiersFromElement(
+                      element: x,
+                    ),
                     isAbstract: x.isAbstract,
                     isSynthetic: x.isSynthetic,
                   ),
