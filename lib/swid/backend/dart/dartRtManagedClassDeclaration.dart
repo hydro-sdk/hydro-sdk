@@ -19,6 +19,7 @@ import 'package:code_builder/code_builder.dart'
 import 'package:collection/collection.dart' show IterableExtension;
 import 'package:dart_style/dart_style.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/backend/dart/transforms/superMethodInvocation.dart';
 import 'package:tuple/tuple.dart';
 
 import 'package:hydro_sdk/swid/backend/dart/dartBindInstanceField.dart';
@@ -516,6 +517,13 @@ class DartRTManagedClassDeclaration
                           ..returns = refer(x.returnType.displayName)
                           ..body = Block.of(
                             [
+                              Code(
+                                pipeline.reduceFromTerm(
+                                  SuperMethodInvocation(
+                                    swidFunctionType: x,
+                                  ),
+                                ),
+                              ),
                               Code(
                                   "Closure closure = table[\"${transformAccessorName(swidFunctionType: transformTstlMethodNames(swidFunctionType: x)).name}\"];"),
                               Code(
