@@ -97,24 +97,9 @@ DartTranslationUnit? produceDartTranslationUnitFromSwidClass({
                           rtManagedClassDeclaration:
                               DartRTManagedClassDeclaration(
                             swidClass: removePrivateMethods(
-                              swidClass: pipeline
-                                  .reduceFromTerm(
-                                    InstantiateAllGenericsAsDynamic(
-                                      swidType: SwidType.fromSwidClass(
-                                        swidClass: SwidClass.mergeSuperClasses(
-                                          swidClass: swidClass,
-                                        ),
-                                      ),
-                                    ),
-                                  )
-                                  .when(
-                                    fromSwidInterface: (_) => dartUnknownClass,
-                                    fromSwidClass: (val) => val,
-                                    fromSwidDefaultFormalParameter: (_) =>
-                                        dartUnknownClass,
-                                    fromSwidFunctionType: (_) =>
-                                        dartUnknownClass,
-                                  ),
+                              swidClass: SwidClass.mergeSuperClasses(
+                                swidClass: swidClass,
+                              ),
                             ),
                           ),
                         )

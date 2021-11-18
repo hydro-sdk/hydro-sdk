@@ -335,7 +335,26 @@ class DartRTManagedClassDeclaration
                                             .toList())(
                                       swidClass: pipeline.reduceFromTerm(
                                         ThisPrefixMethodsShadowedByConstructorParameters(
-                                          swidClass: swidClass,
+                                          swidClass: pipeline
+                                              .reduceFromTerm(
+                                                InstantiateAllGenericsAsDynamic(
+                                                  instantiateNormalParameterTypes:
+                                                      true,
+                                                  swidType:
+                                                      SwidType.fromSwidClass(
+                                                    swidClass: swidClass,
+                                                  ),
+                                                ),
+                                              )
+                                              .when(
+                                                fromSwidInterface: (_) =>
+                                                    dartUnknownClass,
+                                                fromSwidClass: (val) => val,
+                                                fromSwidDefaultFormalParameter:
+                                                    (_) => dartUnknownClass,
+                                                fromSwidFunctionType: (_) =>
+                                                    dartUnknownClass,
+                                              ),
                                         ),
                                       ),
                                     ))
