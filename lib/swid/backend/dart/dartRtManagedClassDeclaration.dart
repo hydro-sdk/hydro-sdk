@@ -24,6 +24,7 @@ import 'package:tuple/tuple.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartBindInstanceField.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartMethodInjectionImplementation.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartUnboxingExpression.dart';
+import 'package:hydro_sdk/swid/backend/dart/transforms/superMethodInvocation.dart';
 import 'package:hydro_sdk/swid/backend/dart/transforms/typeFormalDeclarationClause.dart';
 import 'package:hydro_sdk/swid/backend/dart/util/luaCallerArgumentsParameterName.dart';
 import 'package:hydro_sdk/swid/backend/dart/util/swidTypeToDartTypeReference.dart';
@@ -334,7 +335,26 @@ class DartRTManagedClassDeclaration
                                             .toList())(
                                       swidClass: pipeline.reduceFromTerm(
                                         ThisPrefixMethodsShadowedByConstructorParameters(
-                                          swidClass: swidClass,
+                                          swidClass: pipeline
+                                              .reduceFromTerm(
+                                                InstantiateAllGenericsAsDynamic(
+                                                  instantiateNormalParameterTypes:
+                                                      true,
+                                                  swidType:
+                                                      SwidType.fromSwidClass(
+                                                    swidClass: swidClass,
+                                                  ),
+                                                ),
+                                              )
+                                              .when(
+                                                fromSwidInterface: (_) =>
+                                                    dartUnknownClass,
+                                                fromSwidClass: (val) => val,
+                                                fromSwidDefaultFormalParameter:
+                                                    (_) => dartUnknownClass,
+                                                fromSwidFunctionType: (_) =>
+                                                    dartUnknownClass,
+                                              ),
                                         ),
                                       ),
                                     ))
@@ -516,6 +536,13 @@ class DartRTManagedClassDeclaration
                           ..returns = refer(x.returnType.displayName)
                           ..body = Block.of(
                             [
+                              Code(
+                                pipeline.reduceFromTerm(
+                                  SuperMethodInvocation(
+                                    swidFunctionType: x,
+                                  ),
+                                ),
+                              ),
                               Code(
                                   "Closure closure = table[\"${transformAccessorName(swidFunctionType: transformTstlMethodNames(swidFunctionType: x)).name}\"];"),
                               Code(
