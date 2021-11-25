@@ -11,6 +11,11 @@ import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstFieldReference.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstPrefixedIdentifier.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
+import 'package:hydro_sdk/swid/ir/transforms/applyInterfaces.dart';
+import 'package:hydro_sdk/swid/ir/transforms/applyMixins.dart';
+import 'package:hydro_sdk/swid/ir/transforms/mergeClassDeclarations.dart';
+import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
+import 'package:hydro_sdk/swid/swars/pipelineNoopCacheMgr.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
@@ -274,8 +279,33 @@ void main() {
       ),
     );
 
-    final merged = SwidClass.mergeSuperClasses(
+    final merged = SwidClass.mergeSuperClasses2(
       swidClass: ir,
+    );
+
+    final mergedSuperClass = CachingPipeline(
+      cacheMgr: const PipelineNoopCacheMgr(),
+    ).reduceFromTerm(
+      MergeClassDeclarations(
+        swidClass: ir,
+        superClass: ir.extendedClass,
+      ),
+    );
+
+    final appliedMixins = CachingPipeline(
+      cacheMgr: const PipelineNoopCacheMgr(),
+    ).reduceFromTerm(
+      ApplyMixins(
+        swidClass: mergedSuperClass,
+      ),
+    );
+
+    final appliedInterfaces = CachingPipeline(
+      cacheMgr: const PipelineNoopCacheMgr(),
+    ).reduceFromTerm(
+      ApplyInterfaces(
+        swidClass: appliedMixins,
+      ),
     );
 
     expect(

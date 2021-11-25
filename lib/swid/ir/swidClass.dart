@@ -272,6 +272,63 @@ class SwidClass
               swidClass: swidClass,
             );
 
+  factory SwidClass.mergeSuperClasses2({
+    required final SwidClass swidClass,
+  }) =>
+      (({
+        required final SwidClass swidClassWithMixinApplications,
+      }) =>
+              (({
+                required final SwidClass swidClassWithMergedInterfaces,
+              }) =>
+                  swidClassWithMergedInterfaces.extendedClass != null
+                      ? SwidClass.mergeDeclarations(
+                          swidClass: swidClassWithMergedInterfaces,
+                          superClass:
+                              swidClassWithMergedInterfaces.extendedClass!,
+                        )
+                      : SwidClass.clone(
+                          swidClass: swidClassWithMergedInterfaces,
+                        ))(
+                swidClassWithMergedInterfaces: swidClassWithMixinApplications
+                        .implementedClasses.isNotEmpty
+                    ? swidClassWithMixinApplications.implementedClasses.fold(
+                        swidClass,
+                        (previousValue, element) => SwidClass.mergeDeclarations(
+                              swidClass: previousValue,
+                              superClass: SwidClass.mergeSuperClasses2(
+                                swidClass: element,
+                              ),
+                            ))
+                    : SwidClass.clone(
+                        swidClass: swidClassWithMixinApplications,
+                      ),
+              ))(
+          swidClassWithMixinApplications: (({
+        required final SwidClass swidClassWithAppliedSuperClass,
+      }) =>
+              swidClassWithAppliedSuperClass.mixedInClasses.isNotEmpty
+                  ? swidClassWithAppliedSuperClass.mixedInClasses
+                      .fold<SwidClass>(
+                      swidClassWithAppliedSuperClass,
+                      (previousValue, element) => SwidClass.mergeDeclarations(
+                        swidClass: previousValue,
+                        superClass: SwidClass.mergeSuperClasses2(
+                          swidClass: element,
+                        ),
+                      ),
+                    )
+                  : SwidClass.clone(
+                      swidClass: swidClassWithAppliedSuperClass,
+                    ))(
+        swidClassWithAppliedSuperClass: swidClass.extendedClass != null
+            ? SwidClass.mergeDeclarations(
+                swidClass: swidClass,
+                superClass: swidClass.extendedClass!,
+              )
+            : swidClass,
+      ));
+
   factory SwidClass.mergeSuperClasses({
     required final SwidClass swidClass,
   }) =>
