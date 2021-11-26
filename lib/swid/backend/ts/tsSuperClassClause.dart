@@ -1,9 +1,11 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/backend/ts/transforms/transformPrimitiveNamesToTs.dart';
+import 'package:hydro_sdk/swid/ir/analyses/hasMixinApplicationThatConflictsWithSuperClassOrInterface.dart';
 import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
+import 'package:hydro_sdk/swid/ir/transforms/applySuperTypes.dart';
 import 'package:hydro_sdk/swid/ir/util/conflictingInstanceMembers.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
@@ -81,58 +83,75 @@ class TsSuperClassClause
                                   fromSwidFunctionType: (_) => dartUnknownClass,
                                 ),
                           )
-                          .map((x) => (!x.hasSyntheticAccessors() &&
-                                  !x.hasMixinApplicationThatConflictsWithSuperClassOrInterface())
-                              ? [
-                                  "I",
-                                  x.displayName,
-                                ].join("")
-                              : [
-                                  "Omit",
-                                  "<",
-                                  [
+                          .map(
+                            (x) => (!x.hasSyntheticAccessors() &&
+                                    !pipeline.reduceFromTerm(
+                                      HasMixinApplicationThatConflictsWithSuperClassOrInterface(
+                                        swidClass: x,
+                                      ),
+                                    ))
+                                ? [
                                     "I",
                                     x.displayName,
-                                  ].join(""),
-                                  ", ",
-                                  [
-                                    ...x
-                                        .syntheticAccessors()
-                                        .map((x) => "\"${x.name}\""),
-                                    ...((({
-                                      required final List<List<String>>
-                                          intersectedMembers,
-                                    }) =>
-                                        intersectedMembers.isNotEmpty
-                                            ? intersectedMembers
-                                                .reduce((value, element) => [
-                                                      ...value,
-                                                      ...element,
-                                                    ])
-                                            : <String>[])(
-                                      intersectedMembers: swidClass
-                                          .mixedInClasses
-                                          .map(
-                                            (k) => conflictingInstanceMembers(
-                                              first:
-                                                  SwidClass.mergeSuperClasses(
-                                                swidClass: x,
+                                  ].join("")
+                                : [
+                                    "Omit",
+                                    "<",
+                                    [
+                                      "I",
+                                      x.displayName,
+                                    ].join(""),
+                                    ", ",
+                                    [
+                                      ...x
+                                          .syntheticAccessors()
+                                          .map((x) => "\"${x.name}\""),
+                                      ...((({
+                                        required final List<List<String>>
+                                            intersectedMembers,
+                                      }) =>
+                                          intersectedMembers.isNotEmpty
+                                              ? intersectedMembers.reduce((
+                                                  value,
+                                                  element,
+                                                ) =>
+                                                  [
+                                                    ...value,
+                                                    ...element,
+                                                  ])
+                                              : <String>[])(
+                                        intersectedMembers: swidClass
+                                            .mixedInClasses
+                                            .map(
+                                              (k) => conflictingInstanceMembers(
+                                                first: pipeline.reduceFromTerm(
+                                                  ApplySuperTypes(
+                                                    swidClass: x,
+                                                  ),
+                                                ),
+                                                second: pipeline.reduceFromTerm(
+                                                  ApplySuperTypes(
+                                                    swidClass: k,
+                                                  ),
+                                                ),
                                               ),
-                                              second:
-                                                  SwidClass.mergeSuperClasses(
-                                                swidClass: k,
-                                              ),
-                                            ),
-                                          )
-                                          .map((k) => [
+                                            )
+                                            .map(
+                                              (k) => [
                                                 ...k.methods,
                                                 ...k.instanceFields,
-                                              ])
-                                          .toList(),
-                                    )).map((x) => "\"$x\"")
-                                  ].toSet().toList().join(" | "),
-                                  ">",
-                                ].join(""))
+                                              ],
+                                            )
+                                            .toList(),
+                                      )).map(
+                                        (x) => "\"$x\"",
+                                      )
+                                    ].toSet().toList().join(
+                                          " | ",
+                                        ),
+                                    ">",
+                                  ].join(""),
+                          )
                           .join(", ")
                     ]
                   : [])(
@@ -153,7 +172,12 @@ class TsSuperClassClause
                   swidClass: x,
                 ),
               )
-            ].where((x) => x != null).toList().cast<SwidClass>(),
+            ]
+                .where(
+                  (x) => x != null,
+                )
+                .toList()
+                .cast<SwidClass>(),
           )),
         ].join(""),
       );

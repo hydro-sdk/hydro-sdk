@@ -22,6 +22,7 @@ import 'package:hydro_sdk/swid/backend/util/prepareClassForTranslationUnit.dart'
 import 'package:hydro_sdk/swid/backend/util/requiresDartBinding.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/ir/transforms/applySuperTypes.dart';
 import 'package:hydro_sdk/swid/ir/util/propagateUnsatisfiedTypeParameters.dart';
 import 'package:hydro_sdk/swid/ir/util/rewriteClassReferencestoInterfaceReferencesInClass.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
@@ -68,8 +69,10 @@ TsTranslationUnit produceTsTranslationUnitFromSwidClass({
                         tsLinebreak: TsLinebreak(),
                       ),
                       ...tsImportBlock(
-                        swidClass: SwidClass.mergeSuperClasses(
-                          swidClass: swidClass,
+                        swidClass: pipeline.reduceFromTerm(
+                          ApplySuperTypes(
+                            swidClass: swidClass,
+                          ),
                         ),
                         prefixPaths: prefixPaths,
                         pipeline: pipeline,
@@ -112,8 +115,10 @@ TsTranslationUnit produceTsTranslationUnitFromSwidClass({
                             TsClassInstanceFieldDeclarations(
                           swidClass:
                               rewriteClassReferencesToInterfaceReferencesInClass(
-                            swidClass: SwidClass.mergeSuperClasses(
-                              swidClass: swidClass,
+                            swidClass: pipeline.reduceFromTerm(
+                              ApplySuperTypes(
+                                swidClass: swidClass,
+                              ),
                             ),
                           ),
                         ),
@@ -151,15 +156,19 @@ TsTranslationUnit produceTsTranslationUnitFromSwidClass({
                       TsIr.fromTsClassMethodInjectionFieldDeclarations(
                         tsClassMethodInjectionFieldDeclarations:
                             TsClassMethodInjectionFieldDeclarations(
-                          swidClass: SwidClass.mergeSuperClasses(
-                            swidClass: swidClass,
+                          swidClass: pipeline.reduceFromTerm(
+                            ApplySuperTypes(
+                              swidClass: swidClass,
+                            ),
                           ),
                         ),
                       ),
                       TsIr.fromTsClassMethodDeclarations(
                         tsClassMethodDeclarations: TsClassMethodDeclarations(
-                          swidClass: SwidClass.mergeSuperClasses(
-                            swidClass: swidClass,
+                          swidClass: pipeline.reduceFromTerm(
+                            ApplySuperTypes(
+                              swidClass: swidClass,
+                            ),
                           ),
                         ),
                       ),
@@ -180,9 +189,13 @@ TsTranslationUnit produceTsTranslationUnitFromSwidClass({
                             )
                           : null,
                       ...([
-                        ...SwidClass.mergeSuperClasses(
-                          swidClass: swidClass,
-                        ).methods,
+                        ...pipeline
+                            .reduceFromTerm(
+                              ApplySuperTypes(
+                                swidClass: swidClass,
+                              ),
+                            )
+                            .methods,
                         ...swidClass.factoryConstructors,
                         ...swidClass.staticMethods,
                       ].map(

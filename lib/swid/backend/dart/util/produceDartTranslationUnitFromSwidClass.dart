@@ -14,6 +14,7 @@ import 'package:hydro_sdk/swid/backend/util/requiresDartClassTranslationUnit.dar
 import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
+import 'package:hydro_sdk/swid/ir/transforms/applySuperTypes.dart';
 import 'package:hydro_sdk/swid/ir/transforms/instantiateAllGenericsAsDynamic.dart';
 import 'package:hydro_sdk/swid/ir/util/collectAllReferences.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
@@ -50,18 +51,34 @@ DartTranslationUnit? produceDartTranslationUnitFromSwidClass({
                               dartImportStatement: x))
                           .toList())(importStatements: [
                     ...collectAllReferences(
-                            swidType: SwidType.fromSwidClass(
-                                swidClass: SwidClass.mergeSuperClasses(
-                                    swidClass: swidClass)))
-                        .where((x) =>
-                            x.originalPackagePath !=
-                            swidClass.originalPackagePath)
-                        .where((x) => x.originalPackagePath != "dart:_internal")
-                        .where((x) => x.originalPackagePath.isNotEmpty)
-                        .map((x) =>
-                            DartImportStatement(path: x.originalPackagePath))
+                      swidType: SwidType.fromSwidClass(
+                        swidClass: pipeline.reduceFromTerm(
+                          ApplySuperTypes(
+                            swidClass: swidClass,
+                          ),
+                        ),
+                      ),
+                    )
+                        .where(
+                          (x) =>
+                              x.originalPackagePath !=
+                              swidClass.originalPackagePath,
+                        )
+                        .where(
+                          (x) => x.originalPackagePath != "dart:_internal",
+                        )
+                        .where(
+                          (x) => x.originalPackagePath.isNotEmpty,
+                        )
+                        .map(
+                          (x) => DartImportStatement(
+                            path: x.originalPackagePath,
+                          ),
+                        )
                         .toList(),
-                    DartImportStatement(path: swidClass.originalPackagePath),
+                    DartImportStatement(
+                      path: swidClass.originalPackagePath,
+                    ),
                     DartImportStatement(
                       path: "package:hydro_sdk/cfr/runtimeSupport.dart",
                     ),
@@ -73,8 +90,10 @@ DartTranslationUnit? produceDartTranslationUnitFromSwidClass({
                             .reduceFromTerm(
                               InstantiateAllGenericsAsDynamic(
                                 swidType: SwidType.fromSwidClass(
-                                  swidClass: SwidClass.mergeSuperClasses(
-                                    swidClass: swidClass,
+                                  swidClass: pipeline.reduceFromTerm(
+                                    ApplySuperTypes(
+                                      swidClass: swidClass,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -89,7 +108,9 @@ DartTranslationUnit? produceDartTranslationUnitFromSwidClass({
                       ),
                     ),
                   ),
-                  DartIr.fromDartLinebreak(dartLinebreak: DartLinebreak()),
+                  DartIr.fromDartLinebreak(
+                    dartLinebreak: DartLinebreak(),
+                  ),
                   !swidClass.isPureAbstract() &&
                           swidClass.isConstructible() &&
                           !swidClass.constructorType!.isFactory
@@ -97,19 +118,27 @@ DartTranslationUnit? produceDartTranslationUnitFromSwidClass({
                           rtManagedClassDeclaration:
                               DartRTManagedClassDeclaration(
                             swidClass: removePrivateMethods(
-                              swidClass: SwidClass.mergeSuperClasses(
-                                swidClass: swidClass,
+                              swidClass: pipeline.reduceFromTerm(
+                                ApplySuperTypes(
+                                  swidClass: swidClass,
+                                ),
                               ),
                             ),
                           ),
                         )
                       : null,
                   DartIr.fromLoadNamepsaceSymbolDeclaration(
-                      loadNamespaceSymbolDeclaration:
-                          DartLoadNamespaceSymbolDeclaration(
-                              swidClass: swidClass))
-                ]..removeWhere((x) => x == null),
+                    loadNamespaceSymbolDeclaration:
+                        DartLoadNamespaceSymbolDeclaration(
+                      swidClass: swidClass,
+                    ),
+                  )
+                ]..removeWhere(
+                    (x) => x == null,
+                  ),
               )
             : null)(
-      swidClass: removeNonEmitCandidates(swidClass: swidClass),
+      swidClass: removeNonEmitCandidates(
+        swidClass: swidClass,
+      ),
     );
