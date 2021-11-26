@@ -22,6 +22,27 @@ abstract class _ISwarsTermResultFromString {
   String get string;
 }
 
+abstract class _ISwarsTermResultFromBoolean {
+  const _ISwarsTermResultFromBoolean();
+
+  bool get boolean;
+}
+
+mixin _SwarsTermBooleanResult
+    implements _ISwarsTermResultFromBoolean, ISwarsTermResult<bool> {
+  @override
+  @nonVirtual
+  @pragma('vm:prefer-inline')
+  @pragma('dart2js:tryInline')
+  String serialize() => boolean.toString();
+
+  @override
+  @nonVirtual
+  @pragma('vm:prefer-inline')
+  @pragma('dart2js:tryInline')
+  bool unwrap() => boolean;
+}
+
 mixin _SwarsTermStringResult
     implements _ISwarsTermResultFromString, ISwarsTermResult<String> {
   @override
@@ -99,6 +120,9 @@ abstract class SwarsTermResult<T extends Object>
     implements ISwarsTermResult<T> {
   const SwarsTermResult._();
 
+  static SwarsTermResult<bool> fromBool(final bool boolean) =>
+      _SwarsTermBooleanResultImpl(boolean);
+
   static SwarsTermResult<String> fromString(final String string) =>
       _SwarsTermStringResultImpl(string);
 
@@ -120,6 +144,17 @@ class _SwarsTermStringResultImpl
 
   @override
   String get string => _string;
+}
+
+class _SwarsTermBooleanResultImpl
+    with _SwarsTermBooleanResult
+    implements SwarsTermResult<bool> {
+  final bool _boolean;
+
+  const _SwarsTermBooleanResultImpl(final this._boolean);
+
+  @override
+  bool get boolean => _boolean;
 }
 
 class _SwarsTermJsonTransformableResultImpl<T extends IJsonTransformable>
