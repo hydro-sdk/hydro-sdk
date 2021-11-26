@@ -1,3 +1,4 @@
+import 'package:hydro_sdk/swid/ir/transforms/applySuperTypes.dart';
 import 'package:tuple/tuple.dart';
 
 import 'package:hydro_sdk/swid/backend/ts/transforms/transformPrimitiveClassTypeNamesToTs.dart';
@@ -37,21 +38,23 @@ Tuple3<SwidClass, SwidClass, SwidClass> prepareClassForTranslationUnit({
           fromSwidFunctionType: (_) => dartUnknownClass,
         ),
       ),
-      SwidClass.mergeSuperClasses(
-        swidClass: removeNonEmitCandidates(
-          swidClass: rewriteClassReferencesToInterfaceReferences(
-            swidType: pipeline.reduceFromTerm(
-              TransformPrimitiveNamesToTs(
-                swidType: SwidType.fromSwidClass(
-                  swidClass: swidClass,
+      pipeline.reduceFromTerm(
+        ApplySuperTypes(
+          swidClass: removeNonEmitCandidates(
+            swidClass: rewriteClassReferencesToInterfaceReferences(
+              swidType: pipeline.reduceFromTerm(
+                TransformPrimitiveNamesToTs(
+                  swidType: SwidType.fromSwidClass(
+                    swidClass: swidClass,
+                  ),
                 ),
               ),
+            ).when(
+              fromSwidInterface: (_) => dartUnknownClass,
+              fromSwidClass: (val) => val,
+              fromSwidDefaultFormalParameter: (_) => dartUnknownClass,
+              fromSwidFunctionType: (_) => dartUnknownClass,
             ),
-          ).when(
-            fromSwidInterface: (_) => dartUnknownClass,
-            fromSwidClass: (val) => val,
-            fromSwidDefaultFormalParameter: (_) => dartUnknownClass,
-            fromSwidFunctionType: (_) => dartUnknownClass,
           ),
         ),
       ),

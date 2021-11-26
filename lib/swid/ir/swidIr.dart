@@ -1,4 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/ir/transforms/mergeClassDeclarations.dart';
+import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
+import 'package:hydro_sdk/swid/swars/pipelineNoopCacheMgr.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
@@ -125,14 +128,21 @@ List<SwidClass> _mergeClasses({
               ),
               [
                 SwidClass.clone(
-                  swidClass: SwidClass.mergeDeclarations(
+                  swidClass: CachingPipeline(
+                    //This is a hack.
+                    //IR merging should probably be a transform as well
+                    cacheMgr: const PipelineNoopCacheMgr(),
+                  ).reduceFromTerm(
+                    MergeClassDeclarations(
                       swidClass: previousValue.firstWhere(
                         (x) =>
                             x.originalPackagePath ==
                                 element.originalPackagePath &&
                             x.name == element.name,
                       ),
-                      superClass: element),
+                      superClass: element,
+                    ),
+                  ),
                   typeFormals: element.typeFormals,
                 ),
               ],
