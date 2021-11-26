@@ -52,8 +52,40 @@ class HasMixinApplicationThatConflictsWithSuperClassOrInterface
   ISwarsTermResult<bool> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromBool(swidClass.implementedClasses.firstWhereOrNull(
-                (x) => swidClass.mixedInClasses
+      SwarsTermResult.fromBool(
+        swidClass.implementedClasses.firstWhereOrNull(
+                  (x) => swidClass.mixedInClasses
+                      .map(
+                        (k) => (({
+                          required final ConflictingInstanceMembersResult
+                              conflictingInstanceMembersResult,
+                        }) =>
+                            conflictingInstanceMembersResult
+                                .instanceFields.isNotEmpty ||
+                            conflictingInstanceMembersResult
+                                .methods.isNotEmpty)(
+                          conflictingInstanceMembersResult:
+                              conflictingInstanceMembers(
+                            first: pipeline.reduceFromTerm(
+                              ApplySuperTypes(
+                                swidClass: x,
+                              ),
+                            ),
+                            second: pipeline.reduceFromTerm(
+                              ApplySuperTypes(
+                                swidClass: k,
+                              ),
+                            ),
+                          ),
+                        ),
+                      )
+                      .any(
+                        (e) => e,
+                      ),
+                ) !=
+                null ||
+            (swidClass.extendedClass != null &&
+                swidClass.mixedInClasses
                     .map(
                       (k) => (({
                         required final ConflictingInstanceMembersResult
@@ -66,7 +98,7 @@ class HasMixinApplicationThatConflictsWithSuperClassOrInterface
                             conflictingInstanceMembers(
                           first: pipeline.reduceFromTerm(
                             ApplySuperTypes(
-                              swidClass: x,
+                              swidClass: swidClass.extendedClass!,
                             ),
                           ),
                           second: pipeline.reduceFromTerm(
@@ -79,35 +111,6 @@ class HasMixinApplicationThatConflictsWithSuperClassOrInterface
                     )
                     .any(
                       (e) => e,
-                    ),
-              ) !=
-              null ||
-          (swidClass.extendedClass != null &&
-              swidClass.mixedInClasses
-                  .map(
-                    (k) => (({
-                      required final ConflictingInstanceMembersResult
-                          conflictingInstanceMembersResult,
-                    }) =>
-                        conflictingInstanceMembersResult
-                            .instanceFields.isNotEmpty ||
-                        conflictingInstanceMembersResult.methods.isNotEmpty)(
-                      conflictingInstanceMembersResult:
-                          conflictingInstanceMembers(
-                        first: pipeline.reduceFromTerm(
-                          ApplySuperTypes(
-                            swidClass: swidClass.extendedClass!,
-                          ),
-                        ),
-                        second: pipeline.reduceFromTerm(
-                          ApplySuperTypes(
-                            swidClass: k,
-                          ),
-                        ),
-                      ),
-                    ),
-                  )
-                  .any(
-                    (e) => e,
-                  )),);
+                    )),
+      );
 }

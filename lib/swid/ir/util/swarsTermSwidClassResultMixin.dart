@@ -1,7 +1,8 @@
+import 'package:meta/meta.dart';
+
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsTerm.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermJsonTransformableResultMixin.dart';
-import 'package:meta/meta.dart';
 
 mixin SwarsTermSwidClassResultMixin<T extends Object, U extends Object,
         V extends SwidClass> on SwarsTermJsonTransformableResultMixin<T, U, V>

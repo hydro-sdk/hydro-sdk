@@ -1,12 +1,12 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:hydro_sdk/swid/ir/transforms/mergeClassDeclarations.dart';
-import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
-import 'package:hydro_sdk/swid/swars/pipelineNoopCacheMgr.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidEnum.dart';
 import 'package:hydro_sdk/swid/ir/swidTopLevelStaticConstFieldDeclaration.dart';
+import 'package:hydro_sdk/swid/ir/transforms/mergeClassDeclarations.dart';
+import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
+import 'package:hydro_sdk/swid/swars/pipelineNoopCacheMgr.dart';
 
 part 'swidIr.freezed.dart';
 part 'swidIr.g.dart';
