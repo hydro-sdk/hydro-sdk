@@ -95,6 +95,7 @@ class InstantiateTypeArgumentsToLowestBoundInInterface
                   (x) => pipeline.reduceFromTerm(
                     InstantiateTypeArgumentsToLowestBound(
                       swidType: x,
+                      swidTypeFormals: swidTypeFormals,
                     ),
                   ),
                 )

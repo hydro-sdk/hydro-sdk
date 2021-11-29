@@ -65,6 +65,7 @@ class InstantiateTypeArgumentsToLowestBoundInDefaultFormalParameter
           staticType: pipeline.reduceFromTerm(
             InstantiateTypeArgumentsToLowestBound(
               swidType: swidDefaultFormalParameter.staticType,
+              swidTypeFormals: swidTypeFormals,
             ),
           ),
         ),

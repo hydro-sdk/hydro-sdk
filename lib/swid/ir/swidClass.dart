@@ -8,7 +8,6 @@ import 'package:hydro_sdk/swid/ir/swidStaticConstFieldDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeMixin.dart';
-import 'package:hydro_sdk/swid/ir/util/conflictingInstanceMembers.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
 import 'package:hydro_sdk/swid/util/iCopyable.dart';
@@ -173,6 +172,7 @@ class SwidClass
     final SwidNullabilitySuffix? nullabilitySuffix,
     final String? originalPackagePath,
     final SwidFunctionType? constructorType,
+    final List<SwidFunctionType>? generativeConstructors,
     final List<SwidFunctionType>? factoryConstructors,
     final List<SwidFunctionType>? staticMethods,
     final List<SwidFunctionType>? methods,
@@ -191,6 +191,7 @@ class SwidClass
         nullabilitySuffix: nullabilitySuffix,
         originalPackagePath: originalPackagePath,
         constructorType: constructorType,
+        generativeConstructors: generativeConstructors,
         factoryConstructors: factoryConstructors,
         staticMethods: staticMethods,
         methods: methods,

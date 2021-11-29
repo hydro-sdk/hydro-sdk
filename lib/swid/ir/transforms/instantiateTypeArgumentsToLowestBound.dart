@@ -82,6 +82,7 @@ class InstantiateTypeArgumentsToLowestBound
             swidDefaultFormalParameter: pipeline.reduceFromTerm(
               InstantiateTypeArgumentsToLowestBoundInDefaultFormalParameter(
                 swidDefaultFormalParameter: val,
+                swidTypeFormals: swidTypeFormals,
               ),
             ),
           ),
@@ -89,6 +90,7 @@ class InstantiateTypeArgumentsToLowestBound
             swidFunctionType: pipeline.reduceFromTerm(
               InstantiateTypeArgumentsToLowestBoundInFunction(
                 swidFunctionType: val,
+                swidTypeFormals: swidTypeFormals,
               ),
             ),
           ),

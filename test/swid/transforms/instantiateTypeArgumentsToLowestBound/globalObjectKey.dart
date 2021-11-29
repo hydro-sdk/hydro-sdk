@@ -12,6 +12,7 @@ import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormalBound.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormalValue.dart';
 import 'package:hydro_sdk/swid/ir/transforms/applySuperTypes.dart';
+import 'package:hydro_sdk/swid/ir/transforms/instantiateTypeArgumentsToLowestBound.dart';
 import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
 import 'package:hydro_sdk/swid/swars/pipelineNoopCacheMgr.dart';
 
@@ -207,11 +208,25 @@ void main() {
       optionalParameterTypes: [],
       returnType: SwidType.fromSwidInterface(
         swidInterface: SwidInterface(
-          name: "StatefulWidget",
+          name: "State<StatefulWidget>",
           nullabilitySuffix: SwidNullabilitySuffix.none,
           originalPackagePath: "package:flutter/src/widgets/framework.dart",
-          typeArguments: [],
-          referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
+          typeArguments: [
+            SwidType.fromSwidInterface(
+              swidInterface: SwidInterface(
+                name: "StatefulWidget",
+                nullabilitySuffix: SwidNullabilitySuffix.none,
+                originalPackagePath:
+                    "package:flutter/src/widgets/framework.dart",
+                typeArguments: [],
+                referenceDeclarationKind:
+                    SwidReferenceDeclarationKind.classElement,
+                declarationModifiers: SwidDeclarationModifiers.empty(),
+              ),
+            )
+          ],
+          referenceDeclarationKind:
+              SwidReferenceDeclarationKind.typeParameterType,
           declarationModifiers: SwidDeclarationModifiers.empty(),
         ),
       ),
@@ -220,8 +235,23 @@ void main() {
       declarationModifiers: SwidDeclarationModifiers.empty(),
     );
 
+    final instantiatedIr = CachingPipeline(
+      cacheMgr: const PipelineNoopCacheMgr(),
+    )
+        .reduceFromTerm(
+          InstantiateTypeArgumentsToLowestBound(
+            swidType: SwidType.fromSwidClass(
+              swidClass: merged,
+            ),
+          ),
+        )
+        .maybeWhen(
+          fromSwidClass: (val) => val,
+          orElse: () => null,
+        );
+
     expect(
-      merged.methods.firstWhereOrNull(
+      instantiatedIr?.methods.firstWhereOrNull(
         (x) => x.name == "currentState",
       ),
       instantiatedCurrentState,
