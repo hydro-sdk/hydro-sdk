@@ -3,7 +3,9 @@ import 'package:hydro_sdk/swid/ir/transforms/instantiateTypeArgumentsToLowestBou
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
-import 'package:hydro_sdk/swid/ir/swidTypeFormalValue.dart';
+import 'package:hydro_sdk/swid/ir/transforms/instantiateTypeArgumentsToLowestBoundInDefaultFormalParameter.dart';
+import 'package:hydro_sdk/swid/ir/transforms/instantiateTypeArgumentsToLowestBoundInFunction.dart';
+import 'package:hydro_sdk/swid/ir/transforms/instantiateTypeArgumentsToLowestBoundInInterface.dart';
 import 'package:hydro_sdk/swid/ir/util/irTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermJsonTransformableResultMixin.dart';
@@ -59,7 +61,14 @@ class InstantiateTypeArgumentsToLowestBound
   }) =>
       SwarsTermResult.fromJsonTransformable(
         swidType.when(
-          fromSwidInterface: fromSwidInterface,
+          fromSwidInterface: (val) => SwidType.fromSwidInterface(
+            swidInterface: pipeline.reduceFromTerm(
+              InstantiateTypeArgumentsToLowestBoundInInterface(
+                swidInterface: val,
+                swidTypeFormals: swidTypeFormals,
+              ),
+            ),
+          ),
           fromSwidClass: (val) => SwidType.fromSwidClass(
             swidClass: pipeline.reduceFromTerm(
               InstantiateTypeArgumentsToLowestBoundInClass(
@@ -68,8 +77,21 @@ class InstantiateTypeArgumentsToLowestBound
               ),
             ),
           ),
-          fromSwidDefaultFormalParameter: fromSwidDefaultFormalParameter,
-          fromSwidFunctionType: fromSwidFunctionType,
+          fromSwidDefaultFormalParameter: (val) =>
+              SwidType.fromSwidDefaultFormalParameter(
+            swidDefaultFormalParameter: pipeline.reduceFromTerm(
+              InstantiateTypeArgumentsToLowestBoundInDefaultFormalParameter(
+                swidDefaultFormalParameter: val,
+              ),
+            ),
+          ),
+          fromSwidFunctionType: (val) => SwidType.fromSwidFunctionType(
+            swidFunctionType: pipeline.reduceFromTerm(
+              InstantiateTypeArgumentsToLowestBoundInFunction(
+                swidFunctionType: val,
+              ),
+            ),
+          ),
         ),
       );
 }
