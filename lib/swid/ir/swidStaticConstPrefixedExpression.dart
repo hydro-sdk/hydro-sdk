@@ -44,7 +44,7 @@ class SwidStaticConstPrefixedExpression
   @override
   late final List<int> hashableParts = [
     ...prefix.hashableParts,
-    ...expression.hashableParts,
+    ...expression.hashKey.hashableParts,
   ];
 
   @override

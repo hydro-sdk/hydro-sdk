@@ -47,8 +47,8 @@ class SwidStaticConstBinaryExpression
   @override
   late final List<int> hashableParts = [
     ...operator.hashableParts,
-    ...leftOperand.hashableParts,
-    ...rightOperand.hashableParts,
+    ...leftOperand.hashKey.hashableParts,
+    ...rightOperand.hashKey.hashableParts,
   ];
 
   @override

@@ -46,7 +46,7 @@ class SwidTopLevelStaticConstFieldDeclaration
   @override
   late final List<int> hashableParts = [
     ...originalPackagePath.hashableParts,
-    ...declaration.hashableParts,
+    ...declaration.hashKey.hashableParts,
   ];
 
   @override

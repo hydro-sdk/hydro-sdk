@@ -57,7 +57,7 @@ class SwidStaticConstFunctionInvocation
   @override
   late final List<int> hashableParts = [
     ...value.hashableParts,
-    ...staticType.hashableParts,
+    ...staticType.hashKey.hashableParts,
     ...normalParameters.hashableParts,
     ...namedParameters.hashableParts,
     ...isConstructorInvocation.hashableParts,

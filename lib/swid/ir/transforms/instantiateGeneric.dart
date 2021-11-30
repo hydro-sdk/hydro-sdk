@@ -43,8 +43,8 @@ class InstantiateGeneric
 
   @override
   late final List<int> hashableParts = [
-    ...genericInstantiator.hashableParts,
-    ...swidType.hashableParts,
+    ...genericInstantiator.hashKey.hashableParts,
+    ...swidType.hashKey.hashableParts,
   ];
 
   @override

@@ -40,7 +40,7 @@ class InstantiateAllGenericsAsDynamic
 
   @override
   late final List<int> hashableParts = [
-    ...swidType.hashableParts,
+    ...swidType.hashKey.hashableParts,
     ...instantiateNormalParameterTypes.hashableParts,
   ];
 
