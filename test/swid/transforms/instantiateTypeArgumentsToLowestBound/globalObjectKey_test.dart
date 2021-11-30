@@ -12,7 +12,7 @@ import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormalBound.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormalValue.dart';
 import 'package:hydro_sdk/swid/ir/transforms/applySuperTypes.dart';
-import 'package:hydro_sdk/swid/ir/transforms/instantiateTypeArgumentsToLowestBound.dart';
+import 'package:hydro_sdk/swid/ir/transforms/instantiateGenericsToLowestBound.dart';
 import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
 import 'package:hydro_sdk/swid/swars/pipelineNoopCacheMgr.dart';
 
@@ -138,8 +138,8 @@ void main() {
             optionalParameterTypes: [],
             returnType: SwidType.fromSwidInterface(
               swidInterface: SwidInterface(
-                name: "T",
-                nullabilitySuffix: SwidNullabilitySuffix.none,
+                name: "T?",
+                nullabilitySuffix: SwidNullabilitySuffix.question,
                 originalPackagePath:
                     "package:flutter/src/widgets/framework.dart",
                 typeArguments: [],
@@ -239,7 +239,7 @@ void main() {
       cacheMgr: const PipelineNoopCacheMgr(),
     )
         .reduceFromTerm(
-          InstantiateTypeArgumentsToLowestBound(
+          InstantiateGenericsToLowestBound(
             swidType: SwidType.fromSwidClass(
               swidClass: merged,
             ),
