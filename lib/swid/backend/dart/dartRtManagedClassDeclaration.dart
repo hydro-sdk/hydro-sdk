@@ -19,7 +19,6 @@ import 'package:code_builder/code_builder.dart'
 import 'package:collection/collection.dart' show IterableExtension;
 import 'package:dart_style/dart_style.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:hydro_sdk/swid/ir/transforms/instantiateGenericsToLowestBound.dart';
 import 'package:tuple/tuple.dart';
 
 import 'package:hydro_sdk/swid/backend/dart/dartBindInstanceField.dart';
@@ -35,6 +34,7 @@ import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/transforms/instantiateAllGenericsAsDynamic.dart';
+import 'package:hydro_sdk/swid/ir/transforms/instantiateGenericsToLowestBound.dart';
 import 'package:hydro_sdk/swid/ir/transforms/rewriteShadowingNormalConstructorParameters.dart';
 import 'package:hydro_sdk/swid/ir/transforms/thisPrefixMethodsShadowedByConstructorParameters.dart';
 import 'package:hydro_sdk/swid/ir/util/isOperator.dart';
