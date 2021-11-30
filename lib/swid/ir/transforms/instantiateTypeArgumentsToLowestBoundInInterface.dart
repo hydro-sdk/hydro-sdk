@@ -9,6 +9,7 @@ import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermJsonTransformableResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
+import 'package:hydro_sdk/swid/transforms/removeNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
 
@@ -58,7 +59,14 @@ class InstantiateTypeArgumentsToLowestBoundInInterface
   }) =>
       swidTypeFormals
           ?.firstWhereOrNull(
-              (x) => x.value.displayName == candidateInterface.displayName)
+            (x) =>
+                removeNullabilitySuffix(
+                  str: x.value.displayName,
+                ) ==
+                removeNullabilitySuffix(
+                  str: candidateInterface.displayName,
+                ),
+          )
           ?.swidTypeFormalBound
           ?.when(
             fromSwidInterface: (val) => val,
