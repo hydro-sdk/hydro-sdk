@@ -58,6 +58,8 @@ SwidClass swidClassFromInterfaceType({
                     ),
                     isAbstract: x.isAbstract,
                     isSynthetic: x.isSynthetic,
+                    hasProtected: x.hasProtected,
+                    hasMustCallSuper: x.hasMustCallSuper,
                   ),
                   name: x.declaration.displayName,
                 ),
