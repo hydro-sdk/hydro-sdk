@@ -17,8 +17,10 @@ class _$SuperMethodInvocationTearOff {
   const _$SuperMethodInvocationTearOff();
 
   _$SuperMethodInvocationCtor call(
-      {required SwidFunctionType swidFunctionType}) {
+      {required SwidClass swidClass,
+      required SwidFunctionType swidFunctionType}) {
     return _$SuperMethodInvocationCtor(
+      swidClass: swidClass,
       swidFunctionType: swidFunctionType,
     );
   }
@@ -29,6 +31,7 @@ const $SuperMethodInvocation = _$SuperMethodInvocationTearOff();
 
 /// @nodoc
 mixin _$SuperMethodInvocation {
+  SwidClass get swidClass => throw _privateConstructorUsedError;
   SwidFunctionType get swidFunctionType => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -41,8 +44,9 @@ abstract class $SuperMethodInvocationCopyWith<$Res> {
   factory $SuperMethodInvocationCopyWith(SuperMethodInvocation value,
           $Res Function(SuperMethodInvocation) then) =
       _$SuperMethodInvocationCopyWithImpl<$Res>;
-  $Res call({SwidFunctionType swidFunctionType});
+  $Res call({SwidClass swidClass, SwidFunctionType swidFunctionType});
 
+  $SwidClassCopyWith<$Res> get swidClass;
   $SwidFunctionTypeCopyWith<$Res> get swidFunctionType;
 }
 
@@ -57,14 +61,26 @@ class _$SuperMethodInvocationCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? swidClass = freezed,
     Object? swidFunctionType = freezed,
   }) {
     return _then(_value.copyWith(
+      swidClass: swidClass == freezed
+          ? _value.swidClass
+          : swidClass // ignore: cast_nullable_to_non_nullable
+              as SwidClass,
       swidFunctionType: swidFunctionType == freezed
           ? _value.swidFunctionType
           : swidFunctionType // ignore: cast_nullable_to_non_nullable
               as SwidFunctionType,
     ));
+  }
+
+  @override
+  $SwidClassCopyWith<$Res> get swidClass {
+    return $SwidClassCopyWith<$Res>(_value.swidClass, (value) {
+      return _then(_value.copyWith(swidClass: value));
+    });
   }
 
   @override
@@ -83,8 +99,10 @@ abstract class _$$SuperMethodInvocationCtorCopyWith<$Res>
           $Res Function(_$SuperMethodInvocationCtor) then) =
       __$$SuperMethodInvocationCtorCopyWithImpl<$Res>;
   @override
-  $Res call({SwidFunctionType swidFunctionType});
+  $Res call({SwidClass swidClass, SwidFunctionType swidFunctionType});
 
+  @override
+  $SwidClassCopyWith<$Res> get swidClass;
   @override
   $SwidFunctionTypeCopyWith<$Res> get swidFunctionType;
 }
@@ -103,9 +121,14 @@ class __$$SuperMethodInvocationCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? swidClass = freezed,
     Object? swidFunctionType = freezed,
   }) {
     return _then(_$SuperMethodInvocationCtor(
+      swidClass: swidClass == freezed
+          ? _value.swidClass
+          : swidClass // ignore: cast_nullable_to_non_nullable
+              as SwidClass,
       swidFunctionType: swidFunctionType == freezed
           ? _value.swidFunctionType
           : swidFunctionType // ignore: cast_nullable_to_non_nullable
@@ -117,20 +140,27 @@ class __$$SuperMethodInvocationCtorCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_$SuperMethodInvocationCtor extends _$SuperMethodInvocationCtor {
-  _$_$SuperMethodInvocationCtor({required this.swidFunctionType}) : super._();
+  _$_$SuperMethodInvocationCtor(
+      {required this.swidClass, required this.swidFunctionType})
+      : super._();
 
+  @override
+  final SwidClass swidClass;
   @override
   final SwidFunctionType swidFunctionType;
 
   @override
   String toString() {
-    return 'SuperMethodInvocation(swidFunctionType: $swidFunctionType)';
+    return 'SuperMethodInvocation(swidClass: $swidClass, swidFunctionType: $swidFunctionType)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _$SuperMethodInvocationCtor &&
+            (identical(other.swidClass, swidClass) ||
+                const DeepCollectionEquality()
+                    .equals(other.swidClass, swidClass)) &&
             (identical(other.swidFunctionType, swidFunctionType) ||
                 const DeepCollectionEquality()
                     .equals(other.swidFunctionType, swidFunctionType)));
@@ -139,6 +169,7 @@ class _$_$SuperMethodInvocationCtor extends _$SuperMethodInvocationCtor {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(swidClass) ^
       const DeepCollectionEquality().hash(swidFunctionType);
 
   @JsonKey(ignore: true)
@@ -150,10 +181,13 @@ class _$_$SuperMethodInvocationCtor extends _$SuperMethodInvocationCtor {
 
 abstract class _$SuperMethodInvocationCtor extends SuperMethodInvocation {
   factory _$SuperMethodInvocationCtor(
-          {required SwidFunctionType swidFunctionType}) =
+          {required SwidClass swidClass,
+          required SwidFunctionType swidFunctionType}) =
       _$_$SuperMethodInvocationCtor;
   _$SuperMethodInvocationCtor._() : super._();
 
+  @override
+  SwidClass get swidClass => throw _privateConstructorUsedError;
   @override
   SwidFunctionType get swidFunctionType => throw _privateConstructorUsedError;
   @override
