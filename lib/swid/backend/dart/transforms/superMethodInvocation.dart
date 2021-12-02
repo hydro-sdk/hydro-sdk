@@ -1,8 +1,8 @@
 import 'package:code_builder/code_builder.dart' show DartEmitter, refer;
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 import 'package:hydro_sdk/swid/ir/analyses/hasInheritedMustCallSuperAnnotation.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
-
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
