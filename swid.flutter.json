@@ -13,7 +13,9 @@
         },
         "denyList": {
             "packagePaths": [],
-            "classNames": []
+            "classNames": [
+                "TypeMatcher"
+            ]
         },
         "tsEmitOptions": {
             "prefixPaths": [
