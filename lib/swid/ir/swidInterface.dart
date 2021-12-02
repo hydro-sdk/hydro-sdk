@@ -9,6 +9,7 @@ import 'package:hydro_sdk/swid/ir/swidTypeMixin.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
 import 'package:hydro_sdk/swid/util/iCopyable.dart';
+import 'package:hydro_sdk/swid/util/iJsonTransformable.dart';
 
 part 'swidInterface.freezed.dart';
 part 'swidInterface.g.dart';
@@ -20,7 +21,9 @@ class SwidInterface
         SwidTypeMixin<SwidInterface>,
         HashKeyMixin<SwidInterface>,
         HashComparableMixin<SwidInterface>
-    implements ICopyable<SwidInterface, $SwidInterfaceCopyWith<SwidInterface>> {
+    implements
+        ICopyable<SwidInterface, $SwidInterfaceCopyWith<SwidInterface>>,
+        IJsonTransformable {
   SwidInterface._();
 
   factory SwidInterface({
@@ -34,6 +37,10 @@ class SwidInterface
 
   factory SwidInterface.fromJson(Map<String, dynamic> json) =>
       _$SwidInterfaceFromJson(json);
+
+  @override
+  SwidInterface fromJson(Map<String, dynamic> json) =>
+      SwidInterface.fromJson(json);
 
   factory SwidInterface.clone({
     required final SwidInterface swidType,

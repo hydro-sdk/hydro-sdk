@@ -31,7 +31,7 @@ class NameAnonymousNormalParametersInFunction
 
   @override
   late final List<int> hashableParts = [
-    ...swidFunctionType.hashableParts,
+    ...swidFunctionType.hashKey.hashableParts,
   ];
 
   @override

@@ -34,6 +34,7 @@ import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/transforms/instantiateAllGenericsAsDynamic.dart';
+import 'package:hydro_sdk/swid/ir/transforms/instantiateGenericsToLowestBound.dart';
 import 'package:hydro_sdk/swid/ir/transforms/rewriteShadowingNormalConstructorParameters.dart';
 import 'package:hydro_sdk/swid/ir/transforms/thisPrefixMethodsShadowedByConstructorParameters.dart';
 import 'package:hydro_sdk/swid/ir/util/isOperator.dart';
@@ -400,171 +401,197 @@ class DartRTManagedClassDeclaration
                 ],
               )
               ..methods.addAll(
-                swidClass.methods
-                    .where(
-                      (x) => !isOperator(
-                        swidFunctionType: x,
-                      ),
-                    )
-                    .where((x) => x.returnType.displayName.isNotEmpty
-                        ? x.returnType.displayName[0] != "_"
-                        : true)
-                    .map(
-                      (x) => transformAccessorName(
-                        swidFunctionType: x,
-                        removeSuffixes: true,
-                        addPrefixes: false,
-                      ),
-                    )
-                    .map(
-                      (x) => Method(
-                        (k) => k
-                          ..annotations.add(refer("override"))
-                          ..type = x.declarationModifiers.isGetter
-                              ? MethodType.getter
-                              : x.declarationModifiers.isSetter
-                                  ? MethodType.setter
-                                  : null
-                          ..requiredParameters.addAll(
-                            [
-                              ...x.normalParameterNames
-                                  .map(
-                                    (e) => Parameter(
-                                      (p) => p
-                                        ..name = e
-                                        ..type = swidTypeToDartTypeReference(
-                                          swidType:
-                                              x.normalParameterTypes.elementAt(
-                                            x.normalParameterNames.indexWhere(
-                                                (element) => element == e),
-                                          ),
+                (({
+                  required final SwidClass swidClass,
+                }) =>
+                    swidClass.methods
+                        .where(
+                          (x) => !isOperator(
+                            swidFunctionType: x,
+                          ),
+                        )
+                        .where((x) => x.returnType.displayName.isNotEmpty
+                            ? x.returnType.displayName[0] != "_"
+                            : true)
+                        .map(
+                          (x) => transformAccessorName(
+                            swidFunctionType: x,
+                            removeSuffixes: true,
+                            addPrefixes: false,
+                          ),
+                        )
+                        .map(
+                          (x) => Method(
+                            (k) => k
+                              ..annotations.add(refer("override"))
+                              ..type = x.declarationModifiers.isGetter
+                                  ? MethodType.getter
+                                  : x.declarationModifiers.isSetter
+                                      ? MethodType.setter
+                                      : null
+                              ..requiredParameters.addAll(
+                                [
+                                  ...x.normalParameterNames
+                                      .map(
+                                        (e) => Parameter(
+                                          (p) => p
+                                            ..name = e
+                                            ..type =
+                                                swidTypeToDartTypeReference(
+                                              swidType: x.normalParameterTypes
+                                                  .elementAt(
+                                                x.normalParameterNames
+                                                    .indexWhere((element) =>
+                                                        element == e),
+                                              ),
+                                            ),
                                         ),
-                                    ),
-                                  )
-                                  .toList(),
-                            ],
-                          )
-                          ..optionalParameters.addAll(
-                            [
-                              ...x.namedParameterTypes.entries
-                                  .map(
-                                    (e) => Parameter(
-                                      (p) => p
-                                        ..name = e.key
-                                        ..defaultTo =
-                                            (x.namedDefaults[e.key] != null
-                                                ? Code(x.namedDefaults[e.key]!
-                                                    .defaultValueCode)
-                                                : null)
-                                        ..named = true
-                                        ..required =
-                                            (x.namedDefaults[e.key] == null)
+                                      )
+                                      .toList(),
+                                ],
+                              )
+                              ..optionalParameters.addAll(
+                                [
+                                  ...x.namedParameterTypes.entries
+                                      .map(
+                                        (e) => Parameter(
+                                          (p) => p
+                                            ..name = e.key
+                                            ..defaultTo =
+                                                (x.namedDefaults[e.key] != null
+                                                    ? Code(x
+                                                        .namedDefaults[e.key]!
+                                                        .defaultValueCode)
+                                                    : null)
+                                            ..named = true
+                                            ..required = (x
+                                                        .namedDefaults[e.key] ==
+                                                    null)
                                                 ? e.value.nullabilitySuffix ==
                                                     SwidNullabilitySuffix.none
                                                 : false
-                                        ..type = swidTypeToDartTypeReference(
-                                          swidType: e.value,
+                                            ..type =
+                                                swidTypeToDartTypeReference(
+                                              swidType: e.value,
+                                            ),
                                         ),
-                                    ),
-                                  )
-                                  .toList(),
-                              ...x.positionalDefaultParameters.entries
-                                  .map(
-                                    (e) => Parameter((p) => p
-                                      ..name = e.key
-                                      ..type = swidTypeToDartTypeReference(
-                                        swidType: e.value.staticType,
                                       )
-                                      ..named = false
-                                      ..required = false
-                                      ..defaultTo =
-                                          Code(e.value.defaultValueCode)),
-                                  )
-                                  .toList(),
-                              ...x.optionalParameterNames
-                                  .where(
-                                    (e) =>
-                                        x.namedDefaults.entries
-                                            .firstWhereOrNull(
-                                                (k) => k.key == e) ==
-                                        null,
-                                  )
-                                  .map(
-                                    (e) => (({
-                                      Tuple2<String, SwidType>?
-                                          optionalParameterType,
-                                    }) =>
-                                        Parameter((p) => p
-                                          ..name = optionalParameterType!.item1
+                                      .toList(),
+                                  ...x.positionalDefaultParameters.entries
+                                      .map(
+                                        (e) => Parameter((p) => p
+                                          ..name = e.key
                                           ..type = swidTypeToDartTypeReference(
-                                              swidType:
-                                                  optionalParameterType.item2)
+                                            swidType: e.value.staticType,
+                                          )
                                           ..named = false
-                                          ..required = false))(
-                                      optionalParameterType: Tuple2(
-                                        e,
-                                        x.optionalParameterTypes.elementAt(
-                                          x.optionalParameterNames
-                                              .indexWhere((k) => k == e),
-                                        ),
-                                      ),
-                                    ),
-                                  )
-                                  .toList(),
-                            ],
-                          )
-                          ..name = [
-                            removeTypeArguments(
-                              str: x.name,
-                            ),
-                            x.typeFormals.isNotEmpty
-                                ? ([
-                                    "<",
-                                    x.typeFormals
-                                        .map(
-                                          (x) => pipeline.reduceFromTerm(
-                                            TypeFormalDeclarationClause(
-                                              swidTypeFormal: x,
+                                          ..required = false
+                                          ..defaultTo =
+                                              Code(e.value.defaultValueCode)),
+                                      )
+                                      .toList(),
+                                  ...x.optionalParameterNames
+                                      .where(
+                                        (e) =>
+                                            x.namedDefaults.entries
+                                                .firstWhereOrNull(
+                                                    (k) => k.key == e) ==
+                                            null,
+                                      )
+                                      .map(
+                                        (e) => (({
+                                          Tuple2<String, SwidType>?
+                                              optionalParameterType,
+                                        }) =>
+                                            Parameter((p) => p
+                                              ..name =
+                                                  optionalParameterType!.item1
+                                              ..type =
+                                                  swidTypeToDartTypeReference(
+                                                      swidType:
+                                                          optionalParameterType
+                                                              .item2)
+                                              ..named = false
+                                              ..required = false))(
+                                          optionalParameterType: Tuple2(
+                                            e,
+                                            x.optionalParameterTypes.elementAt(
+                                              x.optionalParameterNames
+                                                  .indexWhere((k) => k == e),
                                             ),
                                           ),
-                                        )
-                                        .join(","),
-                                    ">",
-                                  ].join(""))
-                                : "",
-                          ].join()
-                          ..returns = refer(x.returnType.displayName)
-                          ..body = Block.of(
-                            [
-                              Code(
-                                pipeline.reduceFromTerm(
-                                  SuperMethodInvocation(
-                                    swidFunctionType: x,
-                                  ),
-                                ),
-                              ),
-                              Code(
-                                  "Closure closure = table[\"${transformAccessorName(swidFunctionType: transformTstlMethodNames(swidFunctionType: x)).name}\"];"),
-                              Code(
-                                "return " +
-                                    pipeline.reduceFromTerm(
-                                      DartUnboxingExpression(
-                                        identifierName: null,
-                                        swidType: x.returnType,
-                                        expression: CodeExpression(
-                                          Code(
-                                            "closure.dispatch([table],parentState: hydroState)[0]",
-                                          ),
                                         ),
+                                      )
+                                      .toList(),
+                                ],
+                              )
+                              ..name = [
+                                removeTypeArguments(
+                                  str: x.name,
+                                ),
+                                x.typeFormals.isNotEmpty
+                                    ? ([
+                                        "<",
+                                        x.typeFormals
+                                            .map(
+                                              (x) => pipeline.reduceFromTerm(
+                                                TypeFormalDeclarationClause(
+                                                  swidTypeFormal: x,
+                                                ),
+                                              ),
+                                            )
+                                            .join(","),
+                                        ">",
+                                      ].join(""))
+                                    : "",
+                              ].join()
+                              ..returns = refer(x.returnType.displayName)
+                              ..body = Block.of(
+                                [
+                                  Code(
+                                    pipeline.reduceFromTerm(
+                                      SuperMethodInvocation(
+                                        swidFunctionType: x,
                                       ),
-                                    ) +
-                                    ";",
+                                    ),
+                                  ),
+                                  Code(
+                                      "Closure closure = table[\"${transformAccessorName(swidFunctionType: transformTstlMethodNames(swidFunctionType: x)).name}\"];"),
+                                  Code(
+                                    "return " +
+                                        pipeline.reduceFromTerm(
+                                          DartUnboxingExpression(
+                                            identifierName: null,
+                                            swidType: x.returnType,
+                                            expression: CodeExpression(
+                                              Code(
+                                                "closure.dispatch([table],parentState: hydroState)[0]",
+                                              ),
+                                            ),
+                                          ),
+                                        ) +
+                                        ";",
+                                  ),
+                                ],
                               ),
-                            ],
                           ),
+                        )
+                        .toList())(
+                  swidClass: pipeline
+                      .reduceFromTerm(
+                        InstantiateGenericsToLowestBound(
+                          swidType: SwidType.fromSwidClass(
+                            swidClass: swidClass,
+                          ),
+                        ),
+                      )
+                      .when(
+                        fromSwidInterface: (_) => dartUnknownClass,
+                        fromSwidClass: (val) => val,
+                        fromSwidDefaultFormalParameter: (_) => dartUnknownClass,
+                        fromSwidFunctionType: (_) => dartUnknownClass,
                       ),
-                    )
-                    .toList(),
+                ),
               ),
           )
               .accept(

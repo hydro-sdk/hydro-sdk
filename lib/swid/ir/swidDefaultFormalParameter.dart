@@ -8,6 +8,7 @@ import 'package:hydro_sdk/swid/ir/swidTypeMixin.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
 import 'package:hydro_sdk/swid/util/iCopyable.dart';
+import 'package:hydro_sdk/swid/util/iJsonTransformable.dart';
 
 part 'swidDefaultFormalParameter.freezed.dart';
 part 'swidDefaultFormalParameter.g.dart';
@@ -21,7 +22,8 @@ class SwidDefaultFormalParameter
         HashComparableMixin<SwidDefaultFormalParameter>
     implements
         ICopyable<SwidDefaultFormalParameter,
-            $SwidDefaultFormalParameterCopyWith<SwidDefaultFormalParameter>> {
+            $SwidDefaultFormalParameterCopyWith<SwidDefaultFormalParameter>>,
+        IJsonTransformable {
   SwidDefaultFormalParameter._();
 
   factory SwidDefaultFormalParameter({
@@ -34,6 +36,10 @@ class SwidDefaultFormalParameter
 
   factory SwidDefaultFormalParameter.fromJson(Map<String, dynamic> json) =>
       _$SwidDefaultFormalParameterFromJson(json);
+
+  @override
+  SwidDefaultFormalParameter fromJson(Map<String, dynamic> json) =>
+      SwidDefaultFormalParameter.fromJson(json);
 
   factory SwidDefaultFormalParameter.clone({
     required final SwidDefaultFormalParameter swidDefaultFormalParameter,

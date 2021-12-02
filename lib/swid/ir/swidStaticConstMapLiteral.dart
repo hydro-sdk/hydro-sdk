@@ -41,7 +41,7 @@ class SwidStaticConstMapLiteral
   @override
   late final List<int> hashableParts = [
     ...elements.hashableParts,
-    ...staticType.hashableParts,
+    ...staticType.hashKey.hashableParts,
   ];
 
   @override

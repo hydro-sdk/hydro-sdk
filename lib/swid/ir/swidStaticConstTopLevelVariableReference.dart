@@ -46,7 +46,7 @@ class SwidStaticConstTopLevelVariableReference
   @override
   late final List<int> hashableParts = [
     ...identifier.hashableParts,
-    ...topLevelReference.hashableParts,
+    ...topLevelReference.hashKey.hashableParts,
   ];
 
   @override

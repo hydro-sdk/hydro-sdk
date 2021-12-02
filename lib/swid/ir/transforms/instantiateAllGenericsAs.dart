@@ -42,8 +42,8 @@ class InstantiateAllGenericsAs
 
   @override
   late final List<int> hashableParts = [
-    ...swidType.hashableParts,
-    ...instantiatedGeneric.hashableParts,
+    ...swidType.hashKey.hashableParts,
+    ...instantiatedGeneric.hashKey.hashableParts,
     ...instantiateNormalParameterTypes.hashableParts,
   ];
 

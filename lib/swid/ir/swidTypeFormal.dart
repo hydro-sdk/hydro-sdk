@@ -53,9 +53,9 @@ class SwidTypeFormal
 
   @override
   late final List<int> hashableParts = [
-    ...value.hashableParts,
+    ...value.hashKey.hashableParts,
     swidReferenceDeclarationKind.index,
-    ...swidTypeFormalBound?.hashableParts ??
+    ...swidTypeFormalBound?.hashKey.hashableParts ??
         [
           1,
         ],

@@ -45,8 +45,8 @@ class SwidStaticConstPrefixedIdentifier
 
   @override
   late final List<int> hashableParts = [
-    ...prefix.hashableParts,
-    ...staticConstFieldReference.hashableParts,
+    ...prefix.hashKey.hashableParts,
+    ...staticConstFieldReference.hashKey.hashableParts,
   ];
 
   @override

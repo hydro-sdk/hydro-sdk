@@ -35,7 +35,7 @@ class InstantiateTypeFormalToLowestBound
 
   @override
   late final List<int> hashableParts = [
-    ...swidTypeFormal.hashableParts,
+    ...swidTypeFormal.hashKey.hashableParts,
   ];
 
   @override

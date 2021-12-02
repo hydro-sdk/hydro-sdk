@@ -43,7 +43,7 @@ class SwidStaticConstFieldDeclaration
   @override
   late final List<int> hashableParts = [
     ...name.hashableParts,
-    ...value.hashableParts,
+    ...value.hashKey.hashableParts,
   ];
 
   @override
