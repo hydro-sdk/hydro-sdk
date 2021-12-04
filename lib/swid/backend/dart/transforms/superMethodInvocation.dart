@@ -1,6 +1,8 @@
 import 'package:code_builder/code_builder.dart' show DartEmitter, refer;
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'package:hydro_sdk/swid/ir/analyses/hasInheritedMustCallSuperAnnotation.dart';
+import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
@@ -25,6 +27,7 @@ class SuperMethodInvocation
   SuperMethodInvocation._();
 
   factory SuperMethodInvocation({
+    required final SwidClass swidClass,
     required final SwidFunctionType swidFunctionType,
   }) = _$SuperMethodInvocationCtor;
 
@@ -33,14 +36,17 @@ class SuperMethodInvocation
 
   @override
   late final List<int> hashableParts = [
-    ...swidFunctionType.hashableParts,
+    ...swidClass.hashKey.hashableParts,
+    ...swidFunctionType.hashKey.hashableParts,
   ];
 
   @override
   SuperMethodInvocation clone({
+    final SwidClass? swidClass,
     final SwidFunctionType? swidFunctionType,
   }) =>
       SuperMethodInvocation(
+        swidClass: swidClass ?? this.swidClass,
         swidFunctionType: swidFunctionType ?? this.swidFunctionType,
       );
 
@@ -49,7 +55,13 @@ class SuperMethodInvocation
     required final ISwarsPipeline pipeline,
   }) =>
       SwarsTermResult.fromString(
-        swidFunctionType.declarationModifiers.hasMustCallSuper
+        swidFunctionType.declarationModifiers.hasMustCallSuper ||
+                pipeline.reduceFromTerm(
+                  HasInheritedMustCallSuperAnnotation(
+                    swidFunctionType: swidFunctionType,
+                    swidClass: swidClass,
+                  ),
+                )
             ? [
                 refer("super")
                     .property(

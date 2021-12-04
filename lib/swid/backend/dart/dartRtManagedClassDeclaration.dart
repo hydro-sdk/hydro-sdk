@@ -552,6 +552,7 @@ class DartRTManagedClassDeclaration
                                     pipeline.reduceFromTerm(
                                       SuperMethodInvocation(
                                         swidFunctionType: x,
+                                        swidClass: swidClass,
                                       ),
                                     ),
                                   ),
