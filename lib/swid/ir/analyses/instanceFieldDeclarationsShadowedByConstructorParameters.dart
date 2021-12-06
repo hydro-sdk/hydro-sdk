@@ -1,15 +1,51 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
-import 'package:hydro_sdk/swid/ir/swidType.dart';
-import 'package:hydro_sdk/swid/ir/util/irTermListResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsAnalysisMixin.dart';
+import 'package:hydro_sdk/swid/swars/swarsTermJsonTransformableListResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
+import 'package:hydro_sdk/swid/util/iJsonTransformable.dart';
 
 part 'instanceFieldDeclarationsShadowedByConstructorParameters.freezed.dart';
+part 'instanceFieldDeclarationsShadowedByConstructorParameters.g.dart';
+
+@freezed
+class ShadowedInstanceFieldResult
+    with
+        _$ShadowedInstanceFieldResult,
+        HashKeyMixin<ShadowedInstanceFieldResult>,
+        HashComparableMixin<ShadowedInstanceFieldResult>
+    implements IJsonTransformable {
+  ShadowedInstanceFieldResult._();
+
+  factory ShadowedInstanceFieldResult({
+    required final String fieldName,
+  }) = _$ShadowedInstanceFieldResultCtor;
+
+  @override
+  ShadowedInstanceFieldResult clone({
+    final String? fieldName,
+  }) =>
+      ShadowedInstanceFieldResult(
+        fieldName: fieldName ?? this.fieldName,
+      );
+
+  @override
+  List<int> get hashableParts => [
+        ...fieldName.hashableParts,
+      ];
+
+  factory ShadowedInstanceFieldResult.fromJson(
+          final Map<String, dynamic> json) =>
+      _$ShadowedInstanceFieldResultFromJson(json);
+
+  @override
+  ShadowedInstanceFieldResult fromJson(final Map<String, dynamic> json) =>
+      ShadowedInstanceFieldResult.fromJson(json);
+}
 
 @freezed
 class InstanceFieldDeclarationsShadowedByConstructorParameters
@@ -22,8 +58,8 @@ class InstanceFieldDeclarationsShadowedByConstructorParameters
             InstanceFieldDeclarationsShadowedByConstructorParameters,
             $InstanceFieldDeclarationsShadowedByConstructorParametersCopyWith<
                 InstanceFieldDeclarationsShadowedByConstructorParameters>,
-            List<SwidType>>,
-        IrTermListResultMixin {
+            List<ShadowedInstanceFieldResult>>,
+        SwarsTermJsonTransformableListResultMixin {
   InstanceFieldDeclarationsShadowedByConstructorParameters._();
 
   factory InstanceFieldDeclarationsShadowedByConstructorParameters({
@@ -48,7 +84,12 @@ class InstanceFieldDeclarationsShadowedByConstructorParameters
       );
 
   @override
-  ISwarsTermResult<List<SwidType>> analyze({
+  ShadowedInstanceFieldResult termResultDeserializer(
+          final Map<String, dynamic> json) =>
+      ShadowedInstanceFieldResult.fromJson(json);
+
+  @override
+  ISwarsTermResult<List<ShadowedInstanceFieldResult>> analyze({
     required final ISwarsPipeline pipeline,
   }) =>
       SwarsTermResult.fromList(
@@ -68,7 +109,9 @@ class InstanceFieldDeclarationsShadowedByConstructorParameters
                           null,
                 )
                 .map(
-                  (x) => x.value,
+                  (x) => ShadowedInstanceFieldResult(
+                    fieldName: x.key,
+                  ),
                 )
                 .whereNotNull()
                 .toList()

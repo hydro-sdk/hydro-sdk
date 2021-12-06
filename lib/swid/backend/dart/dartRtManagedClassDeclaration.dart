@@ -19,6 +19,7 @@ import 'package:code_builder/code_builder.dart'
 import 'package:collection/collection.dart' show IterableExtension;
 import 'package:dart_style/dart_style.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/ir/analyses/instanceFieldDeclarationsShadowedByConstructorParameters.dart';
 import 'package:tuple/tuple.dart';
 
 import 'package:hydro_sdk/swid/backend/dart/dartBindInstanceField.dart';
@@ -281,20 +282,40 @@ class DartRTManagedClassDeclaration
                                           ),
                                         )
                                         .statement,
-                                    ...(swidClass
-                                        .instanceFieldDeclarations.entries
-                                        .map(
-                                          (x) => Code(
-                                            pipeline.reduceFromTerm(
-                                              DartBindInstanceField(
-                                                tableKey: x.key,
-                                                instanceFieldName: x.key,
-                                                instanceField: x.value,
+                                    ...((({
+                                      required final List<ShadowedInstanceFieldResult>
+                                          shadowedInstanceFields,
+                                    }) =>
+                                        swidClass
+                                            .instanceFieldDeclarations.entries
+                                            .map(
+                                              (x) => Code(
+                                                pipeline.reduceFromTerm(
+                                                  DartBindInstanceField(
+                                                    tableKey: x.key,
+                                                    instanceFieldName:
+                                                        shadowedInstanceFields
+                                                                    .firstWhereOrNull(
+                                                                  (k) =>
+                                                                      k.fieldName ==
+                                                                      x.key,
+                                                                ) ==
+                                                                null
+                                                            ? x.key
+                                                            : "this.${x.key}",
+                                                    instanceField: x.value,
+                                                  ),
+                                                ),
                                               ),
-                                            ),
-                                          ),
-                                        )
-                                        .toList()),
+                                            )
+                                            .toList())(
+                                      shadowedInstanceFields:
+                                          pipeline.reduceFromTerm(
+                                        InstanceFieldDeclarationsShadowedByConstructorParameters(
+                                          swidClass: swidClass,
+                                        ),
+                                      ),
+                                    )),
                                     ...((({
                                       required final SwidClass swidClass,
                                     }) =>
