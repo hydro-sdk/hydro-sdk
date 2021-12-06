@@ -107,17 +107,6 @@ void main() {
       typeFormals: [],
     );
 
-    final focusManager = SwidType.fromSwidInterface(
-      swidInterface: SwidInterface(
-        name: "FocusManager",
-        nullabilitySuffix: SwidNullabilitySuffix.none,
-        originalPackagePath: "package:flutter/src/widgets/focus_manager.dart",
-        typeArguments: [],
-        referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
-        declarationModifiers: SwidDeclarationModifiers.empty(),
-      ),
-    );
-
     final shadowedFields = CachingPipeline(
       cacheMgr: const PipelineNoopCacheMgr(),
     ).reduceFromTerm(
@@ -127,8 +116,8 @@ void main() {
     );
 
     expect(
-      shadowedFields.first,
-      focusManager,
+      shadowedFields.first.fieldName,
+      "focusManager",
     );
   }, tags: "swid");
 }
