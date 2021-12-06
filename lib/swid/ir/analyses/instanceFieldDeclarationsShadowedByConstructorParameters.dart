@@ -1,10 +1,10 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
-import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/ir/swidType.dart';
+import 'package:hydro_sdk/swid/ir/util/irTermListResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsAnalysisMixin.dart';
-import 'package:hydro_sdk/swid/swars/swarsTermJsonTransformableListResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
@@ -22,8 +22,8 @@ class InstanceFieldDeclarationsShadowedByConstructorParameters
             InstanceFieldDeclarationsShadowedByConstructorParameters,
             $InstanceFieldDeclarationsShadowedByConstructorParametersCopyWith<
                 InstanceFieldDeclarationsShadowedByConstructorParameters>,
-            List<SwidFunctionType>>,
-        SwarsTermJsonTransformableListResultMixin {
+            List<SwidType>>,
+        IrTermListResultMixin {
   InstanceFieldDeclarationsShadowedByConstructorParameters._();
 
   factory InstanceFieldDeclarationsShadowedByConstructorParameters({
@@ -48,11 +48,7 @@ class InstanceFieldDeclarationsShadowedByConstructorParameters
       );
 
   @override
-  SwidFunctionType termResultDeserializer(final Map<String, dynamic> json) =>
-      SwidFunctionType.fromJson(json);
-
-  @override
-  ISwarsTermResult<List<SwidFunctionType>> analyze({
+  ISwarsTermResult<List<SwidType>> analyze({
     required final ISwarsPipeline pipeline,
   }) =>
       SwarsTermResult.fromList(
@@ -72,12 +68,7 @@ class InstanceFieldDeclarationsShadowedByConstructorParameters
                           null,
                 )
                 .map(
-                  (x) => x.value.when(
-                    fromSwidInterface: (_) => null,
-                    fromSwidClass: (_) => null,
-                    fromSwidDefaultFormalParameter: (_) => null,
-                    fromSwidFunctionType: (val) => val,
-                  ),
+                  (x) => x.value,
                 )
                 .whereNotNull()
                 .toList()
