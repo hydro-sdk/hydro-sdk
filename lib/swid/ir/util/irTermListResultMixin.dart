@@ -2,10 +2,9 @@ import 'dart:convert';
 
 import 'package:meta/meta.dart';
 
+import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsTerm.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
-
-import 'package:hydro_sdk/swid/ir/swidType.dart';
 
 mixin IrTermListResultMixin<T extends Object, U extends Object,
     V extends SwidType> on ISwarsTerm<T, U, List<V>> {

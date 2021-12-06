@@ -19,7 +19,6 @@ import 'package:code_builder/code_builder.dart'
 import 'package:collection/collection.dart' show IterableExtension;
 import 'package:dart_style/dart_style.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:hydro_sdk/swid/ir/analyses/instanceFieldDeclarationsShadowedByConstructorParameters.dart';
 import 'package:tuple/tuple.dart';
 
 import 'package:hydro_sdk/swid/backend/dart/dartBindInstanceField.dart';
@@ -29,6 +28,7 @@ import 'package:hydro_sdk/swid/backend/dart/transforms/superMethodInvocation.dar
 import 'package:hydro_sdk/swid/backend/dart/transforms/typeFormalDeclarationClause.dart';
 import 'package:hydro_sdk/swid/backend/dart/util/luaCallerArgumentsParameterName.dart';
 import 'package:hydro_sdk/swid/backend/dart/util/swidTypeToDartTypeReference.dart';
+import 'package:hydro_sdk/swid/ir/analyses/instanceFieldDeclarationsShadowedByConstructorParameters.dart';
 import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
@@ -283,7 +283,8 @@ class DartRTManagedClassDeclaration
                                         )
                                         .statement,
                                     ...((({
-                                      required final List<ShadowedInstanceFieldResult>
+                                      required final List<
+                                              ShadowedInstanceFieldResult>
                                           shadowedInstanceFields,
                                     }) =>
                                         swidClass
