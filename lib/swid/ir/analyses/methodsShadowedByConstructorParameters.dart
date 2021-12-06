@@ -59,8 +59,15 @@ class MethodsShadowedByConstructorParameters
                 .where(
                   (x) =>
                       swidClass.constructorType!.normalParameterNames
-                          .firstWhereOrNull((k) => x.name == k) !=
-                      null,
+                              .firstWhereOrNull(
+                            (k) => x.name == k,
+                          ) !=
+                          null ||
+                      swidClass.constructorType!.namedParameterTypes.entries
+                              .firstWhereOrNull(
+                            (k) => x.name == k.key,
+                          ) !=
+                          null,
                 )
                 .toList()
             : [],
