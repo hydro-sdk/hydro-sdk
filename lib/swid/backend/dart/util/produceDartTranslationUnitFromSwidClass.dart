@@ -50,15 +50,18 @@ DartTranslationUnit? produceDartTranslationUnitFromSwidClass({
                           .map((x) => DartIr.fromDartImportStatement(
                               dartImportStatement: x))
                           .toList())(importStatements: [
-                    ...collectAllReferences(
-                      swidType: SwidType.fromSwidClass(
-                        swidClass: pipeline.reduceFromTerm(
-                          ApplySuperTypes(
-                            swidClass: swidClass,
+                    ...pipeline
+                        .reduceFromTerm(
+                          CollectAllReferences(
+                            swidType: SwidType.fromSwidClass(
+                              swidClass: pipeline.reduceFromTerm(
+                                ApplySuperTypes(
+                                  swidClass: swidClass,
+                                ),
+                              ),
+                            ),
                           ),
-                        ),
-                      ),
-                    )
+                        )
                         .where(
                           (x) =>
                               x.originalPackagePath !=

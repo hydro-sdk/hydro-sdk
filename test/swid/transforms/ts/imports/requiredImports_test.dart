@@ -52,10 +52,16 @@ void main() {
     );
 
     expect(
-        collectAllReferences(
+        CachingPipeline(
+          cacheMgr: const PipelineNoopCacheMgr(),
+        )
+            .reduceFromTerm(
+              CollectAllReferences(
                 swidType: SwidType.fromSwidFunctionType(
-          swidFunctionType: getProperties,
-        ))
+                  swidFunctionType: getProperties,
+                ),
+              ),
+            )
             .map(
               (x) => CachingPipeline(
                 cacheMgr: const PipelineNoopCacheMgr(),

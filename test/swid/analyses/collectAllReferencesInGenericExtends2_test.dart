@@ -6,6 +6,8 @@ import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/util/collectAllReferences.dart';
+import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
+import 'package:hydro_sdk/swid/swars/pipelineNoopCacheMgr.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
@@ -63,10 +65,14 @@ void main() {
       ),
     );
 
-    final withFirstOrderSuperClassReferences = collectAllReferences(
-      includeFirstOrderSuperClassReferences: true,
-      swidType: SwidType.fromSwidClass(
-        swidClass: ir,
+    final withFirstOrderSuperClassReferences = CachingPipeline(
+      cacheMgr: const PipelineNoopCacheMgr(),
+    ).reduceFromTerm(
+      CollectAllReferences(
+        includeFirstOrderSuperClassReferences: true,
+        swidType: SwidType.fromSwidClass(
+          swidClass: ir,
+        ),
       ),
     );
 
@@ -76,9 +82,13 @@ void main() {
       isNotNull,
     );
 
-    final withoutFirstOrderSuperClassReferences = collectAllReferences(
-      swidType: SwidType.fromSwidClass(
-        swidClass: ir,
+    final withoutFirstOrderSuperClassReferences = CachingPipeline(
+      cacheMgr: const PipelineNoopCacheMgr(),
+    ).reduceFromTerm(
+      CollectAllReferences(
+        swidType: SwidType.fromSwidClass(
+          swidClass: ir,
+        ),
       ),
     );
 

@@ -26,10 +26,12 @@ List<TsIr> tsImportBlock({
       resolveDependencyInformation(
     pipeline: pipeline,
     dependencies: [
-      ...collectAllReferences(
-        includeFirstOrderSuperClassReferences: true,
-        swidType: SwidType.fromSwidClass(
-          swidClass: swidClass,
+      ...pipeline.reduceFromTerm(
+        CollectAllReferences(
+          includeFirstOrderSuperClassReferences: true,
+          swidType: SwidType.fromSwidClass(
+            swidClass: swidClass,
+          ),
         ),
       ),
       ...(hasStaticConstMap(
