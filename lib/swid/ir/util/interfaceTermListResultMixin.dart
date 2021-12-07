@@ -1,8 +1,8 @@
 import 'dart:convert';
 
-import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:meta/meta.dart';
 
+import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsTerm.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 
