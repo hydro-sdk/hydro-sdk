@@ -100,37 +100,73 @@ class CollectAllReferences
                       (x) => x == dartUnknownInterface,
                     ),
                   fromSwidClass: (val) => ([
-                    ...((
-                      final List<List<SwidInterface>> elements,
-                    ) =>
-                        elements.isNotEmpty
-                            ? elements.reduce(
-                                (
-                                  value,
-                                  element,
-                                ) =>
-                                    [
-                                  ...value,
-                                  ...element,
-                                ],
-                              )
-                            : <SwidInterface>[])(
-                      val.typeFormals
+                    ...(({
+                      required final List<List<List<SwidInterface>>> elements,
+                    }) =>
+                        (({
+                          required final List<List<SwidInterface>> elements,
+                        }) =>
+                            elements.isNotEmpty
+                                ? elements.reduce(
+                                    (
+                                      value,
+                                      element,
+                                    ) =>
+                                        [
+                                      ...value,
+                                      ...element,
+                                    ],
+                                  )
+                                : <SwidInterface>[])(
+                          elements: elements.isNotEmpty
+                              ? elements.reduce(
+                                  (
+                                    value,
+                                    element,
+                                  ) =>
+                                      [
+                                    ...value,
+                                    ...element,
+                                  ],
+                                )
+                              : <List<SwidInterface>>[],
+                        ))(
+                      elements: val.typeFormals
                           .map(
-                            (x) => x.value.when(
-                              fromString: (_) => null,
-                              fromSwidClass: (val) => [
-                                SwidInterface.fromSwidClass(
-                                  swidClass: val,
+                            (x) => [
+                              x.value.when(
+                                fromString: (_) => null,
+                                fromSwidClass: (val) => [
+                                  SwidInterface.fromSwidClass(
+                                    swidClass: val,
+                                  ),
+                                ],
+                                fromSwidInterface: (val) => [
+                                  val,
+                                ],
+                                fromSwidFunctionType: (val) => [
+                                  dartUnknownInterface,
+                                ],
+                              ),
+                              x.swidTypeFormalBound?.when<List<SwidInterface>>(
+                                fromSwidInterface: (val) =>
+                                    pipeline.reduceFromTerm(
+                                  CollectAllReferences(
+                                    swidType: SwidType.fromSwidInterface(
+                                      swidInterface: val,
+                                    ),
+                                  ),
                                 ),
-                              ],
-                              fromSwidInterface: (val) => [
-                                val,
-                              ],
-                              fromSwidFunctionType: (val) => [
-                                dartUnknownInterface,
-                              ],
-                            ),
+                                fromSwidFunctionType: (val) =>
+                                    pipeline.reduceFromTerm(
+                                  CollectAllReferences(
+                                    swidType: SwidType.fromSwidFunctionType(
+                                      swidFunctionType: val,
+                                    ),
+                                  ),
+                                ),
+                              )
+                            ].whereNotNull().toList(),
                           )
                           .whereNotNull()
                           .toList(),
