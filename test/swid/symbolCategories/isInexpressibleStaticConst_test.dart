@@ -1,5 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 
+import 'package:hydro_sdk/swid/ir/analyses/isInexpressibleStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/swidBooleanLiteral.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
@@ -15,7 +16,6 @@ import 'package:hydro_sdk/swid/ir/swidStaticConstFunctionInvocation.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstPrefixedExpression.dart';
 import 'package:hydro_sdk/swid/ir/swidStringLiteral.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
-import 'package:hydro_sdk/swid/ir/analyses/isInexpressibleStaticConst.dart';
 import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
 import 'package:hydro_sdk/swid/swars/pipelineNoopCacheMgr.dart';
 
