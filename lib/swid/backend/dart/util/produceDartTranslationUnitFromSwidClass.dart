@@ -29,7 +29,10 @@ DartTranslationUnit? produceDartTranslationUnitFromSwidClass({
     (({
       required final SwidClass swidClass,
     }) =>
-        requiresDartClassTranslationUnit(swidClass: swidClass)
+        requiresDartClassTranslationUnit(
+          pipeline: pipeline,
+          swidClass: swidClass,
+        )
             ? DartTranslationUnit(
                 pipeline: pipeline,
                 path: prefixPaths.join(p.separator) + p.separator + path,

@@ -31,41 +31,48 @@ List<DartTranslationUnit> produceDartTranslationUnitsFromBarrelSpec({
             ),
             ...barrelSpec.members
                 .map((x) => x.when(
-                        fromSwidClass: (val) =>
-                            requiresDartClassTranslationUnit(swidClass: val),
-                        fromSwidEnum: (_) => false,
-                        fromBarrelSpec: (val) => val.members.every((e) =>
-                            e.when(
-                                fromSwidClass: (val) =>
-                                    requiresDartClassTranslationUnit(
-                                        swidClass: val),
-                                fromSwidEnum: (_) => true,
-                                fromBarrelSpec: (_) => true)))
-                    ? [
-                        DartIr.fromDartImportStatement(
-                            dartImportStatement: DartImportStatement(
-                                path: [
-                          "package:",
-                          packageName,
-                          p.separator,
-                          prefixPaths.first == "lib"
-                              ? prefixPaths.skip(1).join(p.separator)
-                              : prefixPaths.join(p.separator),
-                          p.separator,
-                          transformPackageUri(
-                              packageUri: x.originalPackagePath),
-                          p.separator,
-                          x.when(
-                            fromSwidClass: (val) =>
-                                transformToCamelCase(str: val.name),
-                            fromSwidEnum: (val) =>
-                                transformToCamelCase(str: val.identifier),
-                            fromBarrelSpec: (val) => val.name,
+                      fromSwidClass: (val) => requiresDartClassTranslationUnit(
+                        pipeline: pipeline,
+                        swidClass: val,
+                      ),
+                      fromSwidEnum: (_) => false,
+                      fromBarrelSpec: (val) => val.members.every(
+                        (e) => e.when(
+                          fromSwidClass: (val) =>
+                              requiresDartClassTranslationUnit(
+                            pipeline: pipeline,
+                            swidClass: val,
                           ),
-                          ".dart",
-                        ].join()))
-                      ]
-                    : [])
+                          fromSwidEnum: (_) => true,
+                          fromBarrelSpec: (_) => true,
+                        ),
+                      ),
+                    )
+                        ? [
+                            DartIr.fromDartImportStatement(
+                                dartImportStatement: DartImportStatement(
+                                    path: [
+                              "package:",
+                              packageName,
+                              p.separator,
+                              prefixPaths.first == "lib"
+                                  ? prefixPaths.skip(1).join(p.separator)
+                                  : prefixPaths.join(p.separator),
+                              p.separator,
+                              transformPackageUri(
+                                  packageUri: x.originalPackagePath),
+                              p.separator,
+                              x.when(
+                                fromSwidClass: (val) =>
+                                    transformToCamelCase(str: val.name),
+                                fromSwidEnum: (val) =>
+                                    transformToCamelCase(str: val.identifier),
+                                fromBarrelSpec: (val) => val.name,
+                              ),
+                              ".dart",
+                            ].join()))
+                          ]
+                        : [])
                 .reduce((value, element) => [
                       ...value,
                       ...element,

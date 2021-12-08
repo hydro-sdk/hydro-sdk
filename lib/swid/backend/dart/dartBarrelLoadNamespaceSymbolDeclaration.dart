@@ -109,7 +109,9 @@ class DartBarrelLoadNamespaceSymbolDeclaration
                       .where((x) => x.when(
                             fromSwidClass: (val) =>
                                 requiresDartClassTranslationUnit(
-                                    swidClass: val),
+                              pipeline: pipeline,
+                              swidClass: val,
+                            ),
                             fromSwidEnum: (_) => true,
                             fromBarrelSpec: (_) => true,
                           ))

@@ -12,7 +12,7 @@ import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
-import 'package:hydro_sdk/swid/ir/util/collectAllStaticConstReferences.dart';
+import 'package:hydro_sdk/swid/ir/analyses/collectAllStaticConstReferences.dart';
 import 'package:hydro_sdk/swid/ir/util/hasStaticConstMap.dart';
 import 'package:hydro_sdk/swid/ir/util/narrowSwidInterfaceByReferenceDeclaration.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
@@ -80,8 +80,14 @@ List<TsIr> tsImportBlock({
       resolveDependencyInformation(
           pipeline: pipeline,
           rewriteReferences: false,
-          dependencies: collectAllStaticConstReferences(
-                  swidType: SwidType.fromSwidClass(swidClass: swidClass))
+          dependencies: pipeline
+              .reduceFromTerm(
+                CollectAllStaticConstReferences(
+                  swidType: SwidType.fromSwidClass(
+                    swidClass: swidClass,
+                  ),
+                ),
+              )
               .where((x) => narrowSwidInterfaceByReferenceDeclaration(
                     swidInterface: x,
                     onPrimitive: (val) => val.name == "double",

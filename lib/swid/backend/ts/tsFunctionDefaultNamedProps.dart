@@ -4,7 +4,7 @@ import 'package:hydro_sdk/swid/backend/ts/transforms/transformTypeDeclarationToT
 import 'package:hydro_sdk/swid/backend/ts/tsFunctionDefaultNamedPropsObjectName.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
-import 'package:hydro_sdk/swid/ir/util/isInexpressibleStaticConst.dart';
+import 'package:hydro_sdk/swid/ir/analyses/isInexpressibleStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/util/rewriteClassReferencesToInterfaceReferences.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
@@ -59,9 +59,11 @@ class TsFunctionDefaultNamedProps
                       swidFunctionType: swidFunctionType),
                 )} = {\n" +
                 swidFunctionType.namedDefaultParameters.entries
-                    .map((x) => !isInexpressibleStaticConst(
-                          parentClass: null,
-                          staticConst: x.value.value,
+                    .map((x) => !pipeline.reduceFromTerm(
+                          IsInexpressibleStaticConst(
+                            parentClass: null,
+                            swidStaticConst: x.value.value,
+                          ),
                         )
                             ? [
                                 "    ${x.key}: ",

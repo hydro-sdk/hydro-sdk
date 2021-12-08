@@ -1,11 +1,11 @@
 import 'package:collection/collection.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/ir/analyses/collectReferencesFromStaticConst.dart';
 
 import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
-import 'package:hydro_sdk/swid/ir/util/collectAllStaticConstReferences.dart';
 import 'package:hydro_sdk/swid/ir/util/interfaceTermListResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsAnalysisMixin.dart';
@@ -179,10 +179,16 @@ class CollectAllReferences
                       final List<List<SwidInterface>> elements,
                     ) =>
                         elements.isNotEmpty
-                            ? elements.reduce((value, element) => [
+                            ? elements.reduce(
+                                (
+                                  value,
+                                  element,
+                                ) =>
+                                    [
                                   ...value,
                                   ...element,
-                                ])
+                                ],
+                              )
                             : <SwidInterface>[])(val.factoryConstructors
                         .map(
                           (x) => pipeline.reduceFromTerm(
@@ -278,8 +284,10 @@ class CollectAllReferences
                       (x) => x == dartUnknownInterface,
                     ),
                   fromSwidDefaultFormalParameter: (val) =>
-                      collectReferencesFromStaticConst(
-                    swidStaticConst: val.value,
+                      pipeline.reduceFromTerm(
+                    CollectReferencesFromStaticConst(
+                      swidStaticConst: val.value,
+                    ),
                   )..removeWhere(
                           (x) => x == dartUnknownInterface,
                         ),
@@ -351,9 +359,11 @@ class CollectAllReferences
                             : <SwidInterface>[])(
                       val.optionalParameterTypes
                           .map(
-                            (x) => pipeline.reduceFromTerm(CollectAllReferences(
-                              swidType: x,
-                            )),
+                            (x) => pipeline.reduceFromTerm(
+                              CollectAllReferences(
+                                swidType: x,
+                              ),
+                            ),
                           )
                           .toList(),
                     ),

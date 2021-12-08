@@ -7,7 +7,7 @@ import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstFieldReference.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstFunctionInvocation.dart';
-import 'package:hydro_sdk/swid/ir/util/isInexpressibleStaticConst.dart';
+import 'package:hydro_sdk/swid/ir/analyses/isInexpressibleStaticConst.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsNonUniqueTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
@@ -78,11 +78,14 @@ class TransformStaticConstFunctionInvocation
     );
 
     var res = "";
-    if (!isInexpressibleStaticConst(
+    if (!pipeline.reduceFromTerm(
+      IsInexpressibleStaticConst(
         parentClass: parentClass,
-        staticConst: SwidStaticConst.fromSwidStaticConstFunctionInvocation(
+        swidStaticConst: SwidStaticConst.fromSwidStaticConstFunctionInvocation(
           staticConstFunctionInvocation: swidStaticConstFunctionInvocation,
-        ))) {
+        ),
+      ),
+    )) {
       res = swidStaticConstFunctionInvocation.isConstructorInvocation
           ? "new "
           : "";

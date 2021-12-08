@@ -93,7 +93,14 @@ void main() {
       isMixin: false,
       typeFormals: [],
     );
-    expect(requiresDartClassTranslationUnit(swidClass: endian), true);
+    expect(
+        requiresDartClassTranslationUnit(
+          pipeline: CachingPipeline(
+            cacheMgr: const PipelineNoopCacheMgr(),
+          ),
+          swidClass: endian,
+        ),
+        true);
     expect(
         CachingPipeline(
           cacheMgr: const PipelineNoopCacheMgr(),
