@@ -28,6 +28,7 @@ import 'package:hydro_sdk/swid/backend/dart/transforms/superMethodInvocation.dar
 import 'package:hydro_sdk/swid/backend/dart/transforms/typeFormalDeclarationClause.dart';
 import 'package:hydro_sdk/swid/backend/dart/util/luaCallerArgumentsParameterName.dart';
 import 'package:hydro_sdk/swid/backend/dart/util/swidTypeToDartTypeReference.dart';
+import 'package:hydro_sdk/swid/ir/analyses/instanceFieldDeclarationsShadowedByConstructorParameters.dart';
 import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
@@ -281,20 +282,41 @@ class DartRTManagedClassDeclaration
                                           ),
                                         )
                                         .statement,
-                                    ...(swidClass
-                                        .instanceFieldDeclarations.entries
-                                        .map(
-                                          (x) => Code(
-                                            pipeline.reduceFromTerm(
-                                              DartBindInstanceField(
-                                                tableKey: x.key,
-                                                instanceFieldName: x.key,
-                                                instanceField: x.value,
+                                    ...((({
+                                      required final List<
+                                              ShadowedInstanceFieldResult>
+                                          shadowedInstanceFields,
+                                    }) =>
+                                        swidClass
+                                            .instanceFieldDeclarations.entries
+                                            .map(
+                                              (x) => Code(
+                                                pipeline.reduceFromTerm(
+                                                  DartBindInstanceField(
+                                                    tableKey: x.key,
+                                                    instanceFieldName:
+                                                        shadowedInstanceFields
+                                                                    .firstWhereOrNull(
+                                                                  (k) =>
+                                                                      k.fieldName ==
+                                                                      x.key,
+                                                                ) ==
+                                                                null
+                                                            ? x.key
+                                                            : "this.${x.key}",
+                                                    instanceField: x.value,
+                                                  ),
+                                                ),
                                               ),
-                                            ),
-                                          ),
-                                        )
-                                        .toList()),
+                                            )
+                                            .toList())(
+                                      shadowedInstanceFields:
+                                          pipeline.reduceFromTerm(
+                                        InstanceFieldDeclarationsShadowedByConstructorParameters(
+                                          swidClass: swidClass,
+                                        ),
+                                      ),
+                                    )),
                                     ...((({
                                       required final SwidClass swidClass,
                                     }) =>
