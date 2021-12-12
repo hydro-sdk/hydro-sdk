@@ -21,12 +21,12 @@ import 'package:hydro_sdk/swid/backend/dart/dartUnpackClosures.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartVmManagedClassBoxerRegistrant.dart';
 import 'package:hydro_sdk/swid/backend/dart/util/luaCallerArgumentsParameterName.dart';
 import 'package:hydro_sdk/swid/backend/dart/util/luaDartBinding.dart';
+import 'package:hydro_sdk/swid/ir/analyses/isInexpressibleStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/transforms/instantiateAllGenericsAsDynamic.dart';
-import 'package:hydro_sdk/swid/ir/util/isInexpressibleStaticConst.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermStringResultMixin.dart';
@@ -177,10 +177,14 @@ class DartLoadNamespaceSymbolDeclaration
                       : Code(""),
                   ...[
                     ...swidClass.staticConstFieldDeclarations
-                        .where((x) => isInexpressibleStaticConst(
+                        .where(
+                          (x) => pipeline.reduceFromTerm(
+                            IsInexpressibleStaticConst(
                               parentClass: swidClass,
-                              staticConst: x.value,
-                            ))
+                              swidStaticConst: x.value,
+                            ),
+                          ),
+                        )
                         .map(
                           (x) =>
                               DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(

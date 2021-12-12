@@ -4,6 +4,7 @@ import 'package:path/path.dart' as path;
 import 'package:hydro_sdk/swid/backend/ts/transforms/transformVmDeclarationToTs.dart';
 import 'package:hydro_sdk/swid/backend/ts/tsVmDeclaration.dart';
 import 'package:hydro_sdk/swid/backend/util/requiresDartBinding.dart';
+import 'package:hydro_sdk/swid/ir/analyses/isInexpressibleStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
@@ -11,7 +12,6 @@ import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
-import 'package:hydro_sdk/swid/ir/util/isInexpressibleStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/util/rewriteClassReferencesToInterfaceReferencesInFunction.dart';
 import 'package:hydro_sdk/swid/ir/util/rewriteClassReferencestoInterfaceReferencesInClass.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
@@ -130,6 +130,7 @@ class TsClassVmDeclaration
   }) =>
       SwarsTermResult.fromString(
         requiresDartBinding(
+                  pipeline: pipeline,
                   swidClass: swidClass,
                 ) ||
                 swidClass.isConstructible()
@@ -167,9 +168,11 @@ class TsClassVmDeclaration
                                         ...swidClass
                                             .staticConstFieldDeclarations
                                             .where(
-                                              (x) => isInexpressibleStaticConst(
-                                                staticConst: x.value,
-                                                parentClass: swidClass,
+                                              (x) => pipeline.reduceFromTerm(
+                                                IsInexpressibleStaticConst(
+                                                  swidStaticConst: x.value,
+                                                  parentClass: swidClass,
+                                                ),
                                               ),
                                             )
                                             .map(

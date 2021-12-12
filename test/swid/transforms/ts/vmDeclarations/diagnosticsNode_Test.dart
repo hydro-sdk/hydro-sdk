@@ -1135,6 +1135,9 @@ void main() {
 
     expect(
         requiresDartBinding(
+          pipeline: CachingPipeline(
+            cacheMgr: const PipelineNoopCacheMgr(),
+          ),
           swidClass: diagnosticsNode,
         ),
         true);

@@ -8,12 +8,12 @@ import 'package:hydro_sdk/swid/backend/ts/transforms/transformTypeDeclarationToT
 import 'package:hydro_sdk/swid/backend/ts/transforms/transformTypeFormalsToTs.dart';
 import 'package:hydro_sdk/swid/backend/ts/transforms/util/makeDefaultInexpressibleFunctionInvocationFallback.dart';
 import 'package:hydro_sdk/swid/backend/ts/transforms/util/makeDefaultStaticConstFieldReferenceScopeResolver.dart';
+import 'package:hydro_sdk/swid/ir/analyses/isInexpressibleStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/util/cloneSwidType.dart';
-import 'package:hydro_sdk/swid/ir/util/isInexpressibleStaticConst.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermStringResultMixin.dart';
@@ -246,10 +246,12 @@ class TransformFunctionTypeToTs
           x.value.nullabilitySuffix == SwidNullabilitySuffix.question ||
                   (emitDefaultFormalsAsOptionalNamed &&
                       swidFunctionType.namedDefaults[x.key] != null &&
-                      !isInexpressibleStaticConst(
-                        parentClass: parentClass,
-                        staticConst:
-                            swidFunctionType.namedDefaults[x.key]!.value,
+                      !pipeline.reduceFromTerm(
+                        IsInexpressibleStaticConst(
+                          parentClass: parentClass,
+                          swidStaticConst:
+                              swidFunctionType.namedDefaults[x.key]!.value,
+                        ),
                       ))
               ? "?"
               : "",

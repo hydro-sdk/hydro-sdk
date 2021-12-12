@@ -59,7 +59,10 @@ TsTranslationUnit produceTsTranslationUnitFromSwidClass({
               : (!swidClass.isPureAbstract() &&
                       !swidClass.isMixin &&
                       swidClass.originalPackagePath != "dart:_internal" &&
-                      (requiresDartBinding(swidClass: swidClass) ||
+                      (requiresDartBinding(
+                            pipeline: pipeline,
+                            swidClass: swidClass,
+                          ) ||
                           swidClass.isConstructible() ||
                           swidClass.staticConstFieldDeclarations.isNotEmpty ||
                           swidClass.staticMethods.isNotEmpty ||

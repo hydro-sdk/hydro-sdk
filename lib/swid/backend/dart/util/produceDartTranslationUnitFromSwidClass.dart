@@ -11,12 +11,12 @@ import 'package:hydro_sdk/swid/backend/dart/dartir.dart';
 import 'package:hydro_sdk/swid/backend/util/removeNonEmitCandidates.dart';
 import 'package:hydro_sdk/swid/backend/util/removePrivateMethods.dart';
 import 'package:hydro_sdk/swid/backend/util/requiresDartClassTranslationUnit.dart';
+import 'package:hydro_sdk/swid/ir/analyses/collectAllReferences.dart';
 import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/transforms/applySuperTypes.dart';
 import 'package:hydro_sdk/swid/ir/transforms/instantiateAllGenericsAsDynamic.dart';
-import 'package:hydro_sdk/swid/ir/util/collectAllReferences.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 
 DartTranslationUnit? produceDartTranslationUnitFromSwidClass({
@@ -29,7 +29,10 @@ DartTranslationUnit? produceDartTranslationUnitFromSwidClass({
     (({
       required final SwidClass swidClass,
     }) =>
-        requiresDartClassTranslationUnit(swidClass: swidClass)
+        requiresDartClassTranslationUnit(
+          pipeline: pipeline,
+          swidClass: swidClass,
+        )
             ? DartTranslationUnit(
                 pipeline: pipeline,
                 path: prefixPaths.join(p.separator) + p.separator + path,
@@ -50,15 +53,18 @@ DartTranslationUnit? produceDartTranslationUnitFromSwidClass({
                           .map((x) => DartIr.fromDartImportStatement(
                               dartImportStatement: x))
                           .toList())(importStatements: [
-                    ...collectAllReferences(
-                      swidType: SwidType.fromSwidClass(
-                        swidClass: pipeline.reduceFromTerm(
-                          ApplySuperTypes(
-                            swidClass: swidClass,
+                    ...pipeline
+                        .reduceFromTerm(
+                          CollectAllReferences(
+                            swidType: SwidType.fromSwidClass(
+                              swidClass: pipeline.reduceFromTerm(
+                                ApplySuperTypes(
+                                  swidClass: swidClass,
+                                ),
+                              ),
+                            ),
                           ),
-                        ),
-                      ),
-                    )
+                        )
                         .where(
                           (x) =>
                               x.originalPackagePath !=
