@@ -54,13 +54,19 @@ class ApplySuperTypes
         pipeline.reduceFromTerm(
           ApplyInterfaces(
             swidClass: pipeline.reduceFromTerm(
-              ApplyMixins(
+              MergeClassDeclarations(
                 swidClass: pipeline.reduceFromTerm(
-                  MergeClassDeclarations(
+                  ApplyMixins(
                     swidClass: swidClass,
-                    superClass: swidClass.extendedClass,
                   ),
                 ),
+                superClass: swidClass.extendedClass != null
+                    ? pipeline.reduceFromTerm(
+                        ApplySuperTypes(
+                          swidClass: swidClass.extendedClass!,
+                        ),
+                      )
+                    : swidClass.extendedClass,
               ),
             ),
           ),
