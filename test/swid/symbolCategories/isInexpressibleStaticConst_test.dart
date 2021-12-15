@@ -1,5 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 
+import 'package:hydro_sdk/swid/ir/analyses/isInexpressibleStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/swidBooleanLiteral.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
@@ -15,7 +16,8 @@ import 'package:hydro_sdk/swid/ir/swidStaticConstFunctionInvocation.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstPrefixedExpression.dart';
 import 'package:hydro_sdk/swid/ir/swidStringLiteral.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
-import 'package:hydro_sdk/swid/ir/util/isInexpressibleStaticConst.dart';
+import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
+import 'package:hydro_sdk/swid/swars/pipelineNoopCacheMgr.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
@@ -67,9 +69,13 @@ void main() {
     );
 
     expect(
-        isInexpressibleStaticConst(
-          parentClass: endian,
-          staticConst: endian.staticConstFieldDeclarations.first.value,
+        CachingPipeline(
+          cacheMgr: const PipelineNoopCacheMgr(),
+        ).reduceFromTerm(
+          IsInexpressibleStaticConst(
+            parentClass: endian,
+            swidStaticConst: endian.staticConstFieldDeclarations.first.value,
+          ),
         ),
         true);
 
@@ -129,9 +135,13 @@ void main() {
     );
 
     expect(
-        isInexpressibleStaticConst(
-          parentClass: icons,
-          staticConst: icons.staticConstFieldDeclarations.first.value,
+        CachingPipeline(
+          cacheMgr: const PipelineNoopCacheMgr(),
+        ).reduceFromTerm(
+          IsInexpressibleStaticConst(
+            parentClass: icons,
+            swidStaticConst: icons.staticConstFieldDeclarations.first.value,
+          ),
         ),
         false);
 
@@ -223,17 +233,27 @@ void main() {
     );
 
     expect(
-        isInexpressibleStaticConst(
+      CachingPipeline(
+        cacheMgr: const PipelineNoopCacheMgr(),
+      ).reduceFromTerm(
+        IsInexpressibleStaticConst(
           parentClass: rect,
-          staticConst: rect.staticConstFieldDeclarations.first.value,
+          swidStaticConst: rect.staticConstFieldDeclarations.first.value,
         ),
-        false);
+      ),
+      false,
+    );
     expect(
-        isInexpressibleStaticConst(
+      CachingPipeline(
+        cacheMgr: const PipelineNoopCacheMgr(),
+      ).reduceFromTerm(
+        IsInexpressibleStaticConst(
           parentClass: rect,
-          staticConst: rect.staticConstFieldDeclarations.last.value,
+          swidStaticConst: rect.staticConstFieldDeclarations.last.value,
         ),
-        false);
+      ),
+      false,
+    );
 
     var cupertinoIcons = SwidClass(
       name: "Icons",
@@ -315,8 +335,14 @@ void main() {
 
     expect(
         cupertinoIcons.staticConstFieldDeclarations.every((x) =>
-            isInexpressibleStaticConst(
-                parentClass: cupertinoIcons, staticConst: x.value) ==
+            CachingPipeline(
+              cacheMgr: const PipelineNoopCacheMgr(),
+            ).reduceFromTerm(
+              IsInexpressibleStaticConst(
+                parentClass: cupertinoIcons,
+                swidStaticConst: x.value,
+              ),
+            ) ==
             false),
         true);
   }, tags: "swid");

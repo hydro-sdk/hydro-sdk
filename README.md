@@ -30,7 +30,7 @@ Hydro-SDK is currently only suitable for simple content. A few dozen Flutter wid
 
 ## Near Term Projects
 ### API Support
-Continue expanding available Dart APIs with automatic language projection (ALP) in the Structured Wrapper and Interface generator for Dart (SWID) sub-project https://github.com/hydro-sdk/hydro-sdk/tree/master/lib/swid This project is where the overwhelming amount of focus currently is. Having a stable and high quality ALP will for the re-use of existing packages from `pub.dev` in Typescript. This will also allow for expanding support for authoring Hydro-SDK content to other programming languages.
+Continue expanding available Dart APIs with automatic language projection (ALP) in the Structured Wrapper and Interface generator for Dart (SWID) sub-project https://github.com/hydro-sdk/hydro-sdk/tree/master/lib/swid This project is where the overwhelming amount of focus currently is. Having a stable and high quality ALP will allow for the re-use of existing packages from `pub.dev` in Typescript. This will also allow for expanding support for authoring Hydro-SDK content to other programming languages.
 
 ## Long Term Projects
 ## Services
@@ -40,7 +40,7 @@ A closed-source component registry for first-class support for hosting and runni
 ### Registry Value Adds
 In the future, building paid features such as targeted distribution, analytics, feature flagging and logging directly into Registry are expected to be a viable path to monetization.
 
-### Lanuage Support
+### Language Support
 Hydro-SDK is language agnostic. In the future, it should be possible to support authoring content in other programming languages to attract users from other ecosystems (Flixel, .NET, Xamarin).
 ### Tier 1 (hot-reload, programmatic debugging, function maps)
 - [&check;] Typescript  

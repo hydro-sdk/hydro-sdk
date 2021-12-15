@@ -265,7 +265,15 @@ void main() {
       typeFormals: [],
     );
 
-    expect(requiresDartBinding(swidClass: iconDataClass), true);
+    expect(
+      requiresDartBinding(
+        pipeline: CachingPipeline(
+          cacheMgr: const PipelineNoopCacheMgr(),
+        ),
+        swidClass: iconDataClass,
+      ),
+      true,
+    );
     expect(iconDataClass.instanceFieldDeclarations.length, 4);
     expect(
         CachingPipeline(

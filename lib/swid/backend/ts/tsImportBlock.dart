@@ -5,14 +5,14 @@ import 'package:hydro_sdk/swid/backend/ts/tsLinebreak.dart';
 import 'package:hydro_sdk/swid/backend/ts/tsResolvedImport.dart';
 import 'package:hydro_sdk/swid/backend/ts/tsir.dart';
 import 'package:hydro_sdk/swid/backend/ts/util/resolveDependencyInformation.dart';
+import 'package:hydro_sdk/swid/ir/analyses/collectAllReferences.dart';
+import 'package:hydro_sdk/swid/ir/analyses/collectAllStaticConstReferences.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
-import 'package:hydro_sdk/swid/ir/util/collectAllReferences.dart';
-import 'package:hydro_sdk/swid/ir/util/collectAllStaticConstReferences.dart';
 import 'package:hydro_sdk/swid/ir/util/hasStaticConstMap.dart';
 import 'package:hydro_sdk/swid/ir/util/narrowSwidInterfaceByReferenceDeclaration.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
@@ -26,10 +26,12 @@ List<TsIr> tsImportBlock({
       resolveDependencyInformation(
     pipeline: pipeline,
     dependencies: [
-      ...collectAllReferences(
-        includeFirstOrderSuperClassReferences: true,
-        swidType: SwidType.fromSwidClass(
-          swidClass: swidClass,
+      ...pipeline.reduceFromTerm(
+        CollectAllReferences(
+          includeFirstOrderSuperClassReferences: true,
+          swidType: SwidType.fromSwidClass(
+            swidClass: swidClass,
+          ),
         ),
       ),
       ...(hasStaticConstMap(
@@ -78,8 +80,14 @@ List<TsIr> tsImportBlock({
       resolveDependencyInformation(
           pipeline: pipeline,
           rewriteReferences: false,
-          dependencies: collectAllStaticConstReferences(
-                  swidType: SwidType.fromSwidClass(swidClass: swidClass))
+          dependencies: pipeline
+              .reduceFromTerm(
+                CollectAllStaticConstReferences(
+                  swidType: SwidType.fromSwidClass(
+                    swidClass: swidClass,
+                  ),
+                ),
+              )
               .where((x) => narrowSwidInterfaceByReferenceDeclaration(
                     swidInterface: x,
                     onPrimitive: (val) => val.name == "double",
