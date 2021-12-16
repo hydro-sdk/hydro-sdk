@@ -35,7 +35,7 @@ class TsFunctionInvocationNamedParameters
   String get cacheGroup => "tsFunctionInvocationNamedParameters";
 
   @override
-  List<int> get hashableParts => when(
+  Iterable<Iterable<int>> get hashableParts => when(
         fromSpread: (val) => val.hashableParts,
         fromKeyValue: (val) => val.hashableParts,
       );

@@ -72,14 +72,18 @@ class SwidiInterface
       );
 
   @override
-  List<int> get hashableParts => [
-        ...name.hashableParts,
-        ...libraryScopePrefix.hashableParts,
-        ...referenceDeclarationPrefix.hashableParts,
-        nullabilitySuffix.index,
-        ...typeArguments.hashableParts,
-        ...annotations.hashableParts,
-      ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield [
+      ...name.hashableParts,
+    ];
+    yield* libraryScopePrefix.hashableParts;
+    yield* referenceDeclarationPrefix.hashableParts;
+    yield [
+      nullabilitySuffix.index,
+    ];
+    yield* typeArguments.hashableParts;
+    yield* annotations.hashableParts;
+  }
 
   @override
   SwidiInterface clone({

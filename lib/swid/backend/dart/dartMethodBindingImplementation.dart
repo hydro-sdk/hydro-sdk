@@ -43,9 +43,9 @@ class DartMethodBindingImplementation
   String get cacheGroup => "dartMethodBindingImplementation";
 
   @override
-  List<int> get hashableParts => [
-        ...swidFunctionType.hashableParts,
-      ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield* swidFunctionType.hashableParts;
+  }
 
   @override
   DartMethodBindingImplementation clone({

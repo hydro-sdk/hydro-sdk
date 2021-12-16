@@ -36,9 +36,11 @@ class SwidStaticConstFieldReference
       );
 
   @override
-  late final List<int> hashableParts = [
-    ...name.hashableParts,
-  ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield [
+      ...name.hashableParts,
+    ];
+  }
 
   @override
   SwidStaticConstFieldReference clone({

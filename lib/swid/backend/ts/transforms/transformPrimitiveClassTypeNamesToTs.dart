@@ -35,9 +35,11 @@ class TransformPrimitiveClassTypeNamesToTs
   String get cacheGroup => "transformPrimitiveClassTypeNamesToTs";
 
   @override
-  List<int> get hashableParts => [
-        ...swidClass.hashKey.hashableParts,
-      ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield [
+      ...swidClass.hashKey.hashableParts,
+    ];
+  }
 
   @override
   TransformPrimitiveClassTypeNamesToTs clone({

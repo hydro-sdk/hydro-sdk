@@ -41,7 +41,7 @@ class SwidiFunctionDeclarationPositionalOrOptionalOrNamedParameter
       );
 
   @override
-  List<int> get hashableParts => when(
+  Iterable<Iterable<int>> get hashableParts => when(
         fromSwidiFunctionDeclarationPositionalParameter: (val) =>
             val.hashableParts,
         fromSwidiFunctionDeclarationOptionalParameter: (val) =>

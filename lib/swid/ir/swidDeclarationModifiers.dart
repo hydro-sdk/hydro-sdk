@@ -32,10 +32,14 @@ class StringTuple
       );
 
   @override
-  late final List<int> hashableParts = [
-    ...item1.hashableParts,
-    ...item2.hashableParts,
-  ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield [
+      ...item1.hashableParts,
+    ];
+    yield [
+      ...item2.hashableParts,
+    ];
+  }
 
   factory StringTuple.fromJson(Map<String, dynamic> json) =>
       _$StringTupleFromJson(json);
@@ -94,35 +98,83 @@ class SwidDeclarationModifiers
   }) = _$Data;
 
   @override
-  late final List<int> hashableParts = [
-    ...ignoredTransforms.hashableParts,
-    ...ignoredAnalyses.hashableParts,
-    ...overridenTransforms.hashableParts,
-    ...isAbstract.hashableParts,
-    ...isGetter.hashableParts,
-    ...isOperator.hashableParts,
-    ...isSetter.hashableParts,
-    ...isStatic.hashableParts,
-    ...isSynthetic.hashableParts,
-    ...hasAlwaysThrows.hashableParts,
-    ...hasDeprecated.hashableParts,
-    ...hasFactory.hashableParts,
-    ...hasImplicitReturnType.hashableParts,
-    ...hasIsTest.hashableParts,
-    ...hasIsTestGroup.hashableParts,
-    ...hasJS.hashableParts,
-    ...hasLiteral.hashableParts,
-    ...hasMustCallSuper.hashableParts,
-    ...hasNonVirtual.hashableParts,
-    ...hasOptionalTypeArgs.hashableParts,
-    ...hasOverride.hashableParts,
-    ...hasProtected.hashableParts,
-    ...hasRequired.hashableParts,
-    ...hasSealed.hashableParts,
-    ...hasVisibleForTemplate.hashableParts,
-    ...hasVisibleForTesting.hashableParts,
-    ...isPublic.hashableParts,
-  ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield* ignoredTransforms.hashableParts;
+    yield* ignoredAnalyses.hashableParts;
+    yield* overridenTransforms.hashableParts;
+    yield [
+      ...isAbstract.hashableParts,
+    ];
+    yield [
+      ...isGetter.hashableParts,
+    ];
+    yield [
+      ...isOperator.hashableParts,
+    ];
+    yield [
+      ...isSetter.hashableParts,
+    ];
+    yield [
+      ...isStatic.hashableParts,
+    ];
+    yield [
+      ...isSynthetic.hashableParts,
+    ];
+    yield [
+      ...hasAlwaysThrows.hashableParts,
+    ];
+    yield [
+      ...hasDeprecated.hashableParts,
+    ];
+    yield [
+      ...hasFactory.hashableParts,
+    ];
+    yield [
+      ...hasImplicitReturnType.hashableParts,
+    ];
+    yield [
+      ...hasIsTest.hashableParts,
+    ];
+    yield [
+      ...hasIsTestGroup.hashableParts,
+    ];
+    yield [
+      ...hasJS.hashableParts,
+    ];
+    yield [
+      ...hasLiteral.hashableParts,
+    ];
+    yield [
+      ...hasMustCallSuper.hashableParts,
+    ];
+    yield [
+      ...hasNonVirtual.hashableParts,
+    ];
+    yield [
+      ...hasOptionalTypeArgs.hashableParts,
+    ];
+    yield [
+      ...hasOverride.hashableParts,
+    ];
+    yield [
+      ...hasProtected.hashableParts,
+    ];
+    yield [
+      ...hasRequired.hashableParts,
+    ];
+    yield [
+      ...hasSealed.hashableParts,
+    ];
+    yield [
+      ...hasVisibleForTemplate.hashableParts,
+    ];
+    yield [
+      ...hasVisibleForTesting.hashableParts,
+    ];
+    yield [
+      ...isPublic.hashableParts,
+    ];
+  }
 
   factory SwidDeclarationModifiers.fromJson(Map<String, dynamic> json) =>
       _$SwidDeclarationModifiersFromJson(json);

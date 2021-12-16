@@ -38,10 +38,12 @@ class InstantiateTypeArgumentsToLowestBoundInFunction
   String get cacheGroup => "instantiateTypeArgumentsToLowestBoundInFunction";
 
   @override
-  late final List<int> hashableParts = [
-    ...swidFunctionType.hashKey.hashableParts,
-    ...?swidTypeFormals?.hashableParts,
-  ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield [
+      ...swidFunctionType.hashKey.hashableParts,
+    ];
+    yield* swidTypeFormals?.hashableParts ?? [];
+  }
 
   @override
   InstantiateTypeArgumentsToLowestBoundInFunction clone({

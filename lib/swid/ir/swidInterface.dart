@@ -76,14 +76,18 @@ class SwidInterface
       );
 
   @override
-  late final List<int> hashableParts = [
-    ...name.hashableParts,
-    nullabilitySuffix.index,
-    ...originalPackagePath.hashableParts,
-    ...typeArguments.hashableParts,
-    referenceDeclarationKind.index,
-    ...declarationModifiers.hashableParts,
-  ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield name.hashableParts;
+    yield [
+      nullabilitySuffix.index,
+    ];
+    yield originalPackagePath.hashableParts;
+    yield* typeArguments.hashableParts;
+    yield [
+      referenceDeclarationKind.index,
+    ];
+    yield* declarationModifiers.hashableParts;
+  }
 
   String get displayName =>
       SwidType.fromSwidInterface(swidInterface: this).displayName;

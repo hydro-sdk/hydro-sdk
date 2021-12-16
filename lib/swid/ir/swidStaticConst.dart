@@ -152,7 +152,7 @@ class SwidStaticConst
       );
 
   @override
-  late final List<int> hashableParts = when(
+  late final Iterable<Iterable<int>> hashableParts = when(
     fromSwidBooleanLiteral: (val) => val.hashableParts,
     fromSwidStringLiteral: (val) => val.hashableParts,
     fromSwidIntegerLiteral: (val) => val.hashableParts,

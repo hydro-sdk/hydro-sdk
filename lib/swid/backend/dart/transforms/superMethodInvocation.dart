@@ -35,10 +35,14 @@ class SuperMethodInvocation
   String get cacheGroup => "superMethodInvocation";
 
   @override
-  late final List<int> hashableParts = [
-    ...swidClass.hashKey.hashableParts,
-    ...swidFunctionType.hashKey.hashableParts,
-  ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield [
+      ...swidClass.hashKey.hashableParts,
+    ];
+    yield [
+      ...swidFunctionType.hashKey.hashableParts,
+    ];
+  }
 
   @override
   SuperMethodInvocation clone({

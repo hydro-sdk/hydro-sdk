@@ -39,9 +39,11 @@ class InstantiateGenericsToLowestBound
   String get cacheGroup => "instantiateGenericsToLowestBound";
 
   @override
-  late final List<int> hashableParts = [
-    ...swidType.hashKey.hashableParts,
-  ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield [
+      ...swidType.hashKey.hashableParts,
+    ];
+  }
 
   @override
   InstantiateGenericsToLowestBound clone({

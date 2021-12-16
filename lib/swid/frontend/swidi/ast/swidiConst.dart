@@ -72,7 +72,7 @@ class SwidiConst
       );
 
   @override
-  List<int> get hashableParts => when(
+  Iterable<Iterable<int>> get hashableParts => when(
         fromSwidiEmptyConst: (val) => val.hashableParts,
         fromSwidiConstNumber: (val) => val.hashableParts,
         fromSwidiConstString: (val) => val.hashableParts,

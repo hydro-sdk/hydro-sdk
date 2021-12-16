@@ -39,10 +39,12 @@ class SwidGenericInstantiator
       );
 
   @override
-  late final List<int> hashableParts = [
-    ...name.hashableParts,
-    ...instantiatedGeneric.hashableParts,
-  ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield [
+      ...name.hashableParts,
+    ];
+    yield* instantiatedGeneric.hashableParts;
+  }
 
   @override
   SwidGenericInstantiator clone({

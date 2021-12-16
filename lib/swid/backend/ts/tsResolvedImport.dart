@@ -29,10 +29,12 @@ class TsResolvedImport
   String get cacheGroup => "tsResolvedImport";
 
   @override
-  List<int> get hashableParts => [
-        ...symbols.hashableParts,
-        ...path.hashableParts,
-      ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield* symbols.hashableParts;
+    yield [
+      ...path.hashableParts,
+    ];
+  }
 
   @override
   TsResolvedImport clone({

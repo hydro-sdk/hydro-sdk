@@ -32,9 +32,9 @@ class TypeFormalDeclarationClause
   String get cacheGroup => "typeFormalDeclarationClause";
 
   @override
-  late final List<int> hashableParts = [
-    ...swidTypeFormal.hashableParts,
-  ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield* swidTypeFormal.hashableParts;
+  }
 
   @override
   TypeFormalDeclarationClause clone({

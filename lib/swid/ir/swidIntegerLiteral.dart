@@ -34,9 +34,11 @@ class SwidIntegerLiteral
       );
 
   @override
-  late final List<int> hashableParts = [
-    ...value.hashableParts,
-  ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield [
+      ...value.hashableParts,
+    ];
+  }
 
   @override
   SwidIntegerLiteral clone({

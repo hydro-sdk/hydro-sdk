@@ -40,10 +40,12 @@ class InstantiateTypeArgumentsToLowestBoundInDefaultFormalParameter
       "instantiateTypeArgumentsToLowestBoundInDefaultFormalParameter";
 
   @override
-  late final List<int> hashableParts = [
-    ...swidDefaultFormalParameter.hashKey.hashableParts,
-    ...?swidTypeFormals?.hashableParts,
-  ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield [
+      ...swidDefaultFormalParameter.hashKey.hashableParts,
+    ];
+    yield* swidTypeFormals?.hashableParts ?? [];
+  }
 
   @override
   InstantiateTypeArgumentsToLowestBoundInDefaultFormalParameter clone({

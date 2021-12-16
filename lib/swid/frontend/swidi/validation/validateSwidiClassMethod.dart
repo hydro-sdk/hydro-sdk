@@ -36,9 +36,9 @@ class ValidateSwidiClassMethod
   String get cacheGroup => "validateSwidiClassMethod";
 
   @override
-  List<int> get hashableParts => [
-        ...swidiFunctionDeclaration.hashableParts,
-      ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield* swidiFunctionDeclaration.hashableParts;
+  }
 
   @override
   ValidateSwidiClassMethod clone({

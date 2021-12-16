@@ -33,11 +33,15 @@ class ResolveTsImportPaths
   String get cacheGroup => "resolveTsImportsPaths";
 
   @override
-  List<int> get hashableParts => [
-        ...importee.hashKey.hashableParts,
-        ...importer.hashKey.hashableParts,
-        ...prefixPaths.hashableParts,
-      ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield [
+      ...importee.hashKey.hashableParts,
+    ];
+    yield [
+      ...importer.hashKey.hashableParts,
+    ];
+    yield* prefixPaths.hashableParts;
+  }
 
   @override
   ResolveTsImportPaths clone({

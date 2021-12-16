@@ -6,5 +6,5 @@ abstract class IHashKey {
 
   String get hashKey;
 
-  List<int> get hashableParts;
+  Iterable<Iterable<int>> get hashableParts;
 }

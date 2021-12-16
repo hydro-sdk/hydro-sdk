@@ -55,13 +55,19 @@ class SwidStaticConstFunctionInvocation
       );
 
   @override
-  late final List<int> hashableParts = [
-    ...value.hashableParts,
-    ...staticType.hashKey.hashableParts,
-    ...normalParameters.hashableParts,
-    ...namedParameters.hashableParts,
-    ...isConstructorInvocation.hashableParts,
-  ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield [
+      ...value.hashableParts,
+    ];
+    yield [
+      ...staticType.hashKey.hashableParts,
+    ];
+    yield* normalParameters.hashableParts;
+    yield* namedParameters.hashableParts;
+    yield [
+      ...isConstructorInvocation.hashableParts,
+    ];
+  }
 
   @override
   SwidStaticConstFunctionInvocation clone({

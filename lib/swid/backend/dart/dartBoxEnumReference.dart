@@ -35,11 +35,15 @@ class DartBoxEnumReference
   String get cacheGroup => "dartBoxEnumReference";
 
   @override
-  List<int> get hashableParts => [
-        ...type?.hashableParts ?? [],
-        ...referenceName.codeUnits,
-        codeKind.index,
-      ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield* type?.hashableParts ?? [];
+    yield [
+      ...referenceName.codeUnits,
+    ];
+    yield [
+      codeKind.index,
+    ];
+  }
 
   @override
   DartBoxEnumReference clone({

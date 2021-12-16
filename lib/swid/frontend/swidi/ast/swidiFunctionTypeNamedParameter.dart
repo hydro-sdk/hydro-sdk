@@ -37,10 +37,12 @@ class SwidiFunctionTypeNamedParameter
       );
 
   @override
-  List<int> get hashableParts => [
-        ...name.hashableParts,
-        ...type.hashableParts,
-      ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield [
+      ...name.hashableParts,
+    ];
+    yield* type.hashableParts;
+  }
 
   @override
   SwidiFunctionTypeNamedParameter clone({

@@ -31,9 +31,9 @@ class TsFunctionInvocationPositionalParameters
   String get cacheGroup => "tsFunctionInvocationPositionalParameters";
 
   @override
-  List<int> get hashableParts => [
-        ...positionalReferences.hashableParts,
-      ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield* positionalReferences.hashableParts;
+  }
 
   @override
   TsFunctionInvocationPositionalParameters clone({

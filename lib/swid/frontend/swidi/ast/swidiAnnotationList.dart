@@ -36,9 +36,9 @@ class SwidiAnnotationList
       );
 
   @override
-  List<int> get hashableParts => [
-        ...annotationList.hashableParts,
-      ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield* annotationList.hashableParts;
+  }
 
   @override
   SwidiAnnotationList clone({

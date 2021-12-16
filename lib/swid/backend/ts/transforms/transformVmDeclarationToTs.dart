@@ -33,9 +33,9 @@ class TransformVmDeclarationToTs
   String get cacheGroup => "transformVmDeclarationToTs";
 
   @override
-  List<int> get hashableParts => [
-        ...tsVmDeclaration.hashableParts,
-      ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield* tsVmDeclaration.hashableParts;
+  }
 
   @override
   TransformVmDeclarationToTs clone({

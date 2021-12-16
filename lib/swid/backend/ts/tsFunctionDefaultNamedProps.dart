@@ -36,9 +36,9 @@ class TsFunctionDefaultNamedProps
   String get cacheGroup => "tsFunctionDefaultNamedProps";
 
   @override
-  List<int> get hashableParts => [
-        ...swidFunctionType.hashableParts,
-      ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield* swidFunctionType.hashableParts;
+  }
 
   @override
   TsFunctionDefaultNamedProps clone({

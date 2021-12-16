@@ -42,10 +42,14 @@ class InstantiateGeneric
   String get cacheGroup => "instantiateGeneric";
 
   @override
-  late final List<int> hashableParts = [
-    ...genericInstantiator.hashKey.hashableParts,
-    ...swidType.hashKey.hashableParts,
-  ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield [
+      ...genericInstantiator.hashKey.hashableParts,
+    ];
+    yield [
+      ...swidType.hashKey.hashableParts,
+    ];
+  }
 
   @override
   InstantiateGeneric clone({

@@ -25,7 +25,7 @@ class SwidiType
   }) = _$SwidiTypeFromSwidiFunctionTypeCtor;
 
   @override
-  List<int> get hashableParts => when(
+  Iterable<Iterable<int>> get hashableParts => when(
         fromSwidiInterface: (val) => val.hashableParts,
         fromSwidiFunctionType: (val) => val.hashableParts,
       );

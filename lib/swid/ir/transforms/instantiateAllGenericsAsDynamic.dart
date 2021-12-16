@@ -39,10 +39,14 @@ class InstantiateAllGenericsAsDynamic
   String get cacheGroup => "instantiateAllGenericsAsDynamic";
 
   @override
-  late final List<int> hashableParts = [
-    ...swidType.hashKey.hashableParts,
-    ...instantiateNormalParameterTypes.hashableParts,
-  ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield [
+      ...swidType.hashKey.hashableParts,
+    ];
+    yield [
+      ...instantiateNormalParameterTypes.hashableParts,
+    ];
+  }
 
   @override
   InstantiateAllGenericsAsDynamic clone({

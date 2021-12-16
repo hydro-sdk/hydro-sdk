@@ -36,10 +36,15 @@ class TsSuperClassClause
   String get cacheGroup => "tsSuperClassClause";
 
   @override
-  List<int> get hashableParts => [
-        ...swidClass.hashKey.hashableParts,
-        ...clauseKeyword.hashableParts,
-      ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield [
+      ...swidClass.hashKey.hashableParts,
+    ];
+    yield [
+      ...clauseKeyword.hashableParts,
+    ];
+    ;
+  }
 
   @override
   TsSuperClassClause clone({

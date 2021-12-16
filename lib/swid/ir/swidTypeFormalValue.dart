@@ -54,8 +54,10 @@ class SwidTypeFormalValue
       _$SwidTypeFormalValueFromJson(json);
 
   @override
-  late final List<int> hashableParts = when(
-    fromString: (val) => val.hashableParts,
+  late final Iterable<Iterable<int>> hashableParts = when(
+    fromString: (val) => [
+      val.hashableParts,
+    ],
     fromSwidClass: (val) => val.hashableParts,
     fromSwidInterface: (val) => val.hashableParts,
     fromSwidFunctionType: (val) => val.hashableParts,

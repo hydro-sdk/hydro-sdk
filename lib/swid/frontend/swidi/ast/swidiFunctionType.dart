@@ -63,15 +63,17 @@ class SwidiFunctionType
       );
 
   @override
-  List<int> get hashableParts => [
-        ...returnType.hashableParts,
-        ...positionalParameters.hashableParts,
-        ...optionalParameters.hashableParts,
-        ...namedParameters.hashableParts,
-        nullabilitySuffix.index,
-        ...typeFormals.hashableParts,
-        ...annotations.hashableParts,
-      ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield* returnType.hashableParts;
+    yield* positionalParameters.hashableParts;
+    yield* optionalParameters.hashableParts;
+    yield* namedParameters.hashableParts;
+    yield [
+      nullabilitySuffix.index,
+    ];
+    yield* typeFormals.hashableParts;
+    yield* annotations.hashableParts;
+  }
 
   @override
   SwidiFunctionType clone({

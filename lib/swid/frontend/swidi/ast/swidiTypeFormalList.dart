@@ -36,9 +36,9 @@ class SwidiTypeFormalList
       );
 
   @override
-  List<int> get hashableParts => [
-        ...typeFormalList.hashableParts,
-      ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield* typeFormalList.hashableParts;
+  }
 
   @override
   SwidiTypeFormalList clone({

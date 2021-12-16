@@ -34,9 +34,11 @@ class ApplySuperTypes
   String get cacheGroup => "applySuperTypes";
 
   @override
-  late final List<int> hashableParts = [
-    ...swidClass.hashKey.hashableParts,
-  ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield [
+      ...swidClass.hashKey.hashableParts,
+    ];
+  }
 
   @override
   ApplySuperTypes clone({

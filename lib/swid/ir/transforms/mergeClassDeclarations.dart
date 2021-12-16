@@ -33,10 +33,14 @@ class MergeClassDeclarations
   String get cacheGroup => "mergeClassDeclarations";
 
   @override
-  late final List<int> hashableParts = [
-    ...swidClass.hashKey.hashableParts,
-    ...?superClass?.hashKey.hashableParts,
-  ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield [
+      ...swidClass.hashKey.hashableParts,
+    ];
+    yield [
+      ...?superClass?.hashKey.hashableParts,
+    ];
+  }
 
   @override
   MergeClassDeclarations clone({

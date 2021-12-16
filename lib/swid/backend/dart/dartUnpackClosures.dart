@@ -38,9 +38,9 @@ class DartUnpackClosures
   String get cacheGroup => "dartUnpackClosures";
 
   @override
-  List<int> get hashableParts => [
-        ...swidFunctionType.hashableParts,
-      ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield* swidFunctionType.hashableParts;
+  }
 
   @override
   DartUnpackClosures clone({

@@ -32,7 +32,7 @@ class SwidTypeFormalBound
       _$SwidTypeFormalBoundFromJson(json);
 
   @override
-  late final List<int> hashableParts = when(
+  late final Iterable<Iterable<int>> hashableParts = when(
     fromSwidInterface: (val) => val.hashableParts,
     fromSwidFunctionType: (val) => val.hashableParts,
   );

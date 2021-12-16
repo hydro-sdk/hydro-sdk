@@ -58,9 +58,9 @@ class ValidateSwidiClass
   String get cacheGroup => "validateSwidiClass";
 
   @override
-  List<int> get hashableParts => [
-        ...swidiClass.hashableParts,
-      ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield* swidiClass.hashableParts;
+  }
 
   @override
   ValidateSwidiClass clone({

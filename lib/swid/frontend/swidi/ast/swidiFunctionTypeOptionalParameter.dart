@@ -34,9 +34,9 @@ class SwidiFunctionTypeOptionalParameter
       );
 
   @override
-  List<int> get hashableParts => [
-        ...type.hashableParts,
-      ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield* type.hashableParts;
+  }
 
   @override
   SwidiFunctionTypeOptionalParameter clone({

@@ -136,21 +136,29 @@ class SwidFunctionType
       );
 
   @override
-  late final List<int> hashableParts = [
-    ...name.hashableParts,
-    nullabilitySuffix.index,
-    ...originalPackagePath.hashableParts,
-    ...namedParameterTypes.hashableParts,
-    ...namedDefaults.hashableParts,
-    ...normalParameterNames.hashableParts,
-    ...normalParameterTypes.hashableParts,
-    ...optionalParameterNames.hashableParts,
-    ...optionalParameterTypes.hashableParts,
-    ...returnType.hashableParts,
-    ...isFactory.hashableParts,
-    ...typeFormals.hashableParts,
-    ...declarationModifiers.hashableParts,
-  ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield [
+      ...name.hashableParts,
+    ];
+    yield [
+      nullabilitySuffix.index,
+    ];
+    yield [
+      ...originalPackagePath.hashableParts,
+    ];
+    yield* namedParameterTypes.hashableParts;
+    yield* namedDefaults.hashableParts;
+    yield* normalParameterNames.hashableParts;
+    yield* normalParameterTypes.hashableParts;
+    yield* optionalParameterNames.hashableParts;
+    yield* optionalParameterTypes.hashableParts;
+    yield* returnType.hashableParts;
+    yield [
+      ...isFactory.hashableParts,
+    ];
+    yield* typeFormals.hashableParts;
+    yield* declarationModifiers.hashableParts;
+  }
 
   Map<String, SwidDefaultFormalParameter> get namedDefaultParameters =>
       Map.fromEntries(
