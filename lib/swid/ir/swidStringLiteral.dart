@@ -34,11 +34,11 @@ class SwidStringLiteral
       );
 
   @override
-  Iterable<Iterable<int>> get hashableParts sync* {
+  late final Iterable<Iterable<int>> hashableParts = (() sync* {
     yield [
       ...value.hashableParts,
     ];
-  }
+  })();
 
   @override
   SwidStringLiteral clone({

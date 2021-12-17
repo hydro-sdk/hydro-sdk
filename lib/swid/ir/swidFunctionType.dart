@@ -136,7 +136,7 @@ class SwidFunctionType
       );
 
   @override
-  Iterable<Iterable<int>> get hashableParts sync* {
+  late final Iterable<Iterable<int>> hashableParts = (() sync* {
     yield [
       ...name.hashableParts,
     ];
@@ -158,7 +158,7 @@ class SwidFunctionType
     ];
     yield* typeFormals.hashableParts;
     yield* declarationModifiers.hashableParts;
-  }
+  })();
 
   Map<String, SwidDefaultFormalParameter> get namedDefaultParameters =>
       Map.fromEntries(

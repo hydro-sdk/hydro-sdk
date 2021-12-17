@@ -76,7 +76,7 @@ class SwidInterface
       );
 
   @override
-  Iterable<Iterable<int>> get hashableParts sync* {
+  late final Iterable<Iterable<int>> hashableParts = (() sync* {
     yield name.hashableParts;
     yield [
       nullabilitySuffix.index,
@@ -87,7 +87,7 @@ class SwidInterface
       referenceDeclarationKind.index,
     ];
     yield* declarationModifiers.hashableParts;
-  }
+  })();
 
   String get displayName =>
       SwidType.fromSwidInterface(swidInterface: this).displayName;

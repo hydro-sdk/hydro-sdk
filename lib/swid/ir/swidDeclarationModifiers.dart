@@ -32,14 +32,14 @@ class StringTuple
       );
 
   @override
-  Iterable<Iterable<int>> get hashableParts sync* {
+  late final Iterable<Iterable<int>> hashableParts = (() sync* {
     yield [
       ...item1.hashableParts,
     ];
     yield [
       ...item2.hashableParts,
     ];
-  }
+  })();
 
   factory StringTuple.fromJson(Map<String, dynamic> json) =>
       _$StringTupleFromJson(json);
@@ -98,7 +98,7 @@ class SwidDeclarationModifiers
   }) = _$Data;
 
   @override
-  Iterable<Iterable<int>> get hashableParts sync* {
+  late final Iterable<Iterable<int>> hashableParts = (() sync* {
     yield* ignoredTransforms.hashableParts;
     yield* ignoredAnalyses.hashableParts;
     yield* overridenTransforms.hashableParts;
@@ -174,7 +174,7 @@ class SwidDeclarationModifiers
     yield [
       ...isPublic.hashableParts,
     ];
-  }
+  })();
 
   factory SwidDeclarationModifiers.fromJson(Map<String, dynamic> json) =>
       _$SwidDeclarationModifiersFromJson(json);

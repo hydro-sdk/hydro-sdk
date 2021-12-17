@@ -37,7 +37,7 @@ class SwidEnum
       );
 
   @override
-  Iterable<Iterable<int>> get hashableParts sync* {
+  late final Iterable<Iterable<int>> hashableParts = (() sync* {
     yield [
       ...originalPackagePath.hashableParts,
     ];
@@ -45,7 +45,7 @@ class SwidEnum
       ...identifier.hashableParts,
     ];
     yield* children.hashableParts;
-  }
+  })();
 
   @override
   SwidEnum clone({

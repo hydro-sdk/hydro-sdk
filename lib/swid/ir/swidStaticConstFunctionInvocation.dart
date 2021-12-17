@@ -55,7 +55,7 @@ class SwidStaticConstFunctionInvocation
       );
 
   @override
-  Iterable<Iterable<int>> get hashableParts sync* {
+  late final Iterable<Iterable<int>> hashableParts = (() sync* {
     yield [
       ...value.hashableParts,
     ];
@@ -67,7 +67,7 @@ class SwidStaticConstFunctionInvocation
     yield [
       ...isConstructorInvocation.hashableParts,
     ];
-  }
+  })();
 
   @override
   SwidStaticConstFunctionInvocation clone({

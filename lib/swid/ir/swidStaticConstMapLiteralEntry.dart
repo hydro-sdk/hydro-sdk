@@ -41,14 +41,14 @@ class SwidStaticConstMapLiteralEntry
       );
 
   @override
-  Iterable<Iterable<int>> get hashableParts sync* {
+  late final Iterable<Iterable<int>> hashableParts = (() sync* {
     yield [
       ...key.hashKey.hashableParts,
     ];
     yield [
       ...value.hashKey.hashableParts,
     ];
-  }
+  })();
 
   @override
   SwidStaticConstMapLiteralEntry clone({

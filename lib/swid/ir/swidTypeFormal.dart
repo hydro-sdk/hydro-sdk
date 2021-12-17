@@ -52,7 +52,7 @@ class SwidTypeFormal
       SwidTypeFormal.fromJson(json);
 
   @override
-  Iterable<Iterable<int>> get hashableParts sync* {
+  late final Iterable<Iterable<int>> hashableParts = (() sync* {
     yield [
       ...value.hashKey.hashableParts,
     ];
@@ -65,7 +65,7 @@ class SwidTypeFormal
             1,
           ],
     ];
-  }
+  })();
 
   @override
   SwidTypeFormal clone({

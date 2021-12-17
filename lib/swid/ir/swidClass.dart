@@ -49,7 +49,7 @@ class SwidClass
   }) = _$Data;
 
   @override
-  Iterable<Iterable<int>> get hashableParts sync* {
+  late final Iterable<Iterable<int>> hashableParts = (() sync* {
     yield [
       ...name.hashableParts,
     ];
@@ -74,7 +74,7 @@ class SwidClass
     ];
     yield* typeFormals.hashableParts;
     yield* extendedClass?.hashableParts ?? [];
-  }
+  })();
 
   factory SwidClass.fromJson(Map<String, dynamic> json) =>
       _$SwidClassFromJson(json);

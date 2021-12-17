@@ -44,14 +44,14 @@ class SwidStaticConstPrefixedIdentifier
       );
 
   @override
-  Iterable<Iterable<int>> get hashableParts sync* {
+  late final Iterable<Iterable<int>> hashableParts = (() sync* {
     yield [
       ...prefix.hashKey.hashableParts,
     ];
     yield [
       ...staticConstFieldReference.hashKey.hashableParts,
     ];
-  }
+  })();
 
   @override
   SwidStaticConstPrefixedIdentifier clone({

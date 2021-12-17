@@ -42,14 +42,14 @@ class SwidStaticConstPrefixedExpression
       );
 
   @override
-  Iterable<Iterable<int>> get hashableParts sync* {
+  late final Iterable<Iterable<int>> hashableParts = (() sync* {
     yield [
       ...prefix.hashableParts,
     ];
     yield [
       ...expression.hashKey.hashableParts,
     ];
-  }
+  })();
 
   @override
   SwidStaticConstPrefixedExpression clone({
