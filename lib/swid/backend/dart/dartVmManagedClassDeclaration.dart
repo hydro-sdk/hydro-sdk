@@ -55,9 +55,9 @@ class DartVMManagedClassDeclaration
   String get cacheGroup => "dartVMManagedClassDeclaration";
 
   @override
-  List<int> get hashableParts => [
-        ...swidClass.hashableParts,
-      ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield* swidClass.hashableParts;
+  }
 
   @override
   DartVMManagedClassDeclaration clone({

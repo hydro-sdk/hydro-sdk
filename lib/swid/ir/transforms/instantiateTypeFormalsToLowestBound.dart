@@ -35,9 +35,11 @@ class InstantiateTypeFormalsToLowestBound
   String get cacheGroup => "instantiateTypeFormalsToLowestBound";
 
   @override
-  late final List<int> hashableParts = [
-    ...swidType.hashKey.hashableParts,
-  ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield [
+      ...swidType.hashKey.hashableParts,
+    ];
+  }
 
   @override
   InstantiateTypeFormalsToLowestBound clone({

@@ -11,7 +11,9 @@ mixin UnhashableMixin<T extends Object> on HashKeyMixin<T>
     implements IHashKey, ICloneable<T> {
   @nonVirtual
   @override
-  List<int> get hashableParts => [
-        ...const Uuid().v4().hashableParts,
-      ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield [
+      ...const Uuid().v4().hashableParts,
+    ];
+  }
 }

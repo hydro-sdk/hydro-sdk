@@ -38,9 +38,9 @@ class DartBarrelLoadNamespaceSymbolDeclaration
   String get cacheGroup => "dartBarrelLoadNamespaceSymbolDeclaration";
 
   @override
-  List<int> get hashableParts => [
-        ...barrelSpec.hashableParts,
-      ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield* barrelSpec.hashableParts;
+  }
 
   @override
   DartBarrelLoadNamespaceSymbolDeclaration clone({

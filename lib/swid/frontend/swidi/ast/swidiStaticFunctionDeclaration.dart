@@ -35,9 +35,9 @@ class SwidiStaticFunctionDeclaration
       );
 
   @override
-  List<int> get hashableParts => [
-        ...functionDeclaration.hashableParts,
-      ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield* functionDeclaration.hashableParts;
+  }
 
   @override
   SwidiStaticFunctionDeclaration clone({

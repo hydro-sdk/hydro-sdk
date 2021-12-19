@@ -38,9 +38,9 @@ class SwidiConstMap
       );
 
   @override
-  List<int> get hashableParts => [
-        ...entries.hashableParts,
-      ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield* entries.hashableParts;
+  }
 
   @override
   SwidiConstMap clone({

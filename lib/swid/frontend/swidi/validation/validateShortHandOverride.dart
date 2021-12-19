@@ -34,10 +34,10 @@ class ValidateShortHandOverride
   String get cacheGroup => "validateShortHandOverride";
 
   @override
-  List<int> get hashableParts => [
-        ...swidiConst.hashableParts,
-        ...validKeys.hashableParts,
-      ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield* swidiConst.hashableParts;
+    yield* validKeys.hashableParts;
+  }
 
   @override
   ValidateShortHandOverride clone({

@@ -38,10 +38,12 @@ class TsFunctionSelfBindingInvocation
   String get cacheGroup => "tsFunctionSelfBindingInvocation";
 
   @override
-  List<int> get hashableParts => [
-        ...swidFunctionType.hashableParts,
-        ...functionReference.hashableParts,
-      ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield* swidFunctionType.hashableParts;
+    yield [
+      ...functionReference.hashableParts,
+    ];
+  }
 
   @override
   TsFunctionSelfBindingInvocation clone({

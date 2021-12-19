@@ -37,11 +37,13 @@ class TsVmDeclaration
       );
 
   @override
-  List<int> get hashableParts => [
-        ...name.hashableParts,
-        ...methods.hashableParts,
-        ...children.hashableParts,
-      ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield [
+      ...name.hashableParts,
+    ];
+    yield* methods.hashableParts;
+    yield* children.hashableParts;
+  }
 
   @override
   TsVmDeclaration clone({

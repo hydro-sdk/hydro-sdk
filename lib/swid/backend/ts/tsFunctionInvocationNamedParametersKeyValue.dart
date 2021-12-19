@@ -31,9 +31,9 @@ class TsFunctionInvocationNamedParametersKeyValue
   String get cacheGroup => "tsFunctionInvocationNamedParametersKeyValue";
 
   @override
-  List<int> get hashableParts => [
-        ...namedReferences.hashableParts,
-      ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield* namedReferences.hashableParts;
+  }
 
   @override
   TsFunctionInvocationNamedParametersKeyValue clone({

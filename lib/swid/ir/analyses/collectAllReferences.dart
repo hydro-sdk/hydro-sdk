@@ -38,11 +38,15 @@ class CollectAllReferences
   String get cacheGroup => "collectAllReferences";
 
   @override
-  late final List<int> hashableParts = [
-    ...swidType.hashableParts,
-    ...includeFirstOrderSuperClassReferences.hashableParts,
-    ...includeFirstOrderSuperClass.hashableParts,
-  ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield* swidType.hashableParts;
+    yield [
+      ...includeFirstOrderSuperClassReferences.hashableParts,
+    ];
+    yield [
+      ...includeFirstOrderSuperClass.hashableParts,
+    ];
+  }
 
   @override
   CollectAllReferences clone({

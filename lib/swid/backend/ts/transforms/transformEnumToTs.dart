@@ -29,9 +29,9 @@ class TransformEnumToTs
   String get cacheGroup => "transformEnumToTs";
 
   @override
-  List<int> get hashableParts => [
-        ...swidEnum.hashableParts,
-      ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield* swidEnum.hashableParts;
+  }
 
   @override
   TransformEnumToTs clone({

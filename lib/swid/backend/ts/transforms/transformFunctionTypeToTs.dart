@@ -51,15 +51,29 @@ class TransformFunctionTypeToTs
   String get cacheGroup => "transformFunctionTypeToTs";
 
   @override
-  List<int> get hashableParts => [
-        ...swidFunctionType.hashKey.hashableParts,
-        ...?parentClass?.hashKey.hashableParts,
-        trailingReturnTypeKind.index,
-        nestedTrailingReturnTypeKind.index,
-        ...emitTrailingReturnType.hashableParts,
-        ...emitDefaultFormalsAsOptionalNamed.hashableParts,
-        ...emitInitializersForOptionalPositionals.hashableParts,
-      ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield [
+      ...swidFunctionType.hashKey.hashableParts,
+    ];
+    yield [
+      ...?parentClass?.hashKey.hashableParts,
+    ];
+    yield [
+      trailingReturnTypeKind.index,
+    ];
+    yield [
+      nestedTrailingReturnTypeKind.index,
+    ];
+    yield [
+      ...emitTrailingReturnType.hashableParts,
+    ];
+    yield [
+      ...emitDefaultFormalsAsOptionalNamed.hashableParts,
+    ];
+    yield [
+      ...emitInitializersForOptionalPositionals.hashableParts,
+    ];
+  }
 
   @override
   TransformFunctionTypeToTs clone({

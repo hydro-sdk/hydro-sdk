@@ -44,12 +44,15 @@ class SwidiClass
       );
 
   @override
-  List<int> get hashableParts => [
-        ...name.hashableParts,
-        ...libraryScopePrefix.hashableParts,
-        ...methods.hashableParts,
-        ...staticMethods.hashableParts,
-      ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield [
+      ...name.hashableParts,
+    ];
+    yield* libraryScopePrefix.hashableParts;
+    yield* methods.hashableParts;
+    yield* staticMethods.hashableParts;
+    ;
+  }
 
   @override
   SwidiClass clone({

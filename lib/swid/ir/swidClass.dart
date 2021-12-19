@@ -49,24 +49,32 @@ class SwidClass
   }) = _$Data;
 
   @override
-  late final List<int> hashableParts = [
-    ...name.hashableParts,
-    nullabilitySuffix.index,
-    ...originalPackagePath.hashableParts,
-    ...constructorType?.hashableParts ?? [],
-    ...generativeConstructors.hashableParts,
-    ...factoryConstructors.hashableParts,
-    ...staticMethods.hashableParts,
-    ...methods.hashableParts,
-    ...staticConstFieldDeclarations.hashableParts,
-    ...instanceFieldDeclarations.hashableParts,
-    ...declarationModifiers.hashableParts,
-    ...mixedInClasses.hashableParts,
-    ...implementedClasses.hashableParts,
-    ...isMixin.hashableParts,
-    ...typeFormals.hashableParts,
-    ...extendedClass?.hashableParts ?? [],
-  ];
+  late final Iterable<Iterable<int>> hashableParts = (() sync* {
+    yield [
+      ...name.hashableParts,
+    ];
+    yield [
+      nullabilitySuffix.index,
+    ];
+    yield [
+      ...originalPackagePath.hashableParts,
+    ];
+    yield* constructorType?.hashableParts ?? [];
+    yield* generativeConstructors.hashableParts;
+    yield* factoryConstructors.hashableParts;
+    yield* staticMethods.hashableParts;
+    yield* methods.hashableParts;
+    yield* staticConstFieldDeclarations.hashableParts;
+    yield* instanceFieldDeclarations.hashableParts;
+    yield* declarationModifiers.hashableParts;
+    yield* mixedInClasses.hashableParts;
+    yield* implementedClasses.hashableParts;
+    yield [
+      ...isMixin.hashableParts,
+    ];
+    yield* typeFormals.hashableParts;
+    yield* extendedClass?.hashableParts ?? [];
+  })();
 
   factory SwidClass.fromJson(Map<String, dynamic> json) =>
       _$SwidClassFromJson(json);

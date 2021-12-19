@@ -33,9 +33,11 @@ class SwidDoubleLiteral
       );
 
   @override
-  late final List<int> hashableParts = [
-    ...value.hashableParts,
-  ];
+  late final Iterable<Iterable<int>> hashableParts = (() sync* {
+    yield [
+      ...value.hashableParts,
+    ];
+  })();
 
   @override
   SwidDoubleLiteral clone({

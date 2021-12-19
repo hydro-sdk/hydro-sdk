@@ -40,9 +40,9 @@ class SwidiConstNamedParameterList
       );
 
   @override
-  List<int> get hashableParts => [
-        ...parameters.hashableParts,
-      ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield* parameters.hashableParts;
+  }
 
   @override
   SwidiConstNamedParameterList clone({

@@ -39,10 +39,12 @@ class SwidStaticConstListLiteral
       );
 
   @override
-  late final List<int> hashableParts = [
-    ...elements.hashableParts,
-    ...staticType.hashKey.hashableParts,
-  ];
+  late final Iterable<Iterable<int>> hashableParts = (() sync* {
+    yield* elements.hashableParts;
+    yield [
+      ...staticType.hashKey.hashableParts,
+    ];
+  })();
 
   @override
   SwidStaticConstListLiteral clone({

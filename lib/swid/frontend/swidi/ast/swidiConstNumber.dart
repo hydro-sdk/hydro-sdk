@@ -30,9 +30,11 @@ class SwidiConstNumber
       );
 
   @override
-  List<int> get hashableParts => [
-        ...value.hashableParts,
-      ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield [
+      ...value.hashableParts,
+    ];
+  }
 
   @override
   SwidiConstNumber clone({

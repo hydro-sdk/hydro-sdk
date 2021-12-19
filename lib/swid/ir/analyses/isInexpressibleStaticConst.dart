@@ -35,10 +35,14 @@ class IsInexpressibleStaticConst
   String get cacheGroup => "isInexpressibleStaticConst";
 
   @override
-  late final List<int> hashableParts = [
-    ...?parentClass?.hashKey.hashableParts,
-    ...swidStaticConst.hashKey.hashableParts,
-  ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield [
+      ...?parentClass?.hashKey.hashableParts,
+    ];
+    yield [
+      ...swidStaticConst.hashKey.hashableParts,
+    ];
+  }
 
   @override
   IsInexpressibleStaticConst clone({

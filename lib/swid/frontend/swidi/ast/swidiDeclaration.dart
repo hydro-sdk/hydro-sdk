@@ -39,11 +39,13 @@ class SwidiDeclaration
       );
 
   @override
-  List<int> get hashableParts => [
-        ...name.hashableParts,
-        ...type.hashableParts,
-        ...defaultConstValue.hashableParts,
-      ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield [
+      ...name.hashableParts,
+    ];
+    yield* type.hashableParts;
+    yield* defaultConstValue.hashableParts;
+  }
 
   @override
   SwidiDeclaration clone({

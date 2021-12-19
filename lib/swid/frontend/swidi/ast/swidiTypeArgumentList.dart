@@ -36,9 +36,9 @@ class SwidiTypeArgumentList
       );
 
   @override
-  List<int> get hashableParts => [
-        ...typeList.hashableParts,
-      ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield* typeList.hashableParts;
+  }
 
   @override
   SwidiTypeArgumentList clone({

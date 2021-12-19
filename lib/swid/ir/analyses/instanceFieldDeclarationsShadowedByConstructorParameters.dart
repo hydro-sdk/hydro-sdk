@@ -34,9 +34,11 @@ class ShadowedInstanceFieldResult
       );
 
   @override
-  List<int> get hashableParts => [
-        ...fieldName.hashableParts,
-      ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield [
+      ...fieldName.hashableParts,
+    ];
+  }
 
   factory ShadowedInstanceFieldResult.fromJson(
           final Map<String, dynamic> json) =>
@@ -71,9 +73,11 @@ class InstanceFieldDeclarationsShadowedByConstructorParameters
       "instanceFieldDeclarationsShadowedByConstructorParameters";
 
   @override
-  late final List<int> hashableParts = [
-    ...swidClass.hashKey.hashableParts,
-  ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield [
+      ...swidClass.hashKey.hashableParts,
+    ];
+  }
 
   @override
   InstanceFieldDeclarationsShadowedByConstructorParameters clone({

@@ -34,9 +34,9 @@ class TransformPrimitiveFunctionTypeNamesToTs
   String get cacheGroup => "transformPrimitiveFunctionTypeNamesToTs";
 
   @override
-  List<int> get hashableParts => [
-        ...swidFunctionType.hashableParts,
-      ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield* swidFunctionType.hashableParts;
+  }
 
   @override
   TransformPrimitiveFunctionTypeNamesToTs clone({

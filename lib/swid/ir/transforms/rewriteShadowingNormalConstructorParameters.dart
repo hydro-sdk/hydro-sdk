@@ -33,9 +33,11 @@ class RewriteShadowingNormalConstructorParameters
   String get cacheGroup => "rewriteShadowingNormalConstructorParameters";
 
   @override
-  late final List<int> hashableParts = [
-    ...swidClass.hashKey.hashableParts,
-  ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield [
+      ...swidClass.hashKey.hashableParts,
+    ];
+  }
 
   @override
   RewriteShadowingNormalConstructorParameters clone({

@@ -38,9 +38,11 @@ class CollectReferencesFromStaticConst
   String get cacheGroup => "collectReferencesFromStaticConst";
 
   @override
-  late final List<int> hashableParts = [
-    ...swidStaticConst.hashKey.hashableParts,
-  ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield [
+      ...swidStaticConst.hashKey.hashableParts,
+    ];
+  }
 
   @override
   CollectReferencesFromStaticConst clone({

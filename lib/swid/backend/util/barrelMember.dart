@@ -29,7 +29,7 @@ class BarrelMember
   }) = _$FromBarrelSpec;
 
   @override
-  List<int> get hashableParts => when(
+  Iterable<Iterable<int>> get hashableParts => when(
         fromSwidClass: (val) => val.hashableParts,
         fromSwidEnum: (val) => val.hashableParts,
         fromBarrelSpec: (val) => val.hashableParts,

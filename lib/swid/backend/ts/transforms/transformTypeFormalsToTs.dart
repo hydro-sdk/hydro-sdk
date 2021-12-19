@@ -32,9 +32,9 @@ class TransformTypeFormalsToTs
   String get cacheGroup => "transformTypeFormalsToTs";
 
   @override
-  List<int> get hashableParts => [
-        ...swidTypeFormals.hashableParts,
-      ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield* swidTypeFormals.hashableParts;
+  }
 
   @override
   TransformTypeFormalsToTs clone({

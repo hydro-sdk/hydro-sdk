@@ -37,11 +37,15 @@ class SwidEnum
       );
 
   @override
-  late final List<int> hashableParts = [
-    ...originalPackagePath.hashableParts,
-    ...identifier.hashableParts,
-    ...children.hashableParts,
-  ];
+  late final Iterable<Iterable<int>> hashableParts = (() sync* {
+    yield [
+      ...originalPackagePath.hashableParts,
+    ];
+    yield [
+      ...identifier.hashableParts,
+    ];
+    yield* children.hashableParts;
+  })();
 
   @override
   SwidEnum clone({

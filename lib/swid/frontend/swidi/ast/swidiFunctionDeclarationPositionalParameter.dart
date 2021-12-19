@@ -35,9 +35,9 @@ class SwidiFunctionDeclarationPositionalParameter
       );
 
   @override
-  List<int> get hashableParts => [
-        ...declaration.hashableParts,
-      ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield* declaration.hashableParts;
+  }
 
   @override
   SwidiFunctionDeclarationPositionalParameter clone({

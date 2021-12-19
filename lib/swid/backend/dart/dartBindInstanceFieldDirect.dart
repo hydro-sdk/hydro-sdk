@@ -35,10 +35,14 @@ class DartBindInstanceFieldDirect
   String get cacheGroup => "dartBindInstanceFieldDirect";
 
   @override
-  List<int> get hashableParts => [
-        ...instanceFieldName.codeUnits,
-        ...tableKey.codeUnits,
-      ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield [
+      ...instanceFieldName.codeUnits,
+    ];
+    yield [
+      ...tableKey.codeUnits,
+    ];
+  }
 
   @override
   DartBindInstanceFieldDirect clone({

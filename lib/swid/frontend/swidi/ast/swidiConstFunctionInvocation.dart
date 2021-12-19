@@ -49,11 +49,13 @@ class SwidiConstFunctionInvocation
       );
 
   @override
-  List<int> get hashableParts => [
-        ...value.hashableParts,
-        ...positionalParameters.hashableParts,
-        ...namedParameters.hashableParts,
-      ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield [
+      ...value.hashableParts,
+    ];
+    yield* positionalParameters.hashableParts;
+    yield* namedParameters.hashableParts;
+  }
 
   @override
   SwidiConstFunctionInvocation clone({

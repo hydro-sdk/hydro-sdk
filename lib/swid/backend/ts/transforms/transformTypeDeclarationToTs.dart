@@ -52,15 +52,29 @@ class TransformTypeDeclarationToTs
   String get cacheGroup => "transformTypeDeclarationToTs";
 
   @override
-  List<int> get hashableParts => [
-        ...swidType.hashKey.hashableParts,
-        ...?parentClass?.hashKey.hashableParts,
-        ...emitTrailingReturnType.hashableParts,
-        ...emitDefaultFormalsAsOptionalNamed.hashableParts,
-        ...emitTopLevelInitializersForOptionalPositionals.hashableParts,
-        topLevelTrailingReturnTypeKind.index,
-        nestedTrailingReturnTypeKind.index,
-      ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield [
+      ...swidType.hashKey.hashableParts,
+    ];
+    yield [
+      ...?parentClass?.hashKey.hashableParts,
+    ];
+    yield [
+      ...emitTrailingReturnType.hashableParts,
+    ];
+    yield [
+      ...emitDefaultFormalsAsOptionalNamed.hashableParts,
+    ];
+    yield [
+      ...emitTopLevelInitializersForOptionalPositionals.hashableParts,
+    ];
+    yield [
+      topLevelTrailingReturnTypeKind.index,
+    ];
+    yield [
+      nestedTrailingReturnTypeKind.index,
+    ];
+  }
 
   @override
   TransformTypeDeclarationToTs clone({

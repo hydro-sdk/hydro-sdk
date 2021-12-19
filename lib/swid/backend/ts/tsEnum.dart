@@ -29,9 +29,9 @@ class TsEnum
   String get cacheGroup => "tsEnum";
 
   @override
-  List<int> get hashableParts => [
-        ...swidEnum.hashableParts,
-      ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield* swidEnum.hashableParts;
+  }
 
   @override
   TsEnum clone({

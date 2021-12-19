@@ -28,9 +28,11 @@ class DartImportStatement
   String get cacheGroup => "dartImportStatement";
 
   @override
-  List<int> get hashableParts => [
-        ...path.hashableParts,
-      ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield [
+      ...path.hashableParts,
+    ];
+  }
 
   @override
   DartImportStatement clone({

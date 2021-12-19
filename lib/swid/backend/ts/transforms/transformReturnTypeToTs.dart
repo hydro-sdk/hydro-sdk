@@ -32,10 +32,12 @@ class TransformReturnTypeToTs
   String get cacheGroup => "transformReturnTypeToTs";
 
   @override
-  List<int> get hashableParts => [
-        ...swidFunctionType.hashableParts,
-        trailingReturnTypeKind.index,
-      ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield* swidFunctionType.hashableParts;
+    yield [
+      trailingReturnTypeKind.index,
+    ];
+  }
 
   @override
   TransformReturnTypeToTs clone({

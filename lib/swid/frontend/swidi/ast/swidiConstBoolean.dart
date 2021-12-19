@@ -24,7 +24,7 @@ class SwidiConstBoolean
   }) = _$SwidiConstBooleanFromSwidiConstBooleanFalse;
 
   @override
-  List<int> get hashableParts => when(
+  Iterable<Iterable<int>> get hashableParts => when(
         fromSwidiConstBooleanTrue: (val) => val.hashableParts,
         fromSwidiConstBooleanFalse: (val) => val.hashableParts,
       );

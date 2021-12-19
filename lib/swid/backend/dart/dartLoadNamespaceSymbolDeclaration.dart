@@ -59,9 +59,9 @@ class DartLoadNamespaceSymbolDeclaration
   String get cacheGroup => "dartLoadNamespaceSymbolDeclaration";
 
   @override
-  List<int> get hashableParts => [
-        ...swidClass.hashableParts,
-      ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield* swidClass.hashableParts;
+  }
 
   @override
   DartLoadNamespaceSymbolDeclaration clone({

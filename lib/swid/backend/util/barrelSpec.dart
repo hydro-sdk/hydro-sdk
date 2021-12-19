@@ -34,11 +34,15 @@ class BarrelSpec
       );
 
   @override
-  List<int> get hashableParts => [
-        ...path.codeUnits,
-        ...name.codeUnits,
-        ...members.hashableParts,
-      ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield [
+      ...path.codeUnits,
+    ];
+    yield [
+      ...name.codeUnits,
+    ];
+    yield* members.hashableParts;
+  }
 
   @override
   BarrelSpec clone({

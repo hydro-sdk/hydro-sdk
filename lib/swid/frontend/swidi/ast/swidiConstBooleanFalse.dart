@@ -16,7 +16,9 @@ class SwidiConstBooleanFalse
   factory SwidiConstBooleanFalse() = _$SwidiConstBooleanFalseCtor;
 
   @override
-  List<int> get hashableParts => [0];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield [0];
+  }
 
   @override
   SwidiConstBooleanFalse clone() => SwidiConstBooleanFalse();

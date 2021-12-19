@@ -40,10 +40,12 @@ class DartBoxList
   String get cacheGroup => "dartBoxList";
 
   @override
-  List<int> get hashableParts => [
-        ...type.hashableParts,
-        ...referenceName.hashableParts,
-      ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield* type.hashableParts;
+    yield [
+      ...referenceName.hashableParts,
+    ];
+  }
 
   @override
   DartBoxList clone({

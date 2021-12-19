@@ -36,9 +36,9 @@ class TransformTopLevelStaticConstFieldDeclaration
   String get cacheGroup => "transformTopLevelStaticConstFieldDeclaration";
 
   @override
-  List<int> get hashableParts => [
-        ...swidTopLevelStaticConstFieldDeclaration.hashableParts,
-      ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield* swidTopLevelStaticConstFieldDeclaration.hashableParts;
+  }
 
   @override
   TransformTopLevelStaticConstFieldDeclaration clone({

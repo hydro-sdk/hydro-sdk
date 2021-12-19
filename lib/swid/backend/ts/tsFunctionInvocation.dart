@@ -34,11 +34,13 @@ class TsFunctionInvocation
   String get cacheGroup => "tsFunctionInvocation";
 
   @override
-  List<int> get hashableParts => [
-        ...functionReference.hashableParts,
-        ...tsFunctionInvocationPositionalParameters.hashableParts,
-        ...tsFunctionInvocationNamedParameters.hashableParts
-      ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield [
+      ...functionReference.hashableParts,
+    ];
+    yield* tsFunctionInvocationPositionalParameters.hashableParts;
+    yield* tsFunctionInvocationNamedParameters.hashableParts;
+  }
 
   @override
   TsFunctionInvocation clone({

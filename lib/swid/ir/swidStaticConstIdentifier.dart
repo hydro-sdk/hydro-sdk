@@ -38,10 +38,14 @@ class SwidStaticConstIdentifier
       );
 
   @override
-  late final List<int> hashableParts = [
-    ...identifier.hashableParts,
-    ...enclosingType.hashKey.hashableParts,
-  ];
+  late final Iterable<Iterable<int>> hashableParts = (() sync* {
+    yield [
+      ...identifier.hashableParts,
+    ];
+    yield [
+      ...enclosingType.hashKey.hashableParts,
+    ];
+  })();
 
   @override
   SwidStaticConstIdentifier clone({

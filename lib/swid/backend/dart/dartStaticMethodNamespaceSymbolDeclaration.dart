@@ -42,10 +42,10 @@ class DartStaticMethodNamespaceSymbolDeclaration
   String get cacheGroup => "dartStaticMethodNamespaceSymbolDeclaration";
 
   @override
-  List<int> get hashableParts => [
-        ...swidClass.hashableParts,
-        ...swidFunctionType.hashableParts,
-      ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield* swidClass.hashableParts;
+    yield* swidFunctionType.hashableParts;
+  }
 
   @override
   DartStaticMethodNamespaceSymbolDeclaration clone({

@@ -70,7 +70,7 @@ class SwidType
   SwidType fromJson(final Map<String, dynamic> json) => SwidType.fromJson(json);
 
   @override
-  late final List<int> hashableParts = when(
+  late final Iterable<Iterable<int>> hashableParts = when(
     fromSwidInterface: (val) => val.hashableParts,
     fromSwidClass: (val) => val.hashableParts,
     fromSwidDefaultFormalParameter: (val) => val.hashableParts,

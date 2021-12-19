@@ -32,9 +32,11 @@ class SwidiLibraryScopePrefix
       );
 
   @override
-  List<int> get hashableParts => [
-        ...name.hashableParts,
-      ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield [
+      ...name.hashableParts,
+    ];
+  }
 
   @override
   SwidiLibraryScopePrefix clone({

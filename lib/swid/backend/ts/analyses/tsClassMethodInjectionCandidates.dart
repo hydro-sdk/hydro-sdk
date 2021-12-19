@@ -35,9 +35,9 @@ class TsClassMethodInjectionCandidates
   String get cacheGroup => "tsClassMethodInjectionCandidates";
 
   @override
-  List<int> get hashableParts => [
-        ...swidFunctionTypes.hashableParts,
-      ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield* swidFunctionTypes.hashableParts;
+  }
 
   @override
   TsClassMethodInjectionCandidates clone({

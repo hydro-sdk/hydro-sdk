@@ -61,13 +61,19 @@ class SwidDefaultFormalParameter
       );
 
   @override
-  late final List<int> hashableParts = [
-    nullabilitySuffix.index,
-    ...originalPackagePath.hashableParts,
-    ...staticType.hashableParts,
-    ...value.hashableParts,
-    ...defaultValueCode.hashableParts,
-  ];
+  late final Iterable<Iterable<int>> hashableParts = (() sync* {
+    yield [
+      nullabilitySuffix.index,
+    ];
+    yield [
+      ...originalPackagePath.hashableParts,
+    ];
+    yield* staticType.hashableParts;
+    yield* value.hashableParts;
+    yield [
+      ...defaultValueCode.hashableParts,
+    ];
+  })();
 
   @override
   String get name => staticType.name;

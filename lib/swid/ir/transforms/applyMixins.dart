@@ -32,9 +32,11 @@ class ApplyMixins
   String get cacheGroup => "applyMixins";
 
   @override
-  late final List<int> hashableParts = [
-    ...swidClass.hashKey.hashableParts,
-  ];
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield [
+      ...swidClass.hashKey.hashableParts,
+    ];
+  }
 
   @override
   ApplyMixins clone({
