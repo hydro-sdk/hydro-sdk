@@ -8,15 +8,50 @@ import * as path from "path";
 import Axios from "axios";
 import { Command, Option } from "commander";
 import ProgressBar from "progress";
+import { URL } from "url";
 
 const humanhash = require("humanhash");
 
 const defaultCacheDir = ".hydroc";
 
-class Hydroc {
+export interface IHydrocFsProvider {
+    existsSync: (path: string | Buffer | URL) => boolean;
+    mkdirSync: (
+        path: string | Buffer | URL,
+        options: {
+            recursive?: boolean | undefined;
+            mode?: number | string | undefined;
+        } & {
+            recursive: true;
+        }
+    ) => string | undefined;
+    createWriteStream: (path: string | Buffer | URL,
+        options?: 'ascii' | 'utf8' | 'utf-8' | 'utf16le' | 'ucs2' | 'ucs-2' | 'base64' | 'base64url' | 'latin1' | 'binary' | 'hex'
+
+            | {
+                flags?: string | undefined;
+                encoding?: 'ascii' | 'utf8' | 'utf-8' | 'utf16le' | 'ucs2' | 'ucs-2' | 'base64' | 'base64url' | 'latin1' | 'binary' | 'hex' | undefined;
+                mode?: number | undefined;
+                autoClose?: boolean | undefined;
+
+                emitClose?: boolean | undefined;
+                start?: number | undefined;
+                highWaterMark?: number | undefined;
+            }
+    ) => {
+        on: (event: 'close', listener: () => void) => {};
+    };
+    readFileSync: (path: string | Buffer | URL | number, options?: {
+        encoding?: null | undefined;
+        flag?: string | undefined;
+    } | null) => Buffer;
+}
+
+export class Hydroc {
     public readonly cacheDir: string;
     public readonly sdkToolsDir: string;
     public readonly sdkToolsVersion: string;
+    public readonly fsProvider: IHydrocFsProvider;
 
     public readonly sdkTools = [
         "hc2Dart",
@@ -28,18 +63,29 @@ class Hydroc {
         "codepush",
     ];
 
-    public constructor({ sdkToolsVersion }: { sdkToolsVersion: string }) {
+    public constructor({ sdkToolsVersion,
+        fsProvider = {
+            existsSync: (path) => fs.existsSync(path),
+            mkdirSync: (path, options) => fs.mkdirSync(path, options),
+            createWriteStream: (path, options) => fs.createWriteStream(path, options),
+            readFileSync: (path, options) => fs.readFileSync(path, options),
+        },
+    }: {
+        sdkToolsVersion: string;
+        fsProvider?: IHydrocFsProvider;
+    }) {
         strict(sdkToolsVersion !== undefined && sdkToolsVersion !== "");
 
         this.cacheDir = `.hydroc${path.sep}${sdkToolsVersion}`;
         this.sdkToolsDir = `${this.cacheDir}${path.sep}sdk-tools`;
 
         this.sdkToolsVersion = sdkToolsVersion;
+        this.fsProvider = fsProvider;
     }
 
     public ensureSdkToolsDirectoryExists(): void {
-        if (!fs.existsSync(this.sdkToolsDir)) {
-            fs.mkdirSync(this.sdkToolsDir, { recursive: true });
+        if (!this.fsProvider.existsSync(this.sdkToolsDir)) {
+            this.fsProvider.mkdirSync(this.sdkToolsDir, { recursive: true });
         }
     }
 
@@ -48,9 +94,8 @@ class Hydroc {
     }: {
         toolName: string;
     }): Readonly<string> {
-        return `${toolName}-${process.platform}-${process.arch}${
-            process.platform == "win32" ? ".exe" : ""
-        }`;
+        return `${toolName}-${process.platform}-${process.arch}${process.platform == "win32" ? ".exe" : ""
+            }`;
     }
 
     public makeSdkToolPlatformPath({
@@ -68,9 +113,8 @@ class Hydroc {
 
         return this.sdkTools
             .map((x) =>
-                !fs.existsSync(
-                    `${this.sdkToolsDir}${
-                        path.sep
+                !this.fsProvider.existsSync(
+                    `${this.sdkToolsDir}${path.sep
                     }${this.makeSdkToolPlatformName({ toolName: x })}`
                 )
                     ? x
@@ -90,11 +134,10 @@ class Hydroc {
             for (let i = 0; i != missingSdkTools.length; ++i) {
                 const missingSdkTool = missingSdkTools[i];
                 await new Promise(async (resolve, reject) => {
-                    const url = `https://github.com/hydro-sdk/hydro-sdk/releases/download/${
-                        this.sdkToolsVersion
-                    }/${this.makeSdkToolPlatformName({
-                        toolName: missingSdkTool,
-                    })}`;
+                    const url = `https://github.com/hydro-sdk/hydro-sdk/releases/download/${this.sdkToolsVersion
+                        }/${this.makeSdkToolPlatformName({
+                            toolName: missingSdkTool,
+                        })}`;
 
                     const { data, headers } = await Axios({
                         url,
@@ -116,9 +159,8 @@ class Hydroc {
                         }
                     );
 
-                    const writer = fs.createWriteStream(
-                        `${this.sdkToolsDir}${
-                            path.sep
+                    const writer = this.fsProvider.createWriteStream(
+                        `${this.sdkToolsDir}${path.sep
                         }${this.makeSdkToolPlatformName({
                             toolName: missingSdkTool,
                         })}`
@@ -318,15 +360,22 @@ class Hydroc {
     }
 }
 
-async function readSdkPackage({ directory }: { directory: string }): Promise<
-    | Readonly<{
-          version: string;
-      }>
-    | undefined
-> {
+async function readSdkPackage({ directory, fsProvider
+    = {
+        readFileSync: (path, options) => fs.readFileSync(path, options),
+    }
+    , }: {
+        directory: string,
+        fsProvider?: Readonly<Pick<IHydrocFsProvider, "readFileSync">>
+    }): Promise<
+        | Readonly<{
+            version: string;
+        }>
+        | undefined
+    > {
     try {
         return JSON.parse(
-            fs.readFileSync(`${directory}${path.sep}package.json`).toString()
+            fsProvider.readFileSync(`${directory}${path.sep}package.json`).toString()
         );
     } catch (err) {
         console.error(err);
