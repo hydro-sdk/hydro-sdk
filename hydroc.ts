@@ -4,11 +4,11 @@ import { strict } from "assert";
 import * as cp from "child_process";
 import * as fs from "fs";
 import * as path from "path";
+import { URL } from "url";
 
 import Axios from "axios";
 import { Command, Option } from "commander";
 import ProgressBar from "progress";
-import { URL } from "url";
 
 const humanhash = require("humanhash");
 
@@ -25,26 +25,52 @@ export interface IHydrocFsProvider {
             recursive: true;
         }
     ) => string | undefined;
-    createWriteStream: (path: string | Buffer | URL,
-        options?: 'ascii' | 'utf8' | 'utf-8' | 'utf16le' | 'ucs2' | 'ucs-2' | 'base64' | 'base64url' | 'latin1' | 'binary' | 'hex'
-
+    createWriteStream: (
+        path: string | Buffer | URL,
+        options?:
+            | "ascii"
+            | "utf8"
+            | "utf-8"
+            | "utf16le"
+            | "ucs2"
+            | "ucs-2"
+            | "base64"
+            | "base64url"
+            | "latin1"
+            | "binary"
+            | "hex"
             | {
-                flags?: string | undefined;
-                encoding?: 'ascii' | 'utf8' | 'utf-8' | 'utf16le' | 'ucs2' | 'ucs-2' | 'base64' | 'base64url' | 'latin1' | 'binary' | 'hex' | undefined;
-                mode?: number | undefined;
-                autoClose?: boolean | undefined;
+                  flags?: string | undefined;
+                  encoding?:
+                      | "ascii"
+                      | "utf8"
+                      | "utf-8"
+                      | "utf16le"
+                      | "ucs2"
+                      | "ucs-2"
+                      | "base64"
+                      | "base64url"
+                      | "latin1"
+                      | "binary"
+                      | "hex"
+                      | undefined;
+                  mode?: number | undefined;
+                  autoClose?: boolean | undefined;
 
-                emitClose?: boolean | undefined;
-                start?: number | undefined;
-                highWaterMark?: number | undefined;
-            }
+                  emitClose?: boolean | undefined;
+                  start?: number | undefined;
+                  highWaterMark?: number | undefined;
+              }
     ) => {
-        on: (event: 'close', listener: () => void) => {};
+        on: (event: "close", listener: () => void) => {};
     };
-    readFileSync: (path: string | Buffer | URL | number, options?: {
-        encoding?: null | undefined;
-        flag?: string | undefined;
-    } | null) => Buffer;
+    readFileSync: (
+        path: string | Buffer | URL | number,
+        options?: {
+            encoding?: null | undefined;
+            flag?: string | undefined;
+        } | null
+    ) => Buffer;
 }
 
 export class Hydroc {
@@ -63,11 +89,13 @@ export class Hydroc {
         "codepush",
     ];
 
-    public constructor({ sdkToolsVersion,
+    public constructor({
+        sdkToolsVersion,
         fsProvider = {
             existsSync: (path) => fs.existsSync(path),
             mkdirSync: (path, options) => fs.mkdirSync(path, options),
-            createWriteStream: (path, options) => fs.createWriteStream(path, options),
+            createWriteStream: (path, options) =>
+                fs.createWriteStream(path, options),
             readFileSync: (path, options) => fs.readFileSync(path, options),
         },
     }: {
@@ -94,8 +122,9 @@ export class Hydroc {
     }: {
         toolName: string;
     }): Readonly<string> {
-        return `${toolName}-${process.platform}-${process.arch}${process.platform == "win32" ? ".exe" : ""
-            }`;
+        return `${toolName}-${process.platform}-${process.arch}${
+            process.platform == "win32" ? ".exe" : ""
+        }`;
     }
 
     public makeSdkToolPlatformPath({
@@ -114,7 +143,8 @@ export class Hydroc {
         return this.sdkTools
             .map((x) =>
                 !this.fsProvider.existsSync(
-                    `${this.sdkToolsDir}${path.sep
+                    `${this.sdkToolsDir}${
+                        path.sep
                     }${this.makeSdkToolPlatformName({ toolName: x })}`
                 )
                     ? x
@@ -134,10 +164,11 @@ export class Hydroc {
             for (let i = 0; i != missingSdkTools.length; ++i) {
                 const missingSdkTool = missingSdkTools[i];
                 await new Promise(async (resolve, reject) => {
-                    const url = `https://github.com/hydro-sdk/hydro-sdk/releases/download/${this.sdkToolsVersion
-                        }/${this.makeSdkToolPlatformName({
-                            toolName: missingSdkTool,
-                        })}`;
+                    const url = `https://github.com/hydro-sdk/hydro-sdk/releases/download/${
+                        this.sdkToolsVersion
+                    }/${this.makeSdkToolPlatformName({
+                        toolName: missingSdkTool,
+                    })}`;
 
                     const { data, headers } = await Axios({
                         url,
@@ -160,7 +191,8 @@ export class Hydroc {
                     );
 
                     const writer = this.fsProvider.createWriteStream(
-                        `${this.sdkToolsDir}${path.sep
+                        `${this.sdkToolsDir}${
+                            path.sep
                         }${this.makeSdkToolPlatformName({
                             toolName: missingSdkTool,
                         })}`
@@ -360,22 +392,25 @@ export class Hydroc {
     }
 }
 
-async function readSdkPackage({ directory, fsProvider
-    = {
+async function readSdkPackage({
+    directory,
+    fsProvider = {
         readFileSync: (path, options) => fs.readFileSync(path, options),
-    }
-    , }: {
-        directory: string,
-        fsProvider?: Readonly<Pick<IHydrocFsProvider, "readFileSync">>
-    }): Promise<
-        | Readonly<{
-            version: string;
-        }>
-        | undefined
-    > {
+    },
+}: {
+    directory: string;
+    fsProvider?: Readonly<Pick<IHydrocFsProvider, "readFileSync">>;
+}): Promise<
+    | Readonly<{
+          version: string;
+      }>
+    | undefined
+> {
     try {
         return JSON.parse(
-            fsProvider.readFileSync(`${directory}${path.sep}package.json`).toString()
+            fsProvider
+                .readFileSync(`${directory}${path.sep}package.json`)
+                .toString()
         );
     } catch (err) {
         console.error(err);
