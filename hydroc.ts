@@ -118,15 +118,7 @@ export class Hydroc {
     public readonly fsProvider: IHydrocFsProvider;
     public readonly ghFilesProvider: IHydroGhReleasesFilesProvider;
 
-    public readonly sdkTools = [
-        "hc2Dart",
-        "ts2hc",
-        "luac52",
-        "swid",
-        "build-project",
-        "run-project",
-        "codepush",
-    ];
+    public readonly sdkTools: Array<string>;
 
     public constructor({
         sdkToolsVersion,
@@ -174,10 +166,20 @@ export class Hydroc {
                 };
             }
         })(),
+        sdkTools = [
+            "hc2Dart",
+            "ts2hc",
+            "luac52",
+            "swid",
+            "build-project",
+            "run-project",
+            "codepush",
+        ],
     }: {
         sdkToolsVersion: string;
         fsProvider?: IHydrocFsProvider;
         ghFilesProvider?: IHydroGhReleasesFilesProvider;
+        sdkTools?: Array<string>;
     }) {
         strict(sdkToolsVersion !== undefined && sdkToolsVersion !== "");
 
@@ -187,6 +189,7 @@ export class Hydroc {
         this.sdkToolsVersion = sdkToolsVersion;
         this.fsProvider = fsProvider;
         this.ghFilesProvider = ghFilesProvider;
+        this.sdkTools = sdkTools;
     }
 
     public ensureSdkToolsDirectoryExists(): void {
