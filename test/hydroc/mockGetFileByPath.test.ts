@@ -33,6 +33,23 @@ test("", async () => {
         children: {
             root: {
                 kind: MockFsNodeKind.kDirectory,
+                children:[]
+            },
+        },
+    };
+
+    const res = mockGetFileByPath("root", mockFs as any);
+
+    expect(res).toBeDefined();
+    expect(res?.kind).toBe(MockFsNodeKind.kDirectory);
+});
+
+test("", async () => {
+    const mockFs = {
+        kind: MockFsNodeKind.kDirectory,
+        children: {
+            root: {
+                kind: MockFsNodeKind.kDirectory,
                 children: {
                     firstChild: {
                         kind: MockFsNodeKind.kFile,
