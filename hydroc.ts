@@ -949,6 +949,39 @@ export function mockUnlinkByPath(filePath: string, fsNode: MockFsNode): void {
     }
 }
 
+export function mockMkdir(dirPath: string, recursive: boolean, fsNode: MockFsNode | undefined): string | undefined {
+    strict(recursive === true);
+
+    const parts = dirPath.split(path.sep);
+
+    if (mockGetFileByPath(dirPath, fsNode) !== undefined) {
+        return undefined;
+    }
+
+    if (fsNode !== undefined) {
+        switch (fsNode.kind) {
+            case MockFsNodeKind.kDirectory:
+                const child = fsNode.children[parts[0]];
+                if (child === undefined) {
+                    fsNode.children[parts[0]] = {
+                        kind: MockFsNodeKind.kDirectory,
+                        children: {},
+                    } as MockFsDirectory;
+                }
+                if (parts.length > 1) {
+                    mockMkdir(parts.splice(1).join(path.sep), true,
+                        fsNode.children[parts[0]]);
+                }
+                break;
+
+            case MockFsNodeKind.kFile:
+                break;
+        }
+    }
+
+    return undefined;
+}
+
 class HydrocMockFsProvider {
     private mockFsNode: MockFsNode;
 
@@ -964,5 +997,17 @@ class HydrocMockFsProvider {
 
     public unlinkSync(path: string | Buffer | URL): void {
         return mockUnlinkByPath(path.toString(), this.mockFsNode);
+    }
+
+    public mkdirSync(
+        path: string | Buffer | URL,
+        options: {
+            recursive?: boolean | undefined;
+            mode?: number | string | undefined;
+        } & {
+            recursive: true;
+        }
+    ): string | undefined {
+        return mockMkdir(path.toString(), options.recursive, this.mockFsNode);
     }
 }
