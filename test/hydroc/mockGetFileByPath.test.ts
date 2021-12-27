@@ -1,16 +1,23 @@
 (global as any).HYDROC_DISABLE_TOP_LEVEL = true;
+
 import * as path from "path";
-import { mockGetFileByPath, MockFsNodeKind, MockFsFile, MockFsNode } from "../../hydroc";
+
+import {
+    MockFsFile,
+    MockFsNode,
+    MockFsNodeKind,
+    mockGetFileByPath,
+} from "../../hydroc";
 
 test("", async () => {
     const mockFs = {
         kind: MockFsNodeKind.kDirectory,
         children: {
-            "firstChild": {
+            firstChild: {
                 kind: MockFsNodeKind.kFile,
                 content: "a child",
-            }
-        }
+            },
+        },
     };
 
     const res = mockGetFileByPath("firstChild", mockFs as any);
@@ -24,19 +31,22 @@ test("", async () => {
     const mockFs = {
         kind: MockFsNodeKind.kDirectory,
         children: {
-            "root": {
+            root: {
                 kind: MockFsNodeKind.kDirectory,
                 children: {
-                    "firstChild": {
+                    firstChild: {
                         kind: MockFsNodeKind.kFile,
                         content: "a child",
-                    }
-                }
-            }
-        }
+                    },
+                },
+            },
+        },
     };
 
-    const res = mockGetFileByPath(`root${path.sep}firstChild`, mockFs as MockFsNode);
+    const res = mockGetFileByPath(
+        `root${path.sep}firstChild`,
+        mockFs as MockFsNode
+    );
 
     expect(res).toBeDefined();
     expect(res?.kind).toBe(MockFsNodeKind.kFile);
@@ -47,28 +57,31 @@ test("", async () => {
     const mockFs = {
         kind: MockFsNodeKind.kDirectory,
         children: {
-            "root": {
+            root: {
                 kind: MockFsNodeKind.kDirectory,
                 children: {
-                    "firstFile": {
+                    firstFile: {
                         kind: MockFsNodeKind.kFile,
                         content: "the first file",
                     },
-                    "secondDirectory": {
+                    secondDirectory: {
                         kind: MockFsNodeKind.kDirectory,
                         children: {
-                            "secondFile": {
+                            secondFile: {
                                 kind: MockFsNodeKind.kFile,
                                 content: "the second file",
-                            }
-                        }
-                    }
-                }
-            }
-        }
+                            },
+                        },
+                    },
+                },
+            },
+        },
     };
 
-    const res = mockGetFileByPath(`root${path.sep}secondDirectory${path.sep}secondFile`, mockFs as MockFsNode);
+    const res = mockGetFileByPath(
+        `root${path.sep}secondDirectory${path.sep}secondFile`,
+        mockFs as MockFsNode
+    );
 
     expect(res).toBeDefined();
     expect(res?.kind).toBe(MockFsNodeKind.kFile);
