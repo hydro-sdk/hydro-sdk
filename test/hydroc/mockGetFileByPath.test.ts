@@ -33,7 +33,7 @@ test("", async () => {
         children: {
             root: {
                 kind: MockFsNodeKind.kDirectory,
-                children:[]
+                children: [],
             },
         },
     };

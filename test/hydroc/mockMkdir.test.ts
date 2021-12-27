@@ -6,13 +6,13 @@ import {
     MockFsNode,
     MockFsNodeKind,
     mockGetFileByPath,
-    mockMkdir
+    mockMkdir,
 } from "../../hydroc";
 
 test("", async () => {
     const mockFs = {
         kind: MockFsNodeKind.kDirectory,
-        children: {}
+        children: {},
     };
 
     mockMkdir("root", true, mockFs as MockFsNode);
@@ -27,9 +27,9 @@ test("", async () => {
         children: {
             root: {
                 kind: MockFsNodeKind.kDirectory,
-                children: {}
-            }
-        }
+                children: {},
+            },
+        },
     });
 });
 
@@ -58,7 +58,11 @@ test("", async () => {
         },
     };
 
-    mockMkdir(`root${path.sep}secondDirectory${path.sep}thirdDirectory`, true, mockFs as MockFsNode);
+    mockMkdir(
+        `root${path.sep}secondDirectory${path.sep}thirdDirectory`,
+        true,
+        mockFs as MockFsNode
+    );
 
     expect(mockFs).toMatchObject({
         kind: MockFsNodeKind.kDirectory,
@@ -73,7 +77,6 @@ test("", async () => {
                     secondDirectory: {
                         kind: MockFsNodeKind.kDirectory,
                         children: {
-
                             secondFile: {
                                 kind: MockFsNodeKind.kFile,
                                 content: "the second file",
