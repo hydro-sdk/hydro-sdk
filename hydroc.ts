@@ -914,21 +914,27 @@ export function mockGetFileByPath(filePath: string, fsNode: MockFsNode | undefin
     return undefined;
 }
 
-// export function mockUnlinkByPath(filePath: string, fsNode: MockFsNode): void {
-//     const parts = filePath.split(path.sep);
+export function mockUnlinkByPath(filePath: string, fsNode: MockFsNode): void {
+    const parts = filePath.split(path.sep);
 
-//     if (parts[0] == fsNode.name) {
-//         const child = fsNode.children.find(
-//             (x) => mockGetFileByPath(parts[1], x)
-//         );
+    if (fsNode !== undefined) {
+        switch (fsNode.kind) {
+            case MockFsNodeKind.kDirectory:
+                const res = fsNode.children[parts[0]];
 
-//         if (child !== undefined) {
-//             fsNode.children = fsNode.children.filter(
-//                 (x) => mockGetFileByPath(parts[1], x)
-//             );
-//         }
-//     }
-// }
+                if (res !== undefined) {
+                    if (parts.length == 1) {
+                        fsNode.children[parts[0]] = undefined;
+                    } else {
+                        return mockUnlinkByPath(parts.splice(1).join(path.sep), res);
+                    }
+                }
+
+            case MockFsNodeKind.kFile:
+                break;
+        }
+    }
+}
 
 class HydrocMockFsProvider {
     private mockFsNode: MockFsNode;
