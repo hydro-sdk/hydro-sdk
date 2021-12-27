@@ -19,19 +19,19 @@ function sha256({
     input,
 }: {
     input:
-        | string
-        | Uint8Array
-        | Uint8ClampedArray
-        | Uint16Array
-        | Uint32Array
-        | Int8Array
-        | Int16Array
-        | Int32Array
-        | BigUint64Array
-        | BigInt64Array
-        | Float32Array
-        | Float64Array
-        | DataView;
+    | string
+    | Uint8Array
+    | Uint8ClampedArray
+    | Uint16Array
+    | Uint32Array
+    | Int8Array
+    | Int16Array
+    | Int32Array
+    | BigUint64Array
+    | BigInt64Array
+    | Float32Array
+    | Float64Array
+    | DataView;
 }): Readonly<string> {
     const hash = crypto.createHash("sha256");
     hash.update(input);
@@ -65,27 +65,27 @@ export interface IHydrocFsProvider {
             | "binary"
             | "hex"
             | {
-                  flags?: string | undefined;
-                  encoding?:
-                      | "ascii"
-                      | "utf8"
-                      | "utf-8"
-                      | "utf16le"
-                      | "ucs2"
-                      | "ucs-2"
-                      | "base64"
-                      | "base64url"
-                      | "latin1"
-                      | "binary"
-                      | "hex"
-                      | undefined;
-                  mode?: number | undefined;
-                  autoClose?: boolean | undefined;
+                flags?: string | undefined;
+                encoding?:
+                | "ascii"
+                | "utf8"
+                | "utf-8"
+                | "utf16le"
+                | "ucs2"
+                | "ucs-2"
+                | "base64"
+                | "base64url"
+                | "latin1"
+                | "binary"
+                | "hex"
+                | undefined;
+                mode?: number | undefined;
+                autoClose?: boolean | undefined;
 
-                  emitClose?: boolean | undefined;
-                  start?: number | undefined;
-                  highWaterMark?: number | undefined;
-              }
+                emitClose?: boolean | undefined;
+                start?: number | undefined;
+                highWaterMark?: number | undefined;
+            }
     ) => {
         on: (event: "close", listener: () => void) => {};
     };
@@ -203,9 +203,8 @@ export class Hydroc {
     }: {
         toolName: string;
     }): Readonly<string> {
-        return `${toolName}-${process.platform}-${process.arch}${
-            process.platform == "win32" ? ".exe" : ""
-        }`;
+        return `${toolName}-${process.platform}-${process.arch}${process.platform == "win32" ? ".exe" : ""
+            }`;
     }
 
     public makeSdkToolSha256Name({
@@ -244,8 +243,7 @@ export class Hydroc {
         return this.sdkTools
             .map((x) =>
                 !this.fsProvider.existsSync(
-                    `${this.sdkToolsDir}${
-                        path.sep
+                    `${this.sdkToolsDir}${path.sep
                     }${this.makeSdkToolPlatformName({ toolName: x })}`
                 )
                     ? x
@@ -265,11 +263,10 @@ export class Hydroc {
             for (let i = 0; i != missingSdkTools.length; ++i) {
                 const missingSdkTool = missingSdkTools[i];
                 await new Promise(async (resolve) => {
-                    const url = `https://github.com/hydro-sdk/hydro-sdk/releases/download/${
-                        this.sdkToolsVersion
-                    }/${this.makeSdkToolPlatformName({
-                        toolName: missingSdkTool,
-                    })}`;
+                    const url = `https://github.com/hydro-sdk/hydro-sdk/releases/download/${this.sdkToolsVersion
+                        }/${this.makeSdkToolPlatformName({
+                            toolName: missingSdkTool,
+                        })}`;
 
                     const filePromise = await this.ghFilesProvider.getFile(url);
 
@@ -289,8 +286,7 @@ export class Hydroc {
                     );
 
                     const writer = this.fsProvider.createWriteStream(
-                        `${this.sdkToolsDir}${
-                            path.sep
+                        `${this.sdkToolsDir}${path.sep
                         }${this.makeSdkToolPlatformName({
                             toolName: missingSdkTool,
                         })}`
@@ -306,11 +302,10 @@ export class Hydroc {
             for (let i = 0; i != missingSdkTools.length; ++i) {
                 const missingSdkTool = missingSdkTools[i];
                 await new Promise(async (resolve) => {
-                    const url = `https://github.com/hydro-sdk/hydro-sdk/releases/download/${
-                        this.sdkToolsVersion
-                    }/${this.makeSdkToolSha256Name({
-                        toolName: missingSdkTool,
-                    })}`;
+                    const url = `https://github.com/hydro-sdk/hydro-sdk/releases/download/${this.sdkToolsVersion
+                        }/${this.makeSdkToolSha256Name({
+                            toolName: missingSdkTool,
+                        })}`;
 
                     const filePromise = await this.ghFilesProvider.getFile(url);
 
@@ -330,8 +325,7 @@ export class Hydroc {
                     );
 
                     const writer = this.fsProvider.createWriteStream(
-                        `${this.sdkToolsDir}${
-                            path.sep
+                        `${this.sdkToolsDir}${path.sep
                         }${this.makeSdkToolSha256Name({
                             toolName: missingSdkTool,
                         })}`
@@ -346,8 +340,7 @@ export class Hydroc {
 
                 const missingSdkToolSha256 = sha256({
                     input: this.fsProvider.readFileSync(
-                        `${this.sdkToolsDir}${
-                            path.sep
+                        `${this.sdkToolsDir}${path.sep
                         }${this.makeSdkToolPlatformName({
                             toolName: missingSdkTool,
                         })}`
@@ -356,8 +349,7 @@ export class Hydroc {
 
                 const expectedSha256 = this.fsProvider
                     .readFileSync(
-                        `${this.sdkToolsDir}${
-                            path.sep
+                        `${this.sdkToolsDir}${path.sep
                         }${this.makeSdkToolSha256Name({
                             toolName: missingSdkTool,
                         })}`
@@ -367,12 +359,11 @@ export class Hydroc {
                 if (missingSdkToolSha256 != expectedSha256) {
                     throw new Error(
                         `Could not verify integrity of SDK-tool ${missingSdkTool}\n` +
-                            `Got ${missingSdkToolSha256} but expected ${expectedSha256}\n`
+                        `Got ${missingSdkToolSha256} but expected ${expectedSha256}\n`
                     );
                 } else {
                     this.fsProvider.unlinkSync(
-                        `${this.sdkToolsDir}${
-                            path.sep
+                        `${this.sdkToolsDir}${path.sep
                         }${this.makeSdkToolSha256Name({
                             toolName: missingSdkTool,
                         })}`
@@ -576,8 +567,8 @@ async function readSdkPackage({
     fsProvider?: Readonly<Pick<IHydrocFsProvider, "readFileSync">>;
 }): Promise<
     | Readonly<{
-          version: string;
-      }>
+        version: string;
+    }>
     | undefined
 > {
     try {
@@ -591,289 +582,366 @@ async function readSdkPackage({
         return undefined;
     }
 }
+const disableTopLevel = (global as any).HYDROC_DISABLE_TOP_LEVEL !== undefined ? ((global as any).HYDROC_DISABLE_TOP_LEVEL as boolean) : false;
 
-(async () => {
-    const sdkPackage = await readSdkPackage({ directory: __dirname });
+if (!disableTopLevel) {
+    console.log(`disableTopLevel: ${disableTopLevel}`);
 
-    if (sdkPackage === undefined) {
-        process.exit(1);
+    (async () => {
+        const sdkPackage = await readSdkPackage({ directory: __dirname });
+
+        if (sdkPackage === undefined) {
+            process.exit(1);
+        }
+
+        const program = new Command();
+
+        program.version(sdkPackage.version);
+
+        program
+            .command("sdk-tools")
+            .description(
+                "Download tools required by Hydro-SDK into the given cache directory"
+            )
+            .addOption(
+                new Option(
+                    "--tools-version <version>",
+                    "The version of SDK tools to download"
+                ).default(sdkPackage.version)
+            )
+            .action(async (options) => {
+                const hydroc = new Hydroc({
+                    sdkToolsVersion: options.toolsVersion ?? sdkPackage.version,
+                });
+
+                await hydroc.downloadMissingSdkTools();
+            });
+
+        program
+            .command("ts2hc")
+            .description(
+                "Compile the Typescript file given by --entry-point and all of its dependencies into a bytecode chunk, written to --out-dir"
+            )
+            .addOption(
+                new Option(
+                    "--entry-point <entry>",
+                    "The file to use as the compilation's entry point"
+                ).makeOptionMandatory()
+            )
+            .addOption(
+                new Option(
+                    "--module-name <name>",
+                    "The name to use for the output module"
+                ).makeOptionMandatory()
+            )
+            .addOption(
+                new Option(
+                    "--out-dir <dir>",
+                    "The path to the directory to write the output chunk to"
+                ).makeOptionMandatory()
+            )
+            .addOption(
+                new Option(
+                    "--profile <profile>",
+                    "The profile to use for compilation"
+                ).makeOptionMandatory()
+            )
+            .addOption(
+                new Option(
+                    "--skip-sdk-tools-check",
+                    "Skip downloading missing SDK tools"
+                )
+            )
+            .action(async (options) => {
+                const hydroc = new Hydroc({
+                    sdkToolsVersion: options.toolsVersion ?? sdkPackage.version,
+                });
+
+                if (!options.skipSdkToolsCheck) {
+                    await hydroc.downloadMissingSdkTools();
+                }
+
+                await new Promise((resolve, reject) => {
+                    const ts2hc = hydroc.ts2hc({
+                        entryPoint: options.entryPoint,
+                        moduleName: options.moduleName,
+                        outDir: options.outDir,
+                        profile: options.profile,
+                        logger: "stdout",
+                    });
+
+                    ts2hc.on("exit", (exitCode) =>
+                        exitCode == 0 ? resolve(undefined) : reject(exitCode)
+                    );
+                }).catch((err) => process.exit(err));
+            });
+
+        program
+            .command("build")
+            .description("Build the project given by --project")
+            .addOption(
+                new Option(
+                    "--project <project>",
+                    "The project description to use"
+                ).default("hydro.json")
+            )
+            .addOption(
+                new Option(
+                    "--out-dir <out-dir>",
+                    "The directory to write build outputs to"
+                ).default("")
+            )
+            .addOption(
+                new Option(
+                    "--profile <profile>",
+                    "The build profile to use for all chunks in the project"
+                ).default("release")
+            )
+            .action(async (options) => {
+                const hydroc = new Hydroc({
+                    sdkToolsVersion: options.toolsVersion ?? sdkPackage.version,
+                });
+
+                await hydroc.downloadMissingSdkTools();
+
+                await new Promise((resolve, reject) => {
+                    const buildProject = hydroc.buildProject({
+                        project: options.project,
+                        profile: options.profile,
+                        outDir: options.outDir,
+                        ts2hc: hydroc.makeSdkToolPlatformPath({
+                            toolName: "ts2hc",
+                        }),
+                    });
+
+                    buildProject.on("exit", (exitCode) =>
+                        exitCode == 0 ? resolve(undefined) : reject(exitCode)
+                    );
+                }).catch((err) => process.exit(err));
+            });
+
+        program
+            .command("run")
+            .description("Run the project given by --project")
+            .addOption(
+                new Option(
+                    "--project <project>",
+                    "The project description to use"
+                ).default("hydro.json")
+            )
+            .action(async (options) => {
+                const hydroc = new Hydroc({
+                    sdkToolsVersion: options.toolsVersion ?? sdkPackage.version,
+                });
+
+                await hydroc.downloadMissingSdkTools();
+
+                await new Promise((resolve, reject) => {
+                    const runProject = hydroc.runProject({
+                        project: options.project,
+                        ts2hc: hydroc.makeSdkToolPlatformPath({
+                            toolName: "ts2hc",
+                        }),
+                    });
+
+                    runProject.on("exit", (exitCode) =>
+                        exitCode == 0 ? resolve(undefined) : reject(exitCode)
+                    );
+                }).catch((err) => process.exit(err));
+            });
+
+        program
+            .command("codepush")
+            .description("Publish the project given by --project")
+            .addOption(
+                new Option(
+                    "--project <project>",
+                    "The project description to use"
+                ).default("hydro.json")
+            )
+            .addOption(
+                new Option(
+                    "--out-dir <out-dir>",
+                    "The directory to write build outputs to"
+                ).default("")
+            )
+            .addOption(
+                new Option(
+                    "--profile <profile>",
+                    "The build profile to use for all chunks in the project"
+                ).default("release")
+            )
+            .addOption(
+                new Option(
+                    "--registry-scheme <registry-scheme>",
+                    "The scheme to use when connecting to the registry"
+                ).default("https")
+            )
+            .addOption(
+                new Option(
+                    "--registry-host <registry-host>",
+                    "The registry host to use"
+                ).default("api.registry.hydro-sdk.io")
+            )
+            .addOption(
+                new Option(
+                    "--registry-port <registry-port",
+                    "The port to use when connecting to the registry"
+                )
+            )
+            .addOption(
+                new Option(
+                    "--private-key-file <private-key-file>",
+                    "The path to the key to use to sign the release"
+                ).makeOptionMandatory()
+            )
+            .addOption(
+                new Option(
+                    "--channel <channel>",
+                    "The channel to publish the release to"
+                ).default("latest")
+            )
+            .addOption(
+                new Option(
+                    "--readme <readme>",
+                    "The path to the readme (in markdown format) to use for this release"
+                ).default("readme.md")
+            )
+            .addOption(
+                new Option(
+                    "--pubspecyaml <pubspecyaml>",
+                    "The path to the pubspec.yaml file to use for this release"
+                ).default("pubspec.yaml")
+            )
+            .addOption(
+                new Option(
+                    "--pubspeclock <pubspeclock>",
+                    "The path to the pubspec.lock file to use for this release"
+                ).default("pubspec.lock")
+            )
+            .addOption(
+                new Option(
+                    "--version <version>",
+                    "The version name to assign to this release"
+                ).default(new humanhash().uuid().humanhash)
+            )
+            .addOption(
+                new Option(
+                    "--trim-key",
+                    "Trim leading and trailing whitespace from private key before using it to sign and submit the release"
+                )
+            )
+            .addOption(
+                new Option(
+                    "--no-trim-key",
+                    "Do not trim leading and trailing whitespace from private key"
+                )
+            )
+            .action(async (options) => {
+                const hydroc = new Hydroc({
+                    sdkToolsVersion: options.toolsVersion ?? sdkPackage.version,
+                });
+
+                await hydroc.downloadMissingSdkTools();
+
+                await new Promise((resolve, reject) => {
+                    const codepush = hydroc.codepush({
+                        project: options.project,
+                        profile: options.profile,
+                        outDir: options.outDir,
+                        privateKeyFile: options.privateKeyFile,
+                        registryScheme: options.registryScheme,
+                        registryHost: options.registryHost,
+                        registryPort: options.registryPort,
+                        channel: options.channel,
+                        readme: options.readme,
+                        pubspecyaml: options.pubspecyaml,
+                        pubspeclock: options.pubspeclock,
+                        version: options.version,
+                        trimKey:
+                            options.trimKey !== undefined ? options.trimKey : true,
+                        ts2hc: hydroc.makeSdkToolPlatformPath({
+                            toolName: "ts2hc",
+                        }),
+                    });
+
+                    codepush.on("exit", (exitCode) =>
+                        exitCode == 0 ? resolve(undefined) : reject(exitCode)
+                    );
+                }).catch((err) => process.exit(err));
+            });
+        program.parse(process.argv);
+    })();
+}
+
+export enum MockFsNodeKind {
+    kFile,
+    kDirectory,
+}
+
+export type MockFsFile = {
+    kind: MockFsNodeKind.kFile;
+    content: string | Buffer;
+}
+
+export type MockFsDirectory = {
+    kind: MockFsNodeKind.kDirectory;
+    children: { [i: string]: MockFsNode | undefined };
+}
+
+export type MockFsNode = MockFsFile | MockFsDirectory;
+
+export function mockGetFileByPath(filePath: string, fsNode: MockFsNode | undefined): MockFsNode | undefined {
+    const parts = filePath.split(path.sep);
+
+    if (fsNode !== undefined) {
+        switch (fsNode.kind) {
+            case MockFsNodeKind.kDirectory:
+                const res = fsNode.children[parts[0]];
+
+                if (res !== undefined) {
+                    if (res.kind == MockFsNodeKind.kDirectory) {
+                        return mockGetFileByPath(parts.splice(1).join(path.sep), res);
+                    } else if (res.kind == MockFsNodeKind.kFile) {
+                        return res;
+                    }
+                }
+
+            case MockFsNodeKind.kFile:
+                break;
+        }
+    }
+    return undefined;
+}
+
+// export function mockUnlinkByPath(filePath: string, fsNode: MockFsNode): void {
+//     const parts = filePath.split(path.sep);
+
+//     if (parts[0] == fsNode.name) {
+//         const child = fsNode.children.find(
+//             (x) => mockGetFileByPath(parts[1], x)
+//         );
+
+//         if (child !== undefined) {
+//             fsNode.children = fsNode.children.filter(
+//                 (x) => mockGetFileByPath(parts[1], x)
+//             );
+//         }
+//     }
+// }
+
+class HydrocMockFsProvider {
+    private mockFsNode: MockFsNode;
+
+    public constructor({
+        mockFsNode
+    }: {
+        mockFsNode: MockFsNode;
+    }) {
+        this.mockFsNode = mockFsNode;
     }
 
-    const program = new Command();
-
-    program.version(sdkPackage.version);
-
-    program
-        .command("sdk-tools")
-        .description(
-            "Download tools required by Hydro-SDK into the given cache directory"
-        )
-        .addOption(
-            new Option(
-                "--tools-version <version>",
-                "The version of SDK tools to download"
-            ).default(sdkPackage.version)
-        )
-        .action(async (options) => {
-            const hydroc = new Hydroc({
-                sdkToolsVersion: options.toolsVersion ?? sdkPackage.version,
-            });
-
-            await hydroc.downloadMissingSdkTools();
-        });
-
-    program
-        .command("ts2hc")
-        .description(
-            "Compile the Typescript file given by --entry-point and all of its dependencies into a bytecode chunk, written to --out-dir"
-        )
-        .addOption(
-            new Option(
-                "--entry-point <entry>",
-                "The file to use as the compilation's entry point"
-            ).makeOptionMandatory()
-        )
-        .addOption(
-            new Option(
-                "--module-name <name>",
-                "The name to use for the output module"
-            ).makeOptionMandatory()
-        )
-        .addOption(
-            new Option(
-                "--out-dir <dir>",
-                "The path to the directory to write the output chunk to"
-            ).makeOptionMandatory()
-        )
-        .addOption(
-            new Option(
-                "--profile <profile>",
-                "The profile to use for compilation"
-            ).makeOptionMandatory()
-        )
-        .addOption(
-            new Option(
-                "--skip-sdk-tools-check",
-                "Skip downloading missing SDK tools"
-            )
-        )
-        .action(async (options) => {
-            const hydroc = new Hydroc({
-                sdkToolsVersion: options.toolsVersion ?? sdkPackage.version,
-            });
-
-            if (!options.skipSdkToolsCheck) {
-                await hydroc.downloadMissingSdkTools();
-            }
-
-            await new Promise((resolve, reject) => {
-                const ts2hc = hydroc.ts2hc({
-                    entryPoint: options.entryPoint,
-                    moduleName: options.moduleName,
-                    outDir: options.outDir,
-                    profile: options.profile,
-                    logger: "stdout",
-                });
-
-                ts2hc.on("exit", (exitCode) =>
-                    exitCode == 0 ? resolve(undefined) : reject(exitCode)
-                );
-            }).catch((err) => process.exit(err));
-        });
-
-    program
-        .command("build")
-        .description("Build the project given by --project")
-        .addOption(
-            new Option(
-                "--project <project>",
-                "The project description to use"
-            ).default("hydro.json")
-        )
-        .addOption(
-            new Option(
-                "--out-dir <out-dir>",
-                "The directory to write build outputs to"
-            ).default("")
-        )
-        .addOption(
-            new Option(
-                "--profile <profile>",
-                "The build profile to use for all chunks in the project"
-            ).default("release")
-        )
-        .action(async (options) => {
-            const hydroc = new Hydroc({
-                sdkToolsVersion: options.toolsVersion ?? sdkPackage.version,
-            });
-
-            await hydroc.downloadMissingSdkTools();
-
-            await new Promise((resolve, reject) => {
-                const buildProject = hydroc.buildProject({
-                    project: options.project,
-                    profile: options.profile,
-                    outDir: options.outDir,
-                    ts2hc: hydroc.makeSdkToolPlatformPath({
-                        toolName: "ts2hc",
-                    }),
-                });
-
-                buildProject.on("exit", (exitCode) =>
-                    exitCode == 0 ? resolve(undefined) : reject(exitCode)
-                );
-            }).catch((err) => process.exit(err));
-        });
-
-    program
-        .command("run")
-        .description("Run the project given by --project")
-        .addOption(
-            new Option(
-                "--project <project>",
-                "The project description to use"
-            ).default("hydro.json")
-        )
-        .action(async (options) => {
-            const hydroc = new Hydroc({
-                sdkToolsVersion: options.toolsVersion ?? sdkPackage.version,
-            });
-
-            await hydroc.downloadMissingSdkTools();
-
-            await new Promise((resolve, reject) => {
-                const runProject = hydroc.runProject({
-                    project: options.project,
-                    ts2hc: hydroc.makeSdkToolPlatformPath({
-                        toolName: "ts2hc",
-                    }),
-                });
-
-                runProject.on("exit", (exitCode) =>
-                    exitCode == 0 ? resolve(undefined) : reject(exitCode)
-                );
-            }).catch((err) => process.exit(err));
-        });
-
-    program
-        .command("codepush")
-        .description("Publish the project given by --project")
-        .addOption(
-            new Option(
-                "--project <project>",
-                "The project description to use"
-            ).default("hydro.json")
-        )
-        .addOption(
-            new Option(
-                "--out-dir <out-dir>",
-                "The directory to write build outputs to"
-            ).default("")
-        )
-        .addOption(
-            new Option(
-                "--profile <profile>",
-                "The build profile to use for all chunks in the project"
-            ).default("release")
-        )
-        .addOption(
-            new Option(
-                "--registry-scheme <registry-scheme>",
-                "The scheme to use when connecting to the registry"
-            ).default("https")
-        )
-        .addOption(
-            new Option(
-                "--registry-host <registry-host>",
-                "The registry host to use"
-            ).default("api.registry.hydro-sdk.io")
-        )
-        .addOption(
-            new Option(
-                "--registry-port <registry-port",
-                "The port to use when connecting to the registry"
-            )
-        )
-        .addOption(
-            new Option(
-                "--private-key-file <private-key-file>",
-                "The path to the key to use to sign the release"
-            ).makeOptionMandatory()
-        )
-        .addOption(
-            new Option(
-                "--channel <channel>",
-                "The channel to publish the release to"
-            ).default("latest")
-        )
-        .addOption(
-            new Option(
-                "--readme <readme>",
-                "The path to the readme (in markdown format) to use for this release"
-            ).default("readme.md")
-        )
-        .addOption(
-            new Option(
-                "--pubspecyaml <pubspecyaml>",
-                "The path to the pubspec.yaml file to use for this release"
-            ).default("pubspec.yaml")
-        )
-        .addOption(
-            new Option(
-                "--pubspeclock <pubspeclock>",
-                "The path to the pubspec.lock file to use for this release"
-            ).default("pubspec.lock")
-        )
-        .addOption(
-            new Option(
-                "--version <version>",
-                "The version name to assign to this release"
-            ).default(new humanhash().uuid().humanhash)
-        )
-        .addOption(
-            new Option(
-                "--trim-key",
-                "Trim leading and trailing whitespace from private key before using it to sign and submit the release"
-            )
-        )
-        .addOption(
-            new Option(
-                "--no-trim-key",
-                "Do not trim leading and trailing whitespace from private key"
-            )
-        )
-        .action(async (options) => {
-            const hydroc = new Hydroc({
-                sdkToolsVersion: options.toolsVersion ?? sdkPackage.version,
-            });
-
-            await hydroc.downloadMissingSdkTools();
-
-            await new Promise((resolve, reject) => {
-                const codepush = hydroc.codepush({
-                    project: options.project,
-                    profile: options.profile,
-                    outDir: options.outDir,
-                    privateKeyFile: options.privateKeyFile,
-                    registryScheme: options.registryScheme,
-                    registryHost: options.registryHost,
-                    registryPort: options.registryPort,
-                    channel: options.channel,
-                    readme: options.readme,
-                    pubspecyaml: options.pubspecyaml,
-                    pubspeclock: options.pubspeclock,
-                    version: options.version,
-                    trimKey:
-                        options.trimKey !== undefined ? options.trimKey : true,
-                    ts2hc: hydroc.makeSdkToolPlatformPath({
-                        toolName: "ts2hc",
-                    }),
-                });
-
-                codepush.on("exit", (exitCode) =>
-                    exitCode == 0 ? resolve(undefined) : reject(exitCode)
-                );
-            }).catch((err) => process.exit(err));
-        });
-    program.parse(process.argv);
-})();
+    public existsSync(path: string | Buffer | URL): boolean {
+        return mockGetFileByPath(path.toString(), this.mockFsNode) !== undefined;
+    }
+}
