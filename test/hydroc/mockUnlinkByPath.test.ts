@@ -3,7 +3,6 @@
 import * as path from "path";
 
 import {
-    MockFsFile,
     MockFsNode,
     MockFsNodeKind,
     mockGetFileByPath,
@@ -21,9 +20,9 @@ test("", async () => {
         },
     };
 
-    mockUnlinkByPath("firstChild", mockFs as any);
+    mockUnlinkByPath("firstChild", mockFs as MockFsNode);
 
-    const res = mockGetFileByPath("firstChild", mockFs as any);
+    const res = mockGetFileByPath("firstChild", mockFs as MockFsNode);
 
     expect(res).toBeUndefined();
 });
