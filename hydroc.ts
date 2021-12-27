@@ -904,19 +904,14 @@ export function mockGetFileByPath(
         switch (fsNode.kind) {
             case MockFsNodeKind.kDirectory:
                 const res = fsNode.children[parts[0]];
-
-                if (res !== undefined) {
+                if (parts.length == 1) {
+                    return res;
+                } else if (res !== undefined) {
                     if (res.kind == MockFsNodeKind.kDirectory) {
-                        const innerChild = mockGetFileByPath(
+                        return mockGetFileByPath(
                             parts.splice(1).join(path.sep),
                             res
                         );
-                        
-                        if (innerChild !== undefined) {
-                            return innerChild;
-                        } else {
-                            return res;
-                        }
                     } else if (res.kind == MockFsNodeKind.kFile) {
                         return res;
                     }
@@ -939,7 +934,7 @@ export function mockUnlinkByPath(filePath: string, fsNode: MockFsNode): void {
 
                 if (res !== undefined) {
                     if (parts.length == 1) {
-                        fsNode.children[parts[0]] = undefined;
+                        delete fsNode.children[parts[0]];
                     } else {
                         return mockUnlinkByPath(
                             parts.splice(1).join(path.sep),
