@@ -961,4 +961,8 @@ class HydrocMockFsProvider {
             mockGetFileByPath(path.toString(), this.mockFsNode) !== undefined
         );
     }
+
+    public unlinkSync(path: string | Buffer | URL): void {
+        return mockUnlinkByPath(path.toString(), this.mockFsNode);
+    }
 }
