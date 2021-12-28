@@ -1,7 +1,5 @@
 (global as any).HYDROC_DISABLE_TOP_LEVEL = true;
 
-import * as path from "path";
-
 import {
     Hydroc,
     HydrocMockChmodProvider,
@@ -79,7 +77,7 @@ test("should successfully download and fail to verify sdk-tool", async () => {
             kind: MockFsNodeKind.kDirectory,
             children: {},
         } as MockFsNode,
-        pathSeparator: path.sep as "\\" | "/",
+        pathSeparator:  "/",
     });
 
     const logger = new HydrocMockLogger();
@@ -91,7 +89,7 @@ test("should successfully download and fail to verify sdk-tool", async () => {
         fsProvider: mockOutputFileSystem,
         chmodProvider: new HydrocMockChmodProvider({
             mockFsNode: mockOutputFileSystem.mockFsNode,
-            pathSeparator: path.sep as "\\" | "/",
+            pathSeparator: "/",
         }),
         logger: logger,
         targetPlatform: TargetPlatform.darwinx64,
