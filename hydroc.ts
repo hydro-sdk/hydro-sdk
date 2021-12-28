@@ -453,11 +453,25 @@ export class Hydroc {
                 strict(expectedSha256.length > 0);
 
                 if (missingSdkToolSha256.trim() != expectedSha256.trim()) {
-                    throw new Error(
-                        `Could not verify integrity of SDK-tool ${missingSdkTool}\n` +
-                        `Got ${missingSdkToolSha256}\n` +
-                        `expected ${expectedSha256}\n`
+                    this.logger.log(`Could not verify integrity of SDK-tool ${missingSdkTool}`);
+                    this.logger.log(`Got ${missingSdkToolSha256}`);
+                    this.logger.log(`expected ${expectedSha256}`);
+
+                    this.fsProvider.unlinkSync(
+                        `${this.sdkToolsDir}${path.sep
+                        }${this.makeSdkToolSha256Name({
+                            toolName: missingSdkTool,
+                        })}`
                     );
+
+                    this.fsProvider.unlinkSync(
+                        `${this.sdkToolsDir}${path.sep
+                        }${this.makeSdkToolPlatformName({
+                            toolName: missingSdkTool,
+                        })}`
+                    );
+
+                    throw new Error("Failed to verify integrity");
                 } else {
                     this.fsProvider.unlinkSync(
                         `${this.sdkToolsDir}${path.sep
@@ -968,9 +982,11 @@ if (!disableTopLevel) {
 }
 
 export class HydrocMockLogger implements IHydrocLogger {
-    public readonly loggedLines: Array<string> = [];
+    public readonly loggedLines: Array<string>;
 
-    public constructor() { }
+    public constructor() {
+        this.loggedLines = new Array<string>();
+    }
 
     public log(str: string) {
         this.loggedLines.push(str);
