@@ -49,7 +49,7 @@ test("", async () => {
                 children: {
                     "file.txt": {
                         kind: MockFsNodeKind.kFile,
-                        fileMode:"",
+                        fileMode: "",
                         content: "",
                     },
                 },
@@ -67,7 +67,7 @@ test("", async () => {
                 children: {
                     firstFile: {
                         kind: MockFsNodeKind.kFile,
-                        fileMode:"",
+                        fileMode: "",
                         content: "the first file",
                     },
                     secondDirectory: {
@@ -75,7 +75,7 @@ test("", async () => {
                         children: {
                             secondFile: {
                                 kind: MockFsNodeKind.kFile,
-                                fileMode:"",
+                                fileMode: "",
                                 content: "the second file",
                             },
                         },
@@ -99,7 +99,7 @@ test("", async () => {
                 children: {
                     firstFile: {
                         kind: MockFsNodeKind.kFile,
-                        fileMode:"",
+                        fileMode: "",
                         content: "the first file",
                     },
                     secondDirectory: {
@@ -107,12 +107,12 @@ test("", async () => {
                         children: {
                             secondFile: {
                                 kind: MockFsNodeKind.kFile,
-                                fileMode:"",
+                                fileMode: "",
                                 content: "the second file",
                             },
                             thirdFile: {
                                 kind: MockFsNodeKind.kFile,
-                                fileMode:"",
+                                fileMode: "",
                                 content: "",
                             },
                         },
