@@ -20,19 +20,19 @@ function sha256({
     input,
 }: {
     input:
-        | string
-        | Uint8Array
-        | Uint8ClampedArray
-        | Uint16Array
-        | Uint32Array
-        | Int8Array
-        | Int16Array
-        | Int32Array
-        | BigUint64Array
-        | BigInt64Array
-        | Float32Array
-        | Float64Array
-        | DataView;
+    | string
+    | Uint8Array
+    | Uint8ClampedArray
+    | Uint16Array
+    | Uint32Array
+    | Int8Array
+    | Int16Array
+    | Int32Array
+    | BigUint64Array
+    | BigInt64Array
+    | Float32Array
+    | Float64Array
+    | DataView;
 }): Readonly<string> {
     const hash = crypto.createHash("sha256");
     hash.update(input);
@@ -67,27 +67,27 @@ export interface IHydrocFsProvider {
             | "binary"
             | "hex"
             | {
-                  flags?: string | undefined;
-                  encoding?:
-                      | "ascii"
-                      | "utf8"
-                      | "utf-8"
-                      | "utf16le"
-                      | "ucs2"
-                      | "ucs-2"
-                      | "base64"
-                      | "base64url"
-                      | "latin1"
-                      | "binary"
-                      | "hex"
-                      | undefined;
-                  mode?: number | undefined;
-                  autoClose?: boolean | undefined;
+                flags?: string | undefined;
+                encoding?:
+                | "ascii"
+                | "utf8"
+                | "utf-8"
+                | "utf16le"
+                | "ucs2"
+                | "ucs-2"
+                | "base64"
+                | "base64url"
+                | "latin1"
+                | "binary"
+                | "hex"
+                | undefined;
+                mode?: number | undefined;
+                autoClose?: boolean | undefined;
 
-                  emitClose?: boolean | undefined;
-                  start?: number | undefined;
-                  highWaterMark?: number | undefined;
-              }
+                emitClose?: boolean | undefined;
+                start?: number | undefined;
+                highWaterMark?: number | undefined;
+            }
     ) => {
         on: (event: "close", listener: () => void) => {};
     };
@@ -103,17 +103,21 @@ export interface IHydrocFsProvider {
 export interface IHydroGhReleasesFilesProvider {
     getFile: (url: string) => Promise<
         | {
-              totalLength: () => string;
-              on(
-                  event: "data" | "end",
-                  listener: (chunk?: Array<number>) => void
-              ): void;
-              pipe: (writer: {
-                  on: (event: "close", listener: () => void) => {};
-              }) => void;
-          }
+            totalLength: () => string;
+            on(
+                event: "data" | "end",
+                listener: (chunk?: Array<number>) => void
+            ): void;
+            pipe: (writer: {
+                on: (event: "close", listener: () => void) => {};
+            }) => void;
+        }
         | undefined
     >;
+}
+
+export interface IHydrocChmodProvider {
+    setExecutableBit: (path: string) => Promise<number | void | undefined>;
 }
 
 export class Hydroc {
@@ -122,6 +126,7 @@ export class Hydroc {
     public readonly sdkToolsVersion: string;
     public readonly fsProvider: IHydrocFsProvider;
     public readonly ghFilesProvider: IHydroGhReleasesFilesProvider;
+    public readonly chmodProvider: IHydrocChmodProvider;
 
     public readonly sdkTools: Array<string>;
 
@@ -150,7 +155,7 @@ export class Hydroc {
                     return {
                         totalLength: () =>
                             this.axiosPromise?.headers[
-                                "content-length"
+                            "content-length"
                             ] as string,
                         on: (
                             event: "data" | "end",
@@ -182,6 +187,22 @@ export class Hydroc {
                 }
             }
         })(),
+        chmodProvider = new (class {
+            public async setExecutableBit(path: string): Promise<number | void | undefined> {
+                return await new Promise<number | undefined>((resolve, reject) => {
+                    const chmod = cp.spawn("chmod", [
+                        "+x",
+                        path,
+                    ]);
+
+                    chmod.on("exit", (exitCode) =>
+                        exitCode == 0 ? resolve(undefined) : reject(exitCode)
+                    );
+                }).catch((err) =>
+                    console.log(err)
+                );
+            }
+        }),
         sdkTools = [
             "hc2Dart",
             "ts2hc",
@@ -195,6 +216,7 @@ export class Hydroc {
         sdkToolsVersion: string;
         fsProvider?: IHydrocFsProvider;
         ghFilesProvider?: IHydroGhReleasesFilesProvider;
+        chmodProvider?: IHydrocChmodProvider;
         sdkTools?: Array<string>;
     }) {
         strict(sdkToolsVersion !== undefined && sdkToolsVersion !== "");
@@ -205,6 +227,7 @@ export class Hydroc {
         this.sdkToolsVersion = sdkToolsVersion;
         this.fsProvider = fsProvider;
         this.ghFilesProvider = ghFilesProvider;
+        this.chmodProvider = chmodProvider;
         this.sdkTools = sdkTools;
     }
 
@@ -219,9 +242,8 @@ export class Hydroc {
     }: {
         toolName: string;
     }): Readonly<string> {
-        return `${toolName}-${process.platform}-${process.arch}${
-            process.platform == "win32" ? ".exe" : ""
-        }`;
+        return `${toolName}-${process.platform}-${process.arch}${process.platform == "win32" ? ".exe" : ""
+            }`;
     }
 
     public makeSdkToolSha256Name({
@@ -260,8 +282,7 @@ export class Hydroc {
         return this.sdkTools
             .map((x) =>
                 !this.fsProvider.existsSync(
-                    `${this.sdkToolsDir}${
-                        path.sep
+                    `${this.sdkToolsDir}${path.sep
                     }${this.makeSdkToolPlatformName({ toolName: x })}`
                 )
                     ? x
@@ -281,11 +302,10 @@ export class Hydroc {
             for (let i = 0; i != missingSdkTools.length; ++i) {
                 const missingSdkTool = missingSdkTools[i];
                 await new Promise(async (resolve) => {
-                    const url = `https://github.com/hydro-sdk/hydro-sdk/releases/download/${
-                        this.sdkToolsVersion
-                    }/${this.makeSdkToolPlatformName({
-                        toolName: missingSdkTool,
-                    })}`;
+                    const url = `https://github.com/hydro-sdk/hydro-sdk/releases/download/${this.sdkToolsVersion
+                        }/${this.makeSdkToolPlatformName({
+                            toolName: missingSdkTool,
+                        })}`;
 
                     const filePromise = await this.ghFilesProvider.getFile(url);
 
@@ -305,8 +325,7 @@ export class Hydroc {
                     );
 
                     const writer = this.fsProvider.createWriteStream(
-                        `${this.sdkToolsDir}${
-                            path.sep
+                        `${this.sdkToolsDir}${path.sep
                         }${this.makeSdkToolPlatformName({
                             toolName: missingSdkTool,
                         })}`
@@ -322,11 +341,10 @@ export class Hydroc {
             for (let i = 0; i != missingSdkTools.length; ++i) {
                 const missingSdkTool = missingSdkTools[i];
                 await new Promise(async (resolve) => {
-                    const url = `https://github.com/hydro-sdk/hydro-sdk/releases/download/${
-                        this.sdkToolsVersion
-                    }/${this.makeSdkToolSha256Name({
-                        toolName: missingSdkTool,
-                    })}`;
+                    const url = `https://github.com/hydro-sdk/hydro-sdk/releases/download/${this.sdkToolsVersion
+                        }/${this.makeSdkToolSha256Name({
+                            toolName: missingSdkTool,
+                        })}`;
 
                     const filePromise = await this.ghFilesProvider.getFile(url);
 
@@ -346,8 +364,7 @@ export class Hydroc {
                     );
 
                     const writer = this.fsProvider.createWriteStream(
-                        `${this.sdkToolsDir}${
-                            path.sep
+                        `${this.sdkToolsDir}${path.sep
                         }${this.makeSdkToolSha256Name({
                             toolName: missingSdkTool,
                         })}`
@@ -362,8 +379,7 @@ export class Hydroc {
 
                 const missingSdkToolSha256 = sha256({
                     input: this.fsProvider.readFileSync(
-                        `${this.sdkToolsDir}${
-                            path.sep
+                        `${this.sdkToolsDir}${path.sep
                         }${this.makeSdkToolPlatformName({
                             toolName: missingSdkTool,
                         })}`
@@ -372,23 +388,23 @@ export class Hydroc {
 
                 const expectedSha256 = this.fsProvider
                     .readFileSync(
-                        `${this.sdkToolsDir}${
-                            path.sep
+                        `${this.sdkToolsDir}${path.sep
                         }${this.makeSdkToolSha256Name({
                             toolName: missingSdkTool,
                         })}`
                     )
                     .toString();
+                strict(expectedSha256.length > 0);
 
-                if (missingSdkToolSha256 != expectedSha256) {
+                if (missingSdkToolSha256.trim() != expectedSha256.trim()) {
                     throw new Error(
                         `Could not verify integrity of SDK-tool ${missingSdkTool}\n` +
-                            `Got ${missingSdkToolSha256} but expected ${expectedSha256}\n`
+                        `Got ${missingSdkToolSha256}\n` +
+                        `expected ${expectedSha256}\n`
                     );
                 } else {
                     this.fsProvider.unlinkSync(
-                        `${this.sdkToolsDir}${
-                            path.sep
+                        `${this.sdkToolsDir}${path.sep
                         }${this.makeSdkToolSha256Name({
                             toolName: missingSdkTool,
                         })}`
@@ -413,16 +429,9 @@ export class Hydroc {
         toolName: string;
     }): Promise<void> {
         if (process.platform == "darwin" || process.platform == "linux") {
-            await new Promise((resolve, reject) => {
-                const chmod = cp.spawn("chmod", [
-                    "+x",
-                    this.makeSdkToolPlatformPath({ toolName }),
-                ]);
-
-                chmod.on("exit", (exitCode) =>
-                    exitCode == 0 ? resolve(undefined) : reject(exitCode)
-                );
-            }).catch((err) => process.exit(err));
+            await this.chmodProvider.setExecutableBit(
+                this.makeSdkToolPlatformPath({ toolName })
+            );
         }
     }
 
@@ -592,8 +601,8 @@ async function readSdkPackage({
     fsProvider?: Readonly<Pick<IHydrocFsProvider, "readFileSync">>;
 }): Promise<
     | Readonly<{
-          version: string;
-      }>
+        version: string;
+    }>
     | undefined
 > {
     try {
@@ -909,6 +918,7 @@ export enum MockFsNodeKind {
 
 export type MockFsFile = {
     kind: MockFsNodeKind.kFile;
+    fileMode: string;
     content: string | Buffer;
 };
 
@@ -1051,6 +1061,7 @@ export function mockMkFile(
             case MockFsNodeKind.kDirectory:
                 parentDir.children[parts[parts.length - 1]] = {
                     kind: MockFsNodeKind.kFile,
+                    fileMode: "",
                     content: "",
                 } as MockFsFile;
                 break;
@@ -1061,7 +1072,7 @@ export function mockMkFile(
 }
 
 export class HydrocMockFsProvider implements IHydrocFsProvider {
-    private readonly mockFsNode: MockFsNode;
+    public readonly mockFsNode: MockFsNode;
     public readonly pathSeparator: "\\" | "/";
 
     public constructor({
@@ -1151,35 +1162,38 @@ export class HydrocMockFsProvider implements IHydrocFsProvider {
             | "binary"
             | "hex"
             | {
-                  flags?: string | undefined;
-                  encoding?:
-                      | "ascii"
-                      | "utf8"
-                      | "utf-8"
-                      | "utf16le"
-                      | "ucs2"
-                      | "ucs-2"
-                      | "base64"
-                      | "base64url"
-                      | "latin1"
-                      | "binary"
-                      | "hex"
-                      | undefined;
-                  mode?: number | undefined;
-                  autoClose?: boolean | undefined;
+                flags?: string | undefined;
+                encoding?:
+                | "ascii"
+                | "utf8"
+                | "utf-8"
+                | "utf16le"
+                | "ucs2"
+                | "ucs-2"
+                | "base64"
+                | "base64url"
+                | "latin1"
+                | "binary"
+                | "hex"
+                | undefined;
+                mode?: number | undefined;
+                autoClose?: boolean | undefined;
 
-                  emitClose?: boolean | undefined;
-                  start?: number | undefined;
-                  highWaterMark?: number | undefined;
-              }
+                emitClose?: boolean | undefined;
+                start?: number | undefined;
+                highWaterMark?: number | undefined;
+            }
     ): {
         on: (event: "close", listener: () => void) => {};
     } {
         mockMkFile(path.toString(), this.mockFsNode, this.pathSeparator);
 
-        const file = this.readFileSync(path.toString());
+        const file = mockGetFileByPath(path.toString(), this.mockFsNode, this.pathSeparator);
 
-        const writable = new WritableString(file.toString());
+        strict(file !== undefined);
+        strict(file?.kind == MockFsNodeKind.kFile);
+
+        const writable = new WritableMockFile(file);
 
         return writable;
     }
@@ -1249,27 +1263,27 @@ export class HydrocMockGhReleasesFsProvider extends HydrocMockFsProvider {
             | "binary"
             | "hex"
             | {
-                  flags?: string | undefined;
-                  encoding?:
-                      | "ascii"
-                      | "utf8"
-                      | "utf-8"
-                      | "utf16le"
-                      | "ucs2"
-                      | "ucs-2"
-                      | "base64"
-                      | "base64url"
-                      | "latin1"
-                      | "binary"
-                      | "hex"
-                      | undefined;
-                  mode?: number | undefined;
-                  autoClose?: boolean | undefined;
+                flags?: string | undefined;
+                encoding?:
+                | "ascii"
+                | "utf8"
+                | "utf-8"
+                | "utf16le"
+                | "ucs2"
+                | "ucs-2"
+                | "base64"
+                | "base64url"
+                | "latin1"
+                | "binary"
+                | "hex"
+                | undefined;
+                mode?: number | undefined;
+                autoClose?: boolean | undefined;
 
-                  emitClose?: boolean | undefined;
-                  start?: number | undefined;
-                  highWaterMark?: number | undefined;
-              }
+                emitClose?: boolean | undefined;
+                start?: number | undefined;
+                highWaterMark?: number | undefined;
+            }
     ): {
         on: (event: "close", listener: () => void) => {};
     } {
@@ -1281,8 +1295,7 @@ export class HydrocMockGhReleasesFsProvider extends HydrocMockFsProvider {
 }
 
 export class HydrocMockGhReleasesFileProvider
-    implements IHydroGhReleasesFilesProvider
-{
+    implements IHydroGhReleasesFilesProvider {
     private fsProvider: IHydrocFsProvider;
 
     public constructor({ fsProvider }: { fsProvider: IHydrocFsProvider }) {
@@ -1291,15 +1304,15 @@ export class HydrocMockGhReleasesFileProvider
 
     public async getFile(url: string): Promise<
         | {
-              totalLength: () => string;
-              on(
-                  event: "data" | "end",
-                  listener: (chunk?: Array<number>) => void
-              ): void;
-              pipe: (writer: {
-                  on: (event: "close", listener: () => void) => {};
-              }) => void;
-          }
+            totalLength: () => string;
+            on(
+                event: "data" | "end",
+                listener: (chunk?: Array<number>) => void
+            ): void;
+            pipe: (writer: {
+                on: (event: "close", listener: () => void) => {};
+            }) => void;
+        }
         | undefined
     > {
         const file = this.fsProvider.readFileSync(url);
@@ -1314,6 +1327,36 @@ export class HydrocMockGhReleasesFileProvider
                 on: (event: "close", listener: () => void) => {};
             }) => readable.pipe(writer as any),
         };
+    }
+}
+
+export class HydrocMockChmodProvider implements IHydrocChmodProvider {
+    public readonly mockFsNode: MockFsNode;
+    public readonly pathSeparator: "\\" | "/";
+
+
+    public constructor({
+        mockFsNode,
+        pathSeparator,
+    }: {
+        mockFsNode: MockFsNode;
+        pathSeparator: "\\" | "/";
+    }) {
+        this.mockFsNode = mockFsNode;
+        this.pathSeparator = pathSeparator;
+    }
+
+    public async setExecutableBit(path: string): Promise<number | void | undefined> {
+        return await new Promise<number | undefined>((resolve) => {
+            const file = mockGetFileByPath(path, this.mockFsNode, this.pathSeparator);
+
+            strict(file !== undefined);
+            strict(file.kind == MockFsNodeKind.kFile);
+
+            file.fileMode += "+x";
+
+            return resolve(undefined);
+        });
     }
 }
 
@@ -1333,7 +1376,6 @@ class ReadableString extends Readable {
         }
     }
 }
-
 class WritableString extends Writable {
     private sent = false;
 
@@ -1348,5 +1390,16 @@ class WritableString extends Writable {
         } else {
             this.write(null);
         }
+    }
+}
+
+class WritableMockFile extends Writable {
+    constructor(private mockFsFile: MockFsFile) {
+        super();
+    }
+
+    _write(chunk: any) {
+        this.mockFsFile.content = chunk.toString();
+        this.write(chunk);
     }
 }

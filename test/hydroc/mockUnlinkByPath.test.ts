@@ -15,6 +15,7 @@ test("", async () => {
         children: {
             firstChild: {
                 kind: MockFsNodeKind.kFile,
+                fileMode:"",
                 content: "a child",
             },
         },
@@ -44,6 +45,7 @@ test("", async () => {
                 children: {
                     firstChild: {
                         kind: MockFsNodeKind.kFile,
+                        fileMode:"",
                         content: "a child",
                     },
                 },
