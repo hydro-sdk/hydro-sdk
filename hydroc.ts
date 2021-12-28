@@ -99,16 +99,19 @@ export interface IHydrocFsProvider {
 }
 
 export interface IHydroGhReleasesFilesProvider {
-    getFile: (url: string) => Promise<{
-        totalLength: () => string;
-        on(
-            event: "data" | "end",
-            listener: (chunk?: Array<number>) => void
-        ): void;
-        pipe: (writer: {
-            on: (event: "close", listener: () => void) => {};
-        }) => void;
-    }>;
+    getFile: (url: string) => Promise<
+        | {
+              totalLength: () => string;
+              on(
+                  event: "data" | "end",
+                  listener: (chunk?: Array<number>) => void
+              ): void;
+              pipe: (writer: {
+                  on: (event: "close", listener: () => void) => {};
+              }) => void;
+          }
+        | undefined
+    >;
 }
 
 export class Hydroc {
@@ -134,36 +137,46 @@ export class Hydroc {
             private axiosPromise: AxiosResponse<unknown> | undefined;
 
             public async getFile(url: string) {
-                this.axiosPromise = await Axios({
-                    url,
-                    method: "GET",
-                    responseType: "stream",
-                });
+                try {
+                    this.axiosPromise = await Axios({
+                        url,
+                        method: "GET",
+                        responseType: "stream",
+                    });
 
-                return {
-                    totalLength: () =>
-                        this.axiosPromise?.headers["content-length"] as string,
-                    on: (
-                        event: "data" | "end",
-                        listener: (chunk?: Array<number>) => void
-                    ) => {
-                        if (event == "data") {
-                            (this.axiosPromise?.data as any).on(
-                                "data",
-                                (chunk: any) => {
-                                    listener(chunk);
-                                }
-                            );
-                        } else if (event == "end") {
-                            (this.axiosPromise?.data as any).on("end", () => {
-                                listener();
-                            });
-                        }
-                    },
-                    pipe: (writer: {
-                        on: (event: "close", listener: () => void) => {};
-                    }) => (this.axiosPromise?.data as any).pipe(writer),
-                };
+                    return {
+                        totalLength: () =>
+                            this.axiosPromise?.headers[
+                                "content-length"
+                            ] as string,
+                        on: (
+                            event: "data" | "end",
+                            listener: (chunk?: Array<number>) => void
+                        ) => {
+                            if (event == "data") {
+                                (this.axiosPromise?.data as any).on(
+                                    "data",
+                                    (chunk: any) => {
+                                        listener(chunk);
+                                    }
+                                );
+                            } else if (event == "end") {
+                                (this.axiosPromise?.data as any).on(
+                                    "end",
+                                    () => {
+                                        listener();
+                                    }
+                                );
+                            }
+                        },
+                        pipe: (writer: {
+                            on: (event: "close", listener: () => void) => {};
+                        }) => (this.axiosPromise?.data as any).pipe(writer),
+                    };
+                } catch (err) {
+                    console.error(err);
+                    return undefined;
+                }
             }
         })(),
         sdkTools = [
@@ -273,7 +286,7 @@ export class Hydroc {
 
                     const filePromise = await this.ghFilesProvider.getFile(url);
 
-                    const totalLength = filePromise.totalLength();
+                    const totalLength = filePromise?.totalLength();
 
                     const progressBar = new ProgressBar(
                         `    -> ${this.makeSdkToolPlatformName({
@@ -284,7 +297,7 @@ export class Hydroc {
                             complete: "=",
                             incomplete: " ",
                             renderThrottle: 1,
-                            total: parseInt(totalLength),
+                            total: parseInt(totalLength ?? "0"),
                         }
                     );
 
@@ -296,11 +309,11 @@ export class Hydroc {
                         })}`
                     );
 
-                    filePromise.on("data", (chunk: any) =>
+                    filePromise?.on("data", (chunk: any) =>
                         progressBar.tick(chunk.length)
                     );
-                    filePromise.on("end", () => resolve(undefined));
-                    filePromise.pipe(writer);
+                    filePromise?.on("end", () => resolve(undefined));
+                    filePromise?.pipe(writer);
                 });
             }
             for (let i = 0; i != missingSdkTools.length; ++i) {
@@ -314,7 +327,7 @@ export class Hydroc {
 
                     const filePromise = await this.ghFilesProvider.getFile(url);
 
-                    const totalLength = filePromise.totalLength();
+                    const totalLength = filePromise?.totalLength();
 
                     const progressBar = new ProgressBar(
                         `    -> ${this.makeSdkToolPlatformName({
@@ -325,7 +338,7 @@ export class Hydroc {
                             complete: "=",
                             incomplete: " ",
                             renderThrottle: 1,
-                            total: parseInt(totalLength),
+                            total: parseInt(totalLength ?? "0"),
                         }
                     );
 
@@ -337,11 +350,11 @@ export class Hydroc {
                         })}`
                     );
 
-                    filePromise.on("data", (chunk: any) =>
+                    filePromise?.on("data", (chunk: any) =>
                         progressBar.tick(chunk.length)
                     );
-                    filePromise.on("end", () => resolve(undefined));
-                    filePromise.pipe(writer);
+                    filePromise?.on("end", () => resolve(undefined));
+                    filePromise?.pipe(writer);
                 });
 
                 const missingSdkToolSha256 = sha256({
