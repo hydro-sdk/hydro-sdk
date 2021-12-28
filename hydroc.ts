@@ -275,11 +275,13 @@ export class Hydroc {
     }) {
         strict(sdkToolsVersion !== undefined && sdkToolsVersion !== "");
 
-        this.cacheDir = `.hydroc${path.sep}${sdkToolsVersion}`;
-        this.sdkToolsDir = `${this.cacheDir}${path.sep}sdk-tools`;
+        this.fsProvider = fsProvider;
+
+        this.cacheDir = `.hydroc${this.fsProvider.pathSeparator}${sdkToolsVersion}`;
+        this.sdkToolsDir = `${this.cacheDir}${this.fsProvider.pathSeparator}sdk-tools`;
 
         this.sdkToolsVersion = sdkToolsVersion;
-        this.fsProvider = fsProvider;
+
         this.ghFilesProvider = ghFilesProvider;
         this.chmodProvider = chmodProvider;
         this.logger = logger;
@@ -327,7 +329,7 @@ export class Hydroc {
     }: {
         toolName: string;
     }): Readonly<string> {
-        return `${this.sdkToolsDir}${path.sep}${this.makeSdkToolPlatformName({
+        return `${this.sdkToolsDir}${this.fsProvider.pathSeparator}${this.makeSdkToolPlatformName({
             toolName,
         })}`;
     }
@@ -338,7 +340,7 @@ export class Hydroc {
         return this.sdkTools
             .map((x) =>
                 !this.fsProvider.existsSync(
-                    `${this.sdkToolsDir}${path.sep
+                    `${this.sdkToolsDir}${this.fsProvider.pathSeparator
                     }${this.makeSdkToolPlatformName({ toolName: x })}`
                 )
                     ? x
@@ -381,7 +383,7 @@ export class Hydroc {
                     );
 
                     const writer = this.fsProvider.createWriteStream(
-                        `${this.sdkToolsDir}${path.sep
+                        `${this.sdkToolsDir}${this.fsProvider.pathSeparator
                         }${this.makeSdkToolPlatformName({
                             toolName: missingSdkTool,
                         })}`
@@ -420,7 +422,7 @@ export class Hydroc {
                     );
 
                     const writer = this.fsProvider.createWriteStream(
-                        `${this.sdkToolsDir}${path.sep
+                        `${this.sdkToolsDir}${this.fsProvider.pathSeparator
                         }${this.makeSdkToolSha256Name({
                             toolName: missingSdkTool,
                         })}`
@@ -435,7 +437,7 @@ export class Hydroc {
 
                 const missingSdkToolSha256 = sha256({
                     input: this.fsProvider.readFileSync(
-                        `${this.sdkToolsDir}${path.sep
+                        `${this.sdkToolsDir}${this.fsProvider.pathSeparator
                         }${this.makeSdkToolPlatformName({
                             toolName: missingSdkTool,
                         })}`
@@ -444,7 +446,7 @@ export class Hydroc {
 
                 const expectedSha256 = this.fsProvider
                     .readFileSync(
-                        `${this.sdkToolsDir}${path.sep
+                        `${this.sdkToolsDir}${this.fsProvider.pathSeparator
                         }${this.makeSdkToolSha256Name({
                             toolName: missingSdkTool,
                         })}`
@@ -458,14 +460,14 @@ export class Hydroc {
                     this.logger.log(`expected ${expectedSha256}`);
 
                     this.fsProvider.unlinkSync(
-                        `${this.sdkToolsDir}${path.sep
+                        `${this.sdkToolsDir}${this.fsProvider.pathSeparator
                         }${this.makeSdkToolSha256Name({
                             toolName: missingSdkTool,
                         })}`
                     );
 
                     this.fsProvider.unlinkSync(
-                        `${this.sdkToolsDir}${path.sep
+                        `${this.sdkToolsDir}${this.fsProvider.pathSeparator
                         }${this.makeSdkToolPlatformName({
                             toolName: missingSdkTool,
                         })}`
@@ -474,7 +476,7 @@ export class Hydroc {
                     throw new Error("Failed to verify integrity");
                 } else {
                     this.fsProvider.unlinkSync(
-                        `${this.sdkToolsDir}${path.sep
+                        `${this.sdkToolsDir}${this.fsProvider.pathSeparator
                         }${this.makeSdkToolSha256Name({
                             toolName: missingSdkTool,
                         })}`
@@ -665,10 +667,11 @@ async function readSdkPackage({
     directory,
     fsProvider = {
         readFileSync: (path, options) => fs.readFileSync(path, options),
+        pathSeparator: path.sep as "\\" | "/",
     },
 }: {
     directory: string;
-    fsProvider?: Readonly<Pick<IHydrocFsProvider, "readFileSync">>;
+    fsProvider?: Readonly<Pick<IHydrocFsProvider, "readFileSync" | "pathSeparator">>;
 }): Promise<
     | Readonly<{
         version: string;
@@ -678,7 +681,7 @@ async function readSdkPackage({
     try {
         return JSON.parse(
             fsProvider
-                .readFileSync(`${directory}${path.sep}package.json`)
+                .readFileSync(`${directory}${fsProvider.pathSeparator}package.json`)
                 .toString()
         );
     } catch (err) {

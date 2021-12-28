@@ -98,9 +98,9 @@ test("should successfully download and fail to verify sdk-tool", async () => {
     await expect(async () =>
         await hydroc.downloadMissingSdkTools()).rejects.toThrow("Failed to verify integrity");
 
-    expect(logger.loggedLines[0]).toBe("Downloading Hydro-SDK tools version 1.2.3 to .hydroc/1.2.3/sdk-tools");
+    expect(logger.loggedLines[0]).toBe("Downloading Hydro-SDK tools version 1.2.3 to .hydroc\\1.2.3\\sdk-tools");
     expect(logger.loggedLines[1]).toBe("Could not verify integrity of SDK-tool mock-tool");
-    expect(logger.loggedLines[2]).toBe("Got 08349b6a0fe6c070e30bf1767accfa8c3e94706625e815fc959e9bfd46c20c58");
+    expect(logger.loggedLines[2]).toBe("Got f7ac22caf03fc45fb095533cdbdd9cd9cfc659cf780f1ce834f7f6dee48e85a3");
     expect(logger.loggedLines[3]).toBe("expected garbage-08349b6a0fe6c070e30bf1767accfa8c3e94706625e815fc959e9bfd46c20c58");
 
     expect(mockOutputFileSystem.mockFsNode).toStrictEqual({

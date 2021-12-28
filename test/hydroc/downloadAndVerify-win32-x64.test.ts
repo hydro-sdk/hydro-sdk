@@ -77,7 +77,7 @@ test("should successfully download, verify sdk-tool", async () => {
             kind: MockFsNodeKind.kDirectory,
             children: {},
         } as MockFsNode,
-        pathSeparator: "\\" ,
+        pathSeparator: "\\",
     });
 
     const logger = new HydrocMockLogger();
@@ -97,7 +97,7 @@ test("should successfully download, verify sdk-tool", async () => {
 
     await hydroc.downloadMissingSdkTools();
 
-    expect(logger.loggedLines[0]).toBe("Downloading Hydro-SDK tools version 1.2.3 to .hydroc/1.2.3/sdk-tools");
+    expect(logger.loggedLines[0]).toBe("Downloading Hydro-SDK tools version 1.2.3 to .hydroc\\1.2.3\\sdk-tools");
 
     expect(mockOutputFileSystem.mockFsNode).toMatchObject({
         kind: MockFsNodeKind.kDirectory,
