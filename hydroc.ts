@@ -75,7 +75,7 @@ export function makeTargetDoubleName(targetPlatform: TargetPlatform): string {
     }
 }
 
-function sha256({
+export function sha256({
     input,
 }: {
     input:
