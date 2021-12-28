@@ -10,9 +10,10 @@ import {
     HydrocMockGhReleasesFsProvider,
     MockFsNode,
     MockFsNodeKind,
+    TargetPlatform,
 } from "../../hydroc";
 
-test("should successfully download and verify sdk-tool", async () => {
+test("should successfully download, verify and set-executable bit on sdk-tool", async () => {
     const mockGhFsProvider = new HydrocMockGhReleasesFsProvider({
         mockFsNode: {
             kind: MockFsNodeKind.kDirectory,
@@ -36,21 +37,21 @@ test("should successfully download and verify sdk-tool", async () => {
                                                             kind: MockFsNodeKind.kDirectory,
                                                             children: {
                                                                 "mock-tool-darwin-x64":
-                                                                    {
-                                                                        kind: MockFsNodeKind.kFile,
-                                                                        fileMode:
-                                                                            "",
-                                                                        content:
-                                                                            "this is mock-tool-darwin-x64",
-                                                                    },
+                                                                {
+                                                                    kind: MockFsNodeKind.kFile,
+                                                                    fileMode:
+                                                                        "",
+                                                                    content:
+                                                                        "this is mock-tool-darwin-x64",
+                                                                },
                                                                 "mock-tool-darwin-x64.sha256":
-                                                                    {
-                                                                        kind: MockFsNodeKind.kFile,
-                                                                        fileMode:
-                                                                            "",
-                                                                        content:
-                                                                            "08349b6a0fe6c070e30bf1767accfa8c3e94706625e815fc959e9bfd46c20c58",
-                                                                    },
+                                                                {
+                                                                    kind: MockFsNodeKind.kFile,
+                                                                    fileMode:
+                                                                        "",
+                                                                    content:
+                                                                        "08349b6a0fe6c070e30bf1767accfa8c3e94706625e815fc959e9bfd46c20c58",
+                                                                },
                                                             },
                                                         },
                                                     },
@@ -89,6 +90,7 @@ test("should successfully download and verify sdk-tool", async () => {
             mockFsNode: mockOutputFileSystem.mockFsNode,
             pathSeparator: path.sep as "\\" | "/",
         }),
+        targetPlatform: TargetPlatform.darwinx64,
     });
 
     await hydroc.downloadMissingSdkTools();
