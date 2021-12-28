@@ -6,8 +6,8 @@ import {
     MockFsNode,
     MockFsNodeKind,
     mockGetFileByPath,
-    mockMkdir,
     mockMkFile,
+    mockMkdir,
 } from "../../hydroc";
 
 test("", async () => {
@@ -24,7 +24,10 @@ test("", async () => {
     expect(root).toBeDefined();
     expect(root?.kind).toBe(MockFsNodeKind.kDirectory);
 
-    const file = mockGetFileByPath(`root${path.sep}file.txt`, mockFs as MockFsNode);
+    const file = mockGetFileByPath(
+        `root${path.sep}file.txt`,
+        mockFs as MockFsNode
+    );
 
     expect(file).toBeDefined();
     expect(file?.kind).toBe(MockFsNodeKind.kFile);
@@ -38,7 +41,7 @@ test("", async () => {
                     "file.txt": {
                         kind: MockFsNodeKind.kFile,
                         content: "",
-                    }
+                    },
                 },
             },
         },
