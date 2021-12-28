@@ -1,6 +1,8 @@
+(global as any).HYDROC_DISABLE_TOP_LEVEL = true;
+
 import * as fs from "fs";
 import * as path from "path";
-(global as any).HYDROC_DISABLE_TOP_LEVEL = true;
+
 import { sha256 } from "./../hydroc";
 
 (async () => {
@@ -17,8 +19,11 @@ import { sha256 } from "./../hydroc";
     });
 
     for (let sdkTool of sdkTools) {
-        fs.writeFileSync(`${outputFolder}${path.sep}${sdkTool}.sha256`,
-            sha256({ input: fs.readFileSync(`${outputFolder}${path.sep}${sdkTool}`) })
+        fs.writeFileSync(
+            `${outputFolder}${path.sep}${sdkTool}.sha256`,
+            sha256({
+                input: fs.readFileSync(`${outputFolder}${path.sep}${sdkTool}`),
+            })
         );
     }
 })();
