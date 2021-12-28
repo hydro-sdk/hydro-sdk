@@ -1,7 +1,15 @@
 (global as any).HYDROC_DISABLE_TOP_LEVEL = true;
 
 import * as path from "path";
-import { Hydroc, HydrocMockFsProvider, HydrocMockGhReleasesFileProvider, HydrocMockGhReleasesFsProvider, MockFsNode, MockFsNodeKind } from "../../hydroc";
+
+import {
+    Hydroc,
+    HydrocMockFsProvider,
+    HydrocMockGhReleasesFileProvider,
+    HydrocMockGhReleasesFsProvider,
+    MockFsNode,
+    MockFsNodeKind,
+} from "../../hydroc";
 test("", async () => {
     const mockGhFsProvider = new HydrocMockGhReleasesFsProvider({
         mockFsNode: {
@@ -16,33 +24,34 @@ test("", async () => {
                                 "hydro-sdk": {
                                     kind: MockFsNodeKind.kDirectory,
                                     children: {
-                                        "releases": {
+                                        releases: {
                                             kind: MockFsNodeKind.kDirectory,
                                             children: {
-                                                "download": {
+                                                download: {
                                                     kind: MockFsNodeKind.kDirectory,
                                                     children: {
                                                         "1.2.3": {
                                                             kind: MockFsNodeKind.kDirectory,
                                                             children: {
-                                                                "mock-tool-darwin-x64": {
-                                                                    kind: MockFsNodeKind.kFile,
-                                                                    content: "this is mock-tool-darwin-x64",
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-
-                    }
-                }
-            }
+                                                                "mock-tool-darwin-x64":
+                                                                    {
+                                                                        kind: MockFsNodeKind.kFile,
+                                                                        content:
+                                                                            "this is mock-tool-darwin-x64",
+                                                                    },
+                                                            },
+                                                        },
+                                                    },
+                                                },
+                                            },
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                    },
+                },
+            },
         } as MockFsNode,
         pathSeparator: "/",
     });
@@ -54,16 +63,14 @@ test("", async () => {
     const mockOutputFileSystem = new HydrocMockFsProvider({
         mockFsNode: {
             kind: MockFsNodeKind.kDirectory,
-            children: {}
+            children: {},
         } as MockFsNode,
         pathSeparator: path.sep as "\\" | "/",
     });
 
     const hydroc = new Hydroc({
         sdkToolsVersion: "1.2.3",
-        sdkTools: [
-            "mock-tool"
-        ],
+        sdkTools: ["mock-tool"],
         ghFilesProvider: mockGhFileProvider,
         fsProvider: mockOutputFileSystem,
     });

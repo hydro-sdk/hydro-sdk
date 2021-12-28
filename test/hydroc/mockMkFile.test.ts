@@ -16,17 +16,26 @@ test("", async () => {
         children: {},
     };
 
-    mockMkdir("root", true, mockFs as MockFsNode,path.sep as "\\"|"/");
-    mockMkFile(`root${path.sep}file.txt`, mockFs as MockFsNode,path.sep as "\\"|"/");
+    mockMkdir("root", true, mockFs as MockFsNode, path.sep as "\\" | "/");
+    mockMkFile(
+        `root${path.sep}file.txt`,
+        mockFs as MockFsNode,
+        path.sep as "\\" | "/"
+    );
 
-    const root = mockGetFileByPath("root", mockFs as MockFsNode,path.sep as "\\"|"/");
+    const root = mockGetFileByPath(
+        "root",
+        mockFs as MockFsNode,
+        path.sep as "\\" | "/"
+    );
 
     expect(root).toBeDefined();
     expect(root?.kind).toBe(MockFsNodeKind.kDirectory);
 
     const file = mockGetFileByPath(
         `root${path.sep}file.txt`,
-        mockFs as MockFsNode,path.sep as "\\"|"/"
+        mockFs as MockFsNode,
+        path.sep as "\\" | "/"
     );
 
     expect(file).toBeDefined();
@@ -75,7 +84,8 @@ test("", async () => {
 
     mockMkFile(
         `root${path.sep}secondDirectory${path.sep}thirdFile`,
-        mockFs as MockFsNode,path.sep as "\\"|"/"
+        mockFs as MockFsNode,
+        path.sep as "\\" | "/"
     );
 
     expect(mockFs).toMatchObject({
