@@ -20,9 +20,9 @@ test("", async () => {
         },
     };
 
-    mockUnlinkByPath("firstChild", mockFs as MockFsNode);
+    mockUnlinkByPath("firstChild", mockFs as MockFsNode,path.sep as "\\"|"/");
 
-    const res = mockGetFileByPath("firstChild", mockFs as MockFsNode);
+    const res = mockGetFileByPath("firstChild", mockFs as MockFsNode,path.sep as "\\"|"/");
 
     expect(res).toBeUndefined();
 });
@@ -43,16 +43,16 @@ test("", async () => {
         },
     };
 
-    mockUnlinkByPath(`root${path.sep}firstChild`, mockFs as MockFsNode);
+    mockUnlinkByPath(`root${path.sep}firstChild`, mockFs as MockFsNode,path.sep as "\\"|"/");
 
     const res = mockGetFileByPath(
         `root${path.sep}firstChild`,
-        mockFs as MockFsNode
+        mockFs as MockFsNode,path.sep as "\\"|"/"
     );
 
     expect(res).toBeUndefined();
 
-    const root = mockGetFileByPath("root", mockFs as MockFsNode);
+    const root = mockGetFileByPath("root", mockFs as MockFsNode,path.sep as "\\"|"/");
 
     expect(root).toBeDefined();
 });

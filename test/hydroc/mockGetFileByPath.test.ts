@@ -20,7 +20,7 @@ test("", async () => {
         },
     };
 
-    const res = mockGetFileByPath("firstChild", mockFs as any);
+    const res = mockGetFileByPath("firstChild", mockFs as any,path.sep as "\\"|"/");
 
     expect(res).toBeDefined();
     expect(res?.kind).toBe(MockFsNodeKind.kFile);
@@ -38,7 +38,7 @@ test("", async () => {
         },
     };
 
-    const res = mockGetFileByPath("root", mockFs as any);
+    const res = mockGetFileByPath("root", mockFs as any,path.sep as "\\"|"/");
 
     expect(res).toBeDefined();
     expect(res?.kind).toBe(MockFsNodeKind.kDirectory);
@@ -63,6 +63,7 @@ test("", async () => {
     const res = mockGetFileByPath(
         `root${path.sep}firstChild`,
         mockFs as MockFsNode
+        ,path.sep as "\\"|"/"
     );
 
     expect(res).toBeDefined();
@@ -97,7 +98,7 @@ test("", async () => {
 
     const res = mockGetFileByPath(
         `root${path.sep}secondDirectory${path.sep}secondFile`,
-        mockFs as MockFsNode
+        mockFs as MockFsNode,path.sep as "\\"|"/"
     );
 
     expect(res).toBeDefined();
