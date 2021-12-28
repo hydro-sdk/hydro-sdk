@@ -78,6 +78,10 @@ function sha256({
     return hash.digest("hex");
 }
 
+export interface IHydrocLogger {
+    log: (str: string) => void;
+}
+
 export interface IHydrocFsProvider {
     pathSeparator: "\\" | "/";
     existsSync: (path: string | Buffer | URL) => boolean;
@@ -166,6 +170,7 @@ export class Hydroc {
     public readonly fsProvider: IHydrocFsProvider;
     public readonly ghFilesProvider: IHydrocGhReleasesFilesProvider;
     public readonly chmodProvider: IHydrocChmodProvider;
+    public readonly logger: IHydrocLogger;
 
     public readonly targetPlatform: TargetPlatform;
     public readonly sdkTools: Array<string>;
@@ -244,6 +249,11 @@ export class Hydroc {
                 ).catch((err) => console.log(err));
             }
         })(),
+        logger = new (class {
+            public log(str: string) {
+                console.log(str);
+            }
+        }),
         targetPlatform = determineTargetPlatform(process.platform, process.arch as any),
         sdkTools = [
             "hc2Dart",
@@ -259,6 +269,7 @@ export class Hydroc {
         fsProvider?: IHydrocFsProvider;
         ghFilesProvider?: IHydrocGhReleasesFilesProvider;
         chmodProvider?: IHydrocChmodProvider;
+        logger?: IHydrocLogger,
         targetPlatform?: TargetPlatform;
         sdkTools?: Array<string>;
     }) {
@@ -271,6 +282,7 @@ export class Hydroc {
         this.fsProvider = fsProvider;
         this.ghFilesProvider = ghFilesProvider;
         this.chmodProvider = chmodProvider;
+        this.logger = logger;
         this.targetPlatform = targetPlatform;
         this.sdkTools = sdkTools;
     }
@@ -339,7 +351,7 @@ export class Hydroc {
         const missingSdkTools = this.findMissingSdkTools();
 
         if (missingSdkTools.length > 0) {
-            console.log(
+            this.logger.log(
                 `Downloading Hydro-SDK tools version ${this.sdkToolsVersion} to ${this.sdkToolsDir}`
             );
 
@@ -463,7 +475,7 @@ export class Hydroc {
                 )
             );
         } else {
-            console.log("All Hydro-SDK tools exist");
+            this.logger.log("All Hydro-SDK tools exist");
         }
     }
 
@@ -953,6 +965,16 @@ if (!disableTopLevel) {
             });
         program.parse(process.argv);
     })();
+}
+
+export class HydrocMockLogger implements IHydrocLogger {
+    public readonly loggedLines: Array<string> = [];
+
+    public constructor() { }
+
+    public log(str: string) {
+        this.loggedLines.push(str);
+    }
 }
 
 export enum MockFsNodeKind {
