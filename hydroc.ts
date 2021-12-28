@@ -100,7 +100,7 @@ export interface IHydrocFsProvider {
     ) => Buffer;
 }
 
-export interface IHydroGhReleasesFilesProvider {
+export interface IHydrocGhReleasesFilesProvider {
     getFile: (url: string) => Promise<
         | {
               totalLength: () => string;
@@ -125,7 +125,7 @@ export class Hydroc {
     public readonly sdkToolsDir: string;
     public readonly sdkToolsVersion: string;
     public readonly fsProvider: IHydrocFsProvider;
-    public readonly ghFilesProvider: IHydroGhReleasesFilesProvider;
+    public readonly ghFilesProvider: IHydrocGhReleasesFilesProvider;
     public readonly chmodProvider: IHydrocChmodProvider;
 
     public readonly sdkTools: Array<string>;
@@ -216,7 +216,7 @@ export class Hydroc {
     }: {
         sdkToolsVersion: string;
         fsProvider?: IHydrocFsProvider;
-        ghFilesProvider?: IHydroGhReleasesFilesProvider;
+        ghFilesProvider?: IHydrocGhReleasesFilesProvider;
         chmodProvider?: IHydrocChmodProvider;
         sdkTools?: Array<string>;
     }) {
@@ -1309,7 +1309,7 @@ export class HydrocMockGhReleasesFsProvider extends HydrocMockFsProvider {
 }
 
 export class HydrocMockGhReleasesFileProvider
-    implements IHydroGhReleasesFilesProvider
+    implements IHydrocGhReleasesFilesProvider
 {
     private fsProvider: IHydrocFsProvider;
 
