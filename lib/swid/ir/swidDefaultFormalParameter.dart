@@ -32,6 +32,7 @@ class SwidDefaultFormalParameter
     required final SwidType staticType,
     required final SwidStaticConst value,
     required final String defaultValueCode,
+    final SwidType? element,
   }) = _$Data;
 
   factory SwidDefaultFormalParameter.fromJson(Map<String, dynamic> json) =>
@@ -48,6 +49,7 @@ class SwidDefaultFormalParameter
     final SwidType? staticType,
     final SwidStaticConst? value,
     final String? defaultValueCode,
+    final SwidType? element,
   }) =>
       SwidDefaultFormalParameter(
         nullabilitySuffix:
@@ -58,6 +60,7 @@ class SwidDefaultFormalParameter
         value: value ?? swidDefaultFormalParameter.value,
         defaultValueCode:
             defaultValueCode ?? swidDefaultFormalParameter.defaultValueCode,
+        element: element ?? swidDefaultFormalParameter.element,
       );
 
   @override
@@ -73,6 +76,7 @@ class SwidDefaultFormalParameter
     yield [
       ...defaultValueCode.hashableParts,
     ];
+    yield* element?.hashableParts ?? [];
   })();
 
   @override
@@ -89,6 +93,7 @@ class SwidDefaultFormalParameter
     final SwidType? staticType,
     final SwidStaticConst? value,
     final String? defaultValueCode,
+    final SwidType? element,
   }) =>
       SwidDefaultFormalParameter.clone(
         swidDefaultFormalParameter: this,
@@ -97,5 +102,6 @@ class SwidDefaultFormalParameter
         staticType: staticType,
         value: value,
         defaultValueCode: defaultValueCode,
+        element: element,
       );
 }

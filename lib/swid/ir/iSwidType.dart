@@ -9,4 +9,5 @@ abstract class ISwidType<T extends Object> implements ICloneable<T> {
   String get name;
   String get originalPackagePath;
   SwidDeclarationModifiers get declarationModifiers;
+  ISwidType? get element;
 }

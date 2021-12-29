@@ -33,6 +33,7 @@ class SwidInterface
     required final List<SwidType> typeArguments,
     required final SwidReferenceDeclarationKind referenceDeclarationKind,
     required final SwidDeclarationModifiers declarationModifiers,
+    final SwidType? element,
   }) = _$Data;
 
   factory SwidInterface.fromJson(Map<String, dynamic> json) =>
@@ -50,6 +51,7 @@ class SwidInterface
     final List<SwidType>? typeArguments,
     final SwidReferenceDeclarationKind? referenceDeclarationKind,
     final SwidDeclarationModifiers? declarationModifiers,
+    final SwidType? element,
   }) =>
       SwidInterface(
         name: name ?? swidType.name,
@@ -61,6 +63,7 @@ class SwidInterface
             referenceDeclarationKind ?? swidType.referenceDeclarationKind,
         declarationModifiers:
             declarationModifiers ?? swidType.declarationModifiers,
+            element: element??swidType.element,
       );
 
   factory SwidInterface.fromSwidClass({
@@ -87,6 +90,7 @@ class SwidInterface
       referenceDeclarationKind.index,
     ];
     yield* declarationModifiers.hashableParts;
+    yield* element?.hashableParts ?? [];
   })();
 
   String get displayName =>
@@ -100,6 +104,7 @@ class SwidInterface
     final List<SwidType>? typeArguments,
     final SwidReferenceDeclarationKind? referenceDeclarationKind,
     final SwidDeclarationModifiers? declarationModifiers,
+    final SwidType? element,
   }) =>
       SwidInterface.clone(
         swidType: this,
@@ -109,5 +114,6 @@ class SwidInterface
         typeArguments: typeArguments,
         referenceDeclarationKind: referenceDeclarationKind,
         declarationModifiers: declarationModifiers,
+        element: element,
       );
 }

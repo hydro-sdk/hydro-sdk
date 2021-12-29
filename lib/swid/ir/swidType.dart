@@ -110,6 +110,13 @@ class SwidType
         fromSwidFunctionType: (val) => val.originalPackagePath,
       );
 
+  SwidType? get element => when(
+        fromSwidInterface: (val) => val.element,
+        fromSwidClass: (val) => val.element,
+        fromSwidDefaultFormalParameter: (val) => val.element,
+        fromSwidFunctionType: (val) => val.element,
+      );
+
   String get displayName => (({
         required final String name,
       }) =>

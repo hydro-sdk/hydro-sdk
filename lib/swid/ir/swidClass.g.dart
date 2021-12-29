@@ -49,6 +49,9 @@ _$_$Data _$_$_$DataFromJson(Map<String, dynamic> json) {
     typeFormals: (json['typeFormals'] as List<dynamic>)
         .map((e) => SwidTypeFormal.fromJson(e as Map<String, dynamic>))
         .toList(),
+    element: json['element'] == null
+        ? null
+        : SwidType.fromJson(json['element'] as Map<String, dynamic>),
     extendedClass: json['extendedClass'] == null
         ? null
         : SwidClass.fromJson(json['extendedClass'] as Map<String, dynamic>),
@@ -72,6 +75,7 @@ Map<String, dynamic> _$_$_$DataToJson(_$_$Data instance) => <String, dynamic>{
       'implementedClasses': instance.implementedClasses,
       'isMixin': instance.isMixin,
       'typeFormals': instance.typeFormals,
+      'element': instance.element,
       'extendedClass': instance.extendedClass,
     };
 
