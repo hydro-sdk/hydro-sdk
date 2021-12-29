@@ -11,7 +11,8 @@
     "build:docs": "bash scripts/buildDocs.bash && cp _config.yml docs",
     "build:examplesForDist": "npm run build:release && cp assets/**/*.hc dist && cp assets/**/*.hc.sha256 dist",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "test:ts2hc": " bash scripts/jest.bash",
+    "test:ts2hc": " jest --testPathPattern=test/ts2hc",
+    "test:hydroc": " jest --testPathPattern=test/hydroc",
     "dist": "npm run build:docs && npm run build:compiler && npm run build:examplesForDist"
   },
   "files": [
