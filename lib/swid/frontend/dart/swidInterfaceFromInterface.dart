@@ -55,24 +55,3 @@ SwidInterface swidInterfaceFromInterface({
               : SwidReferenceDeclarationKind.unknown,
       declarationModifiers: SwidDeclarationModifiers.empty(),
     );
-
-/*
-TypeParameterType.bound has enough information to identify the bound of the type parameter
-Should probably create new class SwidElement in similar manner to hold this information
-SwidInterface.typeArguments should probably be of type new class List<SwidTypeArgumentType> 
-
-where 
-class SwidTypeArgumentType {
-  SwidType type;
-  SwidElement element;
-}
-
-and 
-class SwidTypeArgumentElement {
-  SwidType bound;
-}
-
-
-
-New Swidi syntax to express elements on usage sites ????
-*/
