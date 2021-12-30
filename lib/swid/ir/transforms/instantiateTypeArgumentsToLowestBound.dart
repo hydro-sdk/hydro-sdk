@@ -1,10 +1,10 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 import 'package:hydro_sdk/swid/ir/analyses/hasSuitableTypeFormalBound.dart';
 import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidOriginatedAncestorTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
-
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/transforms/instantiateAllGenericsAsDynamic.dart';
 import 'package:hydro_sdk/swid/ir/transforms/instantiateTypeArgumentsToLowestBoundInClass.dart';
@@ -97,7 +97,6 @@ class InstantiateTypeArgumentsToLowestBound
                               HasSuitableTypeFormalBound(
                                 candidateInterface: res,
                                 swidTypeFormals: swidTypeFormals,
-                                    
                               ),
                             )
                         ? pipeline

@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 import 'package:hydro_sdk/swid/ir/analyses/hasSuitableTypeFormalBound.dart';
 import 'package:hydro_sdk/swid/ir/analyses/suitableTypeFormalBound.dart';
-
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidOriginatedAncestorTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeArgumentType.dart';
