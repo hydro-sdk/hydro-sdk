@@ -5,6 +5,7 @@ import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
+import 'package:hydro_sdk/swid/ir/swidTypeArgumentType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeMixin.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
@@ -30,7 +31,7 @@ class SwidInterface
     required final String name,
     required final SwidNullabilitySuffix nullabilitySuffix,
     required final String originalPackagePath,
-    required final List<SwidType> typeArguments,
+    required final List<SwidTypeArgumentType> typeArguments,
     required final SwidReferenceDeclarationKind referenceDeclarationKind,
     required final SwidDeclarationModifiers declarationModifiers,
     final SwidType? element,
@@ -48,7 +49,7 @@ class SwidInterface
     final String? name,
     final SwidNullabilitySuffix? nullabilitySuffix,
     final String? originalPackagePath,
-    final List<SwidType>? typeArguments,
+    final List<SwidTypeArgumentType>? typeArguments,
     final SwidReferenceDeclarationKind? referenceDeclarationKind,
     final SwidDeclarationModifiers? declarationModifiers,
     final SwidType? element,
@@ -101,7 +102,7 @@ class SwidInterface
     final String? name,
     final SwidNullabilitySuffix? nullabilitySuffix,
     final String? originalPackagePath,
-    final List<SwidType>? typeArguments,
+    final List<SwidTypeArgumentType>? typeArguments,
     final SwidReferenceDeclarationKind? referenceDeclarationKind,
     final SwidDeclarationModifiers? declarationModifiers,
     final SwidType? element,

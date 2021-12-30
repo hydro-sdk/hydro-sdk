@@ -112,9 +112,12 @@ class _SwidVisitor extends RecursiveAstVisitor
   void visitClassDeclaration(ClassDeclaration node) {
     if (node.nativeClause == null) {
       var res = swidClassFromDartClassOrMixinOrClassTypAliasDeclaration(
-          dartClassOrMixinOrClassTypAliasDeclaration:
-              DartClassOrMixinOrClassTypAliasDeclaration.fromClassDeclaration(
-                  classDeclaration: node));
+        dartClassOrMixinOrClassTypAliasDeclaration:
+            DartClassOrMixinOrClassTypAliasDeclaration.fromClassDeclaration(
+          classDeclaration: node,
+        ),
+        buildElements: true,
+      );
 
       res = SwidClass.clone(
         swidClass: res,
@@ -131,9 +134,12 @@ class _SwidVisitor extends RecursiveAstVisitor
   @override
   void visitClassTypeAlias(ClassTypeAlias node) {
     var res = swidClassFromDartClassOrMixinOrClassTypAliasDeclaration(
-        dartClassOrMixinOrClassTypAliasDeclaration:
-            DartClassOrMixinOrClassTypAliasDeclaration.fromClassTypeAlias(
-                classTypeAlias: node));
+      dartClassOrMixinOrClassTypAliasDeclaration:
+          DartClassOrMixinOrClassTypAliasDeclaration.fromClassTypeAlias(
+        classTypeAlias: node,
+      ),
+      buildElements: true,
+    );
     classes.add(res);
 
     return super.visitClassTypeAlias(node);
@@ -141,15 +147,20 @@ class _SwidVisitor extends RecursiveAstVisitor
 
   @override
   void visitCompilationUnit(CompilationUnit node) {
-    topLevelStaticConstFieldDeclarations.addAll(node.childEntities
-        .whereType<TopLevelVariableDeclaration>()
-        .where((x) =>
-            x.childEntities.whereType<VariableDeclarationList>().first.isConst)
-        .map((x) =>
-            swidTopLevelStaticConstFieldDeclarationFromTopLevelVariableDeclaration(
-              topLevelVariableDeclaration: x,
-            ))
-        .toList());
+    topLevelStaticConstFieldDeclarations.addAll(
+      node.childEntities
+          .whereType<TopLevelVariableDeclaration>()
+          .where((x) => x.childEntities
+              .whereType<VariableDeclarationList>()
+              .first
+              .isConst)
+          .map((x) =>
+              swidTopLevelStaticConstFieldDeclarationFromTopLevelVariableDeclaration(
+                topLevelVariableDeclaration: x,
+                buildElements: true,
+              ))
+          .toList(),
+    );
 
     return super.visitCompilationUnit(node);
   }
@@ -158,9 +169,12 @@ class _SwidVisitor extends RecursiveAstVisitor
   void visitMixinDeclaration(MixinDeclaration node) {
     if (node.name.name == "Diagnosticable") {
       var res = swidClassFromDartClassOrMixinOrClassTypAliasDeclaration(
-          dartClassOrMixinOrClassTypAliasDeclaration:
-              DartClassOrMixinOrClassTypAliasDeclaration.fromMixinDeclaration(
-                  mixinDeclaration: node));
+        dartClassOrMixinOrClassTypAliasDeclaration:
+            DartClassOrMixinOrClassTypAliasDeclaration.fromMixinDeclaration(
+          mixinDeclaration: node,
+        ),
+        buildElements: true,
+      );
 
       classes.add(res);
     }

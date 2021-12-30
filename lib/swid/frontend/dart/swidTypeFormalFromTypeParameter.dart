@@ -9,6 +9,7 @@ import 'package:hydro_sdk/swid/ir/swidTypeFormalValue.dart';
 
 SwidTypeFormal swidTypeFormalFromTypeParameter({
   required final TypeParameter typeParameter,
+  required final bool buildElements,
 }) =>
     SwidTypeFormal(
       value: SwidTypeFormalValue.fromString(
@@ -23,6 +24,7 @@ SwidTypeFormal swidTypeFormalFromTypeParameter({
           ? SwidTypeFormalBound.fromSwidInterface(
               swidInterface: swidInterfaceFromInterface(
                 interfaceType: typeParameter.bound!.type as InterfaceType,
+                buildElements: buildElements,
               ),
             )
           : null,

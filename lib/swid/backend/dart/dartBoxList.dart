@@ -80,7 +80,7 @@ class DartBoxList
                         [
                           Code(
                             narrowSwidInterfaceByReferenceDeclaration(
-                              swidInterface: type.typeArguments.first.when(
+                              swidInterface: type.typeArguments.first.type.when(
                                 fromSwidInterface: (val) => val,
                                 fromSwidClass: (_) => dartUnknownInterface,
                                 fromSwidDefaultFormalParameter: (_) =>
@@ -139,7 +139,7 @@ class DartBoxList
   }) =>
       SwarsTermResult.fromString(
         narrowSwidInterfaceByReferenceDeclaration(
-          swidInterface: type.typeArguments.first.when(
+          swidInterface: type.typeArguments.first.type.when(
             fromSwidInterface: (val) => val,
             fromSwidClass: (_) => dartUnknownInterface,
             fromSwidDefaultFormalParameter: (_) => dartUnknownInterface,

@@ -11,7 +11,7 @@ bool isPrimitiveMap({required final SwidType swidType}) => swidType.when(
               "Map" &&
           val.typeArguments.length == 2 &&
           isPrimitive(
-            swidType: val.typeArguments.first,
+            swidType: val.typeArguments.first.type,
           ),
       fromSwidClass: (_) => false,
       fromSwidDefaultFormalParameter: (_) => false,

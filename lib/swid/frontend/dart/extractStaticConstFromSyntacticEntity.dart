@@ -39,6 +39,7 @@ import 'package:analyzer/src/dart/element/element.dart'
 
 SwidStaticConst extractStaticConstFromSyntacticEntity({
   required final SyntacticEntity syntacticEntity,
+  required final bool buildElements,
 }) =>
     narrowStaticConstSyntacticEntity(
       syntacticEntity: syntacticEntity,
@@ -116,6 +117,7 @@ SwidStaticConst extractStaticConstFromSyntacticEntity({
           prefix: val.operator.lexeme,
           expression: extractStaticConstFromSyntacticEntity(
             syntacticEntity: val.operand,
+            buildElements: buildElements,
           ),
         ),
       ),
@@ -123,16 +125,19 @@ SwidStaticConst extractStaticConstFromSyntacticEntity({
           SwidStaticConst.fromSwidStaticConstFunctionInvocation(
         staticConstFunctionInvocation:
             swidStaticConstFunctionInvocationFromInstanceCreationExpression(
-                instanceCreationExpression: val),
+          instanceCreationExpression: val,
+          buildElements: buildElements,
+        ),
       ),
       onBinaryExpression: (val) =>
           SwidStaticConst.fromSwidStaticConstBinaryExpression(
         swidStaticConstBinaryExpression: SwidStaticConstBinaryExpression(
           leftOperand: extractStaticConstFromSyntacticEntity(
-              syntacticEntity: val.leftOperand),
+              syntacticEntity: val.leftOperand, buildElements: buildElements),
           operator: val.operator.value() as String,
           rightOperand: extractStaticConstFromSyntacticEntity(
             syntacticEntity: val.rightOperand,
+            buildElements: buildElements,
           ),
         ),
       ),
@@ -142,6 +147,7 @@ SwidStaticConst extractStaticConstFromSyntacticEntity({
               ? SwidType.fromSwidInterface(
                   swidInterface: swidInterfaceFromInterface(
                     interfaceType: val.staticType! as InterfaceType,
+                    buildElements: buildElements,
                   ),
                 )
               : dartUnknownType,
@@ -149,6 +155,7 @@ SwidStaticConst extractStaticConstFromSyntacticEntity({
               .map(
                 (x) => extractStaticConstFromSyntacticEntity(
                   syntacticEntity: x,
+                  buildElements: buildElements,
                 ),
               )
               .toList(),
@@ -159,9 +166,11 @@ SwidStaticConst extractStaticConstFromSyntacticEntity({
         swidStaticConstMapLiteralEntry: SwidStaticConstMapLiteralEntry(
           key: extractStaticConstFromSyntacticEntity(
             syntacticEntity: val.key,
+            buildElements: buildElements,
           ),
           value: extractStaticConstFromSyntacticEntity(
             syntacticEntity: val.value,
+            buildElements: buildElements,
           ),
         ),
       ),
@@ -172,6 +181,7 @@ SwidStaticConst extractStaticConstFromSyntacticEntity({
                     .map(
                       (x) => extractStaticConstFromSyntacticEntity(
                         syntacticEntity: x,
+                        buildElements: buildElements,
                       ),
                     )
                     .map((x) => x.maybeWhen(
@@ -185,6 +195,7 @@ SwidStaticConst extractStaticConstFromSyntacticEntity({
                         ? SwidType.fromSwidInterface(
                             swidInterface: swidInterfaceFromInterface(
                               interfaceType: val.staticType! as InterfaceType,
+                              buildElements: buildElements,
                             ),
                           )
                         : dartUnknownType,

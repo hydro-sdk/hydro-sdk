@@ -42,7 +42,7 @@ List<SwidTypeFormal> unsatisfiedTypeParameters({
             val.typeArguments
                 .map(
                   (x) => unsatisfiedTypeParameters(
-                    swidType: x,
+                    swidType: x.type,
                     ancestorTypeFormals: ancestorTypeFormals,
                   ),
                 )

@@ -7,6 +7,7 @@ import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
+import 'package:hydro_sdk/swid/ir/swidTypeArgumentType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormalValue.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
@@ -80,10 +81,13 @@ class TransformPrimitiveNamesToTs
                   : val.name,
               typeArguments: val.typeArguments
                   .map(
-                    (x) => pipeline.reduceFromTerm(
-                      TransformPrimitiveNamesToTs(
-                        swidType: x,
+                    (x) => SwidTypeArgumentType(
+                      type: pipeline.reduceFromTerm(
+                        TransformPrimitiveNamesToTs(
+                          swidType: x.type,
+                        ),
                       ),
+                      element: x.element,
                     ),
                   )
                   .toList(),

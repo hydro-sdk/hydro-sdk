@@ -7,9 +7,11 @@ import 'package:analyzer/dart/element/element.dart'
 
 SwidFunctionType swidFunctionTypeFromPropertyAccessor({
   required final PropertyAccessorElement propertyAccessorElement,
+  required final bool buildElements,
 }) =>
     SwidFunctionType.clone(
       swidFunctionType: swidFunctionTypeFromFunctionType(
+        buildElements: buildElements,
         functionType: propertyAccessorElement.type,
         declarationModifiers: SwidDeclarationModifiers.clone(
           declarationModifiers: SwidDeclarationModifiers.clone(

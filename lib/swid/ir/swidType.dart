@@ -132,12 +132,12 @@ class SwidType
         removeNullabilitySuffix(
           str: when(
             fromSwidInterface: (val) => [
-              removeTypeArguments(str: val.name),
+              removeTypeArguments(str: val.name,),
               ...(val.typeArguments.isNotEmpty
                   ? [
                       "<",
                       val.typeArguments
-                          .map((x) => x.displayName)
+                          .map((x) => x.type.displayName,)
                           .toList()
                           .join(","),
                       ">"
@@ -145,12 +145,12 @@ class SwidType
                   : [])
             ].join(""),
             fromSwidClass: (val) => [
-              removeTypeArguments(str: val.name),
+              removeTypeArguments(str: val.name,),
               ...(val.typeFormals.isNotEmpty
                   ? [
                       "<",
                       val.typeFormals
-                          .map((x) => x.value.displayName)
+                          .map((x) => x.value.displayName,)
                           .toList()
                           .join(","),
                       ">"
@@ -161,5 +161,5 @@ class SwidType
             fromSwidFunctionType: (val) => val.displayName,
           ),
         )
-      ].join(""));
+      ].join(""),);
 }

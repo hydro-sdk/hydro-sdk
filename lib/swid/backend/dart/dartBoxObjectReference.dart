@@ -70,9 +70,13 @@ class DartBoxObjectReference
         {
           "object": boxLists &&
                   isList(
-                      swidType:
-                          SwidType.fromSwidInterface(swidInterface: type)) &&
-                  !isPrimitiveMap(swidType: type.typeArguments.first)
+                    swidType: SwidType.fromSwidInterface(
+                      swidInterface: type,
+                    ),
+                  ) &&
+                  !isPrimitiveMap(
+                    swidType: type.typeArguments.first.type,
+                  )
               ? CodeExpression(
                   Code(
                     pipeline.reduceFromTerm(
@@ -81,7 +85,7 @@ class DartBoxObjectReference
                         referenceName: objectReference
                             .accept(DartEmitter(
                               useNullSafetySyntax: true,
-                            ))
+                            ),)
                             .toString(),
                         codeKind: CodeKind.expression,
                       ),
@@ -103,7 +107,7 @@ class DartBoxObjectReference
                         type.nullabilitySuffix == SwidNullabilitySuffix.question
                             ? "?"
                             : "",
-                      ].join())
+                      ].join(),)
               ]
             : [],
       );

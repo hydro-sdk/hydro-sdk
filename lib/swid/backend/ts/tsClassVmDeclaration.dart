@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/ir/swidTypeArgumentType.dart';
 import 'package:path/path.dart' as path;
 
 import 'package:hydro_sdk/swid/backend/ts/transforms/transformVmDeclarationToTs.dart';
@@ -81,19 +82,22 @@ class TsClassVmDeclaration
                               SwidDeclarationModifiers.empty(),
                           typeArguments: swidClass.typeFormals
                               .map(
-                                (x) => SwidType.fromSwidInterface(
-                                  swidInterface: SwidInterface(
-                                    declarationModifiers:
-                                        SwidDeclarationModifiers.empty(),
-                                    name: x.value.name,
-                                    nullabilitySuffix:
-                                        SwidNullabilitySuffix.none,
-                                    originalPackagePath: "",
-                                    referenceDeclarationKind:
-                                        SwidReferenceDeclarationKind
-                                            .typeParameterType,
-                                    typeArguments: [],
+                                (x) => SwidTypeArgumentType(
+                                  type: SwidType.fromSwidInterface(
+                                    swidInterface: SwidInterface(
+                                      declarationModifiers:
+                                          SwidDeclarationModifiers.empty(),
+                                      name: x.value.name,
+                                      nullabilitySuffix:
+                                          SwidNullabilitySuffix.none,
+                                      originalPackagePath: "",
+                                      referenceDeclarationKind:
+                                          SwidReferenceDeclarationKind
+                                              .typeParameterType,
+                                      typeArguments: [],
+                                    ),
                                   ),
+                                  element: null,
                                 ),
                               )
                               .toList(),

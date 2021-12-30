@@ -79,7 +79,7 @@ class TransformStaticConstMapLiteralToTs
             ),
           ).maybeWhen(
             fromSwidInterface: (val) =>
-                val.typeArguments.map((x) => x.name).join(","),
+                val.typeArguments.map((x) => x.type.name).join(","),
             orElse: () => "",
           ),
           ">>>",

@@ -2,6 +2,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
+import 'package:hydro_sdk/swid/ir/swidTypeArgumentType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/transforms/instantiateTypeArgumentsToLowestBound.dart';
 import 'package:hydro_sdk/swid/ir/util/swarsTermSwidInterfaceResultMixin.dart';
@@ -102,11 +103,14 @@ class InstantiateTypeArgumentsToLowestBoundInInterface
           withInnerTransformedTypeArguments: swidInterface.clone(
             typeArguments: swidInterface.typeArguments
                 .map(
-                  (x) => pipeline.reduceFromTerm(
-                    InstantiateTypeArgumentsToLowestBound(
-                      swidType: x,
-                      swidTypeFormals: swidTypeFormals,
+                  (x) => SwidTypeArgumentType(
+                    type: pipeline.reduceFromTerm(
+                      InstantiateTypeArgumentsToLowestBound(
+                        swidType: x.type,
+                        swidTypeFormals: swidTypeFormals,
+                      ),
                     ),
+                    element: x.element,
                   ),
                 )
                 .toList(),
