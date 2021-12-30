@@ -18,7 +18,7 @@ class _$HasSuitableTypeFormalBoundTearOff {
 
   _$HasSuitableTypeFormalBoundCtor call(
       {required SwidInterface candidateInterface,
-      required List<SwidTypeFormal>? swidTypeFormals}) {
+      required List<SwidOriginatedAncestorTypeFormal>? swidTypeFormals}) {
     return _$HasSuitableTypeFormalBoundCtor(
       candidateInterface: candidateInterface,
       swidTypeFormals: swidTypeFormals,
@@ -32,7 +32,7 @@ const $HasSuitableTypeFormalBound = _$HasSuitableTypeFormalBoundTearOff();
 /// @nodoc
 mixin _$HasSuitableTypeFormalBound {
   SwidInterface get candidateInterface => throw _privateConstructorUsedError;
-  List<SwidTypeFormal>? get swidTypeFormals =>
+  List<SwidOriginatedAncestorTypeFormal>? get swidTypeFormals =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -47,7 +47,7 @@ abstract class $HasSuitableTypeFormalBoundCopyWith<$Res> {
       _$HasSuitableTypeFormalBoundCopyWithImpl<$Res>;
   $Res call(
       {SwidInterface candidateInterface,
-      List<SwidTypeFormal>? swidTypeFormals});
+      List<SwidOriginatedAncestorTypeFormal>? swidTypeFormals});
 
   $SwidInterfaceCopyWith<$Res> get candidateInterface;
 }
@@ -74,7 +74,7 @@ class _$HasSuitableTypeFormalBoundCopyWithImpl<$Res>
       swidTypeFormals: swidTypeFormals == freezed
           ? _value.swidTypeFormals
           : swidTypeFormals // ignore: cast_nullable_to_non_nullable
-              as List<SwidTypeFormal>?,
+              as List<SwidOriginatedAncestorTypeFormal>?,
     ));
   }
 
@@ -96,7 +96,7 @@ abstract class _$$HasSuitableTypeFormalBoundCtorCopyWith<$Res>
   @override
   $Res call(
       {SwidInterface candidateInterface,
-      List<SwidTypeFormal>? swidTypeFormals});
+      List<SwidOriginatedAncestorTypeFormal>? swidTypeFormals});
 
   @override
   $SwidInterfaceCopyWith<$Res> get candidateInterface;
@@ -128,7 +128,7 @@ class __$$HasSuitableTypeFormalBoundCtorCopyWithImpl<$Res>
       swidTypeFormals: swidTypeFormals == freezed
           ? _value.swidTypeFormals
           : swidTypeFormals // ignore: cast_nullable_to_non_nullable
-              as List<SwidTypeFormal>?,
+              as List<SwidOriginatedAncestorTypeFormal>?,
     ));
   }
 }
@@ -144,7 +144,7 @@ class _$_$HasSuitableTypeFormalBoundCtor
   @override
   final SwidInterface candidateInterface;
   @override
-  final List<SwidTypeFormal>? swidTypeFormals;
+  final List<SwidOriginatedAncestorTypeFormal>? swidTypeFormals;
 
   @override
   String toString() {
@@ -180,14 +180,14 @@ abstract class _$HasSuitableTypeFormalBoundCtor
     extends HasSuitableTypeFormalBound {
   factory _$HasSuitableTypeFormalBoundCtor(
           {required SwidInterface candidateInterface,
-          required List<SwidTypeFormal>? swidTypeFormals}) =
+          required List<SwidOriginatedAncestorTypeFormal>? swidTypeFormals}) =
       _$_$HasSuitableTypeFormalBoundCtor;
   _$HasSuitableTypeFormalBoundCtor._() : super._();
 
   @override
   SwidInterface get candidateInterface => throw _privateConstructorUsedError;
   @override
-  List<SwidTypeFormal>? get swidTypeFormals =>
+  List<SwidOriginatedAncestorTypeFormal>? get swidTypeFormals =>
       throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)

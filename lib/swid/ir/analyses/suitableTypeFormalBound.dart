@@ -1,7 +1,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:collection/collection.dart';
 import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
-import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
+import 'package:hydro_sdk/swid/ir/swidOriginatedAncestorTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/util/swarsTermSwidInterfaceResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsAnalysisMixin.dart';
@@ -29,7 +30,7 @@ class SuitableTypeFormalBound
 
   factory SuitableTypeFormalBound({
     required final SwidInterface candidateInterface,
-    required final List<SwidTypeFormal>? swidTypeFormals,
+    required final List<SwidOriginatedAncestorTypeFormal>? swidTypeFormals,
   }) = _$SuitableTypeFormalBoundCtor;
 
   @override
@@ -46,7 +47,7 @@ class SuitableTypeFormalBound
   @override
   SuitableTypeFormalBound clone({
     final SwidInterface? candidateInterface,
-    final List<SwidTypeFormal>? swidTypeFormals,
+    final List<SwidOriginatedAncestorTypeFormal>? swidTypeFormals,
   }) =>
       SuitableTypeFormalBound(
         candidateInterface: candidateInterface ?? this.candidateInterface,
@@ -59,16 +60,35 @@ class SuitableTypeFormalBound
   }) =>
       SwarsTermResult.fromJsonTransformable(
         swidTypeFormals
-                ?.firstWhereOrNull(
+                ?.whereIndexed(
+                  (i, x) =>
+                      x.kind == SwidOriginatedAncestorTypeFormalKind.kClass &&
+                      swidTypeFormals?.firstWhereIndexedOrNull(
+                            (j, k) =>
+                                j != i &&
+                                k.kind ==
+                                    SwidOriginatedAncestorTypeFormalKind
+                                        .kMethod &&
+                                removeNullabilitySuffix(
+                                      str: x.swidTypeFormal.value.displayName,
+                                    ) ==
+                                    removeNullabilitySuffix(
+                                      str: k.swidTypeFormal.value.displayName,
+                                    ),
+                          ) ==
+                          null,
+                )
+                .firstWhereOrNull(
                   (x) =>
                       removeNullabilitySuffix(
-                        str: x.value.displayName,
+                        str: x.swidTypeFormal.value.displayName,
                       ) ==
                       removeNullabilitySuffix(
                         str: candidateInterface.displayName,
                       ),
                 )
-                ?.swidTypeFormalBound
+                ?.swidTypeFormal
+                .swidTypeFormalBound
                 ?.when(
                   fromSwidInterface: (val) => val,
                   fromSwidFunctionType: (_) => dartUnknownInterface,

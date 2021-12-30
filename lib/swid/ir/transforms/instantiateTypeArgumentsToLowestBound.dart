@@ -96,11 +96,8 @@ class InstantiateTypeArgumentsToLowestBound
                             !pipeline.reduceFromTerm(
                               HasSuitableTypeFormalBound(
                                 candidateInterface: res,
-                                swidTypeFormals: swidTypeFormals
-                                    ?.map(
-                                      (x) => x.swidTypeFormal,
-                                    )
-                                    .toList(),
+                                swidTypeFormals: swidTypeFormals,
+                                    
                               ),
                             )
                         ? pipeline

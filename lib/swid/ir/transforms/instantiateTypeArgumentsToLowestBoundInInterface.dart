@@ -68,31 +68,13 @@ class InstantiateTypeArgumentsToLowestBoundInInterface
             pipeline.reduceFromTerm(
               HasSuitableTypeFormalBound(
                 candidateInterface: withInnerTransformedTypeArguments,
-                swidTypeFormals: swidTypeFormals
-                    ?.where(
-                      (x) =>
-                          x.kind !=
-                          SwidOriginatedAncestorTypeFormalKind.kMethod,
-                    )
-                    .map(
-                      (x) => x.swidTypeFormal,
-                    )
-                    .toList(),
+                swidTypeFormals: swidTypeFormals,
               ),
             )
                 ? pipeline.reduceFromTerm(
                     SuitableTypeFormalBound(
                       candidateInterface: withInnerTransformedTypeArguments,
-                      swidTypeFormals: swidTypeFormals
-                          ?.where(
-                            (x) =>
-                                x.kind !=
-                                SwidOriginatedAncestorTypeFormalKind.kMethod,
-                          )
-                          .map(
-                            (x) => x.swidTypeFormal,
-                          )
-                          .toList(),
+                      swidTypeFormals: swidTypeFormals,
                     ),
                   )
                 : withInnerTransformedTypeArguments)(

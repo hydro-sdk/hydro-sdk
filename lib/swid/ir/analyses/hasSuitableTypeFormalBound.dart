@@ -2,7 +2,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydro_sdk/swid/ir/analyses/suitableTypeFormalBound.dart';
 import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
-import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
+import 'package:hydro_sdk/swid/ir/swidOriginatedAncestorTypeFormal.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsAnalysisMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermBoolResultMixin.dart';
@@ -27,7 +27,7 @@ class HasSuitableTypeFormalBound
 
   factory HasSuitableTypeFormalBound({
     required final SwidInterface candidateInterface,
-    required final List<SwidTypeFormal>? swidTypeFormals,
+    required final List<SwidOriginatedAncestorTypeFormal>? swidTypeFormals,
   }) = _$HasSuitableTypeFormalBoundCtor;
 
   @override
@@ -44,7 +44,7 @@ class HasSuitableTypeFormalBound
   @override
   HasSuitableTypeFormalBound clone({
     final SwidInterface? candidateInterface,
-    final List<SwidTypeFormal>? swidTypeFormals,
+    final List<SwidOriginatedAncestorTypeFormal>? swidTypeFormals,
   }) =>
       HasSuitableTypeFormalBound(
         candidateInterface: candidateInterface ?? this.candidateInterface,
