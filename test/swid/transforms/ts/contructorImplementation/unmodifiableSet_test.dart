@@ -8,6 +8,7 @@ import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
+import 'package:hydro_sdk/swid/ir/swidTypeArgumentType.dart';
 import 'package:hydro_sdk/swid/ir/util/rewriteClassReferencestoInterfaceReferencesInClass.dart';
 import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
 import 'package:hydro_sdk/swid/swars/pipelineNoopCacheMgr.dart';
@@ -36,28 +37,34 @@ void main() {
               nullabilitySuffix: SwidNullabilitySuffix.none,
               originalPackagePath: "dart:core",
               typeArguments: [
-                SwidType.fromSwidInterface(
-                  swidInterface: SwidInterface(
-                    name: "E",
-                    nullabilitySuffix: SwidNullabilitySuffix.none,
-                    originalPackagePath: "dart:collection",
-                    typeArguments: [],
-                    referenceDeclarationKind:
-                        SwidReferenceDeclarationKind.typeParameterType,
-                    declarationModifiers: SwidDeclarationModifiers.empty(),
+                SwidTypeArgumentType(
+                  type: SwidType.fromSwidInterface(
+                    swidInterface: SwidInterface(
+                      name: "E",
+                      nullabilitySuffix: SwidNullabilitySuffix.none,
+                      originalPackagePath: "dart:collection",
+                      typeArguments: [],
+                      referenceDeclarationKind:
+                          SwidReferenceDeclarationKind.typeParameterType,
+                      declarationModifiers: SwidDeclarationModifiers.empty(),
+                    ),
                   ),
+                  element: null,
                 ),
-                SwidType.fromSwidInterface(
-                  swidInterface: SwidInterface(
-                    name: "Null",
-                    nullabilitySuffix: SwidNullabilitySuffix.none,
-                    originalPackagePath: "dart:core",
-                    typeArguments: [],
-                    referenceDeclarationKind:
-                        SwidReferenceDeclarationKind.classElement,
-                    declarationModifiers: SwidDeclarationModifiers.empty(),
+                SwidTypeArgumentType(
+                  type: SwidType.fromSwidInterface(
+                    swidInterface: SwidInterface(
+                      name: "Null",
+                      nullabilitySuffix: SwidNullabilitySuffix.none,
+                      originalPackagePath: "dart:core",
+                      typeArguments: [],
+                      referenceDeclarationKind:
+                          SwidReferenceDeclarationKind.classElement,
+                      declarationModifiers: SwidDeclarationModifiers.empty(),
+                    ),
                   ),
-                )
+                  element: null,
+                ),
               ],
               referenceDeclarationKind:
                   SwidReferenceDeclarationKind.classElement,

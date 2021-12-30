@@ -7,6 +7,7 @@ import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
+import 'package:hydro_sdk/swid/ir/swidTypeArgumentType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormalValue.dart';
 import 'package:hydro_sdk/swid/ir/util/hasUnsatisfiedTypeParameters.dart';
@@ -71,17 +72,20 @@ void main() {
           nullabilitySuffix: SwidNullabilitySuffix.none,
           originalPackagePath: "dart:core",
           typeArguments: [
-            SwidType.fromSwidInterface(
-              swidInterface: SwidInterface(
-                declarationModifiers: SwidDeclarationModifiers.empty(),
-                name: "T",
-                nullabilitySuffix: SwidNullabilitySuffix.none,
-                originalPackagePath: "dart:core",
-                typeArguments: [],
-                referenceDeclarationKind:
-                    SwidReferenceDeclarationKind.typeParameterType,
+            SwidTypeArgumentType(
+              type: SwidType.fromSwidInterface(
+                swidInterface: SwidInterface(
+                  declarationModifiers: SwidDeclarationModifiers.empty(),
+                  name: "T",
+                  nullabilitySuffix: SwidNullabilitySuffix.none,
+                  originalPackagePath: "dart:core",
+                  typeArguments: [],
+                  referenceDeclarationKind:
+                      SwidReferenceDeclarationKind.typeParameterType,
+                ),
               ),
-            )
+              element: null,
+            ),
           ],
           referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
         ),
@@ -170,16 +174,19 @@ void main() {
             nullabilitySuffix: SwidNullabilitySuffix.none,
             originalPackagePath: "dart:core",
             typeArguments: [
-              SwidType.fromSwidInterface(
-                swidInterface: SwidInterface(
-                  declarationModifiers: SwidDeclarationModifiers.empty(),
-                  name: "E",
-                  nullabilitySuffix: SwidNullabilitySuffix.none,
-                  originalPackagePath: "dart:core",
-                  typeArguments: [],
-                  referenceDeclarationKind:
-                      SwidReferenceDeclarationKind.typeParameterType,
+              SwidTypeArgumentType(
+                type: SwidType.fromSwidInterface(
+                  swidInterface: SwidInterface(
+                    declarationModifiers: SwidDeclarationModifiers.empty(),
+                    name: "E",
+                    nullabilitySuffix: SwidNullabilitySuffix.none,
+                    originalPackagePath: "dart:core",
+                    typeArguments: [],
+                    referenceDeclarationKind:
+                        SwidReferenceDeclarationKind.typeParameterType,
+                  ),
                 ),
+                element: null,
               ),
             ],
             referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
@@ -229,15 +236,18 @@ void main() {
           nullabilitySuffix: SwidNullabilitySuffix.none,
           originalPackagePath: "dart:core",
           typeArguments: [
-            SwidType.fromSwidInterface(
-              swidInterface: SwidInterface(
-                  declarationModifiers: SwidDeclarationModifiers.empty(),
-                  name: "E",
-                  nullabilitySuffix: SwidNullabilitySuffix.none,
-                  originalPackagePath: "dart:core",
-                  typeArguments: [],
-                  referenceDeclarationKind:
-                      SwidReferenceDeclarationKind.typeParameterType),
+            SwidTypeArgumentType(
+              type: SwidType.fromSwidInterface(
+                swidInterface: SwidInterface(
+                    declarationModifiers: SwidDeclarationModifiers.empty(),
+                    name: "E",
+                    nullabilitySuffix: SwidNullabilitySuffix.none,
+                    originalPackagePath: "dart:core",
+                    typeArguments: [],
+                    referenceDeclarationKind:
+                        SwidReferenceDeclarationKind.typeParameterType),
+              ),
+              element: null,
             ),
           ],
           referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
@@ -247,7 +257,10 @@ void main() {
       typeFormals: [],
     );
     var unsatisfiedTypesFromConstructor = unsatisfiedTypeParameters(
-        swidType: SwidType.fromSwidFunctionType(swidFunctionType: constructor));
+      swidType: SwidType.fromSwidFunctionType(
+        swidFunctionType: constructor,
+      ),
+    );
 
     expect(unsatisfiedTypesFromConstructor, isNotNull);
     expect(unsatisfiedTypesFromConstructor.length, 1);

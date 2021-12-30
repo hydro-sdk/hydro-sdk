@@ -11,6 +11,7 @@ import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
+import 'package:hydro_sdk/swid/ir/swidTypeArgumentType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormalValue.dart';
 import 'package:hydro_sdk/swid/ir/transforms/instantiateGeneric.dart';
@@ -98,16 +99,19 @@ void main() {
               nullabilitySuffix: SwidNullabilitySuffix.none,
               originalPackagePath: "dart:core",
               typeArguments: [
-                SwidType.fromSwidInterface(
-                  swidInterface: SwidInterface(
-                    declarationModifiers: SwidDeclarationModifiers.empty(),
-                    name: "E",
-                    nullabilitySuffix: SwidNullabilitySuffix.none,
-                    originalPackagePath: "dart:core",
-                    typeArguments: [],
-                    referenceDeclarationKind:
-                        SwidReferenceDeclarationKind.typeParameterType,
+                SwidTypeArgumentType(
+                  type: SwidType.fromSwidInterface(
+                    swidInterface: SwidInterface(
+                      declarationModifiers: SwidDeclarationModifiers.empty(),
+                      name: "E",
+                      nullabilitySuffix: SwidNullabilitySuffix.none,
+                      originalPackagePath: "dart:core",
+                      typeArguments: [],
+                      referenceDeclarationKind:
+                          SwidReferenceDeclarationKind.typeParameterType,
+                    ),
                   ),
+                  element: null,
                 ),
               ],
               referenceDeclarationKind:
@@ -185,9 +189,9 @@ void main() {
 
     //The return type of Iterable.generate should be Iterable<double>
     expect(
-        generateReturnType?.typeArguments.first
-            .maybeWhen(fromSwidInterface: (val) => val, orElse: () => null),
-        dartDouble);
+        generateReturnType?.typeArguments.first.type
+            .maybeWhen(fromSwidInterface: (val) => val, orElse: () => null,),
+        dartDouble,);
     expect(generateReturnType?.displayName, "Iterable<double>");
   }, tags: "swid");
 }
