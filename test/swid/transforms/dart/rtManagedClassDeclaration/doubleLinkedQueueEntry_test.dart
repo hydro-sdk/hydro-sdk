@@ -64,7 +64,7 @@ void main() {
                     declarationModifiers: SwidDeclarationModifiers.empty(),
                   ),
                 ),
-                element:null,
+                element: null,
               ),
             ],
             referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,

@@ -56,29 +56,38 @@ void main() {
     );
 
     expect(
-        CachingPipeline(
-          cacheMgr: const PipelineNoopCacheMgr(),
-        )
-            .reduceFromTerm(
-              CollectAllReferences(
-                swidType: SwidType.fromSwidFunctionType(
+      CachingPipeline(
+        cacheMgr: const PipelineNoopCacheMgr(),
+      )
+          .reduceFromTerm(
+            CollectAllReferences(
+              swidType: SwidType.fromSwidFunctionType(
+                swidFunctionType: getProperties,
+              ),
+            ),
+          )
+          .map(
+            (x) => CachingPipeline(
+              cacheMgr: const PipelineNoopCacheMgr(),
+            ).reduceFromTerm(
+              ResolveTsImportPaths(
+                importee: SwidType.fromSwidInterface(
+                  swidInterface: x,
+                ),
+                importer: SwidType.fromSwidFunctionType(
                   swidFunctionType: getProperties,
                 ),
+                prefixPaths: [
+                  "runtime",
+                ],
               ),
-            )
-            .map(
-              (x) => CachingPipeline(
-                cacheMgr: const PipelineNoopCacheMgr(),
-              ).reduceFromTerm(
-                ResolveTsImportPaths(
-                  importee: SwidType.fromSwidInterface(swidInterface: x,),
-                  importer: SwidType.fromSwidFunctionType(
-                      swidFunctionType: getProperties,),
-                  prefixPaths: ["runtime",],
-                ),
-              ),
-            )
-            .join("\n"),
-        ["../../dart/core", ".",].join("\n"),);
+            ),
+          )
+          .join("\n"),
+      [
+        "../../dart/core",
+        ".",
+      ].join("\n"),
+    );
   }, tags: "swid");
 }

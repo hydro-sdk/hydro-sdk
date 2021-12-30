@@ -155,7 +155,8 @@ void main() {
             orElse: () => null,
           )!
           .typeArguments
-          .first.type,
+          .first
+          .type,
       SwidType.fromSwidInterface(
         swidInterface: dartDynamic,
       ),

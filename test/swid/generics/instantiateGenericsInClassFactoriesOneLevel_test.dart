@@ -189,9 +189,12 @@ void main() {
 
     //The return type of Iterable.generate should be Iterable<double>
     expect(
-        generateReturnType?.typeArguments.first.type
-            .maybeWhen(fromSwidInterface: (val) => val, orElse: () => null,),
-        dartDouble,);
+      generateReturnType?.typeArguments.first.type.maybeWhen(
+        fromSwidInterface: (val) => val,
+        orElse: () => null,
+      ),
+      dartDouble,
+    );
     expect(generateReturnType?.displayName, "Iterable<double>");
   }, tags: "swid");
 }

@@ -136,19 +136,19 @@ void main() {
           nullabilitySuffix: SwidNullabilitySuffix.none,
           originalPackagePath: "dart:core",
           typeArguments: [
-            SwidTypeArgumentType(type: 
-            SwidType.fromSwidInterface(
-              swidInterface: SwidInterface(
-                declarationModifiers: SwidDeclarationModifiers.empty(),
-                name: "T",
-                nullabilitySuffix: SwidNullabilitySuffix.none,
-                originalPackagePath: "dart:core",
-                typeArguments: [],
-                referenceDeclarationKind:
-                    SwidReferenceDeclarationKind.typeParameterType,
+            SwidTypeArgumentType(
+              type: SwidType.fromSwidInterface(
+                swidInterface: SwidInterface(
+                  declarationModifiers: SwidDeclarationModifiers.empty(),
+                  name: "T",
+                  nullabilitySuffix: SwidNullabilitySuffix.none,
+                  originalPackagePath: "dart:core",
+                  typeArguments: [],
+                  referenceDeclarationKind:
+                      SwidReferenceDeclarationKind.typeParameterType,
+                ),
               ),
-            ),
-            element: null,
+              element: null,
             )
           ],
           referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
