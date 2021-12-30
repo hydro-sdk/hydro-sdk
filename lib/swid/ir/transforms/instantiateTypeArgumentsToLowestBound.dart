@@ -1,7 +1,12 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/ir/analyses/hasSuitableTypeFormalBound.dart';
+import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
+import 'package:hydro_sdk/swid/ir/swidInterface.dart';
+import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
+import 'package:hydro_sdk/swid/ir/transforms/instantiateAllGenericsAsDynamic.dart';
 import 'package:hydro_sdk/swid/ir/transforms/instantiateTypeArgumentsToLowestBoundInClass.dart';
 import 'package:hydro_sdk/swid/ir/transforms/instantiateTypeArgumentsToLowestBoundInDefaultFormalParameter.dart';
 import 'package:hydro_sdk/swid/ir/transforms/instantiateTypeArgumentsToLowestBoundInFunction.dart';
@@ -64,10 +69,103 @@ class InstantiateTypeArgumentsToLowestBound
       SwarsTermResult.fromJsonTransformable(
         swidType.when(
           fromSwidInterface: (val) => SwidType.fromSwidInterface(
-            swidInterface: pipeline.reduceFromTerm(
-              InstantiateTypeArgumentsToLowestBoundInInterface(
-                swidInterface: val,
-                swidTypeFormals: swidTypeFormals,
+            swidInterface: (({
+              required final SwidInterface res,
+            }) =>
+                res.typeArguments.isEmpty &&
+                        res.referenceDeclarationKind ==
+                            SwidReferenceDeclarationKind.typeParameterType &&
+                        !pipeline.reduceFromTerm(
+                          HasSuitableTypeFormalBound(
+                            candidateInterface: res,
+                            swidTypeFormals: swidTypeFormals,
+                          ),
+                        )
+                    ? pipeline
+                        .reduceFromTerm(
+                          InstantiateAllGenericsAsDynamic(
+                            swidType: SwidType.fromSwidInterface(
+                              swidInterface: res,
+                            ),
+                          ),
+                        )
+                        .when(
+                          fromSwidInterface: (val) => val,
+                          fromSwidClass: (_) => dartUnknownInterface,
+                          fromSwidDefaultFormalParameter: (_) =>
+                              dartUnknownInterface,
+                          fromSwidFunctionType: (_) => dartUnknownInterface,
+                        )
+                    : res.typeArguments.isNotEmpty &&
+                            res.referenceDeclarationKind ==
+                                SwidReferenceDeclarationKind.classElement
+                        ? res.clone(
+                            typeArguments: res.typeArguments
+                                .map(
+                                  (x) => x.clone(
+                                    type: x.type.when(
+                                      fromSwidInterface: (val) => (val
+                                                          .referenceDeclarationKind ==
+                                                      SwidReferenceDeclarationKind
+                                                          .typeParameterType ||
+                                                  val.referenceDeclarationKind ==
+                                                      SwidReferenceDeclarationKind
+                                                          .dynamicType) &&
+                                              (x.element?.when(
+                                                    fromSwidTypeArgumentElement:
+                                                        (val) => val.bound.when(
+                                                      fromSwidInterface: (_) =>
+                                                          true,
+                                                      fromSwidClass: (_) =>
+                                                          false,
+                                                      fromSwidDefaultFormalParameter:
+                                                          (_) => false,
+                                                      fromSwidFunctionType:
+                                                          (_) => false,
+                                                    ),
+                                                  ) ??
+                                                  false)
+                                          ? SwidType.fromSwidInterface(
+                                              swidInterface: x.element!.when(
+                                                fromSwidTypeArgumentElement:
+                                                    (val) => val.bound.when(
+                                                  fromSwidInterface: (val) =>
+                                                      val,
+                                                  fromSwidClass: (_) =>
+                                                      dartUnknownInterface,
+                                                  fromSwidDefaultFormalParameter:
+                                                      (_) =>
+                                                          dartUnknownInterface,
+                                                  fromSwidFunctionType: (_) =>
+                                                      dartUnknownInterface,
+                                                ),
+                                              ),
+                                            )
+                                          : x.type,
+                                      fromSwidClass: (val) =>
+                                          SwidType.fromSwidClass(
+                                        swidClass: val,
+                                      ),
+                                      fromSwidDefaultFormalParameter: (val) =>
+                                          SwidType
+                                              .fromSwidDefaultFormalParameter(
+                                        swidDefaultFormalParameter: val,
+                                      ),
+                                      fromSwidFunctionType: (val) =>
+                                          SwidType.fromSwidFunctionType(
+                                        swidFunctionType: val,
+                                      ),
+                                    ),
+                                  ),
+                                )
+                                .toList(),
+                          )
+                        : res)(
+              res: pipeline.reduceFromTerm(
+                InstantiateTypeArgumentsToLowestBoundInInterface(
+                  swidInterface: val,
+                  swidTypeFormals: swidTypeFormals,
+                ),
               ),
             ),
           ),
