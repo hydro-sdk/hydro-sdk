@@ -10,6 +10,9 @@ import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeArgumentElement.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeArgumentType.dart';
+import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
+import 'package:hydro_sdk/swid/ir/swidTypeFormalBound.dart';
+import 'package:hydro_sdk/swid/ir/swidTypeFormalValue.dart';
 import 'package:hydro_sdk/swid/ir/transforms/instantiateGenericsToLowestBound.dart';
 import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
 import 'package:hydro_sdk/swid/swars/pipelineNoopCacheMgr.dart';
@@ -125,14 +128,79 @@ void main() {
       generativeConstructors: [],
       factoryConstructors: [],
       staticMethods: [],
-      methods: [],
+      methods: [
+        SwidFunctionType(
+          name: "findAncestorWidgetOfExactType",
+          nullabilitySuffix: SwidNullabilitySuffix.none,
+          originalPackagePath: "package:flutter/src/widgets/framework.dart",
+          namedParameterTypes: {},
+          namedDefaults: {},
+          normalParameterNames: [],
+          normalParameterTypes: [],
+          optionalParameterNames: [],
+          optionalParameterTypes: [],
+          returnType: SwidType.fromSwidInterface(
+            swidInterface: SwidInterface(
+              name: "T",
+              nullabilitySuffix: SwidNullabilitySuffix.none,
+              originalPackagePath: "package:flutter/src/widgets/framework.dart",
+              typeArguments: [],
+              referenceDeclarationKind:
+                  SwidReferenceDeclarationKind.typeParameterType,
+              declarationModifiers: SwidDeclarationModifiers.empty(),
+            ),
+          ),
+          isFactory: false,
+          typeFormals: [
+            SwidTypeFormal(
+              value: SwidTypeFormalValue.fromString(
+                string: "T",
+              ),
+              swidReferenceDeclarationKind:
+                  SwidReferenceDeclarationKind.typeParameterType,
+              swidTypeFormalBound: SwidTypeFormalBound.fromSwidInterface(
+                swidInterface: SwidInterface(
+                  name: "Widget",
+                  nullabilitySuffix: SwidNullabilitySuffix.none,
+                  originalPackagePath:
+                      "package:flutter/src/widgets/framework.dart",
+                  typeArguments: [],
+                  referenceDeclarationKind:
+                      SwidReferenceDeclarationKind.classElement,
+                  declarationModifiers: SwidDeclarationModifiers.empty(),
+                ),
+              ),
+            )
+          ],
+          declarationModifiers: SwidDeclarationModifiers.empty(),
+        )
+      ],
       staticConstFieldDeclarations: [],
       instanceFieldDeclarations: {},
       declarationModifiers: SwidDeclarationModifiers.empty(),
       mixedInClasses: [],
       implementedClasses: [],
       isMixin: false,
-      typeFormals: [],
+      typeFormals: [
+        SwidTypeFormal(
+          value: SwidTypeFormalValue.fromString(
+            string: "T",
+          ),
+          swidReferenceDeclarationKind:
+              SwidReferenceDeclarationKind.typeParameterType,
+          swidTypeFormalBound: SwidTypeFormalBound.fromSwidInterface(
+            swidInterface: SwidInterface(
+              name: "ParentData",
+              nullabilitySuffix: SwidNullabilitySuffix.none,
+              originalPackagePath: "package:flutter/src/rendering/object.dart",
+              typeArguments: [],
+              referenceDeclarationKind:
+                  SwidReferenceDeclarationKind.classElement,
+              declarationModifiers: SwidDeclarationModifiers.empty(),
+            ),
+          ),
+        )
+      ],
     );
 
     final instantiated = CachingPipeline(
@@ -166,6 +234,21 @@ void main() {
           originalPackagePath: "package:flutter/src/rendering/object.dart",
           typeArguments: [],
           referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
+          declarationModifiers: SwidDeclarationModifiers.empty(),
+        ),
+      ),
+    );
+
+    expect(
+      instantiated.methods.first.returnType,
+      SwidType.fromSwidInterface(
+        swidInterface: SwidInterface(
+          name: "T",
+          nullabilitySuffix: SwidNullabilitySuffix.none,
+          originalPackagePath: "package:flutter/src/widgets/framework.dart",
+          typeArguments: [],
+          referenceDeclarationKind:
+              SwidReferenceDeclarationKind.typeParameterType,
           declarationModifiers: SwidDeclarationModifiers.empty(),
         ),
       ),
