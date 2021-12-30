@@ -439,7 +439,7 @@ export class Hydroc {
                     const totalLength = filePromise?.totalLength();
 
                     const progressBar = new ProgressBar(
-                        `    -> ${this.makeSdkToolPlatformName({
+                        `    -> ${this.makeSdkToolSha256Name({
                             toolName: missingSdkTool,
                         })} [:bar] :percent :etas`,
                         {
@@ -462,8 +462,10 @@ export class Hydroc {
                     filePromise?.on("data", (chunk: any) =>
                         progressBar.tick(chunk.length)
                     );
-                    filePromise?.on("end", () => resolve(undefined));
+                    filePromise?.on("end", () => {});
                     filePromise?.pipe(writer);
+
+                    writer.on("close", () => resolve(undefined));
                 });
 
                 const missingSdkToolSha256 = sha256({
@@ -1541,5 +1543,6 @@ class WritableMockFile extends Writable {
     _write(chunk: any) {
         this.mockFsFile.content = chunk.toString();
         this.write(chunk);
+        this.emit("close");
     }
 }
