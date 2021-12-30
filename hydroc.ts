@@ -1543,5 +1543,6 @@ class WritableMockFile extends Writable {
     _write(chunk: any) {
         this.mockFsFile.content = chunk.toString();
         this.write(chunk);
+        this.emit("close");
     }
 }
