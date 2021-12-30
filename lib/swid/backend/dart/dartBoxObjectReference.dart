@@ -83,9 +83,11 @@ class DartBoxObjectReference
                       DartBoxList(
                         type: type,
                         referenceName: objectReference
-                            .accept(DartEmitter(
-                              useNullSafetySyntax: true,
-                            ),)
+                            .accept(
+                              DartEmitter(
+                                useNullSafetySyntax: true,
+                              ),
+                            )
                             .toString(),
                         codeKind: CodeKind.expression,
                       ),
@@ -102,12 +104,15 @@ class DartBoxObjectReference
                         swidType:
                             SwidType.fromSwidInterface(swidInterface: type))
                     ? Reference("List<dynamic>")
-                    : Reference([
-                        removeTypeArguments(str: type.name),
-                        type.nullabilitySuffix == SwidNullabilitySuffix.question
-                            ? "?"
-                            : "",
-                      ].join(),)
+                    : Reference(
+                        [
+                          removeTypeArguments(str: type.name),
+                          type.nullabilitySuffix ==
+                                  SwidNullabilitySuffix.question
+                              ? "?"
+                              : "",
+                        ].join(),
+                      )
               ]
             : [],
       );

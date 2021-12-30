@@ -64,7 +64,7 @@ class SwidInterface
             referenceDeclarationKind ?? swidType.referenceDeclarationKind,
         declarationModifiers:
             declarationModifiers ?? swidType.declarationModifiers,
-            element: element??swidType.element,
+        element: element ?? swidType.element,
       );
 
   factory SwidInterface.fromSwidClass({

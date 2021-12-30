@@ -114,7 +114,7 @@ SwidClass swidClassFromDartClassOrMixinOrClassTypAliasDeclaration({
             }) =>
                 constructorElement != null
                     ? swidFunctionTypeFromFunctionType(
-                      buildElements: buildElements,
+                        buildElements: buildElements,
                         functionType: constructorElement.type,
                         declarationModifiers: SwidDeclarationModifiers.empty(),
                       )
@@ -192,7 +192,7 @@ SwidClass swidClassFromDartClassOrMixinOrClassTypAliasDeclaration({
                 dartClassOrMixinOrClassTypAliasDeclaration.superClass!.type
                     is InterfaceType
             ? swidClassFromInterfaceType(
-              buildElements: buildElements,
+                buildElements: buildElements,
                 interfaceType: dartClassOrMixinOrClassTypAliasDeclaration
                     .superClass!.type as InterfaceType,
               )

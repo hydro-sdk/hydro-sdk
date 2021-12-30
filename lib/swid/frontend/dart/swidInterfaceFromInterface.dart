@@ -1,6 +1,4 @@
 import 'package:analyzer/dart/element/element.dart';
-import 'package:analyzer/dart/element/type.dart'
-    show InterfaceType, DartType, TypeParameterType;
 import 'package:analyzer/src/dart/element/element.dart' show EnumElementImpl;
 
 import 'package:hydro_sdk/swid/frontend/dart/mapAnalyzerNullabilitySuffix.dart';
@@ -12,6 +10,9 @@ import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeArgumentElement.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeArgumentType.dart';
+
+import 'package:analyzer/dart/element/type.dart'
+    show InterfaceType, DartType, TypeParameterType;
 
 SwidInterface swidInterfaceFromInterface({
   required final InterfaceType interfaceType,

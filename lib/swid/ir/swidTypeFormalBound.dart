@@ -71,7 +71,7 @@ class SwidTypeFormalBound
         fromSwidFunctionType: (val) => val.originalPackagePath,
       );
 
-      @override
+  @override
   SwidType? get element => when(
         fromSwidInterface: (val) => val.element,
         fromSwidFunctionType: (val) => val.element,

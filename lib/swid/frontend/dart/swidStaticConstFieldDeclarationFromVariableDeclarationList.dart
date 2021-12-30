@@ -126,7 +126,7 @@ SwidStaticConstFieldDeclaration
                                           enclosingType: SwidType.fromSwidClass(
                                             swidClass:
                                                 swidClassFromInterfaceType(
-                                                  buildElements: buildElements,
+                                              buildElements: buildElements,
                                               interfaceType: simpleIdentifier
                                                   .unParenthesized
                                                   .staticType as InterfaceType,

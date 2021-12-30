@@ -69,7 +69,7 @@ SwidFunctionType swidFunctionTypeFromFunctionType({
                             ? SwidType.fromSwidFunctionType(
                                 swidFunctionType:
                                     swidFunctionTypeFromFunctionType(
-                                      buildElements: buildElements,
+                                buildElements: buildElements,
                                 functionType: x.type as FunctionType,
                                 declarationModifiers:
                                     SwidDeclarationModifiers.empty(),
