@@ -82,6 +82,12 @@ jobs:
         shell: bash
         run: bash scripts/buildSdkTools.bash
         working-directory: hydro
+
+      - name: Calculate Sdk Tools Checksums
+        shell: bash
+        run: node scripts/calculateSdkToolChecksums
+        working-directory: hydro
+
       - name: Push Artifacts
         uses: ncipollo/release-action@v1
         with:
@@ -162,6 +168,12 @@ jobs:
         shell: bash
         run: bash scripts/buildSdkTools.bash
         working-directory: hydro
+
+      - name: Calculate Sdk Tools Checksums
+        shell: bash
+        run: node scripts/calculateSdkToolChecksums
+        working-directory: hydro
+
       - name: Push Artifacts
         uses: ncipollo/release-action@v1
         with:
@@ -242,6 +254,12 @@ jobs:
         shell: bash
         run: bash scripts/buildSdkTools.bash
         working-directory: hydro
+
+      - name: Calculate Sdk Tools Checksums
+        shell: bash
+        run: node scripts/calculateSdkToolChecksums
+        working-directory: hydro
+
       - name: Push Artifacts
         uses: ncipollo/release-action@v1
         with:
