@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/ir/swidDefaultFormalParameter.dart';
-import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
+import 'package:hydro_sdk/swid/ir/swidOriginatedAncestorTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/transforms/instantiateTypeArgumentsToLowestBound.dart';
 import 'package:hydro_sdk/swid/ir/util/swarsTermSwidDefaultFormalParameterMixin.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
@@ -32,7 +32,7 @@ class InstantiateTypeArgumentsToLowestBoundInDefaultFormalParameter
 
   factory InstantiateTypeArgumentsToLowestBoundInDefaultFormalParameter({
     required final SwidDefaultFormalParameter swidDefaultFormalParameter,
-    final List<SwidTypeFormal>? swidTypeFormals,
+    final List<SwidOriginatedAncestorTypeFormal>? swidTypeFormals,
   }) = _$InstantiateTypeArgumentsToLowestBoundInDefaultFormalParameterCtor;
 
   @override
@@ -50,7 +50,7 @@ class InstantiateTypeArgumentsToLowestBoundInDefaultFormalParameter
   @override
   InstantiateTypeArgumentsToLowestBoundInDefaultFormalParameter clone({
     final SwidDefaultFormalParameter? swidDefaultFormalParameter,
-    final List<SwidTypeFormal>? swidTypeFormals,
+    final List<SwidOriginatedAncestorTypeFormal>? swidTypeFormals,
   }) =>
       InstantiateTypeArgumentsToLowestBoundInDefaultFormalParameter(
         swidDefaultFormalParameter:

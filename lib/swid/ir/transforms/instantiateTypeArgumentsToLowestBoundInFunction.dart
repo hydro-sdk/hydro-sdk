@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
-import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
+import 'package:hydro_sdk/swid/ir/swidOriginatedAncestorTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/transforms/instantiateTypeArgumentsToLowestBound.dart';
 import 'package:hydro_sdk/swid/ir/transforms/instantiateTypeArgumentsToLowestBoundInDefaultFormalParameter.dart';
 import 'package:hydro_sdk/swid/ir/util/swarsTermSwidFunctionTypeResultMixin.dart';
@@ -31,7 +31,7 @@ class InstantiateTypeArgumentsToLowestBoundInFunction
 
   factory InstantiateTypeArgumentsToLowestBoundInFunction({
     required final SwidFunctionType swidFunctionType,
-    final List<SwidTypeFormal>? swidTypeFormals,
+    final List<SwidOriginatedAncestorTypeFormal>? swidTypeFormals,
   }) = _$InstantiateTypeArgumentsToLowestBoundInFunctionCtor;
 
   @override
@@ -48,7 +48,7 @@ class InstantiateTypeArgumentsToLowestBoundInFunction
   @override
   InstantiateTypeArgumentsToLowestBoundInFunction clone({
     final SwidFunctionType? swidFunctionType,
-    final List<SwidTypeFormal>? swidTypeFormals,
+    final List<SwidOriginatedAncestorTypeFormal>? swidTypeFormals,
   }) =>
       InstantiateTypeArgumentsToLowestBoundInFunction(
         swidFunctionType: swidFunctionType ?? this.swidFunctionType,
@@ -61,7 +61,8 @@ class InstantiateTypeArgumentsToLowestBoundInFunction
   }) =>
       SwarsTermResult.fromJsonTransformable(
         (({
-          required final List<SwidTypeFormal> mergedTypeFormals,
+          required final List<SwidOriginatedAncestorTypeFormal>
+              mergedTypeFormals,
         }) =>
             swidFunctionType.clone(
               namedParameterTypes: Map.fromEntries(
@@ -118,13 +119,13 @@ class InstantiateTypeArgumentsToLowestBoundInFunction
               ),
             ))(
           mergedTypeFormals: [
-            ...?swidTypeFormals?.where(
-              (x) =>
-                  swidFunctionType.typeFormals.firstWhereOrNull(
-                    (k) => x.value.displayName == k.value.displayName,
-                  ) ==
-                  null,
-            )
+            ...?swidTypeFormals,
+            ...swidFunctionType.typeFormals.map(
+              (x) => SwidOriginatedAncestorTypeFormal(
+                swidTypeFormal: x,
+                kind: SwidOriginatedAncestorTypeFormalKind.kMethod,
+              ),
+            ),
           ],
         ),
       );

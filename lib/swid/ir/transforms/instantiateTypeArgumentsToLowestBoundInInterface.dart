@@ -3,8 +3,8 @@ import 'package:hydro_sdk/swid/ir/analyses/hasSuitableTypeFormalBound.dart';
 import 'package:hydro_sdk/swid/ir/analyses/suitableTypeFormalBound.dart';
 
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
+import 'package:hydro_sdk/swid/ir/swidOriginatedAncestorTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeArgumentType.dart';
-import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/transforms/instantiateTypeArgumentsToLowestBound.dart';
 import 'package:hydro_sdk/swid/ir/util/swarsTermSwidInterfaceResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
@@ -33,7 +33,7 @@ class InstantiateTypeArgumentsToLowestBoundInInterface
 
   factory InstantiateTypeArgumentsToLowestBoundInInterface({
     required final SwidInterface swidInterface,
-    final List<SwidTypeFormal>? swidTypeFormals,
+    final List<SwidOriginatedAncestorTypeFormal>? swidTypeFormals,
   }) = _$InstantiateTypeArgumentsToLowestBoundInInterfaceCtor;
 
   @override
@@ -50,7 +50,7 @@ class InstantiateTypeArgumentsToLowestBoundInInterface
   @override
   InstantiateTypeArgumentsToLowestBoundInInterface clone({
     final SwidInterface? swidInterface,
-    final List<SwidTypeFormal>? swidTypeFormals,
+    final List<SwidOriginatedAncestorTypeFormal>? swidTypeFormals,
   }) =>
       InstantiateTypeArgumentsToLowestBoundInInterface(
         swidInterface: swidInterface ?? this.swidInterface,
@@ -68,13 +68,31 @@ class InstantiateTypeArgumentsToLowestBoundInInterface
             pipeline.reduceFromTerm(
               HasSuitableTypeFormalBound(
                 candidateInterface: withInnerTransformedTypeArguments,
-                swidTypeFormals: swidTypeFormals,
+                swidTypeFormals: swidTypeFormals
+                    ?.where(
+                      (x) =>
+                          x.kind !=
+                          SwidOriginatedAncestorTypeFormalKind.kMethod,
+                    )
+                    .map(
+                      (x) => x.swidTypeFormal,
+                    )
+                    .toList(),
               ),
             )
                 ? pipeline.reduceFromTerm(
                     SuitableTypeFormalBound(
                       candidateInterface: withInnerTransformedTypeArguments,
-                      swidTypeFormals: swidTypeFormals,
+                      swidTypeFormals: swidTypeFormals
+                          ?.where(
+                            (x) =>
+                                x.kind !=
+                                SwidOriginatedAncestorTypeFormalKind.kMethod,
+                          )
+                          .map(
+                            (x) => x.swidTypeFormal,
+                          )
+                          .toList(),
                     ),
                   )
                 : withInnerTransformedTypeArguments)(
