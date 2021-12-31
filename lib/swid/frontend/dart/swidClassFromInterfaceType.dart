@@ -48,9 +48,13 @@ SwidClass swidClassFromInterfaceType({
                 required final SwidFunctionType childClassMethod,
               }) =>
                   SwidFunctionType.clone(
-                      swidFunctionType: childClassMethod,
-                      namedDefaults: Map.of(baseClassMethod.namedDefaults)
-                        ..addAll(childClassMethod.namedDefaults)))(
+                    swidFunctionType: childClassMethod,
+                    declarationModifiers: baseClassMethod.declarationModifiers,
+                    namedDefaults: Map.of(baseClassMethod.namedDefaults)
+                      ..addAll(
+                        childClassMethod.namedDefaults,
+                      ),
+                  ))(
                 baseClassMethod: swidFunctionTypeFromFunctionType(
                   buildElements: buildElements,
                   functionType: x.declaration.type,
