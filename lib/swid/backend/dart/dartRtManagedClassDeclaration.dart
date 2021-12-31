@@ -326,6 +326,10 @@ class DartRTManagedClassDeclaration
                                                 swidFunctionType: x,
                                               ),
                                             )
+                                            .where(
+                                              (x) => !x.declarationModifiers
+                                                  .hasDeprecated,
+                                            )
                                             .map(
                                               (x) => Code(
                                                 pipeline.reduceFromTerm(
@@ -431,9 +435,17 @@ class DartRTManagedClassDeclaration
                             swidFunctionType: x,
                           ),
                         )
-                        .where((x) => x.returnType.displayName.isNotEmpty
-                            ? x.returnType.displayName[0] != "_"
-                            : true)
+                        .where(
+                          (x) => x.returnType.displayName.isNotEmpty
+                              ? x.returnType.displayName[0] != "_"
+                              : true,
+                        )
+                        .where(
+                          (x) => !x.declarationModifiers.hasNonVirtual,
+                        )
+                        .where(
+                          (x) => !x.declarationModifiers.hasDeprecated,
+                        )
                         .map(
                           (x) => transformAccessorName(
                             swidFunctionType: x,
