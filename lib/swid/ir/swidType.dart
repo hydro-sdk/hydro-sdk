@@ -110,49 +110,65 @@ class SwidType
         fromSwidFunctionType: (val) => val.originalPackagePath,
       );
 
+  SwidType? get element => when(
+        fromSwidInterface: (val) => val.element,
+        fromSwidClass: (val) => val.element,
+        fromSwidDefaultFormalParameter: (val) => val.element,
+        fromSwidFunctionType: (val) => val.element,
+      );
+
   String get displayName => (({
         required final String name,
       }) =>
-              name.isNotEmpty
-                  ? [
-                      name,
-                      nullabilitySuffix == SwidNullabilitySuffix.question
-                          ? "?"
-                          : "",
-                    ].join("")
-                  : name)(
-          name: [
-        removeNullabilitySuffix(
-          str: when(
-            fromSwidInterface: (val) => [
-              removeTypeArguments(str: val.name),
-              ...(val.typeArguments.isNotEmpty
-                  ? [
-                      "<",
-                      val.typeArguments
-                          .map((x) => x.displayName)
-                          .toList()
-                          .join(","),
-                      ">"
-                    ]
-                  : [])
-            ].join(""),
-            fromSwidClass: (val) => [
-              removeTypeArguments(str: val.name),
-              ...(val.typeFormals.isNotEmpty
-                  ? [
-                      "<",
-                      val.typeFormals
-                          .map((x) => x.value.displayName)
-                          .toList()
-                          .join(","),
-                      ">"
-                    ]
-                  : [])
-            ].join(""),
-            fromSwidDefaultFormalParameter: (val) => val.staticType.name,
-            fromSwidFunctionType: (val) => val.displayName,
-          ),
-        )
-      ].join(""));
+          name.isNotEmpty
+              ? [
+                  name,
+                  nullabilitySuffix == SwidNullabilitySuffix.question
+                      ? "?"
+                      : "",
+                ].join("")
+              : name)(
+        name: [
+          removeNullabilitySuffix(
+            str: when(
+              fromSwidInterface: (val) => [
+                removeTypeArguments(
+                  str: val.name,
+                ),
+                ...(val.typeArguments.isNotEmpty
+                    ? [
+                        "<",
+                        val.typeArguments
+                            .map(
+                              (x) => x.type.displayName,
+                            )
+                            .toList()
+                            .join(","),
+                        ">"
+                      ]
+                    : [])
+              ].join(""),
+              fromSwidClass: (val) => [
+                removeTypeArguments(
+                  str: val.name,
+                ),
+                ...(val.typeFormals.isNotEmpty
+                    ? [
+                        "<",
+                        val.typeFormals
+                            .map(
+                              (x) => x.value.displayName,
+                            )
+                            .toList()
+                            .join(","),
+                        ">"
+                      ]
+                    : [])
+              ].join(""),
+              fromSwidDefaultFormalParameter: (val) => val.staticType.name,
+              fromSwidFunctionType: (val) => val.displayName,
+            ),
+          )
+        ].join(""),
+      );
 }

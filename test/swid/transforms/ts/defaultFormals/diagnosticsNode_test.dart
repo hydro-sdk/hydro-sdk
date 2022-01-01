@@ -14,6 +14,7 @@ import 'package:hydro_sdk/swid/ir/swidStaticConstFieldReference.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstPrefixedIdentifier.dart';
 import 'package:hydro_sdk/swid/ir/swidStringLiteral.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
+import 'package:hydro_sdk/swid/ir/swidTypeArgumentType.dart';
 import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
 import 'package:hydro_sdk/swid/swars/pipelineNoopCacheMgr.dart';
 
@@ -345,17 +346,20 @@ void main() {
                 nullabilitySuffix: SwidNullabilitySuffix.question,
                 originalPackagePath: "dart:core",
                 typeArguments: [
-                  SwidType.fromSwidInterface(
-                    swidInterface: SwidInterface(
-                      name: "DiagnosticsNode",
-                      nullabilitySuffix: SwidNullabilitySuffix.none,
-                      originalPackagePath:
-                          "package:flutter/src/foundation/diagnostics.dart",
-                      typeArguments: [],
-                      referenceDeclarationKind:
-                          SwidReferenceDeclarationKind.classElement,
-                      declarationModifiers: SwidDeclarationModifiers.empty(),
+                  SwidTypeArgumentType(
+                    type: SwidType.fromSwidInterface(
+                      swidInterface: SwidInterface(
+                        name: "DiagnosticsNode",
+                        nullabilitySuffix: SwidNullabilitySuffix.none,
+                        originalPackagePath:
+                            "package:flutter/src/foundation/diagnostics.dart",
+                        typeArguments: [],
+                        referenceDeclarationKind:
+                            SwidReferenceDeclarationKind.classElement,
+                        declarationModifiers: SwidDeclarationModifiers.empty(),
+                      ),
                     ),
+                    element: null,
                   ),
                 ],
                 referenceDeclarationKind:
@@ -396,41 +400,50 @@ void main() {
               nullabilitySuffix: SwidNullabilitySuffix.none,
               originalPackagePath: "dart:core",
               typeArguments: [
-                SwidType.fromSwidInterface(
-                  swidInterface: SwidInterface(
-                    name: "Map<String, Object>",
-                    nullabilitySuffix: SwidNullabilitySuffix.none,
-                    originalPackagePath: "dart:core",
-                    typeArguments: [
-                      SwidType.fromSwidInterface(
-                        swidInterface: SwidInterface(
-                          name: "String",
-                          nullabilitySuffix: SwidNullabilitySuffix.none,
-                          originalPackagePath: "dart:core",
-                          typeArguments: [],
-                          referenceDeclarationKind:
-                              SwidReferenceDeclarationKind.classElement,
-                          declarationModifiers:
-                              SwidDeclarationModifiers.empty(),
+                SwidTypeArgumentType(
+                  type: SwidType.fromSwidInterface(
+                    swidInterface: SwidInterface(
+                      name: "Map<String, Object>",
+                      nullabilitySuffix: SwidNullabilitySuffix.none,
+                      originalPackagePath: "dart:core",
+                      typeArguments: [
+                        SwidTypeArgumentType(
+                          type: SwidType.fromSwidInterface(
+                            swidInterface: SwidInterface(
+                              name: "String",
+                              nullabilitySuffix: SwidNullabilitySuffix.none,
+                              originalPackagePath: "dart:core",
+                              typeArguments: [],
+                              referenceDeclarationKind:
+                                  SwidReferenceDeclarationKind.classElement,
+                              declarationModifiers:
+                                  SwidDeclarationModifiers.empty(),
+                            ),
+                          ),
+                          element: null,
                         ),
-                      ),
-                      SwidType.fromSwidInterface(
-                        swidInterface: SwidInterface(
-                          name: "Object",
-                          nullabilitySuffix: SwidNullabilitySuffix.none,
-                          originalPackagePath: "dart:core",
-                          typeArguments: [],
-                          referenceDeclarationKind:
-                              SwidReferenceDeclarationKind.classElement,
-                          declarationModifiers:
-                              SwidDeclarationModifiers.empty(),
-                        ),
-                      )
-                    ],
-                    referenceDeclarationKind:
-                        SwidReferenceDeclarationKind.classElement,
-                    declarationModifiers: SwidDeclarationModifiers.empty(),
+                        SwidTypeArgumentType(
+                          type: SwidType.fromSwidInterface(
+                            swidInterface: SwidInterface(
+                              name: "Object",
+                              nullabilitySuffix: SwidNullabilitySuffix.none,
+                              originalPackagePath: "dart:core",
+                              typeArguments: [],
+                              referenceDeclarationKind:
+                                  SwidReferenceDeclarationKind.classElement,
+                              declarationModifiers:
+                                  SwidDeclarationModifiers.empty(),
+                            ),
+                          ),
+                          element: null,
+                        )
+                      ],
+                      referenceDeclarationKind:
+                          SwidReferenceDeclarationKind.classElement,
+                      declarationModifiers: SwidDeclarationModifiers.empty(),
+                    ),
                   ),
+                  element: null,
                 )
               ],
               referenceDeclarationKind:
@@ -698,17 +711,20 @@ void main() {
               nullabilitySuffix: SwidNullabilitySuffix.none,
               originalPackagePath: "dart:core",
               typeArguments: [
-                SwidType.fromSwidInterface(
-                  swidInterface: SwidInterface(
-                    name: "DiagnosticsNode",
-                    nullabilitySuffix: SwidNullabilitySuffix.none,
-                    originalPackagePath:
-                        "package:flutter/src/foundation/diagnostics.dart",
-                    typeArguments: [],
-                    referenceDeclarationKind:
-                        SwidReferenceDeclarationKind.classElement,
-                    declarationModifiers: SwidDeclarationModifiers.empty(),
+                SwidTypeArgumentType(
+                  type: SwidType.fromSwidInterface(
+                    swidInterface: SwidInterface(
+                      name: "DiagnosticsNode",
+                      nullabilitySuffix: SwidNullabilitySuffix.none,
+                      originalPackagePath:
+                          "package:flutter/src/foundation/diagnostics.dart",
+                      typeArguments: [],
+                      referenceDeclarationKind:
+                          SwidReferenceDeclarationKind.classElement,
+                      declarationModifiers: SwidDeclarationModifiers.empty(),
+                    ),
                   ),
+                  element: null,
                 )
               ],
               referenceDeclarationKind:
@@ -737,17 +753,20 @@ void main() {
               nullabilitySuffix: SwidNullabilitySuffix.none,
               originalPackagePath: "dart:core",
               typeArguments: [
-                SwidType.fromSwidInterface(
-                  swidInterface: SwidInterface(
-                    name: "DiagnosticsNode",
-                    nullabilitySuffix: SwidNullabilitySuffix.none,
-                    originalPackagePath:
-                        "package:flutter/src/foundation/diagnostics.dart",
-                    typeArguments: [],
-                    referenceDeclarationKind:
-                        SwidReferenceDeclarationKind.classElement,
-                    declarationModifiers: SwidDeclarationModifiers.empty(),
+                SwidTypeArgumentType(
+                  type: SwidType.fromSwidInterface(
+                    swidInterface: SwidInterface(
+                      name: "DiagnosticsNode",
+                      nullabilitySuffix: SwidNullabilitySuffix.none,
+                      originalPackagePath:
+                          "package:flutter/src/foundation/diagnostics.dart",
+                      typeArguments: [],
+                      referenceDeclarationKind:
+                          SwidReferenceDeclarationKind.classElement,
+                      declarationModifiers: SwidDeclarationModifiers.empty(),
+                    ),
                   ),
+                  element: null,
                 ),
               ],
               referenceDeclarationKind:
@@ -791,27 +810,33 @@ void main() {
               nullabilitySuffix: SwidNullabilitySuffix.none,
               originalPackagePath: "dart:core",
               typeArguments: [
-                SwidType.fromSwidInterface(
-                  swidInterface: SwidInterface(
-                    name: "String",
-                    nullabilitySuffix: SwidNullabilitySuffix.none,
-                    originalPackagePath: "dart:core",
-                    typeArguments: [],
-                    referenceDeclarationKind:
-                        SwidReferenceDeclarationKind.classElement,
-                    declarationModifiers: SwidDeclarationModifiers.empty(),
+                SwidTypeArgumentType(
+                  type: SwidType.fromSwidInterface(
+                    swidInterface: SwidInterface(
+                      name: "String",
+                      nullabilitySuffix: SwidNullabilitySuffix.none,
+                      originalPackagePath: "dart:core",
+                      typeArguments: [],
+                      referenceDeclarationKind:
+                          SwidReferenceDeclarationKind.classElement,
+                      declarationModifiers: SwidDeclarationModifiers.empty(),
+                    ),
                   ),
+                  element: null,
                 ),
-                SwidType.fromSwidInterface(
-                  swidInterface: SwidInterface(
-                    name: "Object",
-                    nullabilitySuffix: SwidNullabilitySuffix.none,
-                    originalPackagePath: "dart:core",
-                    typeArguments: [],
-                    referenceDeclarationKind:
-                        SwidReferenceDeclarationKind.classElement,
-                    declarationModifiers: SwidDeclarationModifiers.empty(),
+                SwidTypeArgumentType(
+                  type: SwidType.fromSwidInterface(
+                    swidInterface: SwidInterface(
+                      name: "Object",
+                      nullabilitySuffix: SwidNullabilitySuffix.none,
+                      originalPackagePath: "dart:core",
+                      typeArguments: [],
+                      referenceDeclarationKind:
+                          SwidReferenceDeclarationKind.classElement,
+                      declarationModifiers: SwidDeclarationModifiers.empty(),
+                    ),
                   ),
+                  element: null,
                 )
               ],
               referenceDeclarationKind:

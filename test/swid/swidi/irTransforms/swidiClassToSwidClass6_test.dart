@@ -9,6 +9,7 @@ import 'package:hydro_sdk/swid/ir/swidIr.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
+import 'package:hydro_sdk/swid/ir/swidTypeArgumentType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormalValue.dart';
 import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
@@ -89,18 +90,21 @@ class "dart:async"::Future {
                     nullabilitySuffix: SwidNullabilitySuffix.none,
                     originalPackagePath: "dart:async",
                     typeArguments: [
-                      SwidType.fromSwidInterface(
-                        swidInterface: SwidInterface(
-                          name: "R",
-                          nullabilitySuffix: SwidNullabilitySuffix.none,
-                          originalPackagePath: "",
-                          typeArguments: [],
-                          referenceDeclarationKind:
-                              SwidReferenceDeclarationKind.typeParameterType,
-                          declarationModifiers:
-                              SwidDeclarationModifiers.empty(),
+                      SwidTypeArgumentType(
+                        type: SwidType.fromSwidInterface(
+                          swidInterface: SwidInterface(
+                            name: "R",
+                            nullabilitySuffix: SwidNullabilitySuffix.none,
+                            originalPackagePath: "",
+                            typeArguments: [],
+                            referenceDeclarationKind:
+                                SwidReferenceDeclarationKind.typeParameterType,
+                            declarationModifiers:
+                                SwidDeclarationModifiers.empty(),
+                          ),
                         ),
-                      )
+                        element: null,
+                      ),
                     ],
                     referenceDeclarationKind:
                         SwidReferenceDeclarationKind.classElement,
@@ -168,16 +172,19 @@ class "dart:async"::Future {
               nullabilitySuffix: SwidNullabilitySuffix.none,
               originalPackagePath: "dart:async",
               typeArguments: [
-                SwidType.fromSwidInterface(
-                  swidInterface: SwidInterface(
-                    name: "R",
-                    nullabilitySuffix: SwidNullabilitySuffix.none,
-                    originalPackagePath: "",
-                    typeArguments: [],
-                    referenceDeclarationKind:
-                        SwidReferenceDeclarationKind.typeParameterType,
-                    declarationModifiers: SwidDeclarationModifiers.empty(),
+                SwidTypeArgumentType(
+                  type: SwidType.fromSwidInterface(
+                    swidInterface: SwidInterface(
+                      name: "R",
+                      nullabilitySuffix: SwidNullabilitySuffix.none,
+                      originalPackagePath: "",
+                      typeArguments: [],
+                      referenceDeclarationKind:
+                          SwidReferenceDeclarationKind.typeParameterType,
+                      declarationModifiers: SwidDeclarationModifiers.empty(),
+                    ),
                   ),
+                  element: null,
                 ),
               ],
               referenceDeclarationKind:

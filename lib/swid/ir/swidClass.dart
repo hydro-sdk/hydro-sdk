@@ -45,7 +45,8 @@ class SwidClass
     required final List<SwidClass> implementedClasses,
     required final bool isMixin,
     required final List<SwidTypeFormal> typeFormals,
-    SwidClass? extendedClass,
+    final SwidType? element,
+    final SwidClass? extendedClass,
   }) = _$Data;
 
   @override
@@ -73,6 +74,7 @@ class SwidClass
       ...isMixin.hashableParts,
     ];
     yield* typeFormals.hashableParts;
+    yield* element?.hashableParts ?? [];
     yield* extendedClass?.hashableParts ?? [];
   })();
 
@@ -100,6 +102,7 @@ class SwidClass
     final bool? isMixin,
     final SwidClass? extendedClass,
     final List<SwidTypeFormal>? typeFormals,
+    final SwidType? element,
   }) =>
       SwidClass(
         name: name ?? swidClass.name,
@@ -128,6 +131,7 @@ class SwidClass
         isMixin: isMixin ?? swidClass.isMixin,
         extendedClass: extendedClass ?? swidClass.extendedClass,
         typeFormals: typeFormals ?? swidClass.typeFormals,
+        element: element ?? swidClass.element,
       );
 
   factory SwidClass.empty() => SwidClass(
@@ -192,6 +196,7 @@ class SwidClass
     final bool? isMixin,
     final SwidClass? extendedClass,
     final List<SwidTypeFormal>? typeFormals,
+    final SwidType? element,
   }) =>
       SwidClass.clone(
         swidClass: this,
@@ -211,5 +216,6 @@ class SwidClass
         isMixin: isMixin,
         extendedClass: extendedClass,
         typeFormals: typeFormals,
+        element: element,
       );
 }

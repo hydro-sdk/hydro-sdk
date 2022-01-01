@@ -7,6 +7,7 @@ import 'package:hydro_sdk/swid/ir/swidGenericInstantiator.dart';
 import 'package:hydro_sdk/swid/ir/swidInstantiatedGeneric.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
+import 'package:hydro_sdk/swid/ir/swidTypeArgumentType.dart';
 import 'package:hydro_sdk/swid/ir/transforms/instantiateGeneric.dart';
 import 'package:hydro_sdk/swid/ir/util/narrowSwidInterfaceByReferenceDeclaration.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
@@ -106,14 +107,17 @@ class InstantiateAllGenericsAs
             ).clone(
               typeArguments: val.typeArguments
                   .map(
-                    (x) => pipeline.reduceFromTerm(
-                      InstantiateGeneric(
-                        genericInstantiator: SwidGenericInstantiator(
-                          name: x.name,
-                          instantiatedGeneric: instantiatedGeneric,
+                    (x) => SwidTypeArgumentType(
+                      type: pipeline.reduceFromTerm(
+                        InstantiateGeneric(
+                          genericInstantiator: SwidGenericInstantiator(
+                            name: x.type.name,
+                            instantiatedGeneric: instantiatedGeneric,
+                          ),
+                          swidType: x.type,
                         ),
-                        swidType: x,
                       ),
+                      element: x.element,
                     ),
                   )
                   .toList(),

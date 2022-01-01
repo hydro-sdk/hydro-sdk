@@ -132,7 +132,7 @@ class TransformTypeDeclarationToTs
                                         .map(
                                           (x) => pipeline.reduceFromTerm(
                                             TransformTypeDeclarationToTs(
-                                              swidType: x,
+                                              swidType: x.type,
                                               parentClass: parentClass,
                                               emitTrailingReturnType:
                                                   emitTrailingReturnType,
@@ -159,7 +159,7 @@ class TransformTypeDeclarationToTs
                                         .map(
                                           (x) => pipeline.reduceFromTerm(
                                             TransformTypeDeclarationToTs(
-                                              swidType: x,
+                                              swidType: x.type,
                                               parentClass: parentClass,
                                               emitTrailingReturnType:
                                                   emitTrailingReturnType,
@@ -221,7 +221,7 @@ class TransformTypeDeclarationToTs
                           parentClass: parentClass,
                           swidType: pipeline.reduceFromTerm(
                             TransformPrimitiveNamesToTs(
-                              swidType: val.typeArguments.first,
+                              swidType: val.typeArguments.first.type,
                             ),
                           ),
                         ),
@@ -230,7 +230,7 @@ class TransformTypeDeclarationToTs
                       pipeline.reduceFromTerm(
                         TransformTypeDeclarationToTs(
                           parentClass: parentClass,
-                          swidType: val.typeArguments.last,
+                          swidType: val.typeArguments.last.type,
                         ),
                       ) +
                       "}",

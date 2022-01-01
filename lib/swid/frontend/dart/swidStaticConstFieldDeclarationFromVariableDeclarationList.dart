@@ -29,11 +29,14 @@ import 'package:hydro_sdk/swid/ir/swidType.dart';
 SwidStaticConstFieldDeclaration
     swidStaticConstFieldDeclarationFromVariableDeclarationList({
   required final VariableDeclarationList variableDeclarationList,
+  required final bool buildElements,
 }) {
   assert(variableDeclarationList.isConst);
   assert(!variableDeclarationList.isLate);
-  VariableDeclaration declaration = variableDeclarationList.childEntities
-      .firstWhere((x) => x is VariableDeclaration) as VariableDeclaration;
+  VariableDeclaration declaration =
+      variableDeclarationList.childEntities.firstWhere(
+    (x) => x is VariableDeclaration,
+  ) as VariableDeclaration;
   assert(declaration.declaredElement!.isConst);
   assert(declaration.declaredElement!.isStatic);
   assert(!declaration.declaredElement!.isLate);
@@ -46,20 +49,25 @@ SwidStaticConstFieldDeclaration
         ? SwidStaticConst.fromSwidStaticConstFunctionInvocation(
             staticConstFunctionInvocation:
                 swidStaticConstFunctionInvocationFromInstanceCreationExpression(
-                    instanceCreationExpression:
-                        declaration.childEntities.firstWhereOrNull(
-            (x) => x is InstanceCreationExpression,
-          ) as InstanceCreationExpression))
+              instanceCreationExpression:
+                  declaration.childEntities.firstWhereOrNull(
+                (x) => x is InstanceCreationExpression,
+              ) as InstanceCreationExpression,
+              buildElements: buildElements,
+            ),
+          )
         : declaration.childEntities.firstWhereOrNull(
                   (x) => x is SimpleStringLiteral,
                 ) !=
                 null
             ? SwidStaticConst.fromSwidStringLiteral(
                 swidStringLiteral: swidStringLiteralFromSimpleStringLiteral(
-                    simpleStringLiteral:
-                        declaration.childEntities.firstWhereOrNull(
-                (x) => x is SimpleStringLiteral,
-              ) as SimpleStringLiteral))
+                  simpleStringLiteral:
+                      declaration.childEntities.firstWhereOrNull(
+                    (x) => x is SimpleStringLiteral,
+                  ) as SimpleStringLiteral,
+                ),
+              )
             : declaration.childEntities.firstWhereOrNull(
                       (x) => x is DoubleLiteral,
                     ) !=
@@ -78,36 +86,47 @@ SwidStaticConstFieldDeclaration
                     ? SwidStaticConst.fromSwidStaticConstBinaryExpression(
                         swidStaticConstBinaryExpression:
                             swidStaticConstBinaryExpressionFromBinaryExpression(
-                                binaryExpression:
-                                    declaration.childEntities.firstWhereOrNull(
-                        (x) => x is BinaryExpression,
-                      ) as BinaryExpression))
-                    : declaration.childEntities
-                                .firstWhereOrNull((x) => x is IntegerLiteral) !=
+                          binaryExpression:
+                              declaration.childEntities.firstWhereOrNull(
+                            (x) => x is BinaryExpression,
+                          ) as BinaryExpression,
+                          buildElements: buildElements,
+                        ),
+                      )
+                    : declaration.childEntities.firstWhereOrNull(
+                              (x) => x is IntegerLiteral,
+                            ) !=
                             null
                         ? SwidStaticConst.fromSwidIntegerLiteral(
                             swidIntegerLiteral:
                                 swidIntegerLiteralFromIntegerLiteral(
-                                    integerLiteral: declaration.childEntities
-                                            .firstWhereOrNull(
-                                                (x) => x is IntegerLiteral)
-                                        as IntegerLiteral))
-                        : declaration.childEntities.firstWhereOrNull((x) =>
-                                    x is SimpleIdentifier &&
-                                    !x.inDeclarationContext()) !=
+                              integerLiteral:
+                                  declaration.childEntities.firstWhereOrNull(
+                                (x) => x is IntegerLiteral,
+                              ) as IntegerLiteral,
+                            ),
+                          )
+                        : declaration.childEntities.firstWhereOrNull(
+                                  (x) =>
+                                      x is SimpleIdentifier &&
+                                      !x.inDeclarationContext(),
+                                ) !=
                                 null
                             ? (({
                                 required final SimpleIdentifier?
                                     simpleIdentifier,
                               }) =>
-                                simpleIdentifier?.unParenthesized.staticType is InterfaceType
-                                    ? SwidStaticConst.fromSwidStaticConstIdentifier(
+                                simpleIdentifier?.unParenthesized.staticType
+                                        is InterfaceType
+                                    ? SwidStaticConst
+                                        .fromSwidStaticConstIdentifier(
                                         staticConstIdentifier:
                                             SwidStaticConstIdentifier(
                                           identifier: simpleIdentifier!.name,
                                           enclosingType: SwidType.fromSwidClass(
                                             swidClass:
                                                 swidClassFromInterfaceType(
+                                              buildElements: buildElements,
                                               interfaceType: simpleIdentifier
                                                   .unParenthesized
                                                   .staticType as InterfaceType,
@@ -127,16 +146,22 @@ SwidStaticConstFieldDeclaration
                                 required final List<SwidStaticConst>
                                     childStaticConsts,
                               }) =>
-                                childStaticConsts.isNotEmpty ? childStaticConsts.first : dartUnknownConst)(
+                                childStaticConsts.isNotEmpty
+                                    ? childStaticConsts.first
+                                    : dartUnknownConst)(
                                 childStaticConsts: <SwidStaticConst>[
                                   ...declaration.childEntities
-                                      .map((x) =>
-                                          extractStaticConstFromSyntacticEntity(
-                                            syntacticEntity: x,
-                                          ))
+                                      .map(
+                                        (x) =>
+                                            extractStaticConstFromSyntacticEntity(
+                                          syntacticEntity: x,
+                                          buildElements: buildElements,
+                                        ),
+                                      )
                                       .toList()
                                         ..removeWhere(
-                                            (x) => x == dartUnknownConst),
+                                          (x) => x == dartUnknownConst,
+                                        ),
                                 ],
                               ),
   );

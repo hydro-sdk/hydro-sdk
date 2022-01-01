@@ -8,6 +8,7 @@ import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
+import 'package:hydro_sdk/swid/ir/swidTypeArgumentType.dart';
 import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
 import 'package:hydro_sdk/swid/swars/pipelineNoopCacheMgr.dart';
 
@@ -45,17 +46,20 @@ void main() {
                     referenceDeclarationKind:
                         SwidReferenceDeclarationKind.classElement,
                     typeArguments: [
-                      SwidType.fromSwidInterface(
-                        swidInterface: SwidInterface(
-                          declarationModifiers:
-                              SwidDeclarationModifiers.empty(),
-                          name: "DiagnosticsNode",
-                          nullabilitySuffix: SwidNullabilitySuffix.none,
-                          originalPackagePath: "",
-                          typeArguments: [],
-                          referenceDeclarationKind:
-                              SwidReferenceDeclarationKind.classElement,
+                      SwidTypeArgumentType(
+                        type: SwidType.fromSwidInterface(
+                          swidInterface: SwidInterface(
+                            declarationModifiers:
+                                SwidDeclarationModifiers.empty(),
+                            name: "DiagnosticsNode",
+                            nullabilitySuffix: SwidNullabilitySuffix.none,
+                            originalPackagePath: "",
+                            typeArguments: [],
+                            referenceDeclarationKind:
+                                SwidReferenceDeclarationKind.classElement,
+                          ),
                         ),
+                        element: null,
                       )
                     ],
                   ),
@@ -93,41 +97,52 @@ void main() {
                   referenceDeclarationKind:
                       SwidReferenceDeclarationKind.classElement,
                   typeArguments: [
-                    SwidType.fromSwidInterface(
-                      swidInterface: SwidInterface(
-                        declarationModifiers: SwidDeclarationModifiers.empty(),
-                        name: "Map<String,Object>",
-                        nullabilitySuffix: SwidNullabilitySuffix.none,
-                        originalPackagePath: "dart:core",
-                        referenceDeclarationKind:
-                            SwidReferenceDeclarationKind.classElement,
-                        typeArguments: [
-                          SwidType.fromSwidInterface(
-                            swidInterface: SwidInterface(
-                              declarationModifiers:
-                                  SwidDeclarationModifiers.empty(),
-                              name: "String",
-                              nullabilitySuffix: SwidNullabilitySuffix.none,
-                              originalPackagePath: "dart:core",
-                              referenceDeclarationKind:
-                                  SwidReferenceDeclarationKind.classElement,
-                              typeArguments: [],
+                    SwidTypeArgumentType(
+                      type: SwidType.fromSwidInterface(
+                        swidInterface: SwidInterface(
+                          declarationModifiers:
+                              SwidDeclarationModifiers.empty(),
+                          name: "Map<String,Object>",
+                          nullabilitySuffix: SwidNullabilitySuffix.none,
+                          originalPackagePath: "dart:core",
+                          referenceDeclarationKind:
+                              SwidReferenceDeclarationKind.classElement,
+                          typeArguments: [
+                            SwidTypeArgumentType(
+                              type: SwidType.fromSwidInterface(
+                                swidInterface: SwidInterface(
+                                  declarationModifiers:
+                                      SwidDeclarationModifiers.empty(),
+                                  name: "String",
+                                  nullabilitySuffix: SwidNullabilitySuffix.none,
+                                  originalPackagePath: "dart:core",
+                                  referenceDeclarationKind:
+                                      SwidReferenceDeclarationKind.classElement,
+                                  typeArguments: [],
+                                ),
+                              ),
+                              element: null,
                             ),
-                          ),
-                          SwidType.fromSwidInterface(
-                            swidInterface: SwidInterface(
-                              declarationModifiers:
-                                  SwidDeclarationModifiers.empty(),
-                              name: "Object",
-                              nullabilitySuffix: SwidNullabilitySuffix.question,
-                              originalPackagePath: "dart:core",
-                              referenceDeclarationKind:
-                                  SwidReferenceDeclarationKind.classElement,
-                              typeArguments: [],
-                            ),
-                          )
-                        ],
+                            SwidTypeArgumentType(
+                              type: SwidType.fromSwidInterface(
+                                swidInterface: SwidInterface(
+                                  declarationModifiers:
+                                      SwidDeclarationModifiers.empty(),
+                                  name: "Object",
+                                  nullabilitySuffix:
+                                      SwidNullabilitySuffix.question,
+                                  originalPackagePath: "dart:core",
+                                  referenceDeclarationKind:
+                                      SwidReferenceDeclarationKind.classElement,
+                                  typeArguments: [],
+                                ),
+                              ),
+                              element: null,
+                            )
+                          ],
+                        ),
                       ),
+                      element: null,
                     )
                   ],
                 ),
@@ -165,17 +180,20 @@ void main() {
                     referenceDeclarationKind:
                         SwidReferenceDeclarationKind.classElement,
                     typeArguments: [
-                      SwidType.fromSwidInterface(
-                        swidInterface: SwidInterface(
-                          declarationModifiers:
-                              SwidDeclarationModifiers.empty(),
-                          name: "DiagnosticsNode",
-                          nullabilitySuffix: SwidNullabilitySuffix.none,
-                          originalPackagePath: "",
-                          typeArguments: [],
-                          referenceDeclarationKind:
-                              SwidReferenceDeclarationKind.classElement,
+                      SwidTypeArgumentType(
+                        type: SwidType.fromSwidInterface(
+                          swidInterface: SwidInterface(
+                            declarationModifiers:
+                                SwidDeclarationModifiers.empty(),
+                            name: "DiagnosticsNode",
+                            nullabilitySuffix: SwidNullabilitySuffix.none,
+                            originalPackagePath: "",
+                            typeArguments: [],
+                            referenceDeclarationKind:
+                                SwidReferenceDeclarationKind.classElement,
+                          ),
                         ),
+                        element: null,
                       )
                     ],
                   ),
@@ -214,40 +232,52 @@ void main() {
                   referenceDeclarationKind:
                       SwidReferenceDeclarationKind.classElement,
                   typeArguments: [
-                    SwidType.fromSwidInterface(
-                      swidInterface: SwidInterface(
-                        declarationModifiers: SwidDeclarationModifiers.empty(),
-                        name: "Map<String,Object>",
-                        nullabilitySuffix: SwidNullabilitySuffix.none,
-                        originalPackagePath: "dart:core",
-                        referenceDeclarationKind:
-                            SwidReferenceDeclarationKind.classElement,
-                        typeArguments: [
-                          SwidType.fromSwidInterface(
-                              swidInterface: SwidInterface(
-                            declarationModifiers:
-                                SwidDeclarationModifiers.empty(),
-                            name: "String",
-                            nullabilitySuffix: SwidNullabilitySuffix.none,
-                            originalPackagePath: "dart:core",
-                            referenceDeclarationKind:
-                                SwidReferenceDeclarationKind.classElement,
-                            typeArguments: [],
-                          )),
-                          SwidType.fromSwidInterface(
-                            swidInterface: SwidInterface(
-                              declarationModifiers:
-                                  SwidDeclarationModifiers.empty(),
-                              name: "Object",
-                              nullabilitySuffix: SwidNullabilitySuffix.question,
-                              originalPackagePath: "dart:core",
-                              referenceDeclarationKind:
-                                  SwidReferenceDeclarationKind.classElement,
-                              typeArguments: [],
+                    SwidTypeArgumentType(
+                      type: SwidType.fromSwidInterface(
+                        swidInterface: SwidInterface(
+                          declarationModifiers:
+                              SwidDeclarationModifiers.empty(),
+                          name: "Map<String,Object>",
+                          nullabilitySuffix: SwidNullabilitySuffix.none,
+                          originalPackagePath: "dart:core",
+                          referenceDeclarationKind:
+                              SwidReferenceDeclarationKind.classElement,
+                          typeArguments: [
+                            SwidTypeArgumentType(
+                              type: SwidType.fromSwidInterface(
+                                swidInterface: SwidInterface(
+                                  declarationModifiers:
+                                      SwidDeclarationModifiers.empty(),
+                                  name: "String",
+                                  nullabilitySuffix: SwidNullabilitySuffix.none,
+                                  originalPackagePath: "dart:core",
+                                  referenceDeclarationKind:
+                                      SwidReferenceDeclarationKind.classElement,
+                                  typeArguments: [],
+                                ),
+                              ),
+                              element: null,
                             ),
-                          )
-                        ],
+                            SwidTypeArgumentType(
+                              type: SwidType.fromSwidInterface(
+                                swidInterface: SwidInterface(
+                                  declarationModifiers:
+                                      SwidDeclarationModifiers.empty(),
+                                  name: "Object",
+                                  nullabilitySuffix:
+                                      SwidNullabilitySuffix.question,
+                                  originalPackagePath: "dart:core",
+                                  referenceDeclarationKind:
+                                      SwidReferenceDeclarationKind.classElement,
+                                  typeArguments: [],
+                                ),
+                              ),
+                              element: null,
+                            )
+                          ],
+                        ),
                       ),
+                      element: null,
                     )
                   ],
                 ),
@@ -285,17 +315,20 @@ void main() {
                     referenceDeclarationKind:
                         SwidReferenceDeclarationKind.classElement,
                     typeArguments: [
-                      SwidType.fromSwidInterface(
-                        swidInterface: SwidInterface(
-                          declarationModifiers:
-                              SwidDeclarationModifiers.empty(),
-                          name: "DiagnosticsNode",
-                          nullabilitySuffix: SwidNullabilitySuffix.none,
-                          originalPackagePath: "",
-                          typeArguments: [],
-                          referenceDeclarationKind:
-                              SwidReferenceDeclarationKind.classElement,
+                      SwidTypeArgumentType(
+                        type: SwidType.fromSwidInterface(
+                          swidInterface: SwidInterface(
+                            declarationModifiers:
+                                SwidDeclarationModifiers.empty(),
+                            name: "DiagnosticsNode",
+                            nullabilitySuffix: SwidNullabilitySuffix.none,
+                            originalPackagePath: "",
+                            typeArguments: [],
+                            referenceDeclarationKind:
+                                SwidReferenceDeclarationKind.classElement,
+                          ),
                         ),
+                        element: null,
                       )
                     ],
                   ),
@@ -334,40 +367,52 @@ void main() {
                   referenceDeclarationKind:
                       SwidReferenceDeclarationKind.classElement,
                   typeArguments: [
-                    SwidType.fromSwidInterface(
-                      swidInterface: SwidInterface(
-                        declarationModifiers: SwidDeclarationModifiers.empty(),
-                        name: "Map<String,Object>",
-                        nullabilitySuffix: SwidNullabilitySuffix.none,
-                        originalPackagePath: "dart:core",
-                        referenceDeclarationKind:
-                            SwidReferenceDeclarationKind.classElement,
-                        typeArguments: [
-                          SwidType.fromSwidInterface(
-                              swidInterface: SwidInterface(
-                            declarationModifiers:
-                                SwidDeclarationModifiers.empty(),
-                            name: "String",
-                            nullabilitySuffix: SwidNullabilitySuffix.none,
-                            originalPackagePath: "dart:core",
-                            referenceDeclarationKind:
-                                SwidReferenceDeclarationKind.classElement,
-                            typeArguments: [],
-                          )),
-                          SwidType.fromSwidInterface(
-                            swidInterface: SwidInterface(
-                              declarationModifiers:
-                                  SwidDeclarationModifiers.empty(),
-                              name: "Object",
-                              nullabilitySuffix: SwidNullabilitySuffix.question,
-                              originalPackagePath: "dart:core",
-                              referenceDeclarationKind:
-                                  SwidReferenceDeclarationKind.classElement,
-                              typeArguments: [],
+                    SwidTypeArgumentType(
+                      type: SwidType.fromSwidInterface(
+                        swidInterface: SwidInterface(
+                          declarationModifiers:
+                              SwidDeclarationModifiers.empty(),
+                          name: "Map<String,Object>",
+                          nullabilitySuffix: SwidNullabilitySuffix.none,
+                          originalPackagePath: "dart:core",
+                          referenceDeclarationKind:
+                              SwidReferenceDeclarationKind.classElement,
+                          typeArguments: [
+                            SwidTypeArgumentType(
+                              type: SwidType.fromSwidInterface(
+                                swidInterface: SwidInterface(
+                                  declarationModifiers:
+                                      SwidDeclarationModifiers.empty(),
+                                  name: "String",
+                                  nullabilitySuffix: SwidNullabilitySuffix.none,
+                                  originalPackagePath: "dart:core",
+                                  referenceDeclarationKind:
+                                      SwidReferenceDeclarationKind.classElement,
+                                  typeArguments: [],
+                                ),
+                              ),
+                              element: null,
                             ),
-                          )
-                        ],
+                            SwidTypeArgumentType(
+                              type: SwidType.fromSwidInterface(
+                                swidInterface: SwidInterface(
+                                  declarationModifiers:
+                                      SwidDeclarationModifiers.empty(),
+                                  name: "Object",
+                                  nullabilitySuffix:
+                                      SwidNullabilitySuffix.question,
+                                  originalPackagePath: "dart:core",
+                                  referenceDeclarationKind:
+                                      SwidReferenceDeclarationKind.classElement,
+                                  typeArguments: [],
+                                ),
+                              ),
+                              element: null,
+                            )
+                          ],
+                        ),
                       ),
+                      element: null,
                     )
                   ],
                 ),

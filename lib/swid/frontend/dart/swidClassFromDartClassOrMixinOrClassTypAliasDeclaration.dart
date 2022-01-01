@@ -33,30 +33,43 @@ import 'package:analyzer/src/dart/ast/ast.dart'
 SwidClass swidClassFromDartClassOrMixinOrClassTypAliasDeclaration({
   required final DartClassOrMixinOrClassTypAliasDeclaration
       dartClassOrMixinOrClassTypAliasDeclaration,
+  required final bool buildElements,
 }) {
   final List<ConstructorDeclarationImpl> constructors =
       dartClassOrMixinOrClassTypAliasDeclaration.childEntities
-          .where((x) => x is ConstructorDeclarationImpl)
+          .where(
+            (x) => x is ConstructorDeclarationImpl,
+          )
           .toList()
           .cast<ConstructorDeclarationImpl>()
-          .where((x) => !x.declaredElement!.hasProtected)
-          .where((x) => x.declaredElement!.name.isNotEmpty
-              ? x.declaredElement!.name[0] != "_"
-              : true)
+          .where(
+            (x) => !x.declaredElement!.hasProtected,
+          )
+          .where(
+            (x) => x.declaredElement!.name.isNotEmpty
+                ? x.declaredElement!.name[0] != "_"
+                : true,
+          )
           .toList();
-  var constructorDeclarationImpl = constructors
-      .firstWhereOrNull((x) => x.factoryKeyword == null && x.name == null);
+  var constructorDeclarationImpl = constructors.firstWhereOrNull(
+    (x) => x.factoryKeyword == null && x.name == null,
+  );
 
   if (constructorDeclarationImpl == null) {
-    constructorDeclarationImpl =
-        constructors.firstWhereOrNull((x) => x.name == null);
+    constructorDeclarationImpl = constructors.firstWhereOrNull(
+      (x) => x.name == null,
+    );
   }
 
   var methods = dartClassOrMixinOrClassTypAliasDeclaration.childEntities
-      .where((x) => x is MethodDeclarationImpl)
+      .where(
+        (x) => x is MethodDeclarationImpl,
+      )
       .toList()
       .cast<MethodDeclarationImpl>()
-      .where((x) => x.name.name[0] != "_")
+      .where(
+        (x) => x.name.name[0] != "_",
+      )
       .toList()
       .cast<MethodDeclarationImpl>()
       .map(
@@ -72,162 +85,225 @@ SwidClass swidClassFromDartClassOrMixinOrClassTypAliasDeclaration({
               propertyAccessorElement: val,
             ),
           )!,
+          buildElements: buildElements,
         ),
       )
       .toList()
       .cast<SwidFunctionType>();
   return SwidClass(
-      name: dartClassOrMixinOrClassTypAliasDeclaration.name.name,
-      isMixin: dartClassOrMixinOrClassTypAliasDeclaration.isMixin,
-      nullabilitySuffix: SwidNullabilitySuffix.none,
-      declarationModifiers: SwidDeclarationModifiers.empty(),
-      originalPackagePath: dartClassOrMixinOrClassTypAliasDeclaration.declaredElement?.librarySource.uri.toString() ??
-          "",
-      constructorType: constructorDeclarationImpl != null
-          ? SwidFunctionType.clone(
-              swidFunctionType: swidFunctionTypeFromFunctionType(
-                declarationModifiers: SwidDeclarationModifiers.empty(),
-                functionType: constructorDeclarationImpl.declaredElement!.type,
-              ),
-              isFactory: constructorDeclarationImpl.factoryKeyword != null,
-            )
-          : dartClassOrMixinOrClassTypAliasDeclaration.when(
-              fromClassDeclaration: (val) => (({
-                required final ConstructorElement? constructorElement,
-              }) =>
-                  constructorElement != null
-                      ? swidFunctionTypeFromFunctionType(
-                          functionType: constructorElement.type,
-                          declarationModifiers:
-                              SwidDeclarationModifiers.empty(),
-                        )
-                      : null)(
-                constructorElement: val.declaredElement?.constructors
-                    .firstWhereOrNull((x) => x.name == ""),
-              ),
-              fromMixinDeclaration: (_) => null,
-              fromClassTypeAlias: (_) => null,
+    name: dartClassOrMixinOrClassTypAliasDeclaration.name.name,
+    isMixin: dartClassOrMixinOrClassTypAliasDeclaration.isMixin,
+    nullabilitySuffix: SwidNullabilitySuffix.none,
+    declarationModifiers: SwidDeclarationModifiers.empty(),
+    originalPackagePath: dartClassOrMixinOrClassTypAliasDeclaration
+            .declaredElement?.librarySource.uri
+            .toString() ??
+        "",
+    constructorType: constructorDeclarationImpl != null
+        ? SwidFunctionType.clone(
+            swidFunctionType: swidFunctionTypeFromFunctionType(
+              buildElements: buildElements,
+              declarationModifiers: SwidDeclarationModifiers.empty(),
+              functionType: constructorDeclarationImpl.declaredElement!.type,
             ),
-      generativeConstructors: constructors
-          .where((x) => x.name != null)
-          .where((x) => x.name!.name[0] != "_")
-          .where((x) => x.factoryKeyword == null)
-          .toList()
-          .map(
-            (x) => SwidFunctionType.clone(
-              swidFunctionType: swidFunctionTypeFromFunctionType(
-                functionType: x.declaredElement!.type,
-                name: x.name!.name,
-                declarationModifiers: SwidDeclarationModifiers.empty(),
-              ),
-              isFactory: false,
-            ),
+            isFactory: constructorDeclarationImpl.factoryKeyword != null,
           )
-          .toList(),
-      factoryConstructors: constructors
-          .where((x) => x.name != null)
-          .where((x) => x.name!.name[0] != "_")
-          .where((x) => x.factoryKeyword != null)
-          .toList()
-          .map(
-            (x) => SwidFunctionType.clone(
-              swidFunctionType: swidFunctionTypeFromFunctionType(
-                functionType: x.declaredElement!.type,
-                name: x.name!.name,
-                declarationModifiers: SwidDeclarationModifiers.empty(),
+        : dartClassOrMixinOrClassTypAliasDeclaration.when(
+            fromClassDeclaration: (val) => (({
+              required final ConstructorElement? constructorElement,
+            }) =>
+                constructorElement != null
+                    ? swidFunctionTypeFromFunctionType(
+                        buildElements: buildElements,
+                        functionType: constructorElement.type,
+                        declarationModifiers: SwidDeclarationModifiers.empty(),
+                      )
+                    : null)(
+              constructorElement:
+                  val.declaredElement?.constructors.firstWhereOrNull(
+                (x) => x.name == "",
               ),
-              isFactory: true,
             ),
-          )
-          .toList(),
-      methods: methods.where((x) => !x.declarationModifiers.isStatic).toList(),
-      staticMethods:
-          methods.where((x) => x.declarationModifiers.isStatic).toList(),
-      mixedInClasses: dartClassOrMixinOrClassTypAliasDeclaration.withClause != null
-          ? dartClassOrMixinOrClassTypAliasDeclaration.withClause!.mixinTypes
-              .map((x) => swidClassFromInterfaceType(
-                  interfaceType: x.type as InterfaceType))
-              .toList()
-          : [],
-      extendedClass: dartClassOrMixinOrClassTypAliasDeclaration.superClass != null &&
-              dartClassOrMixinOrClassTypAliasDeclaration.superClass!.type
-                  is InterfaceType
-          ? swidClassFromInterfaceType(
-              interfaceType: dartClassOrMixinOrClassTypAliasDeclaration.superClass!.type
-                  as InterfaceType)
-          : null,
-      implementedClasses: dartClassOrMixinOrClassTypAliasDeclaration.implementsClause != null
-          ? dartClassOrMixinOrClassTypAliasDeclaration.implementsClause!.interfaces
-              .where((x) => x.type is InterfaceType)
-              .map((x) => swidClassFromInterfaceType(interfaceType: x.type as InterfaceType))
-              .toList()
-          : [],
-      staticConstFieldDeclarations: (dartClassOrMixinOrClassTypAliasDeclaration.childEntities.where((x) => x is FieldDeclaration).toList().cast<FieldDeclaration>().map((x) {
-        if (x.isStatic) {
-          var declarationList =
-              (x.childEntities.firstWhere((k) => k is VariableDeclarationList)
-                  as VariableDeclarationList);
-          if (declarationList.isConst) {
-            VariableDeclaration declaration = declarationList.childEntities
-                    .firstWhere((x) => x is VariableDeclaration)
-                as VariableDeclaration;
-            if (declaration.isConst &&
-                declaration.declaredElement!.isConst &&
-                declaration.declaredElement!.isStatic) {
-              return swidStaticConstFieldDeclarationFromVariableDeclarationList(
-                  variableDeclarationList: x.childEntities
-                          .firstWhere((k) => k is VariableDeclarationList)
-                      as VariableDeclarationList);
-            }
-          }
-        }
-      }).toList()
-            ..removeWhere((x) => x == null))
-          .cast<SwidStaticConstFieldDeclaration>(),
-      instanceFieldDeclarations: Map.fromEntries(
-        dartClassOrMixinOrClassTypAliasDeclaration.childEntities
+            fromMixinDeclaration: (_) => null,
+            fromClassTypeAlias: (_) => null,
+          ),
+    generativeConstructors: constructors
+        .where(
+          (x) => x.name != null,
+        )
+        .where(
+          (x) => x.name!.name[0] != "_",
+        )
+        .where(
+          (x) => x.factoryKeyword == null,
+        )
+        .toList()
+        .map(
+          (x) => SwidFunctionType.clone(
+            swidFunctionType: swidFunctionTypeFromFunctionType(
+              buildElements: buildElements,
+              functionType: x.declaredElement!.type,
+              name: x.name!.name,
+              declarationModifiers: SwidDeclarationModifiers.empty(),
+            ),
+            isFactory: false,
+          ),
+        )
+        .toList(),
+    factoryConstructors: constructors
+        .where(
+          (x) => x.name != null,
+        )
+        .where(
+          (x) => x.name!.name[0] != "_",
+        )
+        .where(
+          (x) => x.factoryKeyword != null,
+        )
+        .toList()
+        .map(
+          (x) => SwidFunctionType.clone(
+            swidFunctionType: swidFunctionTypeFromFunctionType(
+              buildElements: buildElements,
+              functionType: x.declaredElement!.type,
+              name: x.name!.name,
+              declarationModifiers: SwidDeclarationModifiers.empty(),
+            ),
+            isFactory: true,
+          ),
+        )
+        .toList(),
+    methods: methods.where((x) => !x.declarationModifiers.isStatic).toList(),
+    staticMethods:
+        methods.where((x) => x.declarationModifiers.isStatic).toList(),
+    mixedInClasses:
+        dartClassOrMixinOrClassTypAliasDeclaration.withClause != null
+            ? dartClassOrMixinOrClassTypAliasDeclaration.withClause!.mixinTypes
+                .map(
+                  (x) => swidClassFromInterfaceType(
+                    buildElements: buildElements,
+                    interfaceType: x.type as InterfaceType,
+                  ),
+                )
+                .toList()
+            : [],
+    extendedClass:
+        dartClassOrMixinOrClassTypAliasDeclaration.superClass != null &&
+                dartClassOrMixinOrClassTypAliasDeclaration.superClass!.type
+                    is InterfaceType
+            ? swidClassFromInterfaceType(
+                buildElements: buildElements,
+                interfaceType: dartClassOrMixinOrClassTypAliasDeclaration
+                    .superClass!.type as InterfaceType,
+              )
+            : null,
+    implementedClasses:
+        dartClassOrMixinOrClassTypAliasDeclaration.implementsClause != null
+            ? dartClassOrMixinOrClassTypAliasDeclaration
+                .implementsClause!.interfaces
+                .where(
+                  (x) => x.type is InterfaceType,
+                )
+                .map(
+                  (x) => swidClassFromInterfaceType(
+                    buildElements: buildElements,
+                    interfaceType: x.type as InterfaceType,
+                  ),
+                )
+                .toList()
+            : [],
+    staticConstFieldDeclarations: (dartClassOrMixinOrClassTypAliasDeclaration
+            .childEntities
             .where((x) => x is FieldDeclaration)
             .toList()
             .cast<FieldDeclaration>()
             .map((x) {
+      if (x.isStatic) {
+        var declarationList =
+            (x.childEntities.firstWhere((k) => k is VariableDeclarationList)
+                as VariableDeclarationList);
+        if (declarationList.isConst) {
+          VariableDeclaration declaration = declarationList.childEntities
+                  .firstWhere((x) => x is VariableDeclaration)
+              as VariableDeclaration;
+          if (declaration.isConst &&
+              declaration.declaredElement!.isConst &&
+              declaration.declaredElement!.isStatic) {
+            return swidStaticConstFieldDeclarationFromVariableDeclarationList(
+              variableDeclarationList: x.childEntities
+                      .firstWhere((k) => k is VariableDeclarationList)
+                  as VariableDeclarationList,
+              buildElements: buildElements,
+            );
+          }
+        }
+      }
+    }).toList()
+              ..removeWhere(
+                (x) => x == null,
+              ))
+        .cast<SwidStaticConstFieldDeclaration>(),
+    instanceFieldDeclarations: Map.fromEntries(
+      dartClassOrMixinOrClassTypAliasDeclaration.childEntities
+          .where(
+            (x) => x is FieldDeclaration,
+          )
+          .toList()
+          .cast<FieldDeclaration>()
+          .map(
+            (x) {
               if (!x.isStatic) {
-                var declarationList = (x.childEntities
-                        .firstWhere((k) => k is VariableDeclarationList)
-                    as VariableDeclarationList);
+                var declarationList = (x.childEntities.firstWhere(
+                  (k) => k is VariableDeclarationList,
+                ) as VariableDeclarationList);
                 if (!declarationList.isConst) {
-                  VariableDeclaration declaration = declarationList
-                          .childEntities
-                          .firstWhere((x) => x is VariableDeclaration)
-                      as VariableDeclaration;
+                  VariableDeclaration declaration =
+                      declarationList.childEntities.firstWhere(
+                    (x) => x is VariableDeclaration,
+                  ) as VariableDeclaration;
                   if (!declaration.isConst &&
                       !declaration.declaredElement!.isConst &&
                       !declaration.declaredElement!.isStatic &&
                       declaration.declaredElement!.isPublic) {
                     if (declaration.declaredElement!.type is InterfaceType) {
                       return MapEntry(
-                          declaration.declaredElement!.displayName,
-                          SwidType.fromSwidInterface(
-                              swidInterface: swidInterfaceFromInterface(
-                                  interfaceType: declaration.declaredElement!
-                                      .type as InterfaceType)));
+                        declaration.declaredElement!.displayName,
+                        SwidType.fromSwidInterface(
+                          swidInterface: swidInterfaceFromInterface(
+                            interfaceType: declaration.declaredElement!.type
+                                as InterfaceType,
+                            buildElements: true,
+                          ),
+                        ),
+                      );
                     }
                   }
                 }
               }
-            })
-            .toList()
-            .cast<MapEntry<String, SwidType>?>()
-            .where((x) => x != null)
-            .toList()
-            .cast<MapEntry<String, SwidType>>(),
-      ),
-      typeFormals: ((TypeParameterList? typeParameterList) => typeParameterList != null
-          ? typeParameterList.typeParameters
-              .map((x) => swidTypeFormalFromTypeParameter(
+            },
+          )
+          .toList()
+          .cast<MapEntry<String, SwidType>?>()
+          .where(
+            (x) => x != null,
+          )
+          .toList()
+          .cast<MapEntry<String, SwidType>>(),
+    ),
+    typeFormals:
+        ((TypeParameterList? typeParameterList) => typeParameterList != null
+            ? typeParameterList.typeParameters
+                .map(
+                  (x) => swidTypeFormalFromTypeParameter(
                     typeParameter: x,
-                  ))
-              .toList()
-          : <SwidTypeFormal>[])(dartClassOrMixinOrClassTypAliasDeclaration.childEntities.firstWhereOrNull(
+                    buildElements: buildElements,
+                  ),
+                )
+                .toList()
+            : <SwidTypeFormal>[])(
+      dartClassOrMixinOrClassTypAliasDeclaration.childEntities.firstWhereOrNull(
         (x) => x is TypeParameterList,
-      ) as TypeParameterList?));
+      ) as TypeParameterList?,
+    ),
+  );
 }

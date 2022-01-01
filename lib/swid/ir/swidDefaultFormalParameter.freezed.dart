@@ -26,13 +26,15 @@ class _$SwidDefaultFormalParameterTearOff {
       required String originalPackagePath,
       required SwidType staticType,
       required SwidStaticConst value,
-      required String defaultValueCode}) {
+      required String defaultValueCode,
+      SwidType? element}) {
     return _$Data(
       nullabilitySuffix: nullabilitySuffix,
       originalPackagePath: originalPackagePath,
       staticType: staticType,
       value: value,
       defaultValueCode: defaultValueCode,
+      element: element,
     );
   }
 
@@ -52,6 +54,7 @@ mixin _$SwidDefaultFormalParameter {
   SwidType get staticType => throw _privateConstructorUsedError;
   SwidStaticConst get value => throw _privateConstructorUsedError;
   String get defaultValueCode => throw _privateConstructorUsedError;
+  SwidType? get element => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -69,10 +72,12 @@ abstract class $SwidDefaultFormalParameterCopyWith<$Res> {
       String originalPackagePath,
       SwidType staticType,
       SwidStaticConst value,
-      String defaultValueCode});
+      String defaultValueCode,
+      SwidType? element});
 
   $SwidTypeCopyWith<$Res> get staticType;
   $SwidStaticConstCopyWith<$Res> get value;
+  $SwidTypeCopyWith<$Res>? get element;
 }
 
 /// @nodoc
@@ -91,6 +96,7 @@ class _$SwidDefaultFormalParameterCopyWithImpl<$Res>
     Object? staticType = freezed,
     Object? value = freezed,
     Object? defaultValueCode = freezed,
+    Object? element = freezed,
   }) {
     return _then(_value.copyWith(
       nullabilitySuffix: nullabilitySuffix == freezed
@@ -113,6 +119,10 @@ class _$SwidDefaultFormalParameterCopyWithImpl<$Res>
           ? _value.defaultValueCode
           : defaultValueCode // ignore: cast_nullable_to_non_nullable
               as String,
+      element: element == freezed
+          ? _value.element
+          : element // ignore: cast_nullable_to_non_nullable
+              as SwidType?,
     ));
   }
 
@@ -129,6 +139,17 @@ class _$SwidDefaultFormalParameterCopyWithImpl<$Res>
       return _then(_value.copyWith(value: value));
     });
   }
+
+  @override
+  $SwidTypeCopyWith<$Res>? get element {
+    if (_value.element == null) {
+      return null;
+    }
+
+    return $SwidTypeCopyWith<$Res>(_value.element!, (value) {
+      return _then(_value.copyWith(element: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -142,12 +163,15 @@ abstract class _$$DataCopyWith<$Res>
       String originalPackagePath,
       SwidType staticType,
       SwidStaticConst value,
-      String defaultValueCode});
+      String defaultValueCode,
+      SwidType? element});
 
   @override
   $SwidTypeCopyWith<$Res> get staticType;
   @override
   $SwidStaticConstCopyWith<$Res> get value;
+  @override
+  $SwidTypeCopyWith<$Res>? get element;
 }
 
 /// @nodoc
@@ -167,6 +191,7 @@ class __$$DataCopyWithImpl<$Res>
     Object? staticType = freezed,
     Object? value = freezed,
     Object? defaultValueCode = freezed,
+    Object? element = freezed,
   }) {
     return _then(_$Data(
       nullabilitySuffix: nullabilitySuffix == freezed
@@ -189,6 +214,10 @@ class __$$DataCopyWithImpl<$Res>
           ? _value.defaultValueCode
           : defaultValueCode // ignore: cast_nullable_to_non_nullable
               as String,
+      element: element == freezed
+          ? _value.element
+          : element // ignore: cast_nullable_to_non_nullable
+              as SwidType?,
     ));
   }
 }
@@ -201,7 +230,8 @@ class _$_$Data extends _$Data {
       required this.originalPackagePath,
       required this.staticType,
       required this.value,
-      required this.defaultValueCode})
+      required this.defaultValueCode,
+      this.element})
       : super._();
 
   factory _$_$Data.fromJson(Map<String, dynamic> json) =>
@@ -217,10 +247,12 @@ class _$_$Data extends _$Data {
   final SwidStaticConst value;
   @override
   final String defaultValueCode;
+  @override
+  final SwidType? element;
 
   @override
   String toString() {
-    return 'SwidDefaultFormalParameter(nullabilitySuffix: $nullabilitySuffix, originalPackagePath: $originalPackagePath, staticType: $staticType, value: $value, defaultValueCode: $defaultValueCode)';
+    return 'SwidDefaultFormalParameter(nullabilitySuffix: $nullabilitySuffix, originalPackagePath: $originalPackagePath, staticType: $staticType, value: $value, defaultValueCode: $defaultValueCode, element: $element)';
   }
 
   @override
@@ -240,7 +272,9 @@ class _$_$Data extends _$Data {
                 const DeepCollectionEquality().equals(other.value, value)) &&
             (identical(other.defaultValueCode, defaultValueCode) ||
                 const DeepCollectionEquality()
-                    .equals(other.defaultValueCode, defaultValueCode)));
+                    .equals(other.defaultValueCode, defaultValueCode)) &&
+            (identical(other.element, element) ||
+                const DeepCollectionEquality().equals(other.element, element)));
   }
 
   @override
@@ -250,7 +284,8 @@ class _$_$Data extends _$Data {
       const DeepCollectionEquality().hash(originalPackagePath) ^
       const DeepCollectionEquality().hash(staticType) ^
       const DeepCollectionEquality().hash(value) ^
-      const DeepCollectionEquality().hash(defaultValueCode);
+      const DeepCollectionEquality().hash(defaultValueCode) ^
+      const DeepCollectionEquality().hash(element);
 
   @JsonKey(ignore: true)
   @override
@@ -269,7 +304,8 @@ abstract class _$Data extends SwidDefaultFormalParameter {
       required String originalPackagePath,
       required SwidType staticType,
       required SwidStaticConst value,
-      required String defaultValueCode}) = _$_$Data;
+      required String defaultValueCode,
+      SwidType? element}) = _$_$Data;
   _$Data._() : super._();
 
   factory _$Data.fromJson(Map<String, dynamic> json) = _$_$Data.fromJson;
@@ -285,6 +321,8 @@ abstract class _$Data extends SwidDefaultFormalParameter {
   SwidStaticConst get value => throw _privateConstructorUsedError;
   @override
   String get defaultValueCode => throw _privateConstructorUsedError;
+  @override
+  SwidType? get element => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$DataCopyWith<_$Data> get copyWith => throw _privateConstructorUsedError;

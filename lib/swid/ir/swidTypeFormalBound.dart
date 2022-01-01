@@ -4,6 +4,7 @@ import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
+import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeMixin.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
@@ -68,5 +69,11 @@ class SwidTypeFormalBound
   String get originalPackagePath => when(
         fromSwidInterface: (val) => val.originalPackagePath,
         fromSwidFunctionType: (val) => val.originalPackagePath,
+      );
+
+  @override
+  SwidType? get element => when(
+        fromSwidInterface: (val) => val.element,
+        fromSwidFunctionType: (val) => val.element,
       );
 }

@@ -45,6 +45,7 @@ class SwidFunctionType
     required final bool isFactory,
     required final List<SwidTypeFormal> typeFormals,
     required final SwidDeclarationModifiers declarationModifiers,
+    final SwidType? element,
   }) = _$Data;
 
   factory SwidFunctionType.fromJson(Map<String, dynamic> json) =>
@@ -110,6 +111,7 @@ class SwidFunctionType
     final bool? isFactory,
     final List<SwidTypeFormal>? typeFormals,
     final SwidDeclarationModifiers? declarationModifiers,
+    final SwidType? element,
   }) =>
       SwidFunctionType(
         name: name ?? swidFunctionType.name,
@@ -133,6 +135,7 @@ class SwidFunctionType
         returnType: returnType ?? swidFunctionType.returnType,
         isFactory: isFactory ?? swidFunctionType.isFactory,
         typeFormals: typeFormals ?? swidFunctionType.typeFormals,
+        element: element ?? swidFunctionType.element,
       );
 
   @override
@@ -158,6 +161,7 @@ class SwidFunctionType
     ];
     yield* typeFormals.hashableParts;
     yield* declarationModifiers.hashableParts;
+    yield* element?.hashableParts ?? [];
   })();
 
   Map<String, SwidDefaultFormalParameter> get namedDefaultParameters =>
@@ -198,6 +202,7 @@ class SwidFunctionType
     final bool? isFactory,
     final List<SwidTypeFormal>? typeFormals,
     final SwidDeclarationModifiers? declarationModifiers,
+    final SwidType? element,
   }) =>
       SwidFunctionType.clone(
         swidFunctionType: this,
@@ -214,6 +219,7 @@ class SwidFunctionType
         isFactory: isFactory,
         typeFormals: typeFormals,
         declarationModifiers: declarationModifiers,
+        element: element,
       );
 
   String get displayName => [

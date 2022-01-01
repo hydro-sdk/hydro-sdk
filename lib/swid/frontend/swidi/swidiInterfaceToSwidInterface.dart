@@ -4,6 +4,7 @@ import 'package:hydro_sdk/swid/frontend/swidi/swidiTypeDeclarationModifiersToSwi
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
+import 'package:hydro_sdk/swid/ir/swidTypeArgumentType.dart';
 
 SwidInterface swidiInterfaceToSwidInterface({
   required final SwidiInterface swidiInterface,
@@ -16,10 +17,13 @@ SwidInterface swidiInterfaceToSwidInterface({
       originalPackagePath: swidiInterface.libraryScopePrefix.name,
       typeArguments: swidiInterface.typeArguments
           .map(
-            (x) => SwidType.fromSwidInterface(
-              swidInterface: swidiInterfaceToSwidInterface(
-                swidiInterface: x,
+            (x) => SwidTypeArgumentType(
+              type: SwidType.fromSwidInterface(
+                swidInterface: swidiInterfaceToSwidInterface(
+                  swidiInterface: x,
+                ),
               ),
+              element: null,
             ),
           )
           .toList(),

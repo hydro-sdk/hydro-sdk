@@ -18,7 +18,7 @@ class _$InstantiateTypeArgumentsToLowestBoundInInterfaceTearOff {
 
   _$InstantiateTypeArgumentsToLowestBoundInInterfaceCtor call(
       {required SwidInterface swidInterface,
-      List<SwidTypeFormal>? swidTypeFormals}) {
+      List<SwidOriginatedAncestorTypeFormal>? swidTypeFormals}) {
     return _$InstantiateTypeArgumentsToLowestBoundInInterfaceCtor(
       swidInterface: swidInterface,
       swidTypeFormals: swidTypeFormals,
@@ -33,7 +33,7 @@ const $InstantiateTypeArgumentsToLowestBoundInInterface =
 /// @nodoc
 mixin _$InstantiateTypeArgumentsToLowestBoundInInterface {
   SwidInterface get swidInterface => throw _privateConstructorUsedError;
-  List<SwidTypeFormal>? get swidTypeFormals =>
+  List<SwidOriginatedAncestorTypeFormal>? get swidTypeFormals =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -50,7 +50,8 @@ abstract class $InstantiateTypeArgumentsToLowestBoundInInterfaceCopyWith<$Res> {
               then) =
       _$InstantiateTypeArgumentsToLowestBoundInInterfaceCopyWithImpl<$Res>;
   $Res call(
-      {SwidInterface swidInterface, List<SwidTypeFormal>? swidTypeFormals});
+      {SwidInterface swidInterface,
+      List<SwidOriginatedAncestorTypeFormal>? swidTypeFormals});
 
   $SwidInterfaceCopyWith<$Res> get swidInterface;
 }
@@ -78,7 +79,7 @@ class _$InstantiateTypeArgumentsToLowestBoundInInterfaceCopyWithImpl<$Res>
       swidTypeFormals: swidTypeFormals == freezed
           ? _value.swidTypeFormals
           : swidTypeFormals // ignore: cast_nullable_to_non_nullable
-              as List<SwidTypeFormal>?,
+              as List<SwidOriginatedAncestorTypeFormal>?,
     ));
   }
 
@@ -102,7 +103,8 @@ abstract class _$$InstantiateTypeArgumentsToLowestBoundInInterfaceCtorCopyWith<
           $Res>;
   @override
   $Res call(
-      {SwidInterface swidInterface, List<SwidTypeFormal>? swidTypeFormals});
+      {SwidInterface swidInterface,
+      List<SwidOriginatedAncestorTypeFormal>? swidTypeFormals});
 
   @override
   $SwidInterfaceCopyWith<$Res> get swidInterface;
@@ -139,7 +141,7 @@ class __$$InstantiateTypeArgumentsToLowestBoundInInterfaceCtorCopyWithImpl<$Res>
       swidTypeFormals: swidTypeFormals == freezed
           ? _value.swidTypeFormals
           : swidTypeFormals // ignore: cast_nullable_to_non_nullable
-              as List<SwidTypeFormal>?,
+              as List<SwidOriginatedAncestorTypeFormal>?,
     ));
   }
 }
@@ -155,7 +157,7 @@ class _$_$InstantiateTypeArgumentsToLowestBoundInInterfaceCtor
   @override
   final SwidInterface swidInterface;
   @override
-  final List<SwidTypeFormal>? swidTypeFormals;
+  final List<SwidOriginatedAncestorTypeFormal>? swidTypeFormals;
 
   @override
   String toString() {
@@ -194,14 +196,14 @@ abstract class _$InstantiateTypeArgumentsToLowestBoundInInterfaceCtor
     extends InstantiateTypeArgumentsToLowestBoundInInterface {
   factory _$InstantiateTypeArgumentsToLowestBoundInInterfaceCtor(
           {required SwidInterface swidInterface,
-          List<SwidTypeFormal>? swidTypeFormals}) =
+          List<SwidOriginatedAncestorTypeFormal>? swidTypeFormals}) =
       _$_$InstantiateTypeArgumentsToLowestBoundInInterfaceCtor;
   _$InstantiateTypeArgumentsToLowestBoundInInterfaceCtor._() : super._();
 
   @override
   SwidInterface get swidInterface => throw _privateConstructorUsedError;
   @override
-  List<SwidTypeFormal>? get swidTypeFormals =>
+  List<SwidOriginatedAncestorTypeFormal>? get swidTypeFormals =>
       throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)

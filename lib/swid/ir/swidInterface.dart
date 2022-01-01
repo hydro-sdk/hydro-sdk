@@ -5,6 +5,7 @@ import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
+import 'package:hydro_sdk/swid/ir/swidTypeArgumentType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeMixin.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
@@ -30,9 +31,10 @@ class SwidInterface
     required final String name,
     required final SwidNullabilitySuffix nullabilitySuffix,
     required final String originalPackagePath,
-    required final List<SwidType> typeArguments,
+    required final List<SwidTypeArgumentType> typeArguments,
     required final SwidReferenceDeclarationKind referenceDeclarationKind,
     required final SwidDeclarationModifiers declarationModifiers,
+    final SwidType? element,
   }) = _$Data;
 
   factory SwidInterface.fromJson(Map<String, dynamic> json) =>
@@ -47,9 +49,10 @@ class SwidInterface
     final String? name,
     final SwidNullabilitySuffix? nullabilitySuffix,
     final String? originalPackagePath,
-    final List<SwidType>? typeArguments,
+    final List<SwidTypeArgumentType>? typeArguments,
     final SwidReferenceDeclarationKind? referenceDeclarationKind,
     final SwidDeclarationModifiers? declarationModifiers,
+    final SwidType? element,
   }) =>
       SwidInterface(
         name: name ?? swidType.name,
@@ -61,6 +64,7 @@ class SwidInterface
             referenceDeclarationKind ?? swidType.referenceDeclarationKind,
         declarationModifiers:
             declarationModifiers ?? swidType.declarationModifiers,
+        element: element ?? swidType.element,
       );
 
   factory SwidInterface.fromSwidClass({
@@ -87,6 +91,7 @@ class SwidInterface
       referenceDeclarationKind.index,
     ];
     yield* declarationModifiers.hashableParts;
+    yield* element?.hashableParts ?? [];
   })();
 
   String get displayName =>
@@ -97,9 +102,10 @@ class SwidInterface
     final String? name,
     final SwidNullabilitySuffix? nullabilitySuffix,
     final String? originalPackagePath,
-    final List<SwidType>? typeArguments,
+    final List<SwidTypeArgumentType>? typeArguments,
     final SwidReferenceDeclarationKind? referenceDeclarationKind,
     final SwidDeclarationModifiers? declarationModifiers,
+    final SwidType? element,
   }) =>
       SwidInterface.clone(
         swidType: this,
@@ -109,5 +115,6 @@ class SwidInterface
         typeArguments: typeArguments,
         referenceDeclarationKind: referenceDeclarationKind,
         declarationModifiers: declarationModifiers,
+        element: element,
       );
 }

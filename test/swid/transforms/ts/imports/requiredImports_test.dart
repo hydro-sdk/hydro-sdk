@@ -8,6 +8,7 @@ import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
+import 'package:hydro_sdk/swid/ir/swidTypeArgumentType.dart';
 import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
 import 'package:hydro_sdk/swid/swars/pipelineNoopCacheMgr.dart';
 
@@ -31,17 +32,20 @@ void main() {
           nullabilitySuffix: SwidNullabilitySuffix.none,
           originalPackagePath: "dart:core",
           typeArguments: [
-            SwidType.fromSwidInterface(
-              swidInterface: SwidInterface(
-                declarationModifiers: SwidDeclarationModifiers.empty(),
-                name: "DiagnosticsNode",
-                nullabilitySuffix: SwidNullabilitySuffix.none,
-                originalPackagePath:
-                    "package:flutter/src/foundation/diagnostics.dart",
-                typeArguments: [],
-                referenceDeclarationKind:
-                    SwidReferenceDeclarationKind.classElement,
+            SwidTypeArgumentType(
+              type: SwidType.fromSwidInterface(
+                swidInterface: SwidInterface(
+                  declarationModifiers: SwidDeclarationModifiers.empty(),
+                  name: "DiagnosticsNode",
+                  nullabilitySuffix: SwidNullabilitySuffix.none,
+                  originalPackagePath:
+                      "package:flutter/src/foundation/diagnostics.dart",
+                  typeArguments: [],
+                  referenceDeclarationKind:
+                      SwidReferenceDeclarationKind.classElement,
+                ),
               ),
+              element: null,
             ),
           ],
           referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
@@ -52,29 +56,38 @@ void main() {
     );
 
     expect(
-        CachingPipeline(
-          cacheMgr: const PipelineNoopCacheMgr(),
-        )
-            .reduceFromTerm(
-              CollectAllReferences(
-                swidType: SwidType.fromSwidFunctionType(
+      CachingPipeline(
+        cacheMgr: const PipelineNoopCacheMgr(),
+      )
+          .reduceFromTerm(
+            CollectAllReferences(
+              swidType: SwidType.fromSwidFunctionType(
+                swidFunctionType: getProperties,
+              ),
+            ),
+          )
+          .map(
+            (x) => CachingPipeline(
+              cacheMgr: const PipelineNoopCacheMgr(),
+            ).reduceFromTerm(
+              ResolveTsImportPaths(
+                importee: SwidType.fromSwidInterface(
+                  swidInterface: x,
+                ),
+                importer: SwidType.fromSwidFunctionType(
                   swidFunctionType: getProperties,
                 ),
+                prefixPaths: [
+                  "runtime",
+                ],
               ),
-            )
-            .map(
-              (x) => CachingPipeline(
-                cacheMgr: const PipelineNoopCacheMgr(),
-              ).reduceFromTerm(
-                ResolveTsImportPaths(
-                  importee: SwidType.fromSwidInterface(swidInterface: x),
-                  importer: SwidType.fromSwidFunctionType(
-                      swidFunctionType: getProperties),
-                  prefixPaths: ["runtime"],
-                ),
-              ),
-            )
-            .join("\n"),
-        ["../../dart/core", "."].join("\n"));
+            ),
+          )
+          .join("\n"),
+      [
+        "../../dart/core",
+        ".",
+      ].join("\n"),
+    );
   }, tags: "swid");
 }

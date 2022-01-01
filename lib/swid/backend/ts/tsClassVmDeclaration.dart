@@ -12,6 +12,7 @@ import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
+import 'package:hydro_sdk/swid/ir/swidTypeArgumentType.dart';
 import 'package:hydro_sdk/swid/ir/util/rewriteClassReferencesToInterfaceReferencesInFunction.dart';
 import 'package:hydro_sdk/swid/ir/util/rewriteClassReferencestoInterfaceReferencesInClass.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
@@ -81,19 +82,22 @@ class TsClassVmDeclaration
                               SwidDeclarationModifiers.empty(),
                           typeArguments: swidClass.typeFormals
                               .map(
-                                (x) => SwidType.fromSwidInterface(
-                                  swidInterface: SwidInterface(
-                                    declarationModifiers:
-                                        SwidDeclarationModifiers.empty(),
-                                    name: x.value.name,
-                                    nullabilitySuffix:
-                                        SwidNullabilitySuffix.none,
-                                    originalPackagePath: "",
-                                    referenceDeclarationKind:
-                                        SwidReferenceDeclarationKind
-                                            .typeParameterType,
-                                    typeArguments: [],
+                                (x) => SwidTypeArgumentType(
+                                  type: SwidType.fromSwidInterface(
+                                    swidInterface: SwidInterface(
+                                      declarationModifiers:
+                                          SwidDeclarationModifiers.empty(),
+                                      name: x.value.name,
+                                      nullabilitySuffix:
+                                          SwidNullabilitySuffix.none,
+                                      originalPackagePath: "",
+                                      referenceDeclarationKind:
+                                          SwidReferenceDeclarationKind
+                                              .typeParameterType,
+                                      typeArguments: [],
+                                    ),
                                   ),
+                                  element: null,
                                 ),
                               )
                               .toList(),

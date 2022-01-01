@@ -8,6 +8,7 @@ import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstListLiteral.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
+import 'package:hydro_sdk/swid/ir/swidTypeArgumentType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormalValue.dart';
 import 'package:hydro_sdk/swid/ir/util/isPrimitive.dart';
@@ -42,31 +43,45 @@ SwidType rewriteClassReferencesToInterfaceReferences({
       fromSwidInterface: (val) => isPrimitiveMap(
               swidType: SwidType.fromSwidInterface(swidInterface: val))
           ? SwidType.fromSwidInterface(
-              swidInterface: SwidInterface.clone(swidType: val, typeArguments: [
-              val.typeArguments.first,
-              rewriteClassReferencesToInterfaceReferences(
-                  swidType: val.typeArguments.last),
-            ]))
+              swidInterface: SwidInterface.clone(
+                swidType: val,
+                typeArguments: [
+                  val.typeArguments.first,
+                  SwidTypeArgumentType(
+                    type: rewriteClassReferencesToInterfaceReferences(
+                      swidType: val.typeArguments.last.type,
+                    ),
+                    element: null,
+                  ),
+                ],
+              ),
+            )
           : SwidType.fromSwidInterface(
               swidInterface: narrowSwidInterfaceByReferenceDeclaration(
                 swidInterface: val,
                 onPrimitive: (val) => val,
                 onClass: (val) => SwidInterface.clone(
-                    swidType: val,
-                    name: !isPrimitive(
-                            swidType:
-                                SwidType.fromSwidInterface(swidInterface: val))
-                        ? rewriteReferenceName(
-                            swidType: SwidType.fromSwidInterface(
-                              swidInterface: val,
-                            ),
-                          )
-                        : val.name,
-                    typeArguments: val.typeArguments
-                        .map((x) => rewriteClassReferencesToInterfaceReferences(
-                              swidType: x,
-                            ))
-                        .toList()),
+                  swidType: val,
+                  name: !isPrimitive(
+                          swidType:
+                              SwidType.fromSwidInterface(swidInterface: val))
+                      ? rewriteReferenceName(
+                          swidType: SwidType.fromSwidInterface(
+                            swidInterface: val,
+                          ),
+                        )
+                      : val.name,
+                  typeArguments: val.typeArguments
+                      .map(
+                        (x) => SwidTypeArgumentType(
+                          type: rewriteClassReferencesToInterfaceReferences(
+                            swidType: x.type,
+                          ),
+                          element: x.element,
+                        ),
+                      )
+                      .toList(),
+                ),
                 onEnum: (val) => val,
                 onVoid: (val) => val,
                 onTypeParameter: (val) => val,

@@ -16,27 +16,40 @@ import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 
-SwidType narrowDartTypeToSwidType({required final DartType? dartType}) =>
+SwidType narrowDartTypeToSwidType({
+  required final DartType? dartType,
+  required final bool buildElements,
+}) =>
     dartType is FunctionType
         ? SwidType.fromSwidFunctionType(
             swidFunctionType: swidFunctionTypeFromFunctionType(
             functionType: dartType,
             declarationModifiers: SwidDeclarationModifiers.empty(),
+            buildElements: buildElements,
           ))
         : dartType is InterfaceType
             ? SwidType.fromSwidInterface(
-                swidInterface:
-                    swidInterfaceFromInterface(interfaceType: dartType))
+                swidInterface: swidInterfaceFromInterface(
+                  interfaceType: dartType,
+                  buildElements: buildElements,
+                ),
+              )
             : dartType is VoidType
                 ? SwidType.fromSwidInterface(
-                    swidInterface:
-                        swidInterfaceFromVoidType(voidType: dartType))
+                    swidInterface: swidInterfaceFromVoidType(
+                      voidType: dartType,
+                    ),
+                  )
                 : dartType is TypeParameterType
                     ? SwidType.fromSwidInterface(
                         swidInterface: swidInterfaceFromTypeParameterType(
-                            typeParameterType: dartType))
+                          typeParameterType: dartType,
+                        ),
+                      )
                     : dartType is DynamicType
                         ? SwidType.fromSwidInterface(
                             swidInterface: swidInterfaceFromDynamicType(
-                                dynamicType: dartType))
+                              dynamicType: dartType,
+                            ),
+                          )
                         : dartUnknownType;

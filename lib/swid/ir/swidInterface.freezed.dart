@@ -24,9 +24,10 @@ class _$SwidInterfaceTearOff {
       {required String name,
       required SwidNullabilitySuffix nullabilitySuffix,
       required String originalPackagePath,
-      required List<SwidType> typeArguments,
+      required List<SwidTypeArgumentType> typeArguments,
       required SwidReferenceDeclarationKind referenceDeclarationKind,
-      required SwidDeclarationModifiers declarationModifiers}) {
+      required SwidDeclarationModifiers declarationModifiers,
+      SwidType? element}) {
     return _$Data(
       name: name,
       nullabilitySuffix: nullabilitySuffix,
@@ -34,6 +35,7 @@ class _$SwidInterfaceTearOff {
       typeArguments: typeArguments,
       referenceDeclarationKind: referenceDeclarationKind,
       declarationModifiers: declarationModifiers,
+      element: element,
     );
   }
 
@@ -51,11 +53,13 @@ mixin _$SwidInterface {
   SwidNullabilitySuffix get nullabilitySuffix =>
       throw _privateConstructorUsedError;
   String get originalPackagePath => throw _privateConstructorUsedError;
-  List<SwidType> get typeArguments => throw _privateConstructorUsedError;
+  List<SwidTypeArgumentType> get typeArguments =>
+      throw _privateConstructorUsedError;
   SwidReferenceDeclarationKind get referenceDeclarationKind =>
       throw _privateConstructorUsedError;
   SwidDeclarationModifiers get declarationModifiers =>
       throw _privateConstructorUsedError;
+  SwidType? get element => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -72,11 +76,13 @@ abstract class $SwidInterfaceCopyWith<$Res> {
       {String name,
       SwidNullabilitySuffix nullabilitySuffix,
       String originalPackagePath,
-      List<SwidType> typeArguments,
+      List<SwidTypeArgumentType> typeArguments,
       SwidReferenceDeclarationKind referenceDeclarationKind,
-      SwidDeclarationModifiers declarationModifiers});
+      SwidDeclarationModifiers declarationModifiers,
+      SwidType? element});
 
   $SwidDeclarationModifiersCopyWith<$Res> get declarationModifiers;
+  $SwidTypeCopyWith<$Res>? get element;
 }
 
 /// @nodoc
@@ -96,6 +102,7 @@ class _$SwidInterfaceCopyWithImpl<$Res>
     Object? typeArguments = freezed,
     Object? referenceDeclarationKind = freezed,
     Object? declarationModifiers = freezed,
+    Object? element = freezed,
   }) {
     return _then(_value.copyWith(
       name: name == freezed
@@ -113,7 +120,7 @@ class _$SwidInterfaceCopyWithImpl<$Res>
       typeArguments: typeArguments == freezed
           ? _value.typeArguments
           : typeArguments // ignore: cast_nullable_to_non_nullable
-              as List<SwidType>,
+              as List<SwidTypeArgumentType>,
       referenceDeclarationKind: referenceDeclarationKind == freezed
           ? _value.referenceDeclarationKind
           : referenceDeclarationKind // ignore: cast_nullable_to_non_nullable
@@ -122,6 +129,10 @@ class _$SwidInterfaceCopyWithImpl<$Res>
           ? _value.declarationModifiers
           : declarationModifiers // ignore: cast_nullable_to_non_nullable
               as SwidDeclarationModifiers,
+      element: element == freezed
+          ? _value.element
+          : element // ignore: cast_nullable_to_non_nullable
+              as SwidType?,
     ));
   }
 
@@ -130,6 +141,17 @@ class _$SwidInterfaceCopyWithImpl<$Res>
     return $SwidDeclarationModifiersCopyWith<$Res>(_value.declarationModifiers,
         (value) {
       return _then(_value.copyWith(declarationModifiers: value));
+    });
+  }
+
+  @override
+  $SwidTypeCopyWith<$Res>? get element {
+    if (_value.element == null) {
+      return null;
+    }
+
+    return $SwidTypeCopyWith<$Res>(_value.element!, (value) {
+      return _then(_value.copyWith(element: value));
     });
   }
 }
@@ -143,12 +165,15 @@ abstract class _$$DataCopyWith<$Res> implements $SwidInterfaceCopyWith<$Res> {
       {String name,
       SwidNullabilitySuffix nullabilitySuffix,
       String originalPackagePath,
-      List<SwidType> typeArguments,
+      List<SwidTypeArgumentType> typeArguments,
       SwidReferenceDeclarationKind referenceDeclarationKind,
-      SwidDeclarationModifiers declarationModifiers});
+      SwidDeclarationModifiers declarationModifiers,
+      SwidType? element});
 
   @override
   $SwidDeclarationModifiersCopyWith<$Res> get declarationModifiers;
+  @override
+  $SwidTypeCopyWith<$Res>? get element;
 }
 
 /// @nodoc
@@ -168,6 +193,7 @@ class __$$DataCopyWithImpl<$Res> extends _$SwidInterfaceCopyWithImpl<$Res>
     Object? typeArguments = freezed,
     Object? referenceDeclarationKind = freezed,
     Object? declarationModifiers = freezed,
+    Object? element = freezed,
   }) {
     return _then(_$Data(
       name: name == freezed
@@ -185,7 +211,7 @@ class __$$DataCopyWithImpl<$Res> extends _$SwidInterfaceCopyWithImpl<$Res>
       typeArguments: typeArguments == freezed
           ? _value.typeArguments
           : typeArguments // ignore: cast_nullable_to_non_nullable
-              as List<SwidType>,
+              as List<SwidTypeArgumentType>,
       referenceDeclarationKind: referenceDeclarationKind == freezed
           ? _value.referenceDeclarationKind
           : referenceDeclarationKind // ignore: cast_nullable_to_non_nullable
@@ -194,6 +220,10 @@ class __$$DataCopyWithImpl<$Res> extends _$SwidInterfaceCopyWithImpl<$Res>
           ? _value.declarationModifiers
           : declarationModifiers // ignore: cast_nullable_to_non_nullable
               as SwidDeclarationModifiers,
+      element: element == freezed
+          ? _value.element
+          : element // ignore: cast_nullable_to_non_nullable
+              as SwidType?,
     ));
   }
 }
@@ -207,7 +237,8 @@ class _$_$Data extends _$Data {
       required this.originalPackagePath,
       required this.typeArguments,
       required this.referenceDeclarationKind,
-      required this.declarationModifiers})
+      required this.declarationModifiers,
+      this.element})
       : super._();
 
   factory _$_$Data.fromJson(Map<String, dynamic> json) =>
@@ -220,15 +251,17 @@ class _$_$Data extends _$Data {
   @override
   final String originalPackagePath;
   @override
-  final List<SwidType> typeArguments;
+  final List<SwidTypeArgumentType> typeArguments;
   @override
   final SwidReferenceDeclarationKind referenceDeclarationKind;
   @override
   final SwidDeclarationModifiers declarationModifiers;
+  @override
+  final SwidType? element;
 
   @override
   String toString() {
-    return 'SwidInterface(name: $name, nullabilitySuffix: $nullabilitySuffix, originalPackagePath: $originalPackagePath, typeArguments: $typeArguments, referenceDeclarationKind: $referenceDeclarationKind, declarationModifiers: $declarationModifiers)';
+    return 'SwidInterface(name: $name, nullabilitySuffix: $nullabilitySuffix, originalPackagePath: $originalPackagePath, typeArguments: $typeArguments, referenceDeclarationKind: $referenceDeclarationKind, declarationModifiers: $declarationModifiers, element: $element)';
   }
 
   @override
@@ -252,8 +285,10 @@ class _$_$Data extends _$Data {
                     other.referenceDeclarationKind,
                     referenceDeclarationKind)) &&
             (identical(other.declarationModifiers, declarationModifiers) ||
-                const DeepCollectionEquality()
-                    .equals(other.declarationModifiers, declarationModifiers)));
+                const DeepCollectionEquality().equals(
+                    other.declarationModifiers, declarationModifiers)) &&
+            (identical(other.element, element) ||
+                const DeepCollectionEquality().equals(other.element, element)));
   }
 
   @override
@@ -264,7 +299,8 @@ class _$_$Data extends _$Data {
       const DeepCollectionEquality().hash(originalPackagePath) ^
       const DeepCollectionEquality().hash(typeArguments) ^
       const DeepCollectionEquality().hash(referenceDeclarationKind) ^
-      const DeepCollectionEquality().hash(declarationModifiers);
+      const DeepCollectionEquality().hash(declarationModifiers) ^
+      const DeepCollectionEquality().hash(element);
 
   @JsonKey(ignore: true)
   @override
@@ -282,9 +318,10 @@ abstract class _$Data extends SwidInterface {
       {required String name,
       required SwidNullabilitySuffix nullabilitySuffix,
       required String originalPackagePath,
-      required List<SwidType> typeArguments,
+      required List<SwidTypeArgumentType> typeArguments,
       required SwidReferenceDeclarationKind referenceDeclarationKind,
-      required SwidDeclarationModifiers declarationModifiers}) = _$_$Data;
+      required SwidDeclarationModifiers declarationModifiers,
+      SwidType? element}) = _$_$Data;
   _$Data._() : super._();
 
   factory _$Data.fromJson(Map<String, dynamic> json) = _$_$Data.fromJson;
@@ -297,13 +334,16 @@ abstract class _$Data extends SwidInterface {
   @override
   String get originalPackagePath => throw _privateConstructorUsedError;
   @override
-  List<SwidType> get typeArguments => throw _privateConstructorUsedError;
+  List<SwidTypeArgumentType> get typeArguments =>
+      throw _privateConstructorUsedError;
   @override
   SwidReferenceDeclarationKind get referenceDeclarationKind =>
       throw _privateConstructorUsedError;
   @override
   SwidDeclarationModifiers get declarationModifiers =>
       throw _privateConstructorUsedError;
+  @override
+  SwidType? get element => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$DataCopyWith<_$Data> get copyWith => throw _privateConstructorUsedError;

@@ -94,7 +94,7 @@ class CollectAllReferences
                           .map(
                             (x) => pipeline.reduceFromTerm(
                               CollectAllReferences(
-                                swidType: x,
+                                swidType: x.type,
                               ),
                             ),
                           )

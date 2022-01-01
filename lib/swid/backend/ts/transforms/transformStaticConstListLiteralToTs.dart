@@ -74,7 +74,8 @@ class TransformStaticConstListLiteralToTs
                   pipeline.reduceFromTerm(
                     TransformTypeDeclarationToTs(
                       swidType: staticConstListLiteral.staticType.when(
-                        fromSwidInterface: (val) => val.typeArguments.first,
+                        fromSwidInterface: (val) =>
+                            val.typeArguments.first.type,
                         fromSwidClass: (_) => staticConstListLiteral.staticType,
                         fromSwidDefaultFormalParameter: (_) =>
                             staticConstListLiteral.staticType,

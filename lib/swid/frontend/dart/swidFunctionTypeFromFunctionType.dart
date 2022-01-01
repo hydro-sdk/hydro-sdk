@@ -21,22 +21,31 @@ import 'package:analyzer/dart/element/type.dart'
 SwidFunctionType swidFunctionTypeFromFunctionType({
   required final FunctionType functionType,
   required final SwidDeclarationModifiers declarationModifiers,
+  required final bool buildElements,
   String? name,
 }) =>
     SwidFunctionType(
       name: name ?? functionType.element?.name ?? "",
       nullabilitySuffix: mapNullabilitySuffix(
-          nullabilitySuffix: functionType.nullabilitySuffix)!,
+        nullabilitySuffix: functionType.nullabilitySuffix,
+      )!,
       originalPackagePath:
           functionType.element?.librarySource.uri.toString() ?? "",
       declarationModifiers: declarationModifiers,
-      namedParameterTypes: Map.fromEntries(functionType.namedParameterTypes.keys
-          .map((x) => MapEntry<String, SwidType>(
-              x,
-              narrowDartTypeToSwidType(
-                  dartType: functionType.namedParameterTypes[x])))
-          .where((x) => x != dartUnknownType)
-          .toList()),
+      namedParameterTypes: Map.fromEntries(
+        functionType.namedParameterTypes.keys
+            .map(
+              (x) => MapEntry<String, SwidType>(
+                x,
+                narrowDartTypeToSwidType(
+                  dartType: functionType.namedParameterTypes[x],
+                  buildElements: true,
+                ),
+              ),
+            )
+            .where((x) => x != dartUnknownType)
+            .toList(),
+      ),
       namedDefaults: (({
         required final List<DartDefaultFieldFormalOrDefaultFormal>
             defaultParameters,
@@ -53,12 +62,14 @@ SwidFunctionType swidFunctionTypeFromFunctionType({
                         value: x.constantInitializer != null
                             ? extractStaticConstFromSyntacticEntity(
                                 syntacticEntity: x.constantInitializer!,
+                                buildElements: true,
                               )
                             : dartUnknownConst,
                         staticType: x.type is FunctionType
                             ? SwidType.fromSwidFunctionType(
                                 swidFunctionType:
                                     swidFunctionTypeFromFunctionType(
+                                buildElements: buildElements,
                                 functionType: x.type as FunctionType,
                                 declarationModifiers:
                                     SwidDeclarationModifiers.empty(),
@@ -66,8 +77,10 @@ SwidFunctionType swidFunctionTypeFromFunctionType({
                             : x.type is InterfaceType
                                 ? SwidType.fromSwidInterface(
                                     swidInterface: swidInterfaceFromInterface(
-                                    interfaceType: x.type as InterfaceType,
-                                  ))
+                                      interfaceType: x.type as InterfaceType,
+                                      buildElements: true,
+                                    ),
+                                  )
                                 : dartUnknownType,
                       )))
                   .toList()
@@ -92,25 +105,48 @@ SwidFunctionType swidFunctionTypeFromFunctionType({
                         )
                       : null,
             )
-            .where((x) => x != null)
+            .where(
+              (x) => x != null,
+            )
             .toList()
             .cast<DartDefaultFieldFormalOrDefaultFormal>(),
       ),
-      normalParameterNames: List.from(functionType.normalParameterNames),
-      normalParameterTypes: List.from(functionType.normalParameterTypes
-          .map((x) => narrowDartTypeToSwidType(dartType: x))
-          .toList()),
-      optionalParameterNames: List.from(functionType.optionalParameterNames),
+      normalParameterNames: List.from(
+        functionType.normalParameterNames,
+      ),
+      normalParameterTypes: List.from(
+        functionType.normalParameterTypes
+            .map(
+              (x) => narrowDartTypeToSwidType(
+                dartType: x,
+                buildElements: true,
+              ),
+            )
+            .toList(),
+      ),
+      optionalParameterNames: List.from(
+        functionType.optionalParameterNames,
+      ),
       optionalParameterTypes: List.from(functionType.optionalParameterTypes
-          .map((x) => narrowDartTypeToSwidType(dartType: x))
+          .map(
+            (x) => narrowDartTypeToSwidType(
+              dartType: x,
+              buildElements: true,
+            ),
+          )
           .toList()),
-      returnType: narrowDartTypeToSwidType(dartType: functionType.returnType),
+      returnType: narrowDartTypeToSwidType(
+        dartType: functionType.returnType,
+        buildElements: true,
+      ),
       isFactory: false,
       typeFormals: functionType.typeFormals.isNotEmpty
           ? functionType.typeFormals
               .map(
                 (x) => swidTypeFormalFromTypeParameterElement(
-                    typeParameterElement: x),
+                  typeParameterElement: x,
+                  buildElements: buildElements,
+                ),
               )
               .toList()
           : [],

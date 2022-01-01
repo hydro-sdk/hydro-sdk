@@ -110,7 +110,7 @@ class DartUnboxingExpression
                   TypeReference(
                     (t) => t
                       ..symbol = val.typeArguments.isNotEmpty
-                          ? val.typeArguments.first.displayName
+                          ? val.typeArguments.first.type.displayName
                           : "dynamic",
                   ),
                 ])

@@ -385,8 +385,7 @@ class DartRTManagedClassDeclaration
                                 ))(
                             constructorType: pipeline
                                 .reduceFromTerm(
-                                  InstantiateAllGenericsAsDynamic(
-                                    instantiateNormalParameterTypes: true,
+                                  InstantiateGenericsToLowestBound(
                                     swidType: SwidType.fromSwidFunctionType(
                                       swidFunctionType: pipeline
                                           .reduceFromTerm(

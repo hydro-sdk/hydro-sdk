@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
-import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
+import 'package:hydro_sdk/swid/ir/swidOriginatedAncestorTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/transforms/instantiateTypeArgumentsToLowestBound.dart';
 import 'package:hydro_sdk/swid/ir/transforms/instantiateTypeArgumentsToLowestBoundInFunction.dart';
 import 'package:hydro_sdk/swid/ir/util/swarsTermSwidClassResultMixin.dart';
@@ -31,7 +31,7 @@ class InstantiateTypeArgumentsToLowestBoundInClass
 
   factory InstantiateTypeArgumentsToLowestBoundInClass({
     required final SwidClass swidClass,
-    final List<SwidTypeFormal>? swidTypeFormals,
+    final List<SwidOriginatedAncestorTypeFormal>? swidTypeFormals,
   }) = _$InstantiateTypeArgumentsToLowestBoundInClassCtor;
 
   @override
@@ -48,7 +48,7 @@ class InstantiateTypeArgumentsToLowestBoundInClass
   @override
   InstantiateTypeArgumentsToLowestBoundInClass clone({
     final SwidClass? swidClass,
-    final List<SwidTypeFormal>? swidTypeFormals,
+    final List<SwidOriginatedAncestorTypeFormal>? swidTypeFormals,
   }) =>
       InstantiateTypeArgumentsToLowestBoundInClass(
         swidClass: swidClass ?? this.swidClass,
@@ -61,7 +61,8 @@ class InstantiateTypeArgumentsToLowestBoundInClass
   }) =>
       SwarsTermResult.fromJsonTransformable(
         (({
-          required final List<SwidTypeFormal> mergedTypeFormals,
+          required final List<SwidOriginatedAncestorTypeFormal>
+              mergedTypeFormals,
         }) =>
             swidClass.clone(
               constructorType: swidClass.constructorType != null
@@ -127,13 +128,12 @@ class InstantiateTypeArgumentsToLowestBoundInClass
               ),
             ))(
           mergedTypeFormals: [
-            ...swidClass.typeFormals,
-            ...?swidTypeFormals?.where(
-              (x) =>
-                  swidClass.typeFormals.firstWhereOrNull(
-                    (k) => x.value.displayName == k.value.displayName,
-                  ) ==
-                  null,
+            ...?swidTypeFormals,
+            ...swidClass.typeFormals.map(
+              (x) => SwidOriginatedAncestorTypeFormal(
+                swidTypeFormal: x,
+                kind: SwidOriginatedAncestorTypeFormalKind.kClass,
+              ),
             )
           ],
         ),

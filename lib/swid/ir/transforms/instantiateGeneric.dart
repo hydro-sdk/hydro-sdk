@@ -7,6 +7,7 @@ import 'package:hydro_sdk/swid/ir/swidGenericInstantiator.dart';
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
+import 'package:hydro_sdk/swid/ir/swidTypeArgumentType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormalValue.dart';
 import 'package:hydro_sdk/swid/ir/util/irTermMixin.dart';
@@ -74,11 +75,14 @@ class InstantiateGeneric
                 swidType: val,
                 typeArguments: val.typeArguments
                     .map(
-                      (x) => pipeline.reduceFromTerm(
-                        InstantiateGeneric(
-                          genericInstantiator: genericInstantiator,
-                          swidType: x,
+                      (x) => SwidTypeArgumentType(
+                        type: pipeline.reduceFromTerm(
+                          InstantiateGeneric(
+                            genericInstantiator: genericInstantiator,
+                            swidType: x.type,
+                          ),
                         ),
+                        element: x.element,
                       ),
                     )
                     .toList(),
@@ -89,11 +93,14 @@ class InstantiateGeneric
                 swidType: val,
                 typeArguments: val.typeArguments
                     .map(
-                      (x) => pipeline.reduceFromTerm(
-                        InstantiateGeneric(
-                          genericInstantiator: genericInstantiator,
-                          swidType: x,
+                      (x) => SwidTypeArgumentType(
+                        type: pipeline.reduceFromTerm(
+                          InstantiateGeneric(
+                            genericInstantiator: genericInstantiator,
+                            swidType: x.type,
+                          ),
                         ),
+                        element: x.element,
                       ),
                     )
                     .toList(),
@@ -104,11 +111,14 @@ class InstantiateGeneric
                 swidType: val,
                 typeArguments: val.typeArguments
                     .map(
-                      (x) => pipeline.reduceFromTerm(
-                        InstantiateGeneric(
-                          genericInstantiator: genericInstantiator,
-                          swidType: x,
+                      (x) => SwidTypeArgumentType(
+                        type: pipeline.reduceFromTerm(
+                          InstantiateGeneric(
+                            genericInstantiator: genericInstantiator,
+                            swidType: x.type,
+                          ),
                         ),
+                        element: x.element,
                       ),
                     )
                     .toList(),
@@ -119,11 +129,14 @@ class InstantiateGeneric
                 swidType: val,
                 typeArguments: val.typeArguments
                     .map(
-                      (x) => pipeline.reduceFromTerm(
-                        InstantiateGeneric(
-                          genericInstantiator: genericInstantiator,
-                          swidType: x,
+                      (x) => SwidTypeArgumentType(
+                        type: pipeline.reduceFromTerm(
+                          InstantiateGeneric(
+                            genericInstantiator: genericInstantiator,
+                            swidType: x.type,
+                          ),
                         ),
+                        element: x.element,
                       ),
                     )
                     .toList(),
@@ -160,11 +173,14 @@ class InstantiateGeneric
                 swidType: val,
                 typeArguments: val.typeArguments
                     .map(
-                      (x) => pipeline.reduceFromTerm(
-                        InstantiateGeneric(
-                          genericInstantiator: genericInstantiator,
-                          swidType: x,
+                      (x) => SwidTypeArgumentType(
+                        type: pipeline.reduceFromTerm(
+                          InstantiateGeneric(
+                            genericInstantiator: genericInstantiator,
+                            swidType: x.type,
+                          ),
                         ),
+                        element: x.element,
                       ),
                     )
                     .toList(),

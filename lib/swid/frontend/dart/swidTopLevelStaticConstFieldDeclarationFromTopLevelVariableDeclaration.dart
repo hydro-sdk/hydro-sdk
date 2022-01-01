@@ -7,6 +7,7 @@ import 'package:hydro_sdk/swid/ir/swidTopLevelStaticConstFieldDeclaration.dart';
 SwidTopLevelStaticConstFieldDeclaration
     swidTopLevelStaticConstFieldDeclarationFromTopLevelVariableDeclaration({
   required TopLevelVariableDeclaration topLevelVariableDeclaration,
+  required final bool buildElements,
 }) =>
         SwidTopLevelStaticConstFieldDeclaration(
           originalPackagePath:
@@ -21,5 +22,6 @@ SwidTopLevelStaticConstFieldDeclaration
             variableDeclarationList: topLevelVariableDeclaration.childEntities
                 .whereType<VariableDeclarationList>()
                 .first,
+            buildElements: buildElements,
           ),
         );
