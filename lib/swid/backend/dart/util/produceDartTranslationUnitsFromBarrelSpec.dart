@@ -36,17 +36,7 @@ List<DartTranslationUnit> produceDartTranslationUnitsFromBarrelSpec({
                         swidClass: val,
                       ),
                       fromSwidEnum: (_) => false,
-                      fromBarrelSpec: (val) => val.members.every(
-                        (e) => e.when(
-                          fromSwidClass: (val) =>
-                              requiresDartClassTranslationUnit(
-                            pipeline: pipeline,
-                            swidClass: val,
-                          ),
-                          fromSwidEnum: (_) => true,
-                          fromBarrelSpec: (_) => true,
-                        ),
-                      ),
+                      fromBarrelSpec: (_) => true,
                     )
                         ? [
                             DartIr.fromDartImportStatement(
