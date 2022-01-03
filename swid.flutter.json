@@ -7,10 +7,26 @@
         ],
         "allowList": {
             "packagePaths": [
-                "package:flutter/src/widgets/framework.dart"
+                "package:flutter/src/widgets/framework.dart",
+                "package:flutter/src/rendering/object.dart",
+                "package:flutter/src/rendering/layer.dart"
             ],
             "classNames": [
-                "Key"
+                "Key",
+                "Curve",
+                "Curves",
+                "AbstractNode",
+                "DiagnosticableTreeMixin",
+                "HitTestEntry",
+                "HitTestTarget",
+                "PointerEvent",
+                "SemanticsEvent",
+                "SemanticsNode",
+                "SemanticsData",
+                "SemanticsSortKey",
+                "SemanticsHintOverrides",
+                "SemanticsTag",
+                "SemanticsOwner"
             ]
         },
         "denyList": {
