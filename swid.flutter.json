@@ -9,7 +9,9 @@
             "packagePaths": [
                 "package:flutter/src/widgets/framework.dart"
             ],
-            "classNames": []
+            "classNames": [
+                "Key"
+            ]
         },
         "denyList": {
             "packagePaths": [],
