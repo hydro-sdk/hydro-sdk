@@ -1,10 +1,8 @@
-import 'package:flutter/material.dart';
+import 'dart:core';
 
-import 'package:hydro_sdk/cfr/builtins/boxing/boxers.dart';
-import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
-import 'package:hydro_sdk/cfr/vm/context.dart';
-import 'package:hydro_sdk/cfr/vm/table.dart';
-import 'package:hydro_sdk/hydroState.dart';
+import 'package:flutter/src/foundation/key.dart';
+
+import 'package:hydro_sdk/cfr/runtimeSupport.dart';
 
 class VMManagedKey extends VMManagedBox<Key> {
   VMManagedKey(
@@ -23,10 +21,12 @@ class VMManagedKey extends VMManagedBox<Key> {
 }
 
 void loadKey({required HydroState hydroState, required HydroTable table}) {
-  table['key'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['key'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<Key>(
-          object: Key(args[1]), hydroState: hydroState, table: args[0])
+          object: Key(luaCallerArguments[1]),
+          hydroState: hydroState,
+          table: luaCallerArguments[0])
     ];
   });
   registerBoxer<Key>(boxer: (

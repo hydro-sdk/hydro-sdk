@@ -5,4 +5,5 @@ export enum DismissDirection {
     startToEnd,
     up,
     down,
+    none,
 }

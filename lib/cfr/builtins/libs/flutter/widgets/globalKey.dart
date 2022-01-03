@@ -1,60 +1,91 @@
-import 'package:flutter/widgets.dart';
+import 'dart:core';
 
-import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
-import 'package:hydro_sdk/cfr/builtins/boxing/unboxers.dart';
-import 'package:hydro_sdk/cfr/builtins/libs/flutter/runtimeTypeToGeneric.dart';
-import 'package:hydro_sdk/cfr/vm/closure.dart';
-import 'package:hydro_sdk/cfr/vm/context.dart';
-import 'package:hydro_sdk/cfr/vm/table.dart';
-import 'package:hydro_sdk/hydroState.dart';
+import 'package:flutter/src/foundation/key.dart';
+import 'package:flutter/src/widgets/framework.dart';
 
-class RTManagedGlobalKey extends RTManagedBox<GlobalKey> {
-  final HydroTable table;
-  final GlobalKey vmObject;
-  final HydroState parentState;
+import 'package:hydro_sdk/cfr/runtimeSupport.dart';
 
-  RTManagedGlobalKey(
-      {required this.table, required this.parentState, required this.vmObject})
+class VMManagedGlobalKey
+    extends VMManagedBox<GlobalKey<State<StatefulWidget>>> {
+  VMManagedGlobalKey(
+      {required this.table, required this.vmObject, required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,
+          hydroState: hydroState,
         ) {
-    table["currentState"] = makeLuaDartFunc(func: (List<dynamic> args) {
-      HydroTable currentState = HydroTable();
-      currentState["insertItem"] = (List<dynamic> args) {
-        (vmObject.currentState as dynamic).insertItem(args[1]);
-      };
-
-      currentState["removeItem"] = (List<dynamic> args) {
-        (vmObject.currentState as dynamic).removeItem(args[1],
-            (BuildContext context, Animation<double> animation) {
-          Closure closure = args[2];
-          return maybeUnBoxAndBuildArgument<Widget, dynamic>(
-              closure.dispatch([args[0], context, animation],
-                  parentState: parentState)[0],
-              parentState: parentState) as Widget;
-        });
-      };
-      return [currentState];
+    table['getCurrentContext'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      final returnValue = vmObject.currentContext;
+      if (returnValue != null) {
+        return [
+          maybeBoxObject<BuildContext?>(
+              object: returnValue, hydroState: hydroState, table: HydroTable()),
+        ];
+      }
+      return [];
+    });
+    table['getCurrentWidget'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      final returnValue = vmObject.currentWidget;
+      if (returnValue != null) {
+        return [
+          maybeBoxObject<Widget?>(
+              object: returnValue, hydroState: hydroState, table: HydroTable()),
+        ];
+      }
+      return [];
+    });
+    table['getCurrentState'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      final returnValue = vmObject.currentState;
+      if (returnValue != null) {
+        return [
+          returnValue,
+        ];
+      }
+      return [];
+    });
+    table['toString'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        vmObject.toString(),
+      ];
+    });
+    table['getHashCode'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        vmObject.hashCode,
+      ];
     });
   }
+
+  final HydroTable table;
+
+  final HydroState hydroState;
+
+  final GlobalKey<State<StatefulWidget>> vmObject;
 }
 
-void loadGlobalKey({required HydroState luaState, required HydroTable table}) {
-  table["globalKeyCtor"] = makeLuaDartFunc(func: (List<dynamic> args) {
-    GlobalKey? key = translateRTTIToGenericGlobalKey(
-        runtimeType: RuntimeTypes.values.firstWhere((x) =>
-            x.toString().split(".")[1] ==
-            maybeUnBoxRuntimeType(
-                managedObject: args[0],
-                runtimeTypePropName: "targetRuntimeType")));
-
+void loadGlobalKey(
+    {required HydroState hydroState, required HydroTable table}) {
+  table['globalKey'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
-      RTManagedGlobalKey(
-        table: args[0],
-        parentState: luaState,
-        vmObject: key!,
-      )
+      maybeBoxObject<GlobalKey>(
+          object: GlobalKey(
+              debugLabel: luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1]['debugLabel']
+                  : null),
+          hydroState: hydroState,
+          table: luaCallerArguments[0])
     ];
+  });
+  registerBoxer<GlobalKey>(boxer: (
+      {required GlobalKey vmObject,
+      required HydroState hydroState,
+      required HydroTable table}) {
+    return VMManagedGlobalKey(
+        vmObject: vmObject, hydroState: hydroState, table: table);
   });
 }
