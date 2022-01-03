@@ -1,5 +1,10 @@
+import 'package:analyzer/dart/element/element.dart';
+import 'package:collection/collection.dart';
 import 'package:analyzer/src/dart/element/element.dart'
-    show DefaultFieldFormalParameterElementImpl, DefaultParameterElementImpl;
+    show
+        DefaultFieldFormalParameterElementImpl,
+        DefaultParameterElementImpl,
+        ParameterElementImpl;
 
 import 'package:hydro_sdk/swid/frontend/dart/dartDefaultFieldFormalOrDefaultFormal.dart';
 import 'package:hydro_sdk/swid/frontend/dart/extractStaticConstFromSyntacticEntity.dart';
@@ -116,10 +121,42 @@ SwidFunctionType swidFunctionTypeFromFunctionType({
       ),
       normalParameterTypes: List.from(
         functionType.normalParameterTypes
-            .map(
-              (x) => narrowDartTypeToSwidType(
-                dartType: x,
-                buildElements: true,
+            .mapIndexed(
+              (
+                i,
+                x,
+              ) =>
+                  (({
+                required final SwidType swidType,
+              }) =>
+                      swidType.clone(
+                        declarationModifiers: (({
+                          required final ParameterElement? parameterElement,
+                        }) =>
+                            parameterElement == null
+                                ? swidType.declarationModifiers
+                                : swidType.declarationModifiers.clone(
+                                    isCovariant: parameterElement.isCovariant,
+                                    isExplicitlyCovariant: parameterElement
+                                            is ParameterElementImpl
+                                        ? parameterElement.isExplicitlyCovariant
+                                        : swidType.declarationModifiers
+                                            .isExplicitlyCovariant,
+                                  ))(
+                          parameterElement:
+                              functionType.parameters.firstWhereIndexedOrNull(
+                            (
+                              j,
+                              k,
+                            ) =>
+                                j == i,
+                          ),
+                        ),
+                      ))(
+                swidType: narrowDartTypeToSwidType(
+                  dartType: x,
+                  buildElements: true,
+                ),
               ),
             )
             .toList(),
