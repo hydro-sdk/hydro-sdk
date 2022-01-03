@@ -201,6 +201,8 @@ class _$SwidDeclarationModifiersTearOff {
       required bool isSetter,
       required bool isStatic,
       required bool isSynthetic,
+      required bool isCovariant,
+      required bool isExplicitlyCovariant,
       required bool hasAlwaysThrows,
       required bool hasDeprecated,
       required bool hasFactory,
@@ -229,6 +231,8 @@ class _$SwidDeclarationModifiersTearOff {
       isSetter: isSetter,
       isStatic: isStatic,
       isSynthetic: isSynthetic,
+      isCovariant: isCovariant,
+      isExplicitlyCovariant: isExplicitlyCovariant,
       hasAlwaysThrows: hasAlwaysThrows,
       hasDeprecated: hasDeprecated,
       hasFactory: hasFactory,
@@ -270,6 +274,8 @@ mixin _$SwidDeclarationModifiers {
   bool get isSetter => throw _privateConstructorUsedError;
   bool get isStatic => throw _privateConstructorUsedError;
   bool get isSynthetic => throw _privateConstructorUsedError;
+  bool get isCovariant => throw _privateConstructorUsedError;
+  bool get isExplicitlyCovariant => throw _privateConstructorUsedError;
   bool get hasAlwaysThrows => throw _privateConstructorUsedError;
   bool get hasDeprecated => throw _privateConstructorUsedError;
   bool get hasFactory => throw _privateConstructorUsedError;
@@ -310,6 +316,8 @@ abstract class $SwidDeclarationModifiersCopyWith<$Res> {
       bool isSetter,
       bool isStatic,
       bool isSynthetic,
+      bool isCovariant,
+      bool isExplicitlyCovariant,
       bool hasAlwaysThrows,
       bool hasDeprecated,
       bool hasFactory,
@@ -350,6 +358,8 @@ class _$SwidDeclarationModifiersCopyWithImpl<$Res>
     Object? isSetter = freezed,
     Object? isStatic = freezed,
     Object? isSynthetic = freezed,
+    Object? isCovariant = freezed,
+    Object? isExplicitlyCovariant = freezed,
     Object? hasAlwaysThrows = freezed,
     Object? hasDeprecated = freezed,
     Object? hasFactory = freezed,
@@ -405,6 +415,14 @@ class _$SwidDeclarationModifiersCopyWithImpl<$Res>
       isSynthetic: isSynthetic == freezed
           ? _value.isSynthetic
           : isSynthetic // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isCovariant: isCovariant == freezed
+          ? _value.isCovariant
+          : isCovariant // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isExplicitlyCovariant: isExplicitlyCovariant == freezed
+          ? _value.isExplicitlyCovariant
+          : isExplicitlyCovariant // ignore: cast_nullable_to_non_nullable
               as bool,
       hasAlwaysThrows: hasAlwaysThrows == freezed
           ? _value.hasAlwaysThrows
@@ -498,6 +516,8 @@ abstract class _$$DataCopyWith<$Res>
       bool isSetter,
       bool isStatic,
       bool isSynthetic,
+      bool isCovariant,
+      bool isExplicitlyCovariant,
       bool hasAlwaysThrows,
       bool hasDeprecated,
       bool hasFactory,
@@ -539,6 +559,8 @@ class __$$DataCopyWithImpl<$Res>
     Object? isSetter = freezed,
     Object? isStatic = freezed,
     Object? isSynthetic = freezed,
+    Object? isCovariant = freezed,
+    Object? isExplicitlyCovariant = freezed,
     Object? hasAlwaysThrows = freezed,
     Object? hasDeprecated = freezed,
     Object? hasFactory = freezed,
@@ -594,6 +616,14 @@ class __$$DataCopyWithImpl<$Res>
       isSynthetic: isSynthetic == freezed
           ? _value.isSynthetic
           : isSynthetic // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isCovariant: isCovariant == freezed
+          ? _value.isCovariant
+          : isCovariant // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isExplicitlyCovariant: isExplicitlyCovariant == freezed
+          ? _value.isExplicitlyCovariant
+          : isExplicitlyCovariant // ignore: cast_nullable_to_non_nullable
               as bool,
       hasAlwaysThrows: hasAlwaysThrows == freezed
           ? _value.hasAlwaysThrows
@@ -684,6 +714,8 @@ class _$_$Data extends _$Data {
       required this.isSetter,
       required this.isStatic,
       required this.isSynthetic,
+      required this.isCovariant,
+      required this.isExplicitlyCovariant,
       required this.hasAlwaysThrows,
       required this.hasDeprecated,
       required this.hasFactory,
@@ -726,6 +758,10 @@ class _$_$Data extends _$Data {
   @override
   final bool isSynthetic;
   @override
+  final bool isCovariant;
+  @override
+  final bool isExplicitlyCovariant;
+  @override
   final bool hasAlwaysThrows;
   @override
   final bool hasDeprecated;
@@ -764,7 +800,7 @@ class _$_$Data extends _$Data {
 
   @override
   String toString() {
-    return 'SwidDeclarationModifiers(ignoredTransforms: $ignoredTransforms, ignoredAnalyses: $ignoredAnalyses, overridenTransforms: $overridenTransforms, isAbstract: $isAbstract, isGetter: $isGetter, isOperator: $isOperator, isSetter: $isSetter, isStatic: $isStatic, isSynthetic: $isSynthetic, hasAlwaysThrows: $hasAlwaysThrows, hasDeprecated: $hasDeprecated, hasFactory: $hasFactory, hasImplicitReturnType: $hasImplicitReturnType, hasIsTest: $hasIsTest, hasIsTestGroup: $hasIsTestGroup, hasJS: $hasJS, hasLiteral: $hasLiteral, hasMustCallSuper: $hasMustCallSuper, hasNonVirtual: $hasNonVirtual, hasOptionalTypeArgs: $hasOptionalTypeArgs, hasOverride: $hasOverride, hasProtected: $hasProtected, hasRequired: $hasRequired, hasSealed: $hasSealed, hasVisibleForTemplate: $hasVisibleForTemplate, hasVisibleForTesting: $hasVisibleForTesting, isPublic: $isPublic)';
+    return 'SwidDeclarationModifiers(ignoredTransforms: $ignoredTransforms, ignoredAnalyses: $ignoredAnalyses, overridenTransforms: $overridenTransforms, isAbstract: $isAbstract, isGetter: $isGetter, isOperator: $isOperator, isSetter: $isSetter, isStatic: $isStatic, isSynthetic: $isSynthetic, isCovariant: $isCovariant, isExplicitlyCovariant: $isExplicitlyCovariant, hasAlwaysThrows: $hasAlwaysThrows, hasDeprecated: $hasDeprecated, hasFactory: $hasFactory, hasImplicitReturnType: $hasImplicitReturnType, hasIsTest: $hasIsTest, hasIsTestGroup: $hasIsTestGroup, hasJS: $hasJS, hasLiteral: $hasLiteral, hasMustCallSuper: $hasMustCallSuper, hasNonVirtual: $hasNonVirtual, hasOptionalTypeArgs: $hasOptionalTypeArgs, hasOverride: $hasOverride, hasProtected: $hasProtected, hasRequired: $hasRequired, hasSealed: $hasSealed, hasVisibleForTemplate: $hasVisibleForTemplate, hasVisibleForTesting: $hasVisibleForTesting, isPublic: $isPublic)';
   }
 
   @override
@@ -798,6 +834,12 @@ class _$_$Data extends _$Data {
             (identical(other.isSynthetic, isSynthetic) ||
                 const DeepCollectionEquality()
                     .equals(other.isSynthetic, isSynthetic)) &&
+            (identical(other.isCovariant, isCovariant) ||
+                const DeepCollectionEquality()
+                    .equals(other.isCovariant, isCovariant)) &&
+            (identical(other.isExplicitlyCovariant, isExplicitlyCovariant) ||
+                const DeepCollectionEquality().equals(
+                    other.isExplicitlyCovariant, isExplicitlyCovariant)) &&
             (identical(other.hasAlwaysThrows, hasAlwaysThrows) ||
                 const DeepCollectionEquality()
                     .equals(other.hasAlwaysThrows, hasAlwaysThrows)) &&
@@ -830,12 +872,8 @@ class _$_$Data extends _$Data {
             (identical(other.hasOptionalTypeArgs, hasOptionalTypeArgs) ||
                 const DeepCollectionEquality()
                     .equals(other.hasOptionalTypeArgs, hasOptionalTypeArgs)) &&
-            (identical(other.hasOverride, hasOverride) ||
-                const DeepCollectionEquality()
-                    .equals(other.hasOverride, hasOverride)) &&
-            (identical(other.hasProtected, hasProtected) ||
-                const DeepCollectionEquality()
-                    .equals(other.hasProtected, hasProtected)) &&
+            (identical(other.hasOverride, hasOverride) || const DeepCollectionEquality().equals(other.hasOverride, hasOverride)) &&
+            (identical(other.hasProtected, hasProtected) || const DeepCollectionEquality().equals(other.hasProtected, hasProtected)) &&
             (identical(other.hasRequired, hasRequired) || const DeepCollectionEquality().equals(other.hasRequired, hasRequired)) &&
             (identical(other.hasSealed, hasSealed) || const DeepCollectionEquality().equals(other.hasSealed, hasSealed)) &&
             (identical(other.hasVisibleForTemplate, hasVisibleForTemplate) || const DeepCollectionEquality().equals(other.hasVisibleForTemplate, hasVisibleForTemplate)) &&
@@ -855,6 +893,8 @@ class _$_$Data extends _$Data {
       const DeepCollectionEquality().hash(isSetter) ^
       const DeepCollectionEquality().hash(isStatic) ^
       const DeepCollectionEquality().hash(isSynthetic) ^
+      const DeepCollectionEquality().hash(isCovariant) ^
+      const DeepCollectionEquality().hash(isExplicitlyCovariant) ^
       const DeepCollectionEquality().hash(hasAlwaysThrows) ^
       const DeepCollectionEquality().hash(hasDeprecated) ^
       const DeepCollectionEquality().hash(hasFactory) ^
@@ -896,6 +936,8 @@ abstract class _$Data extends SwidDeclarationModifiers {
       required bool isSetter,
       required bool isStatic,
       required bool isSynthetic,
+      required bool isCovariant,
+      required bool isExplicitlyCovariant,
       required bool hasAlwaysThrows,
       required bool hasDeprecated,
       required bool hasFactory,
@@ -937,6 +979,10 @@ abstract class _$Data extends SwidDeclarationModifiers {
   bool get isStatic => throw _privateConstructorUsedError;
   @override
   bool get isSynthetic => throw _privateConstructorUsedError;
+  @override
+  bool get isCovariant => throw _privateConstructorUsedError;
+  @override
+  bool get isExplicitlyCovariant => throw _privateConstructorUsedError;
   @override
   bool get hasAlwaysThrows => throw _privateConstructorUsedError;
   @override

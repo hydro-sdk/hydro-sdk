@@ -53,6 +53,8 @@ final emptyDeclarationModifiers = SwidDeclarationModifiers(
   isSetter: false,
   isStatic: false,
   isSynthetic: false,
+  isCovariant: false,
+  isExplicitlyCovariant: false,
   hasAlwaysThrows: false,
   hasDeprecated: false,
   hasFactory: false,

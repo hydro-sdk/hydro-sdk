@@ -16,6 +16,8 @@ SwidDeclarationModifiers swidDeclarationModifiersFromPropertyAccessorElement({
       isSetter: propertyAccessorElement.isSetter,
       isStatic: propertyAccessorElement.isStatic,
       isSynthetic: propertyAccessorElement.isSynthetic,
+      isCovariant: false,
+      isExplicitlyCovariant: false,
       hasAlwaysThrows: propertyAccessorElement.hasAlwaysThrows,
       hasDeprecated: propertyAccessorElement.hasDeprecated,
       hasFactory: propertyAccessorElement.hasFactory,

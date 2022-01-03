@@ -127,14 +127,16 @@ SwidFunctionType swidFunctionTypeFromFunctionType({
       optionalParameterNames: List.from(
         functionType.optionalParameterNames,
       ),
-      optionalParameterTypes: List.from(functionType.optionalParameterTypes
-          .map(
-            (x) => narrowDartTypeToSwidType(
-              dartType: x,
-              buildElements: true,
-            ),
-          )
-          .toList()),
+      optionalParameterTypes: List.from(
+        functionType.optionalParameterTypes
+            .map(
+              (x) => narrowDartTypeToSwidType(
+                dartType: x,
+                buildElements: true,
+              ),
+            )
+            .toList(),
+      ),
       returnType: narrowDartTypeToSwidType(
         dartType: functionType.returnType,
         buildElements: true,
