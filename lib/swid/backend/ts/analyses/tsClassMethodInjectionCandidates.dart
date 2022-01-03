@@ -71,7 +71,6 @@ class TsClassMethodInjectionCandidates
                 swidFunctionType: x,
               ),
             )
-            .where((x) => !x.declarationModifiers.hasProtected)
             .toList(),
       );
 }

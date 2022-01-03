@@ -86,8 +86,15 @@ SwidClass swidClassFromInterfaceType({
             .toList(),
         ...interfaceType.accessors
             .whereType<PropertyAccessorElement>()
-            .where((x) => x.name[0] != "_")
-            .where((x) => !x.isStatic)
+            .where(
+              (x) => x.name[0] != "_",
+            )
+            .where(
+              (x) => !x.isStatic,
+            )
+            .where(
+              (x) => !x.isSynthetic,
+            )
             .map(
               (x) => swidFunctionTypeFromPropertyAccessor(
                 buildElements: buildElements,
@@ -97,7 +104,31 @@ SwidClass swidClassFromInterfaceType({
             .toList()
       ],
       staticConstFieldDeclarations: [],
-      instanceFieldDeclarations: {},
+      instanceFieldDeclarations: Map.fromEntries(
+        interfaceType.accessors
+            .whereType<PropertyAccessorElement>()
+            .where(
+              (x) => x.name[0] != "_",
+            )
+            .where(
+              (x) => !x.isStatic,
+            )
+            .where(
+              (x) => x.isSynthetic,
+            )
+            .where(
+              (x) => x.isGetter,
+            )
+            .map(
+              (x) => MapEntry(
+                x.name,
+                swidFunctionTypeFromPropertyAccessor(
+                  propertyAccessorElement: x,
+                  buildElements: buildElements,
+                ).returnType,
+              ),
+            ),
+      ),
       declarationModifiers: SwidDeclarationModifiers.empty(),
       mixedInClasses: interfaceType.mixins
           .map(
