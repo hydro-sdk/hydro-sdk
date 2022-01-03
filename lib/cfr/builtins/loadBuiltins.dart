@@ -58,7 +58,7 @@ void loadBuiltins(
         loadBit32Lib(hydroState.context!);
         break;
       case BuiltinLib.flutter:
-        loadflutter(hydroState: hydroState,context: hydroState.context!);
+        loadflutter(hydroState: hydroState, context: hydroState.context!);
         break;
       case BuiltinLib.dart:
         loaddart(hydroState: hydroState, context: hydroState.context!);
