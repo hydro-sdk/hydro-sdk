@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/backend/ts/transforms/covarianceTransformKind.dart';
 
 import 'package:hydro_sdk/swid/backend/ts/transforms/trailingReturnTypeKind.dart';
 import 'package:hydro_sdk/swid/backend/ts/transforms/transformFunctionTypeToTs.dart';
@@ -46,6 +47,8 @@ class TransformTypeDeclarationToTs
         final TrailingReturnTypeKind topLevelTrailingReturnTypeKind,
     @Default(TrailingReturnTypeKind.fatArrow)
         final TrailingReturnTypeKind nestedTrailingReturnTypeKind,
+    @Default(CovarianceTransformKind.kIgnore)
+        final CovarianceTransformKind covarianceTransformKind,
   }) = _$TransformTypeDeclarationToTsCtor;
 
   @override
@@ -74,6 +77,9 @@ class TransformTypeDeclarationToTs
     yield [
       nestedTrailingReturnTypeKind.index,
     ];
+    yield [
+      covarianceTransformKind.index,
+    ];
   }
 
   @override
@@ -85,6 +91,7 @@ class TransformTypeDeclarationToTs
     final bool? emitTopLevelInitializersForOptionalPositionals,
     final TrailingReturnTypeKind? topLevelTrailingReturnTypeKind,
     final TrailingReturnTypeKind? nestedTrailingReturnTypeKind,
+    final CovarianceTransformKind? covarianceTransformKind,
   }) =>
       TransformTypeDeclarationToTs(
         swidType: swidType ?? this.swidType,
@@ -100,6 +107,8 @@ class TransformTypeDeclarationToTs
             this.topLevelTrailingReturnTypeKind,
         nestedTrailingReturnTypeKind:
             nestedTrailingReturnTypeKind ?? this.nestedTrailingReturnTypeKind,
+        covarianceTransformKind:
+            covarianceTransformKind ?? this.covarianceTransformKind,
       );
 
   @override
@@ -142,6 +151,7 @@ class TransformTypeDeclarationToTs
                                                   nestedTrailingReturnTypeKind,
                                               nestedTrailingReturnTypeKind:
                                                   nestedTrailingReturnTypeKind,
+                                                  covarianceTransformKind: covarianceTransformKind,
                                             ),
                                           ),
                                         )
@@ -169,6 +179,7 @@ class TransformTypeDeclarationToTs
                                                   nestedTrailingReturnTypeKind,
                                               nestedTrailingReturnTypeKind:
                                                   nestedTrailingReturnTypeKind,
+                                                  covarianceTransformKind: covarianceTransformKind,
                                             ),
                                           ),
                                         )
@@ -210,6 +221,7 @@ class TransformTypeDeclarationToTs
                       emitDefaultFormalsAsOptionalNamed:
                           emitDefaultFormalsAsOptionalNamed,
                       trailingReturnTypeKind: topLevelTrailingReturnTypeKind,
+                      covarianceTransformKind: covarianceTransformKind,
                     ),
                   ),
                 )

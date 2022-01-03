@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/backend/ts/transforms/covarianceTransformKind.dart';
 
 import 'package:hydro_sdk/swid/backend/ts/transforms/transformTypeDeclarationToTs.dart';
 import 'package:hydro_sdk/swid/backend/ts/transforms/transformTypeFormalsToTs.dart';
@@ -84,6 +85,7 @@ class TsInterface
                               TransformTypeDeclarationToTs(
                                 parentClass: null,
                                 swidType: x.value,
+                                covarianceTransformKind: CovarianceTransformKind.kUnknown,
                               ),
                             )};")
                         .toList(),

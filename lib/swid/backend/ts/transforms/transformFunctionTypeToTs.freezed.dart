@@ -22,6 +22,8 @@ class _$TransformFunctionTypeToTsTearOff {
       required TrailingReturnTypeKind trailingReturnTypeKind,
       TrailingReturnTypeKind nestedTrailingReturnTypeKind =
           TrailingReturnTypeKind.fatArrow,
+      CovarianceTransformKind covarianceTransformKind =
+          CovarianceTransformKind.kIgnore,
       bool emitTrailingReturnType = true,
       bool emitDefaultFormalsAsOptionalNamed = false,
       bool emitInitializersForOptionalPositionals = false}) {
@@ -30,6 +32,7 @@ class _$TransformFunctionTypeToTsTearOff {
       parentClass: parentClass,
       trailingReturnTypeKind: trailingReturnTypeKind,
       nestedTrailingReturnTypeKind: nestedTrailingReturnTypeKind,
+      covarianceTransformKind: covarianceTransformKind,
       emitTrailingReturnType: emitTrailingReturnType,
       emitDefaultFormalsAsOptionalNamed: emitDefaultFormalsAsOptionalNamed,
       emitInitializersForOptionalPositionals:
@@ -48,6 +51,8 @@ mixin _$TransformFunctionTypeToTs {
   TrailingReturnTypeKind get trailingReturnTypeKind =>
       throw _privateConstructorUsedError;
   TrailingReturnTypeKind get nestedTrailingReturnTypeKind =>
+      throw _privateConstructorUsedError;
+  CovarianceTransformKind get covarianceTransformKind =>
       throw _privateConstructorUsedError;
   bool get emitTrailingReturnType => throw _privateConstructorUsedError;
   bool get emitDefaultFormalsAsOptionalNamed =>
@@ -70,6 +75,7 @@ abstract class $TransformFunctionTypeToTsCopyWith<$Res> {
       SwidClass? parentClass,
       TrailingReturnTypeKind trailingReturnTypeKind,
       TrailingReturnTypeKind nestedTrailingReturnTypeKind,
+      CovarianceTransformKind covarianceTransformKind,
       bool emitTrailingReturnType,
       bool emitDefaultFormalsAsOptionalNamed,
       bool emitInitializersForOptionalPositionals});
@@ -93,6 +99,7 @@ class _$TransformFunctionTypeToTsCopyWithImpl<$Res>
     Object? parentClass = freezed,
     Object? trailingReturnTypeKind = freezed,
     Object? nestedTrailingReturnTypeKind = freezed,
+    Object? covarianceTransformKind = freezed,
     Object? emitTrailingReturnType = freezed,
     Object? emitDefaultFormalsAsOptionalNamed = freezed,
     Object? emitInitializersForOptionalPositionals = freezed,
@@ -114,6 +121,10 @@ class _$TransformFunctionTypeToTsCopyWithImpl<$Res>
           ? _value.nestedTrailingReturnTypeKind
           : nestedTrailingReturnTypeKind // ignore: cast_nullable_to_non_nullable
               as TrailingReturnTypeKind,
+      covarianceTransformKind: covarianceTransformKind == freezed
+          ? _value.covarianceTransformKind
+          : covarianceTransformKind // ignore: cast_nullable_to_non_nullable
+              as CovarianceTransformKind,
       emitTrailingReturnType: emitTrailingReturnType == freezed
           ? _value.emitTrailingReturnType
           : emitTrailingReturnType // ignore: cast_nullable_to_non_nullable
@@ -163,6 +174,7 @@ abstract class _$$TransformFunctionTypeToTsCtorCopyWith<$Res>
       SwidClass? parentClass,
       TrailingReturnTypeKind trailingReturnTypeKind,
       TrailingReturnTypeKind nestedTrailingReturnTypeKind,
+      CovarianceTransformKind covarianceTransformKind,
       bool emitTrailingReturnType,
       bool emitDefaultFormalsAsOptionalNamed,
       bool emitInitializersForOptionalPositionals});
@@ -192,6 +204,7 @@ class __$$TransformFunctionTypeToTsCtorCopyWithImpl<$Res>
     Object? parentClass = freezed,
     Object? trailingReturnTypeKind = freezed,
     Object? nestedTrailingReturnTypeKind = freezed,
+    Object? covarianceTransformKind = freezed,
     Object? emitTrailingReturnType = freezed,
     Object? emitDefaultFormalsAsOptionalNamed = freezed,
     Object? emitInitializersForOptionalPositionals = freezed,
@@ -213,6 +226,10 @@ class __$$TransformFunctionTypeToTsCtorCopyWithImpl<$Res>
           ? _value.nestedTrailingReturnTypeKind
           : nestedTrailingReturnTypeKind // ignore: cast_nullable_to_non_nullable
               as TrailingReturnTypeKind,
+      covarianceTransformKind: covarianceTransformKind == freezed
+          ? _value.covarianceTransformKind
+          : covarianceTransformKind // ignore: cast_nullable_to_non_nullable
+              as CovarianceTransformKind,
       emitTrailingReturnType: emitTrailingReturnType == freezed
           ? _value.emitTrailingReturnType
           : emitTrailingReturnType // ignore: cast_nullable_to_non_nullable
@@ -240,6 +257,7 @@ class _$_$TransformFunctionTypeToTsCtor
       this.parentClass,
       required this.trailingReturnTypeKind,
       this.nestedTrailingReturnTypeKind = TrailingReturnTypeKind.fatArrow,
+      this.covarianceTransformKind = CovarianceTransformKind.kIgnore,
       this.emitTrailingReturnType = true,
       this.emitDefaultFormalsAsOptionalNamed = false,
       this.emitInitializersForOptionalPositionals = false})
@@ -254,6 +272,9 @@ class _$_$TransformFunctionTypeToTsCtor
   @JsonKey(defaultValue: TrailingReturnTypeKind.fatArrow)
   @override
   final TrailingReturnTypeKind nestedTrailingReturnTypeKind;
+  @JsonKey(defaultValue: CovarianceTransformKind.kIgnore)
+  @override
+  final CovarianceTransformKind covarianceTransformKind;
   @JsonKey(defaultValue: true)
   @override
   final bool emitTrailingReturnType;
@@ -266,7 +287,7 @@ class _$_$TransformFunctionTypeToTsCtor
 
   @override
   String toString() {
-    return 'TransformFunctionTypeToTs(swidFunctionType: $swidFunctionType, parentClass: $parentClass, trailingReturnTypeKind: $trailingReturnTypeKind, nestedTrailingReturnTypeKind: $nestedTrailingReturnTypeKind, emitTrailingReturnType: $emitTrailingReturnType, emitDefaultFormalsAsOptionalNamed: $emitDefaultFormalsAsOptionalNamed, emitInitializersForOptionalPositionals: $emitInitializersForOptionalPositionals)';
+    return 'TransformFunctionTypeToTs(swidFunctionType: $swidFunctionType, parentClass: $parentClass, trailingReturnTypeKind: $trailingReturnTypeKind, nestedTrailingReturnTypeKind: $nestedTrailingReturnTypeKind, covarianceTransformKind: $covarianceTransformKind, emitTrailingReturnType: $emitTrailingReturnType, emitDefaultFormalsAsOptionalNamed: $emitDefaultFormalsAsOptionalNamed, emitInitializersForOptionalPositionals: $emitInitializersForOptionalPositionals)';
   }
 
   @override
@@ -287,6 +308,9 @@ class _$_$TransformFunctionTypeToTsCtor
                 const DeepCollectionEquality().equals(
                     other.nestedTrailingReturnTypeKind,
                     nestedTrailingReturnTypeKind)) &&
+            (identical(other.covarianceTransformKind, covarianceTransformKind) ||
+                const DeepCollectionEquality().equals(
+                    other.covarianceTransformKind, covarianceTransformKind)) &&
             (identical(other.emitTrailingReturnType, emitTrailingReturnType) ||
                 const DeepCollectionEquality().equals(
                     other.emitTrailingReturnType, emitTrailingReturnType)) &&
@@ -309,6 +333,7 @@ class _$_$TransformFunctionTypeToTsCtor
       const DeepCollectionEquality().hash(parentClass) ^
       const DeepCollectionEquality().hash(trailingReturnTypeKind) ^
       const DeepCollectionEquality().hash(nestedTrailingReturnTypeKind) ^
+      const DeepCollectionEquality().hash(covarianceTransformKind) ^
       const DeepCollectionEquality().hash(emitTrailingReturnType) ^
       const DeepCollectionEquality().hash(emitDefaultFormalsAsOptionalNamed) ^
       const DeepCollectionEquality()
@@ -328,6 +353,7 @@ abstract class _$TransformFunctionTypeToTsCtor
           SwidClass? parentClass,
           required TrailingReturnTypeKind trailingReturnTypeKind,
           TrailingReturnTypeKind nestedTrailingReturnTypeKind,
+          CovarianceTransformKind covarianceTransformKind,
           bool emitTrailingReturnType,
           bool emitDefaultFormalsAsOptionalNamed,
           bool emitInitializersForOptionalPositionals}) =
@@ -343,6 +369,9 @@ abstract class _$TransformFunctionTypeToTsCtor
       throw _privateConstructorUsedError;
   @override
   TrailingReturnTypeKind get nestedTrailingReturnTypeKind =>
+      throw _privateConstructorUsedError;
+  @override
+  CovarianceTransformKind get covarianceTransformKind =>
       throw _privateConstructorUsedError;
   @override
   bool get emitTrailingReturnType => throw _privateConstructorUsedError;
