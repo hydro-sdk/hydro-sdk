@@ -1,5 +1,9 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydro_sdk/swid/backend/ts/transforms/covarianceTransformKind.dart';
+import 'package:hydro_sdk/swid/backend/ts/transforms/transformCovariantTypesInClass.dart';
+import 'package:hydro_sdk/swid/backend/ts/transforms/transformCovariantTypesInDefaultFormalParameter.dart';
+import 'package:hydro_sdk/swid/backend/ts/transforms/transformCovariantTypesInFunction.dart';
+import 'package:hydro_sdk/swid/backend/ts/transforms/transformCovariantTypesInInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/util/irTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
@@ -59,17 +63,37 @@ class TransformCovariantTypes
       SwarsTermResult.fromJsonTransformable(
         swidType.when(
           fromSwidInterface: (val) => SwidType.fromSwidInterface(
-            swidInterface: val,
+            swidInterface: pipeline.reduceFromTerm(
+              TransformCovariantTypesInInterface(
+                swidInterface: val,
+                covarianceTransformKind: covarianceTransformKind,
+              ),
+            ),
           ),
           fromSwidClass: (val) => SwidType.fromSwidClass(
-            swidClass: val,
+            swidClass: pipeline.reduceFromTerm(
+              TransformCovariantTypesInClass(
+                swidClass: val,
+                covarianceTransformKind: covarianceTransformKind,
+              ),
+            ),
           ),
           fromSwidDefaultFormalParameter: (val) =>
               SwidType.fromSwidDefaultFormalParameter(
-            swidDefaultFormalParameter: val,
+            swidDefaultFormalParameter: pipeline.reduceFromTerm(
+              TransformCovariantTypesInDefaultFormalParameter(
+                swidDefaultFormalParameter: val,
+                covarianceTransformKind: covarianceTransformKind,
+              ),
+            ),
           ),
           fromSwidFunctionType: (val) => SwidType.fromSwidFunctionType(
-            swidFunctionType: val,
+            swidFunctionType: pipeline.reduceFromTerm(
+              TransformCovariantTypesInFunction(
+                swidFunctionType: val,
+                covarianceTransformKind: covarianceTransformKind,
+              ),
+            ),
           ),
         ),
       );
