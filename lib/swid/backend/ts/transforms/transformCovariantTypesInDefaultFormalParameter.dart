@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 import 'package:hydro_sdk/swid/backend/ts/transforms/covarianceTransformKind.dart';
 import 'package:hydro_sdk/swid/backend/ts/transforms/transformCovariantTypes.dart';
 import 'package:hydro_sdk/swid/ir/swidDefaultFormalParameter.dart';

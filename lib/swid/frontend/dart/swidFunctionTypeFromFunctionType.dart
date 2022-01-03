@@ -1,10 +1,5 @@
 import 'package:analyzer/dart/element/element.dart';
 import 'package:collection/collection.dart';
-import 'package:analyzer/src/dart/element/element.dart'
-    show
-        DefaultFieldFormalParameterElementImpl,
-        DefaultParameterElementImpl,
-        ParameterElementImpl;
 
 import 'package:hydro_sdk/swid/frontend/dart/dartDefaultFieldFormalOrDefaultFormal.dart';
 import 'package:hydro_sdk/swid/frontend/dart/extractStaticConstFromSyntacticEntity.dart';
@@ -19,6 +14,12 @@ import 'package:hydro_sdk/swid/ir/swidDefaultFormalParameter.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
+
+import 'package:analyzer/src/dart/element/element.dart'
+    show
+        DefaultFieldFormalParameterElementImpl,
+        DefaultParameterElementImpl,
+        ParameterElementImpl;
 
 import 'package:analyzer/dart/element/type.dart'
     show FunctionType, InterfaceType;
