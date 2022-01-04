@@ -550,10 +550,10 @@ class RTManagedPlatformViewLayer extends PlatformViewLayer
   }
 
   @override
-  AnnotationResult<Object> findAllAnnotations<S extends Object>(
+  AnnotationResult<S> findAllAnnotations<S extends Object>(
       Offset localPosition) {
     Closure closure = table["findAllAnnotations"];
-    return maybeUnBoxAndBuildArgument<AnnotationResult<Object>, Object>(
+    return maybeUnBoxAndBuildArgument<AnnotationResult<S>, S>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
