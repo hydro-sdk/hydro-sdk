@@ -129,19 +129,6 @@ class VMManagedLeaderLayer extends VMManagedBox<LeaderLayer> {
               parentState: hydroState));
       return [];
     });
-    table['depthFirstIterateChildren'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        maybeBoxObject<List<dynamic>>(
-            object: vmObject
-                .depthFirstIterateChildren()
-                .map((x) => maybeBoxObject<Layer>(
-                    object: x, hydroState: hydroState, table: HydroTable()))
-                .toList(),
-            hydroState: hydroState,
-            table: HydroTable()),
-      ];
-    });
     table['debugDescribeChildren'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
@@ -182,11 +169,6 @@ class VMManagedLeaderLayer extends VMManagedBox<LeaderLayer> {
       return [
         vmObject.hasChildren,
       ];
-    });
-    table['debugMarkClean'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.debugMarkClean();
-      return [];
     });
     table['dropChild'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -242,16 +224,6 @@ class VMManagedLeaderLayer extends VMManagedBox<LeaderLayer> {
         return [
           maybeBoxObject<ContainerLayer?>(
               object: returnValue, hydroState: hydroState, table: HydroTable()),
-        ];
-      }
-      return [];
-    });
-    table['getDebugSubtreeNeedsAddToScene'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      final returnValue = vmObject.debugSubtreeNeedsAddToScene;
-      if (returnValue != null) {
-        return [
-          returnValue,
         ];
       }
       return [];
@@ -501,19 +473,6 @@ class RTManagedLeaderLayer extends LeaderLayer implements Box<LeaderLayer> {
               parentState: hydroState));
       return [];
     });
-    table['_dart_depthFirstIterateChildren'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        maybeBoxObject<List<dynamic>>(
-            object: super
-                .depthFirstIterateChildren()
-                .map((x) => maybeBoxObject<Layer>(
-                    object: x, hydroState: hydroState, table: HydroTable()))
-                .toList(),
-            hydroState: hydroState,
-            table: HydroTable())
-      ];
-    });
     table['_dart_debugDescribeChildren'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
@@ -542,11 +501,6 @@ class RTManagedLeaderLayer extends LeaderLayer implements Box<LeaderLayer> {
     table['_dart_markNeedsAddToScene'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       super.markNeedsAddToScene();
-      return [];
-    });
-    table['_dart_debugMarkClean'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.debugMarkClean();
       return [];
     });
     table['_dart_dropChild'] =
@@ -595,10 +549,6 @@ class RTManagedLeaderLayer extends LeaderLayer implements Box<LeaderLayer> {
     table['_dart_getParent'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.parent];
-    });
-    table['_dart_getDebugSubtreeNeedsAddToScene'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [super.debugSubtreeNeedsAddToScene];
     });
     table['_dart_getEngineLayer'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {

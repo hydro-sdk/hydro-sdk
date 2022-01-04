@@ -92,11 +92,6 @@ class VMManagedPictureLayer extends VMManagedBox<PictureLayer> {
                 : null),
       ];
     });
-    table['debugMarkClean'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.debugMarkClean();
-      return [];
-    });
     table['dropChild'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.dropChild(maybeUnBoxAndBuildArgument<AbstractNode, dynamic>(
@@ -151,16 +146,6 @@ class VMManagedPictureLayer extends VMManagedBox<PictureLayer> {
         return [
           maybeBoxObject<ContainerLayer?>(
               object: returnValue, hydroState: hydroState, table: HydroTable()),
-        ];
-      }
-      return [];
-    });
-    table['getDebugSubtreeNeedsAddToScene'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      final returnValue = vmObject.debugSubtreeNeedsAddToScene;
-      if (returnValue != null) {
-        return [
-          returnValue,
         ];
       }
       return [];
@@ -391,11 +376,6 @@ class RTManagedPictureLayer extends PictureLayer implements Box<PictureLayer> {
       super.markNeedsAddToScene();
       return [];
     });
-    table['_dart_debugMarkClean'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.debugMarkClean();
-      return [];
-    });
     table['_dart_updateSubtreeNeedsAddToScene'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       super.updateSubtreeNeedsAddToScene();
@@ -451,10 +431,6 @@ class RTManagedPictureLayer extends PictureLayer implements Box<PictureLayer> {
     table['_dart_getAlwaysNeedsAddToScene'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.alwaysNeedsAddToScene];
-    });
-    table['_dart_getDebugSubtreeNeedsAddToScene'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [super.debugSubtreeNeedsAddToScene];
     });
     table['_dart_getEngineLayer'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {

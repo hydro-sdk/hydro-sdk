@@ -47,13 +47,10 @@ export interface IOffsetLayer {
     append: (child: ILayer) => void;
     removeAllChildren: () => void;
     addChildrenToScene: (builder: ISceneBuilder, childOffset: IOffset) => void;
-    depthFirstIterateChildren: () => IList<ILayer>;
     debugDescribeChildren: () => IList<IDiagnosticsNode>;
     getFirstChild: () => ILayer | undefined;
     getLastChild: () => ILayer | undefined;
     getHasChildren: () => boolean;
-    markNeedsAddToScene: () => void;
-    debugMarkClean: () => void;
     dropChild: (child: unknown) => void;
     adoptChild: (child: unknown) => void;
     remove: () => void;
@@ -62,7 +59,6 @@ export interface IOffsetLayer {
     toStringShort: () => string;
     getParent: () => IContainerLayer | undefined;
     getAlwaysNeedsAddToScene: () => boolean;
-    getDebugSubtreeNeedsAddToScene: () => boolean | undefined;
     getEngineLayer: () => IEngineLayer | undefined;
     setEngineLayer: (value?: IEngineLayer | undefined) => void;
     getNextSibling: () => ILayer | undefined;
@@ -145,8 +141,6 @@ export class OffsetLayer
         builder: ISceneBuilder,
         childOffset: IOffset
     ) => void = undefined as any;
-    private readonly _dart_depthFirstIterateChildren: () => IList<ILayer> =
-        undefined as any;
     private readonly _dart_debugDescribeChildren: () => IList<IDiagnosticsNode> =
         undefined as any;
     private readonly _dart_getFirstChild: () => ILayer | undefined =
@@ -155,7 +149,6 @@ export class OffsetLayer
         undefined as any;
     private readonly _dart_getHasChildren: () => boolean = undefined as any;
     private readonly _dart_markNeedsAddToScene: () => void = undefined as any;
-    private readonly _dart_debugMarkClean: () => void = undefined as any;
     private readonly _dart_dropChild: (child: any) => void = undefined as any;
     private readonly _dart_adoptChild: (child: any) => void = undefined as any;
     private readonly _dart_remove: () => void = undefined as any;
@@ -169,9 +162,6 @@ export class OffsetLayer
         undefined as any;
     private readonly _dart_getAlwaysNeedsAddToScene: () => boolean =
         undefined as any;
-    private readonly _dart_getDebugSubtreeNeedsAddToScene: () =>
-        | boolean
-        | undefined = undefined as any;
     private readonly _dart_getEngineLayer: () => IEngineLayer | undefined =
         undefined as any;
     private readonly _dart_setEngineLayer: (
@@ -266,9 +256,6 @@ export class OffsetLayer
     ): void {
         return this._dart_addChildrenToScene(builder, childOffset);
     }
-    public depthFirstIterateChildren(): IList<ILayer> {
-        return this._dart_depthFirstIterateChildren();
-    }
     public debugDescribeChildren(): IList<IDiagnosticsNode> {
         return this._dart_debugDescribeChildren();
     }
@@ -283,9 +270,6 @@ export class OffsetLayer
     }
     public markNeedsAddToScene(): void {
         return this._dart_markNeedsAddToScene();
-    }
-    public debugMarkClean(): void {
-        return this._dart_debugMarkClean();
     }
     public dropChild(child: any): void {
         return this._dart_dropChild(child);
@@ -310,9 +294,6 @@ export class OffsetLayer
     }
     public getAlwaysNeedsAddToScene(): boolean {
         return this._dart_getAlwaysNeedsAddToScene();
-    }
-    public getDebugSubtreeNeedsAddToScene(): boolean | undefined {
-        return this._dart_getDebugSubtreeNeedsAddToScene();
     }
     public getEngineLayer(): IEngineLayer | undefined {
         return this._dart_getEngineLayer();

@@ -41,9 +41,6 @@ export interface ITextureLayer {
         localPosition: IOffset,
         props: { onlyFirst: boolean }
     ) => boolean;
-    markNeedsAddToScene: () => void;
-    debugMarkClean: () => void;
-    updateSubtreeNeedsAddToScene: () => void;
     dropChild: (child: unknown) => void;
     adoptChild: (child: unknown) => void;
     remove: () => void;
@@ -53,7 +50,6 @@ export interface ITextureLayer {
     debugFillProperties: (properties: IDiagnosticPropertiesBuilder) => void;
     getParent: () => IContainerLayer | undefined;
     getAlwaysNeedsAddToScene: () => boolean;
-    getDebugSubtreeNeedsAddToScene: () => boolean | undefined;
     getEngineLayer: () => IEngineLayer | undefined;
     setEngineLayer: (value?: IEngineLayer | undefined) => void;
     getNextSibling: () => ILayer | undefined;
@@ -126,7 +122,6 @@ export class TextureLayer
         props: { onlyFirst: boolean }
     ) => boolean = undefined as any;
     private readonly _dart_markNeedsAddToScene: () => void = undefined as any;
-    private readonly _dart_debugMarkClean: () => void = undefined as any;
     private readonly _dart_updateSubtreeNeedsAddToScene: () => void =
         undefined as any;
     private readonly _dart_dropChild: (child: any) => void = undefined as any;
@@ -145,9 +140,6 @@ export class TextureLayer
         undefined as any;
     private readonly _dart_getAlwaysNeedsAddToScene: () => boolean =
         undefined as any;
-    private readonly _dart_getDebugSubtreeNeedsAddToScene: () =>
-        | boolean
-        | undefined = undefined as any;
     private readonly _dart_getEngineLayer: () => IEngineLayer | undefined =
         undefined as any;
     private readonly _dart_setEngineLayer: (
@@ -201,9 +193,6 @@ export class TextureLayer
     public markNeedsAddToScene(): void {
         return this._dart_markNeedsAddToScene();
     }
-    public debugMarkClean(): void {
-        return this._dart_debugMarkClean();
-    }
     public updateSubtreeNeedsAddToScene(): void {
         return this._dart_updateSubtreeNeedsAddToScene();
     }
@@ -233,9 +222,6 @@ export class TextureLayer
     }
     public getAlwaysNeedsAddToScene(): boolean {
         return this._dart_getAlwaysNeedsAddToScene();
-    }
-    public getDebugSubtreeNeedsAddToScene(): boolean | undefined {
-        return this._dart_getDebugSubtreeNeedsAddToScene();
     }
     public getEngineLayer(): IEngineLayer | undefined {
         return this._dart_getEngineLayer();

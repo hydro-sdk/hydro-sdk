@@ -24,7 +24,6 @@ export interface ISemanticsOwner {
     toString: () => string;
     addListener: (listener: () => void) => void;
     removeListener: (listener: () => void) => void;
-    notifyListeners: () => void;
     getHasListeners: () => boolean;
     getHashCode: () => number;
 }

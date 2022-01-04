@@ -36,7 +36,6 @@ export interface IMultiChildRenderObjectElement {
         IRenderObject,
         IContainerParentDataMixin<IRenderObject>
     >;
-    getChildren: () => IIterable<IElement>;
     insertRenderObjectChild: (child: unknown, slot: unknown) => void;
     moveRenderObjectChild: (
         child: unknown,

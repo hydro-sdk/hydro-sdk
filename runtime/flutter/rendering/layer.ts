@@ -19,13 +19,9 @@ declare const flutter: {
 };
 export interface ILayer {
     getParent: () => IContainerLayer | undefined;
-    markNeedsAddToScene: () => void;
-    debugMarkClean: () => void;
     getAlwaysNeedsAddToScene: () => boolean;
-    getDebugSubtreeNeedsAddToScene: () => boolean | undefined;
     getEngineLayer: () => IEngineLayer | undefined;
     setEngineLayer: (value?: IEngineLayer | undefined) => void;
-    updateSubtreeNeedsAddToScene: () => void;
     getNextSibling: () => ILayer | undefined;
     getPreviousSibling: () => ILayer | undefined;
     dropChild: (child: unknown) => void;
@@ -86,12 +82,8 @@ export class Layer
     private readonly _dart_getParent: () => IContainerLayer | undefined =
         undefined as any;
     private readonly _dart_markNeedsAddToScene: () => void = undefined as any;
-    private readonly _dart_debugMarkClean: () => void = undefined as any;
     private readonly _dart_getAlwaysNeedsAddToScene: () => boolean =
         undefined as any;
-    private readonly _dart_getDebugSubtreeNeedsAddToScene: () =>
-        | boolean
-        | undefined = undefined as any;
     private readonly _dart_getEngineLayer: () => IEngineLayer | undefined =
         undefined as any;
     private readonly _dart_setEngineLayer: (
@@ -158,14 +150,8 @@ export class Layer
     public markNeedsAddToScene(): void {
         return this._dart_markNeedsAddToScene();
     }
-    public debugMarkClean(): void {
-        return this._dart_debugMarkClean();
-    }
     public getAlwaysNeedsAddToScene(): boolean {
         return this._dart_getAlwaysNeedsAddToScene();
-    }
-    public getDebugSubtreeNeedsAddToScene(): boolean | undefined {
-        return this._dart_getDebugSubtreeNeedsAddToScene();
     }
     public getEngineLayer(): IEngineLayer | undefined {
         return this._dart_getEngineLayer();

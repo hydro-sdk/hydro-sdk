@@ -117,19 +117,6 @@ class VMManagedBackdropFilterLayer extends VMManagedBox<BackdropFilterLayer> {
               parentState: hydroState));
       return [];
     });
-    table['depthFirstIterateChildren'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        maybeBoxObject<List<dynamic>>(
-            object: vmObject
-                .depthFirstIterateChildren()
-                .map((x) => maybeBoxObject<Layer>(
-                    object: x, hydroState: hydroState, table: HydroTable()))
-                .toList(),
-            hydroState: hydroState,
-            table: HydroTable()),
-      ];
-    });
     table['debugDescribeChildren'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
@@ -170,11 +157,6 @@ class VMManagedBackdropFilterLayer extends VMManagedBox<BackdropFilterLayer> {
       return [
         vmObject.hasChildren,
       ];
-    });
-    table['debugMarkClean'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.debugMarkClean();
-      return [];
     });
     table['dropChild'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -238,16 +220,6 @@ class VMManagedBackdropFilterLayer extends VMManagedBox<BackdropFilterLayer> {
         return [
           maybeBoxObject<ContainerLayer?>(
               object: returnValue, hydroState: hydroState, table: HydroTable()),
-        ];
-      }
-      return [];
-    });
-    table['getDebugSubtreeNeedsAddToScene'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      final returnValue = vmObject.debugSubtreeNeedsAddToScene;
-      if (returnValue != null) {
-        return [
-          returnValue,
         ];
       }
       return [];
@@ -481,19 +453,6 @@ class RTManagedBackdropFilterLayer extends BackdropFilterLayer
               parentState: hydroState));
       return [];
     });
-    table['_dart_depthFirstIterateChildren'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        maybeBoxObject<List<dynamic>>(
-            object: super
-                .depthFirstIterateChildren()
-                .map((x) => maybeBoxObject<Layer>(
-                    object: x, hydroState: hydroState, table: HydroTable()))
-                .toList(),
-            hydroState: hydroState,
-            table: HydroTable())
-      ];
-    });
     table['_dart_debugDescribeChildren'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
@@ -522,11 +481,6 @@ class RTManagedBackdropFilterLayer extends BackdropFilterLayer
     table['_dart_markNeedsAddToScene'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       super.markNeedsAddToScene();
-      return [];
-    });
-    table['_dart_debugMarkClean'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.debugMarkClean();
       return [];
     });
     table['_dart_dropChild'] =
@@ -587,10 +541,6 @@ class RTManagedBackdropFilterLayer extends BackdropFilterLayer
     table['_dart_getAlwaysNeedsAddToScene'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.alwaysNeedsAddToScene];
-    });
-    table['_dart_getDebugSubtreeNeedsAddToScene'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [super.debugSubtreeNeedsAddToScene];
     });
     table['_dart_getEngineLayer'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
