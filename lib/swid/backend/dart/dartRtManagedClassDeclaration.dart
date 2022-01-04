@@ -330,6 +330,15 @@ class DartRTManagedClassDeclaration
                                               (x) => !x.declarationModifiers
                                                   .hasDeprecated,
                                             )
+                                            .where(
+                                              (x) => x.declarationModifiers
+                                                      .hasVisibleForTesting
+                                                  ? x.declarationModifiers
+                                                          .hasProtected
+                                                      ? true
+                                                      : false
+                                                  : true,
+                                            )
                                             .map(
                                               (x) => Code(
                                                 pipeline.reduceFromTerm(
