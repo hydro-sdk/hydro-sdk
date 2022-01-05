@@ -77,6 +77,8 @@ class SwidDeclarationModifiers
     required final bool isSetter,
     required final bool isStatic,
     required final bool isSynthetic,
+    required final bool isCovariant,
+    required final bool isExplicitlyCovariant,
     required final bool hasAlwaysThrows,
     required final bool hasDeprecated,
     required final bool hasFactory,
@@ -119,6 +121,12 @@ class SwidDeclarationModifiers
     ];
     yield [
       ...isSynthetic.hashableParts,
+    ];
+    yield [
+      ...isCovariant.hashableParts,
+    ];
+    yield [
+      ...isExplicitlyCovariant.hashableParts,
     ];
     yield [
       ...hasAlwaysThrows.hashableParts,
@@ -190,6 +198,8 @@ class SwidDeclarationModifiers
     final bool? isSetter,
     final bool? isStatic,
     final bool? isSynthetic,
+    final bool? isCovariant,
+    final bool? isExplicitlyCovariant,
     final bool? hasAlwaysThrows,
     final bool? hasDeprecated,
     final bool? hasFactory,
@@ -226,6 +236,9 @@ class SwidDeclarationModifiers
         isSetter: isSetter ?? declarationModifiers.isSetter,
         isStatic: isStatic ?? declarationModifiers.isStatic,
         isSynthetic: isSynthetic ?? declarationModifiers.isSynthetic,
+        isCovariant: isCovariant ?? declarationModifiers.isCovariant,
+        isExplicitlyCovariant:
+            isExplicitlyCovariant ?? declarationModifiers.isExplicitlyCovariant,
         hasAlwaysThrows:
             hasAlwaysThrows ?? declarationModifiers.hasAlwaysThrows,
         hasDeprecated: hasDeprecated ?? declarationModifiers.hasDeprecated,
@@ -264,6 +277,8 @@ class SwidDeclarationModifiers
     final bool isSetter: false,
     final bool isStatic: false,
     final bool isSynthetic: false,
+    final bool isCovariant: false,
+    final bool isExplicitlyCovariant: false,
     final bool hasAlwaysThrows: false,
     final bool hasDeprecated: false,
     final bool hasFactory: false,
@@ -293,6 +308,8 @@ class SwidDeclarationModifiers
         isSetter: isSetter,
         isStatic: isStatic,
         isSynthetic: isSynthetic,
+        isCovariant: isCovariant,
+        isExplicitlyCovariant: isExplicitlyCovariant,
         hasAlwaysThrows: hasAlwaysThrows,
         hasDeprecated: hasDeprecated,
         hasFactory: hasFactory,
@@ -334,6 +351,8 @@ class SwidDeclarationModifiers
     final bool? isSetter,
     final bool? isStatic,
     final bool? isSynthetic,
+    final bool isCovariant: false,
+    final bool isExplicitlyCovariant: false,
     final bool? hasAlwaysThrows,
     final bool? hasDeprecated,
     final bool? hasFactory,
@@ -364,6 +383,8 @@ class SwidDeclarationModifiers
         isSetter: isSetter,
         isStatic: isStatic,
         isSynthetic: isSynthetic,
+        isCovariant: isCovariant,
+        isExplicitlyCovariant: isExplicitlyCovariant,
         hasAlwaysThrows: hasAlwaysThrows,
         hasDeprecated: hasDeprecated,
         hasFactory: hasFactory,

@@ -2,6 +2,7 @@ import 'package:collection/collection.dart' show IterableExtension;
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/backend/ts/analyses/tsClassMethodInjectionCandidates.dart';
+import 'package:hydro_sdk/swid/backend/ts/transforms/covarianceTransformKind.dart';
 import 'package:hydro_sdk/swid/backend/ts/transforms/trailingReturnTypeKind.dart';
 import 'package:hydro_sdk/swid/backend/ts/transforms/transformTypeDeclarationToTs.dart';
 import 'package:hydro_sdk/swid/backend/ts/transforms/util/transformIllegalParameterNames.dart';
@@ -84,6 +85,8 @@ class TsClassMethodDeclarations
                                     swidFunctionType: x,
                                   ),
                                 ),
+                                covarianceTransformKind:
+                                    CovarianceTransformKind.kAny,
                               ),
                             ),
                             " {\n",

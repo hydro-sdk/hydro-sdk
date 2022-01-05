@@ -1,7 +1,9 @@
 import 'package:collection/collection.dart' show IterableExtension;
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'package:hydro_sdk/swid/backend/ts/transforms/covarianceTransformKind.dart';
 import 'package:hydro_sdk/swid/backend/ts/transforms/trailingReturnTypeKind.dart';
+import 'package:hydro_sdk/swid/backend/ts/transforms/transformCovariantTypesInFunction.dart';
 import 'package:hydro_sdk/swid/backend/ts/transforms/transformLiteralToTs.dart';
 import 'package:hydro_sdk/swid/backend/ts/transforms/transformReturnTypeToTs.dart';
 import 'package:hydro_sdk/swid/backend/ts/transforms/transformTypeDeclarationToTs.dart';
@@ -42,6 +44,8 @@ class TransformFunctionTypeToTs
     required final TrailingReturnTypeKind trailingReturnTypeKind,
     @Default(TrailingReturnTypeKind.fatArrow)
         final TrailingReturnTypeKind nestedTrailingReturnTypeKind,
+    @Default(CovarianceTransformKind.kIgnore)
+        final CovarianceTransformKind covarianceTransformKind,
     @Default(true) final bool emitTrailingReturnType,
     @Default(false) final bool emitDefaultFormalsAsOptionalNamed,
     @Default(false) final bool emitInitializersForOptionalPositionals,
@@ -65,6 +69,9 @@ class TransformFunctionTypeToTs
       nestedTrailingReturnTypeKind.index,
     ];
     yield [
+      covarianceTransformKind.index,
+    ];
+    yield [
       ...emitTrailingReturnType.hashableParts,
     ];
     yield [
@@ -81,6 +88,7 @@ class TransformFunctionTypeToTs
     final SwidClass? parentClass,
     final TrailingReturnTypeKind? trailingReturnTypeKind,
     final TrailingReturnTypeKind? nestedTrailingReturnTypeKind,
+    final CovarianceTransformKind? covarianceTransformKind,
     final bool? emitTrailingReturnType,
     final bool? emitDefaultFormalsAsOptionalNamed,
     final bool? emitInitializersForOptionalPositionals,
@@ -92,6 +100,8 @@ class TransformFunctionTypeToTs
             trailingReturnTypeKind ?? this.trailingReturnTypeKind,
         nestedTrailingReturnTypeKind:
             nestedTrailingReturnTypeKind ?? this.nestedTrailingReturnTypeKind,
+        covarianceTransformKind:
+            covarianceTransformKind ?? this.covarianceTransformKind,
         emitTrailingReturnType:
             emitTrailingReturnType ?? this.emitTrailingReturnType,
         emitDefaultFormalsAsOptionalNamed: emitDefaultFormalsAsOptionalNamed ??
@@ -105,194 +115,209 @@ class TransformFunctionTypeToTs
   ISwarsTermResult<String> transform({
     required final ISwarsPipeline pipeline,
   }) {
-    var res = pipeline.reduceFromTerm(
-          TransformTypeFormalsToTs(
-            swidTypeFormals: swidFunctionType.typeFormals,
-          ),
-        ) +
-        "(";
-
-    Map<String, SwidType?> normalTypes = {};
-    for (var i = 0; i != swidFunctionType.normalParameterNames.length; ++i) {
-      normalTypes[swidFunctionType.normalParameterNames[i]] =
-          swidFunctionType.normalParameterTypes[i];
-    }
-
-    //Pretend that Dart optional params are just like regular positionals except also nullable
-    for (var i = 0; i != swidFunctionType.optionalParameterNames.length; ++i) {
-      normalTypes.addEntries([
-        MapEntry(swidFunctionType.optionalParameterNames[i],
-            cloneSwidType(swidType: swidFunctionType.optionalParameterTypes[i]))
-      ]);
-    }
-
-    var shouldEmitPositionalAsOptional = ({required final String argName}) =>
-        normalTypes.entries
-                .takeWhile((x) =>
-                    x.value!.nullabilitySuffix ==
-                    SwidNullabilitySuffix.question)
-                .toList()
-                .length ==
-            normalTypes.entries.length ||
-        (normalTypes.entries
-                .toList()
-                .reversed
-                .toList()
-                .takeWhile((x) =>
-                    x.value!.nullabilitySuffix ==
-                    SwidNullabilitySuffix.question)
-                .toList()
-                .firstWhereOrNull((x) => x.key == argName) !=
-            null);
-
-    int normalAnonymousTypesSeen = 0;
-    normalTypes.forEach((key, value) {
-      value!.when(
-        fromSwidClass: (_) => null,
-        fromSwidFunctionType: (val) {
-          if (key.trim().isNotEmpty) {
-            res += "$key";
-          } else {
-            normalAnonymousTypesSeen++;
-            res += "_";
-            res += List.generate(normalAnonymousTypesSeen, (index) => "_")
-                .join("");
-          }
-          if (shouldEmitPositionalAsOptional(argName: key)) {
-            res +=
-                "${val.nullabilitySuffix == SwidNullabilitySuffix.question ? "?" : ""}";
-          }
-
-          res += " : ";
-          res += pipeline.reduceFromTerm(
-            TransformFunctionTypeToTs(
-              parentClass: parentClass,
-              swidFunctionType: val,
-              trailingReturnTypeKind: nestedTrailingReturnTypeKind,
-              nestedTrailingReturnTypeKind: nestedTrailingReturnTypeKind,
+    return (({
+      required final SwidFunctionType swidFunctionType,
+    }) {
+      var res = pipeline.reduceFromTerm(
+            TransformTypeFormalsToTs(
+              swidTypeFormals: swidFunctionType.typeFormals,
             ),
-          );
+          ) +
+          "(";
 
-          return null;
-        },
-        fromSwidInterface: (val) {
-          if (key.trim().isNotEmpty) {
-            res += "$key";
-          } else {
-            normalAnonymousTypesSeen++;
-            res += "_";
-            res += List.generate(normalAnonymousTypesSeen, (index) => "_")
-                .join("");
-          }
-          if (shouldEmitPositionalAsOptional(argName: key)) {
-            res +=
-                "${val.nullabilitySuffix == SwidNullabilitySuffix.question ? "?" : ""}";
-          }
+      Map<String, SwidType?> normalTypes = {};
+      for (var i = 0; i != swidFunctionType.normalParameterNames.length; ++i) {
+        normalTypes[swidFunctionType.normalParameterNames[i]] =
+            swidFunctionType.normalParameterTypes[i];
+      }
 
-          res += ": " +
-              pipeline.reduceFromTerm(
-                TransformTypeDeclarationToTs(
-                  parentClass: parentClass,
-                  swidType: SwidType.fromSwidInterface(
-                    swidInterface: val,
-                  ),
-                  emitDefaultFormalsAsOptionalNamed:
-                      emitDefaultFormalsAsOptionalNamed,
-                  emitTopLevelInitializersForOptionalPositionals:
-                      emitInitializersForOptionalPositionals,
-                  emitTrailingReturnType: emitTrailingReturnType,
-                  nestedTrailingReturnTypeKind: nestedTrailingReturnTypeKind,
-                ),
-              );
+      //Pretend that Dart optional params are just like regular positionals except also nullable
+      for (var i = 0;
+          i != swidFunctionType.optionalParameterNames.length;
+          ++i) {
+        normalTypes.addEntries([
+          MapEntry(
+              swidFunctionType.optionalParameterNames[i],
+              cloneSwidType(
+                  swidType: swidFunctionType.optionalParameterTypes[i]))
+        ]);
+      }
 
-          if (emitInitializersForOptionalPositionals) {
-            var initializer = swidFunctionType
-                .positionalDefaultParameters.entries
-                .firstWhereOrNull((x) => x.key == key);
-            if (initializer != null) {
-              res += [
-                " = ",
-                pipeline.reduceFromTerm(
-                  TransformLiteralToTs(
-                    swidLiteral: initializer.value.value,
-                    parentClass: parentClass,
-                    inexpressibleFunctionInvocationFallback:
-                        makeDefaultInexpressibleFunctionInvocationFallback(
-                            parentClass: parentClass, name: initializer.key),
-                    scopeResolver:
-                        makeDefaultStaticConstFieldReferenceScopeResolver(
-                      parentClass: parentClass,
-                    ),
-                  ),
-                )
-              ].join("");
+      var shouldEmitPositionalAsOptional = ({required final String argName}) =>
+          normalTypes.entries
+                  .takeWhile((x) =>
+                      x.value!.nullabilitySuffix ==
+                      SwidNullabilitySuffix.question)
+                  .toList()
+                  .length ==
+              normalTypes.entries.length ||
+          (normalTypes.entries
+                  .toList()
+                  .reversed
+                  .toList()
+                  .takeWhile((x) =>
+                      x.value!.nullabilitySuffix ==
+                      SwidNullabilitySuffix.question)
+                  .toList()
+                  .firstWhereOrNull((x) => x.key == argName) !=
+              null);
+
+      int normalAnonymousTypesSeen = 0;
+      normalTypes.forEach((key, value) {
+        value!.when(
+          fromSwidClass: (_) => null,
+          fromSwidFunctionType: (val) {
+            if (key.trim().isNotEmpty) {
+              res += "$key";
+            } else {
+              normalAnonymousTypesSeen++;
+              res += "_";
+              res += List.generate(normalAnonymousTypesSeen, (index) => "_")
+                  .join("");
             }
-          }
+            if (shouldEmitPositionalAsOptional(argName: key)) {
+              res +=
+                  "${val.nullabilitySuffix == SwidNullabilitySuffix.question ? "?" : ""}";
+            }
 
-          return null;
-        },
-        fromSwidDefaultFormalParameter: (_) => null,
-      );
+            res += " : ";
+            res += pipeline.reduceFromTerm(
+              TransformFunctionTypeToTs(
+                parentClass: parentClass,
+                swidFunctionType: val,
+                trailingReturnTypeKind: nestedTrailingReturnTypeKind,
+                nestedTrailingReturnTypeKind: nestedTrailingReturnTypeKind,
+              ),
+            );
 
-      if (normalTypes.keys.toList().indexOf(key) !=
-          normalTypes.keys.toList().length - 1) {
-        res += ", ";
-      }
-    });
+            return null;
+          },
+          fromSwidInterface: (val) {
+            if (key.trim().isNotEmpty) {
+              res += "$key";
+            } else {
+              normalAnonymousTypesSeen++;
+              res += "_";
+              res += List.generate(normalAnonymousTypesSeen, (index) => "_")
+                  .join("");
+            }
+            if (shouldEmitPositionalAsOptional(argName: key)) {
+              res +=
+                  "${val.nullabilitySuffix == SwidNullabilitySuffix.question ? "?" : ""}";
+            }
 
-    if (swidFunctionType.normalParameterNames.isNotEmpty &&
-        swidFunctionType.namedParameterTypes.isNotEmpty) {
-      res += ",";
-    }
+            res += ": " +
+                pipeline.reduceFromTerm(
+                  TransformTypeDeclarationToTs(
+                    parentClass: parentClass,
+                    swidType: SwidType.fromSwidInterface(
+                      swidInterface: val,
+                    ),
+                    emitDefaultFormalsAsOptionalNamed:
+                        emitDefaultFormalsAsOptionalNamed,
+                    emitTopLevelInitializersForOptionalPositionals:
+                        emitInitializersForOptionalPositionals,
+                    emitTrailingReturnType: emitTrailingReturnType,
+                    nestedTrailingReturnTypeKind: nestedTrailingReturnTypeKind,
+                  ),
+                );
 
-    if (swidFunctionType.namedParameterTypes.isNotEmpty) {
-      if (swidFunctionType.namedParameterTypes.entries.every(
-          (x) => x.value.nullabilitySuffix == SwidNullabilitySuffix.question)) {
-        res += " props? : { ";
-      } else {
-        res += " props : { ";
-      }
+            if (emitInitializersForOptionalPositionals) {
+              var initializer = swidFunctionType
+                  .positionalDefaultParameters.entries
+                  .firstWhereOrNull((x) => x.key == key);
+              if (initializer != null) {
+                res += [
+                  " = ",
+                  pipeline.reduceFromTerm(
+                    TransformLiteralToTs(
+                      swidLiteral: initializer.value.value,
+                      parentClass: parentClass,
+                      inexpressibleFunctionInvocationFallback:
+                          makeDefaultInexpressibleFunctionInvocationFallback(
+                              parentClass: parentClass, name: initializer.key),
+                      scopeResolver:
+                          makeDefaultStaticConstFieldReferenceScopeResolver(
+                        parentClass: parentClass,
+                      ),
+                    ),
+                  )
+                ].join("");
+              }
+            }
 
-      swidFunctionType.namedParameterTypes.entries.forEach((x) {
-        res += [
-          " ",
-          x.key,
-          x.value.nullabilitySuffix == SwidNullabilitySuffix.question ||
-                  (emitDefaultFormalsAsOptionalNamed &&
-                      swidFunctionType.namedDefaults[x.key] != null &&
-                      !pipeline.reduceFromTerm(
-                        IsInexpressibleStaticConst(
-                          parentClass: parentClass,
-                          swidStaticConst:
-                              swidFunctionType.namedDefaults[x.key]!.value,
-                        ),
-                      ))
-              ? "?"
-              : "",
-          " : ",
-          pipeline.reduceFromTerm(
-            TransformTypeDeclarationToTs(
-              parentClass: parentClass,
-              swidType: x.value,
-            ),
-          ),
-          ",",
-        ].join("");
+            return null;
+          },
+          fromSwidDefaultFormalParameter: (_) => null,
+        );
+
+        if (normalTypes.keys.toList().indexOf(key) !=
+            normalTypes.keys.toList().length - 1) {
+          res += ", ";
+        }
       });
-      res += "}";
-    }
 
-    res += ")";
-    if (emitTrailingReturnType) {
-      res += pipeline.reduceFromTerm(
-        TransformReturnTypeToTs(
-          swidFunctionType: swidFunctionType,
-          trailingReturnTypeKind: trailingReturnTypeKind,
-        ),
+      if (swidFunctionType.normalParameterNames.isNotEmpty &&
+          swidFunctionType.namedParameterTypes.isNotEmpty) {
+        res += ",";
+      }
+
+      if (swidFunctionType.namedParameterTypes.isNotEmpty) {
+        if (swidFunctionType.namedParameterTypes.entries.every((x) =>
+            x.value.nullabilitySuffix == SwidNullabilitySuffix.question)) {
+          res += " props? : { ";
+        } else {
+          res += " props : { ";
+        }
+
+        swidFunctionType.namedParameterTypes.entries.forEach((x) {
+          res += [
+            " ",
+            x.key,
+            x.value.nullabilitySuffix == SwidNullabilitySuffix.question ||
+                    (emitDefaultFormalsAsOptionalNamed &&
+                        swidFunctionType.namedDefaults[x.key] != null &&
+                        !pipeline.reduceFromTerm(
+                          IsInexpressibleStaticConst(
+                            parentClass: parentClass,
+                            swidStaticConst:
+                                swidFunctionType.namedDefaults[x.key]!.value,
+                          ),
+                        ))
+                ? "?"
+                : "",
+            " : ",
+            pipeline.reduceFromTerm(
+              TransformTypeDeclarationToTs(
+                parentClass: parentClass,
+                swidType: x.value,
+              ),
+            ),
+            ",",
+          ].join("");
+        });
+        res += "}";
+      }
+
+      res += ")";
+      if (emitTrailingReturnType) {
+        res += pipeline.reduceFromTerm(
+          TransformReturnTypeToTs(
+            swidFunctionType: swidFunctionType,
+            trailingReturnTypeKind: trailingReturnTypeKind,
+          ),
+        );
+      }
+      return SwarsTermResult.fromString(
+        res,
       );
-    }
-    return SwarsTermResult.fromString(
-      res,
+    })(
+      swidFunctionType: pipeline.reduceFromTerm(
+        TransformCovariantTypesInFunction(
+          swidFunctionType: swidFunctionType,
+          covarianceTransformKind: covarianceTransformKind,
+        ),
+      ),
     );
   }
 }

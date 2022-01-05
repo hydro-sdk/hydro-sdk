@@ -15,6 +15,8 @@ SwidDeclarationModifiers swidDeclarationModifiersFromExecutableElement({
       isSetter: false,
       isStatic: executableElement.isStatic,
       isSynthetic: executableElement.isSynthetic,
+      isCovariant: false,
+      isExplicitlyCovariant: false,
       hasAlwaysThrows: executableElement.hasAlwaysThrows,
       hasDeprecated: executableElement.hasDeprecated,
       hasFactory: executableElement.hasFactory,
