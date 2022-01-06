@@ -49,7 +49,7 @@ class VMManagedSemanticsData extends VMManagedBox<SemanticsData> {
         table: HydroTable());
     table['elevation'] = vmObject.elevation;
     table['thickness'] = vmObject.thickness;
-    table['customSemanticsActionIds'] = maybeBoxObject<List<dynamic>>(
+    table['customSemanticsActionIds'] = maybeBoxObject<List<int>?>(
         object: vmObject.customSemanticsActionIds,
         hydroState: hydroState,
         table: HydroTable());
@@ -212,7 +212,7 @@ class RTManagedSemanticsData extends SemanticsData
         object: this.transform, hydroState: hydroState, table: HydroTable());
     table['elevation'] = this.elevation;
     table['thickness'] = this.thickness;
-    table['customSemanticsActionIds'] = maybeBoxObject<List<dynamic>>(
+    table['customSemanticsActionIds'] = maybeBoxObject<List<int>?>(
         object: this.customSemanticsActionIds,
         hydroState: hydroState,
         table: HydroTable());
