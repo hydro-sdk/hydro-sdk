@@ -6,7 +6,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/backend/util/barrelSpec.dart';
 import 'package:hydro_sdk/swid/backend/util/requiresDartClassTranslationUnit.dart';
-import 'package:hydro_sdk/swid/ir/util/isUnrepresentableStaticConst.dart';
+import 'package:hydro_sdk/swid/ir/analyses/isUnrepresentableStaticConst.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermStringResultMixin.dart';
@@ -115,9 +115,11 @@ class DartBarrelLoadNamespaceSymbolDeclaration
                                 staticConstFieldDeclarations:
                                     val.staticConstFieldDeclarations
                                         .where(
-                                          (x) => !isUnrepresentableStaticConst(
-                                            parentClass: val,
-                                            staticConst: x.value,
+                                          (x) => !pipeline.reduceFromTerm(
+                                            IsUnrepresentableStaticConst(
+                                              parentClass: val,
+                                              staticConst: x.value,
+                                            ),
                                           ),
                                         )
                                         .toList(),

@@ -7,7 +7,7 @@ import 'package:hydro_sdk/swid/backend/dart/dartTranslationUnit.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartir.dart';
 import 'package:hydro_sdk/swid/backend/util/barrelSpec.dart';
 import 'package:hydro_sdk/swid/backend/util/requiresDartClassTranslationUnit.dart';
-import 'package:hydro_sdk/swid/ir/util/isUnrepresentableStaticConst.dart';
+import 'package:hydro_sdk/swid/ir/analyses/isUnrepresentableStaticConst.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/transforms/transformPackageUri.dart';
 import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';
@@ -38,9 +38,11 @@ List<DartTranslationUnit> produceDartTranslationUnitsFromBarrelSpec({
                           staticConstFieldDeclarations:
                               val.staticConstFieldDeclarations
                                   .where(
-                                    (x) => !isUnrepresentableStaticConst(
-                                      parentClass: val,
-                                      staticConst: x.value,
+                                    (x) => !pipeline.reduceFromTerm(
+                                      IsUnrepresentableStaticConst(
+                                        parentClass: val,
+                                        staticConst: x.value,
+                                      ),
                                     ),
                                   )
                                   .toList(),
