@@ -9,6 +9,7 @@ import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/util/isList.dart';
+import 'package:hydro_sdk/swid/ir/util/isPrimitive.dart';
 import 'package:hydro_sdk/swid/ir/util/isPrimitiveMap.dart';
 import 'package:hydro_sdk/swid/ir/util/narrowSwidInterfaceByReferenceDeclaration.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
@@ -103,7 +104,9 @@ class DartBoxObjectReference
                 isList(
                         swidType:
                             SwidType.fromSwidInterface(swidInterface: type))
-                    ? Reference("List<dynamic>")
+                    ? !isPrimitive(swidType: type.typeArguments.first.type)
+                        ? Reference("List<dynamic>")
+                        : Reference(type.displayName)
                     : Reference(
                         [
                           removeTypeArguments(str: type.name),
