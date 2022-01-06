@@ -330,6 +330,26 @@ class DartRTManagedClassDeclaration
                                               (x) => !x.declarationModifiers
                                                   .hasDeprecated,
                                             )
+                                            .where(
+                                              (x) => x.declarationModifiers
+                                                      .hasVisibleForTesting
+                                                  ? x.declarationModifiers
+                                                          .hasProtected
+                                                      ? true
+                                                      : false
+                                                  : true,
+                                            )
+                                            //Exclude methods that return functions
+                                            .where(
+                                              (x) => x.returnType.when(
+                                                fromSwidInterface: (_) => true,
+                                                fromSwidClass: (_) => true,
+                                                fromSwidDefaultFormalParameter:
+                                                    (_) => true,
+                                                fromSwidFunctionType: (_) =>
+                                                    false,
+                                              ),
+                                            )
                                             .map(
                                               (x) => Code(
                                                 pipeline.reduceFromTerm(
@@ -445,6 +465,14 @@ class DartRTManagedClassDeclaration
                         )
                         .where(
                           (x) => !x.declarationModifiers.hasDeprecated,
+                        )
+                        .where(
+                          (x) => x.returnType.when(
+                            fromSwidInterface: (_) => true,
+                            fromSwidClass: (_) => true,
+                            fromSwidDefaultFormalParameter: (_) => true,
+                            fromSwidFunctionType: (_) => false,
+                          ),
                         )
                         .map(
                           (x) => transformAccessorName(
