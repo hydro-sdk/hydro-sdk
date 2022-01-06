@@ -1,3 +1,4 @@
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/semantics/semanticsConfiguration.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/semantics/semanticsData.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/semantics/semanticsEvent.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/semantics/semanticsHintOverrides.dart';
@@ -17,5 +18,6 @@ void loadsemantics(
   loadSemanticsHintOverrides(table: semantics, hydroState: hydroState);
   loadSemanticsNode(table: semantics, hydroState: hydroState);
   loadSemanticsOwner(table: semantics, hydroState: hydroState);
+  loadSemanticsConfiguration(table: semantics, hydroState: hydroState);
   loadSemanticsSortKey(table: semantics, hydroState: hydroState);
 }

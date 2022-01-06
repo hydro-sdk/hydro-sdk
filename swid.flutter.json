@@ -20,6 +20,7 @@
                 "HitTestEntry",
                 "HitTestTarget",
                 "PointerEvent",
+                "SemanticsConfiguration",
                 "SemanticsEvent",
                 "SemanticsNode",
                 "SemanticsData",
