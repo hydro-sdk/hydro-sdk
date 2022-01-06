@@ -1,5 +1,4 @@
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/animation/curve.dart';
-import 'package:hydro_sdk/cfr/builtins/libs/flutter/animation/curves.dart';
 import 'package:hydro_sdk/cfr/runtimeSupport.dart';
 
 void loadanimation(
@@ -7,5 +6,4 @@ void loadanimation(
   final animation = HydroTable();
   table['animation'] = animation;
   loadCurve(table: animation, hydroState: hydroState);
-  loadCurves(table: animation, hydroState: hydroState);
 }
