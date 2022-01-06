@@ -145,6 +145,7 @@ DartTranslationUnit? produceDartTranslationUnitFromSwidClass({
               )
             : null)(
       swidClass: removeNonEmitCandidates(
+        pipeline: pipeline,
         swidClass: swidClass,
       ),
     );
