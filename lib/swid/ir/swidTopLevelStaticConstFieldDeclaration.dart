@@ -45,12 +45,8 @@ class SwidTopLevelStaticConstFieldDeclaration
 
   @override
   late final Iterable<Iterable<int>> hashableParts = (() sync* {
-    yield [
-      ...originalPackagePath.hashableParts,
-    ];
-    yield [
-      ...declaration.hashKey.hashableParts,
-    ];
+    yield* originalPackagePath.hashableParts;
+    yield* declaration.hashKey.hashableParts;
   })();
 
   @override

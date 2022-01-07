@@ -36,9 +36,7 @@ class HasSuitableTypeFormalBound
 
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
-    yield [
-      ...candidateInterface.hashKey.hashableParts,
-    ];
+    yield* candidateInterface.hashKey.hashableParts;
     yield* swidTypeFormals?.hashableParts ?? [];
   }
 

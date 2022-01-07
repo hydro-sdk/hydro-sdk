@@ -43,8 +43,8 @@ class DartStaticMethodNamespaceSymbolDeclaration
 
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
-    yield* swidClass.hashableParts;
-    yield* swidFunctionType.hashableParts;
+    yield* swidClass.hashKey.hashableParts;
+    yield* swidFunctionType.hashKey.hashableParts;
   }
 
   @override

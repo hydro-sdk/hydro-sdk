@@ -36,7 +36,7 @@ class DartBoxEnumReference
 
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
-    yield* type?.hashableParts ?? [];
+    yield* type?.hashKey.hashableParts ?? [];
     yield [
       ...referenceName.codeUnits,
     ];

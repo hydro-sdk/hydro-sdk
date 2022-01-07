@@ -36,12 +36,8 @@ class IsInexpressibleStaticConst
 
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
-    yield [
-      ...?parentClass?.hashKey.hashableParts,
-    ];
-    yield [
-      ...swidStaticConst.hashKey.hashableParts,
-    ];
+    yield* parentClass?.hashKey.hashableParts ?? [];
+    yield* swidStaticConst.hashKey.hashableParts;
   }
 
   @override

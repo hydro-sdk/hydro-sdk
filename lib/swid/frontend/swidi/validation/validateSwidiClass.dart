@@ -59,7 +59,7 @@ class ValidateSwidiClass
 
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
-    yield* swidiClass.hashableParts;
+    yield* swidiClass.hashKey.hashableParts;
   }
 
   @override

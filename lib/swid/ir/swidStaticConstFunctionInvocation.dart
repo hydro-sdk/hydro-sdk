@@ -56,12 +56,8 @@ class SwidStaticConstFunctionInvocation
 
   @override
   late final Iterable<Iterable<int>> hashableParts = (() sync* {
-    yield [
-      ...value.hashableParts,
-    ];
-    yield [
-      ...staticType.hashKey.hashableParts,
-    ];
+    yield* value.hashableParts;
+    yield* staticType.hashKey.hashableParts;
     yield* normalParameters.hashableParts;
     yield* namedParameters.hashableParts;
     yield [

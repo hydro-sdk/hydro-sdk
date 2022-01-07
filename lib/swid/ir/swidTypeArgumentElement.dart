@@ -51,6 +51,6 @@ class SwidTypeArgumentElement
 
   @override
   late final Iterable<Iterable<int>> hashableParts = (() sync* {
-    yield* bound.hashableParts;
+    yield* bound.hashKey.hashableParts;
   })();
 }

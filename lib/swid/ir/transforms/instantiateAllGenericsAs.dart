@@ -43,15 +43,9 @@ class InstantiateAllGenericsAs
 
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
-    yield [
-      ...swidType.hashKey.hashableParts,
-    ];
-    yield [
-      ...instantiatedGeneric.hashKey.hashableParts,
-    ];
-    yield [
-      ...instantiateNormalParameterTypes.hashableParts,
-    ];
+    yield* swidType.hashKey.hashableParts;
+    yield* instantiatedGeneric.hashKey.hashableParts;
+    yield [...instantiateNormalParameterTypes.hashableParts];
   }
 
   @override

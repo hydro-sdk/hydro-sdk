@@ -41,9 +41,7 @@ class InstantiateTypeArgumentsToLowestBoundInDefaultFormalParameter
 
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
-    yield [
-      ...swidDefaultFormalParameter.hashKey.hashableParts,
-    ];
+    yield* swidDefaultFormalParameter.hashKey.hashableParts;
     yield* swidTypeFormals?.hashableParts ?? [];
   }
 

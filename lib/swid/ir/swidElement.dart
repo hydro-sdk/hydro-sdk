@@ -30,7 +30,7 @@ class SwidElement
 
   @override
   late final Iterable<Iterable<int>> hashableParts = when(
-    fromSwidTypeArgumentElement: (val) => val.hashableParts,
+    fromSwidTypeArgumentElement: (val) => val.hashKey.hashableParts,
   );
 
   @override

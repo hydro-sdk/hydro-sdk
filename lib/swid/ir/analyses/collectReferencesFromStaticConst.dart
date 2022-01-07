@@ -39,9 +39,7 @@ class CollectReferencesFromStaticConst
 
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
-    yield [
-      ...swidStaticConst.hashKey.hashableParts,
-    ];
+    yield* swidStaticConst.hashKey.hashableParts;
   }
 
   @override

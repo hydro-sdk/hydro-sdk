@@ -41,7 +41,7 @@ class TransformPrimitiveNamesToTs
 
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
-    yield* swidType.hashableParts;
+    yield* swidType.hashKey.hashableParts;
   }
 
   @override

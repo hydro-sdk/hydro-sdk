@@ -34,12 +34,8 @@ class ResolveTsImportPaths
 
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
-    yield [
-      ...importee.hashKey.hashableParts,
-    ];
-    yield [
-      ...importer.hashKey.hashableParts,
-    ];
+    yield* importee.hashKey.hashableParts;
+    yield* importer.hashKey.hashableParts;
     yield* prefixPaths.hashableParts;
   }
 
