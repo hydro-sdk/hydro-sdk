@@ -39,10 +39,8 @@ class SwidiTypeFormal
 
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
-    yield [
-      ...name.hashableParts,
-    ];
-    yield* bound.hashableParts;
+    yield* name.hashableParts;
+    yield* bound.hashKey.hashableParts;
   }
 
   @override

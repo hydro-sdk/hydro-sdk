@@ -38,9 +38,7 @@ extension StringIterable on Iterable<String> {
   Iterable<Iterable<int>> get hashableParts sync* {
     if (isNotEmpty) {
       for (var x in this) {
-        yield [
-          ...x.hashableParts,
-        ];
+        yield* x.hashableParts;
       }
     } else {
       yield [
@@ -214,9 +212,9 @@ extension StringKeyStringValueMap on Map<String, String> {
   Iterable<Iterable<int>> get hashableParts sync* {
     if (isNotEmpty) {
       for (var x in this.entries) {
-        yield x.key.hashableParts;
+        yield* x.key.hashableParts;
 
-        yield x.value.hashableParts;
+        yield* x.value.hashableParts;
       }
     } else {
       yield [
@@ -229,7 +227,9 @@ extension StringKeyStringValueMap on Map<String, String> {
 extension HashablePartsString on String {
   @pragma('vm:prefer-inline')
   @pragma('dart2js:tryInline')
-  List<int> get hashableParts => codeUnits;
+  Iterable<Iterable<int>> get hashableParts sync* {
+    yield codeUnits;
+  }
 }
 
 extension HashableBool on bool {

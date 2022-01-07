@@ -35,9 +35,7 @@ class InstantiateTypeFormalToLowestBound
 
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
-    yield [
-      ...swidTypeFormal.hashKey.hashableParts,
-    ];
+    yield* swidTypeFormal.hashKey.hashableParts;
   }
 
   @override

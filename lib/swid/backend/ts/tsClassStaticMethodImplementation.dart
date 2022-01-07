@@ -46,12 +46,8 @@ class TsClassStaticMethodImplementation
 
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
-    yield [
-      ...swidClass.hashKey.hashableParts,
-    ];
-    yield [
-      ...swidFunctionType.hashKey.hashableParts,
-    ];
+    yield* swidClass.hashKey.hashableParts;
+    yield* swidFunctionType.hashKey.hashableParts;
   }
 
   @override

@@ -41,10 +41,8 @@ class DartBoxList
 
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
-    yield* type.hashableParts;
-    yield [
-      ...referenceName.hashableParts,
-    ];
+    yield* type.hashKey.hashableParts;
+    yield* referenceName.hashableParts;
   }
 
   @override

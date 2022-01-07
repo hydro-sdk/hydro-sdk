@@ -35,12 +35,8 @@ class HasInheritedMustCallSuperAnnotation
 
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
-    yield [
-      ...swidFunctionType.hashKey.hashableParts,
-    ];
-    yield [
-      ...swidClass.hashKey.hashableParts,
-    ];
+    yield* swidFunctionType.hashKey.hashableParts;
+    yield* swidClass.hashKey.hashableParts;
   }
 
   @override

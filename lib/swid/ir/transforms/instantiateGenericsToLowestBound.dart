@@ -40,9 +40,7 @@ class InstantiateGenericsToLowestBound
 
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
-    yield [
-      ...swidType.hashKey.hashableParts,
-    ];
+    yield* swidType.hashKey.hashableParts;
   }
 
   @override

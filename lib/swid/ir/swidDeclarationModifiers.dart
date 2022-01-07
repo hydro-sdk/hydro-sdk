@@ -33,12 +33,8 @@ class StringTuple
 
   @override
   late final Iterable<Iterable<int>> hashableParts = (() sync* {
-    yield [
-      ...item1.hashableParts,
-    ];
-    yield [
-      ...item2.hashableParts,
-    ];
+    yield* item1.hashableParts;
+    yield* item2.hashableParts;
   })();
 
   factory StringTuple.fromJson(Map<String, dynamic> json) =>

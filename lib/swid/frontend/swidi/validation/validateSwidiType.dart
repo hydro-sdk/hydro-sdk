@@ -37,7 +37,7 @@ class ValidateSwidiType
 
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
-    yield* swidiType.hashableParts;
+    yield* swidiType.hashKey.hashableParts;
   }
 
   @override

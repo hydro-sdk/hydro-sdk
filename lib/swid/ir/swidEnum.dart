@@ -38,12 +38,8 @@ class SwidEnum
 
   @override
   late final Iterable<Iterable<int>> hashableParts = (() sync* {
-    yield [
-      ...originalPackagePath.hashableParts,
-    ];
-    yield [
-      ...identifier.hashableParts,
-    ];
+    yield* originalPackagePath.hashableParts;
+    yield* identifier.hashableParts;
     yield* children.hashableParts;
   })();
 

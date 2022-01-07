@@ -35,7 +35,7 @@ class SwidiFunctionTypePositionalParameter
 
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
-    yield* type.hashableParts;
+    yield* type.hashKey.hashableParts;
   }
 
   @override

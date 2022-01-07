@@ -30,9 +30,9 @@ class BarrelMember
 
   @override
   Iterable<Iterable<int>> get hashableParts => when(
-        fromSwidClass: (val) => val.hashableParts,
-        fromSwidEnum: (val) => val.hashableParts,
-        fromBarrelSpec: (val) => val.hashableParts,
+        fromSwidClass: (val) => val.hashKey.hashableParts,
+        fromSwidEnum: (val) => val.hashKey.hashableParts,
+        fromBarrelSpec: (val) => val.hashKey.hashableParts,
       );
 
   @override

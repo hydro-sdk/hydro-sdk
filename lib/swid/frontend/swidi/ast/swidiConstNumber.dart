@@ -31,9 +31,7 @@ class SwidiConstNumber
 
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
-    yield [
-      ...value.hashableParts,
-    ];
+    yield* value.hashableParts;
   }
 
   @override

@@ -30,7 +30,7 @@ class TransformEnumToTs
 
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
-    yield* swidEnum.hashableParts;
+    yield* swidEnum.hashKey.hashableParts;
   }
 
   @override

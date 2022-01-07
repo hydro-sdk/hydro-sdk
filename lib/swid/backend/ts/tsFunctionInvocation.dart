@@ -35,10 +35,8 @@ class TsFunctionInvocation
 
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
-    yield [
-      ...functionReference.hashableParts,
-    ];
-    yield* tsFunctionInvocationPositionalParameters.hashableParts;
+    yield* functionReference.hashableParts;
+    yield* tsFunctionInvocationPositionalParameters.hashKey.hashableParts;
     yield* tsFunctionInvocationNamedParameters.hashableParts;
   }
 

@@ -33,7 +33,7 @@ class TypeFormalDeclarationClause
 
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
-    yield* swidTypeFormal.hashableParts;
+    yield* swidTypeFormal.hashKey.hashableParts;
   }
 
   @override

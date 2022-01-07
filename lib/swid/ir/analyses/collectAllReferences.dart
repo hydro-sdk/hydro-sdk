@@ -39,7 +39,7 @@ class CollectAllReferences
 
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
-    yield* swidType.hashableParts;
+    yield* swidType.hashKey.hashableParts;
     yield [
       ...includeFirstOrderSuperClassReferences.hashableParts,
     ];

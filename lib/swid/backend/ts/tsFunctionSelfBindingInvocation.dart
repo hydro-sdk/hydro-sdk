@@ -39,10 +39,8 @@ class TsFunctionSelfBindingInvocation
 
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
-    yield* swidFunctionType.hashableParts;
-    yield [
-      ...functionReference.hashableParts,
-    ];
+    yield* swidFunctionType.hashKey.hashableParts;
+    yield* functionReference.hashableParts;
   }
 
   @override

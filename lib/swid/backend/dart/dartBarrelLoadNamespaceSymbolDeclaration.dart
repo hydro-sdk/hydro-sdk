@@ -39,7 +39,7 @@ class DartBarrelLoadNamespaceSymbolDeclaration
 
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
-    yield* barrelSpec.hashableParts;
+    yield* barrelSpec.hashKey.hashableParts;
   }
 
   @override

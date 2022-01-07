@@ -41,9 +41,7 @@ class InstantiateTypeArgumentsToLowestBoundInInterface
 
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
-    yield [
-      ...swidInterface.hashKey.hashableParts,
-    ];
+    yield* swidInterface.hashKey.hashableParts;
     yield* swidTypeFormals?.hashableParts ?? [];
   }
 

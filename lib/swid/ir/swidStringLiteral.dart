@@ -35,9 +35,7 @@ class SwidStringLiteral
 
   @override
   late final Iterable<Iterable<int>> hashableParts = (() sync* {
-    yield [
-      ...value.hashableParts,
-    ];
+    yield* value.hashableParts;
   })();
 
   @override

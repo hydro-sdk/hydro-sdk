@@ -35,9 +35,7 @@ class ShadowedInstanceFieldResult
 
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
-    yield [
-      ...fieldName.hashableParts,
-    ];
+    yield* fieldName.hashableParts;
   }
 
   factory ShadowedInstanceFieldResult.fromJson(
@@ -74,9 +72,7 @@ class InstanceFieldDeclarationsShadowedByConstructorParameters
 
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
-    yield [
-      ...swidClass.hashKey.hashableParts,
-    ];
+    yield* swidClass.hashKey.hashableParts;
   }
 
   @override
