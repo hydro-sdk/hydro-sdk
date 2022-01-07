@@ -38,9 +38,7 @@ class TsVmDeclaration
 
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
-    yield [
-      ...name.hashableParts,
-    ];
+    yield* name.hashableParts;
     yield* methods.hashableParts;
     yield* children.hashableParts;
   }

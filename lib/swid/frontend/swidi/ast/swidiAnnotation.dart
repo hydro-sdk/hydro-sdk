@@ -31,7 +31,7 @@ class SwidiAnnotation
 
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
-    yield* value.hashableParts;
+    yield* value.hashKey.hashableParts;
   }
 
   @override

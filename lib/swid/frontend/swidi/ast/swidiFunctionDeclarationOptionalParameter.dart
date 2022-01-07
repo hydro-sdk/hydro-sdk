@@ -35,7 +35,7 @@ class SwidiFunctionDeclarationOptionalParameter
 
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
-    yield* declaration.hashableParts;
+    yield* declaration.hashKey.hashableParts;
   }
 
   @override

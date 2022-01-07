@@ -68,15 +68,11 @@ class SwidDefaultFormalParameter
     yield [
       nullabilitySuffix.index,
     ];
-    yield [
-      ...originalPackagePath.hashableParts,
-    ];
-    yield* staticType.hashableParts;
-    yield* value.hashableParts;
-    yield [
-      ...defaultValueCode.hashableParts,
-    ];
-    yield* element?.hashableParts ?? [];
+    yield* originalPackagePath.hashableParts;
+    yield* staticType.hashKey.hashableParts;
+    yield* value.hashKey.hashableParts;
+    yield* defaultValueCode.hashableParts;
+    yield* element?.hashKey.hashableParts ?? [];
   })();
 
   @override

@@ -45,12 +45,8 @@ class SwidStaticConstTopLevelVariableReference
 
   @override
   late final Iterable<Iterable<int>> hashableParts = (() sync* {
-    yield [
-      ...identifier.hashableParts,
-    ];
-    yield [
-      ...topLevelReference.hashKey.hashableParts,
-    ];
+    yield* identifier.hashableParts;
+    yield* topLevelReference.hashKey.hashableParts;
   })();
 
   @override

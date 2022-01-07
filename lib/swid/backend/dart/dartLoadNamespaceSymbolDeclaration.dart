@@ -60,7 +60,7 @@ class DartLoadNamespaceSymbolDeclaration
 
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
-    yield* swidClass.hashableParts;
+    yield* swidClass.hashKey.hashableParts;
   }
 
   @override

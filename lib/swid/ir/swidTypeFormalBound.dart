@@ -34,8 +34,8 @@ class SwidTypeFormalBound
 
   @override
   late final Iterable<Iterable<int>> hashableParts = when(
-    fromSwidInterface: (val) => val.hashableParts,
-    fromSwidFunctionType: (val) => val.hashableParts,
+    fromSwidInterface: (val) => val.hashKey.hashableParts,
+    fromSwidFunctionType: (val) => val.hashKey.hashableParts,
   );
 
   @override

@@ -56,12 +56,8 @@ class TransformFunctionTypeToTs
 
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
-    yield [
-      ...swidFunctionType.hashKey.hashableParts,
-    ];
-    yield [
-      ...?parentClass?.hashKey.hashableParts,
-    ];
+    yield* swidFunctionType.hashKey.hashableParts;
+    yield* parentClass?.hashKey.hashableParts ?? [];
     yield [
       trailingReturnTypeKind.index,
     ];

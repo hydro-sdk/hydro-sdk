@@ -36,8 +36,8 @@ class TsFunctionInvocationNamedParameters
 
   @override
   Iterable<Iterable<int>> get hashableParts => when(
-        fromSpread: (val) => val.hashableParts,
-        fromKeyValue: (val) => val.hashableParts,
+        fromSpread: (val) => val.hashKey.hashableParts,
+        fromKeyValue: (val) => val.hashKey.hashableParts,
       );
 
   @override

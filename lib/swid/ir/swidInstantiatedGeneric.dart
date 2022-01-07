@@ -63,7 +63,7 @@ class SwidInstantiatedGeneric
 
   @override
   late final Iterable<Iterable<int>> hashableParts = (() sync* {
-    yield* instantiableGeneric.hashableParts;
+    yield* instantiableGeneric.hashKey.hashableParts;
     yield [
       referenceDeclarationKind.index,
     ];

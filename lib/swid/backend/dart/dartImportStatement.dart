@@ -29,9 +29,7 @@ class DartImportStatement
 
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
-    yield [
-      ...path.hashableParts,
-    ];
+    yield* path.hashableParts;
   }
 
   @override

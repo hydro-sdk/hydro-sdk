@@ -36,7 +36,7 @@ class SwidiStaticFunctionDeclaration
 
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
-    yield* functionDeclaration.hashableParts;
+    yield* functionDeclaration.hashKey.hashableParts;
   }
 
   @override

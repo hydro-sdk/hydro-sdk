@@ -35,7 +35,7 @@ class TsTopLevelStaticConstFieldDeclaration
 
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
-    yield* swidTopLevelStaticConstFieldDeclaration.hashableParts;
+    yield* swidTopLevelStaticConstFieldDeclaration.hashKey.hashableParts;
   }
 
   @override

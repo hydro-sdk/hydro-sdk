@@ -57,7 +57,7 @@ class SwidTypeArgumentType
 
   @override
   late final Iterable<Iterable<int>> hashableParts = (() sync* {
-    yield* type.hashableParts;
-    yield* element?.hashableParts ?? [];
+    yield* type.hashKey.hashableParts;
+    yield* element?.hashKey.hashableParts ?? [];
   })();
 }

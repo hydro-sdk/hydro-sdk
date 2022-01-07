@@ -26,8 +26,8 @@ class SwidiType
 
   @override
   Iterable<Iterable<int>> get hashableParts => when(
-        fromSwidiInterface: (val) => val.hashableParts,
-        fromSwidiFunctionType: (val) => val.hashableParts,
+        fromSwidiInterface: (val) => val.hashKey.hashableParts,
+        fromSwidiFunctionType: (val) => val.hashKey.hashableParts,
       );
 
   @override

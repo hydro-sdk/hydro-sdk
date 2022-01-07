@@ -73,11 +73,9 @@ class SwidiInterface
 
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
-    yield [
-      ...name.hashableParts,
-    ];
-    yield* libraryScopePrefix.hashableParts;
-    yield* referenceDeclarationPrefix.hashableParts;
+    yield* name.hashableParts;
+    yield* libraryScopePrefix.hashKey.hashableParts;
+    yield* referenceDeclarationPrefix.hashKey.hashableParts;
     yield [
       nullabilitySuffix.index,
     ];

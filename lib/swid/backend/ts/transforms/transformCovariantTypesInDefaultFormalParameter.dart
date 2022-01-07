@@ -38,7 +38,7 @@ class TransformCovariantTypesInDefaultFormalParameter
 
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
-    yield* swidDefaultFormalParameter.hashableParts;
+    yield* swidDefaultFormalParameter.hashKey.hashableParts;
     yield [
       covarianceTransformKind.index,
     ];

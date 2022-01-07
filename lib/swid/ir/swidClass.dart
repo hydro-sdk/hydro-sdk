@@ -51,31 +51,27 @@ class SwidClass
 
   @override
   late final Iterable<Iterable<int>> hashableParts = (() sync* {
-    yield [
-      ...name.hashableParts,
-    ];
+    yield* name.hashableParts;
     yield [
       nullabilitySuffix.index,
     ];
-    yield [
-      ...originalPackagePath.hashableParts,
-    ];
-    yield* constructorType?.hashableParts ?? [];
+    yield* originalPackagePath.hashableParts;
+    yield* constructorType?.hashKey.hashableParts ?? [];
     yield* generativeConstructors.hashableParts;
     yield* factoryConstructors.hashableParts;
     yield* staticMethods.hashableParts;
     yield* methods.hashableParts;
     yield* staticConstFieldDeclarations.hashableParts;
     yield* instanceFieldDeclarations.hashableParts;
-    yield* declarationModifiers.hashableParts;
+    yield* declarationModifiers.hashKey.hashableParts;
     yield* mixedInClasses.hashableParts;
     yield* implementedClasses.hashableParts;
     yield [
       ...isMixin.hashableParts,
     ];
     yield* typeFormals.hashableParts;
-    yield* element?.hashableParts ?? [];
-    yield* extendedClass?.hashableParts ?? [];
+    yield* element?.hashKey.hashableParts ?? [];
+    yield* extendedClass?.hashKey.hashableParts ?? [];
   })();
 
   factory SwidClass.fromJson(Map<String, dynamic> json) =>

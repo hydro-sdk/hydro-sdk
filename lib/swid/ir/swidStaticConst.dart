@@ -153,20 +153,21 @@ class SwidStaticConst
 
   @override
   late final Iterable<Iterable<int>> hashableParts = when(
-    fromSwidBooleanLiteral: (val) => val.hashableParts,
-    fromSwidStringLiteral: (val) => val.hashableParts,
-    fromSwidIntegerLiteral: (val) => val.hashableParts,
-    fromDoubleLiteral: (val) => val.hashableParts,
-    fromSwidStaticConstFunctionInvocation: (val) => val.hashableParts,
-    fromSwidStaticConstFieldReference: (val) => val.hashableParts,
-    fromSwidStaticConstPrefixedExpression: (val) => val.hashableParts,
-    fromSwidStaticConstBinaryExpression: (val) => val.hashableParts,
-    fromSwidStaticConstPrefixedIdentifier: (val) => val.hashableParts,
-    fromSwidStaticConstIdentifier: (val) => val.hashableParts,
-    fromSwidStaticConstListLiteral: (val) => val.hashableParts,
-    fromSwidStaticConstMapLiteralEntry: (val) => val.hashableParts,
-    fromSwidStaticConstMapLiteral: (val) => val.hashableParts,
-    fromSwidStaticConstTopLevelVariableReference: (val) => val.hashableParts,
+    fromSwidBooleanLiteral: (val) => val.hashKey.hashableParts,
+    fromSwidStringLiteral: (val) => val.hashKey.hashableParts,
+    fromSwidIntegerLiteral: (val) => val.hashKey.hashableParts,
+    fromDoubleLiteral: (val) => val.hashKey.hashableParts,
+    fromSwidStaticConstFunctionInvocation: (val) => val.hashKey.hashableParts,
+    fromSwidStaticConstFieldReference: (val) => val.hashKey.hashableParts,
+    fromSwidStaticConstPrefixedExpression: (val) => val.hashKey.hashableParts,
+    fromSwidStaticConstBinaryExpression: (val) => val.hashKey.hashableParts,
+    fromSwidStaticConstPrefixedIdentifier: (val) => val.hashKey.hashableParts,
+    fromSwidStaticConstIdentifier: (val) => val.hashKey.hashableParts,
+    fromSwidStaticConstListLiteral: (val) => val.hashKey.hashableParts,
+    fromSwidStaticConstMapLiteralEntry: (val) => val.hashKey.hashableParts,
+    fromSwidStaticConstMapLiteral: (val) => val.hashKey.hashableParts,
+    fromSwidStaticConstTopLevelVariableReference: (val) =>
+        val.hashKey.hashableParts,
   );
 
   @override

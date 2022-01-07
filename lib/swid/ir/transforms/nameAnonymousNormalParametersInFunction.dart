@@ -31,9 +31,7 @@ class NameAnonymousNormalParametersInFunction
 
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
-    yield [
-      ...swidFunctionType.hashKey.hashableParts,
-    ];
+    yield* swidFunctionType.hashKey.hashableParts;
   }
 
   @override

@@ -55,12 +55,10 @@ class SwidTypeFormalValue
 
   @override
   late final Iterable<Iterable<int>> hashableParts = when(
-    fromString: (val) => [
-      val.hashableParts,
-    ],
-    fromSwidClass: (val) => val.hashableParts,
-    fromSwidInterface: (val) => val.hashableParts,
-    fromSwidFunctionType: (val) => val.hashableParts,
+    fromString: (val) => val.hashableParts,
+    fromSwidClass: (val) => val.hashKey.hashableParts,
+    fromSwidInterface: (val) => val.hashKey.hashableParts,
+    fromSwidFunctionType: (val) => val.hashKey.hashableParts,
   );
 
   String get name => when(

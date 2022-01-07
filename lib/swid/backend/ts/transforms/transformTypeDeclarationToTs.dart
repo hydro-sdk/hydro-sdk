@@ -56,12 +56,8 @@ class TransformTypeDeclarationToTs
 
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
-    yield [
-      ...swidType.hashKey.hashableParts,
-    ];
-    yield [
-      ...?parentClass?.hashKey.hashableParts,
-    ];
+    yield* swidType.hashKey.hashableParts;
+    yield* parentClass?.hashKey.hashableParts ?? [];
     yield [
       ...emitTrailingReturnType.hashableParts,
     ];
