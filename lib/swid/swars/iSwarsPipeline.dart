@@ -18,9 +18,9 @@ abstract class ISwarsPipeline<T extends Object> {
 
   @pragma('vm:prefer-inline')
   @pragma('dart2js:tryInline')
-  V reduceFromTerm<V extends Object>(
+  Future<V> reduceFromTerm<V extends Object>(
     covariant final ISwarsTerm<dynamic, dynamic, V> term,
   );
 
-  List<T> reduce();
+  Future<List<T>> reduce();
 }

@@ -35,9 +35,9 @@ class CachingPipeline<T extends Object> implements ISwarsPipeline<T> {
 
   @pragma('vm:prefer-inline')
   @pragma('dart2js:tryInline')
-  ISwarsTermResult<dynamic> _callTerm({
+  Future<ISwarsTermResult<dynamic>> _callTerm({
     required final ISwarsTerm<dynamic, dynamic, dynamic> term,
-  }) {
+  }) async {
     if (term.cacheGroup.isNotEmpty) {
       if (_results.containsKey(term.cacheGroup)) {
         if (_results[term.cacheGroup]!.containsKey(term.hashKey)) {
@@ -172,14 +172,20 @@ class CachingPipeline<T extends Object> implements ISwarsPipeline<T> {
 
   @pragma('vm:prefer-inline')
   @pragma('dart2js:tryInline')
-  List<T> reduce() => _terms
-      .map(
-        (x) => _callTerm(
-          term: x,
-        ).unwrap(),
-      )
-      .toList()
-      .cast<T>();
+  Future<List<T>> reduce() async => Future.wait(
+        _terms.map(
+          (x) => _callTerm(
+            term: x,
+          ),
+        ),
+      ).then(
+        (value) => value
+            .map(
+              (x) => x.unwrap(),
+            )
+            .toList()
+            .cast<T>(),
+      );
 
   @override
   @pragma('vm:prefer-inline')
@@ -199,12 +205,14 @@ class CachingPipeline<T extends Object> implements ISwarsPipeline<T> {
   @override
   @pragma('vm:prefer-inline')
   @pragma('dart2js:tryInline')
-  V reduceFromTerm<V extends Object>(
+  Future<V> reduceFromTerm<V extends Object>(
     covariant final ISwarsTerm<Object, Object, V> term,
   ) =>
       fromTerms<V, Object, Object, V>(
         terms: [
           term,
         ],
-      ).reduce().first;
+      ).reduce().then(
+            (value) => value.first,
+          );
 }
