@@ -33,6 +33,6 @@ SwidDeclarationModifiers swidDeclarationModifiersFromExecutableElement({
       hasRequired: executableElement.hasRequired,
       hasSealed: executableElement.hasSealed,
       hasVisibleForTemplate: executableElement.hasVisibleForTemplate,
-      hasVisibleForTesting: executableElement.hasVisibleForTemplate,
+      hasVisibleForTesting: executableElement.hasVisibleForTesting,
       isPublic: executableElement.isPublic,
     );
