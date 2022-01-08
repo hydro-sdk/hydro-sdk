@@ -205,9 +205,15 @@ class DartVMManagedClassDeclaration
                                 swidFunctionType: x,
                               ),
                             )
-                            .where((x) => methodIsEmitCandidate(
-                                  swidFunctionType: x,
-                                ))
+                            .where(
+                              (x) =>
+                                  !x.declarationModifiers.hasVisibleForTesting,
+                            )
+                            .where(
+                              (x) => methodIsEmitCandidate(
+                                swidFunctionType: x,
+                              ),
+                            )
                             .map(
                               (x) => Code(
                                 pipeline.reduceFromTerm(

@@ -66,6 +66,7 @@ SwidClass swidClassFromInterfaceType({
                     isSynthetic: x.isSynthetic,
                     hasProtected: x.hasProtected,
                     hasMustCallSuper: x.hasMustCallSuper,
+                    hasVisibleForTesting: x.hasVisibleForTesting,
                   ),
                   name: x.declaration.displayName,
                 ),

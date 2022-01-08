@@ -79,6 +79,10 @@ class TsInterface
                     emitSuperInterfaceExtensions ? superClause : "",
                     "{",
                     ...members.entries
+                        .where(
+                          (x) => !x
+                              .value.declarationModifiers.hasVisibleForTesting,
+                        )
                         .map((x) => "${x.key}: ${pipeline.reduceFromTerm(
                               TransformTypeDeclarationToTs(
                                 parentClass: null,
