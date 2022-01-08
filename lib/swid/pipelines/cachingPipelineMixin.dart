@@ -14,10 +14,21 @@ mixin CachingPipelineMixin<T extends Object>
     required final ISwarsTerm<dynamic, dynamic, dynamic> term,
   }) {
     if (term.cacheGroup.isNotEmpty) {
+      onNonEmptyCacheGroup(
+        cacheGroup: term.cacheGroup,
+        hashKey: term.hashKey,
+      );
+
       if (results.containsKey(term.cacheGroup)) {
         if (results[term.cacheGroup]!.containsKey(term.hashKey)) {
           cacheHits[term.cacheGroup]![term.hashKey] =
               (cacheHits[term.cacheGroup]![term.hashKey] ?? 0) + 1;
+
+          onCacheHit(
+            cacheGroup: term.cacheGroup,
+            hashKey: term.hashKey,
+          );
+
           return results[term.cacheGroup]![term.hashKey]!;
         }
       } else {
@@ -44,8 +55,14 @@ mixin CachingPipelineMixin<T extends Object>
 
       results[term.cacheGroup]![term.hashKey] = res;
 
+      onCacheMiss(
+        cacheGroup: term.cacheGroup,
+        hashKey: term.hashKey,
+      );
+
       return res;
     }
+
     return term(
       pipeline: this,
     );
@@ -138,6 +155,7 @@ mixin CachingPipelineMixin<T extends Object>
   }
 
   @override
+  @nonVirtual
   @pragma('vm:prefer-inline')
   @pragma('dart2js:tryInline')
   void add<V extends Object, U extends Object>({
@@ -145,6 +163,8 @@ mixin CachingPipelineMixin<T extends Object>
   }) =>
       terms.add(term);
 
+  @override
+  @nonVirtual
   @pragma('vm:prefer-inline')
   @pragma('dart2js:tryInline')
   List<T> reduce() => terms
@@ -157,6 +177,7 @@ mixin CachingPipelineMixin<T extends Object>
       .cast<T>();
 
   @override
+  @nonVirtual
   @pragma('vm:prefer-inline')
   @pragma('dart2js:tryInline')
   V reduceFromTerm<V extends Object>(

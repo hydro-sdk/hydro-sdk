@@ -23,4 +23,19 @@ abstract class ICachingPipeline<T extends Object> implements ISwarsPipeline<T> {
 
   @protected
   Map<String, Map<String, int>> get cacheHits;
+
+  void onNonEmptyCacheGroup({
+    required final String cacheGroup,
+    required final String hashKey,
+  });
+
+  void onCacheHit({
+    required final String cacheGroup,
+    required final String hashKey,
+  });
+
+  void onCacheMiss({
+    required final String cacheGroup,
+    required final String hashKey,
+  });
 }
