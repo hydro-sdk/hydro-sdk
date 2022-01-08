@@ -34,6 +34,6 @@ SwidDeclarationModifiers swidDeclarationModifiersFromPropertyAccessorElement({
       hasRequired: propertyAccessorElement.hasRequired,
       hasSealed: propertyAccessorElement.hasSealed,
       hasVisibleForTemplate: propertyAccessorElement.hasVisibleForTemplate,
-      hasVisibleForTesting: propertyAccessorElement.hasVisibleForTemplate,
+      hasVisibleForTesting: propertyAccessorElement.hasVisibleForTesting,
       isPublic: propertyAccessorElement.isPublic,
     );
