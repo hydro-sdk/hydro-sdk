@@ -68,7 +68,7 @@ jobs:
     - name: Build SWID
       shell: bash
       run: | 
-        time dart2native bin/swid.dart -o bin/swid  -v 
+        time dart compile exe bin/swid.dart -o bin/swid  -v 
         du -shk bin/swid
       working-directory: hydro
 
