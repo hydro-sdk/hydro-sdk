@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
@@ -5,6 +6,7 @@ import 'package:args/args.dart';
 import 'package:cli_util/cli_logging.dart';
 import 'package:collection/collection.dart';
 import 'package:hydro_sdk/swid/actors/classTranslationUnitEmitActor.dart';
+import 'package:hydro_sdk/swid/actors/messages/actorTopicMessageOut.dart';
 import 'package:theater/theater.dart';
 
 import 'package:hydro_sdk/swid/backend/dart/util/produceDartTranslationUnitsFromBarrelSpec.dart';
@@ -17,7 +19,6 @@ import 'package:hydro_sdk/swid/frontend/dart/dartFrontend.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/swidiFrontend.dart';
 import 'package:hydro_sdk/swid/frontend/swidiInputResolver.dart';
 import 'package:hydro_sdk/swid/ir/swidIr.dart';
-import 'package:hydro_sdk/swid/ir/util/fixupNullability.dart';
 import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
 import 'package:hydro_sdk/swid/swars/pipelineFsCacheMgr.dart';
 import 'package:hydro_sdk/swid/transforms/transformPackageUri.dart';
@@ -220,49 +221,27 @@ void main(List<String> args) async {
     "class1",
     ClassTranslationUnitEmitActor(
       name: "class1",
+      config: config,
+      classes: classes,
+      messageOutTopic: "gossipTopic",
     ),
   );
 
-  await CliTiming(
-    logger: logger,
-    message: "Producing Typescript and Dart translation units from classes",
-    fun: () async {
-      for (var i = 0; i != classes.length; ++i) {
-        await Future.forEach(
-            TranslationUnitProducer(
-              pipeline: pipeline,
-              prefixPaths: config.emitOptions.prefixPaths,
-              path: transformPackageUri(
-                packageUri: classes[i].originalPackagePath,
-              ),
-              baseFileName: "${transformToCamelCase(str: classes[i].name)}",
-              tsPrefixPaths: config.emitOptions.tsEmitOptions.prefixPaths,
-              dartPrefixPaths: config.emitOptions.dartEmitOptions.prefixPaths,
-            ).produceFromSwidClass(
-                swidClass: fixupNullability(swidClass: classes[i])),
-            (dynamic x) => writeTranslationUnit(translationUnit: x));
-      }
-    },
-  );
+  final completer = Completer<void>();
 
-  final topCacheHits = pipeline.topCacheHitsByCacheGroup();
-
-  if (topCacheHits.isNotEmpty) {
-    print("The following are the most re-used terms:");
-    topCacheHits.forEach(
-      (x) => print(" ${x.item1}: ${x.item2}"),
+  actorSystem.listenTopic<ActorTopicMessageOut>("gossipTopic", (message) async {
+    message.when(
+      fromPipelineOnNonEmptyCacheGroupMessageOut: (val) => print(val),
+      fromPipelineOnCacheHitMessageOut: (val) => print(val),
+      fromPipelineOnCacheMissMessageOut: (val) => print(val),
+      fromActorCompleteMessageOut: (_) => completer.complete(),
     );
-  }
+    return null;
+  });
 
-  final emptyCacheHits = pipeline.emptyCacheHitsByCacheGroup();
+  await completer.future;
 
-  if (emptyCacheHits.isNotEmpty) {
-    print(
-        "The following terms generated results but their caches were never hit:");
-    emptyCacheHits.forEach(
-      (x) => print("  ${x.item1}"),
-    );
-  }
+  actorSystem.dispose();
 
   if (fsCache == true) {
     await pipeline.serialize();
