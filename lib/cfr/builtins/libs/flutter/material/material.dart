@@ -13,7 +13,6 @@ import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/popupMenuButton.dar
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/popupMenuItem.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/rawChip.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/scaffold.dart';
-import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/textFormField.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/textTheme.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/theme.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/themeData.dart';
@@ -43,5 +42,4 @@ void loadMaterial({required HydroState luaState, required HydroTable table}) {
   loadRawChip(luaState: luaState, table: material);
   loadInputDecoration(luaState: luaState, table: material);
   loadOutlineInputBorder(luaState: luaState, table: material);
-  loadTextFormField(luaState: luaState, table: material);
 }
