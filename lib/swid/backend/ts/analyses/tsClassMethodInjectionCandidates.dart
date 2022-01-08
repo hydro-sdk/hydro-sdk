@@ -71,6 +71,13 @@ class TsClassMethodInjectionCandidates
                 swidFunctionType: x,
               ),
             )
+            .where(
+              (x) => x.declarationModifiers.hasVisibleForTesting
+                  ? x.declarationModifiers.hasProtected
+                      ? true
+                      : false
+                  : true,
+            )
             .toList(),
       );
 }
