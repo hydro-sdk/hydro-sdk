@@ -4,6 +4,8 @@ import 'dart:io';
 import 'package:args/args.dart';
 import 'package:cli_util/cli_logging.dart';
 import 'package:collection/collection.dart';
+import 'package:hydro_sdk/swid/actors/classTranslationUnitEmitActor.dart';
+import 'package:theater/theater.dart';
 
 import 'package:hydro_sdk/swid/backend/dart/util/produceDartTranslationUnitsFromBarrelSpec.dart';
 import 'package:hydro_sdk/swid/backend/translationUnitProducer.dart';
@@ -150,45 +152,6 @@ void main(List<String> args) async {
     },
   );
 
-  final classes = irClasses
-      .where((x) => (config.emitOptions.allowList.classNames.isNotEmpty ||
-              config.emitOptions.allowList.packagePaths.isNotEmpty)
-          ? (config.emitOptions.allowList.classNames.firstWhereOrNull((e) => x.name == e) !=
-                  null ||
-              config.emitOptions.allowList.packagePaths
-                      .firstWhereOrNull((e) => x.originalPackagePath == e) !=
-                  null)
-          : true)
-      .where((x) => (config.emitOptions.denyList.classNames
-                  .firstWhereOrNull((e) => x.name == e) ==
-              null &&
-          config.emitOptions.denyList.packagePaths
-                  .firstWhereOrNull((e) => x.originalPackagePath == e) ==
-              null))
-      .toList();
-
-  await CliTiming(
-    logger: logger,
-    message: "Producing Typescript and Dart translation units from classes",
-    fun: () async {
-      for (var i = 0; i != classes.length; ++i) {
-        await Future.forEach(
-            TranslationUnitProducer(
-              pipeline: pipeline,
-              prefixPaths: config.emitOptions.prefixPaths,
-              path: transformPackageUri(
-                packageUri: classes[i].originalPackagePath,
-              ),
-              baseFileName: "${transformToCamelCase(str: classes[i].name)}",
-              tsPrefixPaths: config.emitOptions.tsEmitOptions.prefixPaths,
-              dartPrefixPaths: config.emitOptions.dartEmitOptions.prefixPaths,
-            ).produceFromSwidClass(
-                swidClass: fixupNullability(swidClass: classes[i])),
-            (dynamic x) => writeTranslationUnit(translationUnit: x));
-      }
-    },
-  );
-
   await CliTiming(
     logger: logger,
     message:
@@ -215,6 +178,23 @@ void main(List<String> args) async {
     },
   );
 
+  final classes = irClasses
+      .where((x) => (config.emitOptions.allowList.classNames.isNotEmpty ||
+              config.emitOptions.allowList.packagePaths.isNotEmpty)
+          ? (config.emitOptions.allowList.classNames.firstWhereOrNull((e) => x.name == e) !=
+                  null ||
+              config.emitOptions.allowList.packagePaths
+                      .firstWhereOrNull((e) => x.originalPackagePath == e) !=
+                  null)
+          : true)
+      .where((x) => (config.emitOptions.denyList.classNames
+                  .firstWhereOrNull((e) => x.name == e) ==
+              null &&
+          config.emitOptions.denyList.packagePaths
+                  .firstWhereOrNull((e) => x.originalPackagePath == e) ==
+              null))
+      .toList();
+
   await CliTiming(
     logger: logger,
     message:
@@ -230,6 +210,39 @@ void main(List<String> args) async {
                   .toList()),
         ),
         (dynamic x) => writeTranslationUnit(translationUnit: x)),
+  );
+
+  final actorSystem = ActorSystem("actorSystem");
+
+  await actorSystem.initialize();
+
+  final class1 = await actorSystem.actorOf(
+    "class1",
+    ClassTranslationUnitEmitActor(
+      name: "class1",
+    ),
+  );
+
+  await CliTiming(
+    logger: logger,
+    message: "Producing Typescript and Dart translation units from classes",
+    fun: () async {
+      for (var i = 0; i != classes.length; ++i) {
+        await Future.forEach(
+            TranslationUnitProducer(
+              pipeline: pipeline,
+              prefixPaths: config.emitOptions.prefixPaths,
+              path: transformPackageUri(
+                packageUri: classes[i].originalPackagePath,
+              ),
+              baseFileName: "${transformToCamelCase(str: classes[i].name)}",
+              tsPrefixPaths: config.emitOptions.tsEmitOptions.prefixPaths,
+              dartPrefixPaths: config.emitOptions.dartEmitOptions.prefixPaths,
+            ).produceFromSwidClass(
+                swidClass: fixupNullability(swidClass: classes[i])),
+            (dynamic x) => writeTranslationUnit(translationUnit: x));
+      }
+    },
   );
 
   final topCacheHits = pipeline.topCacheHitsByCacheGroup();
