@@ -50,6 +50,15 @@ class _$ActorTopicMessageOutTearOff {
       actorCompleteMessageOut: actorCompleteMessageOut,
     );
   }
+
+  _$ActorTopicMessageOutFromPipelineActorProgressMessageOut
+      fromPipelineActorProgressMessageOut(
+          {required PipelineActorProgressMessageOut
+              pipelineActorProgressMessageOut}) {
+    return _$ActorTopicMessageOutFromPipelineActorProgressMessageOut(
+      pipelineActorProgressMessageOut: pipelineActorProgressMessageOut,
+    );
+  }
 }
 
 /// @nodoc
@@ -71,6 +80,9 @@ mixin _$ActorTopicMessageOut {
         fromPipelineOnCacheMissMessageOut,
     required TResult Function(ActorCompleteMessageOut actorCompleteMessageOut)
         fromActorCompleteMessageOut,
+    required TResult Function(
+            PipelineActorProgressMessageOut pipelineActorProgressMessageOut)
+        fromPipelineActorProgressMessageOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -86,6 +98,9 @@ mixin _$ActorTopicMessageOut {
         fromPipelineOnCacheMissMessageOut,
     TResult Function(ActorCompleteMessageOut actorCompleteMessageOut)?
         fromActorCompleteMessageOut,
+    TResult Function(
+            PipelineActorProgressMessageOut pipelineActorProgressMessageOut)?
+        fromPipelineActorProgressMessageOut,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -104,6 +119,9 @@ mixin _$ActorTopicMessageOut {
     required TResult Function(
             _$ActorTopicMessageOutFromActorCompleteMessageOut value)
         fromActorCompleteMessageOut,
+    required TResult Function(
+            _$ActorTopicMessageOutFromPipelineActorProgressMessageOut value)
+        fromPipelineActorProgressMessageOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -120,6 +138,9 @@ mixin _$ActorTopicMessageOut {
         fromPipelineOnCacheMissMessageOut,
     TResult Function(_$ActorTopicMessageOutFromActorCompleteMessageOut value)?
         fromActorCompleteMessageOut,
+    TResult Function(
+            _$ActorTopicMessageOutFromPipelineActorProgressMessageOut value)?
+        fromPipelineActorProgressMessageOut,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -264,6 +285,9 @@ class _$_$ActorTopicMessageOutFromPipelineOnNonEmptyCacheGroupMessageOut
         fromPipelineOnCacheMissMessageOut,
     required TResult Function(ActorCompleteMessageOut actorCompleteMessageOut)
         fromActorCompleteMessageOut,
+    required TResult Function(
+            PipelineActorProgressMessageOut pipelineActorProgressMessageOut)
+        fromPipelineActorProgressMessageOut,
   }) {
     return fromPipelineOnNonEmptyCacheGroupMessageOut(
         pipelineOnNonEmptyCacheGroupMessageOut);
@@ -283,6 +307,9 @@ class _$_$ActorTopicMessageOutFromPipelineOnNonEmptyCacheGroupMessageOut
         fromPipelineOnCacheMissMessageOut,
     TResult Function(ActorCompleteMessageOut actorCompleteMessageOut)?
         fromActorCompleteMessageOut,
+    TResult Function(
+            PipelineActorProgressMessageOut pipelineActorProgressMessageOut)?
+        fromPipelineActorProgressMessageOut,
     required TResult orElse(),
   }) {
     if (fromPipelineOnNonEmptyCacheGroupMessageOut != null) {
@@ -308,6 +335,9 @@ class _$_$ActorTopicMessageOutFromPipelineOnNonEmptyCacheGroupMessageOut
     required TResult Function(
             _$ActorTopicMessageOutFromActorCompleteMessageOut value)
         fromActorCompleteMessageOut,
+    required TResult Function(
+            _$ActorTopicMessageOutFromPipelineActorProgressMessageOut value)
+        fromPipelineActorProgressMessageOut,
   }) {
     return fromPipelineOnNonEmptyCacheGroupMessageOut(this);
   }
@@ -327,6 +357,9 @@ class _$_$ActorTopicMessageOutFromPipelineOnNonEmptyCacheGroupMessageOut
         fromPipelineOnCacheMissMessageOut,
     TResult Function(_$ActorTopicMessageOutFromActorCompleteMessageOut value)?
         fromActorCompleteMessageOut,
+    TResult Function(
+            _$ActorTopicMessageOutFromPipelineActorProgressMessageOut value)?
+        fromPipelineActorProgressMessageOut,
     required TResult orElse(),
   }) {
     if (fromPipelineOnNonEmptyCacheGroupMessageOut != null) {
@@ -463,6 +496,9 @@ class _$_$ActorTopicMessageOutFromPipelineOnCacheHitMessageOut
         fromPipelineOnCacheMissMessageOut,
     required TResult Function(ActorCompleteMessageOut actorCompleteMessageOut)
         fromActorCompleteMessageOut,
+    required TResult Function(
+            PipelineActorProgressMessageOut pipelineActorProgressMessageOut)
+        fromPipelineActorProgressMessageOut,
   }) {
     return fromPipelineOnCacheHitMessageOut(pipelineOnCacheHitMessageOut);
   }
@@ -481,6 +517,9 @@ class _$_$ActorTopicMessageOutFromPipelineOnCacheHitMessageOut
         fromPipelineOnCacheMissMessageOut,
     TResult Function(ActorCompleteMessageOut actorCompleteMessageOut)?
         fromActorCompleteMessageOut,
+    TResult Function(
+            PipelineActorProgressMessageOut pipelineActorProgressMessageOut)?
+        fromPipelineActorProgressMessageOut,
     required TResult orElse(),
   }) {
     if (fromPipelineOnCacheHitMessageOut != null) {
@@ -505,6 +544,9 @@ class _$_$ActorTopicMessageOutFromPipelineOnCacheHitMessageOut
     required TResult Function(
             _$ActorTopicMessageOutFromActorCompleteMessageOut value)
         fromActorCompleteMessageOut,
+    required TResult Function(
+            _$ActorTopicMessageOutFromPipelineActorProgressMessageOut value)
+        fromPipelineActorProgressMessageOut,
   }) {
     return fromPipelineOnCacheHitMessageOut(this);
   }
@@ -524,6 +566,9 @@ class _$_$ActorTopicMessageOutFromPipelineOnCacheHitMessageOut
         fromPipelineOnCacheMissMessageOut,
     TResult Function(_$ActorTopicMessageOutFromActorCompleteMessageOut value)?
         fromActorCompleteMessageOut,
+    TResult Function(
+            _$ActorTopicMessageOutFromPipelineActorProgressMessageOut value)?
+        fromPipelineActorProgressMessageOut,
     required TResult orElse(),
   }) {
     if (fromPipelineOnCacheHitMessageOut != null) {
@@ -660,6 +705,9 @@ class _$_$ActorTopicMessageOutFromPipelineOnCacheMissMessageOut
         fromPipelineOnCacheMissMessageOut,
     required TResult Function(ActorCompleteMessageOut actorCompleteMessageOut)
         fromActorCompleteMessageOut,
+    required TResult Function(
+            PipelineActorProgressMessageOut pipelineActorProgressMessageOut)
+        fromPipelineActorProgressMessageOut,
   }) {
     return fromPipelineOnCacheMissMessageOut(pipelineOnCacheMissMessageOut);
   }
@@ -678,6 +726,9 @@ class _$_$ActorTopicMessageOutFromPipelineOnCacheMissMessageOut
         fromPipelineOnCacheMissMessageOut,
     TResult Function(ActorCompleteMessageOut actorCompleteMessageOut)?
         fromActorCompleteMessageOut,
+    TResult Function(
+            PipelineActorProgressMessageOut pipelineActorProgressMessageOut)?
+        fromPipelineActorProgressMessageOut,
     required TResult orElse(),
   }) {
     if (fromPipelineOnCacheMissMessageOut != null) {
@@ -702,6 +753,9 @@ class _$_$ActorTopicMessageOutFromPipelineOnCacheMissMessageOut
     required TResult Function(
             _$ActorTopicMessageOutFromActorCompleteMessageOut value)
         fromActorCompleteMessageOut,
+    required TResult Function(
+            _$ActorTopicMessageOutFromPipelineActorProgressMessageOut value)
+        fromPipelineActorProgressMessageOut,
   }) {
     return fromPipelineOnCacheMissMessageOut(this);
   }
@@ -721,6 +775,9 @@ class _$_$ActorTopicMessageOutFromPipelineOnCacheMissMessageOut
         fromPipelineOnCacheMissMessageOut,
     TResult Function(_$ActorTopicMessageOutFromActorCompleteMessageOut value)?
         fromActorCompleteMessageOut,
+    TResult Function(
+            _$ActorTopicMessageOutFromPipelineActorProgressMessageOut value)?
+        fromPipelineActorProgressMessageOut,
     required TResult orElse(),
   }) {
     if (fromPipelineOnCacheMissMessageOut != null) {
@@ -852,6 +909,9 @@ class _$_$ActorTopicMessageOutFromActorCompleteMessageOut
         fromPipelineOnCacheMissMessageOut,
     required TResult Function(ActorCompleteMessageOut actorCompleteMessageOut)
         fromActorCompleteMessageOut,
+    required TResult Function(
+            PipelineActorProgressMessageOut pipelineActorProgressMessageOut)
+        fromPipelineActorProgressMessageOut,
   }) {
     return fromActorCompleteMessageOut(actorCompleteMessageOut);
   }
@@ -870,6 +930,9 @@ class _$_$ActorTopicMessageOutFromActorCompleteMessageOut
         fromPipelineOnCacheMissMessageOut,
     TResult Function(ActorCompleteMessageOut actorCompleteMessageOut)?
         fromActorCompleteMessageOut,
+    TResult Function(
+            PipelineActorProgressMessageOut pipelineActorProgressMessageOut)?
+        fromPipelineActorProgressMessageOut,
     required TResult orElse(),
   }) {
     if (fromActorCompleteMessageOut != null) {
@@ -894,6 +957,9 @@ class _$_$ActorTopicMessageOutFromActorCompleteMessageOut
     required TResult Function(
             _$ActorTopicMessageOutFromActorCompleteMessageOut value)
         fromActorCompleteMessageOut,
+    required TResult Function(
+            _$ActorTopicMessageOutFromPipelineActorProgressMessageOut value)
+        fromPipelineActorProgressMessageOut,
   }) {
     return fromActorCompleteMessageOut(this);
   }
@@ -913,6 +979,9 @@ class _$_$ActorTopicMessageOutFromActorCompleteMessageOut
         fromPipelineOnCacheMissMessageOut,
     TResult Function(_$ActorTopicMessageOutFromActorCompleteMessageOut value)?
         fromActorCompleteMessageOut,
+    TResult Function(
+            _$ActorTopicMessageOutFromPipelineActorProgressMessageOut value)?
+        fromPipelineActorProgressMessageOut,
     required TResult orElse(),
   }) {
     if (fromActorCompleteMessageOut != null) {
@@ -934,5 +1003,219 @@ abstract class _$ActorTopicMessageOutFromActorCompleteMessageOut
   @JsonKey(ignore: true)
   _$$ActorTopicMessageOutFromActorCompleteMessageOutCopyWith<
           _$ActorTopicMessageOutFromActorCompleteMessageOut>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ActorTopicMessageOutFromPipelineActorProgressMessageOutCopyWith<
+    $Res> {
+  factory _$$ActorTopicMessageOutFromPipelineActorProgressMessageOutCopyWith(
+          _$ActorTopicMessageOutFromPipelineActorProgressMessageOut value,
+          $Res Function(
+                  _$ActorTopicMessageOutFromPipelineActorProgressMessageOut)
+              then) =
+      __$$ActorTopicMessageOutFromPipelineActorProgressMessageOutCopyWithImpl<
+          $Res>;
+  $Res call({PipelineActorProgressMessageOut pipelineActorProgressMessageOut});
+
+  $PipelineActorProgressMessageOutCopyWith<$Res>
+      get pipelineActorProgressMessageOut;
+}
+
+/// @nodoc
+class __$$ActorTopicMessageOutFromPipelineActorProgressMessageOutCopyWithImpl<
+        $Res> extends _$ActorTopicMessageOutCopyWithImpl<$Res>
+    implements
+        _$$ActorTopicMessageOutFromPipelineActorProgressMessageOutCopyWith<
+            $Res> {
+  __$$ActorTopicMessageOutFromPipelineActorProgressMessageOutCopyWithImpl(
+      _$ActorTopicMessageOutFromPipelineActorProgressMessageOut _value,
+      $Res Function(_$ActorTopicMessageOutFromPipelineActorProgressMessageOut)
+          _then)
+      : super(
+            _value,
+            (v) => _then(v
+                as _$ActorTopicMessageOutFromPipelineActorProgressMessageOut));
+
+  @override
+  _$ActorTopicMessageOutFromPipelineActorProgressMessageOut get _value =>
+      super._value as _$ActorTopicMessageOutFromPipelineActorProgressMessageOut;
+
+  @override
+  $Res call({
+    Object? pipelineActorProgressMessageOut = freezed,
+  }) {
+    return _then(_$ActorTopicMessageOutFromPipelineActorProgressMessageOut(
+      pipelineActorProgressMessageOut: pipelineActorProgressMessageOut ==
+              freezed
+          ? _value.pipelineActorProgressMessageOut
+          : pipelineActorProgressMessageOut // ignore: cast_nullable_to_non_nullable
+              as PipelineActorProgressMessageOut,
+    ));
+  }
+
+  @override
+  $PipelineActorProgressMessageOutCopyWith<$Res>
+      get pipelineActorProgressMessageOut {
+    return $PipelineActorProgressMessageOutCopyWith<$Res>(
+        _value.pipelineActorProgressMessageOut, (value) {
+      return _then(_value.copyWith(pipelineActorProgressMessageOut: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_$ActorTopicMessageOutFromPipelineActorProgressMessageOut
+    extends _$ActorTopicMessageOutFromPipelineActorProgressMessageOut {
+  const _$_$ActorTopicMessageOutFromPipelineActorProgressMessageOut(
+      {required this.pipelineActorProgressMessageOut})
+      : super._();
+
+  @override
+  final PipelineActorProgressMessageOut pipelineActorProgressMessageOut;
+
+  @override
+  String toString() {
+    return 'ActorTopicMessageOut.fromPipelineActorProgressMessageOut(pipelineActorProgressMessageOut: $pipelineActorProgressMessageOut)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _$ActorTopicMessageOutFromPipelineActorProgressMessageOut &&
+            (identical(other.pipelineActorProgressMessageOut,
+                    pipelineActorProgressMessageOut) ||
+                const DeepCollectionEquality().equals(
+                    other.pipelineActorProgressMessageOut,
+                    pipelineActorProgressMessageOut)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(pipelineActorProgressMessageOut);
+
+  @JsonKey(ignore: true)
+  @override
+  _$$ActorTopicMessageOutFromPipelineActorProgressMessageOutCopyWith<
+          _$ActorTopicMessageOutFromPipelineActorProgressMessageOut>
+      get copyWith =>
+          __$$ActorTopicMessageOutFromPipelineActorProgressMessageOutCopyWithImpl<
+                  _$ActorTopicMessageOutFromPipelineActorProgressMessageOut>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            PipelineOnNonEmptyCacheGroupMessageOut
+                pipelineOnNonEmptyCacheGroupMessageOut)
+        fromPipelineOnNonEmptyCacheGroupMessageOut,
+    required TResult Function(
+            PipelineOnCacheHitMessageOut pipelineOnCacheHitMessageOut)
+        fromPipelineOnCacheHitMessageOut,
+    required TResult Function(
+            PipelineOnCacheMissMessageOut pipelineOnCacheMissMessageOut)
+        fromPipelineOnCacheMissMessageOut,
+    required TResult Function(ActorCompleteMessageOut actorCompleteMessageOut)
+        fromActorCompleteMessageOut,
+    required TResult Function(
+            PipelineActorProgressMessageOut pipelineActorProgressMessageOut)
+        fromPipelineActorProgressMessageOut,
+  }) {
+    return fromPipelineActorProgressMessageOut(pipelineActorProgressMessageOut);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            PipelineOnNonEmptyCacheGroupMessageOut
+                pipelineOnNonEmptyCacheGroupMessageOut)?
+        fromPipelineOnNonEmptyCacheGroupMessageOut,
+    TResult Function(PipelineOnCacheHitMessageOut pipelineOnCacheHitMessageOut)?
+        fromPipelineOnCacheHitMessageOut,
+    TResult Function(
+            PipelineOnCacheMissMessageOut pipelineOnCacheMissMessageOut)?
+        fromPipelineOnCacheMissMessageOut,
+    TResult Function(ActorCompleteMessageOut actorCompleteMessageOut)?
+        fromActorCompleteMessageOut,
+    TResult Function(
+            PipelineActorProgressMessageOut pipelineActorProgressMessageOut)?
+        fromPipelineActorProgressMessageOut,
+    required TResult orElse(),
+  }) {
+    if (fromPipelineActorProgressMessageOut != null) {
+      return fromPipelineActorProgressMessageOut(
+          pipelineActorProgressMessageOut);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(
+            _$ActorTopicMessageOutFromPipelineOnNonEmptyCacheGroupMessageOut
+                value)
+        fromPipelineOnNonEmptyCacheGroupMessageOut,
+    required TResult Function(
+            _$ActorTopicMessageOutFromPipelineOnCacheHitMessageOut value)
+        fromPipelineOnCacheHitMessageOut,
+    required TResult Function(
+            _$ActorTopicMessageOutFromPipelineOnCacheMissMessageOut value)
+        fromPipelineOnCacheMissMessageOut,
+    required TResult Function(
+            _$ActorTopicMessageOutFromActorCompleteMessageOut value)
+        fromActorCompleteMessageOut,
+    required TResult Function(
+            _$ActorTopicMessageOutFromPipelineActorProgressMessageOut value)
+        fromPipelineActorProgressMessageOut,
+  }) {
+    return fromPipelineActorProgressMessageOut(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(
+            _$ActorTopicMessageOutFromPipelineOnNonEmptyCacheGroupMessageOut
+                value)?
+        fromPipelineOnNonEmptyCacheGroupMessageOut,
+    TResult Function(
+            _$ActorTopicMessageOutFromPipelineOnCacheHitMessageOut value)?
+        fromPipelineOnCacheHitMessageOut,
+    TResult Function(
+            _$ActorTopicMessageOutFromPipelineOnCacheMissMessageOut value)?
+        fromPipelineOnCacheMissMessageOut,
+    TResult Function(_$ActorTopicMessageOutFromActorCompleteMessageOut value)?
+        fromActorCompleteMessageOut,
+    TResult Function(
+            _$ActorTopicMessageOutFromPipelineActorProgressMessageOut value)?
+        fromPipelineActorProgressMessageOut,
+    required TResult orElse(),
+  }) {
+    if (fromPipelineActorProgressMessageOut != null) {
+      return fromPipelineActorProgressMessageOut(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _$ActorTopicMessageOutFromPipelineActorProgressMessageOut
+    extends ActorTopicMessageOut {
+  const factory _$ActorTopicMessageOutFromPipelineActorProgressMessageOut(
+          {required PipelineActorProgressMessageOut
+              pipelineActorProgressMessageOut}) =
+      _$_$ActorTopicMessageOutFromPipelineActorProgressMessageOut;
+  const _$ActorTopicMessageOutFromPipelineActorProgressMessageOut._()
+      : super._();
+
+  PipelineActorProgressMessageOut get pipelineActorProgressMessageOut =>
+      throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$$ActorTopicMessageOutFromPipelineActorProgressMessageOutCopyWith<
+          _$ActorTopicMessageOutFromPipelineActorProgressMessageOut>
       get copyWith => throw _privateConstructorUsedError;
 }
