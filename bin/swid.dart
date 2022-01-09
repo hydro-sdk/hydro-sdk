@@ -3,17 +3,13 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:args/args.dart';
-import 'package:hydro_sdk/swid/ir/swidClass.dart';
-import 'package:tint/tint.dart';
 import 'package:cli_util/cli_logging.dart';
 import 'package:collection/collection.dart';
+import 'package:theater/theater.dart';
+import 'package:tint/tint.dart';
+
 import 'package:hydro_sdk/swid/actors/classTranslationUnitEmitActor.dart';
 import 'package:hydro_sdk/swid/actors/messages/actorTopicMessageOut.dart';
-import 'package:hydro_sdk/swid/tui/pipelineMultiProgress.dart';
-import 'package:hydro_sdk/swid/tui/pipelineProgress.dart';
-import 'package:hydro_sdk/tui/framework/theme.dart';
-import 'package:theater/theater.dart';
-
 import 'package:hydro_sdk/swid/backend/dart/util/produceDartTranslationUnitsFromBarrelSpec.dart';
 import 'package:hydro_sdk/swid/backend/translationUnitProducer.dart';
 import 'package:hydro_sdk/swid/backend/util/barrelMember.dart';
@@ -23,12 +19,16 @@ import 'package:hydro_sdk/swid/config/swidConfig.dart';
 import 'package:hydro_sdk/swid/frontend/dart/dartFrontend.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/swidiFrontend.dart';
 import 'package:hydro_sdk/swid/frontend/swidiInputResolver.dart';
+import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidIr.dart';
 import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
 import 'package:hydro_sdk/swid/swars/pipelineFsCacheMgr.dart';
 import 'package:hydro_sdk/swid/transforms/transformPackageUri.dart';
 import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';
+import 'package:hydro_sdk/swid/tui/pipelineMultiProgress.dart';
+import 'package:hydro_sdk/swid/tui/pipelineProgress.dart';
 import 'package:hydro_sdk/swid/util/cliTiming.dart';
+import 'package:hydro_sdk/tui/framework/theme.dart';
 
 void main(List<String> args) async {
   assert((() {

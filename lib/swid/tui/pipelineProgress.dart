@@ -1,12 +1,12 @@
 import 'dart:async';
 import 'dart:io';
 
-import 'package:hydro_sdk/tui/framework/handleSigint.dart';
-import 'package:hydro_sdk/tui/framework/state.dart';
 import 'package:tint/tint.dart';
 
 import 'package:hydro_sdk/tui/framework/component.dart';
 import 'package:hydro_sdk/tui/framework/context.dart';
+import 'package:hydro_sdk/tui/framework/handleSigint.dart';
+import 'package:hydro_sdk/tui/framework/state.dart';
 import 'package:hydro_sdk/tui/framework/theme.dart';
 
 class PipelineProgress extends Component<PipelineProgressState> {

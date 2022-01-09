@@ -636,7 +636,6 @@ class VMManagedUnmodifiableInt32x4ListView
   final UnmodifiableInt32x4ListView vmObject;
 }
 
-
 void loadUnmodifiableInt32x4ListView(
     {required HydroState hydroState, required HydroTable table}) {
   registerBoxer<UnmodifiableInt32x4ListView>(boxer: (

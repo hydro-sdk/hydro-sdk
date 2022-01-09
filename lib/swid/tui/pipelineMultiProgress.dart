@@ -1,6 +1,6 @@
+import 'package:hydro_sdk/swid/tui/pipelineProgress.dart';
 import 'package:hydro_sdk/tui/framework/bufferContext.dart';
 import 'package:hydro_sdk/tui/framework/context.dart';
-import 'package:hydro_sdk/swid/tui/pipelineProgress.dart';
 
 class PipelineMultiProgress {
   final Context _context = Context();

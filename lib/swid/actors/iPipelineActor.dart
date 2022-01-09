@@ -1,6 +1,7 @@
 import 'package:meta/meta.dart';
-import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:theater/theater.dart';
+
+import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 
 abstract class IPipelineActor<
     T extends Object,

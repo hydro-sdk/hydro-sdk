@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 import 'package:hydro_sdk/swid/actors/messages/iActopTopicMessageOut.dart';
 
 part 'actorCompleteMessageOut.freezed.dart';

@@ -583,7 +583,6 @@ class VMManagedUnmodifiableFloat64ListView
   final UnmodifiableFloat64ListView vmObject;
 }
 
-
 void loadUnmodifiableFloat64ListView(
     {required HydroState hydroState, required HydroTable table}) {
   registerBoxer<UnmodifiableFloat64ListView>(boxer: (

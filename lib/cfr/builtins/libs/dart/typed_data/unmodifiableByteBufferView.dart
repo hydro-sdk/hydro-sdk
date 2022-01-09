@@ -189,8 +189,6 @@ class VMManagedUnmodifiableByteBufferView
   final UnmodifiableByteBufferView vmObject;
 }
 
-
-
 void loadUnmodifiableByteBufferView(
     {required HydroState hydroState, required HydroTable table}) {
   registerBoxer<UnmodifiableByteBufferView>(boxer: (

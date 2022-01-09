@@ -1,3 +1,5 @@
+import 'package:theater/theater.dart';
+
 import 'package:hydro_sdk/swid/actors/pipelineActorMixin.dart';
 import 'package:hydro_sdk/swid/backend/translationUnitProducer.dart';
 import 'package:hydro_sdk/swid/backend/writeTranslationUnit.dart';
@@ -7,7 +9,6 @@ import 'package:hydro_sdk/swid/ir/util/fixupNullability.dart';
 import 'package:hydro_sdk/swid/pipelines/cachingActorPipeline.dart';
 import 'package:hydro_sdk/swid/transforms/transformPackageUri.dart';
 import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';
-import 'package:theater/theater.dart';
 
 class ClassTranslationUnitEmitActor extends UntypedActor
     with

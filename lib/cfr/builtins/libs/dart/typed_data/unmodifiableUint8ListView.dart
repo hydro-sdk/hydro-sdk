@@ -579,7 +579,6 @@ class VMManagedUnmodifiableUint8ListView
   final UnmodifiableUint8ListView vmObject;
 }
 
-
 void loadUnmodifiableUint8ListView(
     {required HydroState hydroState, required HydroTable table}) {
   registerBoxer<UnmodifiableUint8ListView>(boxer: (
