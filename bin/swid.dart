@@ -3,10 +3,15 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:args/args.dart';
+import 'package:hydro_sdk/swid/ir/swidClass.dart';
+import 'package:tint/tint.dart';
 import 'package:cli_util/cli_logging.dart';
 import 'package:collection/collection.dart';
 import 'package:hydro_sdk/swid/actors/classTranslationUnitEmitActor.dart';
 import 'package:hydro_sdk/swid/actors/messages/actorTopicMessageOut.dart';
+import 'package:hydro_sdk/swid/tui/pipelineMultiProgress.dart';
+import 'package:hydro_sdk/swid/tui/pipelineProgress.dart';
+import 'package:hydro_sdk/tui/framework/theme.dart';
 import 'package:theater/theater.dart';
 
 import 'package:hydro_sdk/swid/backend/dart/util/produceDartTranslationUnitsFromBarrelSpec.dart';
@@ -32,6 +37,7 @@ void main(List<String> args) async {
       "swid.flutter.json",
       "--no-fs-cache",
     ];
+    print("Probably being debugged");
     return true;
   })());
 
@@ -213,37 +219,145 @@ void main(List<String> args) async {
         (dynamic x) => writeTranslationUnit(translationUnit: x)),
   );
 
-  final actorSystem = ActorSystem("actorSystem");
-
-  await actorSystem.initialize();
-
-  final class1 = await actorSystem.actorOf(
-    "class1",
-    ClassTranslationUnitEmitActor(
-      name: "class1",
-      config: config,
-      classes: classes,
-      messageOutTopic: "gossipTopic",
-    ),
+  final classTranslationUnitEmitSystem = ClassTranslationUnitEmitSystem(
+    parallelism: 1,
+    classes: classes,
+    config: config,
   );
 
-  final completer = Completer<void>();
-
-  actorSystem.listenTopic<ActorTopicMessageOut>("gossipTopic", (message) async {
-    message.when(
-      fromPipelineOnNonEmptyCacheGroupMessageOut: (val) => print(val),
-      fromPipelineOnCacheHitMessageOut: (val) => print(val),
-      fromPipelineOnCacheMissMessageOut: (val) => print(val),
-      fromActorCompleteMessageOut: (_) => completer.complete(),
-    );
-    return null;
-  });
-
-  await completer.future;
-
-  actorSystem.dispose();
+  await classTranslationUnitEmitSystem.run();
 
   if (fsCache == true) {
     await pipeline.serialize();
+  }
+}
+
+class ClassTranslationUnitEmitSystem {
+  final int parallelism;
+  final List<SwidClass> classes;
+  final SwidConfig config;
+
+  late final ActorSystem actorSystem;
+  late final Map<String, LocalActorRef> actorRefs;
+  late final PipelineMultiProgress pipelineMultiProgress;
+  late final Map<String, PipelineProgressState> pipelineProgressStates;
+
+  late final theme = Theme.basicTheme.copyWith(
+    emptyProgress: '-',
+    progressPrefix: '',
+    progressSuffix: '',
+    emptyProgressStyle: (x) => x.blue(),
+    filledProgressStyle: (x) => x.cyan(),
+    leadingProgressStyle: (x) => x.cyan(),
+  );
+
+  ClassTranslationUnitEmitSystem({
+    required final this.parallelism,
+    required final this.classes,
+    required final this.config,
+  });
+
+  String leftPrompt({
+    required final int completed,
+    required final int total,
+    required final String hashKey,
+    required final String cacheGroup,
+  }) =>
+      '${(completed / total).toStringAsPrecision(2).padLeft(4)} %';
+
+  String rightPrompt({
+    required final int completed,
+    required final int total,
+    required final String hashKey,
+    required final String cacheGroup,
+  }) =>
+      hashKey.isNotEmpty
+          ? hashKey.substring(0, 6).yellow() + ": " + cacheGroup.green()
+          : "";
+
+  int get jobSize => (classes.length / parallelism).ceil();
+
+  Future<void> run() async {
+    final completer = Completer<void>();
+
+    final actorSystem = ActorSystem("classTranslationUnitEmitSystem");
+
+    await actorSystem.initialize();
+
+    pipelineMultiProgress = PipelineMultiProgress();
+
+    pipelineProgressStates = Map.fromEntries(
+      List.generate(
+        parallelism,
+        (i) => MapEntry(
+          i.toString(),
+          pipelineMultiProgress.add(
+            PipelineProgress.withTheme(
+              theme: theme,
+              size: 0.25,
+              length: 100,
+              leftPrompt: leftPrompt,
+              rightPrompt: rightPrompt,
+              total: parallelism,
+            ),
+          ),
+        ),
+      ),
+    );
+
+    actorRefs = Map.fromEntries(
+      await Future.wait(
+        List.generate(
+          parallelism,
+          (i) async => MapEntry(
+            i.toString(),
+            await actorSystem.actorOf(
+              i.toString(),
+              ClassTranslationUnitEmitActor(
+                name: i.toString(),
+                config: config,
+                classes: classes
+                    .skip(i * jobSize)
+                    .toList()
+                    .sublist(0, jobSize)
+                    .toList(),
+                messageOutTopic: "gossipTopic",
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+
+    actorSystem.listenTopic<ActorTopicMessageOut>("gossipTopic",
+        (message) async {
+      message.when(
+        fromPipelineOnNonEmptyCacheGroupMessageOut: (val) {
+          final pipelineProgressState = pipelineProgressStates.entries
+              .elementAt(int.parse(val.sender))
+              .value;
+
+          pipelineProgressState.changeCacheGroup(val.cacheGroup);
+          pipelineProgressState.changeHashKey(val.hashKey);
+        },
+        fromPipelineOnCacheHitMessageOut: (_) => null,
+        fromPipelineOnCacheMissMessageOut: (_) => null,
+        fromPipelineActorProgressMessageOut: (val) => pipelineProgressStates
+            .entries
+            .elementAt(int.parse(val.sender))
+            .value
+            .increase(val.completed),
+        fromActorCompleteMessageOut: (_) => completer.complete(),
+      );
+      return null;
+    });
+
+    await completer.future;
+
+    actorSystem.dispose();
+
+    pipelineProgressStates.entries.forEach(
+      (x) => x.value.done(),
+    );
   }
 }
