@@ -1,16 +1,14 @@
 import 'dart:io';
 
-import 'package:dart_console/dart_console.dart';
-
-final _defaultConsole = Console();
+import 'package:hydro_sdk/tui/framework/tuiBinding.dart';
 
 class Context {
   static void reset() {
-    _defaultConsole.showCursor();
-    _defaultConsole.resetColorAttributes();
+    TuiBinding.instance.showCursor();
+    TuiBinding.instance.resetColorAttributes();
   }
 
-  final _console = _defaultConsole;
+  final TuiBinding _console = TuiBinding.instance;
 
   int _renderCount = 0;
 
