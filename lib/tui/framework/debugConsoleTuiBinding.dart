@@ -1,5 +1,5 @@
-import 'package:hydro_sdk/tui/framework/tuiBinding.dart' as tui;
 import 'package:hydro_sdk/tui/framework/consoleTuiBinding.dart';
+import 'package:hydro_sdk/tui/framework/tuiBinding.dart' as tui;
 
 class DebugConsoleTuiBinding extends ConsoleTuiBinding
     implements tui.TuiBinding {

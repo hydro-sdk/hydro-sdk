@@ -5,8 +5,6 @@ import 'dart:io';
 import 'package:args/args.dart';
 import 'package:cli_util/cli_logging.dart';
 import 'package:collection/collection.dart';
-import 'package:hydro_sdk/tui/framework/consoleTuiBinding.dart';
-import 'package:hydro_sdk/tui/framework/debugConsoleTuiBinding.dart';
 import 'package:theater/theater.dart';
 import 'package:tint/tint.dart';
 
@@ -30,6 +28,8 @@ import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';
 import 'package:hydro_sdk/swid/tui/pipelineMultiProgress.dart';
 import 'package:hydro_sdk/swid/tui/pipelineProgress.dart';
 import 'package:hydro_sdk/swid/util/cliTiming.dart';
+import 'package:hydro_sdk/tui/framework/consoleTuiBinding.dart';
+import 'package:hydro_sdk/tui/framework/debugConsoleTuiBinding.dart';
 import 'package:hydro_sdk/tui/framework/theme.dart';
 
 void main(List<String> args) async {
