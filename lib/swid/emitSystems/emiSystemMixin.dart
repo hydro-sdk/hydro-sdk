@@ -1,15 +1,16 @@
 import 'dart:async';
 
-import 'package:hydro_sdk/swid/actors/messages/actorTopicMessageOut.dart';
-import 'package:hydro_sdk/tui/framework/theme.dart';
-import 'package:tint/tint.dart';
 import 'package:meta/meta.dart';
+import 'package:theater/theater.dart';
+import 'package:tint/tint.dart';
+
 import 'package:hydro_sdk/swid/actors/iPipelineActor.dart';
+import 'package:hydro_sdk/swid/actors/messages/actorTopicMessageOut.dart';
 import 'package:hydro_sdk/swid/emitSystems/iEmitSystem.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/tui/pipelineMultiProgress.dart';
 import 'package:hydro_sdk/swid/tui/pipelineProgress.dart';
-import 'package:theater/theater.dart';
+import 'package:hydro_sdk/tui/framework/theme.dart';
 
 mixin EmitSystemMixin<
         T extends Object,

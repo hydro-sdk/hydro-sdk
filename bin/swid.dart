@@ -5,7 +5,6 @@ import 'dart:io';
 import 'package:args/args.dart';
 import 'package:cli_util/cli_logging.dart';
 import 'package:collection/collection.dart';
-import 'package:hydro_sdk/swid/emitSystems/classTranslationUnitEmitSystem.dart';
 
 import 'package:hydro_sdk/swid/backend/dart/util/produceDartTranslationUnitsFromBarrelSpec.dart';
 import 'package:hydro_sdk/swid/backend/translationUnitProducer.dart';
@@ -13,6 +12,7 @@ import 'package:hydro_sdk/swid/backend/util/barrelMember.dart';
 import 'package:hydro_sdk/swid/backend/util/resolveBarrelSpecs.dart';
 import 'package:hydro_sdk/swid/backend/writeTranslationUnit.dart';
 import 'package:hydro_sdk/swid/config/swidConfig.dart';
+import 'package:hydro_sdk/swid/emitSystems/classTranslationUnitEmitSystem.dart';
 import 'package:hydro_sdk/swid/frontend/dart/dartFrontend.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/swidiFrontend.dart';
 import 'package:hydro_sdk/swid/frontend/swidiInputResolver.dart';
