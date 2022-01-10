@@ -159,9 +159,9 @@ SwidStaticConstFieldDeclaration
                                         ),
                                       )
                                       .toList()
-                                        ..removeWhere(
-                                          (x) => x == dartUnknownConst,
-                                        ),
+                                    ..removeWhere(
+                                      (x) => x == dartUnknownConst,
+                                    ),
                                 ],
                               ),
   );

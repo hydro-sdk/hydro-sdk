@@ -239,9 +239,9 @@ SwidClass swidClassFromDartClassOrMixinOrClassTypAliasDeclaration({
         }
       }
     }).toList()
-              ..removeWhere(
-                (x) => x == null,
-              ))
+          ..removeWhere(
+            (x) => x == null,
+          ))
         .cast<SwidStaticConstFieldDeclaration>(),
     instanceFieldDeclarations: Map.fromEntries(
       dartClassOrMixinOrClassTypAliasDeclaration.childEntities

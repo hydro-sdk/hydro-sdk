@@ -123,9 +123,9 @@ class CollectReferencesFromStaticConst
                     ),
                   )
                   .toList()
-                    ..removeWhere(
-                      (x) => x == dartUnknownInterface,
-                    )),
+                ..removeWhere(
+                  (x) => x == dartUnknownInterface,
+                )),
               ...(pipeline
                   .reduceFromTerm(
                     CollectReferencesFromStaticConst(
@@ -133,9 +133,9 @@ class CollectReferencesFromStaticConst
                     ),
                   )
                   .toList()
-                    ..removeWhere(
-                      (x) => x == dartUnknownInterface,
-                    )),
+                ..removeWhere(
+                  (x) => x == dartUnknownInterface,
+                )),
             ],
             fromSwidStaticConstPrefixedIdentifier: (val) => [
               val.prefix,
@@ -155,9 +155,9 @@ class CollectReferencesFromStaticConst
                           ),
                         )
                         .toList()
-                          ..removeWhere(
-                            (x) => x == dartUnknownInterface,
-                          ),
+                      ..removeWhere(
+                        (x) => x == dartUnknownInterface,
+                      ),
                   )
                   .toList()),
               SwidInterface(
@@ -178,9 +178,9 @@ class CollectReferencesFromStaticConst
                     ),
                   )
                   .toList()
-                    ..removeWhere(
-                      (x) => x == dartUnknownInterface,
-                    )),
+                ..removeWhere(
+                  (x) => x == dartUnknownInterface,
+                )),
               ...(pipeline
                   .reduceFromTerm(
                     CollectReferencesFromStaticConst(
@@ -188,9 +188,9 @@ class CollectReferencesFromStaticConst
                     ),
                   )
                   .toList()
-                    ..removeWhere(
-                      (x) => x == dartUnknownInterface,
-                    )),
+                ..removeWhere(
+                  (x) => x == dartUnknownInterface,
+                )),
               SwidInterface(
                 name: "MapEntry",
                 nullabilitySuffix: SwidNullabilitySuffix.none,

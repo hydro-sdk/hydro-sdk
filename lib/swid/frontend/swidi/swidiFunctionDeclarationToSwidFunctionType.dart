@@ -114,7 +114,7 @@ SwidFunctionType swidiFunctionDeclarationToSwidFunctionType({
             ),
           )
           .toList()
-            ..removeWhere((x) => x == dartUnkownDefaultFormalParameterEntry)),
+        ..removeWhere((x) => x == dartUnkownDefaultFormalParameterEntry)),
       normalParameterNames: swidiFunctionDeclaration.positionalParameters
           .map((x) => x.declaration.name)
           .toList(),

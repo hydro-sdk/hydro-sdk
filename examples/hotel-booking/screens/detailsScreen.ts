@@ -122,7 +122,7 @@ export class DetailsScreen extends StatelessWidget {
                                                         {
                                                             style: Theme.of(
                                                                 context
-                                                            ).textTheme.display1.apply(
+                                                            ).textTheme.headline4.apply(
                                                                 {
                                                                     color: Colors.white,
                                                                 }
@@ -142,7 +142,7 @@ export class DetailsScreen extends StatelessWidget {
                                                         {
                                                             style: Theme.of(
                                                                 context
-                                                            ).textTheme.subtitle.apply(
+                                                            ).textTheme.subtitle2.apply(
                                                                 {
                                                                     color: Colors.white70,
                                                                 }
@@ -163,7 +163,7 @@ export class DetailsScreen extends StatelessWidget {
                                                                         {
                                                                             style: Theme.of(
                                                                                 context
-                                                                            ).textTheme.display1.apply(
+                                                                            ).textTheme.headline4.apply(
                                                                                 {
                                                                                     color: Colors.white,
                                                                                 }
@@ -175,7 +175,7 @@ export class DetailsScreen extends StatelessWidget {
                                                                         {
                                                                             style: Theme.of(
                                                                                 context
-                                                                            ).textTheme.body2.apply(
+                                                                            ).textTheme.bodyText1.apply(
                                                                                 {
                                                                                     color: Colors.white70,
                                                                                 }
@@ -241,7 +241,7 @@ export class DetailsScreen extends StatelessWidget {
                                                                         {
                                                                             style: Theme.of(
                                                                                 context
-                                                                            ).textTheme.display1.apply(
+                                                                            ).textTheme.headline4.apply(
                                                                                 {
                                                                                     color: Colors.white,
                                                                                 }
@@ -253,7 +253,7 @@ export class DetailsScreen extends StatelessWidget {
                                                                         {
                                                                             style: Theme.of(
                                                                                 context
-                                                                            ).textTheme.body2.apply(
+                                                                            ).textTheme.bodyText1.apply(
                                                                                 {
                                                                                     color: Colors.white70,
                                                                                 }
@@ -366,7 +366,7 @@ export class DetailsScreen extends StatelessWidget {
                                                                     {
                                                                         style: Theme.of(
                                                                             context
-                                                                        ).textTheme.body1.apply(
+                                                                        ).textTheme.bodyText2.apply(
                                                                             {
                                                                                 color: Colors.white,
                                                                             }

@@ -123,7 +123,7 @@ class ChoiceCard extends StatelessWidget {
     }
 
     public build(context: BuildContext): Widget {
-        const textStyle = Theme.of(context).textTheme.display1;
+        const textStyle = Theme.of(context).textTheme.headline4;
         return new Card({
             color: Colors.white,
             child: new Center({

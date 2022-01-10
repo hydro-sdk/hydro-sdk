@@ -71,7 +71,7 @@ class MyHomePageState extends State<MyHomePage> {
                         new Text("You have pushed the button this many times"),
                         new Text(this.counter.toString(), {
                             key: new Key("counter"),
-                            style: Theme.of(context).textTheme.display1,
+                            style: Theme.of(context).textTheme.headline4,
                         }),
                     ],
                 }),

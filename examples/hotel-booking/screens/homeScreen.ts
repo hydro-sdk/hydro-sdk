@@ -87,7 +87,7 @@ export class HomeScreen extends StatelessWidget {
                                         new Text("My Profile", {
                                             style: Theme.of(
                                                 context
-                                            ).textTheme.display1.apply({
+                                            ).textTheme.headline4.apply({
                                                 color: Colors.white,
                                             }),
                                         }),
@@ -143,7 +143,7 @@ export class HomeScreen extends StatelessWidget {
                                                                         {
                                                                             style: Theme.of(
                                                                                 context
-                                                                            ).textTheme.headline.apply(
+                                                                            ).textTheme.headline5.apply(
                                                                                 {
                                                                                     color: MyColors.darkBlue,
                                                                                     fontWeightDelta: 2,
@@ -191,7 +191,7 @@ export class HomeScreen extends StatelessWidget {
                                                                                             text: "3191",
                                                                                             style: Theme.of(
                                                                                                 context
-                                                                                            ).textTheme.headline.apply(
+                                                                                            ).textTheme.headline5.apply(
                                                                                                 {
                                                                                                     color: MyColors.darkBlue,
                                                                                                     fontWeightDelta: 2,
@@ -204,7 +204,7 @@ export class HomeScreen extends StatelessWidget {
                                                                                             text: "Travelers points",
                                                                                             style: Theme.of(
                                                                                                 context
-                                                                                            ).textTheme.body2.apply(
+                                                                                            ).textTheme.bodyText1.apply(
                                                                                                 {
                                                                                                     color: MyColors.darkBlue,
                                                                                                 }
@@ -238,7 +238,7 @@ export class HomeScreen extends StatelessWidget {
                                                                             {
                                                                                 style: Theme.of(
                                                                                     context
-                                                                                ).textTheme.headline.apply(
+                                                                                ).textTheme.headline5.apply(
                                                                                     {
                                                                                         color: Colors.white,
                                                                                     }
@@ -254,7 +254,7 @@ export class HomeScreen extends StatelessWidget {
                                                                         {
                                                                             style: Theme.of(
                                                                                 context
-                                                                            ).textTheme.headline.apply(
+                                                                            ).textTheme.headline5.apply(
                                                                                 {
                                                                                     color: Colors.white,
                                                                                 }
@@ -266,7 +266,7 @@ export class HomeScreen extends StatelessWidget {
                                                                         {
                                                                             style: Theme.of(
                                                                                 context
-                                                                            ).textTheme.body1.apply(
+                                                                            ).textTheme.bodyText2.apply(
                                                                                 {
                                                                                     color: Colors.white,
                                                                                 }
@@ -284,7 +284,7 @@ export class HomeScreen extends StatelessWidget {
                                         new Text("My Bookings", {
                                             style: Theme.of(
                                                 context
-                                            ).textTheme.display1.apply({
+                                            ).textTheme.headline4.apply({
                                                 color: Colors.white,
                                             }),
                                         }),
@@ -409,7 +409,7 @@ export class HomeScreen extends StatelessWidget {
                                                                                                                         {
                                                                                                                             style: Theme.of(
                                                                                                                                 context
-                                                                                                                            ).textTheme.subtitle.apply(
+                                                                                                                            ).textTheme.subtitle2.apply(
                                                                                                                                 {
                                                                                                                                     color: Colors.white,
                                                                                                                                 }
