@@ -129,6 +129,24 @@ class InstantiateTypeArgumentsToLowestBound
                                                       val.referenceDeclarationKind ==
                                                           SwidReferenceDeclarationKind
                                                               .dynamicType) &&
+                                                  (swidTypeFormals
+                                                          ?.firstWhereOrNull(
+                                                        (k) =>
+                                                            k.kind ==
+                                                                SwidOriginatedAncestorTypeFormalKind
+                                                                    .kMethod &&
+                                                            removeNullabilitySuffix(
+                                                                  str: k
+                                                                      .swidTypeFormal
+                                                                      .value
+                                                                      .displayName,
+                                                                ) ==
+                                                                removeNullabilitySuffix(
+                                                                  str: val
+                                                                      .displayName,
+                                                                ),
+                                                      ) ==
+                                                      null) &&
                                                   (x.element?.when(
                                                         fromSwidTypeArgumentElement:
                                                             (val) =>
