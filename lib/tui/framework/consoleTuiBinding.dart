@@ -5,6 +5,7 @@ class ConsoleTuiKeyBinding implements tui.Key {
   final console.Key _key;
 
   bool get isControl => _key.isControl;
+
   String get char => _key.char;
 
   tui.ControlCharacter get controlChar =>
@@ -25,6 +26,7 @@ class ConsoleTuiCoordinateBinding implements tui.Coordinate {
   final console.Coordinate _coordinate;
 
   int get row => _coordinate.row;
+
   int get col => _coordinate.col;
 
   ConsoleTuiCoordinateBinding._(final this._coordinate);
@@ -43,8 +45,10 @@ class ConsoleTuiCoordinateBinding implements tui.Coordinate {
 class ConsoleTuiBinding implements tui.TuiBinding {
   final _console = console.Console();
 
+  static void initialize() => tui.TuiBinding.instance = ConsoleTuiBinding();
+
   static tui.TextAlignment textAlignmentToTuiTextAlignment(
-    console.TextAlignment textAlignment,
+    final console.TextAlignment textAlignment,
   ) {
     switch (textAlignment) {
       case console.TextAlignment.left:
@@ -57,7 +61,7 @@ class ConsoleTuiBinding implements tui.TuiBinding {
   }
 
   static console.TextAlignment textAlignmentToConsoleTextAlignment(
-    tui.TextAlignment textAlignment,
+    final tui.TextAlignment textAlignment,
   ) {
     switch (textAlignment) {
       case tui.TextAlignment.left:
@@ -168,32 +172,150 @@ class ConsoleTuiBinding implements tui.TuiBinding {
     }
   }
 
+  static console.ControlCharacter controlCharacterToConsoleControlCharacter({
+    required final tui.ControlCharacter controlCharacter,
+  }) {
+    switch (controlCharacter) {
+      case tui.ControlCharacter.none:
+        return console.ControlCharacter.none;
+      case tui.ControlCharacter.ctrlA:
+        return console.ControlCharacter.ctrlA;
+      case tui.ControlCharacter.ctrlB:
+        return console.ControlCharacter.ctrlB;
+      case tui.ControlCharacter.ctrlC:
+        return console.ControlCharacter.ctrlC;
+      case tui.ControlCharacter.ctrlD:
+        return console.ControlCharacter.ctrlD;
+      case tui.ControlCharacter.ctrlE:
+        return console.ControlCharacter.ctrlE;
+      case tui.ControlCharacter.ctrlF:
+        return console.ControlCharacter.ctrlF;
+      case tui.ControlCharacter.ctrlG:
+        return console.ControlCharacter.ctrlG;
+      case tui.ControlCharacter.ctrlH:
+        return console.ControlCharacter.ctrlH;
+      case tui.ControlCharacter.tab:
+        return console.ControlCharacter.tab;
+      case tui.ControlCharacter.ctrlJ:
+        return console.ControlCharacter.ctrlJ;
+      case tui.ControlCharacter.ctrlK:
+        return console.ControlCharacter.ctrlK;
+      case tui.ControlCharacter.ctrlL:
+        return console.ControlCharacter.ctrlL;
+      case tui.ControlCharacter.enter:
+        return console.ControlCharacter.enter;
+      case tui.ControlCharacter.ctrlN:
+        return console.ControlCharacter.ctrlN;
+      case tui.ControlCharacter.ctrlO:
+        return console.ControlCharacter.ctrlO;
+      case tui.ControlCharacter.ctrlP:
+        return console.ControlCharacter.ctrlP;
+      case tui.ControlCharacter.ctrlQ:
+        return console.ControlCharacter.ctrlQ;
+      case tui.ControlCharacter.ctrlR:
+        return console.ControlCharacter.ctrlR;
+      case tui.ControlCharacter.ctrlS:
+        return console.ControlCharacter.ctrlS;
+      case tui.ControlCharacter.ctrlT:
+        return console.ControlCharacter.ctrlT;
+      case tui.ControlCharacter.ctrlU:
+        return console.ControlCharacter.ctrlU;
+      case tui.ControlCharacter.ctrlV:
+        return console.ControlCharacter.ctrlV;
+      case tui.ControlCharacter.ctrlW:
+        return console.ControlCharacter.ctrlW;
+      case tui.ControlCharacter.ctrlX:
+        return console.ControlCharacter.ctrlX;
+      case tui.ControlCharacter.ctrlY:
+        return console.ControlCharacter.ctrlY;
+      case tui.ControlCharacter.ctrlZ:
+        return console.ControlCharacter.ctrlZ;
+      case tui.ControlCharacter.arrowLeft:
+        return console.ControlCharacter.arrowLeft;
+      case tui.ControlCharacter.arrowRight:
+        return console.ControlCharacter.arrowRight;
+      case tui.ControlCharacter.arrowUp:
+        return console.ControlCharacter.arrowUp;
+      case tui.ControlCharacter.arrowDown:
+        return console.ControlCharacter.arrowDown;
+      case tui.ControlCharacter.pageUp:
+        return console.ControlCharacter.pageUp;
+      case tui.ControlCharacter.pageDown:
+        return console.ControlCharacter.pageDown;
+      case tui.ControlCharacter.wordLeft:
+        return console.ControlCharacter.wordLeft;
+      case tui.ControlCharacter.wordRight:
+        return console.ControlCharacter.wordRight;
+      case tui.ControlCharacter.home:
+        return console.ControlCharacter.home;
+      case tui.ControlCharacter.end:
+        return console.ControlCharacter.end;
+      case tui.ControlCharacter.escape:
+        return console.ControlCharacter.escape;
+      case tui.ControlCharacter.delete:
+        return console.ControlCharacter.delete;
+      case tui.ControlCharacter.backspace:
+        return console.ControlCharacter.backspace;
+      case tui.ControlCharacter.wordBackspace:
+        return console.ControlCharacter.wordBackspace;
+      case tui.ControlCharacter.F1:
+        return console.ControlCharacter.F1;
+      case tui.ControlCharacter.F2:
+        return console.ControlCharacter.F2;
+      case tui.ControlCharacter.F3:
+        return console.ControlCharacter.F3;
+      case tui.ControlCharacter.F4:
+        return console.ControlCharacter.F4;
+      case tui.ControlCharacter.unknown:
+        return console.ControlCharacter.unknown;
+    }
+  }
+
   int get windowWidth => _console.windowWidth;
+
   void showCursor() => _console.showCursor();
+
   void hideCursor() => _console.hideCursor();
+
   void cursorUp() => _console.cursorUp();
+
   void writeLine([
     String? text,
     tui.TextAlignment alignment = tui.TextAlignment.left,
   ]) =>
       _console.writeLine(text, textAlignmentToConsoleTextAlignment(alignment));
-  void write(String text) => _console.write(text);
+
+  void write(final String text) => _console.write(text);
+
   void eraseLine() => _console.eraseLine();
+
   tui.Key readKey() => ConsoleTuiKeyBinding._(_console.readKey());
+
   tui.Coordinate? get cursorPosition =>
       ConsoleTuiCoordinateBinding._fromConsoleCoordinate(
-          _console.cursorPosition);
+        _console.cursorPosition,
+      );
+
   set cursorPosition(tui.Coordinate? cursor) => _console.cursorPosition;
+
   void eraseCursorToEnd() => _console.eraseCursorToEnd();
+
   void resetColorAttributes() => _console.resetColorAttributes();
 
   tui.Coordinate instantiateCoordinate(final int row, final int col) =>
       ConsoleTuiCoordinateBinding._fromConsoleCoordinate(
-          console.Coordinate(row, col))!;
+        console.Coordinate(row, col),
+      )!;
+
   tui.Key instantiatePrintableKey(final String char) =>
       ConsoleTuiKeyBinding._(console.Key.printable(char));
+
   tui.Key instantiateControlKey(final tui.ControlCharacter controlChar) =>
-      ConsoleTuiKeyBinding._(console.Key.control(
+      ConsoleTuiKeyBinding._(
+        console.Key.control(
           ConsoleTuiBinding.controlCharacterToConsoleControlCharacter(
-              controlCharacter)));
+            controlCharacter: controlChar,
+          ),
+        ),
+      );
 }

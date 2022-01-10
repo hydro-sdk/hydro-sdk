@@ -60,7 +60,9 @@ enum ControlCharacter {
 
 abstract class Key {
   bool get isControl;
+
   String get char;
+
   ControlCharacter get controlChar;
 
   factory Key.printable(final String char) =>
@@ -75,6 +77,7 @@ abstract class Key {
 
 abstract class Coordinate {
   int get row;
+
   int get col;
 
   factory Coordinate(final int row, final int col) =>
@@ -83,6 +86,7 @@ abstract class Coordinate {
 
 abstract class TuiKeyBinding {
   Key printable(final String char);
+
   Key control(final ControlCharacter controlChar);
 }
 
@@ -94,22 +98,46 @@ abstract class TuiBinding {
     return _instance!;
   }
 
+  static set instance(TuiBinding newBinding) {
+    if (_instance != null) {
+      throw Exception("Tui binding has already been initialized");
+    } else {
+      _instance = newBinding;
+    }
+  }
+
   static TuiBinding? _instance;
 
   int get windowWidth;
+
   void showCursor();
+
   void hideCursor();
+
   void cursorUp();
-  void writeLine([String? text, TextAlignment alignment = TextAlignment.left]);
+
+  void writeLine([
+    final String? text,
+    final TextAlignment alignment = TextAlignment.left,
+  ]);
+
   void write(String text);
+
   void eraseLine();
+
   Key readKey();
+
   Coordinate? get cursorPosition;
+
   set cursorPosition(Coordinate? cursor);
+
   void eraseCursorToEnd();
+
   void resetColorAttributes();
 
   Coordinate instantiateCoordinate(final int row, final int col);
+
   Key instantiatePrintableKey(final String char);
+
   Key instantiateControlKey(final ControlCharacter controlChar);
 }
