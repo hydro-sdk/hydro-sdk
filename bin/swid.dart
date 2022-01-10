@@ -251,6 +251,7 @@ class ClassTranslationUnitEmitSystem {
   late final Map<String, LocalActorRef> actorRefs;
   late final PipelineMultiProgress pipelineMultiProgress;
   late final Map<String, PipelineProgressState> pipelineProgressStates;
+  late final Map<String, _PipelineMessageBuffer> pipelineMessageBuffers;
 
   late final theme = Theme.basicTheme.copyWith(
     emptyProgress: '-',
@@ -273,7 +274,7 @@ class ClassTranslationUnitEmitSystem {
     required final String hashKey,
     required final String cacheGroup,
   }) =>
-      '${(completed / total).toStringAsPrecision(2).padLeft(4)} %';
+      '${((completed / total) * 100).toStringAsPrecision(2).padLeft(4)}%';
 
   String rightPrompt({
     required final int completed,
@@ -282,7 +283,12 @@ class ClassTranslationUnitEmitSystem {
     required final String cacheGroup,
   }) =>
       hashKey.isNotEmpty
-          ? hashKey.substring(0, 6).yellow() + ": " + cacheGroup.green()
+          ? hashKey.substring(0, 6).yellow() +
+              ": " +
+              (cacheGroup.length > 30
+                      ? "${cacheGroup.substring(0, 27)}..."
+                      : cacheGroup.padRight(30))
+                  .green()
           : "";
 
   int get jobSize => (classes.length / parallelism).ceil();
@@ -304,13 +310,28 @@ class ClassTranslationUnitEmitSystem {
           pipelineMultiProgress.add(
             PipelineProgress.withTheme(
               theme: theme,
-              size: 0.25,
-              length: 100,
+              size: 0.5,
+              length: 35,
               leftPrompt: leftPrompt,
               rightPrompt: rightPrompt,
-              total: parallelism,
+              total: classes
+                  .skip(i * jobSize)
+                  .toList()
+                  .sublist(0, jobSize)
+                  .toList()
+                  .length,
             ),
           ),
+        ),
+      ),
+    );
+
+    pipelineMessageBuffers = Map.fromEntries(
+      List.generate(
+        parallelism,
+        (i) => MapEntry(
+          i.toString(),
+          _PipelineMessageBuffer(),
         ),
       ),
     );
@@ -339,24 +360,43 @@ class ClassTranslationUnitEmitSystem {
       ),
     );
 
+    final flushTimer = Timer.periodic(
+      const Duration(
+        milliseconds: 250,
+      ),
+      (_) {
+        pipelineMessageBuffers.entries.forEach(
+          (x) {
+            final state = pipelineProgressStates[x.key];
+
+            while (x.value.completed > 0) {
+              state!.increase(1);
+              x.value.completed -= 1;
+            }
+
+            state!.changeCacheGroup(x.value.cacheGroup);
+            state.changeHashKey(x.value.hashKey);
+          },
+        );
+      },
+    );
+
     actorSystem.listenTopic<ActorTopicMessageOut>("gossipTopic",
         (message) async {
       message.when(
         fromPipelineOnNonEmptyCacheGroupMessageOut: (val) {
-          final pipelineProgressState = pipelineProgressStates.entries
-              .elementAt(int.parse(val.sender))
-              .value;
+          final buffer = pipelineMessageBuffers[val.sender];
 
-          pipelineProgressState.changeCacheGroup(val.cacheGroup);
-          pipelineProgressState.changeHashKey(val.hashKey);
+          buffer!.cacheGroup = val.cacheGroup;
+          buffer.hashKey = val.hashKey;
         },
         fromPipelineOnCacheHitMessageOut: (_) => null,
         fromPipelineOnCacheMissMessageOut: (_) => null,
-        fromPipelineActorProgressMessageOut: (val) => pipelineProgressStates
-            .entries
-            .elementAt(int.parse(val.sender))
-            .value
-            .increase(val.completed),
+        fromPipelineActorProgressMessageOut: (val) {
+          final buffer = pipelineMessageBuffers[val.sender];
+
+          buffer!.completed += 1;
+        },
         fromActorCompleteMessageOut: (_) => completer.complete(),
       );
       return null;
@@ -366,8 +406,16 @@ class ClassTranslationUnitEmitSystem {
 
     actorSystem.dispose();
 
+    flushTimer.cancel();
+
     pipelineProgressStates.entries.forEach(
       (x) => x.value.done(),
     );
   }
+}
+
+class _PipelineMessageBuffer {
+  String? cacheGroup;
+  String? hashKey;
+  int completed = 0;
 }
