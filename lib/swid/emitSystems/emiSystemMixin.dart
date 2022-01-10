@@ -157,7 +157,7 @@ mixin EmitSystemMixin<
 
     final flushTimer = Timer.periodic(
       const Duration(
-        milliseconds: 250,
+        milliseconds: 1000,
       ),
       (_) => scheduleMicrotask(
         () {
