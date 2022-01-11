@@ -157,7 +157,7 @@ mixin EmitSystemMixin<
 
     final flushTimer = Timer.periodic(
       Duration(
-        milliseconds: parallelism * 100,
+        milliseconds: parallelism * 100 < 1000 ? 1000 : parallelism * 100,
       ),
       (_) => scheduleMicrotask(
         () {
@@ -165,12 +165,8 @@ mixin EmitSystemMixin<
             (x) {
               final state = pipelineProgressStates[x.key];
 
-              while (x.value.completed > 0) {
-                state!.increase(1);
-                x.value.completed -= 1;
-              }
-
-              state!.changeCacheGroup(x.value.cacheGroup);
+              state!.changeCompleted(x.value.completed);
+              state.changeCacheGroup(x.value.cacheGroup);
               state.changeHashKey(x.value.hashKey);
 
               if (runningActors <= 0 && !completer.isCompleted) {
@@ -196,7 +192,7 @@ mixin EmitSystemMixin<
         fromPipelineActorProgressMessageOut: (val) {
           final buffer = pipelineMessageBuffers[val.sender];
 
-          buffer!.completed += 1;
+          buffer!.completed = val.completed;
         },
         fromActorCompleteMessageOut: (_) => scheduleMicrotask(
           () => runningActors -= 1,

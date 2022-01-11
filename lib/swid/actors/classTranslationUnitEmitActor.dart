@@ -66,7 +66,7 @@ class ClassTranslationUnitEmitActor extends UntypedActor
 
           updateProgress(
             context: context,
-            completed: i,
+            completed: i + 1,
             total: classes.length,
           );
         }

@@ -48,7 +48,7 @@ class PipelineMultiProgress {
       total: _bars[index].total,
       cacheGroup: _bars[index].cacheGroup,
       hashKey: _bars[index].hashKey,
-      increase: (n) => _bars[index].increase(n),
+      changeCompleted: (n) => _bars[index].changeCompleted(n),
       changeCacheGroup: (n) => _bars[index].changeCacheGroup(n),
       changeHashKey: (n) => _bars[index].changeHashKey(n),
       clear: () => _bars[index].clear(),
