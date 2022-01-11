@@ -156,8 +156,8 @@ mixin EmitSystemMixin<
     int runningActors = actorRefs.entries.length;
 
     final flushTimer = Timer.periodic(
-      const Duration(
-        milliseconds: 1000,
+      Duration(
+        milliseconds: parallelism * 100,
       ),
       (_) => scheduleMicrotask(
         () {
