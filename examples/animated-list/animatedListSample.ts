@@ -233,7 +233,7 @@ class CardItem extends StatelessWidget {
     }
 
     public build(context: BuildContext): Widget {
-        let textStyle: TextStyle = Theme.of(context).textTheme.display1;
+        let textStyle: TextStyle = Theme.of(context).textTheme.headline4;
         if (this.selected) {
             textStyle = textStyle.copyWith({
                 color: Colors.lightGreenAccent.swatch[400],

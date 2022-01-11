@@ -19,38 +19,38 @@ class VMManagedTextTheme extends VMManagedBox<TextTheme> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table["display1"] = vmObject.display1 != null
+    table["headline4"] = vmObject.headline4 != null
         ? maybeBoxObject<TextStyle>(
-            object: vmObject.display1!,
+            object: vmObject.headline4!,
             hydroState: hydroState,
             table: HydroTable(),
           )
         : null;
-    table["headline"] = vmObject.headline != null
+    table["headline5"] = vmObject.headline5 != null
         ? maybeBoxObject<TextStyle>(
-            object: vmObject.headline!,
+            object: vmObject.headline5!,
             hydroState: hydroState,
             table: HydroTable(),
           )
         : null;
-    table["body1"] = vmObject.body1 != null
+    table["bodyText2"] = vmObject.bodyText2 != null
         ? maybeBoxObject<TextStyle>(
-            object: vmObject.body1!,
+            object: vmObject.bodyText2!,
             hydroState: hydroState,
             table: HydroTable(),
           )
         : null;
 
-    table["body2"] = vmObject.body2 != null
+    table["bodyText1"] = vmObject.bodyText1 != null
         ? maybeBoxObject<TextStyle>(
-            object: vmObject.body2!,
+            object: vmObject.bodyText1!,
             hydroState: hydroState,
             table: HydroTable(),
           )
         : null;
-    table["subtitle"] = vmObject.subtitle != null
+    table["subtitle2"] = vmObject.subtitle2 != null
         ? maybeBoxObject<TextStyle>(
-            object: vmObject.subtitle!,
+            object: vmObject.subtitle2!,
             hydroState: hydroState,
             table: HydroTable(),
           )

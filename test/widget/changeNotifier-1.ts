@@ -77,7 +77,7 @@ class CounterHome extends StatelessWidget {
                                     {
                                         key: new Key("counter"),
                                         style: Theme.of(context).textTheme
-                                            .display1,
+                                            .headline4,
                                     }
                                 );
                             },
