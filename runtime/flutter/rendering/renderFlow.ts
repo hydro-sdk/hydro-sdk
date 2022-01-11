@@ -75,6 +75,7 @@ export interface IRenderFlow {
         props: { opacity: number; transform?: IMatrix4 | undefined }
     ) => void;
     paint: (context: IPaintingContext, offset: IOffset) => void;
+    dispose: () => void;
     hitTestChildren: (
         result: IBoxHitTestResult,
         props: { position: IOffset }
@@ -222,6 +223,7 @@ export interface IRenderFlow {
         name: string,
         props: { style: DiagnosticsTreeStyle }
     ) => IDiagnosticsNode;
+    getDebugDisposed: () => boolean | undefined;
     getDebugDoingThisResize: () => boolean;
     getDebugDoingThisLayout: () => boolean;
     getDebugCanParentUseSize: () => boolean;
@@ -317,6 +319,7 @@ export class RenderFlow
         context: IPaintingContext,
         offset: IOffset
     ) => void = undefined as any;
+    private readonly _dart_dispose: () => void = undefined as any;
     private readonly _dart_hitTestChildren: (
         result: IBoxHitTestResult,
         props: { position: IOffset }
@@ -538,6 +541,8 @@ export class RenderFlow
         name: string,
         props: { style: DiagnosticsTreeStyle }
     ) => IDiagnosticsNode = undefined as any;
+    private readonly _dart_getDebugDisposed: () => boolean | undefined =
+        undefined as any;
     private readonly _dart_getDebugDoingThisResize: () => boolean =
         undefined as any;
     private readonly _dart_getDebugDoingThisLayout: () => boolean =
@@ -634,6 +639,9 @@ export class RenderFlow
     }
     public paint(context: IPaintingContext, offset: IOffset): void {
         return this._dart_paint(context, offset);
+    }
+    public dispose(): void {
+        return this._dart_dispose();
     }
     public hitTestChildren(
         result: IBoxHitTestResult,
@@ -986,6 +994,9 @@ export class RenderFlow
             ...describeForErrorDefaultProps,
             ...props,
         });
+    }
+    public getDebugDisposed(): boolean | undefined {
+        return this._dart_getDebugDisposed();
     }
     public getDebugDoingThisResize(): boolean {
         return this._dart_getDebugDoingThisResize();

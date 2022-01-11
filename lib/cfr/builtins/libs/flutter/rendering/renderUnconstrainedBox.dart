@@ -56,19 +56,29 @@ class VMManagedRenderUnconstrainedBox
           values: Axis.values, boxedEnum: luaCallerArguments[1]));
       return [];
     });
-    table['getClipBehavior'] =
+    table['computeMinIntrinsicHeight'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
-        Clip.values.indexWhere((x) {
-          return x == vmObject.clipBehavior;
-        }),
+        vmObject.computeMinIntrinsicHeight(luaCallerArguments[1]?.toDouble()),
       ];
     });
-    table['setClipBehavior'] =
+    table['computeMaxIntrinsicHeight'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.clipBehavior = (maybeUnBoxEnum(
-          values: Clip.values, boxedEnum: luaCallerArguments[1]));
-      return [];
+      return [
+        vmObject.computeMaxIntrinsicHeight(luaCallerArguments[1]?.toDouble()),
+      ];
+    });
+    table['computeMinIntrinsicWidth'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        vmObject.computeMinIntrinsicWidth(luaCallerArguments[1]?.toDouble()),
+      ];
+    });
+    table['computeMaxIntrinsicWidth'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        vmObject.computeMaxIntrinsicWidth(luaCallerArguments[1]?.toDouble()),
+      ];
     });
     table['computeDryLayout'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -96,6 +106,11 @@ class VMManagedRenderUnconstrainedBox
               parentState: hydroState));
       return [];
     });
+    table['dispose'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.dispose();
+      return [];
+    });
     table['describeApproximatePaintClip'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       final returnValue = vmObject.describeApproximatePaintClip(
@@ -115,6 +130,38 @@ class VMManagedRenderUnconstrainedBox
       return [
         vmObject.toStringShort(),
       ];
+    });
+    table['getConstraintsTransform'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        vmObject.constraintsTransform,
+      ];
+    });
+    table['setConstraintsTransform'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      Closure unpackedvalue = luaCallerArguments[1];
+      vmObject.constraintsTransform =
+          ((_) => maybeUnBoxAndBuildArgument<BoxConstraints, dynamic>(
+              unpackedvalue.dispatch(
+                [luaCallerArguments[0], _],
+                parentState: hydroState,
+              )[0],
+              parentState: hydroState));
+      return [];
+    });
+    table['getClipBehavior'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        Clip.values.indexWhere((x) {
+          return x == vmObject.clipBehavior;
+        }),
+      ];
+    });
+    table['setClipBehavior'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.clipBehavior = (maybeUnBoxEnum(
+          values: Clip.values, boxedEnum: luaCallerArguments[1]));
+      return [];
     });
     table['paintOverflowIndicator'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -183,30 +230,6 @@ class VMManagedRenderUnconstrainedBox
       vmObject.textDirection = (maybeUnBoxEnum(
           values: TextDirection.values, boxedEnum: luaCallerArguments[1]));
       return [];
-    });
-    table['computeMinIntrinsicWidth'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        vmObject.computeMinIntrinsicWidth(luaCallerArguments[1]?.toDouble()),
-      ];
-    });
-    table['computeMaxIntrinsicWidth'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        vmObject.computeMaxIntrinsicWidth(luaCallerArguments[1]?.toDouble()),
-      ];
-    });
-    table['computeMinIntrinsicHeight'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        vmObject.computeMinIntrinsicHeight(luaCallerArguments[1]?.toDouble()),
-      ];
-    });
-    table['computeMaxIntrinsicHeight'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        vmObject.computeMaxIntrinsicHeight(luaCallerArguments[1]?.toDouble()),
-      ];
     });
     table['computeDistanceToActualBaseline'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -767,6 +790,16 @@ class VMManagedRenderUnconstrainedBox
             table: HydroTable()),
       ];
     });
+    table['getDebugDisposed'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      final returnValue = vmObject.debugDisposed;
+      if (returnValue != null) {
+        return [
+          returnValue,
+        ];
+      }
+      return [];
+    });
     table['getDebugDoingThisResize'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
@@ -943,15 +976,29 @@ class RTManagedRenderUnconstrainedBox extends RenderUnconstrainedBox
           values: Axis.values, boxedEnum: luaCallerArguments[1]));
       return [];
     });
-    table['_dart_getClipBehavior'] =
+    table['_dart_computeMinIntrinsicHeight'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [super.clipBehavior];
+      return [
+        super.computeMinIntrinsicHeight(luaCallerArguments[1]?.toDouble())
+      ];
     });
-    table['_dart_setClipBehavior'] =
+    table['_dart_computeMaxIntrinsicHeight'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.clipBehavior = (maybeUnBoxEnum(
-          values: Clip.values, boxedEnum: luaCallerArguments[1]));
-      return [];
+      return [
+        super.computeMaxIntrinsicHeight(luaCallerArguments[1]?.toDouble())
+      ];
+    });
+    table['_dart_computeMinIntrinsicWidth'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        super.computeMinIntrinsicWidth(luaCallerArguments[1]?.toDouble())
+      ];
+    });
+    table['_dart_computeMaxIntrinsicWidth'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        super.computeMaxIntrinsicWidth(luaCallerArguments[1]?.toDouble())
+      ];
     });
     table['_dart_computeDryLayout'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -980,6 +1027,11 @@ class RTManagedRenderUnconstrainedBox extends RenderUnconstrainedBox
               parentState: hydroState));
       return [];
     });
+    table['_dart_dispose'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.dispose();
+      return [];
+    });
     table['_dart_describeApproximatePaintClip'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
@@ -995,6 +1047,28 @@ class RTManagedRenderUnconstrainedBox extends RenderUnconstrainedBox
     table['_dart_toStringShort'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.toStringShort()];
+    });
+    table['_dart_setConstraintsTransform'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      Closure unpackedvalue = luaCallerArguments[1];
+      super.constraintsTransform =
+          ((_) => maybeUnBoxAndBuildArgument<BoxConstraints, dynamic>(
+              unpackedvalue.dispatch(
+                [luaCallerArguments[0], _],
+                parentState: hydroState,
+              )[0],
+              parentState: hydroState));
+      return [];
+    });
+    table['_dart_getClipBehavior'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.clipBehavior];
+    });
+    table['_dart_setClipBehavior'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.clipBehavior = (maybeUnBoxEnum(
+          values: Clip.values, boxedEnum: luaCallerArguments[1]));
+      return [];
     });
     table['_dart_paintOverflowIndicator'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -1054,30 +1128,6 @@ class RTManagedRenderUnconstrainedBox extends RenderUnconstrainedBox
       super.textDirection = (maybeUnBoxEnum(
           values: TextDirection.values, boxedEnum: luaCallerArguments[1]));
       return [];
-    });
-    table['_dart_computeMinIntrinsicWidth'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        super.computeMinIntrinsicWidth(luaCallerArguments[1]?.toDouble())
-      ];
-    });
-    table['_dart_computeMaxIntrinsicWidth'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        super.computeMaxIntrinsicWidth(luaCallerArguments[1]?.toDouble())
-      ];
-    });
-    table['_dart_computeMinIntrinsicHeight'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        super.computeMinIntrinsicHeight(luaCallerArguments[1]?.toDouble())
-      ];
-    });
-    table['_dart_computeMaxIntrinsicHeight'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        super.computeMaxIntrinsicHeight(luaCallerArguments[1]?.toDouble())
-      ];
     });
     table['_dart_computeDistanceToActualBaseline'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -1668,6 +1718,10 @@ class RTManagedRenderUnconstrainedBox extends RenderUnconstrainedBox
             table: HydroTable())
       ];
     });
+    table['_dart_getDebugDisposed'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.debugDisposed];
+    });
     table['_dart_getDebugDoingThisResize'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.debugDoingThisResize];
@@ -1798,17 +1852,27 @@ class RTManagedRenderUnconstrainedBox extends RenderUnconstrainedBox
   }
 
   @override
-  Clip get clipBehavior {
-    Closure closure = table["getClipBehavior"];
-    return maybeUnBoxEnum(
-        values: Clip.values,
-        boxedEnum: closure.dispatch([table], parentState: hydroState)[0]);
+  double computeMinIntrinsicHeight(double width) {
+    Closure closure = table["computeMinIntrinsicHeight"];
+    return closure.dispatch([table], parentState: hydroState)[0]?.toDouble();
   }
 
   @override
-  void set clipBehavior(Clip value) {
-    Closure closure = table["setClipBehavior"];
-    return closure.dispatch([table], parentState: hydroState)[0];
+  double computeMaxIntrinsicHeight(double width) {
+    Closure closure = table["computeMaxIntrinsicHeight"];
+    return closure.dispatch([table], parentState: hydroState)[0]?.toDouble();
+  }
+
+  @override
+  double computeMinIntrinsicWidth(double height) {
+    Closure closure = table["computeMinIntrinsicWidth"];
+    return closure.dispatch([table], parentState: hydroState)[0]?.toDouble();
+  }
+
+  @override
+  double computeMaxIntrinsicWidth(double height) {
+    Closure closure = table["computeMaxIntrinsicWidth"];
+    return closure.dispatch([table], parentState: hydroState)[0]?.toDouble();
   }
 
   @override
@@ -1832,6 +1896,13 @@ class RTManagedRenderUnconstrainedBox extends RenderUnconstrainedBox
   }
 
   @override
+  void dispose() {
+    super.dispose();
+    Closure closure = table["dispose"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
   Rect? describeApproximatePaintClip(RenderObject child) {
     Closure closure = table["describeApproximatePaintClip"];
     return maybeUnBoxAndBuildArgument<Rect?, dynamic>(
@@ -1842,6 +1913,26 @@ class RTManagedRenderUnconstrainedBox extends RenderUnconstrainedBox
   @override
   String toStringShort() {
     Closure closure = table["toStringShort"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  void set constraintsTransform(value) {
+    Closure closure = table["setConstraintsTransform"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  Clip get clipBehavior {
+    Closure closure = table["getClipBehavior"];
+    return maybeUnBoxEnum(
+        values: Clip.values,
+        boxedEnum: closure.dispatch([table], parentState: hydroState)[0]);
+  }
+
+  @override
+  void set clipBehavior(Clip value) {
+    Closure closure = table["setClipBehavior"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
@@ -1898,30 +1989,6 @@ class RTManagedRenderUnconstrainedBox extends RenderUnconstrainedBox
   void set textDirection(TextDirection? value) {
     Closure closure = table["setTextDirection"];
     return closure.dispatch([table], parentState: hydroState)[0];
-  }
-
-  @override
-  double computeMinIntrinsicWidth(double height) {
-    Closure closure = table["computeMinIntrinsicWidth"];
-    return closure.dispatch([table], parentState: hydroState)[0]?.toDouble();
-  }
-
-  @override
-  double computeMaxIntrinsicWidth(double height) {
-    Closure closure = table["computeMaxIntrinsicWidth"];
-    return closure.dispatch([table], parentState: hydroState)[0]?.toDouble();
-  }
-
-  @override
-  double computeMinIntrinsicHeight(double width) {
-    Closure closure = table["computeMinIntrinsicHeight"];
-    return closure.dispatch([table], parentState: hydroState)[0]?.toDouble();
-  }
-
-  @override
-  double computeMaxIntrinsicHeight(double width) {
-    Closure closure = table["computeMaxIntrinsicHeight"];
-    return closure.dispatch([table], parentState: hydroState)[0]?.toDouble();
   }
 
   @override
@@ -2380,6 +2447,12 @@ class RTManagedRenderUnconstrainedBox extends RenderUnconstrainedBox
     return maybeUnBoxAndBuildArgument<DiagnosticsNode, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
+  }
+
+  @override
+  bool? get debugDisposed {
+    Closure closure = table["getDebugDisposed"];
+    return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override

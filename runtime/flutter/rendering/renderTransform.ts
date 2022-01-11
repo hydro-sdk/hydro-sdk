@@ -1,6 +1,7 @@
 import { Duration, IDuration } from "../../dart/core/duration";
 import { IIterable } from "../../dart/core/iterable";
 import { IList } from "../../dart/core/list";
+import { FilterQuality } from "../../dart/ui/filterQuality";
 import { IOffset } from "../../dart/ui/offset";
 import { IRect } from "../../dart/ui/rect";
 import { ISize } from "../../dart/ui/size";
@@ -47,6 +48,7 @@ declare const flutter: {
             props: {
                 alignment?: IAlignmentGeometry | undefined;
                 child?: IRenderBox | undefined;
+                filterQuality?: FilterQuality | undefined;
                 origin?: IOffset | undefined;
                 textDirection?: TextDirection | undefined;
                 transformHitTests: boolean;
@@ -65,7 +67,10 @@ export interface IRenderTransform {
     setAlignment: (value?: IAlignmentGeometry | undefined) => void;
     getTextDirection: () => TextDirection | undefined;
     setTextDirection: (value?: TextDirection | undefined) => void;
+    getAlwaysNeedsCompositing: () => boolean;
     setTransform: (value: IMatrix4) => void;
+    getFilterQuality: () => FilterQuality | undefined;
+    setFilterQuality: (value?: FilterQuality | undefined) => void;
     setIdentity: () => void;
     rotateX: (radians: number) => void;
     rotateY: (radians: number) => void;
@@ -143,6 +148,7 @@ export interface IRenderTransform {
     getConstraints: () => IBoxConstraints;
     getPaintBounds: () => IRect;
     reassemble: () => void;
+    dispose: () => void;
     adoptChild: (child: unknown) => void;
     dropChild: (child: unknown) => void;
     markParentNeedsLayout: () => void;
@@ -203,6 +209,7 @@ export interface IRenderTransform {
         name: string,
         props: { style: DiagnosticsTreeStyle }
     ) => IDiagnosticsNode;
+    getDebugDisposed: () => boolean | undefined;
     getDebugDoingThisResize: () => boolean;
     getDebugDoingThisLayout: () => boolean;
     getDebugCanParentUseSize: () => boolean;
@@ -212,7 +219,6 @@ export interface IRenderTransform {
     getSizedByParent: () => boolean;
     getDebugDoingThisPaint: () => boolean;
     getIsRepaintBoundary: () => boolean;
-    getAlwaysNeedsCompositing: () => boolean;
     getLayer: () => IContainerLayer | undefined;
     setLayer: (newLayer?: IContainerLayer | undefined) => void;
     getDebugLayer: () => IContainerLayer | undefined;
@@ -264,6 +270,7 @@ export class RenderTransform
     public constructor(props: {
         alignment?: IAlignmentGeometry | undefined;
         child?: IRenderBox | undefined;
+        filterQuality?: FilterQuality | undefined;
         origin?: IOffset | undefined;
         textDirection?: TextDirection | undefined;
         transformHitTests?: boolean;
@@ -288,8 +295,15 @@ export class RenderTransform
     private readonly _dart_setTextDirection: (
         value?: TextDirection | undefined
     ) => void = undefined as any;
+    private readonly _dart_getAlwaysNeedsCompositing: () => boolean =
+        undefined as any;
     private readonly _dart_setTransform: (value: IMatrix4) => void =
         undefined as any;
+    private readonly _dart_getFilterQuality: () => FilterQuality | undefined =
+        undefined as any;
+    private readonly _dart_setFilterQuality: (
+        value?: FilterQuality | undefined
+    ) => void = undefined as any;
     private readonly _dart_setIdentity: () => void = undefined as any;
     private readonly _dart_rotateX: (radians: number) => void =
         undefined as any;
@@ -436,6 +450,7 @@ export class RenderTransform
         undefined as any;
     private readonly _dart_getPaintBounds: () => IRect = undefined as any;
     private readonly _dart_reassemble: () => void = undefined as any;
+    private readonly _dart_dispose: () => void = undefined as any;
     private readonly _dart_adoptChild: (child: any) => void = undefined as any;
     private readonly _dart_dropChild: (child: any) => void = undefined as any;
     private readonly _dart_markParentNeedsLayout: () => void = undefined as any;
@@ -517,6 +532,8 @@ export class RenderTransform
         name: string,
         props: { style: DiagnosticsTreeStyle }
     ) => IDiagnosticsNode = undefined as any;
+    private readonly _dart_getDebugDisposed: () => boolean | undefined =
+        undefined as any;
     private readonly _dart_getDebugDoingThisResize: () => boolean =
         undefined as any;
     private readonly _dart_getDebugDoingThisLayout: () => boolean =
@@ -533,8 +550,6 @@ export class RenderTransform
     private readonly _dart_getDebugDoingThisPaint: () => boolean =
         undefined as any;
     private readonly _dart_getIsRepaintBoundary: () => boolean =
-        undefined as any;
-    private readonly _dart_getAlwaysNeedsCompositing: () => boolean =
         undefined as any;
     private readonly _dart_getLayer: () => IContainerLayer | undefined =
         undefined as any;
@@ -577,8 +592,17 @@ export class RenderTransform
     public setTextDirection(value?: TextDirection | undefined): void {
         return this._dart_setTextDirection(value);
     }
+    public getAlwaysNeedsCompositing(): boolean {
+        return this._dart_getAlwaysNeedsCompositing();
+    }
     public setTransform(value: IMatrix4): void {
         return this._dart_setTransform(value);
+    }
+    public getFilterQuality(): FilterQuality | undefined {
+        return this._dart_getFilterQuality();
+    }
+    public setFilterQuality(value?: FilterQuality | undefined): void {
+        return this._dart_setFilterQuality(value);
     }
     public setIdentity(): void {
         return this._dart_setIdentity();
@@ -789,6 +813,9 @@ export class RenderTransform
     public reassemble(): void {
         return this._dart_reassemble();
     }
+    public dispose(): void {
+        return this._dart_dispose();
+    }
     public adoptChild(child: any): void {
         return this._dart_adoptChild(child);
     }
@@ -930,6 +957,9 @@ export class RenderTransform
             ...props,
         });
     }
+    public getDebugDisposed(): boolean | undefined {
+        return this._dart_getDebugDisposed();
+    }
     public getDebugDoingThisResize(): boolean {
         return this._dart_getDebugDoingThisResize();
     }
@@ -956,9 +986,6 @@ export class RenderTransform
     }
     public getIsRepaintBoundary(): boolean {
         return this._dart_getIsRepaintBoundary();
-    }
-    public getAlwaysNeedsCompositing(): boolean {
-        return this._dart_getAlwaysNeedsCompositing();
     }
     public getLayer(): IContainerLayer | undefined {
         return this._dart_getLayer();

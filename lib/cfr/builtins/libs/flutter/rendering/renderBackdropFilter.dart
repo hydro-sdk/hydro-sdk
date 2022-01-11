@@ -61,6 +61,20 @@ class VMManagedRenderBackdropFilter extends VMManagedBox<RenderBackdropFilter> {
           parentState: hydroState));
       return [];
     });
+    table['getBlendMode'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        BlendMode.values.indexWhere((x) {
+          return x == vmObject.blendMode;
+        }),
+      ];
+    });
+    table['setBlendMode'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.blendMode = (maybeUnBoxEnum(
+          values: BlendMode.values, boxedEnum: luaCallerArguments[1]));
+      return [];
+    });
     table['getAlwaysNeedsCompositing'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
@@ -467,6 +481,11 @@ class VMManagedRenderBackdropFilter extends VMManagedBox<RenderBackdropFilter> {
       vmObject.reassemble();
       return [];
     });
+    table['dispose'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.dispose();
+      return [];
+    });
     table['adoptChild'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.adoptChild(maybeUnBoxAndBuildArgument<RenderObject, dynamic>(
@@ -721,6 +740,16 @@ class VMManagedRenderBackdropFilter extends VMManagedBox<RenderBackdropFilter> {
             table: HydroTable()),
       ];
     });
+    table['getDebugDisposed'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      final returnValue = vmObject.debugDisposed;
+      if (returnValue != null) {
+        return [
+          returnValue,
+        ];
+      }
+      return [];
+    });
     table['getDebugDoingThisResize'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
@@ -866,11 +895,12 @@ class VMManagedRenderBackdropFilter extends VMManagedBox<RenderBackdropFilter> {
 class RTManagedRenderBackdropFilter extends RenderBackdropFilter
     implements Box<RenderBackdropFilter> {
   RTManagedRenderBackdropFilter(
-      {RenderBox? child,
+      {required BlendMode blendMode,
+      RenderBox? child,
       required ImageFilter filter,
       required this.table,
       required this.hydroState})
-      : super(child: child, filter: filter) {
+      : super(blendMode: blendMode, child: child, filter: filter) {
     table['vmObject'] = vmObject;
     table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [unwrap()];
@@ -892,6 +922,16 @@ class RTManagedRenderBackdropFilter extends RenderBackdropFilter
       super.filter = (maybeUnBoxAndBuildArgument<ImageFilter, dynamic>(
           luaCallerArguments[1],
           parentState: hydroState));
+      return [];
+    });
+    table['_dart_getBlendMode'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.blendMode];
+    });
+    table['_dart_setBlendMode'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.blendMode = (maybeUnBoxEnum(
+          values: BlendMode.values, boxedEnum: luaCallerArguments[1]));
       return [];
     });
     table['_dart_getAlwaysNeedsCompositing'] =
@@ -1308,6 +1348,11 @@ class RTManagedRenderBackdropFilter extends RenderBackdropFilter
       super.reassemble();
       return [];
     });
+    table['_dart_dispose'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.dispose();
+      return [];
+    });
     table['_dart_adoptChild'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       super.adoptChild(maybeUnBoxAndBuildArgument<RenderObject, dynamic>(
@@ -1579,6 +1624,10 @@ class RTManagedRenderBackdropFilter extends RenderBackdropFilter
             table: HydroTable())
       ];
     });
+    table['_dart_getDebugDisposed'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.debugDisposed];
+    });
     table['_dart_getDebugDoingThisResize'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.debugDoingThisResize];
@@ -1705,6 +1754,20 @@ class RTManagedRenderBackdropFilter extends RenderBackdropFilter
   @override
   void set filter(ImageFilter value) {
     Closure closure = table["setFilter"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  BlendMode get blendMode {
+    Closure closure = table["getBlendMode"];
+    return maybeUnBoxEnum(
+        values: BlendMode.values,
+        boxedEnum: closure.dispatch([table], parentState: hydroState)[0]);
+  }
+
+  @override
+  void set blendMode(BlendMode value) {
+    Closure closure = table["setBlendMode"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
@@ -2055,6 +2118,13 @@ class RTManagedRenderBackdropFilter extends RenderBackdropFilter
   }
 
   @override
+  void dispose() {
+    super.dispose();
+    Closure closure = table["dispose"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
   void adoptChild(RenderObject child) {
     super.adoptChild(child);
     Closure closure = table["adoptChild"];
@@ -2252,6 +2322,12 @@ class RTManagedRenderBackdropFilter extends RenderBackdropFilter
   }
 
   @override
+  bool? get debugDisposed {
+    Closure closure = table["getDebugDisposed"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
   bool get debugDoingThisResize {
     Closure closure = table["getDebugDoingThisResize"];
     return closure.dispatch([table], parentState: hydroState)[0];
@@ -2391,6 +2467,11 @@ void loadRenderBackdropFilter(
       RTManagedRenderBackdropFilter(
           table: luaCallerArguments[0],
           hydroState: hydroState,
+          blendMode: maybeUnBoxEnum(
+              values: BlendMode.values,
+              boxedEnum: luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1]['blendMode']
+                  : null),
           child: maybeUnBoxAndBuildArgument<RenderBox?, dynamic>(
               luaCallerArguments.length >= 2
                   ? luaCallerArguments[1]['child']

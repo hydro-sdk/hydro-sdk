@@ -141,6 +141,7 @@ export interface IRenderSliverPinnedPersistentHeader {
     getPaintBounds: () => IRect;
     getCenterOffsetAdjustment: () => number;
     reassemble: () => void;
+    dispose: () => void;
     setupParentData: (child: unknown) => void;
     adoptChild: (child: unknown) => void;
     dropChild: (child: unknown) => void;
@@ -195,6 +196,7 @@ export interface IRenderSliverPinnedPersistentHeader {
         name: string,
         props: { style: DiagnosticsTreeStyle }
     ) => IDiagnosticsNode;
+    getDebugDisposed: () => boolean | undefined;
     getDebugDoingThisResize: () => boolean;
     getDebugDoingThisLayout: () => boolean;
     getDebugCanParentUseSize: () => boolean;
@@ -231,9 +233,9 @@ export class RenderSliverPinnedPersistentHeader
             | "hitTestChildren"
             | "applyPaintTransform"
             | "debugFillProperties"
-            | "toString"
             | "debugDescribeChildren"
             | "toStringShort"
+            | "toString"
             | "toStringDeep"
             | "toStringShallow"
             | "toDiagnosticsNode"
@@ -247,7 +249,6 @@ export class RenderSliverPinnedPersistentHeader
         Omit<
             IDiagnosticableTree,
             | "debugDescribeChildren"
-            | "toString"
             | "debugFillProperties"
             | "toStringShallow"
             | "toStringDeep"
@@ -389,6 +390,7 @@ export class RenderSliverPinnedPersistentHeader
     private readonly _dart_getCenterOffsetAdjustment: () => number =
         undefined as any;
     private readonly _dart_reassemble: () => void = undefined as any;
+    private readonly _dart_dispose: () => void = undefined as any;
     private readonly _dart_setupParentData: (child: any) => void =
         undefined as any;
     private readonly _dart_adoptChild: (child: any) => void = undefined as any;
@@ -463,6 +465,8 @@ export class RenderSliverPinnedPersistentHeader
         name: string,
         props: { style: DiagnosticsTreeStyle }
     ) => IDiagnosticsNode = undefined as any;
+    private readonly _dart_getDebugDisposed: () => boolean | undefined =
+        undefined as any;
     private readonly _dart_getDebugDoingThisResize: () => boolean =
         undefined as any;
     private readonly _dart_getDebugDoingThisLayout: () => boolean =
@@ -676,6 +680,9 @@ export class RenderSliverPinnedPersistentHeader
     public reassemble(): void {
         return this._dart_reassemble();
     }
+    public dispose(): void {
+        return this._dart_dispose();
+    }
     public setupParentData(child: any): void {
         return this._dart_setupParentData(child);
     }
@@ -803,6 +810,9 @@ export class RenderSliverPinnedPersistentHeader
             ...describeForErrorDefaultProps,
             ...props,
         });
+    }
+    public getDebugDisposed(): boolean | undefined {
+        return this._dart_getDebugDisposed();
     }
     public getDebugDoingThisResize(): boolean {
         return this._dart_getDebugDoingThisResize();

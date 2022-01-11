@@ -22,7 +22,6 @@ class VMManagedSemanticsNode extends VMManagedBox<SemanticsNode> {
         ) {
     table['key'] = maybeBoxObject<Key?>(
         object: vmObject.key, hydroState: hydroState, table: HydroTable());
-    table['id'] = vmObject.id;
     table['parentSemanticsClipRect'] = maybeBoxObject<Rect?>(
         object: vmObject.parentSemanticsClipRect,
         hydroState: hydroState,
@@ -35,6 +34,11 @@ class VMManagedSemanticsNode extends VMManagedBox<SemanticsNode> {
     table['indexInParent'] = vmObject.indexInParent;
     table['tags'] = maybeBoxObject<Set?>(
         object: vmObject.tags, hydroState: hydroState, table: HydroTable());
+    table['getId'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        vmObject.id,
+      ];
+    });
     table['getTransform'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       final returnValue = vmObject.transform;
@@ -176,16 +180,28 @@ class VMManagedSemanticsNode extends VMManagedBox<SemanticsNode> {
         vmObject.label,
       ];
     });
+    table['getAttributedLabel'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        maybeBoxObject<AttributedString>(
+            object: vmObject.attributedLabel,
+            hydroState: hydroState,
+            table: HydroTable()),
+      ];
+    });
     table['getValue'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         vmObject.value,
       ];
     });
-    table['getDecreasedValue'] =
+    table['getAttributedValue'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
-        vmObject.decreasedValue,
+        maybeBoxObject<AttributedString>(
+            object: vmObject.attributedValue,
+            hydroState: hydroState,
+            table: HydroTable()),
       ];
     });
     table['getIncreasedValue'] =
@@ -194,10 +210,43 @@ class VMManagedSemanticsNode extends VMManagedBox<SemanticsNode> {
         vmObject.increasedValue,
       ];
     });
+    table['getAttributedIncreasedValue'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        maybeBoxObject<AttributedString>(
+            object: vmObject.attributedIncreasedValue,
+            hydroState: hydroState,
+            table: HydroTable()),
+      ];
+    });
+    table['getDecreasedValue'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        vmObject.decreasedValue,
+      ];
+    });
+    table['getAttributedDecreasedValue'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        maybeBoxObject<AttributedString>(
+            object: vmObject.attributedDecreasedValue,
+            hydroState: hydroState,
+            table: HydroTable()),
+      ];
+    });
     table['getHint'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         vmObject.hint,
+      ];
+    });
+    table['getAttributedHint'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        maybeBoxObject<AttributedString>(
+            object: vmObject.attributedHint,
+            hydroState: hydroState,
+            table: HydroTable()),
       ];
     });
     table['getElevation'] =
@@ -533,7 +582,6 @@ class RTManagedSemanticsNode extends SemanticsNode
     });
     table['key'] = maybeBoxObject<Key?>(
         object: this.key, hydroState: hydroState, table: HydroTable());
-    table['id'] = id;
     table['parentSemanticsClipRect'] = maybeBoxObject<Rect?>(
         object: parentSemanticsClipRect,
         hydroState: hydroState,
@@ -546,6 +594,10 @@ class RTManagedSemanticsNode extends SemanticsNode
     table['indexInParent'] = indexInParent;
     table['tags'] = maybeBoxObject<Set?>(
         object: tags, hydroState: hydroState, table: HydroTable());
+    table['_dart_getId'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.id];
+    });
     table['_dart_getTransform'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.transform];
@@ -651,21 +703,41 @@ class RTManagedSemanticsNode extends SemanticsNode
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.label];
     });
+    table['_dart_getAttributedLabel'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.attributedLabel];
+    });
     table['_dart_getValue'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.value];
     });
-    table['_dart_getDecreasedValue'] =
+    table['_dart_getAttributedValue'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [super.decreasedValue];
+      return [super.attributedValue];
     });
     table['_dart_getIncreasedValue'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.increasedValue];
     });
+    table['_dart_getAttributedIncreasedValue'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.attributedIncreasedValue];
+    });
+    table['_dart_getDecreasedValue'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.decreasedValue];
+    });
+    table['_dart_getAttributedDecreasedValue'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.attributedDecreasedValue];
+    });
     table['_dart_getHint'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.hint];
+    });
+    table['_dart_getAttributedHint'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.attributedHint];
     });
     table['_dart_getElevation'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -915,6 +987,12 @@ class RTManagedSemanticsNode extends SemanticsNode
   SemanticsNode unwrap() => this;
   SemanticsNode get vmObject => this;
   @override
+  int get id {
+    Closure closure = table["getId"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
   Matrix4? get transform {
     Closure closure = table["getTransform"];
     return maybeUnBoxAndBuildArgument<Matrix4?, dynamic>(
@@ -1045,15 +1123,25 @@ class RTManagedSemanticsNode extends SemanticsNode
   }
 
   @override
+  AttributedString get attributedLabel {
+    Closure closure = table["getAttributedLabel"];
+    return maybeUnBoxAndBuildArgument<AttributedString, dynamic>(
+        closure.dispatch([table], parentState: hydroState)[0],
+        parentState: hydroState);
+  }
+
+  @override
   String get value {
     Closure closure = table["getValue"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  String get decreasedValue {
-    Closure closure = table["getDecreasedValue"];
-    return closure.dispatch([table], parentState: hydroState)[0];
+  AttributedString get attributedValue {
+    Closure closure = table["getAttributedValue"];
+    return maybeUnBoxAndBuildArgument<AttributedString, dynamic>(
+        closure.dispatch([table], parentState: hydroState)[0],
+        parentState: hydroState);
   }
 
   @override
@@ -1063,9 +1151,39 @@ class RTManagedSemanticsNode extends SemanticsNode
   }
 
   @override
+  AttributedString get attributedIncreasedValue {
+    Closure closure = table["getAttributedIncreasedValue"];
+    return maybeUnBoxAndBuildArgument<AttributedString, dynamic>(
+        closure.dispatch([table], parentState: hydroState)[0],
+        parentState: hydroState);
+  }
+
+  @override
+  String get decreasedValue {
+    Closure closure = table["getDecreasedValue"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  AttributedString get attributedDecreasedValue {
+    Closure closure = table["getAttributedDecreasedValue"];
+    return maybeUnBoxAndBuildArgument<AttributedString, dynamic>(
+        closure.dispatch([table], parentState: hydroState)[0],
+        parentState: hydroState);
+  }
+
+  @override
   String get hint {
     Closure closure = table["getHint"];
     return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  AttributedString get attributedHint {
+    Closure closure = table["getAttributedHint"];
+    return maybeUnBoxAndBuildArgument<AttributedString, dynamic>(
+        closure.dispatch([table], parentState: hydroState)[0],
+        parentState: hydroState);
   }
 
   @override

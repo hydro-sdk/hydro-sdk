@@ -26,12 +26,12 @@ import { IPointerHoverEvent } from "../gestures/pointerHoverEvent";
 import { ISemanticsConfiguration } from "../semantics/semanticsConfiguration";
 import { ISemanticsEvent } from "../semantics/semanticsEvent";
 import { ISemanticsNode } from "../semantics/semanticsNode";
+import { IMouseCursor, MouseCursor } from "../services/mouseCursor";
+import { IMouseTrackerAnnotation } from "../services/mouseTrackerAnnotation";
 import { IBoxConstraints } from "./boxConstraints";
 import { IBoxHitTestResult } from "./boxHitTestResult";
 import { IConstraints } from "./constraints";
 import { IContainerLayer } from "./containerLayer";
-import { IMouseCursor, MouseCursor } from "./mouseCursor";
-import { IMouseTrackerAnnotation } from "./mouseTrackerAnnotation";
 import { IOffsetLayer } from "./offsetLayer";
 import { IPaintingContext } from "./paintingContext";
 import { IParentData } from "./parentData";
@@ -141,6 +141,7 @@ export interface IRenderMouseRegion {
     getConstraints: () => IBoxConstraints;
     getPaintBounds: () => IRect;
     reassemble: () => void;
+    dispose: () => void;
     adoptChild: (child: unknown) => void;
     dropChild: (child: unknown) => void;
     markParentNeedsLayout: () => void;
@@ -201,6 +202,7 @@ export interface IRenderMouseRegion {
         name: string,
         props: { style: DiagnosticsTreeStyle }
     ) => IDiagnosticsNode;
+    getDebugDisposed: () => boolean | undefined;
     getDebugDoingThisResize: () => boolean;
     getDebugDoingThisLayout: () => boolean;
     getDebugCanParentUseSize: () => boolean;
@@ -419,6 +421,7 @@ export class RenderMouseRegion
         undefined as any;
     private readonly _dart_getPaintBounds: () => IRect = undefined as any;
     private readonly _dart_reassemble: () => void = undefined as any;
+    private readonly _dart_dispose: () => void = undefined as any;
     private readonly _dart_adoptChild: (child: any) => void = undefined as any;
     private readonly _dart_dropChild: (child: any) => void = undefined as any;
     private readonly _dart_markParentNeedsLayout: () => void = undefined as any;
@@ -500,6 +503,8 @@ export class RenderMouseRegion
         name: string,
         props: { style: DiagnosticsTreeStyle }
     ) => IDiagnosticsNode = undefined as any;
+    private readonly _dart_getDebugDisposed: () => boolean | undefined =
+        undefined as any;
     private readonly _dart_getDebugDoingThisResize: () => boolean =
         undefined as any;
     private readonly _dart_getDebugDoingThisLayout: () => boolean =
@@ -744,6 +749,9 @@ export class RenderMouseRegion
     public reassemble(): void {
         return this._dart_reassemble();
     }
+    public dispose(): void {
+        return this._dart_dispose();
+    }
     public adoptChild(child: any): void {
         return this._dart_adoptChild(child);
     }
@@ -884,6 +892,9 @@ export class RenderMouseRegion
             ...describeForErrorDefaultProps,
             ...props,
         });
+    }
+    public getDebugDisposed(): boolean | undefined {
+        return this._dart_getDebugDisposed();
     }
     public getDebugDoingThisResize(): boolean {
         return this._dart_getDebugDoingThisResize();

@@ -34,7 +34,6 @@ export interface I_RootSemanticsFragment {
     getOwner: () => IRenderObject;
     getHasConfigForParent: () => boolean;
     getInterestingFragments: () => IList<I_InterestingSemanticsFragment>;
-    getAbortsWalk: () => boolean;
     toString: () => string;
     getHashCode: () => number;
 }
@@ -70,7 +69,6 @@ export class _RootSemanticsFragment implements I_InterestingSemanticsFragment {
         undefined as any;
     private readonly _dart_getInterestingFragments: () => IList<I_InterestingSemanticsFragment> =
         undefined as any;
-    private readonly _dart_getAbortsWalk: () => boolean = undefined as any;
     private readonly _dart_toString: () => string = undefined as any;
     private readonly _dart_getHashCode: () => number = undefined as any;
     public compileChildren(props: {
@@ -104,9 +102,6 @@ export class _RootSemanticsFragment implements I_InterestingSemanticsFragment {
     }
     public getInterestingFragments(): IList<I_InterestingSemanticsFragment> {
         return this._dart_getInterestingFragments();
-    }
-    public getAbortsWalk(): boolean {
-        return this._dart_getAbortsWalk();
     }
     public toString(): string {
         return this._dart_toString();

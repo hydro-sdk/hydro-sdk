@@ -18,7 +18,10 @@ class VMManagedTransformLayer extends VMManagedBox<TransformLayer> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['debugCreator'] = vmObject.debugCreator;
+    table['debugCreator'] = maybeBoxObject<Object?>(
+        object: vmObject.debugCreator,
+        hydroState: hydroState,
+        table: HydroTable());
     table['getTransform'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       final returnValue = vmObject.transform;
@@ -39,12 +42,9 @@ class VMManagedTransformLayer extends VMManagedBox<TransformLayer> {
     });
     table['addToScene'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.addToScene(
-          maybeUnBoxAndBuildArgument<SceneBuilder, dynamic>(
-              luaCallerArguments[1],
-              parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[2],
-              parentState: hydroState));
+      vmObject.addToScene(maybeUnBoxAndBuildArgument<SceneBuilder, dynamic>(
+          luaCallerArguments[1],
+          parentState: hydroState));
       return [];
     });
     table['findAnnotations'] =
@@ -120,6 +120,11 @@ class VMManagedTransformLayer extends VMManagedBox<TransformLayer> {
             table: HydroTable()),
       ];
     });
+    table['dispose'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.dispose();
+      return [];
+    });
     table['updateSubtreeNeedsAddToScene'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.updateSubtreeNeedsAddToScene();
@@ -151,8 +156,6 @@ class VMManagedTransformLayer extends VMManagedBox<TransformLayer> {
       vmObject.addChildrenToScene(
           maybeUnBoxAndBuildArgument<SceneBuilder, dynamic>(
               luaCallerArguments[1],
-              parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[2],
               parentState: hydroState));
       return [];
     });
@@ -242,6 +245,18 @@ class VMManagedTransformLayer extends VMManagedBox<TransformLayer> {
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         vmObject.toStringShort(),
+      ];
+    });
+    table['getDebugDisposed'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        vmObject.debugDisposed,
+      ];
+    });
+    table['getDebugHandleCount'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        vmObject.debugHandleCount,
       ];
     });
     table['getParent'] =
@@ -391,7 +406,8 @@ class RTManagedTransformLayer extends TransformLayer
     table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [unwrap()];
     });
-    table['debugCreator'] = debugCreator;
+    table['debugCreator'] = maybeBoxObject<Object?>(
+        object: debugCreator, hydroState: hydroState, table: HydroTable());
     table['_dart_getTransform'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.transform];
@@ -405,12 +421,9 @@ class RTManagedTransformLayer extends TransformLayer
     });
     table['_dart_addToScene'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.addToScene(
-          maybeUnBoxAndBuildArgument<SceneBuilder, dynamic>(
-              luaCallerArguments[1],
-              parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[2],
-              parentState: hydroState));
+      super.addToScene(maybeUnBoxAndBuildArgument<SceneBuilder, dynamic>(
+          luaCallerArguments[1],
+          parentState: hydroState));
       return [];
     });
     table['_dart_findAnnotations'] =
@@ -481,6 +494,11 @@ class RTManagedTransformLayer extends TransformLayer
             table: HydroTable())
       ];
     });
+    table['_dart_dispose'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.dispose();
+      return [];
+    });
     table['_dart_updateSubtreeNeedsAddToScene'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       super.updateSubtreeNeedsAddToScene();
@@ -515,8 +533,6 @@ class RTManagedTransformLayer extends TransformLayer
       super.addChildrenToScene(
           maybeUnBoxAndBuildArgument<SceneBuilder, dynamic>(
               luaCallerArguments[1],
-              parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[2],
               parentState: hydroState));
       return [];
     });
@@ -592,6 +608,14 @@ class RTManagedTransformLayer extends TransformLayer
     table['_dart_toStringShort'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.toStringShort()];
+    });
+    table['_dart_getDebugDisposed'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.debugDisposed];
+    });
+    table['_dart_getDebugHandleCount'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.debugHandleCount];
     });
     table['_dart_getParent'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -730,7 +754,7 @@ class RTManagedTransformLayer extends TransformLayer
   }
 
   @override
-  void addToScene(SceneBuilder builder, [Offset layerOffset = Offset.zero]) {
+  void addToScene(SceneBuilder builder) {
     Closure closure = table["addToScene"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -787,6 +811,13 @@ class RTManagedTransformLayer extends TransformLayer
   }
 
   @override
+  void dispose() {
+    super.dispose();
+    Closure closure = table["dispose"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
   void updateSubtreeNeedsAddToScene() {
     Closure closure = table["updateSubtreeNeedsAddToScene"];
     return closure.dispatch([table], parentState: hydroState)[0];
@@ -819,8 +850,7 @@ class RTManagedTransformLayer extends TransformLayer
   }
 
   @override
-  void addChildrenToScene(SceneBuilder builder,
-      [Offset childOffset = Offset.zero]) {
+  void addChildrenToScene(SceneBuilder builder) {
     Closure closure = table["addChildrenToScene"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -914,6 +944,18 @@ class RTManagedTransformLayer extends TransformLayer
   @override
   String toStringShort() {
     Closure closure = table["toStringShort"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  bool get debugDisposed {
+    Closure closure = table["getDebugDisposed"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  int get debugHandleCount {
+    Closure closure = table["getDebugHandleCount"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 

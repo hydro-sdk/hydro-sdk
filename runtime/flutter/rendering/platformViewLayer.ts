@@ -1,6 +1,6 @@
 import { IList } from "../../dart/core/list";
 import { IEngineLayer } from "../../dart/ui/engineLayer";
-import { IOffset, Offset } from "../../dart/ui/offset";
+import { IOffset } from "../../dart/ui/offset";
 import { IRect } from "../../dart/ui/rect";
 import { ISceneBuilder } from "../../dart/ui/sceneBuilder";
 import { IAbstractNode } from "../foundation/abstractNode";
@@ -26,8 +26,8 @@ declare const flutter: {
 export interface IPlatformViewLayer {
     rect: IRect;
     viewId: number;
-    debugCreator: any;
-    addToScene: (builder: ISceneBuilder, layerOffset: IOffset) => void;
+    debugCreator: Object | undefined;
+    addToScene: (builder: ISceneBuilder) => void;
     dropChild: (child: unknown) => void;
     adoptChild: (child: unknown) => void;
     remove: () => void;
@@ -40,10 +40,10 @@ export interface IPlatformViewLayer {
     findAllAnnotations: <S>(localPosition: IOffset) => IAnnotationResult<S>;
     toStringShort: () => string;
     debugFillProperties: (properties: IDiagnosticPropertiesBuilder) => void;
+    getDebugDisposed: () => boolean;
+    getDebugHandleCount: () => number;
     getParent: () => IContainerLayer | undefined;
     getAlwaysNeedsAddToScene: () => boolean;
-    getEngineLayer: () => IEngineLayer | undefined;
-    setEngineLayer: (value?: IEngineLayer | undefined) => void;
     getNextSibling: () => ILayer | undefined;
     getPreviousSibling: () => ILayer | undefined;
     toString: (props: { minLevel: DiagnosticLevel }) => string;
@@ -90,14 +90,13 @@ export class PlatformViewLayer
 {
     public readonly rect: IRect = undefined as any;
     public readonly viewId: number = undefined as any;
-    public readonly debugCreator: any = undefined as any;
+    public readonly debugCreator: Object | undefined = undefined as any;
     public constructor(props: { rect: IRect; viewId: number }) {
         flutter.rendering.platformViewLayer(this, props);
     }
-    private readonly _dart_addToScene: (
-        builder: ISceneBuilder,
-        layerOffset: IOffset
-    ) => void = undefined as any;
+    private readonly _dart_addToScene: (builder: ISceneBuilder) => void =
+        undefined as any;
+    private readonly _dart_dispose: () => void = undefined as any;
     private readonly _dart_markNeedsAddToScene: () => void = undefined as any;
     private readonly _dart_updateSubtreeNeedsAddToScene: () => void =
         undefined as any;
@@ -118,6 +117,8 @@ export class PlatformViewLayer
     private readonly _dart_debugFillProperties: (
         properties: IDiagnosticPropertiesBuilder
     ) => void = undefined as any;
+    private readonly _dart_getDebugDisposed: () => boolean = undefined as any;
+    private readonly _dart_getDebugHandleCount: () => number = undefined as any;
     private readonly _dart_getParent: () => IContainerLayer | undefined =
         undefined as any;
     private readonly _dart_getAlwaysNeedsAddToScene: () => boolean =
@@ -159,11 +160,11 @@ export class PlatformViewLayer
         undefined as any;
     private readonly _dart_getAttached: () => boolean = undefined as any;
     private readonly _dart_getHashCode: () => number = undefined as any;
-    public addToScene(
-        builder: ISceneBuilder,
-        layerOffset: IOffset = Offset.zero
-    ): void {
-        return this._dart_addToScene(builder, layerOffset);
+    public addToScene(builder: ISceneBuilder): void {
+        return this._dart_addToScene(builder);
+    }
+    public dispose(): void {
+        return this._dart_dispose();
     }
     public markNeedsAddToScene(): void {
         return this._dart_markNeedsAddToScene();
@@ -198,6 +199,12 @@ export class PlatformViewLayer
     }
     public debugFillProperties(properties: IDiagnosticPropertiesBuilder): void {
         return this._dart_debugFillProperties(properties);
+    }
+    public getDebugDisposed(): boolean {
+        return this._dart_getDebugDisposed();
+    }
+    public getDebugHandleCount(): number {
+        return this._dart_getDebugHandleCount();
     }
     public getParent(): IContainerLayer | undefined {
         return this._dart_getParent();

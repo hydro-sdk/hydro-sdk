@@ -43,6 +43,7 @@ export interface IDiagnosticsDebugCreator {
     getPropertyType: () => Type;
     getValue: () => Object | undefined;
     getException: () => Object | undefined;
+    getIsInteresting: () => boolean;
     getLevel: () => DiagnosticLevel;
     isFiltered: (minLevel: DiagnosticLevel) => boolean;
     toString: (props: {
@@ -97,6 +98,7 @@ export class DiagnosticsDebugCreator implements IDiagnosticsProperty<Object> {
         undefined as any;
     private readonly _dart_getException: () => Object | undefined =
         undefined as any;
+    private readonly _dart_getIsInteresting: () => boolean = undefined as any;
     private readonly _dart_getLevel: () => DiagnosticLevel = undefined as any;
     private readonly _dart_isFiltered: (minLevel: DiagnosticLevel) => boolean =
         undefined as any;
@@ -148,6 +150,9 @@ export class DiagnosticsDebugCreator implements IDiagnosticsProperty<Object> {
     }
     public getException(): Object | undefined {
         return this._dart_getException();
+    }
+    public getIsInteresting(): boolean {
+        return this._dart_getIsInteresting();
     }
     public getLevel(): DiagnosticLevel {
         return this._dart_getLevel();

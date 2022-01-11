@@ -26,7 +26,10 @@ class VMManagedFollowerLayer extends VMManagedBox<FollowerLayer> {
         object: vmObject.linkedOffset,
         hydroState: hydroState,
         table: HydroTable());
-    table['debugCreator'] = vmObject.debugCreator;
+    table['debugCreator'] = maybeBoxObject<Object?>(
+        object: vmObject.debugCreator,
+        hydroState: hydroState,
+        table: HydroTable());
     table['getLink'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
@@ -39,6 +42,16 @@ class VMManagedFollowerLayer extends VMManagedBox<FollowerLayer> {
       vmObject.link = (maybeUnBoxAndBuildArgument<LayerLink, dynamic>(
           luaCallerArguments[1],
           parentState: hydroState));
+      return [];
+    });
+    table['attach'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.attach(maybeUnBoxAndBuildArgument<Object, dynamic>(
+          luaCallerArguments[1],
+          parentState: hydroState));
+      return [];
+    });
+    table['detach'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.detach();
       return [];
     });
     table['findAnnotations'] =
@@ -74,12 +87,9 @@ class VMManagedFollowerLayer extends VMManagedBox<FollowerLayer> {
     });
     table['addToScene'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.addToScene(
-          maybeUnBoxAndBuildArgument<SceneBuilder, dynamic>(
-              luaCallerArguments[1],
-              parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[2],
-              parentState: hydroState));
+      vmObject.addToScene(maybeUnBoxAndBuildArgument<SceneBuilder, dynamic>(
+          luaCallerArguments[1],
+          parentState: hydroState));
       return [];
     });
     table['applyTransform'] =
@@ -111,19 +121,14 @@ class VMManagedFollowerLayer extends VMManagedBox<FollowerLayer> {
             table: HydroTable()),
       ];
     });
+    table['dispose'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.dispose();
+      return [];
+    });
     table['updateSubtreeNeedsAddToScene'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.updateSubtreeNeedsAddToScene();
-      return [];
-    });
-    table['attach'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.attach(maybeUnBoxAndBuildArgument<Object, dynamic>(
-          luaCallerArguments[1],
-          parentState: hydroState));
-      return [];
-    });
-    table['detach'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.detach();
       return [];
     });
     table['append'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -142,8 +147,6 @@ class VMManagedFollowerLayer extends VMManagedBox<FollowerLayer> {
       vmObject.addChildrenToScene(
           maybeUnBoxAndBuildArgument<SceneBuilder, dynamic>(
               luaCallerArguments[1],
-              parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[2],
               parentState: hydroState));
       return [];
     });
@@ -233,6 +236,18 @@ class VMManagedFollowerLayer extends VMManagedBox<FollowerLayer> {
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         vmObject.toStringShort(),
+      ];
+    });
+    table['getDebugDisposed'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        vmObject.debugDisposed,
+      ];
+    });
+    table['getDebugHandleCount'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        vmObject.debugHandleCount,
       ];
     });
     table['getParent'] =
@@ -395,7 +410,8 @@ class RTManagedFollowerLayer extends FollowerLayer
         table: HydroTable());
     table['linkedOffset'] = maybeBoxObject<Offset?>(
         object: this.linkedOffset, hydroState: hydroState, table: HydroTable());
-    table['debugCreator'] = debugCreator;
+    table['debugCreator'] = maybeBoxObject<Object?>(
+        object: debugCreator, hydroState: hydroState, table: HydroTable());
     table['_dart_getLink'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.link];
@@ -405,6 +421,18 @@ class RTManagedFollowerLayer extends FollowerLayer
       super.link = (maybeUnBoxAndBuildArgument<LayerLink, dynamic>(
           luaCallerArguments[1],
           parentState: hydroState));
+      return [];
+    });
+    table['_dart_attach'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.attach(maybeUnBoxAndBuildArgument<Object, dynamic>(
+          luaCallerArguments[1],
+          parentState: hydroState));
+      return [];
+    });
+    table['_dart_detach'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.detach();
       return [];
     });
     table['_dart_findAnnotations'] =
@@ -436,12 +464,9 @@ class RTManagedFollowerLayer extends FollowerLayer
     });
     table['_dart_addToScene'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.addToScene(
-          maybeUnBoxAndBuildArgument<SceneBuilder, dynamic>(
-              luaCallerArguments[1],
-              parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[2],
-              parentState: hydroState));
+      super.addToScene(maybeUnBoxAndBuildArgument<SceneBuilder, dynamic>(
+          luaCallerArguments[1],
+          parentState: hydroState));
       return [];
     });
     table['_dart_applyTransform'] =
@@ -473,21 +498,14 @@ class RTManagedFollowerLayer extends FollowerLayer
             table: HydroTable())
       ];
     });
+    table['_dart_dispose'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.dispose();
+      return [];
+    });
     table['_dart_updateSubtreeNeedsAddToScene'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       super.updateSubtreeNeedsAddToScene();
-      return [];
-    });
-    table['_dart_attach'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.attach(maybeUnBoxAndBuildArgument<Object, dynamic>(
-          luaCallerArguments[1],
-          parentState: hydroState));
-      return [];
-    });
-    table['_dart_detach'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.detach();
       return [];
     });
     table['_dart_append'] =
@@ -507,8 +525,6 @@ class RTManagedFollowerLayer extends FollowerLayer
       super.addChildrenToScene(
           maybeUnBoxAndBuildArgument<SceneBuilder, dynamic>(
               luaCallerArguments[1],
-              parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[2],
               parentState: hydroState));
       return [];
     });
@@ -584,6 +600,14 @@ class RTManagedFollowerLayer extends FollowerLayer
     table['_dart_toStringShort'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.toStringShort()];
+    });
+    table['_dart_getDebugDisposed'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.debugDisposed];
+    });
+    table['_dart_getDebugHandleCount'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.debugHandleCount];
     });
     table['_dart_getParent'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -718,6 +742,20 @@ class RTManagedFollowerLayer extends FollowerLayer
   }
 
   @override
+  void attach(Object owner) {
+    super.attach(owner);
+    Closure closure = table["attach"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  void detach() {
+    super.detach();
+    Closure closure = table["detach"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
   bool findAnnotations<S extends Object>(
       AnnotationResult result, Offset localPosition,
       {required bool onlyFirst}) {
@@ -740,7 +778,7 @@ class RTManagedFollowerLayer extends FollowerLayer
   }
 
   @override
-  void addToScene(SceneBuilder builder, [Offset layerOffset = Offset.zero]) {
+  void addToScene(SceneBuilder builder) {
     Closure closure = table["addToScene"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -767,22 +805,15 @@ class RTManagedFollowerLayer extends FollowerLayer
   }
 
   @override
+  void dispose() {
+    super.dispose();
+    Closure closure = table["dispose"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
   void updateSubtreeNeedsAddToScene() {
     Closure closure = table["updateSubtreeNeedsAddToScene"];
-    return closure.dispatch([table], parentState: hydroState)[0];
-  }
-
-  @override
-  void attach(Object owner) {
-    super.attach(owner);
-    Closure closure = table["attach"];
-    return closure.dispatch([table], parentState: hydroState)[0];
-  }
-
-  @override
-  void detach() {
-    super.detach();
-    Closure closure = table["detach"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
@@ -799,8 +830,7 @@ class RTManagedFollowerLayer extends FollowerLayer
   }
 
   @override
-  void addChildrenToScene(SceneBuilder builder,
-      [Offset childOffset = Offset.zero]) {
+  void addChildrenToScene(SceneBuilder builder) {
     Closure closure = table["addChildrenToScene"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -894,6 +924,18 @@ class RTManagedFollowerLayer extends FollowerLayer
   @override
   String toStringShort() {
     Closure closure = table["toStringShort"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  bool get debugDisposed {
+    Closure closure = table["getDebugDisposed"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  int get debugHandleCount {
+    Closure closure = table["getDebugHandleCount"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 

@@ -16,37 +16,37 @@ class VMManagedSliverHitTestResult extends VMManagedBox<SliverHitTestResult> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['addWithAxisOffset'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      Closure unpackedhitTest = luaCallerArguments.length >= 2
-          ? luaCallerArguments[1]['hitTest']
-          : null;
+    // table['addWithAxisOffset'] =
+    //     makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    //   Closure unpackedhitTest = luaCallerArguments.length >= 2
+    //       ? luaCallerArguments[1]['hitTest']
+    //       : null;
 
-      return [
-        vmObject.addWithAxisOffset(
-            crossAxisOffset: luaCallerArguments.length >= 2
-                ? luaCallerArguments[1]['crossAxisOffset']
-                : null?.toDouble(),
-            crossAxisPosition: luaCallerArguments.length >= 2
-                ? luaCallerArguments[1]['crossAxisPosition']
-                : null?.toDouble(),
-            hitTest: (result) => unpackedhitTest.dispatch(
-                  [luaCallerArguments[0], result],
-                  parentState: hydroState,
-                )[0],
-            mainAxisOffset: luaCallerArguments.length >= 2
-                ? luaCallerArguments[1]['mainAxisOffset']
-                : null?.toDouble(),
-            mainAxisPosition: luaCallerArguments.length >= 2
-                ? luaCallerArguments[1]['mainAxisPosition']
-                : null?.toDouble(),
-            paintOffset: maybeUnBoxAndBuildArgument<Offset?, dynamic>(
-                luaCallerArguments.length >= 2
-                    ? luaCallerArguments[1]['paintOffset']
-                    : null,
-                parentState: hydroState)),
-      ];
-    });
+    //   return [
+    //     vmObject.addWithAxisOffset(
+    //         crossAxisOffset: luaCallerArguments.length >= 2
+    //             ? luaCallerArguments[1]['crossAxisOffset']
+    //             : null?.toDouble(),
+    //         crossAxisPosition: luaCallerArguments.length >= 2
+    //             ? luaCallerArguments[1]['crossAxisPosition']
+    //             : null?.toDouble(),
+    //         hitTest: (result) => unpackedhitTest.dispatch(
+    //               [luaCallerArguments[0], result],
+    //               parentState: hydroState,
+    //             )[0],
+    //         mainAxisOffset: luaCallerArguments.length >= 2
+    //             ? luaCallerArguments[1]['mainAxisOffset']
+    //             : null?.toDouble(),
+    //         mainAxisPosition: luaCallerArguments.length >= 2
+    //             ? luaCallerArguments[1]['mainAxisPosition']
+    //             : null?.toDouble(),
+    //         paintOffset: maybeUnBoxAndBuildArgument<Offset?, dynamic>(
+    //             luaCallerArguments.length >= 2
+    //                 ? luaCallerArguments[1]['paintOffset']
+    //                 : null,
+    //             parentState: hydroState)),
+    //   ];
+    // });
     table['add'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.add(maybeUnBoxAndBuildArgument<HitTestEntry, dynamic>(
           luaCallerArguments[1],
@@ -89,37 +89,37 @@ class RTManagedSliverHitTestResult extends SliverHitTestResult
     table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [unwrap()];
     });
-    table['_dart_addWithAxisOffset'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      Closure unpackedhitTest = luaCallerArguments.length >= 2
-          ? luaCallerArguments[1]['hitTest']
-          : null;
+    // table['_dart_addWithAxisOffset'] =
+    //     makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    //   Closure unpackedhitTest = luaCallerArguments.length >= 2
+    //       ? luaCallerArguments[1]['hitTest']
+    //       : null;
 
-      return [
-        super.addWithAxisOffset(
-            crossAxisOffset: luaCallerArguments.length >= 2
-                ? luaCallerArguments[1]['crossAxisOffset']
-                : null?.toDouble(),
-            crossAxisPosition: luaCallerArguments.length >= 2
-                ? luaCallerArguments[1]['crossAxisPosition']
-                : null?.toDouble(),
-            hitTest: (result) => unpackedhitTest.dispatch(
-                  [luaCallerArguments[0], result],
-                  parentState: hydroState,
-                )[0],
-            mainAxisOffset: luaCallerArguments.length >= 2
-                ? luaCallerArguments[1]['mainAxisOffset']
-                : null?.toDouble(),
-            mainAxisPosition: luaCallerArguments.length >= 2
-                ? luaCallerArguments[1]['mainAxisPosition']
-                : null?.toDouble(),
-            paintOffset: maybeUnBoxAndBuildArgument<Offset?, dynamic>(
-                luaCallerArguments.length >= 2
-                    ? luaCallerArguments[1]['paintOffset']
-                    : null,
-                parentState: hydroState))
-      ];
-    });
+    //   return [
+    //     super.addWithAxisOffset(
+    //         crossAxisOffset: luaCallerArguments.length >= 2
+    //             ? luaCallerArguments[1]['crossAxisOffset']
+    //             : null?.toDouble(),
+    //         crossAxisPosition: luaCallerArguments.length >= 2
+    //             ? luaCallerArguments[1]['crossAxisPosition']
+    //             : null?.toDouble(),
+    //         hitTest: (result) => unpackedhitTest.dispatch(
+    //               [luaCallerArguments[0], result],
+    //               parentState: hydroState,
+    //             )[0],
+    //         mainAxisOffset: luaCallerArguments.length >= 2
+    //             ? luaCallerArguments[1]['mainAxisOffset']
+    //             : null?.toDouble(),
+    //         mainAxisPosition: luaCallerArguments.length >= 2
+    //             ? luaCallerArguments[1]['mainAxisPosition']
+    //             : null?.toDouble(),
+    //         paintOffset: maybeUnBoxAndBuildArgument<Offset?, dynamic>(
+    //             luaCallerArguments.length >= 2
+    //                 ? luaCallerArguments[1]['paintOffset']
+    //                 : null,
+    //             parentState: hydroState))
+    //   ];
+    // });
     table['_dart_add'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       super.add(maybeUnBoxAndBuildArgument<HitTestEntry, dynamic>(

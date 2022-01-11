@@ -22,15 +22,15 @@ class VMManagedTextureLayer extends VMManagedBox<TextureLayer> {
     table['filterQuality'] = FilterQuality.values.indexWhere((x) {
       return x == vmObject.filterQuality;
     });
-    table['debugCreator'] = vmObject.debugCreator;
+    table['debugCreator'] = maybeBoxObject<Object?>(
+        object: vmObject.debugCreator,
+        hydroState: hydroState,
+        table: HydroTable());
     table['addToScene'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.addToScene(
-          maybeUnBoxAndBuildArgument<SceneBuilder, dynamic>(
-              luaCallerArguments[1],
-              parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[2],
-              parentState: hydroState));
+      vmObject.addToScene(maybeUnBoxAndBuildArgument<SceneBuilder, dynamic>(
+          luaCallerArguments[1],
+          parentState: hydroState));
       return [];
     });
     table['findAnnotations'] =
@@ -101,6 +101,18 @@ class VMManagedTextureLayer extends VMManagedBox<TextureLayer> {
               luaCallerArguments[1],
               parentState: hydroState));
       return [];
+    });
+    table['getDebugDisposed'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        vmObject.debugDisposed,
+      ];
+    });
+    table['getDebugHandleCount'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        vmObject.debugHandleCount,
+      ];
     });
     table['getParent'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -284,15 +296,13 @@ class RTManagedTextureLayer extends TextureLayer implements Box<TextureLayer> {
     table['filterQuality'] = FilterQuality.values.indexWhere((x) {
       return x == this.filterQuality;
     });
-    table['debugCreator'] = debugCreator;
+    table['debugCreator'] = maybeBoxObject<Object?>(
+        object: debugCreator, hydroState: hydroState, table: HydroTable());
     table['_dart_addToScene'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.addToScene(
-          maybeUnBoxAndBuildArgument<SceneBuilder, dynamic>(
-              luaCallerArguments[1],
-              parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[2],
-              parentState: hydroState));
+      super.addToScene(maybeUnBoxAndBuildArgument<SceneBuilder, dynamic>(
+          luaCallerArguments[1],
+          parentState: hydroState));
       return [];
     });
     table['_dart_findAnnotations'] =
@@ -308,6 +318,11 @@ class RTManagedTextureLayer extends TextureLayer implements Box<TextureLayer> {
                 ? luaCallerArguments[3]['onlyFirst']
                 : null)
       ];
+    });
+    table['_dart_dispose'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.dispose();
+      return [];
     });
     table['_dart_markNeedsAddToScene'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -369,6 +384,14 @@ class RTManagedTextureLayer extends TextureLayer implements Box<TextureLayer> {
               luaCallerArguments[1],
               parentState: hydroState));
       return [];
+    });
+    table['_dart_getDebugDisposed'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.debugDisposed];
+    });
+    table['_dart_getDebugHandleCount'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.debugHandleCount];
     });
     table['_dart_getParent'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -518,7 +541,7 @@ class RTManagedTextureLayer extends TextureLayer implements Box<TextureLayer> {
   TextureLayer unwrap() => this;
   TextureLayer get vmObject => this;
   @override
-  void addToScene(SceneBuilder builder, [Offset layerOffset = Offset.zero]) {
+  void addToScene(SceneBuilder builder) {
     Closure closure = table["addToScene"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -528,6 +551,13 @@ class RTManagedTextureLayer extends TextureLayer implements Box<TextureLayer> {
       AnnotationResult result, Offset localPosition,
       {required bool onlyFirst}) {
     Closure closure = table["findAnnotations"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    Closure closure = table["dispose"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
@@ -595,6 +625,18 @@ class RTManagedTextureLayer extends TextureLayer implements Box<TextureLayer> {
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     Closure closure = table["debugFillProperties"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  bool get debugDisposed {
+    Closure closure = table["getDebugDisposed"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  int get debugHandleCount {
+    Closure closure = table["getDebugHandleCount"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 

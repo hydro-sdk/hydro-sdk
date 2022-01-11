@@ -11,6 +11,7 @@ import { IDiagnosticPropertiesBuilder } from "../foundation/diagnosticProperties
 import { IDiagnosticsNode } from "../foundation/diagnosticsNode";
 import { DiagnosticsTreeStyle } from "../foundation/diagnosticsTreeStyle";
 import { ITextSelection } from "../services/textSelection";
+import { IAttributedString } from "./attributedString";
 import { ISemanticsTag } from "./semanticsTag";
 declare const flutter: {
     semantics: {
@@ -22,13 +23,14 @@ declare const flutter: {
                 tags?: ISet<ISemanticsTag> | undefined;
                 transform?: IMatrix4 | undefined;
                 actions: number;
+                attributedDecreasedValue: IAttributedString;
+                attributedHint: IAttributedString;
+                attributedIncreasedValue: IAttributedString;
+                attributedLabel: IAttributedString;
+                attributedValue: IAttributedString;
                 currentValueLength?: number | undefined;
-                decreasedValue: string;
                 elevation: number;
                 flags: number;
-                hint: string;
-                increasedValue: string;
-                label: string;
                 maxValueLength?: number | undefined;
                 platformViewId?: number | undefined;
                 rect: IRect;
@@ -40,7 +42,6 @@ declare const flutter: {
                 textDirection?: TextDirection | undefined;
                 textSelection?: ITextSelection | undefined;
                 thickness: number;
-                value: string;
             }
         ) => ISemanticsData;
     };
@@ -48,11 +49,11 @@ declare const flutter: {
 export interface ISemanticsData {
     flags: number;
     actions: number;
-    label: string;
-    value: string;
-    increasedValue: string;
-    decreasedValue: string;
-    hint: string;
+    attributedLabel: IAttributedString;
+    attributedValue: IAttributedString;
+    attributedIncreasedValue: IAttributedString;
+    attributedDecreasedValue: IAttributedString;
+    attributedHint: IAttributedString;
     textDirection: TextDirection | undefined;
     textSelection: ITextSelection | undefined;
     scrollChildCount: number | undefined;
@@ -69,6 +70,11 @@ export interface ISemanticsData {
     elevation: number;
     thickness: number;
     customSemanticsActionIds: IList<number> | undefined;
+    getLabel: () => string;
+    getValue: () => string;
+    getIncreasedValue: () => string;
+    getDecreasedValue: () => string;
+    getHint: () => string;
     hasFlag: (flag: ISemanticsFlag) => boolean;
     hasAction: (action: ISemanticsAction) => boolean;
     toStringShort: () => string;
@@ -83,11 +89,13 @@ export interface ISemanticsData {
 export class SemanticsData implements IDiagnosticable {
     public readonly flags: number = undefined as any;
     public readonly actions: number = undefined as any;
-    public readonly label: string = undefined as any;
-    public readonly value: string = undefined as any;
-    public readonly increasedValue: string = undefined as any;
-    public readonly decreasedValue: string = undefined as any;
-    public readonly hint: string = undefined as any;
+    public readonly attributedLabel: IAttributedString = undefined as any;
+    public readonly attributedValue: IAttributedString = undefined as any;
+    public readonly attributedIncreasedValue: IAttributedString =
+        undefined as any;
+    public readonly attributedDecreasedValue: IAttributedString =
+        undefined as any;
+    public readonly attributedHint: IAttributedString = undefined as any;
     public readonly textDirection: TextDirection | undefined = undefined as any;
     public readonly textSelection: ITextSelection | undefined =
         undefined as any;
@@ -111,13 +119,14 @@ export class SemanticsData implements IDiagnosticable {
         tags?: ISet<ISemanticsTag> | undefined;
         transform?: IMatrix4 | undefined;
         actions: number;
+        attributedDecreasedValue: IAttributedString;
+        attributedHint: IAttributedString;
+        attributedIncreasedValue: IAttributedString;
+        attributedLabel: IAttributedString;
+        attributedValue: IAttributedString;
         currentValueLength?: number | undefined;
-        decreasedValue: string;
         elevation: number;
         flags: number;
-        hint: string;
-        increasedValue: string;
-        label: string;
         maxValueLength?: number | undefined;
         platformViewId?: number | undefined;
         rect: IRect;
@@ -129,10 +138,14 @@ export class SemanticsData implements IDiagnosticable {
         textDirection?: TextDirection | undefined;
         textSelection?: ITextSelection | undefined;
         thickness: number;
-        value: string;
     }) {
         flutter.semantics.semanticsData(this, props);
     }
+    private readonly _dart_getLabel: () => string = undefined as any;
+    private readonly _dart_getValue: () => string = undefined as any;
+    private readonly _dart_getIncreasedValue: () => string = undefined as any;
+    private readonly _dart_getDecreasedValue: () => string = undefined as any;
+    private readonly _dart_getHint: () => string = undefined as any;
     private readonly _dart_hasFlag: (flag: ISemanticsFlag) => boolean =
         undefined as any;
     private readonly _dart_hasAction: (action: ISemanticsAction) => boolean =
@@ -149,6 +162,21 @@ export class SemanticsData implements IDiagnosticable {
         name?: string | undefined;
         style?: DiagnosticsTreeStyle | undefined;
     }) => IDiagnosticsNode = undefined as any;
+    public getLabel(): string {
+        return this._dart_getLabel();
+    }
+    public getValue(): string {
+        return this._dart_getValue();
+    }
+    public getIncreasedValue(): string {
+        return this._dart_getIncreasedValue();
+    }
+    public getDecreasedValue(): string {
+        return this._dart_getDecreasedValue();
+    }
+    public getHint(): string {
+        return this._dart_getHint();
+    }
     public hasFlag(flag: ISemanticsFlag): boolean {
         return this._dart_hasFlag(flag);
     }

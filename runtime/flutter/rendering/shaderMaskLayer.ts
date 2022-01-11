@@ -1,7 +1,7 @@
 import { IList } from "../../dart/core/list";
 import { BlendMode } from "../../dart/ui/blendMode";
 import { IEngineLayer } from "../../dart/ui/engineLayer";
-import { IOffset, Offset } from "../../dart/ui/offset";
+import { IOffset } from "../../dart/ui/offset";
 import { IRect } from "../../dart/ui/rect";
 import { IScene } from "../../dart/ui/scene";
 import { ISceneBuilder } from "../../dart/ui/sceneBuilder";
@@ -32,16 +32,17 @@ declare const flutter: {
     };
 };
 export interface IShaderMaskLayer {
-    debugCreator: any;
+    debugCreator: Object | undefined;
     getShader: () => IShader | undefined;
     setShader: (value?: IShader | undefined) => void;
     getMaskRect: () => IRect | undefined;
     setMaskRect: (value?: IRect | undefined) => void;
     getBlendMode: () => BlendMode | undefined;
     setBlendMode: (value?: BlendMode | undefined) => void;
-    addToScene: (builder: ISceneBuilder, layerOffset: IOffset) => void;
+    addToScene: (builder: ISceneBuilder) => void;
     debugFillProperties: (properties: IDiagnosticPropertiesBuilder) => void;
     buildScene: (builder: ISceneBuilder) => IScene;
+    dispose: () => void;
     updateSubtreeNeedsAddToScene: () => void;
     findAnnotations: <S>(
         result: IAnnotationResult<S>,
@@ -52,7 +53,7 @@ export interface IShaderMaskLayer {
     detach: () => void;
     append: (child: ILayer) => void;
     removeAllChildren: () => void;
-    addChildrenToScene: (builder: ISceneBuilder, childOffset: IOffset) => void;
+    addChildrenToScene: (builder: ISceneBuilder) => void;
     applyTransform: (child: ILayer | undefined, transform: IMatrix4) => void;
     debugDescribeChildren: () => IList<IDiagnosticsNode>;
     getFirstChild: () => ILayer | undefined;
@@ -64,10 +65,10 @@ export interface IShaderMaskLayer {
     find: <S>(localPosition: IOffset) => S | undefined;
     findAllAnnotations: <S>(localPosition: IOffset) => IAnnotationResult<S>;
     toStringShort: () => string;
+    getDebugDisposed: () => boolean;
+    getDebugHandleCount: () => number;
     getParent: () => IContainerLayer | undefined;
     getAlwaysNeedsAddToScene: () => boolean;
-    getEngineLayer: () => IEngineLayer | undefined;
-    setEngineLayer: (value?: IEngineLayer | undefined) => void;
     getNextSibling: () => ILayer | undefined;
     getPreviousSibling: () => ILayer | undefined;
     toString: (props: { minLevel: DiagnosticLevel }) => string;
@@ -106,7 +107,7 @@ export class ShaderMaskLayer
             | "toDiagnosticsNode"
         >
 {
-    public readonly debugCreator: any = undefined as any;
+    public readonly debugCreator: Object | undefined = undefined as any;
     public constructor(props?: {
         blendMode?: BlendMode | undefined;
         maskRect?: IRect | undefined;
@@ -127,15 +128,14 @@ export class ShaderMaskLayer
     private readonly _dart_setBlendMode: (
         value?: BlendMode | undefined
     ) => void = undefined as any;
-    private readonly _dart_addToScene: (
-        builder: ISceneBuilder,
-        layerOffset: IOffset
-    ) => void = undefined as any;
+    private readonly _dart_addToScene: (builder: ISceneBuilder) => void =
+        undefined as any;
     private readonly _dart_debugFillProperties: (
         properties: IDiagnosticPropertiesBuilder
     ) => void = undefined as any;
     private readonly _dart_buildScene: (builder: ISceneBuilder) => IScene =
         undefined as any;
+    private readonly _dart_dispose: () => void = undefined as any;
     private readonly _dart_updateSubtreeNeedsAddToScene: () => void =
         undefined as any;
     private readonly _dart_findAnnotations: <S>(
@@ -148,8 +148,7 @@ export class ShaderMaskLayer
     private readonly _dart_append: (child: ILayer) => void = undefined as any;
     private readonly _dart_removeAllChildren: () => void = undefined as any;
     private readonly _dart_addChildrenToScene: (
-        builder: ISceneBuilder,
-        childOffset: IOffset
+        builder: ISceneBuilder
     ) => void = undefined as any;
     private readonly _dart_applyTransform: (
         child: ILayer | undefined,
@@ -172,6 +171,8 @@ export class ShaderMaskLayer
         localPosition: IOffset
     ) => IAnnotationResult<S> = undefined as any;
     private readonly _dart_toStringShort: () => string = undefined as any;
+    private readonly _dart_getDebugDisposed: () => boolean = undefined as any;
+    private readonly _dart_getDebugHandleCount: () => number = undefined as any;
     private readonly _dart_getParent: () => IContainerLayer | undefined =
         undefined as any;
     private readonly _dart_getAlwaysNeedsAddToScene: () => boolean =
@@ -227,17 +228,17 @@ export class ShaderMaskLayer
     public setBlendMode(value?: BlendMode | undefined): void {
         return this._dart_setBlendMode(value);
     }
-    public addToScene(
-        builder: ISceneBuilder,
-        layerOffset: IOffset = Offset.zero
-    ): void {
-        return this._dart_addToScene(builder, layerOffset);
+    public addToScene(builder: ISceneBuilder): void {
+        return this._dart_addToScene(builder);
     }
     public debugFillProperties(properties: IDiagnosticPropertiesBuilder): void {
         return this._dart_debugFillProperties(properties);
     }
     public buildScene(builder: ISceneBuilder): IScene {
         return this._dart_buildScene(builder);
+    }
+    public dispose(): void {
+        return this._dart_dispose();
     }
     public updateSubtreeNeedsAddToScene(): void {
         return this._dart_updateSubtreeNeedsAddToScene();
@@ -261,11 +262,8 @@ export class ShaderMaskLayer
     public removeAllChildren(): void {
         return this._dart_removeAllChildren();
     }
-    public addChildrenToScene(
-        builder: ISceneBuilder,
-        childOffset: IOffset = Offset.zero
-    ): void {
-        return this._dart_addChildrenToScene(builder, childOffset);
+    public addChildrenToScene(builder: ISceneBuilder): void {
+        return this._dart_addChildrenToScene(builder);
     }
     public applyTransform(
         child: ILayer | undefined,
@@ -305,6 +303,12 @@ export class ShaderMaskLayer
     }
     public toStringShort(): string {
         return this._dart_toStringShort();
+    }
+    public getDebugDisposed(): boolean {
+        return this._dart_getDebugDisposed();
+    }
+    public getDebugHandleCount(): number {
+        return this._dart_getDebugHandleCount();
     }
     public getParent(): IContainerLayer | undefined {
         return this._dart_getParent();

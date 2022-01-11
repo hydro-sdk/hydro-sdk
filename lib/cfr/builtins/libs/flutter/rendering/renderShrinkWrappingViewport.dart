@@ -250,6 +250,11 @@ class VMManagedRenderShrinkWrappingViewport
               parentState: hydroState));
       return [];
     });
+    table['dispose'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.dispose();
+      return [];
+    });
     table['debugPaintSize'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.debugPaintSize(
@@ -980,6 +985,16 @@ class VMManagedRenderShrinkWrappingViewport
             table: HydroTable()),
       ];
     });
+    table['getDebugDisposed'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      final returnValue = vmObject.debugDisposed;
+      if (returnValue != null) {
+        return [
+          returnValue,
+        ];
+      }
+      return [];
+    });
     table['getDebugDoingThisResize'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
@@ -1390,6 +1405,11 @@ class RTManagedRenderShrinkWrappingViewport extends RenderShrinkWrappingViewport
               parentState: hydroState),
           maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[2],
               parentState: hydroState));
+      return [];
+    });
+    table['_dart_dispose'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.dispose();
       return [];
     });
     table['_dart_debugPaintSize'] =
@@ -2132,6 +2152,10 @@ class RTManagedRenderShrinkWrappingViewport extends RenderShrinkWrappingViewport
             table: HydroTable())
       ];
     });
+    table['_dart_getDebugDisposed'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.debugDisposed];
+    });
     table['_dart_getDebugDoingThisResize'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.debugDoingThisResize];
@@ -2428,6 +2452,13 @@ class RTManagedRenderShrinkWrappingViewport extends RenderShrinkWrappingViewport
   @override
   void paint(PaintingContext context, Offset offset) {
     Closure closure = table["paint"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    Closure closure = table["dispose"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
@@ -3042,6 +3073,12 @@ class RTManagedRenderShrinkWrappingViewport extends RenderShrinkWrappingViewport
     return maybeUnBoxAndBuildArgument<DiagnosticsNode, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
+  }
+
+  @override
+  bool? get debugDisposed {
+    Closure closure = table["getDebugDisposed"];
+    return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override

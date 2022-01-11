@@ -1,6 +1,7 @@
 import 'dart:core';
 import 'dart:ui';
 
+import 'package:flutter/src/animation/animation.dart';
 import 'package:flutter/src/animation/curves.dart';
 import 'package:flutter/src/foundation/assertions.dart';
 import 'package:flutter/src/foundation/diagnostics.dart';
@@ -113,6 +114,25 @@ class VMManagedRenderImage extends VMManagedBox<RenderImage> {
       vmObject.color = (maybeUnBoxAndBuildArgument<Color?, dynamic>(
           luaCallerArguments[1],
           parentState: hydroState));
+      return [];
+    });
+    table['getOpacity'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      final returnValue = vmObject.opacity;
+      if (returnValue != null) {
+        return [
+          maybeBoxObject<Animation?>(
+              object: returnValue, hydroState: hydroState, table: HydroTable()),
+        ];
+      }
+      return [];
+    });
+    table['setOpacity'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.opacity =
+          (maybeUnBoxAndBuildArgument<Animation<double>?, double>(
+              luaCallerArguments[1],
+              parentState: hydroState));
       return [];
     });
     table['getFilterQuality'] =
@@ -312,6 +332,16 @@ class VMManagedRenderImage extends VMManagedBox<RenderImage> {
       vmObject.performLayout();
       return [];
     });
+    table['attach'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.attach(maybeUnBoxAndBuildArgument<PipelineOwner, dynamic>(
+          luaCallerArguments[1],
+          parentState: hydroState));
+      return [];
+    });
+    table['detach'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.detach();
+      return [];
+    });
     table['paint'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.paint(
           maybeUnBoxAndBuildArgument<PaintingContext, dynamic>(
@@ -319,6 +349,11 @@ class VMManagedRenderImage extends VMManagedBox<RenderImage> {
               parentState: hydroState),
           maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[2],
               parentState: hydroState));
+      return [];
+    });
+    table['dispose'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.dispose();
       return [];
     });
     table['debugFillProperties'] =
@@ -592,12 +627,6 @@ class VMManagedRenderImage extends VMManagedBox<RenderImage> {
           ));
       return [];
     });
-    table['attach'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.attach(maybeUnBoxAndBuildArgument<PipelineOwner, dynamic>(
-          luaCallerArguments[1],
-          parentState: hydroState));
-      return [];
-    });
     table['markNeedsLayoutForSizedByParentChange'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.markNeedsLayoutForSizedByParentChange();
@@ -851,6 +880,16 @@ class VMManagedRenderImage extends VMManagedBox<RenderImage> {
             table: HydroTable()),
       ];
     });
+    table['getDebugDisposed'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      final returnValue = vmObject.debugDisposed;
+      if (returnValue != null) {
+        return [
+          returnValue,
+        ];
+      }
+      return [];
+    });
     table['getDebugDoingThisResize'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
@@ -960,10 +999,6 @@ class VMManagedRenderImage extends VMManagedBox<RenderImage> {
       vmObject.redepthChildren();
       return [];
     });
-    table['detach'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.detach();
-      return [];
-    });
     table['getDepth'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
@@ -1016,6 +1051,7 @@ class RTManagedRenderImage extends RenderImage implements Box<RenderImage> {
       required bool invertColors,
       required bool isAntiAlias,
       required bool matchTextDirection,
+      Animation<double>? opacity,
       required ImageRepeat repeat,
       required double scale,
       TextDirection? textDirection,
@@ -1035,6 +1071,7 @@ class RTManagedRenderImage extends RenderImage implements Box<RenderImage> {
             invertColors: invertColors,
             isAntiAlias: isAntiAlias,
             matchTextDirection: matchTextDirection,
+            opacity: opacity,
             repeat: repeat,
             scale: scale,
             textDirection: textDirection,
@@ -1093,6 +1130,17 @@ class RTManagedRenderImage extends RenderImage implements Box<RenderImage> {
     table['_dart_setColor'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       super.color = (maybeUnBoxAndBuildArgument<Color?, dynamic>(
+          luaCallerArguments[1],
+          parentState: hydroState));
+      return [];
+    });
+    table['_dart_getOpacity'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.opacity];
+    });
+    table['_dart_setOpacity'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.opacity = (maybeUnBoxAndBuildArgument<Animation<double>?, double>(
           luaCallerArguments[1],
           parentState: hydroState));
       return [];
@@ -1245,6 +1293,18 @@ class RTManagedRenderImage extends RenderImage implements Box<RenderImage> {
       super.performLayout();
       return [];
     });
+    table['_dart_attach'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.attach(maybeUnBoxAndBuildArgument<PipelineOwner, dynamic>(
+          luaCallerArguments[1],
+          parentState: hydroState));
+      return [];
+    });
+    table['_dart_detach'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.detach();
+      return [];
+    });
     table['_dart_paint'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       super.paint(
@@ -1253,6 +1313,11 @@ class RTManagedRenderImage extends RenderImage implements Box<RenderImage> {
               parentState: hydroState),
           maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[2],
               parentState: hydroState));
+      return [];
+    });
+    table['_dart_dispose'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.dispose();
       return [];
     });
     table['_dart_debugFillProperties'] =
@@ -1558,13 +1623,6 @@ class RTManagedRenderImage extends RenderImage implements Box<RenderImage> {
           ));
       return [];
     });
-    table['_dart_attach'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.attach(maybeUnBoxAndBuildArgument<PipelineOwner, dynamic>(
-          luaCallerArguments[1],
-          parentState: hydroState));
-      return [];
-    });
     table['_dart_markParentNeedsLayout'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       super.markParentNeedsLayout();
@@ -1835,6 +1893,10 @@ class RTManagedRenderImage extends RenderImage implements Box<RenderImage> {
             table: HydroTable())
       ];
     });
+    table['_dart_getDebugDisposed'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.debugDisposed];
+    });
     table['_dart_getDebugDoingThisResize'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.debugDoingThisResize];
@@ -1931,11 +1993,6 @@ class RTManagedRenderImage extends RenderImage implements Box<RenderImage> {
       super.redepthChildren();
       return [];
     });
-    table['_dart_detach'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.detach();
-      return [];
-    });
     table['_dart_getDepth'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.depth];
@@ -2021,6 +2078,20 @@ class RTManagedRenderImage extends RenderImage implements Box<RenderImage> {
   @override
   void set color(Color? value) {
     Closure closure = table["setColor"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  Animation<double>? get opacity {
+    Closure closure = table["getOpacity"];
+    return maybeUnBoxAndBuildArgument<Animation<double>?, double>(
+        closure.dispatch([table], parentState: hydroState)[0],
+        parentState: hydroState);
+  }
+
+  @override
+  void set opacity(Animation? value) {
+    Closure closure = table["setOpacity"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
@@ -2203,8 +2274,29 @@ class RTManagedRenderImage extends RenderImage implements Box<RenderImage> {
   }
 
   @override
+  void attach(PipelineOwner owner) {
+    super.attach(owner);
+    Closure closure = table["attach"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  void detach() {
+    super.detach();
+    Closure closure = table["detach"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
   void paint(PaintingContext context, Offset offset) {
     Closure closure = table["paint"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    Closure closure = table["dispose"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
@@ -2457,13 +2549,6 @@ class RTManagedRenderImage extends RenderImage implements Box<RenderImage> {
   }
 
   @override
-  void attach(PipelineOwner owner) {
-    super.attach(owner);
-    Closure closure = table["attach"];
-    return closure.dispatch([table], parentState: hydroState)[0];
-  }
-
-  @override
   void markParentNeedsLayout() {
     Closure closure = table["markParentNeedsLayout"];
     return closure.dispatch([table], parentState: hydroState)[0];
@@ -2655,6 +2740,12 @@ class RTManagedRenderImage extends RenderImage implements Box<RenderImage> {
   }
 
   @override
+  bool? get debugDisposed {
+    Closure closure = table["getDebugDisposed"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
   bool get debugDoingThisResize {
     Closure closure = table["getDebugDoingThisResize"];
     return closure.dispatch([table], parentState: hydroState)[0];
@@ -2780,13 +2871,6 @@ class RTManagedRenderImage extends RenderImage implements Box<RenderImage> {
   }
 
   @override
-  void detach() {
-    super.detach();
-    Closure closure = table["detach"];
-    return closure.dispatch([table], parentState: hydroState)[0];
-  }
-
-  @override
   int get depth {
     Closure closure = table["getDepth"];
     return closure.dispatch([table], parentState: hydroState)[0];
@@ -2847,6 +2931,7 @@ void loadRenderImage(
           invertColors: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['invertColors'] : null,
           isAntiAlias: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['isAntiAlias'] : null,
           matchTextDirection: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['matchTextDirection'] : null,
+          opacity: maybeUnBoxAndBuildArgument<Animation<double>?, double>(luaCallerArguments.length >= 2 ? luaCallerArguments[1]['opacity'] : null, parentState: hydroState),
           repeat: maybeUnBoxEnum(values: ImageRepeat.values, boxedEnum: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['repeat'] : null),
           scale: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['scale'] : null?.toDouble(),
           textDirection: maybeUnBoxEnum(values: TextDirection.values, boxedEnum: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['textDirection'] : null),

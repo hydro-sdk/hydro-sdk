@@ -97,6 +97,7 @@ export interface IRenderFlex {
         props: { position: IOffset }
     ) => boolean;
     paint: (context: IPaintingContext, offset: IOffset) => void;
+    dispose: () => void;
     describeApproximatePaintClip: (child: unknown) => IRect | undefined;
     toStringShort: () => string;
     debugFillProperties: (properties: IDiagnosticPropertiesBuilder) => void;
@@ -246,6 +247,7 @@ export interface IRenderFlex {
         name: string,
         props: { style: DiagnosticsTreeStyle }
     ) => IDiagnosticsNode;
+    getDebugDisposed: () => boolean | undefined;
     getDebugDoingThisResize: () => boolean;
     getDebugDoingThisLayout: () => boolean;
     getDebugCanParentUseSize: () => boolean;
@@ -374,6 +376,7 @@ export class RenderFlex
         context: IPaintingContext,
         offset: IOffset
     ) => void = undefined as any;
+    private readonly _dart_dispose: () => void = undefined as any;
     private readonly _dart_describeApproximatePaintClip: (
         child: any
     ) => IRect | undefined = undefined as any;
@@ -597,6 +600,8 @@ export class RenderFlex
         name: string,
         props: { style: DiagnosticsTreeStyle }
     ) => IDiagnosticsNode = undefined as any;
+    private readonly _dart_getDebugDisposed: () => boolean | undefined =
+        undefined as any;
     private readonly _dart_getDebugDoingThisResize: () => boolean =
         undefined as any;
     private readonly _dart_getDebugDoingThisLayout: () => boolean =
@@ -721,6 +726,9 @@ export class RenderFlex
     }
     public paint(context: IPaintingContext, offset: IOffset): void {
         return this._dart_paint(context, offset);
+    }
+    public dispose(): void {
+        return this._dart_dispose();
     }
     public describeApproximatePaintClip(child: any): IRect | undefined {
         return this._dart_describeApproximatePaintClip(child);
@@ -1083,6 +1091,9 @@ export class RenderFlex
             ...describeForErrorDefaultProps,
             ...props,
         });
+    }
+    public getDebugDisposed(): boolean | undefined {
+        return this._dart_getDebugDisposed();
     }
     public getDebugDoingThisResize(): boolean {
         return this._dart_getDebugDoingThisResize();

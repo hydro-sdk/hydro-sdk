@@ -7,7 +7,8 @@ declare const flutter: {
 };
 export interface ILayerLink {
     leaderSize: ISize | undefined;
-    getLeader: () => ILeaderLayer | undefined;
+    getLeaderConnected: () => boolean;
+    getDebugLeader: () => ILeaderLayer | undefined;
     toString: () => string;
 }
 export class LayerLink {
@@ -15,11 +16,15 @@ export class LayerLink {
     public constructor() {
         flutter.rendering.layerLink(this);
     }
-    private readonly _dart_getLeader: () => ILeaderLayer | undefined =
+    private readonly _dart_getLeaderConnected: () => boolean = undefined as any;
+    private readonly _dart_getDebugLeader: () => ILeaderLayer | undefined =
         undefined as any;
     private readonly _dart_toString: () => string = undefined as any;
-    public getLeader(): ILeaderLayer | undefined {
-        return this._dart_getLeader();
+    public getLeaderConnected(): boolean {
+        return this._dart_getLeaderConnected();
+    }
+    public getDebugLeader(): ILeaderLayer | undefined {
+        return this._dart_getDebugLeader();
     }
     public toString(): string {
         return this._dart_toString();

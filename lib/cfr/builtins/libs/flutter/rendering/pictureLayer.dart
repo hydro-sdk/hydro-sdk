@@ -19,7 +19,10 @@ class VMManagedPictureLayer extends VMManagedBox<PictureLayer> {
         object: vmObject.canvasBounds,
         hydroState: hydroState,
         table: HydroTable());
-    table['debugCreator'] = vmObject.debugCreator;
+    table['debugCreator'] = maybeBoxObject<Object?>(
+        object: vmObject.debugCreator,
+        hydroState: hydroState,
+        table: HydroTable());
     table['getPicture'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       final returnValue = vmObject.picture;
@@ -60,14 +63,16 @@ class VMManagedPictureLayer extends VMManagedBox<PictureLayer> {
       vmObject.willChangeHint = (luaCallerArguments[1]);
       return [];
     });
+    table['dispose'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.dispose();
+      return [];
+    });
     table['addToScene'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.addToScene(
-          maybeUnBoxAndBuildArgument<SceneBuilder, dynamic>(
-              luaCallerArguments[1],
-              parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[2],
-              parentState: hydroState));
+      vmObject.addToScene(maybeUnBoxAndBuildArgument<SceneBuilder, dynamic>(
+          luaCallerArguments[1],
+          parentState: hydroState));
       return [];
     });
     table['debugFillProperties'] =
@@ -137,6 +142,18 @@ class VMManagedPictureLayer extends VMManagedBox<PictureLayer> {
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         vmObject.toStringShort(),
+      ];
+    });
+    table['getDebugDisposed'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        vmObject.debugDisposed,
+      ];
+    });
+    table['getDebugHandleCount'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        vmObject.debugHandleCount,
       ];
     });
     table['getParent'] =
@@ -309,7 +326,8 @@ class RTManagedPictureLayer extends PictureLayer implements Box<PictureLayer> {
     });
     table['canvasBounds'] = maybeBoxObject<Rect>(
         object: this.canvasBounds, hydroState: hydroState, table: HydroTable());
-    table['debugCreator'] = debugCreator;
+    table['debugCreator'] = maybeBoxObject<Object?>(
+        object: debugCreator, hydroState: hydroState, table: HydroTable());
     table['_dart_getPicture'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.picture];
@@ -339,14 +357,16 @@ class RTManagedPictureLayer extends PictureLayer implements Box<PictureLayer> {
       super.willChangeHint = (luaCallerArguments[1]);
       return [];
     });
+    table['_dart_dispose'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.dispose();
+      return [];
+    });
     table['_dart_addToScene'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.addToScene(
-          maybeUnBoxAndBuildArgument<SceneBuilder, dynamic>(
-              luaCallerArguments[1],
-              parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[2],
-              parentState: hydroState));
+      super.addToScene(maybeUnBoxAndBuildArgument<SceneBuilder, dynamic>(
+          luaCallerArguments[1],
+          parentState: hydroState));
       return [];
     });
     table['_dart_debugFillProperties'] =
@@ -423,6 +443,14 @@ class RTManagedPictureLayer extends PictureLayer implements Box<PictureLayer> {
     table['_dart_toStringShort'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.toStringShort()];
+    });
+    table['_dart_getDebugDisposed'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.debugDisposed];
+    });
+    table['_dart_getDebugHandleCount'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.debugHandleCount];
     });
     table['_dart_getParent'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -610,7 +638,14 @@ class RTManagedPictureLayer extends PictureLayer implements Box<PictureLayer> {
   }
 
   @override
-  void addToScene(SceneBuilder builder, [Offset layerOffset = Offset.zero]) {
+  void dispose() {
+    super.dispose();
+    Closure closure = table["dispose"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  void addToScene(SceneBuilder builder) {
     Closure closure = table["addToScene"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -687,6 +722,18 @@ class RTManagedPictureLayer extends PictureLayer implements Box<PictureLayer> {
   @override
   String toStringShort() {
     Closure closure = table["toStringShort"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  bool get debugDisposed {
+    Closure closure = table["getDebugDisposed"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  int get debugHandleCount {
+    Closure closure = table["getDebugHandleCount"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 

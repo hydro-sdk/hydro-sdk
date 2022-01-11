@@ -30,14 +30,14 @@ import { ISemanticsConfiguration } from "../semantics/semanticsConfiguration";
 import { ISemanticsEvent } from "../semantics/semanticsEvent";
 import { ISemanticsNode } from "../semantics/semanticsNode";
 import { IAndroidViewController } from "../services/androidViewController";
+import { IMouseCursor } from "../services/mouseCursor";
+import { IMouseTrackerAnnotation } from "../services/mouseTrackerAnnotation";
 import { I_PlatformViewGestureMixin } from "./_platformViewGestureMixin";
 import { IBoxConstraints } from "./boxConstraints";
 import { IBoxHitTestEntry } from "./boxHitTestEntry";
 import { IBoxHitTestResult } from "./boxHitTestResult";
 import { IConstraints } from "./constraints";
 import { IContainerLayer } from "./containerLayer";
-import { IMouseCursor } from "./mouseCursor";
-import { IMouseTrackerAnnotation } from "./mouseTrackerAnnotation";
 import { IOffsetLayer } from "./offsetLayer";
 import { IPaintingContext } from "./paintingContext";
 import { IParentData } from "./parentData";
@@ -68,7 +68,7 @@ export interface IRenderAndroidView {
     onExit: (event: IPointerExitEvent) => void | undefined;
     cursor: IMouseCursor;
     validForMouseTracker: boolean;
-    getViewcontroller: () => IAndroidViewController;
+    getViewController: () => IAndroidViewController;
     setViewController: (viewController: IAndroidViewController) => void;
     getClipBehavior: () => Clip;
     setClipBehavior: (value: Clip) => void;
@@ -81,6 +81,7 @@ export interface IRenderAndroidView {
     computeDryLayout: (constraints: IBoxConstraints) => ISize;
     performResize: () => void;
     paint: (context: IPaintingContext, offset: IOffset) => void;
+    dispose: () => void;
     describeSemanticsConfiguration: (config: ISemanticsConfiguration) => void;
     hitTest: (
         result: IBoxHitTestResult,
@@ -209,6 +210,7 @@ export interface IRenderAndroidView {
         name: string,
         props: { style: DiagnosticsTreeStyle }
     ) => IDiagnosticsNode;
+    getDebugDisposed: () => boolean | undefined;
     getDebugDoingThisResize: () => boolean;
     getDebugDoingThisLayout: () => boolean;
     getDebugCanParentUseSize: () => boolean;
@@ -279,7 +281,7 @@ export class RenderAndroidView
             ...props,
         });
     }
-    private readonly _dart_getViewcontroller: () => IAndroidViewController =
+    private readonly _dart_getViewController: () => IAndroidViewController =
         undefined as any;
     private readonly _dart_setViewController: (
         viewController: IAndroidViewController
@@ -303,6 +305,7 @@ export class RenderAndroidView
         context: IPaintingContext,
         offset: IOffset
     ) => void = undefined as any;
+    private readonly _dart_dispose: () => void = undefined as any;
     private readonly _dart_describeSemanticsConfiguration: (
         config: ISemanticsConfiguration
     ) => void = undefined as any;
@@ -506,6 +509,8 @@ export class RenderAndroidView
         name: string,
         props: { style: DiagnosticsTreeStyle }
     ) => IDiagnosticsNode = undefined as any;
+    private readonly _dart_getDebugDisposed: () => boolean | undefined =
+        undefined as any;
     private readonly _dart_getDebugDoingThisResize: () => boolean =
         undefined as any;
     private readonly _dart_getDebugDoingThisLayout: () => boolean =
@@ -544,8 +549,8 @@ export class RenderAndroidView
     private readonly _dart_getParent: () => IAbstractNode | undefined =
         undefined as any;
     private readonly _dart_getHashCode: () => number = undefined as any;
-    public getViewcontroller(): IAndroidViewController {
-        return this._dart_getViewcontroller();
+    public getViewController(): IAndroidViewController {
+        return this._dart_getViewController();
     }
     public setViewController(viewController: IAndroidViewController): void {
         return this._dart_setViewController(viewController);
@@ -578,6 +583,9 @@ export class RenderAndroidView
     }
     public paint(context: IPaintingContext, offset: IOffset): void {
         return this._dart_paint(context, offset);
+    }
+    public dispose(): void {
+        return this._dart_dispose();
     }
     public describeSemanticsConfiguration(
         config: ISemanticsConfiguration
@@ -897,6 +905,9 @@ export class RenderAndroidView
             ...describeForErrorDefaultProps,
             ...props,
         });
+    }
+    public getDebugDisposed(): boolean | undefined {
+        return this._dart_getDebugDisposed();
     }
     public getDebugDoingThisResize(): boolean {
         return this._dart_getDebugDoingThisResize();

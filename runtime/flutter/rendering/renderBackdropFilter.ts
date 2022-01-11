@@ -1,6 +1,7 @@
 import { Duration, IDuration } from "../../dart/core/duration";
 import { IIterable } from "../../dart/core/iterable";
 import { IList } from "../../dart/core/list";
+import { BlendMode } from "../../dart/ui/blendMode";
 import { IImageFilter } from "../../dart/ui/imageFilter";
 import { IOffset } from "../../dart/ui/offset";
 import { IRect } from "../../dart/ui/rect";
@@ -44,7 +45,11 @@ declare const flutter: {
         renderBackdropFilter: (
             this: void,
             renderBackdropFilter: IRenderBackdropFilter,
-            props: { child?: IRenderBox | undefined; filter: IImageFilter }
+            props: {
+                blendMode: BlendMode;
+                child?: IRenderBox | undefined;
+                filter: IImageFilter;
+            }
         ) => IRenderBackdropFilter;
     };
 };
@@ -54,6 +59,8 @@ export interface IRenderBackdropFilter {
     getLayer: () => IBackdropFilterLayer | undefined;
     getFilter: () => IImageFilter;
     setFilter: (value: IImageFilter) => void;
+    getBlendMode: () => BlendMode;
+    setBlendMode: (value: BlendMode) => void;
     getAlwaysNeedsCompositing: () => boolean;
     paint: (context: IPaintingContext, offset: IOffset) => void;
     debugValidateChild: (child: IRenderObject) => boolean;
@@ -126,6 +133,7 @@ export interface IRenderBackdropFilter {
     getConstraints: () => IBoxConstraints;
     getPaintBounds: () => IRect;
     reassemble: () => void;
+    dispose: () => void;
     adoptChild: (child: unknown) => void;
     dropChild: (child: unknown) => void;
     markParentNeedsLayout: () => void;
@@ -186,6 +194,7 @@ export interface IRenderBackdropFilter {
         name: string,
         props: { style: DiagnosticsTreeStyle }
     ) => IDiagnosticsNode;
+    getDebugDisposed: () => boolean | undefined;
     getDebugDoingThisResize: () => boolean;
     getDebugDoingThisLayout: () => boolean;
     getDebugCanParentUseSize: () => boolean;
@@ -242,15 +251,22 @@ export class RenderBackdropFilter
     public readonly parentData: IParentData | undefined = undefined as any;
     public readonly debugCreator: Object | undefined = undefined as any;
     public constructor(props: {
+        blendMode?: BlendMode;
         child?: IRenderBox | undefined;
         filter: IImageFilter;
     }) {
-        flutter.rendering.renderBackdropFilter(this, props);
+        flutter.rendering.renderBackdropFilter(this, {
+            ...renderBackdropFilterDefaultProps,
+            ...props,
+        });
     }
     private readonly _dart_getLayer: () => IBackdropFilterLayer | undefined =
         undefined as any;
     private readonly _dart_getFilter: () => IImageFilter = undefined as any;
     private readonly _dart_setFilter: (value: IImageFilter) => void =
+        undefined as any;
+    private readonly _dart_getBlendMode: () => BlendMode = undefined as any;
+    private readonly _dart_setBlendMode: (value: BlendMode) => void =
         undefined as any;
     private readonly _dart_getAlwaysNeedsCompositing: () => boolean =
         undefined as any;
@@ -383,6 +399,7 @@ export class RenderBackdropFilter
         undefined as any;
     private readonly _dart_getPaintBounds: () => IRect = undefined as any;
     private readonly _dart_reassemble: () => void = undefined as any;
+    private readonly _dart_dispose: () => void = undefined as any;
     private readonly _dart_adoptChild: (child: any) => void = undefined as any;
     private readonly _dart_dropChild: (child: any) => void = undefined as any;
     private readonly _dart_markParentNeedsLayout: () => void = undefined as any;
@@ -464,6 +481,8 @@ export class RenderBackdropFilter
         name: string,
         props: { style: DiagnosticsTreeStyle }
     ) => IDiagnosticsNode = undefined as any;
+    private readonly _dart_getDebugDisposed: () => boolean | undefined =
+        undefined as any;
     private readonly _dart_getDebugDoingThisResize: () => boolean =
         undefined as any;
     private readonly _dart_getDebugDoingThisLayout: () => boolean =
@@ -510,6 +529,12 @@ export class RenderBackdropFilter
     }
     public setFilter(value: IImageFilter): void {
         return this._dart_setFilter(value);
+    }
+    public getBlendMode(): BlendMode {
+        return this._dart_getBlendMode();
+    }
+    public setBlendMode(value: BlendMode): void {
+        return this._dart_setBlendMode(value);
     }
     public getAlwaysNeedsCompositing(): boolean {
         return this._dart_getAlwaysNeedsCompositing();
@@ -701,6 +726,9 @@ export class RenderBackdropFilter
     public reassemble(): void {
         return this._dart_reassemble();
     }
+    public dispose(): void {
+        return this._dart_dispose();
+    }
     public adoptChild(child: any): void {
         return this._dart_adoptChild(child);
     }
@@ -842,6 +870,9 @@ export class RenderBackdropFilter
             ...props,
         });
     }
+    public getDebugDisposed(): boolean | undefined {
+        return this._dart_getDebugDisposed();
+    }
     public getDebugDoingThisResize(): boolean {
         return this._dart_getDebugDoingThisResize();
     }
@@ -906,6 +937,9 @@ export class RenderBackdropFilter
         return this._dart_getHashCode();
     }
 }
+const renderBackdropFilterDefaultProps = {
+    blendMode: BlendMode.srcOver,
+};
 const getDistanceToBaselineDefaultProps = {
     onlyReal: false,
 };

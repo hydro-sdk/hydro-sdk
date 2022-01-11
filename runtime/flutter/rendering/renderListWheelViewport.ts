@@ -104,6 +104,7 @@ export interface IRenderListWheelViewport {
     indexToScrollOffset: (index: number) => number;
     performLayout: () => void;
     paint: (context: IPaintingContext, offset: IOffset) => void;
+    dispose: () => void;
     applyPaintTransform: (child: unknown, transform: IMatrix4) => void;
     describeApproximatePaintClip: (child: unknown) => IRect | undefined;
     hitTestChildren: (
@@ -244,6 +245,7 @@ export interface IRenderListWheelViewport {
         name: string,
         props: { style: DiagnosticsTreeStyle }
     ) => IDiagnosticsNode;
+    getDebugDisposed: () => boolean | undefined;
     getDebugDoingThisResize: () => boolean;
     getDebugDoingThisLayout: () => boolean;
     getDebugCanParentUseSize: () => boolean;
@@ -388,6 +390,7 @@ export class RenderListWheelViewport
         context: IPaintingContext,
         offset: IOffset
     ) => void = undefined as any;
+    private readonly _dart_dispose: () => void = undefined as any;
     private readonly _dart_applyPaintTransform: (
         child: any,
         transform: IMatrix4
@@ -598,6 +601,8 @@ export class RenderListWheelViewport
         name: string,
         props: { style: DiagnosticsTreeStyle }
     ) => IDiagnosticsNode = undefined as any;
+    private readonly _dart_getDebugDisposed: () => boolean | undefined =
+        undefined as any;
     private readonly _dart_getDebugDoingThisResize: () => boolean =
         undefined as any;
     private readonly _dart_getDebugDoingThisLayout: () => boolean =
@@ -747,6 +752,9 @@ export class RenderListWheelViewport
     }
     public paint(context: IPaintingContext, offset: IOffset): void {
         return this._dart_paint(context, offset);
+    }
+    public dispose(): void {
+        return this._dart_dispose();
     }
     public applyPaintTransform(child: any, transform: IMatrix4): void {
         return this._dart_applyPaintTransform(child, transform);
@@ -1082,6 +1090,9 @@ export class RenderListWheelViewport
             ...describeForErrorDefaultProps,
             ...props,
         });
+    }
+    public getDebugDisposed(): boolean | undefined {
+        return this._dart_getDebugDisposed();
     }
     public getDebugDoingThisResize(): boolean {
         return this._dart_getDebugDoingThisResize();

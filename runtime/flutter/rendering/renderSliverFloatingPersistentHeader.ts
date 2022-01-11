@@ -75,6 +75,7 @@ export interface IRenderSliverFloatingPersistentHeader {
     getVsync: () => ITickerProvider | undefined;
     setVsync: (value?: ITickerProvider | undefined) => void;
     updateGeometry: () => number;
+    updateScrollStartDirection: (direction: ScrollDirection) => void;
     maybeStartSnapAnimation: (direction: ScrollDirection) => void;
     maybeStopSnapAnimation: (direction: ScrollDirection) => void;
     performLayout: () => void;
@@ -151,6 +152,7 @@ export interface IRenderSliverFloatingPersistentHeader {
     getPaintBounds: () => IRect;
     getCenterOffsetAdjustment: () => number;
     reassemble: () => void;
+    dispose: () => void;
     setupParentData: (child: unknown) => void;
     adoptChild: (child: unknown) => void;
     dropChild: (child: unknown) => void;
@@ -205,6 +207,7 @@ export interface IRenderSliverFloatingPersistentHeader {
         name: string,
         props: { style: DiagnosticsTreeStyle }
     ) => IDiagnosticsNode;
+    getDebugDisposed: () => boolean | undefined;
     getDebugDoingThisResize: () => boolean;
     getDebugDoingThisLayout: () => boolean;
     getDebugCanParentUseSize: () => boolean;
@@ -241,9 +244,9 @@ export class RenderSliverFloatingPersistentHeader
             | "hitTestChildren"
             | "applyPaintTransform"
             | "debugFillProperties"
-            | "toString"
             | "debugDescribeChildren"
             | "toStringShort"
+            | "toString"
             | "toStringDeep"
             | "toStringShallow"
             | "toDiagnosticsNode"
@@ -257,7 +260,6 @@ export class RenderSliverFloatingPersistentHeader
         Omit<
             IDiagnosticableTree,
             | "debugDescribeChildren"
-            | "toString"
             | "debugFillProperties"
             | "toStringShallow"
             | "toStringDeep"
@@ -296,6 +298,9 @@ export class RenderSliverFloatingPersistentHeader
         value?: ITickerProvider | undefined
     ) => void = undefined as any;
     private readonly _dart_updateGeometry: () => number = undefined as any;
+    private readonly _dart_updateScrollStartDirection: (
+        direction: ScrollDirection
+    ) => void = undefined as any;
     private readonly _dart_maybeStartSnapAnimation: (
         direction: ScrollDirection
     ) => void = undefined as any;
@@ -413,6 +418,7 @@ export class RenderSliverFloatingPersistentHeader
     private readonly _dart_getCenterOffsetAdjustment: () => number =
         undefined as any;
     private readonly _dart_reassemble: () => void = undefined as any;
+    private readonly _dart_dispose: () => void = undefined as any;
     private readonly _dart_setupParentData: (child: any) => void =
         undefined as any;
     private readonly _dart_adoptChild: (child: any) => void = undefined as any;
@@ -487,6 +493,8 @@ export class RenderSliverFloatingPersistentHeader
         name: string,
         props: { style: DiagnosticsTreeStyle }
     ) => IDiagnosticsNode = undefined as any;
+    private readonly _dart_getDebugDisposed: () => boolean | undefined =
+        undefined as any;
     private readonly _dart_getDebugDoingThisResize: () => boolean =
         undefined as any;
     private readonly _dart_getDebugDoingThisLayout: () => boolean =
@@ -540,6 +548,9 @@ export class RenderSliverFloatingPersistentHeader
     }
     public updateGeometry(): number {
         return this._dart_updateGeometry();
+    }
+    public updateScrollStartDirection(direction: ScrollDirection): void {
+        return this._dart_updateScrollStartDirection(direction);
     }
     public maybeStartSnapAnimation(direction: ScrollDirection): void {
         return this._dart_maybeStartSnapAnimation(direction);
@@ -715,6 +726,9 @@ export class RenderSliverFloatingPersistentHeader
     public reassemble(): void {
         return this._dart_reassemble();
     }
+    public dispose(): void {
+        return this._dart_dispose();
+    }
     public setupParentData(child: any): void {
         return this._dart_setupParentData(child);
     }
@@ -842,6 +856,9 @@ export class RenderSliverFloatingPersistentHeader
             ...describeForErrorDefaultProps,
             ...props,
         });
+    }
+    public getDebugDisposed(): boolean | undefined {
+        return this._dart_getDebugDisposed();
     }
     public getDebugDoingThisResize(): boolean {
         return this._dart_getDebugDoingThisResize();

@@ -1,6 +1,6 @@
 import { IList } from "../../dart/core/list";
 import { IEngineLayer } from "../../dart/ui/engineLayer";
-import { IOffset, Offset } from "../../dart/ui/offset";
+import { IOffset } from "../../dart/ui/offset";
 import { IScene } from "../../dart/ui/scene";
 import { ISceneBuilder } from "../../dart/ui/sceneBuilder";
 import { ISize } from "../../dart/ui/size";
@@ -34,7 +34,7 @@ export interface IAnnotatedRegionLayer<T> {
     size: ISize | undefined;
     offset: IOffset;
     opaque: boolean;
-    debugCreator: any;
+    debugCreator: Object | undefined;
     findAnnotations: <S>(
         result: IAnnotationResult<S>,
         localPosition: IOffset,
@@ -42,13 +42,14 @@ export interface IAnnotatedRegionLayer<T> {
     ) => boolean;
     debugFillProperties: (properties: IDiagnosticPropertiesBuilder) => void;
     buildScene: (builder: ISceneBuilder) => IScene;
+    dispose: () => void;
     updateSubtreeNeedsAddToScene: () => void;
     attach: (owner: unknown) => void;
     detach: () => void;
     append: (child: ILayer) => void;
     removeAllChildren: () => void;
-    addToScene: (builder: ISceneBuilder, layerOffset: IOffset) => void;
-    addChildrenToScene: (builder: ISceneBuilder, childOffset: IOffset) => void;
+    addToScene: (builder: ISceneBuilder) => void;
+    addChildrenToScene: (builder: ISceneBuilder) => void;
     applyTransform: (child: ILayer | undefined, transform: IMatrix4) => void;
     debugDescribeChildren: () => IList<IDiagnosticsNode>;
     getFirstChild: () => ILayer | undefined;
@@ -60,10 +61,10 @@ export interface IAnnotatedRegionLayer<T> {
     find: <S>(localPosition: IOffset) => S | undefined;
     findAllAnnotations: <S>(localPosition: IOffset) => IAnnotationResult<S>;
     toStringShort: () => string;
+    getDebugDisposed: () => boolean;
+    getDebugHandleCount: () => number;
     getParent: () => IContainerLayer | undefined;
     getAlwaysNeedsAddToScene: () => boolean;
-    getEngineLayer: () => IEngineLayer | undefined;
-    setEngineLayer: (value?: IEngineLayer | undefined) => void;
     getNextSibling: () => ILayer | undefined;
     getPreviousSibling: () => ILayer | undefined;
     toString: (props: { minLevel: DiagnosticLevel }) => string;
@@ -105,7 +106,7 @@ export class AnnotatedRegionLayer<T>
     public readonly size: ISize | undefined = undefined as any;
     public readonly offset: IOffset = undefined as any;
     public readonly opaque: boolean = undefined as any;
-    public readonly debugCreator: any = undefined as any;
+    public readonly debugCreator: Object | undefined = undefined as any;
     public constructor(
         value: T,
         props: {
@@ -129,19 +130,17 @@ export class AnnotatedRegionLayer<T>
     ) => void = undefined as any;
     private readonly _dart_buildScene: (builder: ISceneBuilder) => IScene =
         undefined as any;
+    private readonly _dart_dispose: () => void = undefined as any;
     private readonly _dart_updateSubtreeNeedsAddToScene: () => void =
         undefined as any;
     private readonly _dart_attach: (owner: any) => void = undefined as any;
     private readonly _dart_detach: () => void = undefined as any;
     private readonly _dart_append: (child: ILayer) => void = undefined as any;
     private readonly _dart_removeAllChildren: () => void = undefined as any;
-    private readonly _dart_addToScene: (
-        builder: ISceneBuilder,
-        layerOffset: IOffset
-    ) => void = undefined as any;
+    private readonly _dart_addToScene: (builder: ISceneBuilder) => void =
+        undefined as any;
     private readonly _dart_addChildrenToScene: (
-        builder: ISceneBuilder,
-        childOffset: IOffset
+        builder: ISceneBuilder
     ) => void = undefined as any;
     private readonly _dart_applyTransform: (
         child: ILayer | undefined,
@@ -164,6 +163,8 @@ export class AnnotatedRegionLayer<T>
         localPosition: IOffset
     ) => IAnnotationResult<S> = undefined as any;
     private readonly _dart_toStringShort: () => string = undefined as any;
+    private readonly _dart_getDebugDisposed: () => boolean = undefined as any;
+    private readonly _dart_getDebugHandleCount: () => number = undefined as any;
     private readonly _dart_getParent: () => IContainerLayer | undefined =
         undefined as any;
     private readonly _dart_getAlwaysNeedsAddToScene: () => boolean =
@@ -214,6 +215,9 @@ export class AnnotatedRegionLayer<T>
     public buildScene(builder: ISceneBuilder): IScene {
         return this._dart_buildScene(builder);
     }
+    public dispose(): void {
+        return this._dart_dispose();
+    }
     public updateSubtreeNeedsAddToScene(): void {
         return this._dart_updateSubtreeNeedsAddToScene();
     }
@@ -229,17 +233,11 @@ export class AnnotatedRegionLayer<T>
     public removeAllChildren(): void {
         return this._dart_removeAllChildren();
     }
-    public addToScene(
-        builder: ISceneBuilder,
-        layerOffset: IOffset = Offset.zero
-    ): void {
-        return this._dart_addToScene(builder, layerOffset);
+    public addToScene(builder: ISceneBuilder): void {
+        return this._dart_addToScene(builder);
     }
-    public addChildrenToScene(
-        builder: ISceneBuilder,
-        childOffset: IOffset = Offset.zero
-    ): void {
-        return this._dart_addChildrenToScene(builder, childOffset);
+    public addChildrenToScene(builder: ISceneBuilder): void {
+        return this._dart_addChildrenToScene(builder);
     }
     public applyTransform(
         child: ILayer | undefined,
@@ -279,6 +277,12 @@ export class AnnotatedRegionLayer<T>
     }
     public toStringShort(): string {
         return this._dart_toStringShort();
+    }
+    public getDebugDisposed(): boolean {
+        return this._dart_getDebugDisposed();
+    }
+    public getDebugHandleCount(): number {
+        return this._dart_getDebugHandleCount();
     }
     public getParent(): IContainerLayer | undefined {
         return this._dart_getParent();

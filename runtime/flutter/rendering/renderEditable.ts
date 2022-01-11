@@ -6,7 +6,7 @@ import { BoxWidthStyle } from "../../dart/ui/boxWidthStyle";
 import { Clip } from "../../dart/ui/clip";
 import { IColor } from "../../dart/ui/color";
 import { ILocale } from "../../dart/ui/locale";
-import { IOffset } from "../../dart/ui/offset";
+import { IOffset, Offset } from "../../dart/ui/offset";
 import { IRadius } from "../../dart/ui/radius";
 import { IRect } from "../../dart/ui/rect";
 import { ISize } from "../../dart/ui/size";
@@ -35,13 +35,15 @@ import { IHitTestTarget } from "../gestures/hitTestTarget";
 import { IPointerEvent } from "../gestures/pointerEvent";
 import { ITapDownDetails } from "../gestures/tapDownDetails";
 import { EdgeInsets, IEdgeInsets } from "../painting/edgeInsets";
+import { IInlineSpan } from "../painting/inlineSpan";
 import { IStrutStyle } from "../painting/strutStyle";
-import { ITextSpan } from "../painting/textSpan";
 import { TextWidthBasis } from "../painting/textWidthBasis";
 import { ISemanticsConfiguration } from "../semantics/semanticsConfiguration";
 import { ISemanticsEvent } from "../semantics/semanticsEvent";
 import { ISemanticsNode } from "../semantics/semanticsNode";
 import { FloatingCursorDragState } from "../services/floatingCursorDragState";
+import { SelectionChangedCause } from "../services/selectionChangedCause";
+import { ITextLayoutMetrics } from "../services/textLayoutMetrics";
 import { ITextSelection } from "../services/textSelection";
 import { ITextSelectionDelegate } from "../services/textSelectionDelegate";
 import { IBoxConstraints } from "./boxConstraints";
@@ -49,6 +51,7 @@ import { IBoxHitTestEntry } from "./boxHitTestEntry";
 import { IBoxHitTestResult } from "./boxHitTestResult";
 import { IConstraints } from "./constraints";
 import { IContainerLayer } from "./containerLayer";
+import { IContainerRenderObjectMixin } from "./containerRenderObjectMixin";
 import { ILayerLink } from "./layerLink";
 import { IOffsetLayer } from "./offsetLayer";
 import { IPaintingContext } from "./paintingContext";
@@ -56,8 +59,9 @@ import { IParentData } from "./parentData";
 import { IPipelineOwner } from "./pipelineOwner";
 import { IRelayoutWhenSystemFontsChangeMixin } from "./relayoutWhenSystemFontsChangeMixin";
 import { IRenderBox } from "./renderBox";
+import { IRenderBoxContainerDefaultsMixin } from "./renderBoxContainerDefaultsMixin";
+import { IRenderEditablePainter } from "./renderEditablePainter";
 import { IRenderObject } from "./renderObject";
-import { SelectionChangedCause } from "./selectionChangedCause";
 import { ITextSelectionPoint } from "./textSelectionPoint";
 import { IViewportOffset } from "./viewportOffset";
 declare const flutter: {
@@ -67,10 +71,11 @@ declare const flutter: {
             renderEditable: IRenderEditable,
             props: {
                 backgroundCursorColor?: IColor | undefined;
+                children?: IList<IRenderBox> | undefined;
                 clipBehavior: Clip;
                 cursorColor?: IColor | undefined;
                 cursorHeight?: number | undefined;
-                cursorOffset?: IOffset | undefined;
+                cursorOffset: IOffset;
                 cursorRadius?: IRadius | undefined;
                 cursorWidth: number;
                 devicePixelRatio: number;
@@ -78,6 +83,7 @@ declare const flutter: {
                 expands: boolean;
                 floatingCursorAddedMargin: IEdgeInsets;
                 forceLine: boolean;
+                foregroundPainter?: IRenderEditablePainter | undefined;
                 hasFocus?: boolean | undefined;
                 ignorePointer: boolean;
                 locale?: ILocale | undefined;
@@ -92,6 +98,7 @@ declare const flutter: {
                     cause: SelectionChangedCause
                 ) => void | undefined;
                 paintCursorAboveText: boolean;
+                painter?: IRenderEditablePainter | undefined;
                 promptRectColor?: IColor | undefined;
                 promptRectRange?: ITextRange | undefined;
                 readOnly: boolean;
@@ -101,7 +108,7 @@ declare const flutter: {
                 selectionWidthStyle: BoxWidthStyle;
                 showCursor?: IValueNotifier<boolean> | undefined;
                 strutStyle?: IStrutStyle | undefined;
-                text?: ITextSpan | undefined;
+                text?: IInlineSpan | undefined;
                 textAlign: TextAlign;
                 textHeightBehavior?: ITextHeightBehavior | undefined;
                 textScaleFactor: number;
@@ -113,23 +120,23 @@ declare const flutter: {
                 textSelectionDelegate: ITextSelectionDelegate;
             }
         ) => IRenderEditable;
-        renderEditableNextCharacter: (
-            index: number,
-            string: string,
-            includeWhitespace: boolean
-        ) => number;
-        renderEditablePreviousCharacter: (
-            index: number,
-            string: string,
-            includeWhitespace: boolean
-        ) => number;
     };
 };
 export interface IRenderEditable {
     ignorePointer: boolean;
     textSelectionDelegate: ITextSelectionDelegate;
+    floatingCursorAddedMargin: IEdgeInsets;
     parentData: IParentData | undefined;
     debugCreator: Object | undefined;
+    setupParentData: (child: unknown) => void;
+    dispose: () => void;
+    getForegroundPainter: () => IRenderEditablePainter | undefined;
+    setForegroundPainter: (
+        newPainter?: IRenderEditablePainter | undefined
+    ) => void;
+    getPainter: () => IRenderEditablePainter | undefined;
+    setPainter: (newPainter?: IRenderEditablePainter | undefined) => void;
+    debugAssertLayoutUpToDate: () => void;
     getTextHeightBehavior: () => ITextHeightBehavior | undefined;
     setTextHeightBehavior: (value?: ITextHeightBehavior | undefined) => void;
     getTextWidthBasis: () => TextWidthBasis;
@@ -140,12 +147,21 @@ export interface IRenderEditable {
     setObscuringCharacter: (value: string) => void;
     getObscureText: () => boolean;
     setObscureText: (value: boolean) => void;
+    getSelectionHeightStyle: () => BoxHeightStyle;
+    setSelectionHeightStyle: (value: BoxHeightStyle) => void;
+    getSelectionWidthStyle: () => BoxWidthStyle;
+    setSelectionWidthStyle: (value: BoxWidthStyle) => void;
     getSelectionStartInViewport: () => IValueListenable<boolean>;
     getSelectionEndInViewport: () => IValueListenable<boolean>;
+    getLineAtOffset: (position: ITextPosition) => ITextSelection;
+    getWordBoundary: (position: ITextPosition) => ITextRange;
+    getTextPositionAbove: (position: ITextPosition) => ITextPosition;
+    getTextPositionBelow: (position: ITextPosition) => ITextPosition;
+    markNeedsPaint: () => void;
     markNeedsTextLayout: () => void;
     systemFontsDidChange: () => void;
-    getText: () => ITextSpan | undefined;
-    setText: (value?: ITextSpan | undefined) => void;
+    getText: () => IInlineSpan | undefined;
+    setText: (value?: IInlineSpan | undefined) => void;
     getTextAlign: () => TextAlign;
     setTextAlign: (value: TextAlign) => void;
     getTextDirection: () => TextDirection;
@@ -186,20 +202,14 @@ export interface IRenderEditable {
     setCursorHeight: (value?: number | undefined) => void;
     getPaintCursorAboveText: () => boolean;
     setPaintCursorAboveText: (value: boolean) => void;
-    getCursorOffset: () => IOffset | undefined;
-    setCursorOffset: (value?: IOffset | undefined) => void;
+    getCursorOffset: () => IOffset;
+    setCursorOffset: (value: IOffset) => void;
     getCursorRadius: () => IRadius | undefined;
     setCursorRadius: (value?: IRadius | undefined) => void;
     getStartHandleLayerLink: () => ILayerLink;
     setStartHandleLayerLink: (value: ILayerLink) => void;
     getEndHandleLayerLink: () => ILayerLink;
     setEndHandleLayerLink: (value: ILayerLink) => void;
-    getFloatingCursorAddedMargin: () => IEdgeInsets;
-    setFloatingCursorAddedMargin: (value: IEdgeInsets) => void;
-    getSelectionHeightStyle: () => BoxHeightStyle;
-    setSelectionHeightStyle: (value: BoxHeightStyle) => void;
-    getSelectionWidthStyle: () => BoxWidthStyle;
-    setSelectionWidthStyle: (value: BoxWidthStyle) => void;
     getEnableInteractiveSelection: () => boolean | undefined;
     setEnableInteractiveSelection: (value?: boolean | undefined) => void;
     getSelectionEnabled: () => boolean;
@@ -210,8 +220,15 @@ export interface IRenderEditable {
     getClipBehavior: () => Clip;
     setClipBehavior: (value: Clip) => void;
     describeSemanticsConfiguration: (config: ISemanticsConfiguration) => void;
+    assembleSemanticsNode: (
+        node: ISemanticsNode,
+        config: ISemanticsConfiguration,
+        children: IIterable<ISemanticsNode>
+    ) => void;
     attach: (owner: unknown) => void;
     detach: () => void;
+    redepthChildren: () => void;
+    visitChildren: (visitor: (child: IRenderObject) => void) => void;
     getEndpointsForSelection: (
         selection: ITextSelection
     ) => IList<ITextSelectionPoint>;
@@ -225,6 +242,10 @@ export interface IRenderEditable {
     computeMaxIntrinsicHeight: (width: number) => number;
     computeDistanceToActualBaseline: (baseline: TextBaseline) => number;
     hitTestSelf: (position: IOffset) => boolean;
+    hitTestChildren: (
+        result: IBoxHitTestResult,
+        props: { position: IOffset }
+    ) => boolean;
     handleEvent: (event: IPointerEvent, entry: unknown) => void;
     getLastSecondaryTapDownPosition: () => IOffset | undefined;
     handleSecondaryTapDown: (details: ITapDownDetails) => void;
@@ -247,18 +268,47 @@ export interface IRenderEditable {
     selectWordEdge: (props: { cause: SelectionChangedCause }) => void;
     computeDryLayout: (constraints: IBoxConstraints) => ISize;
     performLayout: () => void;
+    calculateBoundedFloatingCursorOffset: (rawCursorOffset: IOffset) => IOffset;
     setFloatingCursor: (
         state: FloatingCursorDragState,
         boundedOffset: IOffset,
         lastTextPosition: ITextPosition,
         props?: { resetLerpValue?: number | undefined }
     ) => void;
-    calculateBoundedFloatingCursorOffset: (rawCursorOffset: IOffset) => IOffset;
     paint: (context: IPaintingContext, offset: IOffset) => void;
     describeApproximatePaintClip: (child: unknown) => IRect | undefined;
     debugFillProperties: (properties: IDiagnosticPropertiesBuilder) => void;
     debugDescribeChildren: () => IList<IDiagnosticsNode>;
-    setupParentData: (child: unknown) => void;
+    debugValidateChild: (child: IRenderObject) => boolean;
+    insert: (
+        child: IRenderBox,
+        props?: { after?: IRenderBox | undefined }
+    ) => void;
+    add: (child: IRenderBox) => void;
+    addAll: (children?: IList<IRenderBox> | undefined) => void;
+    remove: (child: IRenderBox) => void;
+    removeAll: () => void;
+    move: (
+        child: IRenderBox,
+        props?: { after?: IRenderBox | undefined }
+    ) => void;
+    childBefore: (child: IRenderBox) => IRenderBox | undefined;
+    childAfter: (child: IRenderBox) => IRenderBox | undefined;
+    getChildCount: () => number;
+    getFirstChild: () => IRenderBox | undefined;
+    getLastChild: () => IRenderBox | undefined;
+    defaultComputeDistanceToFirstActualBaseline: (
+        baseline: TextBaseline
+    ) => number | undefined;
+    defaultComputeDistanceToHighestActualBaseline: (
+        baseline: TextBaseline
+    ) => number | undefined;
+    defaultHitTestChildren: (
+        result: IBoxHitTestResult,
+        props: { position: IOffset }
+    ) => boolean;
+    defaultPaint: (context: IPaintingContext, offset: IOffset) => void;
+    getChildrenAsList: () => IList<IRenderBox>;
     getMinIntrinsicWidth: (height: number) => number;
     getMaxIntrinsicWidth: (height: number) => number;
     getMinIntrinsicHeight: (width: number) => number;
@@ -279,10 +329,6 @@ export interface IRenderEditable {
     markNeedsLayout: () => void;
     performResize: () => void;
     hitTest: (
-        result: IBoxHitTestResult,
-        props: { position: IOffset }
-    ) => boolean;
-    hitTestChildren: (
         result: IBoxHitTestResult,
         props: { position: IOffset }
     ) => boolean;
@@ -309,7 +355,6 @@ export interface IRenderEditable {
     reassemble: () => void;
     adoptChild: (child: unknown) => void;
     dropChild: (child: unknown) => void;
-    visitChildren: (visitor: (child: IRenderObject) => void) => void;
     markParentNeedsLayout: () => void;
     markNeedsLayoutForSizedByParentChange: () => void;
     scheduleInitialLayout: () => void;
@@ -328,7 +373,6 @@ export interface IRenderEditable {
         includedParent: boolean;
     }) => void;
     markNeedsCompositingBitsUpdate: () => void;
-    markNeedsPaint: () => void;
     scheduleInitialPaint: (rootLayer: IContainerLayer) => void;
     replaceRootLayer: (rootLayer: IOffsetLayer) => void;
     getTransformTo: (ancestor?: IRenderObject | undefined) => IMatrix4;
@@ -339,11 +383,6 @@ export interface IRenderEditable {
     markNeedsSemanticsUpdate: () => void;
     visitChildrenForSemantics: (
         visitor: (child: IRenderObject) => void
-    ) => void;
-    assembleSemanticsNode: (
-        node: ISemanticsNode,
-        config: ISemanticsConfiguration,
-        children: IIterable<ISemanticsNode>
     ) => void;
     toStringShort: () => string;
     toString: (props: { minLevel: DiagnosticLevel }) => string;
@@ -366,6 +405,7 @@ export interface IRenderEditable {
         name: string,
         props: { style: DiagnosticsTreeStyle }
     ) => IDiagnosticsNode;
+    getDebugDisposed: () => boolean | undefined;
     getDebugDoingThisResize: () => boolean;
     getDebugDoingThisLayout: () => boolean;
     getDebugCanParentUseSize: () => boolean;
@@ -387,7 +427,6 @@ export interface IRenderEditable {
         style?: DiagnosticsTreeStyle | undefined;
     }) => IDiagnosticsNode;
     redepthChild: (child: IAbstractNode) => void;
-    redepthChildren: () => void;
     getDepth: () => number;
     getAttached: () => boolean;
     getParent: () => IAbstractNode | undefined;
@@ -397,14 +436,18 @@ export class RenderEditable
     implements
         IRenderBox,
         IRelayoutWhenSystemFontsChangeMixin,
+        IContainerRenderObjectMixin<IRenderBox, ITextParentData>,
+        IRenderBoxContainerDefaultsMixin<IRenderBox, ITextParentData>,
         IDiagnosticableTreeMixin,
         IDiagnosticable,
+        ITextLayoutMetrics,
+        IContainerRenderObjectMixin<IRenderBox, ITextParentData>,
         IHitTestTarget,
         Omit<
             IDiagnosticableTree,
+            | "debugDescribeChildren"
             | "toStringShallow"
             | "toStringDeep"
-            | "debugDescribeChildren"
             | "debugFillProperties"
             | "toStringShort"
             | "toDiagnosticsNode"
@@ -413,14 +456,16 @@ export class RenderEditable
     public readonly ignorePointer: boolean = undefined as any;
     public readonly textSelectionDelegate: ITextSelectionDelegate =
         undefined as any;
+    public readonly floatingCursorAddedMargin: IEdgeInsets = undefined as any;
     public readonly parentData: IParentData | undefined = undefined as any;
     public readonly debugCreator: Object | undefined = undefined as any;
     public constructor(props: {
         backgroundCursorColor?: IColor | undefined;
+        children?: IList<IRenderBox> | undefined;
         clipBehavior?: Clip;
         cursorColor?: IColor | undefined;
         cursorHeight?: number | undefined;
-        cursorOffset?: IOffset | undefined;
+        cursorOffset?: IOffset;
         cursorRadius?: IRadius | undefined;
         cursorWidth?: number;
         devicePixelRatio?: number;
@@ -428,6 +473,7 @@ export class RenderEditable
         expands?: boolean;
         floatingCursorAddedMargin?: IEdgeInsets;
         forceLine?: boolean;
+        foregroundPainter?: IRenderEditablePainter | undefined;
         hasFocus?: boolean | undefined;
         ignorePointer?: boolean;
         locale?: ILocale | undefined;
@@ -442,6 +488,7 @@ export class RenderEditable
             cause: SelectionChangedCause
         ) => void | undefined;
         paintCursorAboveText?: boolean;
+        painter?: IRenderEditablePainter | undefined;
         promptRectColor?: IColor | undefined;
         promptRectRange?: ITextRange | undefined;
         readOnly?: boolean;
@@ -451,7 +498,7 @@ export class RenderEditable
         selectionWidthStyle: BoxWidthStyle;
         showCursor?: IValueNotifier<boolean> | undefined;
         strutStyle?: IStrutStyle | undefined;
-        text?: ITextSpan | undefined;
+        text?: IInlineSpan | undefined;
         textAlign?: TextAlign;
         textHeightBehavior?: ITextHeightBehavior | undefined;
         textScaleFactor?: number;
@@ -467,28 +514,23 @@ export class RenderEditable
             ...props,
         });
     }
-    public static nextCharacter(
-        index: number,
-        string: string,
-        includeWhitespace: boolean = true
-    ): number {
-        return flutter.rendering.renderEditableNextCharacter(
-            index,
-            string,
-            includeWhitespace
-        );
-    }
-    public static previousCharacter(
-        index: number,
-        string: string,
-        includeWhitespace: boolean = true
-    ): number {
-        return flutter.rendering.renderEditablePreviousCharacter(
-            index,
-            string,
-            includeWhitespace
-        );
-    }
+    private readonly _dart_setupParentData: (child: any) => void =
+        undefined as any;
+    private readonly _dart_dispose: () => void = undefined as any;
+    private readonly _dart_getForegroundPainter: () =>
+        | IRenderEditablePainter
+        | undefined = undefined as any;
+    private readonly _dart_setForegroundPainter: (
+        newPainter?: IRenderEditablePainter | undefined
+    ) => void = undefined as any;
+    private readonly _dart_getPainter: () =>
+        | IRenderEditablePainter
+        | undefined = undefined as any;
+    private readonly _dart_setPainter: (
+        newPainter?: IRenderEditablePainter | undefined
+    ) => void = undefined as any;
+    private readonly _dart_debugAssertLayoutUpToDate: () => void =
+        undefined as any;
     private readonly _dart_getTextHeightBehavior: () =>
         | ITextHeightBehavior
         | undefined = undefined as any;
@@ -509,15 +551,38 @@ export class RenderEditable
     private readonly _dart_getObscureText: () => boolean = undefined as any;
     private readonly _dart_setObscureText: (value: boolean) => void =
         undefined as any;
+    private readonly _dart_getSelectionHeightStyle: () => BoxHeightStyle =
+        undefined as any;
+    private readonly _dart_setSelectionHeightStyle: (
+        value: BoxHeightStyle
+    ) => void = undefined as any;
+    private readonly _dart_getSelectionWidthStyle: () => BoxWidthStyle =
+        undefined as any;
+    private readonly _dart_setSelectionWidthStyle: (
+        value: BoxWidthStyle
+    ) => void = undefined as any;
     private readonly _dart_getSelectionStartInViewport: () => IValueListenable<boolean> =
         undefined as any;
     private readonly _dart_getSelectionEndInViewport: () => IValueListenable<boolean> =
         undefined as any;
+    private readonly _dart_getLineAtOffset: (
+        position: ITextPosition
+    ) => ITextSelection = undefined as any;
+    private readonly _dart_getWordBoundary: (
+        position: ITextPosition
+    ) => ITextRange = undefined as any;
+    private readonly _dart_getTextPositionAbove: (
+        position: ITextPosition
+    ) => ITextPosition = undefined as any;
+    private readonly _dart_getTextPositionBelow: (
+        position: ITextPosition
+    ) => ITextPosition = undefined as any;
+    private readonly _dart_markNeedsPaint: () => void = undefined as any;
     private readonly _dart_markNeedsTextLayout: () => void = undefined as any;
     private readonly _dart_systemFontsDidChange: () => void = undefined as any;
-    private readonly _dart_getText: () => ITextSpan | undefined =
+    private readonly _dart_getText: () => IInlineSpan | undefined =
         undefined as any;
-    private readonly _dart_setText: (value?: ITextSpan | undefined) => void =
+    private readonly _dart_setText: (value?: IInlineSpan | undefined) => void =
         undefined as any;
     private readonly _dart_getTextAlign: () => TextAlign = undefined as any;
     private readonly _dart_setTextAlign: (value: TextAlign) => void =
@@ -597,11 +662,9 @@ export class RenderEditable
         undefined as any;
     private readonly _dart_setPaintCursorAboveText: (value: boolean) => void =
         undefined as any;
-    private readonly _dart_getCursorOffset: () => IOffset | undefined =
+    private readonly _dart_getCursorOffset: () => IOffset = undefined as any;
+    private readonly _dart_setCursorOffset: (value: IOffset) => void =
         undefined as any;
-    private readonly _dart_setCursorOffset: (
-        value?: IOffset | undefined
-    ) => void = undefined as any;
     private readonly _dart_getCursorRadius: () => IRadius | undefined =
         undefined as any;
     private readonly _dart_setCursorRadius: (
@@ -616,21 +679,6 @@ export class RenderEditable
         undefined as any;
     private readonly _dart_setEndHandleLayerLink: (value: ILayerLink) => void =
         undefined as any;
-    private readonly _dart_getFloatingCursorAddedMargin: () => IEdgeInsets =
-        undefined as any;
-    private readonly _dart_setFloatingCursorAddedMargin: (
-        value: IEdgeInsets
-    ) => void = undefined as any;
-    private readonly _dart_getSelectionHeightStyle: () => BoxHeightStyle =
-        undefined as any;
-    private readonly _dart_setSelectionHeightStyle: (
-        value: BoxHeightStyle
-    ) => void = undefined as any;
-    private readonly _dart_getSelectionWidthStyle: () => BoxWidthStyle =
-        undefined as any;
-    private readonly _dart_setSelectionWidthStyle: (
-        value: BoxWidthStyle
-    ) => void = undefined as any;
     private readonly _dart_getEnableInteractiveSelection: () =>
         | boolean
         | undefined = undefined as any;
@@ -654,8 +702,17 @@ export class RenderEditable
     private readonly _dart_describeSemanticsConfiguration: (
         config: ISemanticsConfiguration
     ) => void = undefined as any;
+    private readonly _dart_assembleSemanticsNode: (
+        node: ISemanticsNode,
+        config: ISemanticsConfiguration,
+        children: IIterable<ISemanticsNode>
+    ) => void = undefined as any;
     private readonly _dart_attach: (owner: any) => void = undefined as any;
     private readonly _dart_detach: () => void = undefined as any;
+    private readonly _dart_redepthChildren: () => void = undefined as any;
+    private readonly _dart_visitChildren: (
+        visitor: (child: IRenderObject) => void
+    ) => void = undefined as any;
     private readonly _dart_getEndpointsForSelection: (
         selection: ITextSelection
     ) => IList<ITextSelectionPoint> = undefined as any;
@@ -687,6 +744,10 @@ export class RenderEditable
     ) => number = undefined as any;
     private readonly _dart_hitTestSelf: (position: IOffset) => boolean =
         undefined as any;
+    private readonly _dart_hitTestChildren: (
+        result: IBoxHitTestResult,
+        props: { position: IOffset }
+    ) => boolean = undefined as any;
     private readonly _dart_handleEvent: (
         event: IPointerEvent,
         entry: any
@@ -725,15 +786,15 @@ export class RenderEditable
         constraints: IBoxConstraints
     ) => ISize = undefined as any;
     private readonly _dart_performLayout: () => void = undefined as any;
+    private readonly _dart_calculateBoundedFloatingCursorOffset: (
+        rawCursorOffset: IOffset
+    ) => IOffset = undefined as any;
     private readonly _dart_setFloatingCursor: (
         state: FloatingCursorDragState,
         boundedOffset: IOffset,
         lastTextPosition: ITextPosition,
         props?: { resetLerpValue?: number | undefined }
     ) => void = undefined as any;
-    private readonly _dart_calculateBoundedFloatingCursorOffset: (
-        rawCursorOffset: IOffset
-    ) => IOffset = undefined as any;
     private readonly _dart_paint: (
         context: IPaintingContext,
         offset: IOffset
@@ -746,7 +807,50 @@ export class RenderEditable
     ) => void = undefined as any;
     private readonly _dart_debugDescribeChildren: () => IList<IDiagnosticsNode> =
         undefined as any;
-    private readonly _dart_setupParentData: (child: any) => void =
+    private readonly _dart_debugValidateChild: (
+        child: IRenderObject
+    ) => boolean = undefined as any;
+    private readonly _dart_insert: (
+        child: IRenderBox,
+        props?: { after?: IRenderBox | undefined }
+    ) => void = undefined as any;
+    private readonly _dart_add: (child: IRenderBox) => void = undefined as any;
+    private readonly _dart_addAll: (
+        children?: IList<IRenderBox> | undefined
+    ) => void = undefined as any;
+    private readonly _dart_remove: (child: IRenderBox) => void =
+        undefined as any;
+    private readonly _dart_removeAll: () => void = undefined as any;
+    private readonly _dart_move: (
+        child: IRenderBox,
+        props?: { after?: IRenderBox | undefined }
+    ) => void = undefined as any;
+    private readonly _dart_childBefore: (
+        child: IRenderBox
+    ) => IRenderBox | undefined = undefined as any;
+    private readonly _dart_childAfter: (
+        child: IRenderBox
+    ) => IRenderBox | undefined = undefined as any;
+    private readonly _dart_getChildCount: () => number = undefined as any;
+    private readonly _dart_getFirstChild: () => IRenderBox | undefined =
+        undefined as any;
+    private readonly _dart_getLastChild: () => IRenderBox | undefined =
+        undefined as any;
+    private readonly _dart_defaultComputeDistanceToFirstActualBaseline: (
+        baseline: TextBaseline
+    ) => number | undefined = undefined as any;
+    private readonly _dart_defaultComputeDistanceToHighestActualBaseline: (
+        baseline: TextBaseline
+    ) => number | undefined = undefined as any;
+    private readonly _dart_defaultHitTestChildren: (
+        result: IBoxHitTestResult,
+        props: { position: IOffset }
+    ) => boolean = undefined as any;
+    private readonly _dart_defaultPaint: (
+        context: IPaintingContext,
+        offset: IOffset
+    ) => void = undefined as any;
+    private readonly _dart_getChildrenAsList: () => IList<IRenderBox> =
         undefined as any;
     private readonly _dart_getMinIntrinsicWidth: (height: number) => number =
         undefined as any;
@@ -778,10 +882,6 @@ export class RenderEditable
     private readonly _dart_markNeedsLayout: () => void = undefined as any;
     private readonly _dart_performResize: () => void = undefined as any;
     private readonly _dart_hitTest: (
-        result: IBoxHitTestResult,
-        props: { position: IOffset }
-    ) => boolean = undefined as any;
-    private readonly _dart_hitTestChildren: (
         result: IBoxHitTestResult,
         props: { position: IOffset }
     ) => boolean = undefined as any;
@@ -827,9 +927,6 @@ export class RenderEditable
     private readonly _dart_reassemble: () => void = undefined as any;
     private readonly _dart_adoptChild: (child: any) => void = undefined as any;
     private readonly _dart_dropChild: (child: any) => void = undefined as any;
-    private readonly _dart_visitChildren: (
-        visitor: (child: IRenderObject) => void
-    ) => void = undefined as any;
     private readonly _dart_markParentNeedsLayout: () => void = undefined as any;
     private readonly _dart_markNeedsLayoutForSizedByParentChange: () => void =
         undefined as any;
@@ -852,7 +949,6 @@ export class RenderEditable
     }) => void = undefined as any;
     private readonly _dart_markNeedsCompositingBitsUpdate: () => void =
         undefined as any;
-    private readonly _dart_markNeedsPaint: () => void = undefined as any;
     private readonly _dart_scheduleInitialPaint: (
         rootLayer: IContainerLayer
     ) => void = undefined as any;
@@ -874,11 +970,6 @@ export class RenderEditable
         undefined as any;
     private readonly _dart_visitChildrenForSemantics: (
         visitor: (child: IRenderObject) => void
-    ) => void = undefined as any;
-    private readonly _dart_assembleSemanticsNode: (
-        node: ISemanticsNode,
-        config: ISemanticsConfiguration,
-        children: IIterable<ISemanticsNode>
     ) => void = undefined as any;
     private readonly _dart_toStringShort: () => string = undefined as any;
     private readonly _dart_toString: (props: {
@@ -903,6 +994,8 @@ export class RenderEditable
         name: string,
         props: { style: DiagnosticsTreeStyle }
     ) => IDiagnosticsNode = undefined as any;
+    private readonly _dart_getDebugDisposed: () => boolean | undefined =
+        undefined as any;
     private readonly _dart_getDebugDoingThisResize: () => boolean =
         undefined as any;
     private readonly _dart_getDebugDoingThisLayout: () => boolean =
@@ -940,12 +1033,34 @@ export class RenderEditable
     }) => IDiagnosticsNode = undefined as any;
     private readonly _dart_redepthChild: (child: IAbstractNode) => void =
         undefined as any;
-    private readonly _dart_redepthChildren: () => void = undefined as any;
     private readonly _dart_getDepth: () => number = undefined as any;
     private readonly _dart_getAttached: () => boolean = undefined as any;
     private readonly _dart_getParent: () => IAbstractNode | undefined =
         undefined as any;
     private readonly _dart_getHashCode: () => number = undefined as any;
+    public setupParentData(child: any): void {
+        return this._dart_setupParentData(child);
+    }
+    public dispose(): void {
+        return this._dart_dispose();
+    }
+    public getForegroundPainter(): IRenderEditablePainter | undefined {
+        return this._dart_getForegroundPainter();
+    }
+    public setForegroundPainter(
+        newPainter?: IRenderEditablePainter | undefined
+    ): void {
+        return this._dart_setForegroundPainter(newPainter);
+    }
+    public getPainter(): IRenderEditablePainter | undefined {
+        return this._dart_getPainter();
+    }
+    public setPainter(newPainter?: IRenderEditablePainter | undefined): void {
+        return this._dart_setPainter(newPainter);
+    }
+    public debugAssertLayoutUpToDate(): void {
+        return this._dart_debugAssertLayoutUpToDate();
+    }
     public getTextHeightBehavior(): ITextHeightBehavior | undefined {
         return this._dart_getTextHeightBehavior();
     }
@@ -978,11 +1093,38 @@ export class RenderEditable
     public setObscureText(value: boolean): void {
         return this._dart_setObscureText(value);
     }
+    public getSelectionHeightStyle(): BoxHeightStyle {
+        return this._dart_getSelectionHeightStyle();
+    }
+    public setSelectionHeightStyle(value: BoxHeightStyle): void {
+        return this._dart_setSelectionHeightStyle(value);
+    }
+    public getSelectionWidthStyle(): BoxWidthStyle {
+        return this._dart_getSelectionWidthStyle();
+    }
+    public setSelectionWidthStyle(value: BoxWidthStyle): void {
+        return this._dart_setSelectionWidthStyle(value);
+    }
     public getSelectionStartInViewport(): IValueListenable<boolean> {
         return this._dart_getSelectionStartInViewport();
     }
     public getSelectionEndInViewport(): IValueListenable<boolean> {
         return this._dart_getSelectionEndInViewport();
+    }
+    public getLineAtOffset(position: ITextPosition): ITextSelection {
+        return this._dart_getLineAtOffset(position);
+    }
+    public getWordBoundary(position: ITextPosition): ITextRange {
+        return this._dart_getWordBoundary(position);
+    }
+    public getTextPositionAbove(position: ITextPosition): ITextPosition {
+        return this._dart_getTextPositionAbove(position);
+    }
+    public getTextPositionBelow(position: ITextPosition): ITextPosition {
+        return this._dart_getTextPositionBelow(position);
+    }
+    public markNeedsPaint(): void {
+        return this._dart_markNeedsPaint();
     }
     public markNeedsTextLayout(): void {
         return this._dart_markNeedsTextLayout();
@@ -990,10 +1132,10 @@ export class RenderEditable
     public systemFontsDidChange(): void {
         return this._dart_systemFontsDidChange();
     }
-    public getText(): ITextSpan | undefined {
+    public getText(): IInlineSpan | undefined {
         return this._dart_getText();
     }
-    public setText(value?: ITextSpan | undefined): void {
+    public setText(value?: IInlineSpan | undefined): void {
         return this._dart_setText(value);
     }
     public getTextAlign(): TextAlign {
@@ -1116,10 +1258,10 @@ export class RenderEditable
     public setPaintCursorAboveText(value: boolean): void {
         return this._dart_setPaintCursorAboveText(value);
     }
-    public getCursorOffset(): IOffset | undefined {
+    public getCursorOffset(): IOffset {
         return this._dart_getCursorOffset();
     }
-    public setCursorOffset(value?: IOffset | undefined): void {
+    public setCursorOffset(value: IOffset): void {
         return this._dart_setCursorOffset(value);
     }
     public getCursorRadius(): IRadius | undefined {
@@ -1139,24 +1281,6 @@ export class RenderEditable
     }
     public setEndHandleLayerLink(value: ILayerLink): void {
         return this._dart_setEndHandleLayerLink(value);
-    }
-    public getFloatingCursorAddedMargin(): IEdgeInsets {
-        return this._dart_getFloatingCursorAddedMargin();
-    }
-    public setFloatingCursorAddedMargin(value: IEdgeInsets): void {
-        return this._dart_setFloatingCursorAddedMargin(value);
-    }
-    public getSelectionHeightStyle(): BoxHeightStyle {
-        return this._dart_getSelectionHeightStyle();
-    }
-    public setSelectionHeightStyle(value: BoxHeightStyle): void {
-        return this._dart_setSelectionHeightStyle(value);
-    }
-    public getSelectionWidthStyle(): BoxWidthStyle {
-        return this._dart_getSelectionWidthStyle();
-    }
-    public setSelectionWidthStyle(value: BoxWidthStyle): void {
-        return this._dart_setSelectionWidthStyle(value);
     }
     public getEnableInteractiveSelection(): boolean | undefined {
         return this._dart_getEnableInteractiveSelection();
@@ -1190,11 +1314,24 @@ export class RenderEditable
     ): void {
         return this._dart_describeSemanticsConfiguration(config);
     }
+    public assembleSemanticsNode(
+        node: ISemanticsNode,
+        config: ISemanticsConfiguration,
+        children: IIterable<ISemanticsNode>
+    ): void {
+        return this._dart_assembleSemanticsNode(node, config, children);
+    }
     public attach(owner: any): void {
         return this._dart_attach(owner);
     }
     public detach(): void {
         return this._dart_detach();
+    }
+    public redepthChildren(): void {
+        return this._dart_redepthChildren();
+    }
+    public visitChildren(visitor: (child: IRenderObject) => void): void {
+        return this._dart_visitChildren(visitor);
     }
     public getEndpointsForSelection(
         selection: ITextSelection
@@ -1230,6 +1367,12 @@ export class RenderEditable
     }
     public hitTestSelf(position: IOffset): boolean {
         return this._dart_hitTestSelf(position);
+    }
+    public hitTestChildren(
+        result: IBoxHitTestResult,
+        props: { position: IOffset }
+    ): boolean {
+        return this._dart_hitTestChildren(result, props);
     }
     public handleEvent(event: IPointerEvent, entry: any): void {
         return this._dart_handleEvent(event, entry);
@@ -1281,6 +1424,11 @@ export class RenderEditable
     public performLayout(): void {
         return this._dart_performLayout();
     }
+    public calculateBoundedFloatingCursorOffset(
+        rawCursorOffset: IOffset
+    ): IOffset {
+        return this._dart_calculateBoundedFloatingCursorOffset(rawCursorOffset);
+    }
     public setFloatingCursor(
         state: FloatingCursorDragState,
         boundedOffset: IOffset,
@@ -1294,11 +1442,6 @@ export class RenderEditable
             props
         );
     }
-    public calculateBoundedFloatingCursorOffset(
-        rawCursorOffset: IOffset
-    ): IOffset {
-        return this._dart_calculateBoundedFloatingCursorOffset(rawCursorOffset);
-    }
     public paint(context: IPaintingContext, offset: IOffset): void {
         return this._dart_paint(context, offset);
     }
@@ -1311,8 +1454,71 @@ export class RenderEditable
     public debugDescribeChildren(): IList<IDiagnosticsNode> {
         return this._dart_debugDescribeChildren();
     }
-    public setupParentData(child: any): void {
-        return this._dart_setupParentData(child);
+    public debugValidateChild(child: IRenderObject): boolean {
+        return this._dart_debugValidateChild(child);
+    }
+    public insert(
+        child: IRenderBox,
+        props?: { after?: IRenderBox | undefined }
+    ): void {
+        return this._dart_insert(child, props);
+    }
+    public add(child: IRenderBox): void {
+        return this._dart_add(child);
+    }
+    public addAll(children?: IList<IRenderBox> | undefined): void {
+        return this._dart_addAll(children);
+    }
+    public remove(child: IRenderBox): void {
+        return this._dart_remove(child);
+    }
+    public removeAll(): void {
+        return this._dart_removeAll();
+    }
+    public move(
+        child: IRenderBox,
+        props?: { after?: IRenderBox | undefined }
+    ): void {
+        return this._dart_move(child, props);
+    }
+    public childBefore(child: IRenderBox): IRenderBox | undefined {
+        return this._dart_childBefore(child);
+    }
+    public childAfter(child: IRenderBox): IRenderBox | undefined {
+        return this._dart_childAfter(child);
+    }
+    public getChildCount(): number {
+        return this._dart_getChildCount();
+    }
+    public getFirstChild(): IRenderBox | undefined {
+        return this._dart_getFirstChild();
+    }
+    public getLastChild(): IRenderBox | undefined {
+        return this._dart_getLastChild();
+    }
+    public defaultComputeDistanceToFirstActualBaseline(
+        baseline: TextBaseline
+    ): number | undefined {
+        return this._dart_defaultComputeDistanceToFirstActualBaseline(baseline);
+    }
+    public defaultComputeDistanceToHighestActualBaseline(
+        baseline: TextBaseline
+    ): number | undefined {
+        return this._dart_defaultComputeDistanceToHighestActualBaseline(
+            baseline
+        );
+    }
+    public defaultHitTestChildren(
+        result: IBoxHitTestResult,
+        props: { position: IOffset }
+    ): boolean {
+        return this._dart_defaultHitTestChildren(result, props);
+    }
+    public defaultPaint(context: IPaintingContext, offset: IOffset): void {
+        return this._dart_defaultPaint(context, offset);
+    }
+    public getChildrenAsList(): IList<IRenderBox> {
+        return this._dart_getChildrenAsList();
     }
     public getMinIntrinsicWidth(height: number): number {
         return this._dart_getMinIntrinsicWidth(height);
@@ -1369,12 +1575,6 @@ export class RenderEditable
         props: { position: IOffset }
     ): boolean {
         return this._dart_hitTest(result, props);
-    }
-    public hitTestChildren(
-        result: IBoxHitTestResult,
-        props: { position: IOffset }
-    ): boolean {
-        return this._dart_hitTestChildren(result, props);
     }
     public applyPaintTransform(child: any, transform: IMatrix4): void {
         return this._dart_applyPaintTransform(child, transform);
@@ -1442,9 +1642,6 @@ export class RenderEditable
     public dropChild(child: any): void {
         return this._dart_dropChild(child);
     }
-    public visitChildren(visitor: (child: IRenderObject) => void): void {
-        return this._dart_visitChildren(visitor);
-    }
     public markParentNeedsLayout(): void {
         return this._dart_markParentNeedsLayout();
     }
@@ -1485,9 +1682,6 @@ export class RenderEditable
     public markNeedsCompositingBitsUpdate(): void {
         return this._dart_markNeedsCompositingBitsUpdate();
     }
-    public markNeedsPaint(): void {
-        return this._dart_markNeedsPaint();
-    }
     public scheduleInitialPaint(rootLayer: IContainerLayer): void {
         return this._dart_scheduleInitialPaint(rootLayer);
     }
@@ -1516,13 +1710,6 @@ export class RenderEditable
         visitor: (child: IRenderObject) => void
     ): void {
         return this._dart_visitChildrenForSemantics(visitor);
-    }
-    public assembleSemanticsNode(
-        node: ISemanticsNode,
-        config: ISemanticsConfiguration,
-        children: IIterable<ISemanticsNode>
-    ): void {
-        return this._dart_assembleSemanticsNode(node, config, children);
     }
     public toStringShort(): string {
         return this._dart_toStringShort();
@@ -1571,6 +1758,9 @@ export class RenderEditable
             ...describeForErrorDefaultProps,
             ...props,
         });
+    }
+    public getDebugDisposed(): boolean | undefined {
+        return this._dart_getDebugDisposed();
     }
     public getDebugDoingThisResize(): boolean {
         return this._dart_getDebugDoingThisResize();
@@ -1629,9 +1819,6 @@ export class RenderEditable
     public redepthChild(child: IAbstractNode): void {
         return this._dart_redepthChild(child);
     }
-    public redepthChildren(): void {
-        return this._dart_redepthChildren();
-    }
     public getDepth(): number {
         return this._dart_getDepth();
     }
@@ -1647,6 +1834,7 @@ export class RenderEditable
 }
 const renderEditableDefaultProps = {
     clipBehavior: Clip.hardEdge,
+    cursorOffset: Offset.zero,
     cursorWidth: 1.0,
     devicePixelRatio: 1.0,
     expands: false,

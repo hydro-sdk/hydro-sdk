@@ -15,6 +15,22 @@ class VMManagedLayer extends VMManagedBox<Layer> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
+    table['debugCreator'] = maybeBoxObject<Object?>(
+        object: vmObject.debugCreator,
+        hydroState: hydroState,
+        table: HydroTable());
+    table['getDebugDisposed'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        vmObject.debugDisposed,
+      ];
+    });
+    table['getDebugHandleCount'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        vmObject.debugHandleCount,
+      ];
+    });
     table['getParent'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       final returnValue = vmObject.parent;
@@ -234,6 +250,21 @@ class RTManagedLayer extends Layer implements Box<Layer> {
     table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [unwrap()];
     });
+    table['debugCreator'] = maybeBoxObject<Object?>(
+        object: debugCreator, hydroState: hydroState, table: HydroTable());
+    table['_dart_getDebugDisposed'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.debugDisposed];
+    });
+    table['_dart_getDebugHandleCount'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.debugHandleCount];
+    });
+    table['_dart_dispose'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.dispose();
+      return [];
+    });
     table['_dart_getParent'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.parent];
@@ -326,12 +357,9 @@ class RTManagedLayer extends Layer implements Box<Layer> {
     });
     table['_dart_addToScene'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      addToScene(
-          maybeUnBoxAndBuildArgument<SceneBuilder, dynamic>(
-              luaCallerArguments[1],
-              parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[2],
-              parentState: hydroState));
+      addToScene(maybeUnBoxAndBuildArgument<SceneBuilder, dynamic>(
+          luaCallerArguments[1],
+          parentState: hydroState));
       return [];
     });
     table['_dart_toStringShort'] =
@@ -467,6 +495,25 @@ class RTManagedLayer extends Layer implements Box<Layer> {
   Layer unwrap() => this;
   Layer get vmObject => this;
   @override
+  bool get debugDisposed {
+    Closure closure = table["getDebugDisposed"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  int get debugHandleCount {
+    Closure closure = table["getDebugHandleCount"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    Closure closure = table["dispose"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
   ContainerLayer? get parent {
     Closure closure = table["getParent"];
     return maybeUnBoxAndBuildArgument<ContainerLayer?, dynamic>(
@@ -579,7 +626,7 @@ class RTManagedLayer extends Layer implements Box<Layer> {
   }
 
   @override
-  void addToScene(SceneBuilder builder, [Offset layerOffset = Offset.zero]) {
+  void addToScene(SceneBuilder builder) {
     Closure closure = table["addToScene"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }

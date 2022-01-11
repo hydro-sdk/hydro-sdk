@@ -17,7 +17,10 @@ class VMManagedBackdropFilterLayer extends VMManagedBox<BackdropFilterLayer> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['debugCreator'] = vmObject.debugCreator;
+    table['debugCreator'] = maybeBoxObject<Object?>(
+        object: vmObject.debugCreator,
+        hydroState: hydroState,
+        table: HydroTable());
     table['getFilter'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       final returnValue = vmObject.filter;
@@ -36,14 +39,25 @@ class VMManagedBackdropFilterLayer extends VMManagedBox<BackdropFilterLayer> {
           parentState: hydroState));
       return [];
     });
+    table['getBlendMode'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        BlendMode.values.indexWhere((x) {
+          return x == vmObject.blendMode;
+        }),
+      ];
+    });
+    table['setBlendMode'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.blendMode = (maybeUnBoxEnum(
+          values: BlendMode.values, boxedEnum: luaCallerArguments[1]));
+      return [];
+    });
     table['addToScene'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.addToScene(
-          maybeUnBoxAndBuildArgument<SceneBuilder, dynamic>(
-              luaCallerArguments[1],
-              parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[2],
-              parentState: hydroState));
+      vmObject.addToScene(maybeUnBoxAndBuildArgument<SceneBuilder, dynamic>(
+          luaCallerArguments[1],
+          parentState: hydroState));
       return [];
     });
     table['buildScene'] =
@@ -57,6 +71,11 @@ class VMManagedBackdropFilterLayer extends VMManagedBox<BackdropFilterLayer> {
             hydroState: hydroState,
             table: HydroTable()),
       ];
+    });
+    table['dispose'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.dispose();
+      return [];
     });
     table['updateSubtreeNeedsAddToScene'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -103,8 +122,6 @@ class VMManagedBackdropFilterLayer extends VMManagedBox<BackdropFilterLayer> {
       vmObject.addChildrenToScene(
           maybeUnBoxAndBuildArgument<SceneBuilder, dynamic>(
               luaCallerArguments[1],
-              parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[2],
               parentState: hydroState));
       return [];
     });
@@ -212,6 +229,18 @@ class VMManagedBackdropFilterLayer extends VMManagedBox<BackdropFilterLayer> {
               luaCallerArguments[1],
               parentState: hydroState));
       return [];
+    });
+    table['getDebugDisposed'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        vmObject.debugDisposed,
+      ];
+    });
+    table['getDebugHandleCount'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        vmObject.debugHandleCount,
+      ];
     });
     table['getParent'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -351,13 +380,17 @@ class VMManagedBackdropFilterLayer extends VMManagedBox<BackdropFilterLayer> {
 class RTManagedBackdropFilterLayer extends BackdropFilterLayer
     implements Box<BackdropFilterLayer> {
   RTManagedBackdropFilterLayer(
-      {ImageFilter? filter, required this.table, required this.hydroState})
-      : super(filter: filter) {
+      {required BlendMode blendMode,
+      ImageFilter? filter,
+      required this.table,
+      required this.hydroState})
+      : super(blendMode: blendMode, filter: filter) {
     table['vmObject'] = vmObject;
     table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [unwrap()];
     });
-    table['debugCreator'] = debugCreator;
+    table['debugCreator'] = maybeBoxObject<Object?>(
+        object: debugCreator, hydroState: hydroState, table: HydroTable());
     table['_dart_getFilter'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.filter];
@@ -369,14 +402,21 @@ class RTManagedBackdropFilterLayer extends BackdropFilterLayer
           parentState: hydroState));
       return [];
     });
+    table['_dart_getBlendMode'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.blendMode];
+    });
+    table['_dart_setBlendMode'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.blendMode = (maybeUnBoxEnum(
+          values: BlendMode.values, boxedEnum: luaCallerArguments[1]));
+      return [];
+    });
     table['_dart_addToScene'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.addToScene(
-          maybeUnBoxAndBuildArgument<SceneBuilder, dynamic>(
-              luaCallerArguments[1],
-              parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[2],
-              parentState: hydroState));
+      super.addToScene(maybeUnBoxAndBuildArgument<SceneBuilder, dynamic>(
+          luaCallerArguments[1],
+          parentState: hydroState));
       return [];
     });
     table['_dart_buildScene'] =
@@ -390,6 +430,11 @@ class RTManagedBackdropFilterLayer extends BackdropFilterLayer
             hydroState: hydroState,
             table: HydroTable())
       ];
+    });
+    table['_dart_dispose'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.dispose();
+      return [];
     });
     table['_dart_updateSubtreeNeedsAddToScene'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -439,8 +484,6 @@ class RTManagedBackdropFilterLayer extends BackdropFilterLayer
       super.addChildrenToScene(
           maybeUnBoxAndBuildArgument<SceneBuilder, dynamic>(
               luaCallerArguments[1],
-              parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[2],
               parentState: hydroState));
       return [];
     });
@@ -533,6 +576,14 @@ class RTManagedBackdropFilterLayer extends BackdropFilterLayer
               luaCallerArguments[1],
               parentState: hydroState));
       return [];
+    });
+    table['_dart_getDebugDisposed'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.debugDisposed];
+    });
+    table['_dart_getDebugHandleCount'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.debugHandleCount];
     });
     table['_dart_getParent'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -671,7 +722,21 @@ class RTManagedBackdropFilterLayer extends BackdropFilterLayer
   }
 
   @override
-  void addToScene(SceneBuilder builder, [Offset layerOffset = Offset.zero]) {
+  BlendMode get blendMode {
+    Closure closure = table["getBlendMode"];
+    return maybeUnBoxEnum(
+        values: BlendMode.values,
+        boxedEnum: closure.dispatch([table], parentState: hydroState)[0]);
+  }
+
+  @override
+  void set blendMode(BlendMode value) {
+    Closure closure = table["setBlendMode"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  void addToScene(SceneBuilder builder) {
     Closure closure = table["addToScene"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -682,6 +747,13 @@ class RTManagedBackdropFilterLayer extends BackdropFilterLayer
     return maybeUnBoxAndBuildArgument<Scene, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    Closure closure = table["dispose"];
+    return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
@@ -725,8 +797,7 @@ class RTManagedBackdropFilterLayer extends BackdropFilterLayer
   }
 
   @override
-  void addChildrenToScene(SceneBuilder builder,
-      [Offset childOffset = Offset.zero]) {
+  void addChildrenToScene(SceneBuilder builder) {
     Closure closure = table["addChildrenToScene"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -833,6 +904,18 @@ class RTManagedBackdropFilterLayer extends BackdropFilterLayer
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     Closure closure = table["debugFillProperties"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  bool get debugDisposed {
+    Closure closure = table["getDebugDisposed"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  int get debugHandleCount {
+    Closure closure = table["getDebugHandleCount"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
@@ -965,6 +1048,11 @@ void loadBackdropFilterLayer(
       RTManagedBackdropFilterLayer(
           table: luaCallerArguments[0],
           hydroState: hydroState,
+          blendMode: maybeUnBoxEnum(
+              values: BlendMode.values,
+              boxedEnum: luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1]['blendMode']
+                  : null),
           filter: maybeUnBoxAndBuildArgument<ImageFilter?, dynamic>(
               luaCallerArguments.length >= 2
                   ? luaCallerArguments[1]['filter']

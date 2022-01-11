@@ -22,6 +22,7 @@ import { IFlutterError } from "../foundation/flutterError";
 import { IHitTestEntry } from "../gestures/hitTestEntry";
 import { IHitTestTarget } from "../gestures/hitTestTarget";
 import { IPointerEvent } from "../gestures/pointerEvent";
+import { IAttributedString } from "../semantics/attributedString";
 import { ICustomSemanticsAction } from "../semantics/customSemanticsAction";
 import { ISemanticsConfiguration } from "../semantics/semanticsConfiguration";
 import { ISemanticsEvent } from "../semantics/semanticsEvent";
@@ -50,6 +51,11 @@ declare const flutter: {
             this: void,
             renderSemanticsAnnotations: IRenderSemanticsAnnotations,
             props: {
+                attributedDecreasedValue?: IAttributedString | undefined;
+                attributedHint?: IAttributedString | undefined;
+                attributedIncreasedValue?: IAttributedString | undefined;
+                attributedLabel?: IAttributedString | undefined;
+                attributedValue?: IAttributedString | undefined;
                 button?: boolean | undefined;
                 checked?: boolean | undefined;
                 child?: IRenderBox | undefined;
@@ -58,7 +64,6 @@ declare const flutter: {
                 customSemanticsActions?:
                     | IMap<ICustomSemanticsAction, () => void>
                     | undefined;
-                decreasedValue?: string | undefined;
                 enabled?: boolean | undefined;
                 excludeSemantics: boolean;
                 explicitChildNodes: boolean;
@@ -66,12 +71,10 @@ declare const flutter: {
                 focused?: boolean | undefined;
                 header?: boolean | undefined;
                 hidden?: boolean | undefined;
-                hint?: string | undefined;
                 hintOverrides?: ISemanticsHintOverrides | undefined;
                 image?: boolean | undefined;
                 inMutuallyExclusiveGroup?: boolean | undefined;
-                increasedValue?: string | undefined;
-                label?: string | undefined;
+                keyboardKey?: boolean | undefined;
                 link?: boolean | undefined;
                 liveRegion?: boolean | undefined;
                 maxValueLength?: number | undefined;
@@ -106,6 +109,7 @@ declare const flutter: {
                 onSetSelection?: (
                     selection: ITextSelection
                 ) => void | undefined;
+                onSetText?: (text: string) => void | undefined;
                 onTap?: () => void | undefined;
                 readOnly?: boolean | undefined;
                 scopesRoute?: boolean | undefined;
@@ -116,7 +120,6 @@ declare const flutter: {
                 textDirection?: TextDirection | undefined;
                 textField?: boolean | undefined;
                 toggled?: boolean | undefined;
-                value?: string | undefined;
             }
         ) => IRenderSemanticsAnnotations;
     };
@@ -140,6 +143,8 @@ export interface IRenderSemanticsAnnotations {
     setButton: (value?: boolean | undefined) => void;
     getSlider: () => boolean | undefined;
     setSlider: (value?: boolean | undefined) => void;
+    getKeyboardKey: () => boolean | undefined;
+    setKeyboardKey: (value?: boolean | undefined) => void;
     getLink: () => boolean | undefined;
     setLink: (value?: boolean | undefined) => void;
     getHeader: () => boolean | undefined;
@@ -174,16 +179,20 @@ export interface IRenderSemanticsAnnotations {
     setCurrentValueLength: (value?: number | undefined) => void;
     getToggled: () => boolean | undefined;
     setToggled: (value?: boolean | undefined) => void;
-    getLabel: () => string | undefined;
-    setLabel: (value?: string | undefined) => void;
-    getValue: () => string | undefined;
-    setValue: (value?: string | undefined) => void;
-    getIncreasedValue: () => string | undefined;
-    setIncreasedValue: (value?: string | undefined) => void;
-    getDecreasedValue: () => string | undefined;
-    setDecreasedValue: (value?: string | undefined) => void;
-    getHint: () => string | undefined;
-    setHint: (value?: string | undefined) => void;
+    getAttributedLabel: () => IAttributedString | undefined;
+    setAttributedLabel: (value?: IAttributedString | undefined) => void;
+    getAttributedValue: () => IAttributedString | undefined;
+    setAttributedValue: (value?: IAttributedString | undefined) => void;
+    getAttributedIncreasedValue: () => IAttributedString | undefined;
+    setAttributedIncreasedValue: (
+        value?: IAttributedString | undefined
+    ) => void;
+    getAttributedDecreasedValue: () => IAttributedString | undefined;
+    setAttributedDecreasedValue: (
+        value?: IAttributedString | undefined
+    ) => void;
+    getAttributedHint: () => IAttributedString | undefined;
+    setAttributedHint: (value?: IAttributedString | undefined) => void;
     getHintOverrides: () => ISemanticsHintOverrides | undefined;
     setHintOverrides: (value?: ISemanticsHintOverrides | undefined) => void;
     getTextDirection: () => TextDirection | undefined;
@@ -242,6 +251,8 @@ export interface IRenderSemanticsAnnotations {
     ) => void;
     getOnSetSelection: () => (selection: ITextSelection) => void | undefined;
     setOnSetSelection: (handler?: (selection: ITextSelection) => void) => void;
+    getOnSetText: () => (text: string) => void | undefined;
+    setOnSetText: (handler?: (text: string) => void) => void;
     getOnDidGainAccessibilityFocus: () => () => void | undefined;
     setOnDidGainAccessibilityFocus: (handler?: () => void) => void;
     getOnDidLoseAccessibilityFocus: () => () => void | undefined;
@@ -327,6 +338,7 @@ export interface IRenderSemanticsAnnotations {
     getConstraints: () => IBoxConstraints;
     getPaintBounds: () => IRect;
     reassemble: () => void;
+    dispose: () => void;
     adoptChild: (child: unknown) => void;
     dropChild: (child: unknown) => void;
     markParentNeedsLayout: () => void;
@@ -383,6 +395,7 @@ export interface IRenderSemanticsAnnotations {
         name: string,
         props: { style: DiagnosticsTreeStyle }
     ) => IDiagnosticsNode;
+    getDebugDisposed: () => boolean | undefined;
     getDebugDoingThisResize: () => boolean;
     getDebugDoingThisLayout: () => boolean;
     getDebugCanParentUseSize: () => boolean;
@@ -441,6 +454,11 @@ export class RenderSemanticsAnnotations
     public readonly parentData: IParentData | undefined = undefined as any;
     public readonly debugCreator: Object | undefined = undefined as any;
     public constructor(props: {
+        attributedDecreasedValue?: IAttributedString | undefined;
+        attributedHint?: IAttributedString | undefined;
+        attributedIncreasedValue?: IAttributedString | undefined;
+        attributedLabel?: IAttributedString | undefined;
+        attributedValue?: IAttributedString | undefined;
         button?: boolean | undefined;
         checked?: boolean | undefined;
         child?: IRenderBox | undefined;
@@ -449,7 +467,6 @@ export class RenderSemanticsAnnotations
         customSemanticsActions?:
             | IMap<ICustomSemanticsAction, () => void>
             | undefined;
-        decreasedValue?: string | undefined;
         enabled?: boolean | undefined;
         excludeSemantics?: boolean;
         explicitChildNodes?: boolean;
@@ -457,12 +474,10 @@ export class RenderSemanticsAnnotations
         focused?: boolean | undefined;
         header?: boolean | undefined;
         hidden?: boolean | undefined;
-        hint?: string | undefined;
         hintOverrides?: ISemanticsHintOverrides | undefined;
         image?: boolean | undefined;
         inMutuallyExclusiveGroup?: boolean | undefined;
-        increasedValue?: string | undefined;
-        label?: string | undefined;
+        keyboardKey?: boolean | undefined;
         link?: boolean | undefined;
         liveRegion?: boolean | undefined;
         maxValueLength?: number | undefined;
@@ -495,6 +510,7 @@ export class RenderSemanticsAnnotations
         onScrollRight?: () => void | undefined;
         onScrollUp?: () => void | undefined;
         onSetSelection?: (selection: ITextSelection) => void | undefined;
+        onSetText?: (text: string) => void | undefined;
         onTap?: () => void | undefined;
         readOnly?: boolean | undefined;
         scopesRoute?: boolean | undefined;
@@ -505,7 +521,6 @@ export class RenderSemanticsAnnotations
         textDirection?: TextDirection | undefined;
         textField?: boolean | undefined;
         toggled?: boolean | undefined;
-        value?: string | undefined;
     }) {
         flutter.rendering.renderSemanticsAnnotations(this, {
             ...renderSemanticsAnnotationsDefaultProps,
@@ -543,6 +558,11 @@ export class RenderSemanticsAnnotations
         undefined as any;
     private readonly _dart_setSlider: (value?: boolean | undefined) => void =
         undefined as any;
+    private readonly _dart_getKeyboardKey: () => boolean | undefined =
+        undefined as any;
+    private readonly _dart_setKeyboardKey: (
+        value?: boolean | undefined
+    ) => void = undefined as any;
     private readonly _dart_getLink: () => boolean | undefined =
         undefined as any;
     private readonly _dart_setLink: (value?: boolean | undefined) => void =
@@ -618,27 +638,36 @@ export class RenderSemanticsAnnotations
         undefined as any;
     private readonly _dart_setToggled: (value?: boolean | undefined) => void =
         undefined as any;
-    private readonly _dart_getLabel: () => string | undefined =
-        undefined as any;
-    private readonly _dart_setLabel: (value?: string | undefined) => void =
-        undefined as any;
-    private readonly _dart_getValue: () => string | undefined =
-        undefined as any;
-    private readonly _dart_setValue: (value?: string | undefined) => void =
-        undefined as any;
-    private readonly _dart_getIncreasedValue: () => string | undefined =
-        undefined as any;
-    private readonly _dart_setIncreasedValue: (
-        value?: string | undefined
+    private readonly _dart_getAttributedLabel: () =>
+        | IAttributedString
+        | undefined = undefined as any;
+    private readonly _dart_setAttributedLabel: (
+        value?: IAttributedString | undefined
     ) => void = undefined as any;
-    private readonly _dart_getDecreasedValue: () => string | undefined =
-        undefined as any;
-    private readonly _dart_setDecreasedValue: (
-        value?: string | undefined
+    private readonly _dart_getAttributedValue: () =>
+        | IAttributedString
+        | undefined = undefined as any;
+    private readonly _dart_setAttributedValue: (
+        value?: IAttributedString | undefined
     ) => void = undefined as any;
-    private readonly _dart_getHint: () => string | undefined = undefined as any;
-    private readonly _dart_setHint: (value?: string | undefined) => void =
-        undefined as any;
+    private readonly _dart_getAttributedIncreasedValue: () =>
+        | IAttributedString
+        | undefined = undefined as any;
+    private readonly _dart_setAttributedIncreasedValue: (
+        value?: IAttributedString | undefined
+    ) => void = undefined as any;
+    private readonly _dart_getAttributedDecreasedValue: () =>
+        | IAttributedString
+        | undefined = undefined as any;
+    private readonly _dart_setAttributedDecreasedValue: (
+        value?: IAttributedString | undefined
+    ) => void = undefined as any;
+    private readonly _dart_getAttributedHint: () =>
+        | IAttributedString
+        | undefined = undefined as any;
+    private readonly _dart_setAttributedHint: (
+        value?: IAttributedString | undefined
+    ) => void = undefined as any;
     private readonly _dart_getHintOverrides: () =>
         | ISemanticsHintOverrides
         | undefined = undefined as any;
@@ -737,6 +766,12 @@ export class RenderSemanticsAnnotations
     ) => void | undefined = undefined as any;
     private readonly _dart_setOnSetSelection: (
         handler?: (selection: ITextSelection) => void
+    ) => void = undefined as any;
+    private readonly _dart_getOnSetText: () => (
+        text: string
+    ) => void | undefined = undefined as any;
+    private readonly _dart_setOnSetText: (
+        handler?: (text: string) => void
     ) => void = undefined as any;
     private readonly _dart_getOnDidGainAccessibilityFocus: () => () =>
         | void
@@ -891,6 +926,7 @@ export class RenderSemanticsAnnotations
         undefined as any;
     private readonly _dart_getPaintBounds: () => IRect = undefined as any;
     private readonly _dart_reassemble: () => void = undefined as any;
+    private readonly _dart_dispose: () => void = undefined as any;
     private readonly _dart_adoptChild: (child: any) => void = undefined as any;
     private readonly _dart_dropChild: (child: any) => void = undefined as any;
     private readonly _dart_markParentNeedsLayout: () => void = undefined as any;
@@ -966,6 +1002,8 @@ export class RenderSemanticsAnnotations
         name: string,
         props: { style: DiagnosticsTreeStyle }
     ) => IDiagnosticsNode = undefined as any;
+    private readonly _dart_getDebugDisposed: () => boolean | undefined =
+        undefined as any;
     private readonly _dart_getDebugDoingThisResize: () => boolean =
         undefined as any;
     private readonly _dart_getDebugDoingThisLayout: () => boolean =
@@ -1055,6 +1093,12 @@ export class RenderSemanticsAnnotations
     }
     public setSlider(value?: boolean | undefined): void {
         return this._dart_setSlider(value);
+    }
+    public getKeyboardKey(): boolean | undefined {
+        return this._dart_getKeyboardKey();
+    }
+    public setKeyboardKey(value?: boolean | undefined): void {
+        return this._dart_setKeyboardKey(value);
     }
     public getLink(): boolean | undefined {
         return this._dart_getLink();
@@ -1158,35 +1202,39 @@ export class RenderSemanticsAnnotations
     public setToggled(value?: boolean | undefined): void {
         return this._dart_setToggled(value);
     }
-    public getLabel(): string | undefined {
-        return this._dart_getLabel();
+    public getAttributedLabel(): IAttributedString | undefined {
+        return this._dart_getAttributedLabel();
     }
-    public setLabel(value?: string | undefined): void {
-        return this._dart_setLabel(value);
+    public setAttributedLabel(value?: IAttributedString | undefined): void {
+        return this._dart_setAttributedLabel(value);
     }
-    public getValue(): string | undefined {
-        return this._dart_getValue();
+    public getAttributedValue(): IAttributedString | undefined {
+        return this._dart_getAttributedValue();
     }
-    public setValue(value?: string | undefined): void {
-        return this._dart_setValue(value);
+    public setAttributedValue(value?: IAttributedString | undefined): void {
+        return this._dart_setAttributedValue(value);
     }
-    public getIncreasedValue(): string | undefined {
-        return this._dart_getIncreasedValue();
+    public getAttributedIncreasedValue(): IAttributedString | undefined {
+        return this._dart_getAttributedIncreasedValue();
     }
-    public setIncreasedValue(value?: string | undefined): void {
-        return this._dart_setIncreasedValue(value);
+    public setAttributedIncreasedValue(
+        value?: IAttributedString | undefined
+    ): void {
+        return this._dart_setAttributedIncreasedValue(value);
     }
-    public getDecreasedValue(): string | undefined {
-        return this._dart_getDecreasedValue();
+    public getAttributedDecreasedValue(): IAttributedString | undefined {
+        return this._dart_getAttributedDecreasedValue();
     }
-    public setDecreasedValue(value?: string | undefined): void {
-        return this._dart_setDecreasedValue(value);
+    public setAttributedDecreasedValue(
+        value?: IAttributedString | undefined
+    ): void {
+        return this._dart_setAttributedDecreasedValue(value);
     }
-    public getHint(): string | undefined {
-        return this._dart_getHint();
+    public getAttributedHint(): IAttributedString | undefined {
+        return this._dart_getAttributedHint();
     }
-    public setHint(value?: string | undefined): void {
-        return this._dart_setHint(value);
+    public setAttributedHint(value?: IAttributedString | undefined): void {
+        return this._dart_setAttributedHint(value);
     }
     public getHintOverrides(): ISemanticsHintOverrides | undefined {
         return this._dart_getHintOverrides();
@@ -1333,6 +1381,12 @@ export class RenderSemanticsAnnotations
         handler?: (selection: ITextSelection) => void
     ): void {
         return this._dart_setOnSetSelection(handler);
+    }
+    public getOnSetText(): (text: string) => void | undefined {
+        return this._dart_getOnSetText();
+    }
+    public setOnSetText(handler?: (text: string) => void): void {
+        return this._dart_setOnSetText(handler);
     }
     public getOnDidGainAccessibilityFocus(): () => void | undefined {
         return this._dart_getOnDidGainAccessibilityFocus();
@@ -1553,6 +1607,9 @@ export class RenderSemanticsAnnotations
     public reassemble(): void {
         return this._dart_reassemble();
     }
+    public dispose(): void {
+        return this._dart_dispose();
+    }
     public adoptChild(child: any): void {
         return this._dart_adoptChild(child);
     }
@@ -1683,6 +1740,9 @@ export class RenderSemanticsAnnotations
             ...describeForErrorDefaultProps,
             ...props,
         });
+    }
+    public getDebugDisposed(): boolean | undefined {
+        return this._dart_getDebugDisposed();
     }
     public getDebugDoingThisResize(): boolean {
         return this._dart_getDebugDoingThisResize();

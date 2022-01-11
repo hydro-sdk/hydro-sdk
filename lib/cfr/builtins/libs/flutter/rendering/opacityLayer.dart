@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:core';
 import 'dart:ui';
 
@@ -17,7 +18,10 @@ class VMManagedOpacityLayer extends VMManagedBox<OpacityLayer> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['debugCreator'] = vmObject.debugCreator;
+    table['debugCreator'] = maybeBoxObject<Object?>(
+        object: vmObject.debugCreator,
+        hydroState: hydroState,
+        table: HydroTable());
     table['getAlpha'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       final returnValue = vmObject.alpha;
@@ -33,41 +37,11 @@ class VMManagedOpacityLayer extends VMManagedBox<OpacityLayer> {
       vmObject.alpha = (luaCallerArguments[1]);
       return [];
     });
-    table['getOffset'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      final returnValue = vmObject.offset;
-      if (returnValue != null) {
-        return [
-          maybeBoxObject<Offset?>(
-              object: returnValue, hydroState: hydroState, table: HydroTable()),
-        ];
-      }
-      return [];
-    });
-    table['setOffset'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.offset = (maybeUnBoxAndBuildArgument<Offset?, dynamic>(
-          luaCallerArguments[1],
-          parentState: hydroState));
-      return [];
-    });
-    table['applyTransform'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.applyTransform(
-          maybeUnBoxAndBuildArgument<Layer?, dynamic>(luaCallerArguments[1],
-              parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Matrix4, dynamic>(luaCallerArguments[2],
-              parentState: hydroState));
-      return [];
-    });
     table['addToScene'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.addToScene(
-          maybeUnBoxAndBuildArgument<SceneBuilder, dynamic>(
-              luaCallerArguments[1],
-              parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[2],
-              parentState: hydroState));
+      vmObject.addToScene(maybeUnBoxAndBuildArgument<SceneBuilder, dynamic>(
+          luaCallerArguments[1],
+          parentState: hydroState));
       return [];
     });
     table['debugFillProperties'] =
@@ -76,23 +50,6 @@ class VMManagedOpacityLayer extends VMManagedBox<OpacityLayer> {
           maybeUnBoxAndBuildArgument<DiagnosticPropertiesBuilder, dynamic>(
               luaCallerArguments[1],
               parentState: hydroState));
-      return [];
-    });
-    table['buildScene'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        maybeBoxObject<Scene>(
-            object: vmObject.buildScene(
-                maybeUnBoxAndBuildArgument<SceneBuilder, dynamic>(
-                    luaCallerArguments[1],
-                    parentState: hydroState)),
-            hydroState: hydroState,
-            table: HydroTable()),
-      ];
-    });
-    table['updateSubtreeNeedsAddToScene'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.updateSubtreeNeedsAddToScene();
       return [];
     });
     table['findAnnotations'] =
@@ -108,6 +65,67 @@ class VMManagedOpacityLayer extends VMManagedBox<OpacityLayer> {
                 ? luaCallerArguments[3]['onlyFirst']
                 : null),
       ];
+    });
+    table['applyTransform'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.applyTransform(
+          maybeUnBoxAndBuildArgument<Layer?, dynamic>(luaCallerArguments[1],
+              parentState: hydroState),
+          maybeUnBoxAndBuildArgument<Matrix4, dynamic>(luaCallerArguments[2],
+              parentState: hydroState));
+      return [];
+    });
+    table['toImage'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        maybeBoxObject<Future>(
+            object: vmObject.toImage(
+                maybeUnBoxAndBuildArgument<Rect, dynamic>(luaCallerArguments[1],
+                    parentState: hydroState),
+                pixelRatio: luaCallerArguments.length >= 3
+                    ? luaCallerArguments[2]['pixelRatio']
+                    : null?.toDouble()),
+            hydroState: hydroState,
+            table: HydroTable()),
+      ];
+    });
+    table['getOffset'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        maybeBoxObject<Offset>(
+            object: vmObject.offset,
+            hydroState: hydroState,
+            table: HydroTable()),
+      ];
+    });
+    table['setOffset'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.offset = (maybeUnBoxAndBuildArgument<Offset, dynamic>(
+          luaCallerArguments[1],
+          parentState: hydroState));
+      return [];
+    });
+    table['buildScene'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        maybeBoxObject<Scene>(
+            object: vmObject.buildScene(
+                maybeUnBoxAndBuildArgument<SceneBuilder, dynamic>(
+                    luaCallerArguments[1],
+                    parentState: hydroState)),
+            hydroState: hydroState,
+            table: HydroTable()),
+      ];
+    });
+    table['dispose'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.dispose();
+      return [];
+    });
+    table['updateSubtreeNeedsAddToScene'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.updateSubtreeNeedsAddToScene();
+      return [];
     });
     table['attach'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.attach(maybeUnBoxAndBuildArgument<Object, dynamic>(
@@ -135,8 +153,6 @@ class VMManagedOpacityLayer extends VMManagedBox<OpacityLayer> {
       vmObject.addChildrenToScene(
           maybeUnBoxAndBuildArgument<SceneBuilder, dynamic>(
               luaCallerArguments[1],
-              parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[2],
               parentState: hydroState));
       return [];
     });
@@ -226,6 +242,18 @@ class VMManagedOpacityLayer extends VMManagedBox<OpacityLayer> {
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         vmObject.toStringShort(),
+      ];
+    });
+    table['getDebugDisposed'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        vmObject.debugDisposed,
+      ];
+    });
+    table['getDebugHandleCount'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        vmObject.debugHandleCount,
       ];
     });
     table['getParent'] =
@@ -374,7 +402,8 @@ class RTManagedOpacityLayer extends OpacityLayer implements Box<OpacityLayer> {
     table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [unwrap()];
     });
-    table['debugCreator'] = debugCreator;
+    table['debugCreator'] = maybeBoxObject<Object?>(
+        object: debugCreator, hydroState: hydroState, table: HydroTable());
     table['_dart_getAlpha'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.alpha];
@@ -384,34 +413,11 @@ class RTManagedOpacityLayer extends OpacityLayer implements Box<OpacityLayer> {
       super.alpha = (luaCallerArguments[1]);
       return [];
     });
-    table['_dart_getOffset'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [super.offset];
-    });
-    table['_dart_setOffset'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.offset = (maybeUnBoxAndBuildArgument<Offset?, dynamic>(
-          luaCallerArguments[1],
-          parentState: hydroState));
-      return [];
-    });
-    table['_dart_applyTransform'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.applyTransform(
-          maybeUnBoxAndBuildArgument<Layer?, dynamic>(luaCallerArguments[1],
-              parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Matrix4, dynamic>(luaCallerArguments[2],
-              parentState: hydroState));
-      return [];
-    });
     table['_dart_addToScene'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.addToScene(
-          maybeUnBoxAndBuildArgument<SceneBuilder, dynamic>(
-              luaCallerArguments[1],
-              parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[2],
-              parentState: hydroState));
+      super.addToScene(maybeUnBoxAndBuildArgument<SceneBuilder, dynamic>(
+          luaCallerArguments[1],
+          parentState: hydroState));
       return [];
     });
     table['_dart_debugFillProperties'] =
@@ -420,23 +426,6 @@ class RTManagedOpacityLayer extends OpacityLayer implements Box<OpacityLayer> {
           maybeUnBoxAndBuildArgument<DiagnosticPropertiesBuilder, dynamic>(
               luaCallerArguments[1],
               parentState: hydroState));
-      return [];
-    });
-    table['_dart_buildScene'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        maybeBoxObject<Scene>(
-            object: super.buildScene(
-                maybeUnBoxAndBuildArgument<SceneBuilder, dynamic>(
-                    luaCallerArguments[1],
-                    parentState: hydroState)),
-            hydroState: hydroState,
-            table: HydroTable())
-      ];
-    });
-    table['_dart_updateSubtreeNeedsAddToScene'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.updateSubtreeNeedsAddToScene();
       return [];
     });
     table['_dart_findAnnotations'] =
@@ -452,6 +441,62 @@ class RTManagedOpacityLayer extends OpacityLayer implements Box<OpacityLayer> {
                 ? luaCallerArguments[3]['onlyFirst']
                 : null)
       ];
+    });
+    table['_dart_applyTransform'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.applyTransform(
+          maybeUnBoxAndBuildArgument<Layer?, dynamic>(luaCallerArguments[1],
+              parentState: hydroState),
+          maybeUnBoxAndBuildArgument<Matrix4, dynamic>(luaCallerArguments[2],
+              parentState: hydroState));
+      return [];
+    });
+    table['_dart_toImage'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        maybeBoxObject<Future>(
+            object: super.toImage(
+                maybeUnBoxAndBuildArgument<Rect, dynamic>(luaCallerArguments[1],
+                    parentState: hydroState),
+                pixelRatio: luaCallerArguments.length >= 3
+                    ? luaCallerArguments[2]['pixelRatio']
+                    : null?.toDouble()),
+            hydroState: hydroState,
+            table: HydroTable())
+      ];
+    });
+    table['_dart_getOffset'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.offset];
+    });
+    table['_dart_setOffset'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.offset = (maybeUnBoxAndBuildArgument<Offset, dynamic>(
+          luaCallerArguments[1],
+          parentState: hydroState));
+      return [];
+    });
+    table['_dart_buildScene'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        maybeBoxObject<Scene>(
+            object: super.buildScene(
+                maybeUnBoxAndBuildArgument<SceneBuilder, dynamic>(
+                    luaCallerArguments[1],
+                    parentState: hydroState)),
+            hydroState: hydroState,
+            table: HydroTable())
+      ];
+    });
+    table['_dart_dispose'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.dispose();
+      return [];
+    });
+    table['_dart_updateSubtreeNeedsAddToScene'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.updateSubtreeNeedsAddToScene();
+      return [];
     });
     table['_dart_attach'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -482,8 +527,6 @@ class RTManagedOpacityLayer extends OpacityLayer implements Box<OpacityLayer> {
       super.addChildrenToScene(
           maybeUnBoxAndBuildArgument<SceneBuilder, dynamic>(
               luaCallerArguments[1],
-              parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[2],
               parentState: hydroState));
       return [];
     });
@@ -559,6 +602,14 @@ class RTManagedOpacityLayer extends OpacityLayer implements Box<OpacityLayer> {
     table['_dart_toStringShort'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.toStringShort()];
+    });
+    table['_dart_getDebugDisposed'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.debugDisposed];
+    });
+    table['_dart_getDebugHandleCount'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.debugHandleCount];
     });
     table['_dart_getParent'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -695,27 +746,7 @@ class RTManagedOpacityLayer extends OpacityLayer implements Box<OpacityLayer> {
   }
 
   @override
-  Offset? get offset {
-    Closure closure = table["getOffset"];
-    return maybeUnBoxAndBuildArgument<Offset?, dynamic>(
-        closure.dispatch([table], parentState: hydroState)[0],
-        parentState: hydroState);
-  }
-
-  @override
-  void set offset(Offset? value) {
-    Closure closure = table["setOffset"];
-    return closure.dispatch([table], parentState: hydroState)[0];
-  }
-
-  @override
-  void applyTransform(Layer? child, Matrix4 transform) {
-    Closure closure = table["applyTransform"];
-    return closure.dispatch([table], parentState: hydroState)[0];
-  }
-
-  @override
-  void addToScene(SceneBuilder builder, [Offset layerOffset = Offset.zero]) {
+  void addToScene(SceneBuilder builder) {
     Closure closure = table["addToScene"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -728,6 +759,42 @@ class RTManagedOpacityLayer extends OpacityLayer implements Box<OpacityLayer> {
   }
 
   @override
+  bool findAnnotations<S extends Object>(
+      AnnotationResult result, Offset localPosition,
+      {required bool onlyFirst}) {
+    Closure closure = table["findAnnotations"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  void applyTransform(Layer? child, Matrix4 transform) {
+    Closure closure = table["applyTransform"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  Future<Image> toImage(Rect bounds, {double pixelRatio = 1.0}) {
+    Closure closure = table["toImage"];
+    return maybeUnBoxAndBuildArgument<Future<Image>, Image>(
+        closure.dispatch([table], parentState: hydroState)[0],
+        parentState: hydroState);
+  }
+
+  @override
+  Offset get offset {
+    Closure closure = table["getOffset"];
+    return maybeUnBoxAndBuildArgument<Offset, dynamic>(
+        closure.dispatch([table], parentState: hydroState)[0],
+        parentState: hydroState);
+  }
+
+  @override
+  void set offset(Offset value) {
+    Closure closure = table["setOffset"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
   Scene buildScene(SceneBuilder builder) {
     Closure closure = table["buildScene"];
     return maybeUnBoxAndBuildArgument<Scene, dynamic>(
@@ -736,16 +803,15 @@ class RTManagedOpacityLayer extends OpacityLayer implements Box<OpacityLayer> {
   }
 
   @override
-  void updateSubtreeNeedsAddToScene() {
-    Closure closure = table["updateSubtreeNeedsAddToScene"];
+  void dispose() {
+    super.dispose();
+    Closure closure = table["dispose"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  bool findAnnotations<S extends Object>(
-      AnnotationResult result, Offset localPosition,
-      {required bool onlyFirst}) {
-    Closure closure = table["findAnnotations"];
+  void updateSubtreeNeedsAddToScene() {
+    Closure closure = table["updateSubtreeNeedsAddToScene"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
@@ -776,8 +842,7 @@ class RTManagedOpacityLayer extends OpacityLayer implements Box<OpacityLayer> {
   }
 
   @override
-  void addChildrenToScene(SceneBuilder builder,
-      [Offset childOffset = Offset.zero]) {
+  void addChildrenToScene(SceneBuilder builder) {
     Closure closure = table["addChildrenToScene"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -871,6 +936,18 @@ class RTManagedOpacityLayer extends OpacityLayer implements Box<OpacityLayer> {
   @override
   String toStringShort() {
     Closure closure = table["toStringShort"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  bool get debugDisposed {
+    Closure closure = table["getDebugDisposed"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  int get debugHandleCount {
+    Closure closure = table["getDebugHandleCount"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 

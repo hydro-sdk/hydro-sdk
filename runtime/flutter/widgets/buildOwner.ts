@@ -1,3 +1,4 @@
+import { IDebugReassembleConfig } from "../foundation/debugReassembleConfig";
 import { IElement } from "./element";
 import { IFocusManager } from "./focusManager";
 declare const flutter: {
@@ -18,8 +19,12 @@ export interface IBuildOwner {
     getDebugBuilding: () => boolean;
     lockState: (callback: () => void) => void;
     buildScope: (context: IElement, callback?: () => void) => void;
+    getGlobalKeyCount: () => number;
     finalizeTree: () => void;
-    reassemble: (root: IElement) => void;
+    reassemble: (
+        root: IElement,
+        reassembleConfig?: IDebugReassembleConfig | undefined
+    ) => void;
 }
 export class BuildOwner {
     public readonly focusManager: IFocusManager = undefined as any;
@@ -38,9 +43,12 @@ export class BuildOwner {
         context: IElement,
         callback?: () => void
     ) => void = undefined as any;
+    private readonly _dart_getGlobalKeyCount: () => number = undefined as any;
     private readonly _dart_finalizeTree: () => void = undefined as any;
-    private readonly _dart_reassemble: (root: IElement) => void =
-        undefined as any;
+    private readonly _dart_reassemble: (
+        root: IElement,
+        reassembleConfig?: IDebugReassembleConfig | undefined
+    ) => void = undefined as any;
     public scheduleBuildFor(element: IElement): void {
         return this._dart_scheduleBuildFor(element);
     }
@@ -53,10 +61,16 @@ export class BuildOwner {
     public buildScope(context: IElement, callback?: () => void): void {
         return this._dart_buildScope(context, callback);
     }
+    public getGlobalKeyCount(): number {
+        return this._dart_getGlobalKeyCount();
+    }
     public finalizeTree(): void {
         return this._dart_finalizeTree();
     }
-    public reassemble(root: IElement): void {
-        return this._dart_reassemble(root);
+    public reassemble(
+        root: IElement,
+        reassembleConfig?: IDebugReassembleConfig | undefined
+    ): void {
+        return this._dart_reassemble(root, reassembleConfig);
     }
 }

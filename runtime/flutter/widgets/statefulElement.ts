@@ -26,8 +26,8 @@ declare const flutter: {
     };
 };
 export interface IStatefulElement {
-    state: IState<IStatefulWidget>;
     build: () => IWidget;
+    getState: () => IState<IStatefulWidget>;
     reassemble: () => void;
     performRebuild: () => void;
     update: (newWidget: unknown) => void;
@@ -44,7 +44,10 @@ export interface IStatefulElement {
         style?: DiagnosticsTreeStyle | undefined;
     }) => IDiagnosticsNode;
     debugFillProperties: (properties: IDiagnosticPropertiesBuilder) => void;
-    mount: (parent: IElement | undefined, newSlot: any) => void;
+    mount: (
+        parent?: IElement | undefined,
+        newSlot?: Object | undefined
+    ) => void;
     visitChildren: (visitor: (element: IElement) => void) => void;
     forgetChild: (child: IElement) => void;
     getDebugDoingBuild: () => boolean;
@@ -63,14 +66,17 @@ export interface IStatefulElement {
     debugVisitOnstageChildren: (visitor: (element: IElement) => void) => void;
     visitChildElements: (visitor: (element: IElement) => void) => void;
     updateChild: (
-        child: IElement | undefined,
-        newWidget: IWidget | undefined,
-        newSlot: any
+        child?: IElement | undefined,
+        newWidget?: IWidget | undefined,
+        newSlot?: Object | undefined
     ) => IElement | undefined;
-    updateSlotForChild: (child: IElement, newSlot: any) => void;
+    updateSlotForChild: (child: IElement, newSlot?: Object | undefined) => void;
     detachRenderObject: () => void;
-    attachRenderObject: (newSlot: any) => void;
-    inflateWidget: (newWidget: IWidget, newSlot: any) => IElement;
+    attachRenderObject: (newSlot?: Object | undefined) => void;
+    inflateWidget: (
+        newWidget: IWidget,
+        newSlot?: Object | undefined
+    ) => IElement;
     deactivateChild: (child: IElement) => void;
     debugDeactivated: () => void;
     findRenderObject: () => IRenderObject | undefined;
@@ -92,9 +98,10 @@ export interface IStatefulElement {
     markNeedsBuild: () => void;
     rebuild: () => void;
     getHashCode: () => number;
-    getSlot: () => any;
+    getSlot: () => Object | undefined;
     getDepth: () => number;
     getWidget: () => IWidget;
+    getDebugIsDefunct: () => boolean;
     getOwner: () => IBuildOwner | undefined;
     getRenderObject: () => IRenderObject | undefined;
     getSize: () => ISize | undefined;
@@ -113,11 +120,12 @@ export interface IStatefulElement {
 export class StatefulElement
     implements IComponentElement, IDiagnosticable, IBuildContext
 {
-    public readonly state: IState<IStatefulWidget> = undefined as any;
     public constructor(widget: IStatefulWidget) {
         flutter.widgets.statefulElement(this, widget);
     }
     private readonly _dart_build: () => IWidget = undefined as any;
+    private readonly _dart_getState: () => IState<IStatefulWidget> =
+        undefined as any;
     private readonly _dart_reassemble: () => void = undefined as any;
     private readonly _dart_performRebuild: () => void = undefined as any;
     private readonly _dart_update: (newWidget: any) => void = undefined as any;
@@ -137,8 +145,8 @@ export class StatefulElement
         properties: IDiagnosticPropertiesBuilder
     ) => void = undefined as any;
     private readonly _dart_mount: (
-        parent: IElement | undefined,
-        newSlot: any
+        parent?: IElement | undefined,
+        newSlot?: Object | undefined
     ) => void = undefined as any;
     private readonly _dart_visitChildren: (
         visitor: (element: IElement) => void
@@ -167,20 +175,21 @@ export class StatefulElement
         visitor: (element: IElement) => void
     ) => void = undefined as any;
     private readonly _dart_updateChild: (
-        child: IElement | undefined,
-        newWidget: IWidget | undefined,
-        newSlot: any
+        child?: IElement | undefined,
+        newWidget?: IWidget | undefined,
+        newSlot?: Object | undefined
     ) => IElement | undefined = undefined as any;
     private readonly _dart_updateSlotForChild: (
         child: IElement,
-        newSlot: any
+        newSlot?: Object | undefined
     ) => void = undefined as any;
     private readonly _dart_detachRenderObject: () => void = undefined as any;
-    private readonly _dart_attachRenderObject: (newSlot: any) => void =
-        undefined as any;
+    private readonly _dart_attachRenderObject: (
+        newSlot?: Object | undefined
+    ) => void = undefined as any;
     private readonly _dart_inflateWidget: (
         newWidget: IWidget,
-        newSlot: any
+        newSlot?: Object | undefined
     ) => IElement = undefined as any;
     private readonly _dart_deactivateChild: (child: IElement) => void =
         undefined as any;
@@ -216,9 +225,10 @@ export class StatefulElement
     private readonly _dart_markNeedsBuild: () => void = undefined as any;
     private readonly _dart_rebuild: () => void = undefined as any;
     private readonly _dart_getHashCode: () => number = undefined as any;
-    private readonly _dart_getSlot: () => any = undefined as any;
+    private readonly _dart_getSlot: () => Object | undefined = undefined as any;
     private readonly _dart_getDepth: () => number = undefined as any;
     private readonly _dart_getWidget: () => IWidget = undefined as any;
+    private readonly _dart_getDebugIsDefunct: () => boolean = undefined as any;
     private readonly _dart_getOwner: () => IBuildOwner | undefined =
         undefined as any;
     private readonly _dart_getRenderObject: () => IRenderObject | undefined =
@@ -239,6 +249,9 @@ export class StatefulElement
     }) => string = undefined as any;
     public build(): IWidget {
         return this._dart_build();
+    }
+    public getState(): IState<IStatefulWidget> {
+        return this._dart_getState();
     }
     public reassemble(): void {
         return this._dart_reassemble();
@@ -276,7 +289,10 @@ export class StatefulElement
     public debugFillProperties(properties: IDiagnosticPropertiesBuilder): void {
         return this._dart_debugFillProperties(properties);
     }
-    public mount(parent: IElement | undefined, newSlot: any): void {
+    public mount(
+        parent?: IElement | undefined,
+        newSlot?: Object | undefined
+    ): void {
         return this._dart_mount(parent, newSlot);
     }
     public visitChildren(visitor: (element: IElement) => void): void {
@@ -323,22 +339,28 @@ export class StatefulElement
         return this._dart_visitChildElements(visitor);
     }
     public updateChild(
-        child: IElement | undefined,
-        newWidget: IWidget | undefined,
-        newSlot: any
+        child?: IElement | undefined,
+        newWidget?: IWidget | undefined,
+        newSlot?: Object | undefined
     ): IElement | undefined {
         return this._dart_updateChild(child, newWidget, newSlot);
     }
-    public updateSlotForChild(child: IElement, newSlot: any): void {
+    public updateSlotForChild(
+        child: IElement,
+        newSlot?: Object | undefined
+    ): void {
         return this._dart_updateSlotForChild(child, newSlot);
     }
     public detachRenderObject(): void {
         return this._dart_detachRenderObject();
     }
-    public attachRenderObject(newSlot: any): void {
+    public attachRenderObject(newSlot?: Object | undefined): void {
         return this._dart_attachRenderObject(newSlot);
     }
-    public inflateWidget(newWidget: IWidget, newSlot: any): IElement {
+    public inflateWidget(
+        newWidget: IWidget,
+        newSlot?: Object | undefined
+    ): IElement {
         return this._dart_inflateWidget(newWidget, newSlot);
     }
     public deactivateChild(child: IElement): void {
@@ -398,7 +420,7 @@ export class StatefulElement
     public getHashCode(): number {
         return this._dart_getHashCode();
     }
-    public getSlot(): any {
+    public getSlot(): Object | undefined {
         return this._dart_getSlot();
     }
     public getDepth(): number {
@@ -406,6 +428,9 @@ export class StatefulElement
     }
     public getWidget(): IWidget {
         return this._dart_getWidget();
+    }
+    public getDebugIsDefunct(): boolean {
+        return this._dart_getDebugIsDefunct();
     }
     public getOwner(): IBuildOwner | undefined {
         return this._dart_getOwner();

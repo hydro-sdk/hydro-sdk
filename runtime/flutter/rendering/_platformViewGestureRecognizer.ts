@@ -11,6 +11,7 @@ import { IDiagnosticPropertiesBuilder } from "../foundation/diagnosticProperties
 import { IDiagnosticsNode } from "../foundation/diagnosticsNode";
 import { DiagnosticsTreeStyle } from "../foundation/diagnosticsTreeStyle";
 import { IFactory } from "../foundation/factory";
+import { IDeviceGestureSettings } from "../gestures/deviceGestureSettings";
 import { IGestureArenaTeam } from "../gestures/gestureArenaTeam";
 import { GestureDisposition } from "../gestures/gestureDisposition";
 import { IOneSequenceGestureRecognizer } from "../gestures/oneSequenceGestureRecognizer";
@@ -25,7 +26,7 @@ declare const flutter: {
             gestureRecognizerFactories: ISet<
                 IFactory<IOneSequenceGestureRecognizer>
             >,
-            props?: { kind?: PointerDeviceKind | undefined }
+            props?: { supportedDevices?: ISet<PointerDeviceKind> | undefined }
         ) => I_PlatformViewGestureRecognizer;
     };
 };
@@ -34,6 +35,7 @@ export interface I_PlatformViewGestureRecognizer {
     forwardedPointers: ISet<number>;
     gestureRecognizerFactories: ISet<IFactory<IOneSequenceGestureRecognizer>>;
     debugOwner: Object | undefined;
+    gestureSettings: IDeviceGestureSettings | undefined;
     addAllowedPointer: (event: IPointerDownEvent) => void;
     getDebugDescription: () => string;
     didStopTrackingLastPointer: (pointer: number) => void;
@@ -102,12 +104,14 @@ export class _PlatformViewGestureRecognizer
         IFactory<IOneSequenceGestureRecognizer>
     > = undefined as any;
     public readonly debugOwner: Object | undefined = undefined as any;
+    public readonly gestureSettings: IDeviceGestureSettings | undefined =
+        undefined as any;
     public constructor(
         handlePointerEvent: (event: IPointerEvent) => IFuture<void>,
         gestureRecognizerFactories: ISet<
             IFactory<IOneSequenceGestureRecognizer>
         >,
-        props?: { kind?: PointerDeviceKind | undefined }
+        props?: { supportedDevices?: ISet<PointerDeviceKind> | undefined }
     ) {
         flutter.rendering._platformViewGestureRecognizer(
             this,

@@ -2,6 +2,7 @@ import { IIterable } from "../../dart/core/iterable";
 import { ICanvas } from "../../dart/ui/canvas";
 import { Color, IColor } from "../../dart/ui/color";
 import { IRect } from "../../dart/ui/rect";
+import { BorderRadius, IBorderRadius } from "../painting/borderRadius";
 import { BorderSide, IBorderSide } from "../painting/borderSide";
 import { BorderStyle } from "../painting/borderStyle";
 import { IEdgeInsets } from "../painting/edgeInsets";
@@ -11,6 +12,7 @@ declare const flutter: {
             this: void,
             tableBorder: ITableBorder,
             props: {
+                borderRadius: IBorderRadius;
                 bottom: IBorderSide;
                 horizontalInside: IBorderSide;
                 left: IBorderSide;
@@ -20,6 +22,7 @@ declare const flutter: {
             }
         ) => ITableBorder;
         tableBorderAll: (props: {
+            borderRadius: IBorderRadius;
             color: IColor;
             style: BorderStyle;
             width: number;
@@ -42,6 +45,7 @@ export interface ITableBorder {
     left: IBorderSide;
     horizontalInside: IBorderSide;
     verticalInside: IBorderSide;
+    borderRadius: IBorderRadius;
     getDimensions: () => IEdgeInsets;
     getIsUniform: () => boolean;
     scale: (t: number) => ITableBorder;
@@ -60,7 +64,9 @@ export class TableBorder {
     public readonly left: IBorderSide = undefined as any;
     public readonly horizontalInside: IBorderSide = undefined as any;
     public readonly verticalInside: IBorderSide = undefined as any;
+    public readonly borderRadius: IBorderRadius = undefined as any;
     public constructor(props: {
+        borderRadius?: IBorderRadius;
         bottom?: IBorderSide;
         horizontalInside?: IBorderSide;
         left?: IBorderSide;
@@ -74,6 +80,7 @@ export class TableBorder {
         });
     }
     public static all(props: {
+        borderRadius?: IBorderRadius;
         color?: IColor;
         style?: BorderStyle;
         width?: number;
@@ -134,6 +141,7 @@ export class TableBorder {
     }
 }
 const tableBorderDefaultProps = {
+    borderRadius: BorderRadius.zero,
     bottom: BorderSide.none,
     horizontalInside: BorderSide.none,
     left: BorderSide.none,
@@ -142,6 +150,7 @@ const tableBorderDefaultProps = {
     verticalInside: BorderSide.none,
 };
 const allDefaultProps = {
+    borderRadius: BorderRadius.zero,
     color: new Color(0xff000000),
     style: BorderStyle.solid,
     width: 1.0,

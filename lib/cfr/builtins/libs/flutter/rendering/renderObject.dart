@@ -36,6 +36,21 @@ class VMManagedRenderObject extends VMManagedBox<RenderObject> {
       vmObject.reassemble();
       return [];
     });
+    table['getDebugDisposed'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      final returnValue = vmObject.debugDisposed;
+      if (returnValue != null) {
+        return [
+          returnValue,
+        ];
+      }
+      return [];
+    });
+    table['dispose'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.dispose();
+      return [];
+    });
     table['setupParentData'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.setupParentData(
@@ -554,6 +569,15 @@ class RTManagedRenderObject extends RenderObject implements Box<RenderObject> {
     table['_dart_reassemble'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       super.reassemble();
+      return [];
+    });
+    table['_dart_getDebugDisposed'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.debugDisposed];
+    });
+    table['_dart_dispose'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.dispose();
       return [];
     });
     table['_dart_setupParentData'] =
@@ -1077,6 +1101,19 @@ class RTManagedRenderObject extends RenderObject implements Box<RenderObject> {
   @override
   void reassemble() {
     Closure closure = table["reassemble"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  bool? get debugDisposed {
+    Closure closure = table["getDebugDisposed"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    Closure closure = table["dispose"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 

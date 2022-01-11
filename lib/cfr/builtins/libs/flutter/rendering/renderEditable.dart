@@ -10,9 +10,9 @@ import 'package:flutter/src/gestures/events.dart';
 import 'package:flutter/src/gestures/hit_test.dart';
 import 'package:flutter/src/gestures/tap.dart';
 import 'package:flutter/src/painting/edge_insets.dart';
+import 'package:flutter/src/painting/inline_span.dart';
 import 'package:flutter/src/painting/strut_style.dart';
 import 'package:flutter/src/painting/text_painter.dart';
-import 'package:flutter/src/painting/text_span.dart';
 import 'package:flutter/src/rendering/box.dart';
 import 'package:flutter/src/rendering/editable.dart';
 import 'package:flutter/src/rendering/layer.dart';
@@ -22,6 +22,7 @@ import 'package:flutter/src/semantics/semantics.dart';
 import 'package:flutter/src/semantics/semantics_event.dart';
 import 'package:flutter/src/services/text_editing.dart';
 import 'package:flutter/src/services/text_input.dart';
+import 'package:flutter/src/services/text_layout_metrics.dart';
 
 import 'package:vector_math/vector_math_64.dart';
 
@@ -40,6 +41,10 @@ class VMManagedRenderEditable extends VMManagedBox<RenderEditable> {
         object: vmObject.textSelectionDelegate,
         hydroState: hydroState,
         table: HydroTable());
+    table['floatingCursorAddedMargin'] = maybeBoxObject<EdgeInsets>(
+        object: vmObject.floatingCursorAddedMargin,
+        hydroState: hydroState,
+        table: HydroTable());
     table['parentData'] = maybeBoxObject<ParentData?>(
         object: vmObject.parentData,
         hydroState: hydroState,
@@ -48,6 +53,61 @@ class VMManagedRenderEditable extends VMManagedBox<RenderEditable> {
         object: vmObject.debugCreator,
         hydroState: hydroState,
         table: HydroTable());
+    table['setupParentData'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.setupParentData(maybeUnBoxAndBuildArgument<RenderBox, dynamic>(
+          luaCallerArguments[1],
+          parentState: hydroState));
+      return [];
+    });
+    table['dispose'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.dispose();
+      return [];
+    });
+    table['getForegroundPainter'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      final returnValue = vmObject.foregroundPainter;
+      if (returnValue != null) {
+        return [
+          maybeBoxObject<RenderEditablePainter?>(
+              object: returnValue, hydroState: hydroState, table: HydroTable()),
+        ];
+      }
+      return [];
+    });
+    table['setForegroundPainter'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.foregroundPainter =
+          (maybeUnBoxAndBuildArgument<RenderEditablePainter?, dynamic>(
+              luaCallerArguments[1],
+              parentState: hydroState));
+      return [];
+    });
+    table['getPainter'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      final returnValue = vmObject.painter;
+      if (returnValue != null) {
+        return [
+          maybeBoxObject<RenderEditablePainter?>(
+              object: returnValue, hydroState: hydroState, table: HydroTable()),
+        ];
+      }
+      return [];
+    });
+    table['setPainter'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.painter =
+          (maybeUnBoxAndBuildArgument<RenderEditablePainter?, dynamic>(
+              luaCallerArguments[1],
+              parentState: hydroState));
+      return [];
+    });
+    table['debugAssertLayoutUpToDate'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.debugAssertLayoutUpToDate();
+      return [];
+    });
     table['getTextHeightBehavior'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       final returnValue = vmObject.textHeightBehavior;
@@ -114,6 +174,34 @@ class VMManagedRenderEditable extends VMManagedBox<RenderEditable> {
       vmObject.obscureText = (luaCallerArguments[1]);
       return [];
     });
+    table['getSelectionHeightStyle'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        BoxHeightStyle.values.indexWhere((x) {
+          return x == vmObject.selectionHeightStyle;
+        }),
+      ];
+    });
+    table['setSelectionHeightStyle'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.selectionHeightStyle = (maybeUnBoxEnum(
+          values: BoxHeightStyle.values, boxedEnum: luaCallerArguments[1]));
+      return [];
+    });
+    table['getSelectionWidthStyle'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        BoxWidthStyle.values.indexWhere((x) {
+          return x == vmObject.selectionWidthStyle;
+        }),
+      ];
+    });
+    table['setSelectionWidthStyle'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.selectionWidthStyle = (maybeUnBoxEnum(
+          values: BoxWidthStyle.values, boxedEnum: luaCallerArguments[1]));
+      return [];
+    });
     table['getSelectionStartInViewport'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
@@ -132,6 +220,59 @@ class VMManagedRenderEditable extends VMManagedBox<RenderEditable> {
             table: HydroTable()),
       ];
     });
+    table['getLineAtOffset'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        maybeBoxObject<TextSelection>(
+            object: vmObject.getLineAtOffset(
+                maybeUnBoxAndBuildArgument<TextPosition, dynamic>(
+                    luaCallerArguments[1],
+                    parentState: hydroState)),
+            hydroState: hydroState,
+            table: HydroTable()),
+      ];
+    });
+    table['getWordBoundary'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        maybeBoxObject<TextRange>(
+            object: vmObject.getWordBoundary(
+                maybeUnBoxAndBuildArgument<TextPosition, dynamic>(
+                    luaCallerArguments[1],
+                    parentState: hydroState)),
+            hydroState: hydroState,
+            table: HydroTable()),
+      ];
+    });
+    table['getTextPositionAbove'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        maybeBoxObject<TextPosition>(
+            object: vmObject.getTextPositionAbove(
+                maybeUnBoxAndBuildArgument<TextPosition, dynamic>(
+                    luaCallerArguments[1],
+                    parentState: hydroState)),
+            hydroState: hydroState,
+            table: HydroTable()),
+      ];
+    });
+    table['getTextPositionBelow'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        maybeBoxObject<TextPosition>(
+            object: vmObject.getTextPositionBelow(
+                maybeUnBoxAndBuildArgument<TextPosition, dynamic>(
+                    luaCallerArguments[1],
+                    parentState: hydroState)),
+            hydroState: hydroState,
+            table: HydroTable()),
+      ];
+    });
+    table['markNeedsPaint'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.markNeedsPaint();
+      return [];
+    });
     table['systemFontsDidChange'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.systemFontsDidChange();
@@ -142,7 +283,7 @@ class VMManagedRenderEditable extends VMManagedBox<RenderEditable> {
       final returnValue = vmObject.text;
       if (returnValue != null) {
         return [
-          maybeBoxObject<TextSpan?>(
+          maybeBoxObject<InlineSpan?>(
               object: returnValue, hydroState: hydroState, table: HydroTable()),
         ];
       }
@@ -150,7 +291,7 @@ class VMManagedRenderEditable extends VMManagedBox<RenderEditable> {
     });
     table['setText'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.text = (maybeUnBoxAndBuildArgument<TextSpan?, dynamic>(
+      vmObject.text = (maybeUnBoxAndBuildArgument<InlineSpan?, dynamic>(
           luaCallerArguments[1],
           parentState: hydroState));
       return [];
@@ -444,18 +585,16 @@ class VMManagedRenderEditable extends VMManagedBox<RenderEditable> {
     });
     table['getCursorOffset'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      final returnValue = vmObject.cursorOffset;
-      if (returnValue != null) {
-        return [
-          maybeBoxObject<Offset?>(
-              object: returnValue, hydroState: hydroState, table: HydroTable()),
-        ];
-      }
-      return [];
+      return [
+        maybeBoxObject<Offset>(
+            object: vmObject.cursorOffset,
+            hydroState: hydroState,
+            table: HydroTable()),
+      ];
     });
     table['setCursorOffset'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.cursorOffset = (maybeUnBoxAndBuildArgument<Offset?, dynamic>(
+      vmObject.cursorOffset = (maybeUnBoxAndBuildArgument<Offset, dynamic>(
           luaCallerArguments[1],
           parentState: hydroState));
       return [];
@@ -508,51 +647,6 @@ class VMManagedRenderEditable extends VMManagedBox<RenderEditable> {
       vmObject.endHandleLayerLink =
           (maybeUnBoxAndBuildArgument<LayerLink, dynamic>(luaCallerArguments[1],
               parentState: hydroState));
-      return [];
-    });
-    table['getFloatingCursorAddedMargin'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        maybeBoxObject<EdgeInsets>(
-            object: vmObject.floatingCursorAddedMargin,
-            hydroState: hydroState,
-            table: HydroTable()),
-      ];
-    });
-    table['setFloatingCursorAddedMargin'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.floatingCursorAddedMargin =
-          (maybeUnBoxAndBuildArgument<EdgeInsets, dynamic>(
-              luaCallerArguments[1],
-              parentState: hydroState));
-      return [];
-    });
-    table['getSelectionHeightStyle'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        BoxHeightStyle.values.indexWhere((x) {
-          return x == vmObject.selectionHeightStyle;
-        }),
-      ];
-    });
-    table['setSelectionHeightStyle'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.selectionHeightStyle = (maybeUnBoxEnum(
-          values: BoxHeightStyle.values, boxedEnum: luaCallerArguments[1]));
-      return [];
-    });
-    table['getSelectionWidthStyle'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        BoxWidthStyle.values.indexWhere((x) {
-          return x == vmObject.selectionWidthStyle;
-        }),
-      ];
-    });
-    table['setSelectionWidthStyle'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.selectionWidthStyle = (maybeUnBoxEnum(
-          values: BoxWidthStyle.values, boxedEnum: luaCallerArguments[1]));
       return [];
     });
     table['getEnableInteractiveSelection'] =
@@ -629,6 +723,20 @@ class VMManagedRenderEditable extends VMManagedBox<RenderEditable> {
               parentState: hydroState));
       return [];
     });
+    table['assembleSemanticsNode'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.assembleSemanticsNode(
+          maybeUnBoxAndBuildArgument<SemanticsNode, dynamic>(
+              luaCallerArguments[1],
+              parentState: hydroState),
+          maybeUnBoxAndBuildArgument<SemanticsConfiguration, dynamic>(
+              luaCallerArguments[2],
+              parentState: hydroState),
+          maybeUnBoxAndBuildArgument<Iterable<SemanticsNode>, SemanticsNode>(
+              luaCallerArguments[3],
+              parentState: hydroState));
+      return [];
+    });
     table['attach'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.attach(maybeUnBoxAndBuildArgument<PipelineOwner, dynamic>(
           luaCallerArguments[1],
@@ -637,6 +745,20 @@ class VMManagedRenderEditable extends VMManagedBox<RenderEditable> {
     });
     table['detach'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.detach();
+      return [];
+    });
+    table['redepthChildren'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.redepthChildren();
+      return [];
+    });
+    table['visitChildren'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      Closure unpackedvisitor = luaCallerArguments[1];
+      vmObject.visitChildren((child) => unpackedvisitor.dispatch(
+            [luaCallerArguments[0], child],
+            parentState: hydroState,
+          ));
       return [];
     });
     table['getEndpointsForSelection'] =
@@ -877,6 +999,18 @@ class VMManagedRenderEditable extends VMManagedBox<RenderEditable> {
       vmObject.performLayout();
       return [];
     });
+    table['calculateBoundedFloatingCursorOffset'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        maybeBoxObject<Offset>(
+            object: vmObject.calculateBoundedFloatingCursorOffset(
+                maybeUnBoxAndBuildArgument<Offset, dynamic>(
+                    luaCallerArguments[1],
+                    parentState: hydroState)),
+            hydroState: hydroState,
+            table: HydroTable()),
+      ];
+    });
     table['setFloatingCursor'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.setFloatingCursor(
@@ -892,18 +1026,6 @@ class VMManagedRenderEditable extends VMManagedBox<RenderEditable> {
               ? luaCallerArguments[4]['resetLerpValue']
               : null?.toDouble());
       return [];
-    });
-    table['calculateBoundedFloatingCursorOffset'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        maybeBoxObject<Offset>(
-            object: vmObject.calculateBoundedFloatingCursorOffset(
-                maybeUnBoxAndBuildArgument<Offset, dynamic>(
-                    luaCallerArguments[1],
-                    parentState: hydroState)),
-            hydroState: hydroState,
-            table: HydroTable()),
-      ];
     });
     table['paint'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.paint(
@@ -949,13 +1071,174 @@ class VMManagedRenderEditable extends VMManagedBox<RenderEditable> {
             table: HydroTable()),
       ];
     });
-    table['setupParentData'] =
+    table['debugValidateChild'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.setupParentData(
-          maybeUnBoxAndBuildArgument<RenderObject, dynamic>(
-              luaCallerArguments[1],
+      return [
+        vmObject.debugValidateChild(
+            maybeUnBoxAndBuildArgument<RenderObject, dynamic>(
+                luaCallerArguments[1],
+                parentState: hydroState)),
+      ];
+    });
+    table['insert'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.insert(
+          maybeUnBoxAndBuildArgument<RenderBox, dynamic>(luaCallerArguments[1],
+              parentState: hydroState),
+          after: maybeUnBoxAndBuildArgument<RenderBox?, dynamic>(
+              luaCallerArguments.length >= 3
+                  ? luaCallerArguments[2]['after']
+                  : null,
               parentState: hydroState));
       return [];
+    });
+    table['add'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.add(maybeUnBoxAndBuildArgument<RenderBox, dynamic>(
+          luaCallerArguments[1],
+          parentState: hydroState));
+      return [];
+    });
+    table['addAll'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.addAll(maybeUnBoxAndBuildArgument<List<RenderBox>?, RenderBox>(
+          luaCallerArguments[1],
+          parentState: hydroState));
+      return [];
+    });
+    table['remove'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.remove(maybeUnBoxAndBuildArgument<RenderBox, dynamic>(
+          luaCallerArguments[1],
+          parentState: hydroState));
+      return [];
+    });
+    table['removeAll'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.removeAll();
+      return [];
+    });
+    table['move'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.move(
+          maybeUnBoxAndBuildArgument<RenderBox, dynamic>(luaCallerArguments[1],
+              parentState: hydroState),
+          after: maybeUnBoxAndBuildArgument<RenderBox?, dynamic>(
+              luaCallerArguments.length >= 3
+                  ? luaCallerArguments[2]['after']
+                  : null,
+              parentState: hydroState));
+      return [];
+    });
+    table['childBefore'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      final returnValue = vmObject.childBefore(
+          maybeUnBoxAndBuildArgument<RenderBox, dynamic>(luaCallerArguments[1],
+              parentState: hydroState));
+      if (returnValue != null) {
+        return [
+          maybeBoxObject<RenderBox?>(
+              object: returnValue, hydroState: hydroState, table: HydroTable()),
+        ];
+      }
+      return [];
+    });
+    table['childAfter'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      final returnValue = vmObject.childAfter(
+          maybeUnBoxAndBuildArgument<RenderBox, dynamic>(luaCallerArguments[1],
+              parentState: hydroState));
+      if (returnValue != null) {
+        return [
+          maybeBoxObject<RenderBox?>(
+              object: returnValue, hydroState: hydroState, table: HydroTable()),
+        ];
+      }
+      return [];
+    });
+    table['getChildCount'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        vmObject.childCount,
+      ];
+    });
+    table['getFirstChild'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      final returnValue = vmObject.firstChild;
+      if (returnValue != null) {
+        return [
+          maybeBoxObject<RenderBox?>(
+              object: returnValue, hydroState: hydroState, table: HydroTable()),
+        ];
+      }
+      return [];
+    });
+    table['getLastChild'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      final returnValue = vmObject.lastChild;
+      if (returnValue != null) {
+        return [
+          maybeBoxObject<RenderBox?>(
+              object: returnValue, hydroState: hydroState, table: HydroTable()),
+        ];
+      }
+      return [];
+    });
+    table['defaultComputeDistanceToFirstActualBaseline'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      final returnValue = vmObject.defaultComputeDistanceToFirstActualBaseline(
+          maybeUnBoxEnum(
+              values: TextBaseline.values, boxedEnum: luaCallerArguments[1]));
+      if (returnValue != null) {
+        return [
+          returnValue,
+        ];
+      }
+      return [];
+    });
+    table['defaultComputeDistanceToHighestActualBaseline'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      final returnValue =
+          vmObject.defaultComputeDistanceToHighestActualBaseline(maybeUnBoxEnum(
+              values: TextBaseline.values, boxedEnum: luaCallerArguments[1]));
+      if (returnValue != null) {
+        return [
+          returnValue,
+        ];
+      }
+      return [];
+    });
+    table['defaultHitTestChildren'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        vmObject.defaultHitTestChildren(
+            maybeUnBoxAndBuildArgument<BoxHitTestResult, dynamic>(
+                luaCallerArguments[1],
+                parentState: hydroState),
+            position: maybeUnBoxAndBuildArgument<Offset, dynamic>(
+                luaCallerArguments.length >= 3
+                    ? luaCallerArguments[2]['position']
+                    : null,
+                parentState: hydroState)),
+      ];
+    });
+    table['defaultPaint'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.defaultPaint(
+          maybeUnBoxAndBuildArgument<PaintingContext, dynamic>(
+              luaCallerArguments[1],
+              parentState: hydroState),
+          maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[2],
+              parentState: hydroState));
+      return [];
+    });
+    table['getChildrenAsList'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        maybeBoxObject<List<dynamic>>(
+            object: vmObject
+                .getChildrenAsList()
+                .map((x) => maybeBoxObject<RenderBox>(
+                    object: x, hydroState: hydroState, table: HydroTable()))
+                .toList(),
+            hydroState: hydroState,
+            table: HydroTable()),
+      ];
     });
     table['getMinIntrinsicWidth'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -1192,15 +1475,6 @@ class VMManagedRenderEditable extends VMManagedBox<RenderEditable> {
           parentState: hydroState));
       return [];
     });
-    table['visitChildren'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      Closure unpackedvisitor = luaCallerArguments[1];
-      vmObject.visitChildren((child) => unpackedvisitor.dispatch(
-            [luaCallerArguments[0], child],
-            parentState: hydroState,
-          ));
-      return [];
-    });
     table['markNeedsLayoutForSizedByParentChange'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.markNeedsLayoutForSizedByParentChange();
@@ -1250,11 +1524,6 @@ class VMManagedRenderEditable extends VMManagedBox<RenderEditable> {
     table['markNeedsCompositingBitsUpdate'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.markNeedsCompositingBitsUpdate();
-      return [];
-    });
-    table['markNeedsPaint'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.markNeedsPaint();
       return [];
     });
     table['scheduleInitialPaint'] =
@@ -1329,20 +1598,6 @@ class VMManagedRenderEditable extends VMManagedBox<RenderEditable> {
             [luaCallerArguments[0], child],
             parentState: hydroState,
           ));
-      return [];
-    });
-    table['assembleSemanticsNode'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.assembleSemanticsNode(
-          maybeUnBoxAndBuildArgument<SemanticsNode, dynamic>(
-              luaCallerArguments[1],
-              parentState: hydroState),
-          maybeUnBoxAndBuildArgument<SemanticsConfiguration, dynamic>(
-              luaCallerArguments[2],
-              parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Iterable<SemanticsNode>, SemanticsNode>(
-              luaCallerArguments[3],
-              parentState: hydroState));
       return [];
     });
     table['toStringShort'] =
@@ -1426,6 +1681,16 @@ class VMManagedRenderEditable extends VMManagedBox<RenderEditable> {
             hydroState: hydroState,
             table: HydroTable()),
       ];
+    });
+    table['getDebugDisposed'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      final returnValue = vmObject.debugDisposed;
+      if (returnValue != null) {
+        return [
+          returnValue,
+        ];
+      }
+      return [];
     });
     table['getDebugDoingThisResize'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -1531,11 +1796,6 @@ class VMManagedRenderEditable extends VMManagedBox<RenderEditable> {
             table: HydroTable()),
       ];
     });
-    table['redepthChildren'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.redepthChildren();
-      return [];
-    });
     table['getDepth'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
@@ -1578,10 +1838,11 @@ class RTManagedRenderEditable extends RenderEditable
     implements Box<RenderEditable> {
   RTManagedRenderEditable(
       {Color? backgroundCursorColor,
+      List<RenderBox>? children,
       required Clip clipBehavior,
       Color? cursorColor,
       double? cursorHeight,
-      Offset? cursorOffset,
+      required Offset cursorOffset,
       Radius? cursorRadius,
       required double cursorWidth,
       required double devicePixelRatio,
@@ -1589,6 +1850,7 @@ class RTManagedRenderEditable extends RenderEditable
       required bool expands,
       required EdgeInsets floatingCursorAddedMargin,
       required bool forceLine,
+      RenderEditablePainter? foregroundPainter,
       bool? hasFocus,
       required bool ignorePointer,
       Locale? locale,
@@ -1599,6 +1861,7 @@ class RTManagedRenderEditable extends RenderEditable
       onCaretChanged,
       onSelectionChanged,
       required bool paintCursorAboveText,
+      RenderEditablePainter? painter,
       Color? promptRectColor,
       TextRange? promptRectRange,
       required bool readOnly,
@@ -1608,7 +1871,7 @@ class RTManagedRenderEditable extends RenderEditable
       required BoxWidthStyle selectionWidthStyle,
       ValueNotifier<bool>? showCursor,
       StrutStyle? strutStyle,
-      TextSpan? text,
+      InlineSpan? text,
       required TextAlign textAlign,
       TextHeightBehavior? textHeightBehavior,
       required double textScaleFactor,
@@ -1622,6 +1885,7 @@ class RTManagedRenderEditable extends RenderEditable
       required this.hydroState})
       : super(
             backgroundCursorColor: backgroundCursorColor,
+            children: children,
             clipBehavior: clipBehavior,
             cursorColor: cursorColor,
             cursorHeight: cursorHeight,
@@ -1633,6 +1897,7 @@ class RTManagedRenderEditable extends RenderEditable
             expands: expands,
             floatingCursorAddedMargin: floatingCursorAddedMargin,
             forceLine: forceLine,
+            foregroundPainter: foregroundPainter,
             hasFocus: hasFocus,
             ignorePointer: ignorePointer,
             locale: locale,
@@ -1643,6 +1908,7 @@ class RTManagedRenderEditable extends RenderEditable
             onCaretChanged: onCaretChanged,
             onSelectionChanged: onSelectionChanged,
             paintCursorAboveText: paintCursorAboveText,
+            painter: painter,
             promptRectColor: promptRectColor,
             promptRectRange: promptRectRange,
             readOnly: readOnly,
@@ -1671,10 +1937,55 @@ class RTManagedRenderEditable extends RenderEditable
         object: this.textSelectionDelegate,
         hydroState: hydroState,
         table: HydroTable());
+    table['floatingCursorAddedMargin'] = maybeBoxObject<EdgeInsets>(
+        object: this.floatingCursorAddedMargin,
+        hydroState: hydroState,
+        table: HydroTable());
     table['parentData'] = maybeBoxObject<ParentData?>(
         object: parentData, hydroState: hydroState, table: HydroTable());
     table['debugCreator'] = maybeBoxObject<Object?>(
         object: debugCreator, hydroState: hydroState, table: HydroTable());
+    table['_dart_setupParentData'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.setupParentData(maybeUnBoxAndBuildArgument<RenderBox, dynamic>(
+          luaCallerArguments[1],
+          parentState: hydroState));
+      return [];
+    });
+    table['_dart_dispose'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.dispose();
+      return [];
+    });
+    table['_dart_getForegroundPainter'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.foregroundPainter];
+    });
+    table['_dart_setForegroundPainter'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.foregroundPainter =
+          (maybeUnBoxAndBuildArgument<RenderEditablePainter?, dynamic>(
+              luaCallerArguments[1],
+              parentState: hydroState));
+      return [];
+    });
+    table['_dart_getPainter'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.painter];
+    });
+    table['_dart_setPainter'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.painter =
+          (maybeUnBoxAndBuildArgument<RenderEditablePainter?, dynamic>(
+              luaCallerArguments[1],
+              parentState: hydroState));
+      return [];
+    });
+    table['_dart_debugAssertLayoutUpToDate'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.debugAssertLayoutUpToDate();
+      return [];
+    });
     table['_dart_getTextHeightBehavior'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.textHeightBehavior];
@@ -1724,6 +2035,26 @@ class RTManagedRenderEditable extends RenderEditable
       super.obscureText = (luaCallerArguments[1]);
       return [];
     });
+    table['_dart_getSelectionHeightStyle'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.selectionHeightStyle];
+    });
+    table['_dart_setSelectionHeightStyle'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.selectionHeightStyle = (maybeUnBoxEnum(
+          values: BoxHeightStyle.values, boxedEnum: luaCallerArguments[1]));
+      return [];
+    });
+    table['_dart_getSelectionWidthStyle'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.selectionWidthStyle];
+    });
+    table['_dart_setSelectionWidthStyle'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.selectionWidthStyle = (maybeUnBoxEnum(
+          values: BoxWidthStyle.values, boxedEnum: luaCallerArguments[1]));
+      return [];
+    });
     table['_dart_getSelectionStartInViewport'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.selectionStartInViewport];
@@ -1731,6 +2062,59 @@ class RTManagedRenderEditable extends RenderEditable
     table['_dart_getSelectionEndInViewport'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.selectionEndInViewport];
+    });
+    table['_dart_getLineAtOffset'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        maybeBoxObject<TextSelection>(
+            object: super.getLineAtOffset(
+                maybeUnBoxAndBuildArgument<TextPosition, dynamic>(
+                    luaCallerArguments[1],
+                    parentState: hydroState)),
+            hydroState: hydroState,
+            table: HydroTable())
+      ];
+    });
+    table['_dart_getWordBoundary'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        maybeBoxObject<TextRange>(
+            object: super.getWordBoundary(
+                maybeUnBoxAndBuildArgument<TextPosition, dynamic>(
+                    luaCallerArguments[1],
+                    parentState: hydroState)),
+            hydroState: hydroState,
+            table: HydroTable())
+      ];
+    });
+    table['_dart_getTextPositionAbove'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        maybeBoxObject<TextPosition>(
+            object: super.getTextPositionAbove(
+                maybeUnBoxAndBuildArgument<TextPosition, dynamic>(
+                    luaCallerArguments[1],
+                    parentState: hydroState)),
+            hydroState: hydroState,
+            table: HydroTable())
+      ];
+    });
+    table['_dart_getTextPositionBelow'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        maybeBoxObject<TextPosition>(
+            object: super.getTextPositionBelow(
+                maybeUnBoxAndBuildArgument<TextPosition, dynamic>(
+                    luaCallerArguments[1],
+                    parentState: hydroState)),
+            hydroState: hydroState,
+            table: HydroTable())
+      ];
+    });
+    table['_dart_markNeedsPaint'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.markNeedsPaint();
+      return [];
     });
     table['_dart_markNeedsTextLayout'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -1748,7 +2132,7 @@ class RTManagedRenderEditable extends RenderEditable
     });
     table['_dart_setText'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.text = (maybeUnBoxAndBuildArgument<TextSpan?, dynamic>(
+      super.text = (maybeUnBoxAndBuildArgument<InlineSpan?, dynamic>(
           luaCallerArguments[1],
           parentState: hydroState));
       return [];
@@ -1957,7 +2341,7 @@ class RTManagedRenderEditable extends RenderEditable
     });
     table['_dart_setCursorOffset'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.cursorOffset = (maybeUnBoxAndBuildArgument<Offset?, dynamic>(
+      super.cursorOffset = (maybeUnBoxAndBuildArgument<Offset, dynamic>(
           luaCallerArguments[1],
           parentState: hydroState));
       return [];
@@ -1993,38 +2377,6 @@ class RTManagedRenderEditable extends RenderEditable
       super.endHandleLayerLink =
           (maybeUnBoxAndBuildArgument<LayerLink, dynamic>(luaCallerArguments[1],
               parentState: hydroState));
-      return [];
-    });
-    table['_dart_getFloatingCursorAddedMargin'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [super.floatingCursorAddedMargin];
-    });
-    table['_dart_setFloatingCursorAddedMargin'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.floatingCursorAddedMargin =
-          (maybeUnBoxAndBuildArgument<EdgeInsets, dynamic>(
-              luaCallerArguments[1],
-              parentState: hydroState));
-      return [];
-    });
-    table['_dart_getSelectionHeightStyle'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [super.selectionHeightStyle];
-    });
-    table['_dart_setSelectionHeightStyle'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.selectionHeightStyle = (maybeUnBoxEnum(
-          values: BoxHeightStyle.values, boxedEnum: luaCallerArguments[1]));
-      return [];
-    });
-    table['_dart_getSelectionWidthStyle'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [super.selectionWidthStyle];
-    });
-    table['_dart_setSelectionWidthStyle'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.selectionWidthStyle = (maybeUnBoxEnum(
-          values: BoxWidthStyle.values, boxedEnum: luaCallerArguments[1]));
       return [];
     });
     table['_dart_getEnableInteractiveSelection'] =
@@ -2080,6 +2432,20 @@ class RTManagedRenderEditable extends RenderEditable
               parentState: hydroState));
       return [];
     });
+    table['_dart_assembleSemanticsNode'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.assembleSemanticsNode(
+          maybeUnBoxAndBuildArgument<SemanticsNode, dynamic>(
+              luaCallerArguments[1],
+              parentState: hydroState),
+          maybeUnBoxAndBuildArgument<SemanticsConfiguration, dynamic>(
+              luaCallerArguments[2],
+              parentState: hydroState),
+          maybeUnBoxAndBuildArgument<Iterable<SemanticsNode>, SemanticsNode>(
+              luaCallerArguments[3],
+              parentState: hydroState));
+      return [];
+    });
     table['_dart_attach'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       super.attach(maybeUnBoxAndBuildArgument<PipelineOwner, dynamic>(
@@ -2090,6 +2456,20 @@ class RTManagedRenderEditable extends RenderEditable
     table['_dart_detach'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       super.detach();
+      return [];
+    });
+    table['_dart_redepthChildren'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.redepthChildren();
+      return [];
+    });
+    table['_dart_visitChildren'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      Closure unpackedvisitor = luaCallerArguments[1];
+      super.visitChildren((child) => unpackedvisitor.dispatch(
+            [luaCallerArguments[0], child],
+            parentState: hydroState,
+          ));
       return [];
     });
     table['_dart_getEndpointsForSelection'] =
@@ -2185,6 +2565,20 @@ class RTManagedRenderEditable extends RenderEditable
         super.hitTestSelf(maybeUnBoxAndBuildArgument<Offset, dynamic>(
             luaCallerArguments[1],
             parentState: hydroState))
+      ];
+    });
+    table['_dart_hitTestChildren'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        super.hitTestChildren(
+            maybeUnBoxAndBuildArgument<BoxHitTestResult, dynamic>(
+                luaCallerArguments[1],
+                parentState: hydroState),
+            position: maybeUnBoxAndBuildArgument<Offset, dynamic>(
+                luaCallerArguments.length >= 3
+                    ? luaCallerArguments[2]['position']
+                    : null,
+                parentState: hydroState))
       ];
     });
     table['_dart_handleEvent'] =
@@ -2319,6 +2713,18 @@ class RTManagedRenderEditable extends RenderEditable
       super.performLayout();
       return [];
     });
+    table['_dart_calculateBoundedFloatingCursorOffset'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        maybeBoxObject<Offset>(
+            object: super.calculateBoundedFloatingCursorOffset(
+                maybeUnBoxAndBuildArgument<Offset, dynamic>(
+                    luaCallerArguments[1],
+                    parentState: hydroState)),
+            hydroState: hydroState,
+            table: HydroTable())
+      ];
+    });
     table['_dart_setFloatingCursor'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       super.setFloatingCursor(
@@ -2334,18 +2740,6 @@ class RTManagedRenderEditable extends RenderEditable
               ? luaCallerArguments[4]['resetLerpValue']
               : null?.toDouble());
       return [];
-    });
-    table['_dart_calculateBoundedFloatingCursorOffset'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        maybeBoxObject<Offset>(
-            object: super.calculateBoundedFloatingCursorOffset(
-                maybeUnBoxAndBuildArgument<Offset, dynamic>(
-                    luaCallerArguments[1],
-                    parentState: hydroState)),
-            hydroState: hydroState,
-            table: HydroTable())
-      ];
     });
     table['_dart_paint'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -2390,12 +2784,151 @@ class RTManagedRenderEditable extends RenderEditable
             table: HydroTable())
       ];
     });
-    table['_dart_setupParentData'] =
+    table['_dart_debugValidateChild'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.setupParentData(maybeUnBoxAndBuildArgument<RenderObject, dynamic>(
+      return [
+        super.debugValidateChild(
+            maybeUnBoxAndBuildArgument<RenderObject, dynamic>(
+                luaCallerArguments[1],
+                parentState: hydroState))
+      ];
+    });
+    table['_dart_insert'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.insert(
+          maybeUnBoxAndBuildArgument<RenderBox, dynamic>(luaCallerArguments[1],
+              parentState: hydroState),
+          after: maybeUnBoxAndBuildArgument<RenderBox?, dynamic>(
+              luaCallerArguments.length >= 3
+                  ? luaCallerArguments[2]['after']
+                  : null,
+              parentState: hydroState));
+      return [];
+    });
+    table['_dart_add'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.add(maybeUnBoxAndBuildArgument<RenderBox, dynamic>(
           luaCallerArguments[1],
           parentState: hydroState));
       return [];
+    });
+    table['_dart_addAll'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.addAll(maybeUnBoxAndBuildArgument<List<RenderBox>?, RenderBox>(
+          luaCallerArguments[1],
+          parentState: hydroState));
+      return [];
+    });
+    table['_dart_remove'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.remove(maybeUnBoxAndBuildArgument<RenderBox, dynamic>(
+          luaCallerArguments[1],
+          parentState: hydroState));
+      return [];
+    });
+    table['_dart_removeAll'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.removeAll();
+      return [];
+    });
+    table['_dart_move'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.move(
+          maybeUnBoxAndBuildArgument<RenderBox, dynamic>(luaCallerArguments[1],
+              parentState: hydroState),
+          after: maybeUnBoxAndBuildArgument<RenderBox?, dynamic>(
+              luaCallerArguments.length >= 3
+                  ? luaCallerArguments[2]['after']
+                  : null,
+              parentState: hydroState));
+      return [];
+    });
+    table['_dart_childBefore'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        maybeBoxObject<RenderBox?>(
+            object: super.childBefore(
+                maybeUnBoxAndBuildArgument<RenderBox, dynamic>(
+                    luaCallerArguments[1],
+                    parentState: hydroState)),
+            hydroState: hydroState,
+            table: HydroTable())
+      ];
+    });
+    table['_dart_childAfter'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        maybeBoxObject<RenderBox?>(
+            object: super.childAfter(
+                maybeUnBoxAndBuildArgument<RenderBox, dynamic>(
+                    luaCallerArguments[1],
+                    parentState: hydroState)),
+            hydroState: hydroState,
+            table: HydroTable())
+      ];
+    });
+    table['_dart_getChildCount'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.childCount];
+    });
+    table['_dart_getFirstChild'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.firstChild];
+    });
+    table['_dart_getLastChild'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.lastChild];
+    });
+    table['_dart_defaultComputeDistanceToFirstActualBaseline'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        super.defaultComputeDistanceToFirstActualBaseline(maybeUnBoxEnum(
+            values: TextBaseline.values, boxedEnum: luaCallerArguments[1]))
+      ];
+    });
+    table['_dart_defaultComputeDistanceToHighestActualBaseline'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        super.defaultComputeDistanceToHighestActualBaseline(maybeUnBoxEnum(
+            values: TextBaseline.values, boxedEnum: luaCallerArguments[1]))
+      ];
+    });
+    table['_dart_defaultHitTestChildren'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        super.defaultHitTestChildren(
+            maybeUnBoxAndBuildArgument<BoxHitTestResult, dynamic>(
+                luaCallerArguments[1],
+                parentState: hydroState),
+            position: maybeUnBoxAndBuildArgument<Offset, dynamic>(
+                luaCallerArguments.length >= 3
+                    ? luaCallerArguments[2]['position']
+                    : null,
+                parentState: hydroState))
+      ];
+    });
+    table['_dart_defaultPaint'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.defaultPaint(
+          maybeUnBoxAndBuildArgument<PaintingContext, dynamic>(
+              luaCallerArguments[1],
+              parentState: hydroState),
+          maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[2],
+              parentState: hydroState));
+      return [];
+    });
+    table['_dart_getChildrenAsList'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        maybeBoxObject<List<dynamic>>(
+            object: super
+                .getChildrenAsList()
+                .map((x) => maybeBoxObject<RenderBox>(
+                    object: x, hydroState: hydroState, table: HydroTable()))
+                .toList(),
+            hydroState: hydroState,
+            table: HydroTable())
+      ];
     });
     table['_dart_getMinIntrinsicWidth'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -2492,20 +3025,6 @@ class RTManagedRenderEditable extends RenderEditable
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         super.hitTest(
-            maybeUnBoxAndBuildArgument<BoxHitTestResult, dynamic>(
-                luaCallerArguments[1],
-                parentState: hydroState),
-            position: maybeUnBoxAndBuildArgument<Offset, dynamic>(
-                luaCallerArguments.length >= 3
-                    ? luaCallerArguments[2]['position']
-                    : null,
-                parentState: hydroState))
-      ];
-    });
-    table['_dart_hitTestChildren'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        super.hitTestChildren(
             maybeUnBoxAndBuildArgument<BoxHitTestResult, dynamic>(
                 luaCallerArguments[1],
                 parentState: hydroState),
@@ -2658,15 +3177,6 @@ class RTManagedRenderEditable extends RenderEditable
           parentState: hydroState));
       return [];
     });
-    table['_dart_visitChildren'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      Closure unpackedvisitor = luaCallerArguments[1];
-      super.visitChildren((child) => unpackedvisitor.dispatch(
-            [luaCallerArguments[0], child],
-            parentState: hydroState,
-          ));
-      return [];
-    });
     table['_dart_markParentNeedsLayout'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       super.markParentNeedsLayout();
@@ -2732,11 +3242,6 @@ class RTManagedRenderEditable extends RenderEditable
     table['_dart_markNeedsCompositingBitsUpdate'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       super.markNeedsCompositingBitsUpdate();
-      return [];
-    });
-    table['_dart_markNeedsPaint'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.markNeedsPaint();
       return [];
     });
     table['_dart_scheduleInitialPaint'] =
@@ -2808,20 +3313,6 @@ class RTManagedRenderEditable extends RenderEditable
             [luaCallerArguments[0], child],
             parentState: hydroState,
           ));
-      return [];
-    });
-    table['_dart_assembleSemanticsNode'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.assembleSemanticsNode(
-          maybeUnBoxAndBuildArgument<SemanticsNode, dynamic>(
-              luaCallerArguments[1],
-              parentState: hydroState),
-          maybeUnBoxAndBuildArgument<SemanticsConfiguration, dynamic>(
-              luaCallerArguments[2],
-              parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Iterable<SemanticsNode>, SemanticsNode>(
-              luaCallerArguments[3],
-              parentState: hydroState));
       return [];
     });
     table['_dart_toStringShort'] =
@@ -2903,6 +3394,10 @@ class RTManagedRenderEditable extends RenderEditable
             hydroState: hydroState,
             table: HydroTable())
       ];
+    });
+    table['_dart_getDebugDisposed'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.debugDisposed];
     });
     table['_dart_getDebugDoingThisResize'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -2995,11 +3490,6 @@ class RTManagedRenderEditable extends RenderEditable
           parentState: hydroState));
       return [];
     });
-    table['_dart_redepthChildren'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.redepthChildren();
-      return [];
-    });
     table['_dart_getDepth'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.depth];
@@ -3024,6 +3514,53 @@ class RTManagedRenderEditable extends RenderEditable
 
   RenderEditable unwrap() => this;
   RenderEditable get vmObject => this;
+  @override
+  void setupParentData(RenderBox child) {
+    Closure closure = table["setupParentData"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    Closure closure = table["dispose"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  RenderEditablePainter? get foregroundPainter {
+    Closure closure = table["getForegroundPainter"];
+    return maybeUnBoxAndBuildArgument<RenderEditablePainter?, dynamic>(
+        closure.dispatch([table], parentState: hydroState)[0],
+        parentState: hydroState);
+  }
+
+  @override
+  void set foregroundPainter(RenderEditablePainter? newPainter) {
+    Closure closure = table["setForegroundPainter"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  RenderEditablePainter? get painter {
+    Closure closure = table["getPainter"];
+    return maybeUnBoxAndBuildArgument<RenderEditablePainter?, dynamic>(
+        closure.dispatch([table], parentState: hydroState)[0],
+        parentState: hydroState);
+  }
+
+  @override
+  void set painter(RenderEditablePainter? newPainter) {
+    Closure closure = table["setPainter"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  void debugAssertLayoutUpToDate() {
+    Closure closure = table["debugAssertLayoutUpToDate"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
   @override
   TextHeightBehavior? get textHeightBehavior {
     Closure closure = table["getTextHeightBehavior"];
@@ -3089,6 +3626,34 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
+  BoxHeightStyle get selectionHeightStyle {
+    Closure closure = table["getSelectionHeightStyle"];
+    return maybeUnBoxEnum(
+        values: BoxHeightStyle.values,
+        boxedEnum: closure.dispatch([table], parentState: hydroState)[0]);
+  }
+
+  @override
+  void set selectionHeightStyle(BoxHeightStyle value) {
+    Closure closure = table["setSelectionHeightStyle"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  BoxWidthStyle get selectionWidthStyle {
+    Closure closure = table["getSelectionWidthStyle"];
+    return maybeUnBoxEnum(
+        values: BoxWidthStyle.values,
+        boxedEnum: closure.dispatch([table], parentState: hydroState)[0]);
+  }
+
+  @override
+  void set selectionWidthStyle(BoxWidthStyle value) {
+    Closure closure = table["setSelectionWidthStyle"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
   ValueListenable<bool> get selectionStartInViewport {
     Closure closure = table["getSelectionStartInViewport"];
     return maybeUnBoxAndBuildArgument<ValueListenable<bool>, bool>(
@@ -3105,6 +3670,44 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
+  TextSelection getLineAtOffset(TextPosition position) {
+    Closure closure = table["getLineAtOffset"];
+    return maybeUnBoxAndBuildArgument<TextSelection, dynamic>(
+        closure.dispatch([table], parentState: hydroState)[0],
+        parentState: hydroState);
+  }
+
+  @override
+  TextRange getWordBoundary(TextPosition position) {
+    Closure closure = table["getWordBoundary"];
+    return maybeUnBoxAndBuildArgument<TextRange, dynamic>(
+        closure.dispatch([table], parentState: hydroState)[0],
+        parentState: hydroState);
+  }
+
+  @override
+  TextPosition getTextPositionAbove(TextPosition position) {
+    Closure closure = table["getTextPositionAbove"];
+    return maybeUnBoxAndBuildArgument<TextPosition, dynamic>(
+        closure.dispatch([table], parentState: hydroState)[0],
+        parentState: hydroState);
+  }
+
+  @override
+  TextPosition getTextPositionBelow(TextPosition position) {
+    Closure closure = table["getTextPositionBelow"];
+    return maybeUnBoxAndBuildArgument<TextPosition, dynamic>(
+        closure.dispatch([table], parentState: hydroState)[0],
+        parentState: hydroState);
+  }
+
+  @override
+  void markNeedsPaint() {
+    Closure closure = table["markNeedsPaint"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
   void markNeedsTextLayout() {
     Closure closure = table["markNeedsTextLayout"];
     return closure.dispatch([table], parentState: hydroState)[0];
@@ -3118,15 +3721,15 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  TextSpan? get text {
+  InlineSpan? get text {
     Closure closure = table["getText"];
-    return maybeUnBoxAndBuildArgument<TextSpan?, dynamic>(
+    return maybeUnBoxAndBuildArgument<InlineSpan?, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
 
   @override
-  void set text(TextSpan? value) {
+  void set text(InlineSpan? value) {
     Closure closure = table["setText"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -3392,15 +3995,15 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  Offset? get cursorOffset {
+  Offset get cursorOffset {
     Closure closure = table["getCursorOffset"];
-    return maybeUnBoxAndBuildArgument<Offset?, dynamic>(
+    return maybeUnBoxAndBuildArgument<Offset, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
 
   @override
-  void set cursorOffset(Offset? value) {
+  void set cursorOffset(Offset value) {
     Closure closure = table["setCursorOffset"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -3444,48 +4047,6 @@ class RTManagedRenderEditable extends RenderEditable
   @override
   void set endHandleLayerLink(LayerLink value) {
     Closure closure = table["setEndHandleLayerLink"];
-    return closure.dispatch([table], parentState: hydroState)[0];
-  }
-
-  @override
-  EdgeInsets get floatingCursorAddedMargin {
-    Closure closure = table["getFloatingCursorAddedMargin"];
-    return maybeUnBoxAndBuildArgument<EdgeInsets, dynamic>(
-        closure.dispatch([table], parentState: hydroState)[0],
-        parentState: hydroState);
-  }
-
-  @override
-  void set floatingCursorAddedMargin(EdgeInsets value) {
-    Closure closure = table["setFloatingCursorAddedMargin"];
-    return closure.dispatch([table], parentState: hydroState)[0];
-  }
-
-  @override
-  BoxHeightStyle get selectionHeightStyle {
-    Closure closure = table["getSelectionHeightStyle"];
-    return maybeUnBoxEnum(
-        values: BoxHeightStyle.values,
-        boxedEnum: closure.dispatch([table], parentState: hydroState)[0]);
-  }
-
-  @override
-  void set selectionHeightStyle(BoxHeightStyle value) {
-    Closure closure = table["setSelectionHeightStyle"];
-    return closure.dispatch([table], parentState: hydroState)[0];
-  }
-
-  @override
-  BoxWidthStyle get selectionWidthStyle {
-    Closure closure = table["getSelectionWidthStyle"];
-    return maybeUnBoxEnum(
-        values: BoxWidthStyle.values,
-        boxedEnum: closure.dispatch([table], parentState: hydroState)[0]);
-  }
-
-  @override
-  void set selectionWidthStyle(BoxWidthStyle value) {
-    Closure closure = table["setSelectionWidthStyle"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
@@ -3554,6 +4115,13 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
+  void assembleSemanticsNode(
+      SemanticsNode node, SemanticsConfiguration config, Iterable children) {
+    Closure closure = table["assembleSemanticsNode"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
   void attach(PipelineOwner owner) {
     super.attach(owner);
     Closure closure = table["attach"];
@@ -3564,6 +4132,18 @@ class RTManagedRenderEditable extends RenderEditable
   void detach() {
     super.detach();
     Closure closure = table["detach"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  void redepthChildren() {
+    Closure closure = table["redepthChildren"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  void visitChildren(visitor) {
+    Closure closure = table["visitChildren"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
@@ -3639,6 +4219,12 @@ class RTManagedRenderEditable extends RenderEditable
   @override
   bool hitTestSelf(Offset position) {
     Closure closure = table["hitTestSelf"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  bool hitTestChildren(BoxHitTestResult result, {required Offset position}) {
+    Closure closure = table["hitTestChildren"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
@@ -3737,19 +4323,19 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  void setFloatingCursor(FloatingCursorDragState state, Offset boundedOffset,
-      TextPosition lastTextPosition,
-      {double? resetLerpValue}) {
-    Closure closure = table["setFloatingCursor"];
-    return closure.dispatch([table], parentState: hydroState)[0];
-  }
-
-  @override
   Offset calculateBoundedFloatingCursorOffset(Offset rawCursorOffset) {
     Closure closure = table["calculateBoundedFloatingCursorOffset"];
     return maybeUnBoxAndBuildArgument<Offset, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
+  }
+
+  @override
+  void setFloatingCursor(FloatingCursorDragState state, Offset boundedOffset,
+      TextPosition lastTextPosition,
+      {double? resetLerpValue}) {
+    Closure closure = table["setFloatingCursor"];
+    return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
@@ -3782,9 +4368,116 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  void setupParentData(RenderObject child) {
-    Closure closure = table["setupParentData"];
+  bool debugValidateChild(RenderObject child) {
+    Closure closure = table["debugValidateChild"];
     return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  void insert(RenderBox child, {RenderBox? after}) {
+    Closure closure = table["insert"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  void add(RenderBox child) {
+    Closure closure = table["add"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  void addAll(List? children) {
+    Closure closure = table["addAll"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  void remove(RenderBox child) {
+    Closure closure = table["remove"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  void removeAll() {
+    Closure closure = table["removeAll"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  void move(RenderBox child, {RenderBox? after}) {
+    Closure closure = table["move"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  RenderBox? childBefore(RenderBox child) {
+    Closure closure = table["childBefore"];
+    return maybeUnBoxAndBuildArgument<RenderBox?, dynamic>(
+        closure.dispatch([table], parentState: hydroState)[0],
+        parentState: hydroState);
+  }
+
+  @override
+  RenderBox? childAfter(RenderBox child) {
+    Closure closure = table["childAfter"];
+    return maybeUnBoxAndBuildArgument<RenderBox?, dynamic>(
+        closure.dispatch([table], parentState: hydroState)[0],
+        parentState: hydroState);
+  }
+
+  @override
+  int get childCount {
+    Closure closure = table["getChildCount"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  RenderBox? get firstChild {
+    Closure closure = table["getFirstChild"];
+    return maybeUnBoxAndBuildArgument<RenderBox?, dynamic>(
+        closure.dispatch([table], parentState: hydroState)[0],
+        parentState: hydroState);
+  }
+
+  @override
+  RenderBox? get lastChild {
+    Closure closure = table["getLastChild"];
+    return maybeUnBoxAndBuildArgument<RenderBox?, dynamic>(
+        closure.dispatch([table], parentState: hydroState)[0],
+        parentState: hydroState);
+  }
+
+  @override
+  double? defaultComputeDistanceToFirstActualBaseline(TextBaseline baseline) {
+    Closure closure = table["defaultComputeDistanceToFirstActualBaseline"];
+    return closure.dispatch([table], parentState: hydroState)[0]?.toDouble();
+  }
+
+  @override
+  double? defaultComputeDistanceToHighestActualBaseline(TextBaseline baseline) {
+    Closure closure = table["defaultComputeDistanceToHighestActualBaseline"];
+    return closure.dispatch([table], parentState: hydroState)[0]?.toDouble();
+  }
+
+  @override
+  bool defaultHitTestChildren(BoxHitTestResult result,
+      {required Offset position}) {
+    Closure closure = table["defaultHitTestChildren"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  void defaultPaint(PaintingContext context, Offset offset) {
+    Closure closure = table["defaultPaint"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  List<RenderBox> getChildrenAsList() {
+    Closure closure = table["getChildrenAsList"];
+    return maybeUnBoxAndBuildArgument<List<RenderBox>, RenderBox>(
+        closure.dispatch([table], parentState: hydroState)[0],
+        parentState: hydroState);
   }
 
   @override
@@ -3879,12 +4572,6 @@ class RTManagedRenderEditable extends RenderEditable
   @override
   bool hitTest(BoxHitTestResult result, {required Offset position}) {
     Closure closure = table["hitTest"];
-    return closure.dispatch([table], parentState: hydroState)[0];
-  }
-
-  @override
-  bool hitTestChildren(BoxHitTestResult result, {required Offset position}) {
-    Closure closure = table["hitTestChildren"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
@@ -4005,12 +4692,6 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  void visitChildren(visitor) {
-    Closure closure = table["visitChildren"];
-    return closure.dispatch([table], parentState: hydroState)[0];
-  }
-
-  @override
   void markParentNeedsLayout() {
     Closure closure = table["markParentNeedsLayout"];
     return closure.dispatch([table], parentState: hydroState)[0];
@@ -4056,12 +4737,6 @@ class RTManagedRenderEditable extends RenderEditable
   @override
   void markNeedsCompositingBitsUpdate() {
     Closure closure = table["markNeedsCompositingBitsUpdate"];
-    return closure.dispatch([table], parentState: hydroState)[0];
-  }
-
-  @override
-  void markNeedsPaint() {
-    Closure closure = table["markNeedsPaint"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
@@ -4125,13 +4800,6 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  void assembleSemanticsNode(
-      SemanticsNode node, SemanticsConfiguration config, Iterable children) {
-    Closure closure = table["assembleSemanticsNode"];
-    return closure.dispatch([table], parentState: hydroState)[0];
-  }
-
-  @override
   String toStringShort() {
     Closure closure = table["toStringShort"];
     return closure.dispatch([table], parentState: hydroState)[0];
@@ -4177,6 +4845,12 @@ class RTManagedRenderEditable extends RenderEditable
     return maybeUnBoxAndBuildArgument<DiagnosticsNode, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
+  }
+
+  @override
+  bool? get debugDisposed {
+    Closure closure = table["getDebugDisposed"];
+    return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
@@ -4299,12 +4973,6 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  void redepthChildren() {
-    Closure closure = table["redepthChildren"];
-    return closure.dispatch([table], parentState: hydroState)[0];
-  }
-
-  @override
   int get depth {
     Closure closure = table["getDepth"];
     return closure.dispatch([table], parentState: hydroState)[0];
@@ -4351,22 +5019,21 @@ void loadRenderEditable(
                   ? luaCallerArguments[1]['backgroundCursorColor']
                   : null,
               parentState: hydroState),
+          children: maybeUnBoxAndBuildArgument<List<RenderBox>?, RenderBox>(
+              luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1]['children']
+                  : null,
+              parentState: hydroState),
           clipBehavior: maybeUnBoxEnum(
               values: Clip.values,
               boxedEnum: luaCallerArguments.length >= 2
                   ? luaCallerArguments[1]['clipBehavior']
                   : null),
           cursorColor: maybeUnBoxAndBuildArgument<Color?, dynamic>(
-              luaCallerArguments.length >= 2
-                  ? luaCallerArguments[1]['cursorColor']
-                  : null,
+              luaCallerArguments.length >= 2 ? luaCallerArguments[1]['cursorColor'] : null,
               parentState: hydroState),
-          cursorHeight: luaCallerArguments.length >= 2
-              ? luaCallerArguments[1]['cursorHeight']
-              : null?.toDouble(),
-          cursorOffset: maybeUnBoxAndBuildArgument<Offset?, dynamic>(
-              luaCallerArguments.length >= 2 ? luaCallerArguments[1]['cursorOffset'] : null,
-              parentState: hydroState),
+          cursorHeight: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['cursorHeight'] : null?.toDouble(),
+          cursorOffset: maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments.length >= 2 ? luaCallerArguments[1]['cursorOffset'] : null, parentState: hydroState),
           cursorRadius: maybeUnBoxAndBuildArgument<Radius?, dynamic>(luaCallerArguments.length >= 2 ? luaCallerArguments[1]['cursorRadius'] : null, parentState: hydroState),
           cursorWidth: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['cursorWidth'] : null?.toDouble(),
           devicePixelRatio: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['devicePixelRatio'] : null?.toDouble(),
@@ -4374,6 +5041,7 @@ void loadRenderEditable(
           expands: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['expands'] : null,
           floatingCursorAddedMargin: maybeUnBoxAndBuildArgument<EdgeInsets, dynamic>(luaCallerArguments.length >= 2 ? luaCallerArguments[1]['floatingCursorAddedMargin'] : null, parentState: hydroState),
           forceLine: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['forceLine'] : null,
+          foregroundPainter: maybeUnBoxAndBuildArgument<RenderEditablePainter?, dynamic>(luaCallerArguments.length >= 2 ? luaCallerArguments[1]['foregroundPainter'] : null, parentState: hydroState),
           hasFocus: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['hasFocus'] : null,
           ignorePointer: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['ignorePointer'] : null,
           locale: maybeUnBoxAndBuildArgument<Locale?, dynamic>(luaCallerArguments.length >= 2 ? luaCallerArguments[1]['locale'] : null, parentState: hydroState),
@@ -4394,6 +5062,7 @@ void loadRenderEditable(
                   )
               : null,
           paintCursorAboveText: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['paintCursorAboveText'] : null,
+          painter: maybeUnBoxAndBuildArgument<RenderEditablePainter?, dynamic>(luaCallerArguments.length >= 2 ? luaCallerArguments[1]['painter'] : null, parentState: hydroState),
           promptRectColor: maybeUnBoxAndBuildArgument<Color?, dynamic>(luaCallerArguments.length >= 2 ? luaCallerArguments[1]['promptRectColor'] : null, parentState: hydroState),
           promptRectRange: maybeUnBoxAndBuildArgument<TextRange?, dynamic>(luaCallerArguments.length >= 2 ? luaCallerArguments[1]['promptRectRange'] : null, parentState: hydroState),
           readOnly: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['readOnly'] : null,
@@ -4403,7 +5072,7 @@ void loadRenderEditable(
           selectionWidthStyle: maybeUnBoxEnum(values: BoxWidthStyle.values, boxedEnum: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['selectionWidthStyle'] : null),
           showCursor: maybeUnBoxAndBuildArgument<ValueNotifier<bool>?, bool>(luaCallerArguments.length >= 2 ? luaCallerArguments[1]['showCursor'] : null, parentState: hydroState),
           strutStyle: maybeUnBoxAndBuildArgument<StrutStyle?, dynamic>(luaCallerArguments.length >= 2 ? luaCallerArguments[1]['strutStyle'] : null, parentState: hydroState),
-          text: maybeUnBoxAndBuildArgument<TextSpan?, dynamic>(luaCallerArguments.length >= 2 ? luaCallerArguments[1]['text'] : null, parentState: hydroState),
+          text: maybeUnBoxAndBuildArgument<InlineSpan?, dynamic>(luaCallerArguments.length >= 2 ? luaCallerArguments[1]['text'] : null, parentState: hydroState),
           textAlign: maybeUnBoxEnum(values: TextAlign.values, boxedEnum: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['textAlign'] : null),
           textHeightBehavior: maybeUnBoxAndBuildArgument<TextHeightBehavior?, dynamic>(luaCallerArguments.length >= 2 ? luaCallerArguments[1]['textHeightBehavior'] : null, parentState: hydroState),
           textScaleFactor: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['textScaleFactor'] : null?.toDouble(),
@@ -4413,20 +5082,6 @@ void loadRenderEditable(
           startHandleLayerLink: maybeUnBoxAndBuildArgument<LayerLink, dynamic>(luaCallerArguments.length >= 2 ? luaCallerArguments[1]['startHandleLayerLink'] : null, parentState: hydroState),
           textDirection: maybeUnBoxEnum(values: TextDirection.values, boxedEnum: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['textDirection'] : null),
           textSelectionDelegate: maybeUnBoxAndBuildArgument<TextSelectionDelegate, dynamic>(luaCallerArguments.length >= 2 ? luaCallerArguments[1]['textSelectionDelegate'] : null, parentState: hydroState))
-    ];
-  });
-  table['renderEditableNextCharacter'] =
-      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-    return [
-      RenderEditable.nextCharacter(
-          luaCallerArguments[1], luaCallerArguments[2], luaCallerArguments[3]),
-    ];
-  });
-  table['renderEditablePreviousCharacter'] =
-      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-    return [
-      RenderEditable.previousCharacter(
-          luaCallerArguments[1], luaCallerArguments[2], luaCallerArguments[3]),
     ];
   });
   registerBoxer<RenderEditable>(boxer: (

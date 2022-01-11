@@ -23,7 +23,10 @@ class VMManagedAnnotatedRegionLayer
     table['offset'] = maybeBoxObject<Offset>(
         object: vmObject.offset, hydroState: hydroState, table: HydroTable());
     table['opaque'] = vmObject.opaque;
-    table['debugCreator'] = vmObject.debugCreator;
+    table['debugCreator'] = maybeBoxObject<Object?>(
+        object: vmObject.debugCreator,
+        hydroState: hydroState,
+        table: HydroTable());
     table['findAnnotations'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
@@ -58,6 +61,11 @@ class VMManagedAnnotatedRegionLayer
             table: HydroTable()),
       ];
     });
+    table['dispose'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.dispose();
+      return [];
+    });
     table['updateSubtreeNeedsAddToScene'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.updateSubtreeNeedsAddToScene();
@@ -86,12 +94,9 @@ class VMManagedAnnotatedRegionLayer
     });
     table['addToScene'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.addToScene(
-          maybeUnBoxAndBuildArgument<SceneBuilder, dynamic>(
-              luaCallerArguments[1],
-              parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[2],
-              parentState: hydroState));
+      vmObject.addToScene(maybeUnBoxAndBuildArgument<SceneBuilder, dynamic>(
+          luaCallerArguments[1],
+          parentState: hydroState));
       return [];
     });
     table['addChildrenToScene'] =
@@ -99,8 +104,6 @@ class VMManagedAnnotatedRegionLayer
       vmObject.addChildrenToScene(
           maybeUnBoxAndBuildArgument<SceneBuilder, dynamic>(
               luaCallerArguments[1],
-              parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[2],
               parentState: hydroState));
       return [];
     });
@@ -199,6 +202,18 @@ class VMManagedAnnotatedRegionLayer
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         vmObject.toStringShort(),
+      ];
+    });
+    table['getDebugDisposed'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        vmObject.debugDisposed,
+      ];
+    });
+    table['getDebugHandleCount'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        vmObject.debugHandleCount,
       ];
     });
     table['getParent'] =
@@ -354,7 +369,8 @@ class RTManagedAnnotatedRegionLayer extends AnnotatedRegionLayer
     table['offset'] = maybeBoxObject<Offset>(
         object: this.offset, hydroState: hydroState, table: HydroTable());
     table['opaque'] = this.opaque;
-    table['debugCreator'] = debugCreator;
+    table['debugCreator'] = maybeBoxObject<Object?>(
+        object: debugCreator, hydroState: hydroState, table: HydroTable());
     table['_dart_findAnnotations'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
@@ -389,6 +405,11 @@ class RTManagedAnnotatedRegionLayer extends AnnotatedRegionLayer
             table: HydroTable())
       ];
     });
+    table['_dart_dispose'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.dispose();
+      return [];
+    });
     table['_dart_updateSubtreeNeedsAddToScene'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       super.updateSubtreeNeedsAddToScene();
@@ -420,12 +441,9 @@ class RTManagedAnnotatedRegionLayer extends AnnotatedRegionLayer
     });
     table['_dart_addToScene'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.addToScene(
-          maybeUnBoxAndBuildArgument<SceneBuilder, dynamic>(
-              luaCallerArguments[1],
-              parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[2],
-              parentState: hydroState));
+      super.addToScene(maybeUnBoxAndBuildArgument<SceneBuilder, dynamic>(
+          luaCallerArguments[1],
+          parentState: hydroState));
       return [];
     });
     table['_dart_addChildrenToScene'] =
@@ -433,8 +451,6 @@ class RTManagedAnnotatedRegionLayer extends AnnotatedRegionLayer
       super.addChildrenToScene(
           maybeUnBoxAndBuildArgument<SceneBuilder, dynamic>(
               luaCallerArguments[1],
-              parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[2],
               parentState: hydroState));
       return [];
     });
@@ -519,6 +535,14 @@ class RTManagedAnnotatedRegionLayer extends AnnotatedRegionLayer
     table['_dart_toStringShort'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.toStringShort()];
+    });
+    table['_dart_getDebugDisposed'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.debugDisposed];
+    });
+    table['_dart_getDebugHandleCount'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.debugHandleCount];
     });
     table['_dart_getParent'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -666,6 +690,13 @@ class RTManagedAnnotatedRegionLayer extends AnnotatedRegionLayer
   }
 
   @override
+  void dispose() {
+    super.dispose();
+    Closure closure = table["dispose"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
   void updateSubtreeNeedsAddToScene() {
     Closure closure = table["updateSubtreeNeedsAddToScene"];
     return closure.dispatch([table], parentState: hydroState)[0];
@@ -698,14 +729,13 @@ class RTManagedAnnotatedRegionLayer extends AnnotatedRegionLayer
   }
 
   @override
-  void addToScene(SceneBuilder builder, [Offset layerOffset = Offset.zero]) {
+  void addToScene(SceneBuilder builder) {
     Closure closure = table["addToScene"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void addChildrenToScene(SceneBuilder builder,
-      [Offset childOffset = Offset.zero]) {
+  void addChildrenToScene(SceneBuilder builder) {
     Closure closure = table["addChildrenToScene"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -805,6 +835,18 @@ class RTManagedAnnotatedRegionLayer extends AnnotatedRegionLayer
   @override
   String toStringShort() {
     Closure closure = table["toStringShort"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  bool get debugDisposed {
+    Closure closure = table["getDebugDisposed"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  int get debugHandleCount {
+    Closure closure = table["getDebugHandleCount"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 

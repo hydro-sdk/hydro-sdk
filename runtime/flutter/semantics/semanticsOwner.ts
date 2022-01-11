@@ -15,11 +15,15 @@ export interface ISemanticsOwner {
     getRootSemanticsNode: () => ISemanticsNode | undefined;
     dispose: () => void;
     sendSemanticsUpdate: () => void;
-    performAction: (id: number, action: ISemanticsAction, args: any) => void;
+    performAction: (
+        id: number,
+        action: ISemanticsAction,
+        args?: Object | undefined
+    ) => void;
     performActionAt: (
         position: IOffset,
         action: ISemanticsAction,
-        args: any
+        args?: Object | undefined
     ) => void;
     toString: () => string;
     addListener: (listener: () => void) => void;
@@ -39,12 +43,12 @@ export class SemanticsOwner implements IChangeNotifier, IListenable {
     private readonly _dart_performAction: (
         id: number,
         action: ISemanticsAction,
-        args: any
+        args?: Object | undefined
     ) => void = undefined as any;
     private readonly _dart_performActionAt: (
         position: IOffset,
         action: ISemanticsAction,
-        args: any
+        args?: Object | undefined
     ) => void = undefined as any;
     private readonly _dart_toString: () => string = undefined as any;
     private readonly _dart_addListener: (listener: () => void) => void =
@@ -66,14 +70,14 @@ export class SemanticsOwner implements IChangeNotifier, IListenable {
     public performAction(
         id: number,
         action: ISemanticsAction,
-        args: any
+        args?: Object | undefined
     ): void {
         return this._dart_performAction(id, action, args);
     }
     public performActionAt(
         position: IOffset,
         action: ISemanticsAction,
-        args: any
+        args?: Object | undefined
     ): void {
         return this._dart_performActionAt(position, action, args);
     }

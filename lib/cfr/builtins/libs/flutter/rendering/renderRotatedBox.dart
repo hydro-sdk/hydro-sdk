@@ -109,6 +109,11 @@ class VMManagedRenderRotatedBox extends VMManagedBox<RenderRotatedBox> {
               parentState: hydroState));
       return [];
     });
+    table['dispose'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.dispose();
+      return [];
+    });
     table['applyPaintTransform'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.applyPaintTransform(
@@ -674,6 +679,16 @@ class VMManagedRenderRotatedBox extends VMManagedBox<RenderRotatedBox> {
             table: HydroTable()),
       ];
     });
+    table['getDebugDisposed'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      final returnValue = vmObject.debugDisposed;
+      if (returnValue != null) {
+        return [
+          returnValue,
+        ];
+      }
+      return [];
+    });
     table['getDebugDoingThisResize'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
@@ -904,6 +919,11 @@ class RTManagedRenderRotatedBox extends RenderRotatedBox
               parentState: hydroState),
           maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[2],
               parentState: hydroState));
+      return [];
+    });
+    table['_dart_dispose'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.dispose();
       return [];
     });
     table['_dart_applyPaintTransform'] =
@@ -1509,6 +1529,10 @@ class RTManagedRenderRotatedBox extends RenderRotatedBox
             table: HydroTable())
       ];
     });
+    table['_dart_getDebugDisposed'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.debugDisposed];
+    });
     table['_dart_getDebugDoingThisResize'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.debugDoingThisResize];
@@ -1683,6 +1707,13 @@ class RTManagedRenderRotatedBox extends RenderRotatedBox
   @override
   void paint(PaintingContext context, Offset offset) {
     Closure closure = table["paint"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    Closure closure = table["dispose"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
@@ -2163,6 +2194,12 @@ class RTManagedRenderRotatedBox extends RenderRotatedBox
     return maybeUnBoxAndBuildArgument<DiagnosticsNode, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
+  }
+
+  @override
+  bool? get debugDisposed {
+    Closure closure = table["getDebugDisposed"];
+    return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override

@@ -124,6 +124,12 @@ class VMManagedDiagnosticsDebugCreator
       }
       return [];
     });
+    table['getIsInteresting'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        vmObject.isInteresting,
+      ];
+    });
     table['getLevel'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
@@ -322,6 +328,10 @@ class RTManagedDiagnosticsDebugCreator extends DiagnosticsDebugCreator
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.exception];
     });
+    table['_dart_getIsInteresting'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.isInteresting];
+    });
     table['_dart_getLevel'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.level];
@@ -464,6 +474,12 @@ class RTManagedDiagnosticsDebugCreator extends DiagnosticsDebugCreator
     return maybeUnBoxAndBuildArgument<Object?, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
+  }
+
+  @override
+  bool get isInteresting {
+    Closure closure = table["getIsInteresting"];
+    return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override

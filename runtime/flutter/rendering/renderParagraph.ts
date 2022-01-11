@@ -1,6 +1,8 @@
 import { Duration, IDuration } from "../../dart/core/duration";
 import { IIterable } from "../../dart/core/iterable";
 import { IList } from "../../dart/core/list";
+import { BoxHeightStyle } from "../../dart/ui/boxHeightStyle";
+import { BoxWidthStyle } from "../../dart/ui/boxWidthStyle";
 import { ILocale } from "../../dart/ui/locale";
 import { IOffset } from "../../dart/ui/offset";
 import { IRect } from "../../dart/ui/rect";
@@ -29,6 +31,7 @@ import { IHitTestTarget } from "../gestures/hitTestTarget";
 import { IPointerEvent } from "../gestures/pointerEvent";
 import { IInlineSpan } from "../painting/inlineSpan";
 import { IStrutStyle } from "../painting/strutStyle";
+import { TextOverflow } from "../painting/textOverflow";
 import { TextWidthBasis } from "../painting/textWidthBasis";
 import { ISemanticsConfiguration } from "../semantics/semanticsConfiguration";
 import { ISemanticsEvent } from "../semantics/semanticsEvent";
@@ -48,7 +51,6 @@ import { IRelayoutWhenSystemFontsChangeMixin } from "./relayoutWhenSystemFontsCh
 import { IRenderBox } from "./renderBox";
 import { IRenderBoxContainerDefaultsMixin } from "./renderBoxContainerDefaultsMixin";
 import { IRenderObject } from "./renderObject";
-import { TextOverflow } from "./textOverflow";
 declare const flutter: {
     rendering: {
         renderParagraph: (
@@ -107,7 +109,6 @@ export interface IRenderParagraph {
         result: IBoxHitTestResult,
         props: { position: IOffset }
     ) => boolean;
-    handleEvent: (event: IPointerEvent, entry: unknown) => void;
     systemFontsDidChange: () => void;
     computeDryLayout: (constraints: IBoxConstraints) => ISize;
     performLayout: () => void;
@@ -117,7 +118,10 @@ export interface IRenderParagraph {
         caretPrototype: IRect
     ) => IOffset;
     getFullHeightForCaret: (position: ITextPosition) => number | undefined;
-    getBoxesForSelection: (selection: ITextSelection) => IList<ITextBox>;
+    getBoxesForSelection: (
+        selection: ITextSelection,
+        props: { boxHeightStyle: BoxHeightStyle; boxWidthStyle: BoxWidthStyle }
+    ) => IList<ITextBox>;
     getPositionForOffset: (offset: IOffset) => ITextPosition;
     getWordBoundary: (position: ITextPosition) => ITextRange;
     getTextSize: () => ISize;
@@ -196,6 +200,7 @@ export interface IRenderParagraph {
         point: IOffset,
         props?: { ancestor?: IRenderObject | undefined }
     ) => IOffset;
+    handleEvent: (event: IPointerEvent, entry: unknown) => void;
     debugHandleEvent: (event: IPointerEvent, entry: IHitTestEntry) => boolean;
     debugPaint: (context: IPaintingContext, offset: IOffset) => void;
     debugPaintSize: (context: IPaintingContext, offset: IOffset) => void;
@@ -208,6 +213,7 @@ export interface IRenderParagraph {
     getConstraints: () => IBoxConstraints;
     getPaintBounds: () => IRect;
     reassemble: () => void;
+    dispose: () => void;
     adoptChild: (child: unknown) => void;
     dropChild: (child: unknown) => void;
     markParentNeedsLayout: () => void;
@@ -261,6 +267,7 @@ export interface IRenderParagraph {
         name: string,
         props: { style: DiagnosticsTreeStyle }
     ) => IDiagnosticsNode;
+    getDebugDisposed: () => boolean | undefined;
     getDebugDoingThisResize: () => boolean;
     getDebugDoingThisLayout: () => boolean;
     getDebugCanParentUseSize: () => boolean;
@@ -395,10 +402,6 @@ export class RenderParagraph
         result: IBoxHitTestResult,
         props: { position: IOffset }
     ) => boolean = undefined as any;
-    private readonly _dart_handleEvent: (
-        event: IPointerEvent,
-        entry: any
-    ) => void = undefined as any;
     private readonly _dart_systemFontsDidChange: () => void = undefined as any;
     private readonly _dart_computeDryLayout: (
         constraints: IBoxConstraints
@@ -416,7 +419,8 @@ export class RenderParagraph
         position: ITextPosition
     ) => number | undefined = undefined as any;
     private readonly _dart_getBoxesForSelection: (
-        selection: ITextSelection
+        selection: ITextSelection,
+        props: { boxHeightStyle: BoxHeightStyle; boxWidthStyle: BoxWidthStyle }
     ) => IList<ITextBox> = undefined as any;
     private readonly _dart_getPositionForOffset: (
         offset: IOffset
@@ -535,6 +539,10 @@ export class RenderParagraph
         point: IOffset,
         props?: { ancestor?: IRenderObject | undefined }
     ) => IOffset = undefined as any;
+    private readonly _dart_handleEvent: (
+        event: IPointerEvent,
+        entry: any
+    ) => void = undefined as any;
     private readonly _dart_debugHandleEvent: (
         event: IPointerEvent,
         entry: IHitTestEntry
@@ -563,6 +571,7 @@ export class RenderParagraph
         undefined as any;
     private readonly _dart_getPaintBounds: () => IRect = undefined as any;
     private readonly _dart_reassemble: () => void = undefined as any;
+    private readonly _dart_dispose: () => void = undefined as any;
     private readonly _dart_adoptChild: (child: any) => void = undefined as any;
     private readonly _dart_dropChild: (child: any) => void = undefined as any;
     private readonly _dart_markParentNeedsLayout: () => void = undefined as any;
@@ -635,6 +644,8 @@ export class RenderParagraph
         name: string,
         props: { style: DiagnosticsTreeStyle }
     ) => IDiagnosticsNode = undefined as any;
+    private readonly _dart_getDebugDisposed: () => boolean | undefined =
+        undefined as any;
     private readonly _dart_getDebugDoingThisResize: () => boolean =
         undefined as any;
     private readonly _dart_getDebugDoingThisLayout: () => boolean =
@@ -772,9 +783,6 @@ export class RenderParagraph
     ): boolean {
         return this._dart_hitTestChildren(result, props);
     }
-    public handleEvent(event: IPointerEvent, entry: any): void {
-        return this._dart_handleEvent(event, entry);
-    }
     public systemFontsDidChange(): void {
         return this._dart_systemFontsDidChange();
     }
@@ -796,8 +804,11 @@ export class RenderParagraph
     public getFullHeightForCaret(position: ITextPosition): number | undefined {
         return this._dart_getFullHeightForCaret(position);
     }
-    public getBoxesForSelection(selection: ITextSelection): IList<ITextBox> {
-        return this._dart_getBoxesForSelection(selection);
+    public getBoxesForSelection(
+        selection: ITextSelection,
+        props: { boxHeightStyle: BoxHeightStyle; boxWidthStyle: BoxWidthStyle }
+    ): IList<ITextBox> {
+        return this._dart_getBoxesForSelection(selection, props);
     }
     public getPositionForOffset(offset: IOffset): ITextPosition {
         return this._dart_getPositionForOffset(offset);
@@ -978,6 +989,9 @@ export class RenderParagraph
     ): IOffset {
         return this._dart_localToGlobal(point, props);
     }
+    public handleEvent(event: IPointerEvent, entry: any): void {
+        return this._dart_handleEvent(event, entry);
+    }
     public debugHandleEvent(
         event: IPointerEvent,
         entry: IHitTestEntry
@@ -1022,6 +1036,9 @@ export class RenderParagraph
     }
     public reassemble(): void {
         return this._dart_reassemble();
+    }
+    public dispose(): void {
+        return this._dart_dispose();
     }
     public adoptChild(child: any): void {
         return this._dart_adoptChild(child);
@@ -1148,6 +1165,9 @@ export class RenderParagraph
             ...describeForErrorDefaultProps,
             ...props,
         });
+    }
+    public getDebugDisposed(): boolean | undefined {
+        return this._dart_getDebugDisposed();
     }
     public getDebugDoingThisResize(): boolean {
         return this._dart_getDebugDoingThisResize();

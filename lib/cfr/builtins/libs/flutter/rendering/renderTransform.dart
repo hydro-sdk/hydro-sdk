@@ -91,11 +91,35 @@ class VMManagedRenderTransform extends VMManagedBox<RenderTransform> {
           values: TextDirection.values, boxedEnum: luaCallerArguments[1]));
       return [];
     });
+    table['getAlwaysNeedsCompositing'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        vmObject.alwaysNeedsCompositing,
+      ];
+    });
     table['setTransform'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.transform = (maybeUnBoxAndBuildArgument<Matrix4, dynamic>(
           luaCallerArguments[1],
           parentState: hydroState));
+      return [];
+    });
+    table['getFilterQuality'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      final returnValue = vmObject.filterQuality;
+      if (returnValue != null) {
+        return [
+          FilterQuality.values.indexWhere((x) {
+            return x == returnValue;
+          }),
+        ];
+      }
+      return [];
+    });
+    table['setFilterQuality'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.filterQuality = (maybeUnBoxEnum(
+          values: FilterQuality.values, boxedEnum: luaCallerArguments[1]));
       return [];
     });
     table['setIdentity'] =
@@ -528,6 +552,11 @@ class VMManagedRenderTransform extends VMManagedBox<RenderTransform> {
       vmObject.reassemble();
       return [];
     });
+    table['dispose'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.dispose();
+      return [];
+    });
     table['adoptChild'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.adoptChild(maybeUnBoxAndBuildArgument<RenderObject, dynamic>(
@@ -782,6 +811,16 @@ class VMManagedRenderTransform extends VMManagedBox<RenderTransform> {
             table: HydroTable()),
       ];
     });
+    table['getDebugDisposed'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      final returnValue = vmObject.debugDisposed;
+      if (returnValue != null) {
+        return [
+          returnValue,
+        ];
+      }
+      return [];
+    });
     table['getDebugDoingThisResize'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
@@ -929,6 +968,7 @@ class RTManagedRenderTransform extends RenderTransform
   RTManagedRenderTransform(
       {AlignmentGeometry? alignment,
       RenderBox? child,
+      FilterQuality? filterQuality,
       Offset? origin,
       TextDirection? textDirection,
       required bool transformHitTests,
@@ -938,6 +978,7 @@ class RTManagedRenderTransform extends RenderTransform
       : super(
             alignment: alignment,
             child: child,
+            filterQuality: filterQuality,
             origin: origin,
             textDirection: textDirection,
             transformHitTests: transformHitTests,
@@ -984,11 +1025,25 @@ class RTManagedRenderTransform extends RenderTransform
           values: TextDirection.values, boxedEnum: luaCallerArguments[1]));
       return [];
     });
+    table['_dart_getAlwaysNeedsCompositing'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.alwaysNeedsCompositing];
+    });
     table['_dart_setTransform'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       super.transform = (maybeUnBoxAndBuildArgument<Matrix4, dynamic>(
           luaCallerArguments[1],
           parentState: hydroState));
+      return [];
+    });
+    table['_dart_getFilterQuality'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.filterQuality];
+    });
+    table['_dart_setFilterQuality'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.filterQuality = (maybeUnBoxEnum(
+          values: FilterQuality.values, boxedEnum: luaCallerArguments[1]));
       return [];
     });
     table['_dart_setIdentity'] =
@@ -1432,6 +1487,11 @@ class RTManagedRenderTransform extends RenderTransform
       super.reassemble();
       return [];
     });
+    table['_dart_dispose'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.dispose();
+      return [];
+    });
     table['_dart_adoptChild'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       super.adoptChild(maybeUnBoxAndBuildArgument<RenderObject, dynamic>(
@@ -1703,6 +1763,10 @@ class RTManagedRenderTransform extends RenderTransform
             table: HydroTable())
       ];
     });
+    table['_dart_getDebugDisposed'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.debugDisposed];
+    });
     table['_dart_getDebugDoingThisResize'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.debugDoingThisResize];
@@ -1738,10 +1802,6 @@ class RTManagedRenderTransform extends RenderTransform
     table['_dart_getIsRepaintBoundary'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.isRepaintBoundary];
-    });
-    table['_dart_getAlwaysNeedsCompositing'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [super.alwaysNeedsCompositing];
     });
     table['_dart_getLayer'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -1861,8 +1921,28 @@ class RTManagedRenderTransform extends RenderTransform
   }
 
   @override
+  bool get alwaysNeedsCompositing {
+    Closure closure = table["getAlwaysNeedsCompositing"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
   void set transform(Matrix4 value) {
     Closure closure = table["setTransform"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  FilterQuality? get filterQuality {
+    Closure closure = table["getFilterQuality"];
+    return maybeUnBoxEnum(
+        values: FilterQuality.values,
+        boxedEnum: closure.dispatch([table], parentState: hydroState)[0]);
+  }
+
+  @override
+  void set filterQuality(FilterQuality? value) {
+    Closure closure = table["setFilterQuality"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
@@ -2243,6 +2323,13 @@ class RTManagedRenderTransform extends RenderTransform
   }
 
   @override
+  void dispose() {
+    super.dispose();
+    Closure closure = table["dispose"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
   void adoptChild(RenderObject child) {
     super.adoptChild(child);
     Closure closure = table["adoptChild"];
@@ -2440,6 +2527,12 @@ class RTManagedRenderTransform extends RenderTransform
   }
 
   @override
+  bool? get debugDisposed {
+    Closure closure = table["getDebugDisposed"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
   bool get debugDoingThisResize {
     Closure closure = table["getDebugDoingThisResize"];
     return closure.dispatch([table], parentState: hydroState)[0];
@@ -2492,12 +2585,6 @@ class RTManagedRenderTransform extends RenderTransform
   @override
   bool get isRepaintBoundary {
     Closure closure = table["getIsRepaintBoundary"];
-    return closure.dispatch([table], parentState: hydroState)[0];
-  }
-
-  @override
-  bool get alwaysNeedsCompositing {
-    Closure closure = table["getAlwaysNeedsCompositing"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
@@ -2603,10 +2690,12 @@ void loadRenderTransform(
                   ? luaCallerArguments[1]['child']
                   : null,
               parentState: hydroState),
-          origin: maybeUnBoxAndBuildArgument<Offset?, dynamic>(
-              luaCallerArguments.length >= 2
-                  ? luaCallerArguments[1]['origin']
-                  : null,
+          filterQuality: maybeUnBoxEnum(
+              values: FilterQuality.values,
+              boxedEnum: luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1]['filterQuality']
+                  : null),
+          origin: maybeUnBoxAndBuildArgument<Offset?, dynamic>(luaCallerArguments.length >= 2 ? luaCallerArguments[1]['origin'] : null,
               parentState: hydroState),
           textDirection: maybeUnBoxEnum(
               values: TextDirection.values,

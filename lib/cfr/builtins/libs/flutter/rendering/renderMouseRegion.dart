@@ -9,12 +9,12 @@ import 'package:flutter/src/gestures/events.dart';
 import 'package:flutter/src/gestures/hit_test.dart';
 import 'package:flutter/src/rendering/box.dart';
 import 'package:flutter/src/rendering/layer.dart';
-import 'package:flutter/src/rendering/mouse_cursor.dart';
-import 'package:flutter/src/rendering/mouse_tracking.dart';
 import 'package:flutter/src/rendering/object.dart';
 import 'package:flutter/src/rendering/proxy_box.dart';
 import 'package:flutter/src/semantics/semantics.dart';
 import 'package:flutter/src/semantics/semantics_event.dart';
+import 'package:flutter/src/services/mouse_cursor.dart';
+import 'package:flutter/src/services/mouse_tracking.dart';
 
 import 'package:vector_math/vector_math_64.dart';
 
@@ -473,6 +473,11 @@ class VMManagedRenderMouseRegion extends VMManagedBox<RenderMouseRegion> {
       vmObject.reassemble();
       return [];
     });
+    table['dispose'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.dispose();
+      return [];
+    });
     table['adoptChild'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.adoptChild(maybeUnBoxAndBuildArgument<RenderObject, dynamic>(
@@ -726,6 +731,16 @@ class VMManagedRenderMouseRegion extends VMManagedBox<RenderMouseRegion> {
             hydroState: hydroState,
             table: HydroTable()),
       ];
+    });
+    table['getDebugDisposed'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      final returnValue = vmObject.debugDisposed;
+      if (returnValue != null) {
+        return [
+          returnValue,
+        ];
+      }
+      return [];
     });
     table['getDebugDoingThisResize'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -1335,6 +1350,11 @@ class RTManagedRenderMouseRegion extends RenderMouseRegion
       super.reassemble();
       return [];
     });
+    table['_dart_dispose'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.dispose();
+      return [];
+    });
     table['_dart_adoptChild'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       super.adoptChild(maybeUnBoxAndBuildArgument<RenderObject, dynamic>(
@@ -1605,6 +1625,10 @@ class RTManagedRenderMouseRegion extends RenderMouseRegion
             hydroState: hydroState,
             table: HydroTable())
       ];
+    });
+    table['_dart_getDebugDisposed'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.debugDisposed];
     });
     table['_dart_getDebugDoingThisResize'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -2094,6 +2118,13 @@ class RTManagedRenderMouseRegion extends RenderMouseRegion
   }
 
   @override
+  void dispose() {
+    super.dispose();
+    Closure closure = table["dispose"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
   void adoptChild(RenderObject child) {
     super.adoptChild(child);
     Closure closure = table["adoptChild"];
@@ -2288,6 +2319,12 @@ class RTManagedRenderMouseRegion extends RenderMouseRegion
     return maybeUnBoxAndBuildArgument<DiagnosticsNode, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
+  }
+
+  @override
+  bool? get debugDisposed {
+    Closure closure = table["getDebugDisposed"];
+    return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override

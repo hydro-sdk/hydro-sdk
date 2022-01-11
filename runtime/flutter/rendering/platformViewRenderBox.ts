@@ -28,6 +28,8 @@ import { IPointerExitEvent } from "../gestures/pointerExitEvent";
 import { ISemanticsConfiguration } from "../semantics/semanticsConfiguration";
 import { ISemanticsEvent } from "../semantics/semanticsEvent";
 import { ISemanticsNode } from "../semantics/semanticsNode";
+import { IMouseCursor } from "../services/mouseCursor";
+import { IMouseTrackerAnnotation } from "../services/mouseTrackerAnnotation";
 import { IPlatformViewController } from "../services/platformViewController";
 import { I_PlatformViewGestureMixin } from "./_platformViewGestureMixin";
 import { IBoxConstraints } from "./boxConstraints";
@@ -35,8 +37,6 @@ import { IBoxHitTestEntry } from "./boxHitTestEntry";
 import { IBoxHitTestResult } from "./boxHitTestResult";
 import { IConstraints } from "./constraints";
 import { IContainerLayer } from "./containerLayer";
-import { IMouseCursor } from "./mouseCursor";
-import { IMouseTrackerAnnotation } from "./mouseTrackerAnnotation";
 import { IOffsetLayer } from "./offsetLayer";
 import { IPaintingContext } from "./paintingContext";
 import { IParentData } from "./parentData";
@@ -66,6 +66,7 @@ export interface IPlatformViewRenderBox {
     onExit: (event: IPointerExitEvent) => void | undefined;
     cursor: IMouseCursor;
     validForMouseTracker: boolean;
+    getController: () => IPlatformViewController;
     setController: (controller: IPlatformViewController) => void;
     updateGestureRecognizers: (
         gestureRecognizers: ISet<IFactory<IOneSequenceGestureRecognizer>>
@@ -142,6 +143,7 @@ export interface IPlatformViewRenderBox {
     getConstraints: () => IBoxConstraints;
     getPaintBounds: () => IRect;
     reassemble: () => void;
+    dispose: () => void;
     adoptChild: (child: unknown) => void;
     dropChild: (child: unknown) => void;
     visitChildren: (visitor: (child: IRenderObject) => void) => void;
@@ -204,6 +206,7 @@ export interface IPlatformViewRenderBox {
         name: string,
         props: { style: DiagnosticsTreeStyle }
     ) => IDiagnosticsNode;
+    getDebugDisposed: () => boolean | undefined;
     getDebugDoingThisResize: () => boolean;
     getDebugDoingThisLayout: () => boolean;
     getDebugCanParentUseSize: () => boolean;
@@ -270,6 +273,8 @@ export class PlatformViewRenderBox
     }) {
         flutter.rendering.platformViewRenderBox(this, props);
     }
+    private readonly _dart_getController: () => IPlatformViewController =
+        undefined as any;
     private readonly _dart_setController: (
         controller: IPlatformViewController
     ) => void = undefined as any;
@@ -408,6 +413,7 @@ export class PlatformViewRenderBox
         undefined as any;
     private readonly _dart_getPaintBounds: () => IRect = undefined as any;
     private readonly _dart_reassemble: () => void = undefined as any;
+    private readonly _dart_dispose: () => void = undefined as any;
     private readonly _dart_adoptChild: (child: any) => void = undefined as any;
     private readonly _dart_dropChild: (child: any) => void = undefined as any;
     private readonly _dart_visitChildren: (
@@ -492,6 +498,8 @@ export class PlatformViewRenderBox
         name: string,
         props: { style: DiagnosticsTreeStyle }
     ) => IDiagnosticsNode = undefined as any;
+    private readonly _dart_getDebugDisposed: () => boolean | undefined =
+        undefined as any;
     private readonly _dart_getDebugDoingThisResize: () => boolean =
         undefined as any;
     private readonly _dart_getDebugDoingThisLayout: () => boolean =
@@ -530,6 +538,9 @@ export class PlatformViewRenderBox
     private readonly _dart_getParent: () => IAbstractNode | undefined =
         undefined as any;
     private readonly _dart_getHashCode: () => number = undefined as any;
+    public getController(): IPlatformViewController {
+        return this._dart_getController();
+    }
     public setController(controller: IPlatformViewController): void {
         return this._dart_setController(controller);
     }
@@ -730,6 +741,9 @@ export class PlatformViewRenderBox
     public reassemble(): void {
         return this._dart_reassemble();
     }
+    public dispose(): void {
+        return this._dart_dispose();
+    }
     public adoptChild(child: any): void {
         return this._dart_adoptChild(child);
     }
@@ -874,6 +888,9 @@ export class PlatformViewRenderBox
             ...describeForErrorDefaultProps,
             ...props,
         });
+    }
+    public getDebugDisposed(): boolean | undefined {
+        return this._dart_getDebugDisposed();
     }
     public getDebugDoingThisResize(): boolean {
         return this._dart_getDebugDoingThisResize();

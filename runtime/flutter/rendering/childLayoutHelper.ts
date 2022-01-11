@@ -5,7 +5,7 @@ declare const flutter: {
     rendering: {
         childLayoutHelperDryLayoutChild: (
             child: IRenderBox,
-            constrains: IBoxConstraints
+            constraints: IBoxConstraints
         ) => ISize;
         childLayoutHelperLayoutChild: (
             child: IRenderBox,
@@ -17,11 +17,11 @@ export interface IChildLayoutHelper {}
 export class ChildLayoutHelper {
     public static dryLayoutChild(
         child: IRenderBox,
-        constrains: IBoxConstraints
+        constraints: IBoxConstraints
     ): ISize {
         return flutter.rendering.childLayoutHelperDryLayoutChild(
             child,
-            constrains
+            constraints
         );
     }
     public static layoutChild(

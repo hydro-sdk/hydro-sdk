@@ -149,6 +149,7 @@ export interface IRenderSliverList {
     getPaintBounds: () => IRect;
     getCenterOffsetAdjustment: () => number;
     reassemble: () => void;
+    dispose: () => void;
     dropChild: (child: unknown) => void;
     markNeedsLayout: () => void;
     markParentNeedsLayout: () => void;
@@ -206,6 +207,7 @@ export interface IRenderSliverList {
         name: string,
         props: { style: DiagnosticsTreeStyle }
     ) => IDiagnosticsNode;
+    getDebugDisposed: () => boolean | undefined;
     getDebugDoingThisResize: () => boolean;
     getDebugDoingThisLayout: () => boolean;
     getDebugCanParentUseSize: () => boolean;
@@ -250,8 +252,8 @@ export class RenderSliverList
             | "childScrollOffset"
             | "applyPaintTransform"
             | "debugFillProperties"
-            | "toString"
             | "toStringShort"
+            | "toString"
             | "toStringDeep"
             | "toStringShallow"
             | "toDiagnosticsNode"
@@ -269,7 +271,6 @@ export class RenderSliverList
         Omit<
             IDiagnosticableTree,
             | "debugDescribeChildren"
-            | "toString"
             | "debugFillProperties"
             | "toStringShallow"
             | "toStringDeep"
@@ -429,6 +430,7 @@ export class RenderSliverList
     private readonly _dart_getCenterOffsetAdjustment: () => number =
         undefined as any;
     private readonly _dart_reassemble: () => void = undefined as any;
+    private readonly _dart_dispose: () => void = undefined as any;
     private readonly _dart_dropChild: (child: any) => void = undefined as any;
     private readonly _dart_markNeedsLayout: () => void = undefined as any;
     private readonly _dart_markParentNeedsLayout: () => void = undefined as any;
@@ -507,6 +509,8 @@ export class RenderSliverList
         name: string,
         props: { style: DiagnosticsTreeStyle }
     ) => IDiagnosticsNode = undefined as any;
+    private readonly _dart_getDebugDisposed: () => boolean | undefined =
+        undefined as any;
     private readonly _dart_getDebugDoingThisResize: () => boolean =
         undefined as any;
     private readonly _dart_getDebugDoingThisLayout: () => boolean =
@@ -774,6 +778,9 @@ export class RenderSliverList
     public reassemble(): void {
         return this._dart_reassemble();
     }
+    public dispose(): void {
+        return this._dart_dispose();
+    }
     public dropChild(child: any): void {
         return this._dart_dropChild(child);
     }
@@ -909,6 +916,9 @@ export class RenderSliverList
             ...describeForErrorDefaultProps,
             ...props,
         });
+    }
+    public getDebugDisposed(): boolean | undefined {
+        return this._dart_getDebugDisposed();
     }
     public getDebugDoingThisResize(): boolean {
         return this._dart_getDebugDoingThisResize();

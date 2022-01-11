@@ -114,6 +114,7 @@ export interface IRenderViewportBase<ParentDataClass> {
     describeApproximatePaintClip: (child: unknown) => IRect;
     describeSemanticsClip: (child: unknown) => IRect;
     paint: (context: IPaintingContext, offset: IOffset) => void;
+    dispose: () => void;
     debugPaintSize: (context: IPaintingContext, offset: IOffset) => void;
     hitTestChildren: (
         result: IBoxHitTestResult,
@@ -280,6 +281,7 @@ export interface IRenderViewportBase<ParentDataClass> {
         name: string,
         props: { style: DiagnosticsTreeStyle }
     ) => IDiagnosticsNode;
+    getDebugDisposed: () => boolean | undefined;
     getDebugDoingThisResize: () => boolean;
     getDebugDoingThisLayout: () => boolean;
     getDebugCanParentUseSize: () => boolean;
@@ -422,6 +424,7 @@ export class RenderViewportBase<ParentDataClass>
         context: IPaintingContext,
         offset: IOffset
     ) => void = undefined as any;
+    private readonly _dart_dispose: () => void = undefined as any;
     private readonly _dart_debugPaintSize: (
         context: IPaintingContext,
         offset: IOffset
@@ -664,6 +667,8 @@ export class RenderViewportBase<ParentDataClass>
         name: string,
         props: { style: DiagnosticsTreeStyle }
     ) => IDiagnosticsNode = undefined as any;
+    private readonly _dart_getDebugDisposed: () => boolean | undefined =
+        undefined as any;
     private readonly _dart_getDebugDoingThisResize: () => boolean =
         undefined as any;
     private readonly _dart_getDebugDoingThisLayout: () => boolean =
@@ -800,6 +805,9 @@ export class RenderViewportBase<ParentDataClass>
     }
     public paint(context: IPaintingContext, offset: IOffset): void {
         return this._dart_paint(context, offset);
+    }
+    public dispose(): void {
+        return this._dart_dispose();
     }
     public debugPaintSize(context: IPaintingContext, offset: IOffset): void {
         return this._dart_debugPaintSize(context, offset);
@@ -1195,6 +1203,9 @@ export class RenderViewportBase<ParentDataClass>
             ...describeForErrorDefaultProps,
             ...props,
         });
+    }
+    public getDebugDisposed(): boolean | undefined {
+        return this._dart_getDebugDisposed();
     }
     public getDebugDoingThisResize(): boolean {
         return this._dart_getDebugDoingThisResize();

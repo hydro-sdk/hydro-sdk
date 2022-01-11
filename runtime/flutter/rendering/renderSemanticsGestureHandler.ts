@@ -31,6 +31,7 @@ import { IBoxHitTestEntry } from "./boxHitTestEntry";
 import { IBoxHitTestResult } from "./boxHitTestResult";
 import { IConstraints } from "./constraints";
 import { IContainerLayer } from "./containerLayer";
+import { HitTestBehavior } from "./hitTestBehavior";
 import { IOffsetLayer } from "./offsetLayer";
 import { IPaintingContext } from "./paintingContext";
 import { IParentData } from "./parentData";
@@ -38,14 +39,15 @@ import { IPipelineOwner } from "./pipelineOwner";
 import { IRenderBox } from "./renderBox";
 import { IRenderObject } from "./renderObject";
 import { IRenderObjectWithChildMixin } from "./renderObjectWithChildMixin";
-import { IRenderProxyBox } from "./renderProxyBox";
 import { IRenderProxyBoxMixin } from "./renderProxyBoxMixin";
+import { IRenderProxyBoxWithHitTestBehavior } from "./renderProxyBoxWithHitTestBehavior";
 declare const flutter: {
     rendering: {
         renderSemanticsGestureHandler: (
             this: void,
             renderSemanticsGestureHandler: IRenderSemanticsGestureHandler,
             props: {
+                behavior: HitTestBehavior;
                 child?: IRenderBox | undefined;
                 onHorizontalDragUpdate?: (
                     details: IDragUpdateDetails
@@ -62,6 +64,7 @@ declare const flutter: {
 };
 export interface IRenderSemanticsGestureHandler {
     scrollFactor: number;
+    behavior: HitTestBehavior;
     parentData: IParentData | undefined;
     debugCreator: Object | undefined;
     getValidActions: () => ISet<ISemanticsAction> | undefined;
@@ -84,6 +87,11 @@ export interface IRenderSemanticsGestureHandler {
     ) => void;
     describeSemanticsConfiguration: (config: ISemanticsConfiguration) => void;
     debugFillProperties: (properties: IDiagnosticPropertiesBuilder) => void;
+    hitTest: (
+        result: IBoxHitTestResult,
+        props: { position: IOffset }
+    ) => boolean;
+    hitTestSelf: (position: IOffset) => boolean;
     debugValidateChild: (child: IRenderObject) => boolean;
     attach: (owner: unknown) => void;
     detach: () => void;
@@ -128,11 +136,6 @@ export interface IRenderSemanticsGestureHandler {
     debugAssertDoesMeetConstraints: () => void;
     markNeedsLayout: () => void;
     performResize: () => void;
-    hitTest: (
-        result: IBoxHitTestResult,
-        props: { position: IOffset }
-    ) => boolean;
-    hitTestSelf: (position: IOffset) => boolean;
     globalToLocal: (
         point: IOffset,
         props?: { ancestor?: IRenderObject | undefined }
@@ -154,6 +157,7 @@ export interface IRenderSemanticsGestureHandler {
     getConstraints: () => IBoxConstraints;
     getPaintBounds: () => IRect;
     reassemble: () => void;
+    dispose: () => void;
     adoptChild: (child: unknown) => void;
     dropChild: (child: unknown) => void;
     markParentNeedsLayout: () => void;
@@ -213,6 +217,7 @@ export interface IRenderSemanticsGestureHandler {
         name: string,
         props: { style: DiagnosticsTreeStyle }
     ) => IDiagnosticsNode;
+    getDebugDisposed: () => boolean | undefined;
     getDebugDoingThisResize: () => boolean;
     getDebugDoingThisLayout: () => boolean;
     getDebugCanParentUseSize: () => boolean;
@@ -241,18 +246,7 @@ export interface IRenderSemanticsGestureHandler {
 }
 export class RenderSemanticsGestureHandler
     implements
-        Omit<
-            IRenderProxyBox,
-            | "attach"
-            | "detach"
-            | "debugDescribeChildren"
-            | "debugFillProperties"
-            | "toStringShort"
-            | "toString"
-            | "toStringDeep"
-            | "toStringShallow"
-            | "toDiagnosticsNode"
-        >,
+        IRenderProxyBoxWithHitTestBehavior,
         IRenderObjectWithChildMixin<IRenderBox>,
         IRenderProxyBoxMixin<IRenderBox>,
         IDiagnosticableTreeMixin,
@@ -269,9 +263,11 @@ export class RenderSemanticsGestureHandler
         >
 {
     public readonly scrollFactor: number = undefined as any;
+    public readonly behavior: HitTestBehavior = undefined as any;
     public readonly parentData: IParentData | undefined = undefined as any;
     public readonly debugCreator: Object | undefined = undefined as any;
     public constructor(props: {
+        behavior?: HitTestBehavior;
         child?: IRenderBox | undefined;
         onHorizontalDragUpdate?: (
             details: IDragUpdateDetails
@@ -320,6 +316,12 @@ export class RenderSemanticsGestureHandler
     private readonly _dart_debugFillProperties: (
         properties: IDiagnosticPropertiesBuilder
     ) => void = undefined as any;
+    private readonly _dart_hitTest: (
+        result: IBoxHitTestResult,
+        props: { position: IOffset }
+    ) => boolean = undefined as any;
+    private readonly _dart_hitTestSelf: (position: IOffset) => boolean =
+        undefined as any;
     private readonly _dart_debugValidateChild: (
         child: IRenderObject
     ) => boolean = undefined as any;
@@ -400,12 +402,6 @@ export class RenderSemanticsGestureHandler
         undefined as any;
     private readonly _dart_markNeedsLayout: () => void = undefined as any;
     private readonly _dart_performResize: () => void = undefined as any;
-    private readonly _dart_hitTest: (
-        result: IBoxHitTestResult,
-        props: { position: IOffset }
-    ) => boolean = undefined as any;
-    private readonly _dart_hitTestSelf: (position: IOffset) => boolean =
-        undefined as any;
     private readonly _dart_globalToLocal: (
         point: IOffset,
         props?: { ancestor?: IRenderObject | undefined }
@@ -446,6 +442,7 @@ export class RenderSemanticsGestureHandler
         undefined as any;
     private readonly _dart_getPaintBounds: () => IRect = undefined as any;
     private readonly _dart_reassemble: () => void = undefined as any;
+    private readonly _dart_dispose: () => void = undefined as any;
     private readonly _dart_adoptChild: (child: any) => void = undefined as any;
     private readonly _dart_dropChild: (child: any) => void = undefined as any;
     private readonly _dart_markParentNeedsLayout: () => void = undefined as any;
@@ -524,6 +521,8 @@ export class RenderSemanticsGestureHandler
         name: string,
         props: { style: DiagnosticsTreeStyle }
     ) => IDiagnosticsNode = undefined as any;
+    private readonly _dart_getDebugDisposed: () => boolean | undefined =
+        undefined as any;
     private readonly _dart_getDebugDoingThisResize: () => boolean =
         undefined as any;
     private readonly _dart_getDebugDoingThisLayout: () => boolean =
@@ -611,6 +610,15 @@ export class RenderSemanticsGestureHandler
     }
     public debugFillProperties(properties: IDiagnosticPropertiesBuilder): void {
         return this._dart_debugFillProperties(properties);
+    }
+    public hitTest(
+        result: IBoxHitTestResult,
+        props: { position: IOffset }
+    ): boolean {
+        return this._dart_hitTest(result, props);
+    }
+    public hitTestSelf(position: IOffset): boolean {
+        return this._dart_hitTestSelf(position);
     }
     public debugValidateChild(child: IRenderObject): boolean {
         return this._dart_debugValidateChild(child);
@@ -727,15 +735,6 @@ export class RenderSemanticsGestureHandler
     public performResize(): void {
         return this._dart_performResize();
     }
-    public hitTest(
-        result: IBoxHitTestResult,
-        props: { position: IOffset }
-    ): boolean {
-        return this._dart_hitTest(result, props);
-    }
-    public hitTestSelf(position: IOffset): boolean {
-        return this._dart_hitTestSelf(position);
-    }
     public globalToLocal(
         point: IOffset,
         props?: { ancestor?: IRenderObject | undefined }
@@ -795,6 +794,9 @@ export class RenderSemanticsGestureHandler
     }
     public reassemble(): void {
         return this._dart_reassemble();
+    }
+    public dispose(): void {
+        return this._dart_dispose();
     }
     public adoptChild(child: any): void {
         return this._dart_adoptChild(child);
@@ -932,6 +934,9 @@ export class RenderSemanticsGestureHandler
             ...props,
         });
     }
+    public getDebugDisposed(): boolean | undefined {
+        return this._dart_getDebugDisposed();
+    }
     public getDebugDoingThisResize(): boolean {
         return this._dart_getDebugDoingThisResize();
     }
@@ -1003,6 +1008,7 @@ export class RenderSemanticsGestureHandler
     }
 }
 const renderSemanticsGestureHandlerDefaultProps = {
+    behavior: HitTestBehavior.deferToChild,
     scrollFactor: 0.8,
 };
 const getDistanceToBaselineDefaultProps = {

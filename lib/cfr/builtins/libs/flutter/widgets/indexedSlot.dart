@@ -4,7 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 
 import 'package:hydro_sdk/cfr/runtimeSupport.dart';
 
-class VMManagedIndexedSlot extends VMManagedBox<IndexedSlot<dynamic>> {
+class VMManagedIndexedSlot extends VMManagedBox<IndexedSlot<Element?>> {
   VMManagedIndexedSlot(
       {required this.table, required this.vmObject, required this.hydroState})
       : super(
@@ -25,7 +25,7 @@ class VMManagedIndexedSlot extends VMManagedBox<IndexedSlot<dynamic>> {
 
   final HydroState hydroState;
 
-  final IndexedSlot<dynamic> vmObject;
+  final IndexedSlot<Element?> vmObject;
 }
 
 class RTManagedIndexedSlot extends IndexedSlot implements Box<IndexedSlot> {

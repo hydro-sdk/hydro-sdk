@@ -40,6 +40,8 @@ export interface IRenderObject {
     parentData: IParentData | undefined;
     debugCreator: Object | undefined;
     reassemble: () => void;
+    getDebugDisposed: () => boolean | undefined;
+    dispose: () => void;
     setupParentData: (child: unknown) => void;
     adoptChild: (child: unknown) => void;
     dropChild: (child: unknown) => void;
@@ -173,6 +175,9 @@ export class RenderObject
         return flutter.rendering.renderObjectDebugActivePaint();
     }
     private readonly _dart_reassemble: () => void = undefined as any;
+    private readonly _dart_getDebugDisposed: () => boolean | undefined =
+        undefined as any;
+    private readonly _dart_dispose: () => void = undefined as any;
     private readonly _dart_setupParentData: (child: any) => void =
         undefined as any;
     private readonly _dart_adoptChild: (child: any) => void = undefined as any;
@@ -337,6 +342,12 @@ export class RenderObject
     private readonly _dart_getHashCode: () => number = undefined as any;
     public reassemble(): void {
         return this._dart_reassemble();
+    }
+    public getDebugDisposed(): boolean | undefined {
+        return this._dart_getDebugDisposed();
+    }
+    public dispose(): void {
+        return this._dart_dispose();
     }
     public setupParentData(child: any): void {
         return this._dart_setupParentData(child);

@@ -200,6 +200,11 @@ class VMManagedRenderSliver extends VMManagedBox<RenderSliver> {
       vmObject.reassemble();
       return [];
     });
+    table['dispose'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.dispose();
+      return [];
+    });
     table['setupParentData'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.setupParentData(
@@ -503,6 +508,16 @@ class VMManagedRenderSliver extends VMManagedBox<RenderSliver> {
             hydroState: hydroState,
             table: HydroTable()),
       ];
+    });
+    table['getDebugDisposed'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      final returnValue = vmObject.debugDisposed;
+      if (returnValue != null) {
+        return [
+          returnValue,
+        ];
+      }
+      return [];
     });
     table['getDebugDoingThisResize'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -869,6 +884,11 @@ class RTManagedRenderSliver extends RenderSliver implements Box<RenderSliver> {
       super.reassemble();
       return [];
     });
+    table['_dart_dispose'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.dispose();
+      return [];
+    });
     table['_dart_setupParentData'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       super.setupParentData(maybeUnBoxAndBuildArgument<RenderObject, dynamic>(
@@ -1196,6 +1216,10 @@ class RTManagedRenderSliver extends RenderSliver implements Box<RenderSliver> {
             table: HydroTable())
       ];
     });
+    table['_dart_getDebugDisposed'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.debugDisposed];
+    });
     table['_dart_getDebugDoingThisResize'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.debugDoingThisResize];
@@ -1484,6 +1508,13 @@ class RTManagedRenderSliver extends RenderSliver implements Box<RenderSliver> {
   }
 
   @override
+  void dispose() {
+    super.dispose();
+    Closure closure = table["dispose"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
   void setupParentData(RenderObject child) {
     Closure closure = table["setupParentData"];
     return closure.dispatch([table], parentState: hydroState)[0];
@@ -1723,6 +1754,12 @@ class RTManagedRenderSliver extends RenderSliver implements Box<RenderSliver> {
     return maybeUnBoxAndBuildArgument<DiagnosticsNode, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
+  }
+
+  @override
+  bool? get debugDisposed {
+    Closure closure = table["getDebugDisposed"];
+    return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override

@@ -260,17 +260,6 @@ class VMManagedRenderParagraph extends VMManagedBox<RenderParagraph> {
                 parentState: hydroState)),
       ];
     });
-    table['handleEvent'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.handleEvent(
-          maybeUnBoxAndBuildArgument<PointerEvent, dynamic>(
-              luaCallerArguments[1],
-              parentState: hydroState),
-          maybeUnBoxAndBuildArgument<BoxHitTestEntry, dynamic>(
-              luaCallerArguments[2],
-              parentState: hydroState));
-      return [];
-    });
     table['systemFontsDidChange'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.systemFontsDidChange();
@@ -337,7 +326,17 @@ class VMManagedRenderParagraph extends VMManagedBox<RenderParagraph> {
                 .getBoxesForSelection(
                     maybeUnBoxAndBuildArgument<TextSelection, dynamic>(
                         luaCallerArguments[1],
-                        parentState: hydroState))
+                        parentState: hydroState),
+                    boxHeightStyle: maybeUnBoxEnum(
+                        values: BoxHeightStyle.values,
+                        boxedEnum: luaCallerArguments.length >= 3
+                            ? luaCallerArguments[2]['boxHeightStyle']
+                            : null),
+                    boxWidthStyle: maybeUnBoxEnum(
+                        values: BoxWidthStyle.values,
+                        boxedEnum: luaCallerArguments.length >= 3
+                            ? luaCallerArguments[2]['boxWidthStyle']
+                            : null))
                 .map((x) => maybeBoxObject<TextBox>(
                     object: x, hydroState: hydroState, table: HydroTable()))
                 .toList(),
@@ -773,6 +772,17 @@ class VMManagedRenderParagraph extends VMManagedBox<RenderParagraph> {
             table: HydroTable()),
       ];
     });
+    table['handleEvent'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.handleEvent(
+          maybeUnBoxAndBuildArgument<PointerEvent, dynamic>(
+              luaCallerArguments[1],
+              parentState: hydroState),
+          maybeUnBoxAndBuildArgument<BoxHitTestEntry, dynamic>(
+              luaCallerArguments[2],
+              parentState: hydroState));
+      return [];
+    });
     table['debugHandleEvent'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
@@ -838,6 +848,11 @@ class VMManagedRenderParagraph extends VMManagedBox<RenderParagraph> {
     table['reassemble'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.reassemble();
+      return [];
+    });
+    table['dispose'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.dispose();
       return [];
     });
     table['adoptChild'] =
@@ -1074,6 +1089,16 @@ class VMManagedRenderParagraph extends VMManagedBox<RenderParagraph> {
             hydroState: hydroState,
             table: HydroTable()),
       ];
+    });
+    table['getDebugDisposed'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      final returnValue = vmObject.debugDisposed;
+      if (returnValue != null) {
+        return [
+          returnValue,
+        ];
+      }
+      return [];
     });
     table['getDebugDoingThisResize'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -1425,17 +1450,6 @@ class RTManagedRenderParagraph extends RenderParagraph
                 parentState: hydroState))
       ];
     });
-    table['_dart_handleEvent'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.handleEvent(
-          maybeUnBoxAndBuildArgument<PointerEvent, dynamic>(
-              luaCallerArguments[1],
-              parentState: hydroState),
-          maybeUnBoxAndBuildArgument<BoxHitTestEntry, dynamic>(
-              luaCallerArguments[2],
-              parentState: hydroState));
-      return [];
-    });
     table['_dart_systemFontsDidChange'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       super.systemFontsDidChange();
@@ -1499,7 +1513,17 @@ class RTManagedRenderParagraph extends RenderParagraph
                 .getBoxesForSelection(
                     maybeUnBoxAndBuildArgument<TextSelection, dynamic>(
                         luaCallerArguments[1],
-                        parentState: hydroState))
+                        parentState: hydroState),
+                    boxHeightStyle: maybeUnBoxEnum(
+                        values: BoxHeightStyle.values,
+                        boxedEnum: luaCallerArguments.length >= 3
+                            ? luaCallerArguments[2]['boxHeightStyle']
+                            : null),
+                    boxWidthStyle: maybeUnBoxEnum(
+                        values: BoxWidthStyle.values,
+                        boxedEnum: luaCallerArguments.length >= 3
+                            ? luaCallerArguments[2]['boxWidthStyle']
+                            : null))
                 .map((x) => maybeBoxObject<TextBox>(
                     object: x, hydroState: hydroState, table: HydroTable()))
                 .toList(),
@@ -1904,6 +1928,17 @@ class RTManagedRenderParagraph extends RenderParagraph
             table: HydroTable())
       ];
     });
+    table['_dart_handleEvent'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.handleEvent(
+          maybeUnBoxAndBuildArgument<PointerEvent, dynamic>(
+              luaCallerArguments[1],
+              parentState: hydroState),
+          maybeUnBoxAndBuildArgument<BoxHitTestEntry, dynamic>(
+              luaCallerArguments[2],
+              parentState: hydroState));
+      return [];
+    });
     table['_dart_debugHandleEvent'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
@@ -1986,6 +2021,11 @@ class RTManagedRenderParagraph extends RenderParagraph
     table['_dart_reassemble'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       super.reassemble();
+      return [];
+    });
+    table['_dart_dispose'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.dispose();
       return [];
     });
     table['_dart_adoptChild'] =
@@ -2231,6 +2271,10 @@ class RTManagedRenderParagraph extends RenderParagraph
             hydroState: hydroState,
             table: HydroTable())
       ];
+    });
+    table['_dart_getDebugDisposed'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.debugDisposed];
     });
     table['_dart_getDebugDoingThisResize'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -2544,12 +2588,6 @@ class RTManagedRenderParagraph extends RenderParagraph
   }
 
   @override
-  void handleEvent(PointerEvent event, BoxHitTestEntry entry) {
-    Closure closure = table["handleEvent"];
-    return closure.dispatch([table], parentState: hydroState)[0];
-  }
-
-  @override
   bool get debugHasOverflowShader {
     Closure closure = table["getDebugHasOverflowShader"];
     return closure.dispatch([table], parentState: hydroState)[0];
@@ -2596,13 +2634,15 @@ class RTManagedRenderParagraph extends RenderParagraph
     return closure.dispatch([table], parentState: hydroState)[0]?.toDouble();
   }
 
-  @override
-  List<TextBox> getBoxesForSelection(TextSelection selection) {
-    Closure closure = table["getBoxesForSelection"];
-    return maybeUnBoxAndBuildArgument<List<TextBox>, TextBox>(
-        closure.dispatch([table], parentState: hydroState)[0],
-        parentState: hydroState);
-  }
+  // @override
+  // List<TextBox> getBoxesForSelection(TextSelection selection,
+  //     {required BoxHeightStyle boxHeightStyle,
+  //     required BoxWidthStyle boxWidthStyle}) {
+  //   Closure closure = table["getBoxesForSelection"];
+  //   return maybeUnBoxAndBuildArgument<List<TextBox>, TextBox>(
+  //       closure.dispatch([table], parentState: hydroState)[0],
+  //       parentState: hydroState);
+  // }
 
   @override
   TextPosition getPositionForOffset(Offset offset) {
@@ -2920,6 +2960,12 @@ class RTManagedRenderParagraph extends RenderParagraph
   }
 
   @override
+  void handleEvent(PointerEvent event, BoxHitTestEntry entry) {
+    Closure closure = table["handleEvent"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
   bool debugHandleEvent(PointerEvent event, HitTestEntry entry) {
     Closure closure = table["debugHandleEvent"];
     return closure.dispatch([table], parentState: hydroState)[0];
@@ -2996,6 +3042,13 @@ class RTManagedRenderParagraph extends RenderParagraph
   @override
   void reassemble() {
     Closure closure = table["reassemble"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    Closure closure = table["dispose"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
@@ -3174,6 +3227,12 @@ class RTManagedRenderParagraph extends RenderParagraph
     return maybeUnBoxAndBuildArgument<DiagnosticsNode, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
+  }
+
+  @override
+  bool? get debugDisposed {
+    Closure closure = table["getDebugDisposed"];
+    return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override

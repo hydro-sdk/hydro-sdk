@@ -73,6 +73,7 @@ export interface IRenderSliverFloatingPinnedPersistentHeader {
     debugCreator: Object | undefined;
     updateGeometry: () => number;
     detach: () => void;
+    updateScrollStartDirection: (direction: ScrollDirection) => void;
     maybeStartSnapAnimation: (direction: ScrollDirection) => void;
     maybeStopSnapAnimation: (direction: ScrollDirection) => void;
     performLayout: () => void;
@@ -151,6 +152,7 @@ export interface IRenderSliverFloatingPinnedPersistentHeader {
     getPaintBounds: () => IRect;
     getCenterOffsetAdjustment: () => number;
     reassemble: () => void;
+    dispose: () => void;
     setupParentData: (child: unknown) => void;
     adoptChild: (child: unknown) => void;
     dropChild: (child: unknown) => void;
@@ -205,6 +207,7 @@ export interface IRenderSliverFloatingPinnedPersistentHeader {
         name: string,
         props: { style: DiagnosticsTreeStyle }
     ) => IDiagnosticsNode;
+    getDebugDisposed: () => boolean | undefined;
     getDebugDoingThisResize: () => boolean;
     getDebugDoingThisLayout: () => boolean;
     getDebugCanParentUseSize: () => boolean;
@@ -243,7 +246,6 @@ export class RenderSliverFloatingPinnedPersistentHeader
         Omit<
             IDiagnosticableTree,
             | "debugDescribeChildren"
-            | "toString"
             | "debugFillProperties"
             | "toStringShallow"
             | "toStringDeep"
@@ -280,6 +282,9 @@ export class RenderSliverFloatingPinnedPersistentHeader
     }
     private readonly _dart_updateGeometry: () => number = undefined as any;
     private readonly _dart_detach: () => void = undefined as any;
+    private readonly _dart_updateScrollStartDirection: (
+        direction: ScrollDirection
+    ) => void = undefined as any;
     private readonly _dart_maybeStartSnapAnimation: (
         direction: ScrollDirection
     ) => void = undefined as any;
@@ -402,6 +407,7 @@ export class RenderSliverFloatingPinnedPersistentHeader
     private readonly _dart_getCenterOffsetAdjustment: () => number =
         undefined as any;
     private readonly _dart_reassemble: () => void = undefined as any;
+    private readonly _dart_dispose: () => void = undefined as any;
     private readonly _dart_setupParentData: (child: any) => void =
         undefined as any;
     private readonly _dart_adoptChild: (child: any) => void = undefined as any;
@@ -476,6 +482,8 @@ export class RenderSliverFloatingPinnedPersistentHeader
         name: string,
         props: { style: DiagnosticsTreeStyle }
     ) => IDiagnosticsNode = undefined as any;
+    private readonly _dart_getDebugDisposed: () => boolean | undefined =
+        undefined as any;
     private readonly _dart_getDebugDoingThisResize: () => boolean =
         undefined as any;
     private readonly _dart_getDebugDoingThisLayout: () => boolean =
@@ -523,6 +531,9 @@ export class RenderSliverFloatingPinnedPersistentHeader
     }
     public detach(): void {
         return this._dart_detach();
+    }
+    public updateScrollStartDirection(direction: ScrollDirection): void {
+        return this._dart_updateScrollStartDirection(direction);
     }
     public maybeStartSnapAnimation(direction: ScrollDirection): void {
         return this._dart_maybeStartSnapAnimation(direction);
@@ -704,6 +715,9 @@ export class RenderSliverFloatingPinnedPersistentHeader
     public reassemble(): void {
         return this._dart_reassemble();
     }
+    public dispose(): void {
+        return this._dart_dispose();
+    }
     public setupParentData(child: any): void {
         return this._dart_setupParentData(child);
     }
@@ -831,6 +845,9 @@ export class RenderSliverFloatingPinnedPersistentHeader
             ...describeForErrorDefaultProps,
             ...props,
         });
+    }
+    public getDebugDisposed(): boolean | undefined {
+        return this._dart_getDebugDisposed();
     }
     public getDebugDoingThisResize(): boolean {
         return this._dart_getDebugDoingThisResize();

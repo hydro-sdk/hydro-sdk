@@ -439,6 +439,27 @@ class VMManagedSemanticsConfiguration
           : null);
       return [];
     });
+    table['getOnSetText'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      final returnValue = vmObject.onSetText;
+      if (returnValue != null) {
+        return [
+          returnValue,
+        ];
+      }
+      return [];
+    });
+    table['setOnSetText'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      Closure? unpackedvalue = luaCallerArguments[1];
+      vmObject.onSetText = (unpackedvalue != null
+          ? (text) => unpackedvalue.dispatch(
+                [luaCallerArguments[0], text],
+                parentState: hydroState,
+              )
+          : null);
+      return [];
+    });
     table['getOnDidGainAccessibilityFocus'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       final returnValue = vmObject.onDidGainAccessibilityFocus;
@@ -646,6 +667,23 @@ class VMManagedSemanticsConfiguration
       vmObject.label = (luaCallerArguments[1]);
       return [];
     });
+    table['getAttributedLabel'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        maybeBoxObject<AttributedString>(
+            object: vmObject.attributedLabel,
+            hydroState: hydroState,
+            table: HydroTable()),
+      ];
+    });
+    table['setAttributedLabel'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.attributedLabel =
+          (maybeUnBoxAndBuildArgument<AttributedString, dynamic>(
+              luaCallerArguments[1],
+              parentState: hydroState));
+      return [];
+    });
     table['getValue'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
@@ -657,15 +695,21 @@ class VMManagedSemanticsConfiguration
       vmObject.value = (luaCallerArguments[1]);
       return [];
     });
-    table['getDecreasedValue'] =
+    table['getAttributedValue'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
-        vmObject.decreasedValue,
+        maybeBoxObject<AttributedString>(
+            object: vmObject.attributedValue,
+            hydroState: hydroState,
+            table: HydroTable()),
       ];
     });
-    table['setDecreasedValue'] =
+    table['setAttributedValue'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.decreasedValue = (luaCallerArguments[1]);
+      vmObject.attributedValue =
+          (maybeUnBoxAndBuildArgument<AttributedString, dynamic>(
+              luaCallerArguments[1],
+              parentState: hydroState));
       return [];
     });
     table['getIncreasedValue'] =
@@ -679,6 +723,51 @@ class VMManagedSemanticsConfiguration
       vmObject.increasedValue = (luaCallerArguments[1]);
       return [];
     });
+    table['getAttributedIncreasedValue'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        maybeBoxObject<AttributedString>(
+            object: vmObject.attributedIncreasedValue,
+            hydroState: hydroState,
+            table: HydroTable()),
+      ];
+    });
+    table['setAttributedIncreasedValue'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.attributedIncreasedValue =
+          (maybeUnBoxAndBuildArgument<AttributedString, dynamic>(
+              luaCallerArguments[1],
+              parentState: hydroState));
+      return [];
+    });
+    table['getDecreasedValue'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        vmObject.decreasedValue,
+      ];
+    });
+    table['setDecreasedValue'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.decreasedValue = (luaCallerArguments[1]);
+      return [];
+    });
+    table['getAttributedDecreasedValue'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        maybeBoxObject<AttributedString>(
+            object: vmObject.attributedDecreasedValue,
+            hydroState: hydroState,
+            table: HydroTable()),
+      ];
+    });
+    table['setAttributedDecreasedValue'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.attributedDecreasedValue =
+          (maybeUnBoxAndBuildArgument<AttributedString, dynamic>(
+              luaCallerArguments[1],
+              parentState: hydroState));
+      return [];
+    });
     table['getHint'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
@@ -688,6 +777,23 @@ class VMManagedSemanticsConfiguration
     table['setHint'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.hint = (luaCallerArguments[1]);
+      return [];
+    });
+    table['getAttributedHint'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        maybeBoxObject<AttributedString>(
+            object: vmObject.attributedHint,
+            hydroState: hydroState,
+            table: HydroTable()),
+      ];
+    });
+    table['setAttributedHint'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.attributedHint =
+          (maybeUnBoxAndBuildArgument<AttributedString, dynamic>(
+              luaCallerArguments[1],
+              parentState: hydroState));
       return [];
     });
     table['getHintOverrides'] =
@@ -924,6 +1030,17 @@ class VMManagedSemanticsConfiguration
     table['setIsSlider'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.isSlider = (luaCallerArguments[1]);
+      return [];
+    });
+    table['getIsKeyboardKey'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        vmObject.isKeyboardKey,
+      ];
+    });
+    table['setIsKeyboardKey'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.isKeyboardKey = (luaCallerArguments[1]);
       return [];
     });
     table['getIsHidden'] =
@@ -1357,6 +1474,17 @@ class RTManagedSemanticsConfiguration extends SemanticsConfiguration
           : null);
       return [];
     });
+    table['_dart_setOnSetText'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      Closure? unpackedvalue = luaCallerArguments[1];
+      super.onSetText = (unpackedvalue != null
+          ? (text) => unpackedvalue.dispatch(
+                [luaCallerArguments[0], text],
+                parentState: hydroState,
+              )
+          : null);
+      return [];
+    });
     table['_dart_setOnDidGainAccessibilityFocus'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       Closure? unpackedvalue = luaCallerArguments[1];
@@ -1478,6 +1606,18 @@ class RTManagedSemanticsConfiguration extends SemanticsConfiguration
       super.label = (luaCallerArguments[1]);
       return [];
     });
+    table['_dart_getAttributedLabel'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.attributedLabel];
+    });
+    table['_dart_setAttributedLabel'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.attributedLabel =
+          (maybeUnBoxAndBuildArgument<AttributedString, dynamic>(
+              luaCallerArguments[1],
+              parentState: hydroState));
+      return [];
+    });
     table['_dart_getValue'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.value];
@@ -1487,13 +1627,16 @@ class RTManagedSemanticsConfiguration extends SemanticsConfiguration
       super.value = (luaCallerArguments[1]);
       return [];
     });
-    table['_dart_getDecreasedValue'] =
+    table['_dart_getAttributedValue'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [super.decreasedValue];
+      return [super.attributedValue];
     });
-    table['_dart_setDecreasedValue'] =
+    table['_dart_setAttributedValue'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.decreasedValue = (luaCallerArguments[1]);
+      super.attributedValue =
+          (maybeUnBoxAndBuildArgument<AttributedString, dynamic>(
+              luaCallerArguments[1],
+              parentState: hydroState));
       return [];
     });
     table['_dart_getIncreasedValue'] =
@@ -1505,6 +1648,39 @@ class RTManagedSemanticsConfiguration extends SemanticsConfiguration
       super.increasedValue = (luaCallerArguments[1]);
       return [];
     });
+    table['_dart_getAttributedIncreasedValue'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.attributedIncreasedValue];
+    });
+    table['_dart_setAttributedIncreasedValue'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.attributedIncreasedValue =
+          (maybeUnBoxAndBuildArgument<AttributedString, dynamic>(
+              luaCallerArguments[1],
+              parentState: hydroState));
+      return [];
+    });
+    table['_dart_getDecreasedValue'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.decreasedValue];
+    });
+    table['_dart_setDecreasedValue'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.decreasedValue = (luaCallerArguments[1]);
+      return [];
+    });
+    table['_dart_getAttributedDecreasedValue'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.attributedDecreasedValue];
+    });
+    table['_dart_setAttributedDecreasedValue'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.attributedDecreasedValue =
+          (maybeUnBoxAndBuildArgument<AttributedString, dynamic>(
+              luaCallerArguments[1],
+              parentState: hydroState));
+      return [];
+    });
     table['_dart_getHint'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.hint];
@@ -1512,6 +1688,18 @@ class RTManagedSemanticsConfiguration extends SemanticsConfiguration
     table['_dart_setHint'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       super.hint = (luaCallerArguments[1]);
+      return [];
+    });
+    table['_dart_getAttributedHint'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.attributedHint];
+    });
+    table['_dart_setAttributedHint'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.attributedHint =
+          (maybeUnBoxAndBuildArgument<AttributedString, dynamic>(
+              luaCallerArguments[1],
+              parentState: hydroState));
       return [];
     });
     table['_dart_getHintOverrides'] =
@@ -1687,6 +1875,15 @@ class RTManagedSemanticsConfiguration extends SemanticsConfiguration
     table['_dart_setIsSlider'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       super.isSlider = (luaCallerArguments[1]);
+      return [];
+    });
+    table['_dart_getIsKeyboardKey'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.isKeyboardKey];
+    });
+    table['_dart_setIsKeyboardKey'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.isKeyboardKey = (luaCallerArguments[1]);
       return [];
     });
     table['_dart_getIsHidden'] =
@@ -1951,6 +2148,12 @@ class RTManagedSemanticsConfiguration extends SemanticsConfiguration
   }
 
   @override
+  void set onSetText(value) {
+    Closure closure = table["setOnSetText"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
   void set onDidGainAccessibilityFocus(value) {
     Closure closure = table["setOnDidGainAccessibilityFocus"];
     return closure.dispatch([table], parentState: hydroState)[0];
@@ -2088,6 +2291,20 @@ class RTManagedSemanticsConfiguration extends SemanticsConfiguration
   }
 
   @override
+  AttributedString get attributedLabel {
+    Closure closure = table["getAttributedLabel"];
+    return maybeUnBoxAndBuildArgument<AttributedString, dynamic>(
+        closure.dispatch([table], parentState: hydroState)[0],
+        parentState: hydroState);
+  }
+
+  @override
+  void set attributedLabel(AttributedString attributedLabel) {
+    Closure closure = table["setAttributedLabel"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
   String get value {
     Closure closure = table["getValue"];
     return closure.dispatch([table], parentState: hydroState)[0];
@@ -2100,14 +2317,16 @@ class RTManagedSemanticsConfiguration extends SemanticsConfiguration
   }
 
   @override
-  String get decreasedValue {
-    Closure closure = table["getDecreasedValue"];
-    return closure.dispatch([table], parentState: hydroState)[0];
+  AttributedString get attributedValue {
+    Closure closure = table["getAttributedValue"];
+    return maybeUnBoxAndBuildArgument<AttributedString, dynamic>(
+        closure.dispatch([table], parentState: hydroState)[0],
+        parentState: hydroState);
   }
 
   @override
-  void set decreasedValue(String decreasedValue) {
-    Closure closure = table["setDecreasedValue"];
+  void set attributedValue(AttributedString attributedValue) {
+    Closure closure = table["setAttributedValue"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
@@ -2124,6 +2343,46 @@ class RTManagedSemanticsConfiguration extends SemanticsConfiguration
   }
 
   @override
+  AttributedString get attributedIncreasedValue {
+    Closure closure = table["getAttributedIncreasedValue"];
+    return maybeUnBoxAndBuildArgument<AttributedString, dynamic>(
+        closure.dispatch([table], parentState: hydroState)[0],
+        parentState: hydroState);
+  }
+
+  @override
+  void set attributedIncreasedValue(AttributedString attributedIncreasedValue) {
+    Closure closure = table["setAttributedIncreasedValue"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  String get decreasedValue {
+    Closure closure = table["getDecreasedValue"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  void set decreasedValue(String decreasedValue) {
+    Closure closure = table["setDecreasedValue"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  AttributedString get attributedDecreasedValue {
+    Closure closure = table["getAttributedDecreasedValue"];
+    return maybeUnBoxAndBuildArgument<AttributedString, dynamic>(
+        closure.dispatch([table], parentState: hydroState)[0],
+        parentState: hydroState);
+  }
+
+  @override
+  void set attributedDecreasedValue(AttributedString attributedDecreasedValue) {
+    Closure closure = table["setAttributedDecreasedValue"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
   String get hint {
     Closure closure = table["getHint"];
     return closure.dispatch([table], parentState: hydroState)[0];
@@ -2132,6 +2391,20 @@ class RTManagedSemanticsConfiguration extends SemanticsConfiguration
   @override
   void set hint(String hint) {
     Closure closure = table["setHint"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  AttributedString get attributedHint {
+    Closure closure = table["getAttributedHint"];
+    return maybeUnBoxAndBuildArgument<AttributedString, dynamic>(
+        closure.dispatch([table], parentState: hydroState)[0],
+        parentState: hydroState);
+  }
+
+  @override
+  void set attributedHint(AttributedString attributedHint) {
+    Closure closure = table["setAttributedHint"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
@@ -2364,6 +2637,18 @@ class RTManagedSemanticsConfiguration extends SemanticsConfiguration
   @override
   void set isSlider(bool value) {
     Closure closure = table["setIsSlider"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  bool get isKeyboardKey {
+    Closure closure = table["getIsKeyboardKey"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  void set isKeyboardKey(bool value) {
+    Closure closure = table["setIsKeyboardKey"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 

@@ -14,6 +14,7 @@ import { IDiagnosticsNode } from "../foundation/diagnosticsNode";
 import { DiagnosticsTreeStyle } from "../foundation/diagnosticsTreeStyle";
 import { IKey } from "../foundation/key";
 import { ITextSelection } from "../services/textSelection";
+import { IAttributedString } from "./attributedString";
 import { DebugSemanticsDumpOrder } from "./debugSemanticsDumpOrder";
 import { ISemanticsConfiguration } from "./semanticsConfiguration";
 import { ISemanticsData } from "./semanticsData";
@@ -36,12 +37,12 @@ declare const flutter: {
 };
 export interface ISemanticsNode {
     key: IKey | undefined;
-    id: number;
     parentSemanticsClipRect: IRect | undefined;
     parentPaintClipRect: IRect | undefined;
     elevationAdjustment: number | undefined;
     indexInParent: number | undefined;
     tags: ISet<ISemanticsTag> | undefined;
+    getId: () => number;
     getTransform: () => IMatrix4 | undefined;
     setTransform: (value?: IMatrix4 | undefined) => void;
     getRect: () => IRect;
@@ -62,10 +63,15 @@ export interface ISemanticsNode {
     isTagged: (tag: ISemanticsTag) => boolean;
     hasFlag: (flag: ISemanticsFlag) => boolean;
     getLabel: () => string;
+    getAttributedLabel: () => IAttributedString;
     getValue: () => string;
-    getDecreasedValue: () => string;
+    getAttributedValue: () => IAttributedString;
     getIncreasedValue: () => string;
+    getAttributedIncreasedValue: () => IAttributedString;
+    getDecreasedValue: () => string;
+    getAttributedDecreasedValue: () => IAttributedString;
     getHint: () => string;
+    getAttributedHint: () => IAttributedString;
     getElevation: () => number;
     getThickness: () => number;
     getHintOverrides: () => ISemanticsHintOverrides | undefined;
@@ -135,7 +141,6 @@ export class SemanticsNode
 {
     public static _maxFrameworkAccessibilityIdentifier = Unknown - 1;
     public readonly key: IKey | undefined = undefined as any;
-    public readonly id: number = undefined as any;
     public readonly parentSemanticsClipRect: IRect | undefined =
         undefined as any;
     public readonly parentPaintClipRect: IRect | undefined = undefined as any;
@@ -148,6 +153,7 @@ export class SemanticsNode
     }) {
         flutter.semantics.semanticsNode(this, props);
     }
+    private readonly _dart_getId: () => number = undefined as any;
     private readonly _dart_getTransform: () => IMatrix4 | undefined =
         undefined as any;
     private readonly _dart_setTransform: (
@@ -181,10 +187,20 @@ export class SemanticsNode
     private readonly _dart_hasFlag: (flag: ISemanticsFlag) => boolean =
         undefined as any;
     private readonly _dart_getLabel: () => string = undefined as any;
+    private readonly _dart_getAttributedLabel: () => IAttributedString =
+        undefined as any;
     private readonly _dart_getValue: () => string = undefined as any;
-    private readonly _dart_getDecreasedValue: () => string = undefined as any;
+    private readonly _dart_getAttributedValue: () => IAttributedString =
+        undefined as any;
     private readonly _dart_getIncreasedValue: () => string = undefined as any;
+    private readonly _dart_getAttributedIncreasedValue: () => IAttributedString =
+        undefined as any;
+    private readonly _dart_getDecreasedValue: () => string = undefined as any;
+    private readonly _dart_getAttributedDecreasedValue: () => IAttributedString =
+        undefined as any;
     private readonly _dart_getHint: () => string = undefined as any;
+    private readonly _dart_getAttributedHint: () => IAttributedString =
+        undefined as any;
     private readonly _dart_getElevation: () => number = undefined as any;
     private readonly _dart_getThickness: () => number = undefined as any;
     private readonly _dart_getHintOverrides: () =>
@@ -257,6 +273,9 @@ export class SemanticsNode
     private readonly _dart_getDepth: () => number = undefined as any;
     private readonly _dart_getAttached: () => boolean = undefined as any;
     private readonly _dart_getHashCode: () => number = undefined as any;
+    public getId(): number {
+        return this._dart_getId();
+    }
     public getTransform(): IMatrix4 | undefined {
         return this._dart_getTransform();
     }
@@ -317,17 +336,32 @@ export class SemanticsNode
     public getLabel(): string {
         return this._dart_getLabel();
     }
+    public getAttributedLabel(): IAttributedString {
+        return this._dart_getAttributedLabel();
+    }
     public getValue(): string {
         return this._dart_getValue();
     }
-    public getDecreasedValue(): string {
-        return this._dart_getDecreasedValue();
+    public getAttributedValue(): IAttributedString {
+        return this._dart_getAttributedValue();
     }
     public getIncreasedValue(): string {
         return this._dart_getIncreasedValue();
     }
+    public getAttributedIncreasedValue(): IAttributedString {
+        return this._dart_getAttributedIncreasedValue();
+    }
+    public getDecreasedValue(): string {
+        return this._dart_getDecreasedValue();
+    }
+    public getAttributedDecreasedValue(): IAttributedString {
+        return this._dart_getAttributedDecreasedValue();
+    }
     public getHint(): string {
         return this._dart_getHint();
+    }
+    public getAttributedHint(): IAttributedString {
+        return this._dart_getAttributedHint();
     }
     public getElevation(): number {
         return this._dart_getElevation();

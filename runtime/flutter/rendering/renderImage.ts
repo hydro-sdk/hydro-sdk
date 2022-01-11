@@ -11,6 +11,7 @@ import { ISize } from "../../dart/ui/size";
 import { TextBaseline } from "../../dart/ui/textBaseline";
 import { TextDirection } from "../../dart/ui/textDirection";
 import { IMatrix4 } from "../../vector_math/matrix4";
+import { IAnimation } from "../animation/animation";
 import { ICurve } from "../animation/curve";
 import { Curves } from "../animation/curves";
 import { IAbstractNode } from "../foundation/abstractNode";
@@ -61,6 +62,7 @@ declare const flutter: {
                 invertColors: boolean;
                 isAntiAlias: boolean;
                 matchTextDirection: boolean;
+                opacity?: IAnimation<number> | undefined;
                 repeat: ImageRepeat;
                 scale: number;
                 textDirection?: TextDirection | undefined;
@@ -83,6 +85,8 @@ export interface IRenderImage {
     setScale: (value: number) => void;
     getColor: () => IColor | undefined;
     setColor: (value?: IColor | undefined) => void;
+    getOpacity: () => IAnimation<number> | undefined;
+    setOpacity: (value?: IAnimation<number> | undefined) => void;
     getFilterQuality: () => FilterQuality;
     setFilterQuality: (value: FilterQuality) => void;
     getColorBlendMode: () => BlendMode | undefined;
@@ -110,7 +114,10 @@ export interface IRenderImage {
     hitTestSelf: (position: IOffset) => boolean;
     computeDryLayout: (constraints: IBoxConstraints) => ISize;
     performLayout: () => void;
+    attach: (owner: unknown) => void;
+    detach: () => void;
     paint: (context: IPaintingContext, offset: IOffset) => void;
+    dispose: () => void;
     debugFillProperties: (properties: IDiagnosticPropertiesBuilder) => void;
     setupParentData: (child: unknown) => void;
     getMinIntrinsicWidth: (height: number) => number;
@@ -168,7 +175,6 @@ export interface IRenderImage {
     adoptChild: (child: unknown) => void;
     dropChild: (child: unknown) => void;
     visitChildren: (visitor: (child: IRenderObject) => void) => void;
-    attach: (owner: unknown) => void;
     markParentNeedsLayout: () => void;
     markNeedsLayoutForSizedByParentChange: () => void;
     scheduleInitialLayout: () => void;
@@ -228,6 +234,7 @@ export interface IRenderImage {
         name: string,
         props: { style: DiagnosticsTreeStyle }
     ) => IDiagnosticsNode;
+    getDebugDisposed: () => boolean | undefined;
     getDebugDoingThisResize: () => boolean;
     getDebugDoingThisLayout: () => boolean;
     getDebugCanParentUseSize: () => boolean;
@@ -250,7 +257,6 @@ export interface IRenderImage {
     }) => IDiagnosticsNode;
     redepthChild: (child: IAbstractNode) => void;
     redepthChildren: () => void;
-    detach: () => void;
     getDepth: () => number;
     getAttached: () => boolean;
     getParent: () => IAbstractNode | undefined;
@@ -288,6 +294,7 @@ export class RenderImage
         invertColors?: boolean;
         isAntiAlias?: boolean;
         matchTextDirection?: boolean;
+        opacity?: IAnimation<number> | undefined;
         repeat?: ImageRepeat;
         scale?: number;
         textDirection?: TextDirection | undefined;
@@ -316,6 +323,11 @@ export class RenderImage
         undefined as any;
     private readonly _dart_setColor: (value?: IColor | undefined) => void =
         undefined as any;
+    private readonly _dart_getOpacity: () => IAnimation<number> | undefined =
+        undefined as any;
+    private readonly _dart_setOpacity: (
+        value?: IAnimation<number> | undefined
+    ) => void = undefined as any;
     private readonly _dart_getFilterQuality: () => FilterQuality =
         undefined as any;
     private readonly _dart_setFilterQuality: (value: FilterQuality) => void =
@@ -372,10 +384,13 @@ export class RenderImage
         constraints: IBoxConstraints
     ) => ISize = undefined as any;
     private readonly _dart_performLayout: () => void = undefined as any;
+    private readonly _dart_attach: (owner: any) => void = undefined as any;
+    private readonly _dart_detach: () => void = undefined as any;
     private readonly _dart_paint: (
         context: IPaintingContext,
         offset: IOffset
     ) => void = undefined as any;
+    private readonly _dart_dispose: () => void = undefined as any;
     private readonly _dart_debugFillProperties: (
         properties: IDiagnosticPropertiesBuilder
     ) => void = undefined as any;
@@ -470,7 +485,6 @@ export class RenderImage
     private readonly _dart_visitChildren: (
         visitor: (child: IRenderObject) => void
     ) => void = undefined as any;
-    private readonly _dart_attach: (owner: any) => void = undefined as any;
     private readonly _dart_markParentNeedsLayout: () => void = undefined as any;
     private readonly _dart_markNeedsLayoutForSizedByParentChange: () => void =
         undefined as any;
@@ -552,6 +566,8 @@ export class RenderImage
         name: string,
         props: { style: DiagnosticsTreeStyle }
     ) => IDiagnosticsNode = undefined as any;
+    private readonly _dart_getDebugDisposed: () => boolean | undefined =
+        undefined as any;
     private readonly _dart_getDebugDoingThisResize: () => boolean =
         undefined as any;
     private readonly _dart_getDebugDoingThisLayout: () => boolean =
@@ -590,7 +606,6 @@ export class RenderImage
     private readonly _dart_redepthChild: (child: IAbstractNode) => void =
         undefined as any;
     private readonly _dart_redepthChildren: () => void = undefined as any;
-    private readonly _dart_detach: () => void = undefined as any;
     private readonly _dart_getDepth: () => number = undefined as any;
     private readonly _dart_getAttached: () => boolean = undefined as any;
     private readonly _dart_getParent: () => IAbstractNode | undefined =
@@ -625,6 +640,12 @@ export class RenderImage
     }
     public setColor(value?: IColor | undefined): void {
         return this._dart_setColor(value);
+    }
+    public getOpacity(): IAnimation<number> | undefined {
+        return this._dart_getOpacity();
+    }
+    public setOpacity(value?: IAnimation<number> | undefined): void {
+        return this._dart_setOpacity(value);
     }
     public getFilterQuality(): FilterQuality {
         return this._dart_getFilterQuality();
@@ -707,8 +728,17 @@ export class RenderImage
     public performLayout(): void {
         return this._dart_performLayout();
     }
+    public attach(owner: any): void {
+        return this._dart_attach(owner);
+    }
+    public detach(): void {
+        return this._dart_detach();
+    }
     public paint(context: IPaintingContext, offset: IOffset): void {
         return this._dart_paint(context, offset);
+    }
+    public dispose(): void {
+        return this._dart_dispose();
     }
     public debugFillProperties(properties: IDiagnosticPropertiesBuilder): void {
         return this._dart_debugFillProperties(properties);
@@ -855,9 +885,6 @@ export class RenderImage
     public visitChildren(visitor: (child: IRenderObject) => void): void {
         return this._dart_visitChildren(visitor);
     }
-    public attach(owner: any): void {
-        return this._dart_attach(owner);
-    }
     public markParentNeedsLayout(): void {
         return this._dart_markParentNeedsLayout();
     }
@@ -996,6 +1023,9 @@ export class RenderImage
             ...props,
         });
     }
+    public getDebugDisposed(): boolean | undefined {
+        return this._dart_getDebugDisposed();
+    }
     public getDebugDoingThisResize(): boolean {
         return this._dart_getDebugDoingThisResize();
     }
@@ -1055,9 +1085,6 @@ export class RenderImage
     }
     public redepthChildren(): void {
         return this._dart_redepthChildren();
-    }
-    public detach(): void {
-        return this._dart_detach();
     }
     public getDepth(): number {
         return this._dart_getDepth();

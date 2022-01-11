@@ -379,12 +379,12 @@ class RTManagedViewportOffset extends ViewportOffset
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  void debugFillDescription(List description) {
-    super.debugFillDescription(description);
-    Closure closure = table["debugFillDescription"];
-    return closure.dispatch([table], parentState: hydroState)[0];
-  }
+  // @override
+  // void debugFillDescription(List description) {
+  //   super.debugFillDescription(description);
+  //   Closure closure = table["debugFillDescription"];
+  //   return closure.dispatch([table], parentState: hydroState)[0];
+  // }
 
   @override
   void addListener(listener) {

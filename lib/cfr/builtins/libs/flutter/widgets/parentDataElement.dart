@@ -59,7 +59,8 @@ class VMManagedParentDataElement
       vmObject.mount(
           maybeUnBoxAndBuildArgument<Element?, dynamic>(luaCallerArguments[1],
               parentState: hydroState),
-          luaCallerArguments[2]);
+          maybeUnBoxAndBuildArgument<Object?, dynamic>(luaCallerArguments[2],
+              parentState: hydroState));
       return [];
     });
     table['performRebuild'] =
@@ -170,7 +171,9 @@ class VMManagedParentDataElement
     });
     table['attachRenderObject'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.attachRenderObject(luaCallerArguments[1]);
+      vmObject.attachRenderObject(maybeUnBoxAndBuildArgument<Object?, dynamic>(
+          luaCallerArguments[1],
+          parentState: hydroState));
       return [];
     });
     table['activate'] =
@@ -382,14 +385,25 @@ class VMManagedParentDataElement
     });
     table['getSlot'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        vmObject.slot,
-      ];
+      final returnValue = vmObject.slot;
+      if (returnValue != null) {
+        return [
+          maybeBoxObject<Object?>(
+              object: returnValue, hydroState: hydroState, table: HydroTable()),
+        ];
+      }
+      return [];
     });
     table['getDepth'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         vmObject.depth,
+      ];
+    });
+    table['getDebugIsDefunct'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        vmObject.debugIsDefunct,
       ];
     });
     table['getOwner'] =
@@ -539,7 +553,8 @@ class RTManagedParentDataElement extends ParentDataElement
       super.mount(
           maybeUnBoxAndBuildArgument<Element?, dynamic>(luaCallerArguments[1],
               parentState: hydroState),
-          luaCallerArguments[2]);
+          maybeUnBoxAndBuildArgument<Object?, dynamic>(luaCallerArguments[2],
+              parentState: hydroState));
       return [];
     });
     table['_dart_performRebuild'] =
@@ -657,7 +672,9 @@ class RTManagedParentDataElement extends ParentDataElement
                 maybeUnBoxAndBuildArgument<Widget?, dynamic>(
                     luaCallerArguments[2],
                     parentState: hydroState),
-                luaCallerArguments[3]),
+                maybeUnBoxAndBuildArgument<Object?, dynamic>(
+                    luaCallerArguments[3],
+                    parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable())
       ];
@@ -667,7 +684,8 @@ class RTManagedParentDataElement extends ParentDataElement
       super.updateSlotForChild(
           maybeUnBoxAndBuildArgument<Element, dynamic>(luaCallerArguments[1],
               parentState: hydroState),
-          luaCallerArguments[2]);
+          maybeUnBoxAndBuildArgument<Object?, dynamic>(luaCallerArguments[2],
+              parentState: hydroState));
       return [];
     });
     table['_dart_detachRenderObject'] =
@@ -677,7 +695,9 @@ class RTManagedParentDataElement extends ParentDataElement
     });
     table['_dart_attachRenderObject'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.attachRenderObject(luaCallerArguments[1]);
+      super.attachRenderObject(maybeUnBoxAndBuildArgument<Object?, dynamic>(
+          luaCallerArguments[1],
+          parentState: hydroState));
       return [];
     });
     table['_dart_inflateWidget'] =
@@ -688,7 +708,9 @@ class RTManagedParentDataElement extends ParentDataElement
                 maybeUnBoxAndBuildArgument<Widget, dynamic>(
                     luaCallerArguments[1],
                     parentState: hydroState),
-                luaCallerArguments[2]),
+                maybeUnBoxAndBuildArgument<Object?, dynamic>(
+                    luaCallerArguments[2],
+                    parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable())
       ];
@@ -877,6 +899,10 @@ class RTManagedParentDataElement extends ParentDataElement
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.depth];
     });
+    table['_dart_getDebugIsDefunct'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.debugIsDefunct];
+    });
     table['_dart_getOwner'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.owner];
@@ -985,7 +1011,7 @@ class RTManagedParentDataElement extends ParentDataElement
   }
 
   @override
-  void mount(Element? parent, dynamic newSlot) {
+  void mount(Element? parent, Object? newSlot) {
     super.mount(parent, newSlot);
     Closure closure = table["mount"];
     return closure.dispatch([table], parentState: hydroState)[0];
@@ -1071,7 +1097,7 @@ class RTManagedParentDataElement extends ParentDataElement
   }
 
   @override
-  Element? updateChild(Element? child, Widget? newWidget, dynamic newSlot) {
+  Element? updateChild(Element? child, Widget? newWidget, Object? newSlot) {
     Closure closure = table["updateChild"];
     return maybeUnBoxAndBuildArgument<Element?, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -1079,7 +1105,7 @@ class RTManagedParentDataElement extends ParentDataElement
   }
 
   @override
-  void updateSlotForChild(Element child, dynamic newSlot) {
+  void updateSlotForChild(Element child, Object? newSlot) {
     Closure closure = table["updateSlotForChild"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -1091,13 +1117,13 @@ class RTManagedParentDataElement extends ParentDataElement
   }
 
   @override
-  void attachRenderObject(dynamic newSlot) {
+  void attachRenderObject(Object? newSlot) {
     Closure closure = table["attachRenderObject"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  Element inflateWidget(Widget newWidget, dynamic newSlot) {
+  Element inflateWidget(Widget newWidget, Object? newSlot) {
     Closure closure = table["inflateWidget"];
     return maybeUnBoxAndBuildArgument<Element, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -1265,14 +1291,22 @@ class RTManagedParentDataElement extends ParentDataElement
   }
 
   @override
-  dynamic get slot {
+  Object? get slot {
     Closure closure = table["getSlot"];
-    return closure.dispatch([table], parentState: hydroState)[0];
+    return maybeUnBoxAndBuildArgument<Object?, dynamic>(
+        closure.dispatch([table], parentState: hydroState)[0],
+        parentState: hydroState);
   }
 
   @override
   int get depth {
     Closure closure = table["getDepth"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  bool get debugIsDefunct {
+    Closure closure = table["getDebugIsDefunct"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 

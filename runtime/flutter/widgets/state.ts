@@ -20,6 +20,7 @@ export interface IState<T> {
     reassemble: () => void;
     setState: (fn: () => void) => void;
     deactivate: () => void;
+    activate: () => void;
     dispose: () => void;
     build: (context: IBuildContext) => IWidget;
     didChangeDependencies: () => void;
@@ -45,6 +46,7 @@ export class State<T> implements IDiagnosticable {
     private readonly _dart_setState: (fn: () => void) => void =
         undefined as any;
     private readonly _dart_deactivate: () => void = undefined as any;
+    private readonly _dart_activate: () => void = undefined as any;
     private readonly _dart_dispose: () => void = undefined as any;
     private readonly _dart_build: (context: IBuildContext) => IWidget =
         undefined as any;
@@ -83,6 +85,9 @@ export class State<T> implements IDiagnosticable {
     }
     public deactivate(): void {
         return this._dart_deactivate();
+    }
+    public activate(): void {
+        return this._dart_activate();
     }
     public dispose(): void {
         return this._dart_dispose();

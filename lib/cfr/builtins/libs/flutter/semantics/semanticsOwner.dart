@@ -42,7 +42,8 @@ class VMManagedSemanticsOwner extends VMManagedBox<SemanticsOwner> {
           maybeUnBoxAndBuildArgument<SemanticsAction, dynamic>(
               luaCallerArguments[2],
               parentState: hydroState),
-          luaCallerArguments[3]);
+          maybeUnBoxAndBuildArgument<Object?, dynamic>(luaCallerArguments[3],
+              parentState: hydroState));
       return [];
     });
     table['performActionAt'] =
@@ -53,7 +54,8 @@ class VMManagedSemanticsOwner extends VMManagedBox<SemanticsOwner> {
           maybeUnBoxAndBuildArgument<SemanticsAction, dynamic>(
               luaCallerArguments[2],
               parentState: hydroState),
-          luaCallerArguments[3]);
+          maybeUnBoxAndBuildArgument<Object?, dynamic>(luaCallerArguments[3],
+              parentState: hydroState));
       return [];
     });
     table['toString'] =
@@ -128,7 +130,8 @@ class RTManagedSemanticsOwner extends SemanticsOwner
           maybeUnBoxAndBuildArgument<SemanticsAction, dynamic>(
               luaCallerArguments[2],
               parentState: hydroState),
-          luaCallerArguments[3]);
+          maybeUnBoxAndBuildArgument<Object?, dynamic>(luaCallerArguments[3],
+              parentState: hydroState));
       return [];
     });
     table['_dart_performActionAt'] =
@@ -139,7 +142,8 @@ class RTManagedSemanticsOwner extends SemanticsOwner
           maybeUnBoxAndBuildArgument<SemanticsAction, dynamic>(
               luaCallerArguments[2],
               parentState: hydroState),
-          luaCallerArguments[3]);
+          maybeUnBoxAndBuildArgument<Object?, dynamic>(luaCallerArguments[3],
+              parentState: hydroState));
       return [];
     });
     table['_dart_toString'] =
@@ -211,14 +215,14 @@ class RTManagedSemanticsOwner extends SemanticsOwner
   }
 
   @override
-  void performAction(int id, SemanticsAction action, [dynamic args]) {
+  void performAction(int id, SemanticsAction action, [Object? args]) {
     Closure closure = table["performAction"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
   void performActionAt(Offset position, SemanticsAction action,
-      [dynamic args]) {
+      [Object? args]) {
     Closure closure = table["performActionAt"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }

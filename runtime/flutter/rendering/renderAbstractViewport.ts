@@ -44,6 +44,7 @@ export interface IRenderAbstractViewport {
         props?: { rect?: IRect | undefined }
     ) => IRevealedOffset;
     reassemble: () => void;
+    dispose: () => void;
     setupParentData: (child: unknown) => void;
     adoptChild: (child: unknown) => void;
     dropChild: (child: unknown) => void;
@@ -118,6 +119,7 @@ export interface IRenderAbstractViewport {
         name: string,
         props: { style: DiagnosticsTreeStyle }
     ) => IDiagnosticsNode;
+    getDebugDisposed: () => boolean | undefined;
     getDebugDoingThisResize: () => boolean;
     getDebugDoingThisLayout: () => boolean;
     getDebugCanParentUseSize: () => boolean;
@@ -188,6 +190,7 @@ export class RenderAbstractViewport
         props?: { rect?: IRect | undefined }
     ) => IRevealedOffset = undefined as any;
     private readonly _dart_reassemble: () => void = undefined as any;
+    private readonly _dart_dispose: () => void = undefined as any;
     private readonly _dart_setupParentData: (child: any) => void =
         undefined as any;
     private readonly _dart_adoptChild: (child: any) => void = undefined as any;
@@ -302,6 +305,8 @@ export class RenderAbstractViewport
         name: string,
         props: { style: DiagnosticsTreeStyle }
     ) => IDiagnosticsNode = undefined as any;
+    private readonly _dart_getDebugDisposed: () => boolean | undefined =
+        undefined as any;
     private readonly _dart_getDebugDoingThisResize: () => boolean =
         undefined as any;
     private readonly _dart_getDebugDoingThisLayout: () => boolean =
@@ -359,6 +364,9 @@ export class RenderAbstractViewport
     }
     public reassemble(): void {
         return this._dart_reassemble();
+    }
+    public dispose(): void {
+        return this._dart_dispose();
     }
     public setupParentData(child: any): void {
         return this._dart_setupParentData(child);
@@ -542,6 +550,9 @@ export class RenderAbstractViewport
             ...describeForErrorDefaultProps,
             ...props,
         });
+    }
+    public getDebugDisposed(): boolean | undefined {
+        return this._dart_getDebugDisposed();
     }
     public getDebugDoingThisResize(): boolean {
         return this._dart_getDebugDoingThisResize();

@@ -29,10 +29,10 @@ declare const flutter: {
     };
 };
 export interface ITransformLayer {
-    debugCreator: any;
+    debugCreator: Object | undefined;
     getTransform: () => IMatrix4 | undefined;
     setTransform: (value?: IMatrix4 | undefined) => void;
-    addToScene: (builder: ISceneBuilder, layerOffset: IOffset) => void;
+    addToScene: (builder: ISceneBuilder) => void;
     findAnnotations: <S>(
         result: IAnnotationResult<S>,
         localPosition: IOffset,
@@ -44,12 +44,13 @@ export interface ITransformLayer {
     getOffset: () => IOffset;
     setOffset: (value: IOffset) => void;
     buildScene: (builder: ISceneBuilder) => IScene;
+    dispose: () => void;
     updateSubtreeNeedsAddToScene: () => void;
     attach: (owner: unknown) => void;
     detach: () => void;
     append: (child: ILayer) => void;
     removeAllChildren: () => void;
-    addChildrenToScene: (builder: ISceneBuilder, childOffset: IOffset) => void;
+    addChildrenToScene: (builder: ISceneBuilder) => void;
     debugDescribeChildren: () => IList<IDiagnosticsNode>;
     getFirstChild: () => ILayer | undefined;
     getLastChild: () => ILayer | undefined;
@@ -60,10 +61,10 @@ export interface ITransformLayer {
     find: <S>(localPosition: IOffset) => S | undefined;
     findAllAnnotations: <S>(localPosition: IOffset) => IAnnotationResult<S>;
     toStringShort: () => string;
+    getDebugDisposed: () => boolean;
+    getDebugHandleCount: () => number;
     getParent: () => IContainerLayer | undefined;
     getAlwaysNeedsAddToScene: () => boolean;
-    getEngineLayer: () => IEngineLayer | undefined;
-    setEngineLayer: (value?: IEngineLayer | undefined) => void;
     getNextSibling: () => ILayer | undefined;
     getPreviousSibling: () => ILayer | undefined;
     toString: (props: { minLevel: DiagnosticLevel }) => string;
@@ -102,7 +103,7 @@ export class TransformLayer
             | "toDiagnosticsNode"
         >
 {
-    public readonly debugCreator: any = undefined as any;
+    public readonly debugCreator: Object | undefined = undefined as any;
     public constructor(props: {
         offset?: IOffset;
         transform?: IMatrix4 | undefined;
@@ -117,10 +118,8 @@ export class TransformLayer
     private readonly _dart_setTransform: (
         value?: IMatrix4 | undefined
     ) => void = undefined as any;
-    private readonly _dart_addToScene: (
-        builder: ISceneBuilder,
-        layerOffset: IOffset
-    ) => void = undefined as any;
+    private readonly _dart_addToScene: (builder: ISceneBuilder) => void =
+        undefined as any;
     private readonly _dart_findAnnotations: <S>(
         result: IAnnotationResult<S>,
         localPosition: IOffset,
@@ -142,6 +141,7 @@ export class TransformLayer
         undefined as any;
     private readonly _dart_buildScene: (builder: ISceneBuilder) => IScene =
         undefined as any;
+    private readonly _dart_dispose: () => void = undefined as any;
     private readonly _dart_updateSubtreeNeedsAddToScene: () => void =
         undefined as any;
     private readonly _dart_attach: (owner: any) => void = undefined as any;
@@ -149,8 +149,7 @@ export class TransformLayer
     private readonly _dart_append: (child: ILayer) => void = undefined as any;
     private readonly _dart_removeAllChildren: () => void = undefined as any;
     private readonly _dart_addChildrenToScene: (
-        builder: ISceneBuilder,
-        childOffset: IOffset
+        builder: ISceneBuilder
     ) => void = undefined as any;
     private readonly _dart_debugDescribeChildren: () => IList<IDiagnosticsNode> =
         undefined as any;
@@ -169,6 +168,8 @@ export class TransformLayer
         localPosition: IOffset
     ) => IAnnotationResult<S> = undefined as any;
     private readonly _dart_toStringShort: () => string = undefined as any;
+    private readonly _dart_getDebugDisposed: () => boolean = undefined as any;
+    private readonly _dart_getDebugHandleCount: () => number = undefined as any;
     private readonly _dart_getParent: () => IContainerLayer | undefined =
         undefined as any;
     private readonly _dart_getAlwaysNeedsAddToScene: () => boolean =
@@ -212,11 +213,8 @@ export class TransformLayer
     public setTransform(value?: IMatrix4 | undefined): void {
         return this._dart_setTransform(value);
     }
-    public addToScene(
-        builder: ISceneBuilder,
-        layerOffset: IOffset = Offset.zero
-    ): void {
-        return this._dart_addToScene(builder, layerOffset);
+    public addToScene(builder: ISceneBuilder): void {
+        return this._dart_addToScene(builder);
     }
     public findAnnotations<S>(
         result: IAnnotationResult<S>,
@@ -252,6 +250,9 @@ export class TransformLayer
     public buildScene(builder: ISceneBuilder): IScene {
         return this._dart_buildScene(builder);
     }
+    public dispose(): void {
+        return this._dart_dispose();
+    }
     public updateSubtreeNeedsAddToScene(): void {
         return this._dart_updateSubtreeNeedsAddToScene();
     }
@@ -267,11 +268,8 @@ export class TransformLayer
     public removeAllChildren(): void {
         return this._dart_removeAllChildren();
     }
-    public addChildrenToScene(
-        builder: ISceneBuilder,
-        childOffset: IOffset = Offset.zero
-    ): void {
-        return this._dart_addChildrenToScene(builder, childOffset);
+    public addChildrenToScene(builder: ISceneBuilder): void {
+        return this._dart_addChildrenToScene(builder);
     }
     public debugDescribeChildren(): IList<IDiagnosticsNode> {
         return this._dart_debugDescribeChildren();
@@ -305,6 +303,12 @@ export class TransformLayer
     }
     public toStringShort(): string {
         return this._dart_toStringShort();
+    }
+    public getDebugDisposed(): boolean {
+        return this._dart_getDebugDisposed();
+    }
+    public getDebugHandleCount(): number {
+        return this._dart_getDebugHandleCount();
     }
     public getParent(): IContainerLayer | undefined {
         return this._dart_getParent();

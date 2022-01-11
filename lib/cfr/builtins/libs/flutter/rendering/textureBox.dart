@@ -45,6 +45,17 @@ class VMManagedTextureBox extends VMManagedBox<TextureBox> {
       vmObject.textureId = (luaCallerArguments[1]);
       return [];
     });
+    table['getFreeze'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        vmObject.freeze,
+      ];
+    });
+    table['setFreeze'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.freeze = (luaCallerArguments[1]);
+      return [];
+    });
     table['getFilterQuality'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
@@ -359,6 +370,11 @@ class VMManagedTextureBox extends VMManagedBox<TextureBox> {
       vmObject.reassemble();
       return [];
     });
+    table['dispose'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.dispose();
+      return [];
+    });
     table['adoptChild'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.adoptChild(maybeUnBoxAndBuildArgument<RenderObject, dynamic>(
@@ -641,6 +657,16 @@ class VMManagedTextureBox extends VMManagedBox<TextureBox> {
             table: HydroTable()),
       ];
     });
+    table['getDebugDisposed'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      final returnValue = vmObject.debugDisposed;
+      if (returnValue != null) {
+        return [
+          returnValue,
+        ];
+      }
+      return [];
+    });
     table['getDebugDoingThisResize'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
@@ -789,10 +815,14 @@ class VMManagedTextureBox extends VMManagedBox<TextureBox> {
 class RTManagedTextureBox extends TextureBox implements Box<TextureBox> {
   RTManagedTextureBox(
       {required FilterQuality filterQuality,
+      required bool freeze,
       required int textureId,
       required this.table,
       required this.hydroState})
-      : super(filterQuality: filterQuality, textureId: textureId) {
+      : super(
+            filterQuality: filterQuality,
+            freeze: freeze,
+            textureId: textureId) {
     table['vmObject'] = vmObject;
     table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [unwrap()];
@@ -808,6 +838,15 @@ class RTManagedTextureBox extends TextureBox implements Box<TextureBox> {
     table['_dart_setTextureId'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       super.textureId = (luaCallerArguments[1]);
+      return [];
+    });
+    table['_dart_getFreeze'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.freeze];
+    });
+    table['_dart_setFreeze'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.freeze = (luaCallerArguments[1]);
       return [];
     });
     table['_dart_getFilterQuality'] =
@@ -1171,6 +1210,11 @@ class RTManagedTextureBox extends TextureBox implements Box<TextureBox> {
       super.reassemble();
       return [];
     });
+    table['_dart_dispose'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.dispose();
+      return [];
+    });
     table['_dart_adoptChild'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       super.adoptChild(maybeUnBoxAndBuildArgument<RenderObject, dynamic>(
@@ -1471,6 +1515,10 @@ class RTManagedTextureBox extends TextureBox implements Box<TextureBox> {
             table: HydroTable())
       ];
     });
+    table['_dart_getDebugDisposed'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.debugDisposed];
+    });
     table['_dart_getDebugDoingThisResize'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.debugDoingThisResize];
@@ -1593,6 +1641,18 @@ class RTManagedTextureBox extends TextureBox implements Box<TextureBox> {
   @override
   void set textureId(int value) {
     Closure closure = table["setTextureId"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  bool get freeze {
+    Closure closure = table["getFreeze"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  void set freeze(bool value) {
+    Closure closure = table["setFreeze"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
@@ -1907,6 +1967,13 @@ class RTManagedTextureBox extends TextureBox implements Box<TextureBox> {
   }
 
   @override
+  void dispose() {
+    super.dispose();
+    Closure closure = table["dispose"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
   void adoptChild(RenderObject child) {
     super.adoptChild(child);
     Closure closure = table["adoptChild"];
@@ -2125,6 +2192,12 @@ class RTManagedTextureBox extends TextureBox implements Box<TextureBox> {
   }
 
   @override
+  bool? get debugDisposed {
+    Closure closure = table["getDebugDisposed"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
   bool get debugDoingThisResize {
     Closure closure = table["getDebugDoingThisResize"];
     return closure.dispatch([table], parentState: hydroState)[0];
@@ -2278,6 +2351,9 @@ void loadTextureBox(
               boxedEnum: luaCallerArguments.length >= 2
                   ? luaCallerArguments[1]['filterQuality']
                   : null),
+          freeze: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['freeze']
+              : null,
           textureId: luaCallerArguments.length >= 2
               ? luaCallerArguments[1]['textureId']
               : null)

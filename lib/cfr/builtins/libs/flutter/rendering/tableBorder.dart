@@ -1,6 +1,7 @@
 import 'dart:core';
 import 'dart:ui';
 
+import 'package:flutter/src/painting/border_radius.dart';
 import 'package:flutter/src/painting/borders.dart';
 import 'package:flutter/src/painting/edge_insets.dart';
 import 'package:flutter/src/rendering/table_border.dart';
@@ -29,6 +30,10 @@ class VMManagedTableBorder extends VMManagedBox<TableBorder> {
         table: HydroTable());
     table['verticalInside'] = maybeBoxObject<BorderSide>(
         object: vmObject.verticalInside,
+        hydroState: hydroState,
+        table: HydroTable());
+    table['borderRadius'] = maybeBoxObject<BorderRadius>(
+        object: vmObject.borderRadius,
         hydroState: hydroState,
         table: HydroTable());
     table['getDimensions'] =
@@ -95,7 +100,8 @@ class VMManagedTableBorder extends VMManagedBox<TableBorder> {
 
 class RTManagedTableBorder extends TableBorder implements Box<TableBorder> {
   RTManagedTableBorder(
-      {required BorderSide bottom,
+      {required BorderRadius borderRadius,
+      required BorderSide bottom,
       required BorderSide horizontalInside,
       required BorderSide left,
       required BorderSide right,
@@ -104,6 +110,7 @@ class RTManagedTableBorder extends TableBorder implements Box<TableBorder> {
       required this.table,
       required this.hydroState})
       : super(
+            borderRadius: borderRadius,
             bottom: bottom,
             horizontalInside: horizontalInside,
             left: left,
@@ -130,6 +137,8 @@ class RTManagedTableBorder extends TableBorder implements Box<TableBorder> {
         object: this.verticalInside,
         hydroState: hydroState,
         table: HydroTable());
+    table['borderRadius'] = maybeBoxObject<BorderRadius>(
+        object: this.borderRadius, hydroState: hydroState, table: HydroTable());
     table['_dart_getDimensions'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.dimensions];
@@ -232,22 +241,23 @@ void loadTableBorder(
       RTManagedTableBorder(
           table: luaCallerArguments[0],
           hydroState: hydroState,
-          bottom: maybeUnBoxAndBuildArgument<BorderSide, dynamic>(
+          borderRadius: maybeUnBoxAndBuildArgument<BorderRadius, dynamic>(
               luaCallerArguments.length >= 2
-                  ? luaCallerArguments[1]['bottom']
+                  ? luaCallerArguments[1]['borderRadius']
                   : null,
               parentState: hydroState),
+          bottom:
+              maybeUnBoxAndBuildArgument<BorderSide, dynamic>(luaCallerArguments.length >= 2 ? luaCallerArguments[1]['bottom'] : null,
+                  parentState: hydroState),
           horizontalInside: maybeUnBoxAndBuildArgument<BorderSide, dynamic>(
               luaCallerArguments.length >= 2
                   ? luaCallerArguments[1]['horizontalInside']
                   : null,
               parentState: hydroState),
-          left:
-              maybeUnBoxAndBuildArgument<BorderSide, dynamic>(luaCallerArguments.length >= 2 ? luaCallerArguments[1]['left'] : null,
-                  parentState: hydroState),
-          right: maybeUnBoxAndBuildArgument<BorderSide, dynamic>(
-              luaCallerArguments.length >= 2 ? luaCallerArguments[1]['right'] : null,
+          left: maybeUnBoxAndBuildArgument<BorderSide, dynamic>(
+              luaCallerArguments.length >= 2 ? luaCallerArguments[1]['left'] : null,
               parentState: hydroState),
+          right: maybeUnBoxAndBuildArgument<BorderSide, dynamic>(luaCallerArguments.length >= 2 ? luaCallerArguments[1]['right'] : null, parentState: hydroState),
           top: maybeUnBoxAndBuildArgument<BorderSide, dynamic>(luaCallerArguments.length >= 2 ? luaCallerArguments[1]['top'] : null, parentState: hydroState),
           verticalInside: maybeUnBoxAndBuildArgument<BorderSide, dynamic>(luaCallerArguments.length >= 2 ? luaCallerArguments[1]['verticalInside'] : null, parentState: hydroState))
     ];
@@ -257,6 +267,11 @@ void loadTableBorder(
     return [
       maybeBoxObject<TableBorder>(
           object: TableBorder.all(
+              borderRadius: maybeUnBoxAndBuildArgument<BorderRadius, dynamic>(
+                  luaCallerArguments.length >= 2
+                      ? luaCallerArguments[1]['borderRadius']
+                      : null,
+                  parentState: hydroState),
               color: maybeUnBoxAndBuildArgument<Color, dynamic>(
                   luaCallerArguments.length >= 2
                       ? luaCallerArguments[1]['color']

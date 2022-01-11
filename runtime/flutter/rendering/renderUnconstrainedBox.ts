@@ -37,8 +37,8 @@ import { IOffsetLayer } from "./offsetLayer";
 import { IPaintingContext } from "./paintingContext";
 import { IParentData } from "./parentData";
 import { IPipelineOwner } from "./pipelineOwner";
-import { IRenderAligningShiftedBox } from "./renderAligningShiftedBox";
 import { IRenderBox } from "./renderBox";
+import { IRenderConstraintsTransformBox } from "./renderConstraintsTransformBox";
 import { IRenderObject } from "./renderObject";
 import { IRenderObjectWithChildMixin } from "./renderObjectWithChildMixin";
 declare const flutter: {
@@ -61,13 +61,22 @@ export interface IRenderUnconstrainedBox {
     debugCreator: Object | undefined;
     getConstrainedAxis: () => Axis | undefined;
     setConstrainedAxis: (value?: Axis | undefined) => void;
-    getClipBehavior: () => Clip;
-    setClipBehavior: (value: Clip) => void;
+    computeMinIntrinsicHeight: (width: number) => number;
+    computeMaxIntrinsicHeight: (width: number) => number;
+    computeMinIntrinsicWidth: (height: number) => number;
+    computeMaxIntrinsicWidth: (height: number) => number;
     computeDryLayout: (constraints: IBoxConstraints) => ISize;
     performLayout: () => void;
     paint: (context: IPaintingContext, offset: IOffset) => void;
+    dispose: () => void;
     describeApproximatePaintClip: (child: unknown) => IRect | undefined;
     toStringShort: () => string;
+    getConstraintsTransform: () => (__: IBoxConstraints) => IBoxConstraints;
+    setConstraintsTransform: (
+        value: (__: IBoxConstraints) => IBoxConstraints
+    ) => void;
+    getClipBehavior: () => Clip;
+    setClipBehavior: (value: Clip) => void;
     paintOverflowIndicator: (
         context: IPaintingContext,
         offset: IOffset,
@@ -82,10 +91,6 @@ export interface IRenderUnconstrainedBox {
     setAlignment: (value: IAlignmentGeometry) => void;
     getTextDirection: () => TextDirection | undefined;
     setTextDirection: (value?: TextDirection | undefined) => void;
-    computeMinIntrinsicWidth: (height: number) => number;
-    computeMaxIntrinsicWidth: (height: number) => number;
-    computeMinIntrinsicHeight: (width: number) => number;
-    computeMaxIntrinsicHeight: (width: number) => number;
     computeDistanceToActualBaseline: (
         baseline: TextBaseline
     ) => number | undefined;
@@ -205,6 +210,7 @@ export interface IRenderUnconstrainedBox {
         name: string,
         props: { style: DiagnosticsTreeStyle }
     ) => IDiagnosticsNode;
+    getDebugDisposed: () => boolean | undefined;
     getDebugDoingThisResize: () => boolean;
     getDebugDoingThisLayout: () => boolean;
     getDebugCanParentUseSize: () => boolean;
@@ -233,7 +239,18 @@ export interface IRenderUnconstrainedBox {
 }
 export class RenderUnconstrainedBox
     implements
-        IRenderAligningShiftedBox,
+        Omit<
+            IRenderConstraintsTransformBox,
+            | "attach"
+            | "detach"
+            | "toStringShort"
+            | "debugFillProperties"
+            | "debugDescribeChildren"
+            | "toString"
+            | "toStringDeep"
+            | "toStringShallow"
+            | "toDiagnosticsNode"
+        >,
         IDebugOverflowIndicatorMixin,
         IRenderObjectWithChildMixin<IRenderBox>,
         IDiagnosticableTreeMixin,
@@ -268,9 +285,18 @@ export class RenderUnconstrainedBox
     private readonly _dart_setConstrainedAxis: (
         value?: Axis | undefined
     ) => void = undefined as any;
-    private readonly _dart_getClipBehavior: () => Clip = undefined as any;
-    private readonly _dart_setClipBehavior: (value: Clip) => void =
-        undefined as any;
+    private readonly _dart_computeMinIntrinsicHeight: (
+        width: number
+    ) => number = undefined as any;
+    private readonly _dart_computeMaxIntrinsicHeight: (
+        width: number
+    ) => number = undefined as any;
+    private readonly _dart_computeMinIntrinsicWidth: (
+        height: number
+    ) => number = undefined as any;
+    private readonly _dart_computeMaxIntrinsicWidth: (
+        height: number
+    ) => number = undefined as any;
     private readonly _dart_computeDryLayout: (
         constraints: IBoxConstraints
     ) => ISize = undefined as any;
@@ -279,10 +305,20 @@ export class RenderUnconstrainedBox
         context: IPaintingContext,
         offset: IOffset
     ) => void = undefined as any;
+    private readonly _dart_dispose: () => void = undefined as any;
     private readonly _dart_describeApproximatePaintClip: (
         child: any
     ) => IRect | undefined = undefined as any;
     private readonly _dart_toStringShort: () => string = undefined as any;
+    private readonly _dart_getConstraintsTransform: () => (
+        __: IBoxConstraints
+    ) => IBoxConstraints = undefined as any;
+    private readonly _dart_setConstraintsTransform: (
+        value: (__: IBoxConstraints) => IBoxConstraints
+    ) => void = undefined as any;
+    private readonly _dart_getClipBehavior: () => Clip = undefined as any;
+    private readonly _dart_setClipBehavior: (value: Clip) => void =
+        undefined as any;
     private readonly _dart_paintOverflowIndicator: (
         context: IPaintingContext,
         offset: IOffset,
@@ -304,18 +340,6 @@ export class RenderUnconstrainedBox
     private readonly _dart_setTextDirection: (
         value?: TextDirection | undefined
     ) => void = undefined as any;
-    private readonly _dart_computeMinIntrinsicWidth: (
-        height: number
-    ) => number = undefined as any;
-    private readonly _dart_computeMaxIntrinsicWidth: (
-        height: number
-    ) => number = undefined as any;
-    private readonly _dart_computeMinIntrinsicHeight: (
-        width: number
-    ) => number = undefined as any;
-    private readonly _dart_computeMaxIntrinsicHeight: (
-        width: number
-    ) => number = undefined as any;
     private readonly _dart_computeDistanceToActualBaseline: (
         baseline: TextBaseline
     ) => number | undefined = undefined as any;
@@ -495,6 +519,8 @@ export class RenderUnconstrainedBox
         name: string,
         props: { style: DiagnosticsTreeStyle }
     ) => IDiagnosticsNode = undefined as any;
+    private readonly _dart_getDebugDisposed: () => boolean | undefined =
+        undefined as any;
     private readonly _dart_getDebugDoingThisResize: () => boolean =
         undefined as any;
     private readonly _dart_getDebugDoingThisLayout: () => boolean =
@@ -543,11 +569,17 @@ export class RenderUnconstrainedBox
     public setConstrainedAxis(value?: Axis | undefined): void {
         return this._dart_setConstrainedAxis(value);
     }
-    public getClipBehavior(): Clip {
-        return this._dart_getClipBehavior();
+    public computeMinIntrinsicHeight(width: number): number {
+        return this._dart_computeMinIntrinsicHeight(width);
     }
-    public setClipBehavior(value: Clip): void {
-        return this._dart_setClipBehavior(value);
+    public computeMaxIntrinsicHeight(width: number): number {
+        return this._dart_computeMaxIntrinsicHeight(width);
+    }
+    public computeMinIntrinsicWidth(height: number): number {
+        return this._dart_computeMinIntrinsicWidth(height);
+    }
+    public computeMaxIntrinsicWidth(height: number): number {
+        return this._dart_computeMaxIntrinsicWidth(height);
     }
     public computeDryLayout(constraints: IBoxConstraints): ISize {
         return this._dart_computeDryLayout(constraints);
@@ -558,11 +590,28 @@ export class RenderUnconstrainedBox
     public paint(context: IPaintingContext, offset: IOffset): void {
         return this._dart_paint(context, offset);
     }
+    public dispose(): void {
+        return this._dart_dispose();
+    }
     public describeApproximatePaintClip(child: any): IRect | undefined {
         return this._dart_describeApproximatePaintClip(child);
     }
     public toStringShort(): string {
         return this._dart_toStringShort();
+    }
+    public getConstraintsTransform(): (__: IBoxConstraints) => IBoxConstraints {
+        return this._dart_getConstraintsTransform();
+    }
+    public setConstraintsTransform(
+        value: (__: IBoxConstraints) => IBoxConstraints
+    ): void {
+        return this._dart_setConstraintsTransform(value);
+    }
+    public getClipBehavior(): Clip {
+        return this._dart_getClipBehavior();
+    }
+    public setClipBehavior(value: Clip): void {
+        return this._dart_setClipBehavior(value);
     }
     public paintOverflowIndicator(
         context: IPaintingContext,
@@ -599,18 +648,6 @@ export class RenderUnconstrainedBox
     }
     public setTextDirection(value?: TextDirection | undefined): void {
         return this._dart_setTextDirection(value);
-    }
-    public computeMinIntrinsicWidth(height: number): number {
-        return this._dart_computeMinIntrinsicWidth(height);
-    }
-    public computeMaxIntrinsicWidth(height: number): number {
-        return this._dart_computeMaxIntrinsicWidth(height);
-    }
-    public computeMinIntrinsicHeight(width: number): number {
-        return this._dart_computeMinIntrinsicHeight(width);
-    }
-    public computeMaxIntrinsicHeight(width: number): number {
-        return this._dart_computeMaxIntrinsicHeight(width);
     }
     public computeDistanceToActualBaseline(
         baseline: TextBaseline
@@ -903,6 +940,9 @@ export class RenderUnconstrainedBox
             ...describeForErrorDefaultProps,
             ...props,
         });
+    }
+    public getDebugDisposed(): boolean | undefined {
+        return this._dart_getDebugDisposed();
     }
     public getDebugDoingThisResize(): boolean {
         return this._dart_getDebugDoingThisResize();

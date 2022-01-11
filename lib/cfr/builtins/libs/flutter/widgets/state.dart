@@ -134,6 +134,11 @@ class RTManagedState extends State implements Box<State> {
       super.deactivate();
       return [];
     });
+    table['_dart_activate'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.activate();
+      return [];
+    });
     table['_dart_dispose'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       super.dispose();
@@ -256,6 +261,13 @@ class RTManagedState extends State implements Box<State> {
   void deactivate() {
     super.deactivate();
     Closure closure = table["deactivate"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  void activate() {
+    super.activate();
+    Closure closure = table["activate"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 

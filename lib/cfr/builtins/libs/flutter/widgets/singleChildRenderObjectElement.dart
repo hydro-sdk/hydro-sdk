@@ -45,7 +45,8 @@ class VMManagedSingleChildRenderObjectElement
       vmObject.mount(
           maybeUnBoxAndBuildArgument<Element?, dynamic>(luaCallerArguments[1],
               parentState: hydroState),
-          luaCallerArguments[2]);
+          maybeUnBoxAndBuildArgument<Object?, dynamic>(luaCallerArguments[2],
+              parentState: hydroState));
       return [];
     });
     table['update'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -61,7 +62,8 @@ class VMManagedSingleChildRenderObjectElement
           maybeUnBoxAndBuildArgument<RenderObject, dynamic>(
               luaCallerArguments[1],
               parentState: hydroState),
-          luaCallerArguments[2]);
+          maybeUnBoxAndBuildArgument<Object?, dynamic>(luaCallerArguments[2],
+              parentState: hydroState));
       return [];
     });
     table['moveRenderObjectChild'] =
@@ -70,8 +72,10 @@ class VMManagedSingleChildRenderObjectElement
           maybeUnBoxAndBuildArgument<RenderObject, dynamic>(
               luaCallerArguments[1],
               parentState: hydroState),
-          luaCallerArguments[2],
-          luaCallerArguments[3]);
+          maybeUnBoxAndBuildArgument<Object?, dynamic>(luaCallerArguments[2],
+              parentState: hydroState),
+          maybeUnBoxAndBuildArgument<Object?, dynamic>(luaCallerArguments[3],
+              parentState: hydroState));
       return [];
     });
     table['removeRenderObjectChild'] =
@@ -80,7 +84,8 @@ class VMManagedSingleChildRenderObjectElement
           maybeUnBoxAndBuildArgument<RenderObject, dynamic>(
               luaCallerArguments[1],
               parentState: hydroState),
-          luaCallerArguments[2]);
+          maybeUnBoxAndBuildArgument<Object?, dynamic>(luaCallerArguments[2],
+              parentState: hydroState));
       return [];
     });
     table['performRebuild'] =
@@ -100,7 +105,9 @@ class VMManagedSingleChildRenderObjectElement
     });
     table['attachRenderObject'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.attachRenderObject(luaCallerArguments[1]);
+      vmObject.attachRenderObject(maybeUnBoxAndBuildArgument<Object?, dynamic>(
+          luaCallerArguments[1],
+          parentState: hydroState));
       return [];
     });
     table['detachRenderObject'] =
@@ -396,14 +403,25 @@ class VMManagedSingleChildRenderObjectElement
     });
     table['getSlot'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        vmObject.slot,
-      ];
+      final returnValue = vmObject.slot;
+      if (returnValue != null) {
+        return [
+          maybeBoxObject<Object?>(
+              object: returnValue, hydroState: hydroState, table: HydroTable()),
+        ];
+      }
+      return [];
     });
     table['getDepth'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         vmObject.depth,
+      ];
+    });
+    table['getDebugIsDefunct'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        vmObject.debugIsDefunct,
       ];
     });
     table['getOwner'] =
@@ -522,7 +540,8 @@ class RTManagedSingleChildRenderObjectElement
       super.mount(
           maybeUnBoxAndBuildArgument<Element?, dynamic>(luaCallerArguments[1],
               parentState: hydroState),
-          luaCallerArguments[2]);
+          maybeUnBoxAndBuildArgument<Object?, dynamic>(luaCallerArguments[2],
+              parentState: hydroState));
       return [];
     });
     table['_dart_update'] =
@@ -539,7 +558,8 @@ class RTManagedSingleChildRenderObjectElement
           maybeUnBoxAndBuildArgument<RenderObject, dynamic>(
               luaCallerArguments[1],
               parentState: hydroState),
-          luaCallerArguments[2]);
+          maybeUnBoxAndBuildArgument<Object?, dynamic>(luaCallerArguments[2],
+              parentState: hydroState));
       return [];
     });
     table['_dart_moveRenderObjectChild'] =
@@ -548,8 +568,10 @@ class RTManagedSingleChildRenderObjectElement
           maybeUnBoxAndBuildArgument<RenderObject, dynamic>(
               luaCallerArguments[1],
               parentState: hydroState),
-          luaCallerArguments[2],
-          luaCallerArguments[3]);
+          maybeUnBoxAndBuildArgument<Object?, dynamic>(luaCallerArguments[2],
+              parentState: hydroState),
+          maybeUnBoxAndBuildArgument<Object?, dynamic>(luaCallerArguments[3],
+              parentState: hydroState));
       return [];
     });
     table['_dart_removeRenderObjectChild'] =
@@ -558,7 +580,8 @@ class RTManagedSingleChildRenderObjectElement
           maybeUnBoxAndBuildArgument<RenderObject, dynamic>(
               luaCallerArguments[1],
               parentState: hydroState),
-          luaCallerArguments[2]);
+          maybeUnBoxAndBuildArgument<Object?, dynamic>(luaCallerArguments[2],
+              parentState: hydroState));
       return [];
     });
     table['_dart_performRebuild'] =
@@ -575,17 +598,17 @@ class RTManagedSingleChildRenderObjectElement
                     maybeUnBoxAndBuildArgument<List<Element>, Element>(
                         luaCallerArguments[1],
                         parentState: hydroState),
-                    maybeUnBoxAndBuildArgument<List<Widget>, Widget>(
-                        luaCallerArguments[2],
+                    maybeUnBoxAndBuildArgument<List<Widget>, Widget>(luaCallerArguments[2],
                         parentState: hydroState),
-                    forgottenChildren:
-                        maybeUnBoxAndBuildArgument<Set<Element>?, Element>(
-                            luaCallerArguments.length >= 4
-                                ? luaCallerArguments[3]['forgottenChildren']
-                                : null,
-                            parentState: hydroState))
-                .map((x) => maybeBoxObject<Element>(
-                    object: x, hydroState: hydroState, table: HydroTable()))
+                    forgottenChildren: maybeUnBoxAndBuildArgument<Set<Element>?, Element>(
+                        luaCallerArguments.length >= 4
+                            ? luaCallerArguments[3]['forgottenChildren']
+                            : null,
+                        parentState: hydroState),
+                    slots: maybeUnBoxAndBuildArgument<List<Object?>?, Object?>(
+                        luaCallerArguments.length >= 4 ? luaCallerArguments[3]['slots'] : null,
+                        parentState: hydroState))
+                .map((x) => maybeBoxObject<Element>(object: x, hydroState: hydroState, table: HydroTable()))
                 .toList(),
             hydroState: hydroState,
             table: HydroTable())
@@ -603,7 +626,9 @@ class RTManagedSingleChildRenderObjectElement
     });
     table['_dart_attachRenderObject'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.attachRenderObject(luaCallerArguments[1]);
+      super.attachRenderObject(maybeUnBoxAndBuildArgument<Object?, dynamic>(
+          luaCallerArguments[1],
+          parentState: hydroState));
       return [];
     });
     table['_dart_detachRenderObject'] =
@@ -717,7 +742,9 @@ class RTManagedSingleChildRenderObjectElement
                 maybeUnBoxAndBuildArgument<Widget?, dynamic>(
                     luaCallerArguments[2],
                     parentState: hydroState),
-                luaCallerArguments[3]),
+                maybeUnBoxAndBuildArgument<Object?, dynamic>(
+                    luaCallerArguments[3],
+                    parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable())
       ];
@@ -727,7 +754,8 @@ class RTManagedSingleChildRenderObjectElement
       super.updateSlotForChild(
           maybeUnBoxAndBuildArgument<Element, dynamic>(luaCallerArguments[1],
               parentState: hydroState),
-          luaCallerArguments[2]);
+          maybeUnBoxAndBuildArgument<Object?, dynamic>(luaCallerArguments[2],
+              parentState: hydroState));
       return [];
     });
     table['_dart_inflateWidget'] =
@@ -738,7 +766,9 @@ class RTManagedSingleChildRenderObjectElement
                 maybeUnBoxAndBuildArgument<Widget, dynamic>(
                     luaCallerArguments[1],
                     parentState: hydroState),
-                luaCallerArguments[2]),
+                maybeUnBoxAndBuildArgument<Object?, dynamic>(
+                    luaCallerArguments[2],
+                    parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable())
       ];
@@ -909,6 +939,10 @@ class RTManagedSingleChildRenderObjectElement
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.depth];
     });
+    table['_dart_getDebugIsDefunct'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.debugIsDefunct];
+    });
     table['_dart_getOwner'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.owner];
@@ -993,7 +1027,7 @@ class RTManagedSingleChildRenderObjectElement
   }
 
   @override
-  void mount(Element? parent, dynamic newSlot) {
+  void mount(Element? parent, Object? newSlot) {
     super.mount(parent, newSlot);
     Closure closure = table["mount"];
     return closure.dispatch([table], parentState: hydroState)[0];
@@ -1007,20 +1041,20 @@ class RTManagedSingleChildRenderObjectElement
   }
 
   @override
-  void insertRenderObjectChild(RenderObject child, dynamic slot) {
+  void insertRenderObjectChild(RenderObject child, Object? slot) {
     Closure closure = table["insertRenderObjectChild"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
   void moveRenderObjectChild(
-      RenderObject child, dynamic oldSlot, dynamic newSlot) {
+      RenderObject child, Object? oldSlot, Object? newSlot) {
     Closure closure = table["moveRenderObjectChild"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void removeRenderObjectChild(RenderObject child, dynamic slot) {
+  void removeRenderObjectChild(RenderObject child, Object? slot) {
     Closure closure = table["removeRenderObjectChild"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -1033,7 +1067,7 @@ class RTManagedSingleChildRenderObjectElement
 
   @override
   List<Element> updateChildren(List oldChildren, List newWidgets,
-      {Set? forgottenChildren}) {
+      {Set? forgottenChildren, List? slots}) {
     Closure closure = table["updateChildren"];
     return maybeUnBoxAndBuildArgument<List<Element>, Element>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -1055,7 +1089,7 @@ class RTManagedSingleChildRenderObjectElement
   }
 
   @override
-  void attachRenderObject(dynamic newSlot) {
+  void attachRenderObject(Object? newSlot) {
     Closure closure = table["attachRenderObject"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -1142,7 +1176,7 @@ class RTManagedSingleChildRenderObjectElement
   }
 
   @override
-  Element? updateChild(Element? child, Widget? newWidget, dynamic newSlot) {
+  Element? updateChild(Element? child, Widget? newWidget, Object? newSlot) {
     Closure closure = table["updateChild"];
     return maybeUnBoxAndBuildArgument<Element?, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -1150,13 +1184,13 @@ class RTManagedSingleChildRenderObjectElement
   }
 
   @override
-  void updateSlotForChild(Element child, dynamic newSlot) {
+  void updateSlotForChild(Element child, Object? newSlot) {
     Closure closure = table["updateSlotForChild"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  Element inflateWidget(Widget newWidget, dynamic newSlot) {
+  Element inflateWidget(Widget newWidget, Object? newSlot) {
     Closure closure = table["inflateWidget"];
     return maybeUnBoxAndBuildArgument<Element, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -1303,14 +1337,22 @@ class RTManagedSingleChildRenderObjectElement
   }
 
   @override
-  dynamic get slot {
+  Object? get slot {
     Closure closure = table["getSlot"];
-    return closure.dispatch([table], parentState: hydroState)[0];
+    return maybeUnBoxAndBuildArgument<Object?, dynamic>(
+        closure.dispatch([table], parentState: hydroState)[0],
+        parentState: hydroState);
   }
 
   @override
   int get depth {
     Closure closure = table["getDepth"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  bool get debugIsDefunct {
+    Closure closure = table["getDebugIsDefunct"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 

@@ -360,6 +360,11 @@ class VMManagedRenderSliverPinnedPersistentHeader
       vmObject.reassemble();
       return [];
     });
+    table['dispose'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.dispose();
+      return [];
+    });
     table['setupParentData'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.setupParentData(
@@ -601,6 +606,16 @@ class VMManagedRenderSliverPinnedPersistentHeader
             hydroState: hydroState,
             table: HydroTable()),
       ];
+    });
+    table['getDebugDisposed'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      final returnValue = vmObject.debugDisposed;
+      if (returnValue != null) {
+        return [
+          returnValue,
+        ];
+      }
+      return [];
     });
     table['getDebugDoingThisResize'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -1139,6 +1154,11 @@ class RTManagedRenderSliverPinnedPersistentHeader
       super.reassemble();
       return [];
     });
+    table['_dart_dispose'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.dispose();
+      return [];
+    });
     table['_dart_setupParentData'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       super.setupParentData(maybeUnBoxAndBuildArgument<RenderObject, dynamic>(
@@ -1388,6 +1408,10 @@ class RTManagedRenderSliverPinnedPersistentHeader
             hydroState: hydroState,
             table: HydroTable())
       ];
+    });
+    table['_dart_getDebugDisposed'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.debugDisposed];
     });
     table['_dart_getDebugDoingThisResize'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -1799,6 +1823,13 @@ class RTManagedRenderSliverPinnedPersistentHeader
   }
 
   @override
+  void dispose() {
+    super.dispose();
+    Closure closure = table["dispose"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
   void setupParentData(RenderObject child) {
     Closure closure = table["setupParentData"];
     return closure.dispatch([table], parentState: hydroState)[0];
@@ -1983,6 +2014,12 @@ class RTManagedRenderSliverPinnedPersistentHeader
     return maybeUnBoxAndBuildArgument<DiagnosticsNode, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
+  }
+
+  @override
+  bool? get debugDisposed {
+    Closure closure = table["getDebugDisposed"];
+    return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override

@@ -34,7 +34,6 @@ export interface I_InterestingSemanticsFragment {
     getInterestingFragments: () => IList<I_InterestingSemanticsFragment>;
     addTags: (tags?: IIterable<ISemanticsTag> | undefined) => void;
     addAncestor: (ancestor: IRenderObject) => void;
-    getAbortsWalk: () => boolean;
     toString: () => string;
     getHashCode: () => number;
 }
@@ -70,7 +69,6 @@ export class _InterestingSemanticsFragment implements I_SemanticsFragment {
     ) => void = undefined as any;
     private readonly _dart_addAncestor: (ancestor: IRenderObject) => void =
         undefined as any;
-    private readonly _dart_getAbortsWalk: () => boolean = undefined as any;
     private readonly _dart_toString: () => string = undefined as any;
     private readonly _dart_getHashCode: () => number = undefined as any;
     public getOwner(): IRenderObject {
@@ -104,9 +102,6 @@ export class _InterestingSemanticsFragment implements I_SemanticsFragment {
     }
     public addAncestor(ancestor: IRenderObject): void {
         return this._dart_addAncestor(ancestor);
-    }
-    public getAbortsWalk(): boolean {
-        return this._dart_getAbortsWalk();
     }
     public toString(): string {
         return this._dart_toString();

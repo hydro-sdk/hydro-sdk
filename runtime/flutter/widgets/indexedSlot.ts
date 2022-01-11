@@ -1,3 +1,4 @@
+import { IElement } from "./element";
 declare const flutter: {
     widgets: {
         indexedSlot: <T>(

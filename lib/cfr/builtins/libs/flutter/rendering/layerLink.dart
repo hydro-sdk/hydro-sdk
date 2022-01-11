@@ -17,9 +17,15 @@ class VMManagedLayerLink extends VMManagedBox<LayerLink> {
         object: vmObject.leaderSize,
         hydroState: hydroState,
         table: HydroTable());
-    table['getLeader'] =
+    table['getLeaderConnected'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      final returnValue = vmObject.leader;
+      return [
+        vmObject.leaderConnected,
+      ];
+    });
+    table['getDebugLeader'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      final returnValue = vmObject.debugLeader;
       if (returnValue != null) {
         return [
           maybeBoxObject<LeaderLayer?>(
@@ -52,9 +58,13 @@ class RTManagedLayerLink extends LayerLink implements Box<LayerLink> {
     });
     table['leaderSize'] = maybeBoxObject<Size?>(
         object: leaderSize, hydroState: hydroState, table: HydroTable());
-    table['_dart_getLeader'] =
+    table['_dart_getLeaderConnected'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [super.leader];
+      return [super.leaderConnected];
+    });
+    table['_dart_getDebugLeader'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.debugLeader];
     });
     table['_dart_toString'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -69,8 +79,14 @@ class RTManagedLayerLink extends LayerLink implements Box<LayerLink> {
   LayerLink unwrap() => this;
   LayerLink get vmObject => this;
   @override
-  LeaderLayer? get leader {
-    Closure closure = table["getLeader"];
+  bool get leaderConnected {
+    Closure closure = table["getLeaderConnected"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  LeaderLayer? get debugLeader {
+    Closure closure = table["getDebugLeader"];
     return maybeUnBoxAndBuildArgument<LeaderLayer?, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);

@@ -28,7 +28,7 @@ declare const flutter: {
     };
 };
 export interface IOffsetLayer {
-    debugCreator: any;
+    debugCreator: Object | undefined;
     getOffset: () => IOffset;
     setOffset: (value: IOffset) => void;
     findAnnotations: <S>(
@@ -37,16 +37,17 @@ export interface IOffsetLayer {
         props: { onlyFirst: boolean }
     ) => boolean;
     applyTransform: (child: ILayer | undefined, transform: IMatrix4) => void;
-    addToScene: (builder: ISceneBuilder, layerOffset: IOffset) => void;
+    addToScene: (builder: ISceneBuilder) => void;
     debugFillProperties: (properties: IDiagnosticPropertiesBuilder) => void;
     toImage: (bounds: IRect, props: { pixelRatio: number }) => IFuture<IImage>;
     buildScene: (builder: ISceneBuilder) => IScene;
+    dispose: () => void;
     updateSubtreeNeedsAddToScene: () => void;
     attach: (owner: unknown) => void;
     detach: () => void;
     append: (child: ILayer) => void;
     removeAllChildren: () => void;
-    addChildrenToScene: (builder: ISceneBuilder, childOffset: IOffset) => void;
+    addChildrenToScene: (builder: ISceneBuilder) => void;
     debugDescribeChildren: () => IList<IDiagnosticsNode>;
     getFirstChild: () => ILayer | undefined;
     getLastChild: () => ILayer | undefined;
@@ -57,10 +58,10 @@ export interface IOffsetLayer {
     find: <S>(localPosition: IOffset) => S | undefined;
     findAllAnnotations: <S>(localPosition: IOffset) => IAnnotationResult<S>;
     toStringShort: () => string;
+    getDebugDisposed: () => boolean;
+    getDebugHandleCount: () => number;
     getParent: () => IContainerLayer | undefined;
     getAlwaysNeedsAddToScene: () => boolean;
-    getEngineLayer: () => IEngineLayer | undefined;
-    setEngineLayer: (value?: IEngineLayer | undefined) => void;
     getNextSibling: () => ILayer | undefined;
     getPreviousSibling: () => ILayer | undefined;
     toString: (props: { minLevel: DiagnosticLevel }) => string;
@@ -99,7 +100,7 @@ export class OffsetLayer
             | "toDiagnosticsNode"
         >
 {
-    public readonly debugCreator: any = undefined as any;
+    public readonly debugCreator: Object | undefined = undefined as any;
     public constructor(props: { offset?: IOffset }) {
         flutter.rendering.offsetLayer(this, {
             ...offsetLayerDefaultProps,
@@ -118,10 +119,8 @@ export class OffsetLayer
         child: ILayer | undefined,
         transform: IMatrix4
     ) => void = undefined as any;
-    private readonly _dart_addToScene: (
-        builder: ISceneBuilder,
-        layerOffset: IOffset
-    ) => void = undefined as any;
+    private readonly _dart_addToScene: (builder: ISceneBuilder) => void =
+        undefined as any;
     private readonly _dart_debugFillProperties: (
         properties: IDiagnosticPropertiesBuilder
     ) => void = undefined as any;
@@ -131,6 +130,7 @@ export class OffsetLayer
     ) => IFuture<IImage> = undefined as any;
     private readonly _dart_buildScene: (builder: ISceneBuilder) => IScene =
         undefined as any;
+    private readonly _dart_dispose: () => void = undefined as any;
     private readonly _dart_updateSubtreeNeedsAddToScene: () => void =
         undefined as any;
     private readonly _dart_attach: (owner: any) => void = undefined as any;
@@ -138,8 +138,7 @@ export class OffsetLayer
     private readonly _dart_append: (child: ILayer) => void = undefined as any;
     private readonly _dart_removeAllChildren: () => void = undefined as any;
     private readonly _dart_addChildrenToScene: (
-        builder: ISceneBuilder,
-        childOffset: IOffset
+        builder: ISceneBuilder
     ) => void = undefined as any;
     private readonly _dart_debugDescribeChildren: () => IList<IDiagnosticsNode> =
         undefined as any;
@@ -158,6 +157,8 @@ export class OffsetLayer
         localPosition: IOffset
     ) => IAnnotationResult<S> = undefined as any;
     private readonly _dart_toStringShort: () => string = undefined as any;
+    private readonly _dart_getDebugDisposed: () => boolean = undefined as any;
+    private readonly _dart_getDebugHandleCount: () => number = undefined as any;
     private readonly _dart_getParent: () => IContainerLayer | undefined =
         undefined as any;
     private readonly _dart_getAlwaysNeedsAddToScene: () => boolean =
@@ -214,11 +215,8 @@ export class OffsetLayer
     ): void {
         return this._dart_applyTransform(child, transform);
     }
-    public addToScene(
-        builder: ISceneBuilder,
-        layerOffset: IOffset = Offset.zero
-    ): void {
-        return this._dart_addToScene(builder, layerOffset);
+    public addToScene(builder: ISceneBuilder): void {
+        return this._dart_addToScene(builder);
     }
     public debugFillProperties(properties: IDiagnosticPropertiesBuilder): void {
         return this._dart_debugFillProperties(properties);
@@ -235,6 +233,9 @@ export class OffsetLayer
     public buildScene(builder: ISceneBuilder): IScene {
         return this._dart_buildScene(builder);
     }
+    public dispose(): void {
+        return this._dart_dispose();
+    }
     public updateSubtreeNeedsAddToScene(): void {
         return this._dart_updateSubtreeNeedsAddToScene();
     }
@@ -250,11 +251,8 @@ export class OffsetLayer
     public removeAllChildren(): void {
         return this._dart_removeAllChildren();
     }
-    public addChildrenToScene(
-        builder: ISceneBuilder,
-        childOffset: IOffset = Offset.zero
-    ): void {
-        return this._dart_addChildrenToScene(builder, childOffset);
+    public addChildrenToScene(builder: ISceneBuilder): void {
+        return this._dart_addChildrenToScene(builder);
     }
     public debugDescribeChildren(): IList<IDiagnosticsNode> {
         return this._dart_debugDescribeChildren();
@@ -288,6 +286,12 @@ export class OffsetLayer
     }
     public toStringShort(): string {
         return this._dart_toStringShort();
+    }
+    public getDebugDisposed(): boolean {
+        return this._dart_getDebugDisposed();
+    }
+    public getDebugHandleCount(): number {
+        return this._dart_getDebugHandleCount();
     }
     public getParent(): IContainerLayer | undefined {
         return this._dart_getParent();

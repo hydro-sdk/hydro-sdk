@@ -3,6 +3,7 @@ import { IMap } from "../../dart/core/map";
 import { ISemanticsAction } from "../../dart/ui/semanticsAction";
 import { TextDirection } from "../../dart/ui/textDirection";
 import { ITextSelection } from "../services/textSelection";
+import { IAttributedString } from "./attributedString";
 import { ICustomSemanticsAction } from "./customSemanticsAction";
 import { ISemanticsHintOverrides } from "./semanticsHintOverrides";
 import { ISemanticsSortKey } from "./semanticsSortKey";
@@ -73,13 +74,15 @@ export interface ISemanticsConfiguration {
     ) => void;
     getOnSetSelection: () => (selection: ITextSelection) => void | undefined;
     setOnSetSelection: (value?: (selection: ITextSelection) => void) => void;
+    getOnSetText: () => (text: string) => void | undefined;
+    setOnSetText: (value?: (text: string) => void) => void;
     getOnDidGainAccessibilityFocus: () => () => void | undefined;
     setOnDidGainAccessibilityFocus: (value?: () => void) => void;
     getOnDidLoseAccessibilityFocus: () => () => void | undefined;
     setOnDidLoseAccessibilityFocus: (value?: () => void) => void;
     getActionHandler: (
         action: ISemanticsAction
-    ) => (args: any) => void | undefined;
+    ) => (args?: Object | undefined) => void | undefined;
     getSortKey: () => ISemanticsSortKey | undefined;
     setSortKey: (value?: ISemanticsSortKey | undefined) => void;
     getIndexInParent: () => number | undefined;
@@ -102,14 +105,28 @@ export interface ISemanticsConfiguration {
     ) => void;
     getLabel: () => string;
     setLabel: (label: string) => void;
+    getAttributedLabel: () => IAttributedString;
+    setAttributedLabel: (attributedLabel: IAttributedString) => void;
     getValue: () => string;
     setValue: (value: string) => void;
-    getDecreasedValue: () => string;
-    setDecreasedValue: (decreasedValue: string) => void;
+    getAttributedValue: () => IAttributedString;
+    setAttributedValue: (attributedValue: IAttributedString) => void;
     getIncreasedValue: () => string;
     setIncreasedValue: (increasedValue: string) => void;
+    getAttributedIncreasedValue: () => IAttributedString;
+    setAttributedIncreasedValue: (
+        attributedIncreasedValue: IAttributedString
+    ) => void;
+    getDecreasedValue: () => string;
+    setDecreasedValue: (decreasedValue: string) => void;
+    getAttributedDecreasedValue: () => IAttributedString;
+    setAttributedDecreasedValue: (
+        attributedDecreasedValue: IAttributedString
+    ) => void;
     getHint: () => string;
     setHint: (hint: string) => void;
+    getAttributedHint: () => IAttributedString;
+    setAttributedHint: (attributedHint: IAttributedString) => void;
     getHintOverrides: () => ISemanticsHintOverrides | undefined;
     setHintOverrides: (value?: ISemanticsHintOverrides | undefined) => void;
     getElevation: () => number;
@@ -148,6 +165,8 @@ export interface ISemanticsConfiguration {
     setIsHeader: (value: boolean) => void;
     getIsSlider: () => boolean;
     setIsSlider: (value: boolean) => void;
+    getIsKeyboardKey: () => boolean;
+    setIsKeyboardKey: (value: boolean) => void;
     getIsHidden: () => boolean;
     setIsHidden: (value: boolean) => void;
     getIsTextField: () => boolean;
@@ -269,6 +288,12 @@ export class SemanticsConfiguration {
     private readonly _dart_setOnSetSelection: (
         value?: (selection: ITextSelection) => void
     ) => void = undefined as any;
+    private readonly _dart_getOnSetText: () => (
+        text: string
+    ) => void | undefined = undefined as any;
+    private readonly _dart_setOnSetText: (
+        value?: (text: string) => void
+    ) => void = undefined as any;
     private readonly _dart_getOnDidGainAccessibilityFocus: () => () =>
         | void
         | undefined = undefined as any;
@@ -283,7 +308,7 @@ export class SemanticsConfiguration {
     ) => void = undefined as any;
     private readonly _dart_getActionHandler: (
         action: ISemanticsAction
-    ) => (args: any) => void | undefined = undefined as any;
+    ) => (args?: Object | undefined) => void | undefined = undefined as any;
     private readonly _dart_getSortKey: () => ISemanticsSortKey | undefined =
         undefined as any;
     private readonly _dart_setSortKey: (
@@ -333,16 +358,41 @@ export class SemanticsConfiguration {
     ) => void = undefined as any;
     private readonly _dart_getLabel: () => string = undefined as any;
     private readonly _dart_setLabel: (label: string) => void = undefined as any;
+    private readonly _dart_getAttributedLabel: () => IAttributedString =
+        undefined as any;
+    private readonly _dart_setAttributedLabel: (
+        attributedLabel: IAttributedString
+    ) => void = undefined as any;
     private readonly _dart_getValue: () => string = undefined as any;
     private readonly _dart_setValue: (value: string) => void = undefined as any;
-    private readonly _dart_getDecreasedValue: () => string = undefined as any;
-    private readonly _dart_setDecreasedValue: (decreasedValue: string) => void =
+    private readonly _dart_getAttributedValue: () => IAttributedString =
         undefined as any;
+    private readonly _dart_setAttributedValue: (
+        attributedValue: IAttributedString
+    ) => void = undefined as any;
     private readonly _dart_getIncreasedValue: () => string = undefined as any;
     private readonly _dart_setIncreasedValue: (increasedValue: string) => void =
         undefined as any;
+    private readonly _dart_getAttributedIncreasedValue: () => IAttributedString =
+        undefined as any;
+    private readonly _dart_setAttributedIncreasedValue: (
+        attributedIncreasedValue: IAttributedString
+    ) => void = undefined as any;
+    private readonly _dart_getDecreasedValue: () => string = undefined as any;
+    private readonly _dart_setDecreasedValue: (decreasedValue: string) => void =
+        undefined as any;
+    private readonly _dart_getAttributedDecreasedValue: () => IAttributedString =
+        undefined as any;
+    private readonly _dart_setAttributedDecreasedValue: (
+        attributedDecreasedValue: IAttributedString
+    ) => void = undefined as any;
     private readonly _dart_getHint: () => string = undefined as any;
     private readonly _dart_setHint: (hint: string) => void = undefined as any;
+    private readonly _dart_getAttributedHint: () => IAttributedString =
+        undefined as any;
+    private readonly _dart_setAttributedHint: (
+        attributedHint: IAttributedString
+    ) => void = undefined as any;
     private readonly _dart_getHintOverrides: () =>
         | ISemanticsHintOverrides
         | undefined = undefined as any;
@@ -409,6 +459,9 @@ export class SemanticsConfiguration {
         undefined as any;
     private readonly _dart_getIsSlider: () => boolean = undefined as any;
     private readonly _dart_setIsSlider: (value: boolean) => void =
+        undefined as any;
+    private readonly _dart_getIsKeyboardKey: () => boolean = undefined as any;
+    private readonly _dart_setIsKeyboardKey: (value: boolean) => void =
         undefined as any;
     private readonly _dart_getIsHidden: () => boolean = undefined as any;
     private readonly _dart_setIsHidden: (value: boolean) => void =
@@ -598,6 +651,12 @@ export class SemanticsConfiguration {
     ): void {
         return this._dart_setOnSetSelection(value);
     }
+    public getOnSetText(): (text: string) => void | undefined {
+        return this._dart_getOnSetText();
+    }
+    public setOnSetText(value?: (text: string) => void): void {
+        return this._dart_setOnSetText(value);
+    }
     public getOnDidGainAccessibilityFocus(): () => void | undefined {
         return this._dart_getOnDidGainAccessibilityFocus();
     }
@@ -612,7 +671,7 @@ export class SemanticsConfiguration {
     }
     public getActionHandler(
         action: ISemanticsAction
-    ): (args: any) => void | undefined {
+    ): (args?: Object | undefined) => void | undefined {
         return this._dart_getActionHandler(action);
     }
     public getSortKey(): ISemanticsSortKey | undefined {
@@ -680,17 +739,23 @@ export class SemanticsConfiguration {
     public setLabel(label: string): void {
         return this._dart_setLabel(label);
     }
+    public getAttributedLabel(): IAttributedString {
+        return this._dart_getAttributedLabel();
+    }
+    public setAttributedLabel(attributedLabel: IAttributedString): void {
+        return this._dart_setAttributedLabel(attributedLabel);
+    }
     public getValue(): string {
         return this._dart_getValue();
     }
     public setValue(value: string): void {
         return this._dart_setValue(value);
     }
-    public getDecreasedValue(): string {
-        return this._dart_getDecreasedValue();
+    public getAttributedValue(): IAttributedString {
+        return this._dart_getAttributedValue();
     }
-    public setDecreasedValue(decreasedValue: string): void {
-        return this._dart_setDecreasedValue(decreasedValue);
+    public setAttributedValue(attributedValue: IAttributedString): void {
+        return this._dart_setAttributedValue(attributedValue);
     }
     public getIncreasedValue(): string {
         return this._dart_getIncreasedValue();
@@ -698,11 +763,39 @@ export class SemanticsConfiguration {
     public setIncreasedValue(increasedValue: string): void {
         return this._dart_setIncreasedValue(increasedValue);
     }
+    public getAttributedIncreasedValue(): IAttributedString {
+        return this._dart_getAttributedIncreasedValue();
+    }
+    public setAttributedIncreasedValue(
+        attributedIncreasedValue: IAttributedString
+    ): void {
+        return this._dart_setAttributedIncreasedValue(attributedIncreasedValue);
+    }
+    public getDecreasedValue(): string {
+        return this._dart_getDecreasedValue();
+    }
+    public setDecreasedValue(decreasedValue: string): void {
+        return this._dart_setDecreasedValue(decreasedValue);
+    }
+    public getAttributedDecreasedValue(): IAttributedString {
+        return this._dart_getAttributedDecreasedValue();
+    }
+    public setAttributedDecreasedValue(
+        attributedDecreasedValue: IAttributedString
+    ): void {
+        return this._dart_setAttributedDecreasedValue(attributedDecreasedValue);
+    }
     public getHint(): string {
         return this._dart_getHint();
     }
     public setHint(hint: string): void {
         return this._dart_setHint(hint);
+    }
+    public getAttributedHint(): IAttributedString {
+        return this._dart_getAttributedHint();
+    }
+    public setAttributedHint(attributedHint: IAttributedString): void {
+        return this._dart_setAttributedHint(attributedHint);
     }
     public getHintOverrides(): ISemanticsHintOverrides | undefined {
         return this._dart_getHintOverrides();
@@ -817,6 +910,12 @@ export class SemanticsConfiguration {
     }
     public setIsSlider(value: boolean): void {
         return this._dart_setIsSlider(value);
+    }
+    public getIsKeyboardKey(): boolean {
+        return this._dart_getIsKeyboardKey();
+    }
+    public setIsKeyboardKey(value: boolean): void {
+        return this._dart_setIsKeyboardKey(value);
     }
     public getIsHidden(): boolean {
         return this._dart_getIsHidden();

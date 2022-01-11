@@ -40,7 +40,11 @@ declare const flutter: {
         textureBox: (
             this: void,
             textureBox: ITextureBox,
-            props: { filterQuality: FilterQuality; textureId: number }
+            props: {
+                filterQuality: FilterQuality;
+                freeze: boolean;
+                textureId: number;
+            }
         ) => ITextureBox;
     };
 };
@@ -49,6 +53,8 @@ export interface ITextureBox {
     debugCreator: Object | undefined;
     getTextureId: () => number;
     setTextureId: (value: number) => void;
+    getFreeze: () => boolean;
+    setFreeze: (value: boolean) => void;
     getFilterQuality: () => FilterQuality;
     setFilterQuality: (value: FilterQuality) => void;
     getSizedByParent: () => boolean;
@@ -116,6 +122,7 @@ export interface ITextureBox {
     getConstraints: () => IBoxConstraints;
     getPaintBounds: () => IRect;
     reassemble: () => void;
+    dispose: () => void;
     adoptChild: (child: unknown) => void;
     dropChild: (child: unknown) => void;
     visitChildren: (visitor: (child: IRenderObject) => void) => void;
@@ -179,6 +186,7 @@ export interface ITextureBox {
         name: string,
         props: { style: DiagnosticsTreeStyle }
     ) => IDiagnosticsNode;
+    getDebugDisposed: () => boolean | undefined;
     getDebugDoingThisResize: () => boolean;
     getDebugDoingThisLayout: () => boolean;
     getDebugCanParentUseSize: () => boolean;
@@ -224,6 +232,7 @@ export class TextureBox
     public readonly debugCreator: Object | undefined = undefined as any;
     public constructor(props: {
         filterQuality?: FilterQuality;
+        freeze?: boolean;
         textureId: number;
     }) {
         flutter.rendering.textureBox(this, {
@@ -233,6 +242,9 @@ export class TextureBox
     }
     private readonly _dart_getTextureId: () => number = undefined as any;
     private readonly _dart_setTextureId: (value: number) => void =
+        undefined as any;
+    private readonly _dart_getFreeze: () => boolean = undefined as any;
+    private readonly _dart_setFreeze: (value: boolean) => void =
         undefined as any;
     private readonly _dart_getFilterQuality: () => FilterQuality =
         undefined as any;
@@ -354,6 +366,7 @@ export class TextureBox
         undefined as any;
     private readonly _dart_getPaintBounds: () => IRect = undefined as any;
     private readonly _dart_reassemble: () => void = undefined as any;
+    private readonly _dart_dispose: () => void = undefined as any;
     private readonly _dart_adoptChild: (child: any) => void = undefined as any;
     private readonly _dart_dropChild: (child: any) => void = undefined as any;
     private readonly _dart_visitChildren: (
@@ -441,6 +454,8 @@ export class TextureBox
         name: string,
         props: { style: DiagnosticsTreeStyle }
     ) => IDiagnosticsNode = undefined as any;
+    private readonly _dart_getDebugDisposed: () => boolean | undefined =
+        undefined as any;
     private readonly _dart_getDebugDoingThisResize: () => boolean =
         undefined as any;
     private readonly _dart_getDebugDoingThisLayout: () => boolean =
@@ -485,6 +500,12 @@ export class TextureBox
     }
     public setTextureId(value: number): void {
         return this._dart_setTextureId(value);
+    }
+    public getFreeze(): boolean {
+        return this._dart_getFreeze();
+    }
+    public setFreeze(value: boolean): void {
+        return this._dart_setFreeze(value);
     }
     public getFilterQuality(): FilterQuality {
         return this._dart_getFilterQuality();
@@ -661,6 +682,9 @@ export class TextureBox
     public reassemble(): void {
         return this._dart_reassemble();
     }
+    public dispose(): void {
+        return this._dart_dispose();
+    }
     public adoptChild(child: any): void {
         return this._dart_adoptChild(child);
     }
@@ -811,6 +835,9 @@ export class TextureBox
             ...props,
         });
     }
+    public getDebugDisposed(): boolean | undefined {
+        return this._dart_getDebugDisposed();
+    }
     public getDebugDoingThisResize(): boolean {
         return this._dart_getDebugDoingThisResize();
     }
@@ -880,6 +907,7 @@ export class TextureBox
 }
 const textureBoxDefaultProps = {
     filterQuality: FilterQuality.low,
+    freeze: false,
 };
 const getDistanceToBaselineDefaultProps = {
     onlyReal: false,

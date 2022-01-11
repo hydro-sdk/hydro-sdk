@@ -1,6 +1,6 @@
 import { IList } from "../../dart/core/list";
 import { IEngineLayer } from "../../dart/ui/engineLayer";
-import { IOffset, Offset } from "../../dart/ui/offset";
+import { IOffset } from "../../dart/ui/offset";
 import { ISceneBuilder } from "../../dart/ui/sceneBuilder";
 import { IAbstractNode } from "../foundation/abstractNode";
 import { IDiagnosticable } from "../foundation/diagnosticable";
@@ -18,10 +18,11 @@ declare const flutter: {
     };
 };
 export interface ILayer {
+    debugCreator: Object | undefined;
+    getDebugDisposed: () => boolean;
+    getDebugHandleCount: () => number;
     getParent: () => IContainerLayer | undefined;
     getAlwaysNeedsAddToScene: () => boolean;
-    getEngineLayer: () => IEngineLayer | undefined;
-    setEngineLayer: (value?: IEngineLayer | undefined) => void;
     getNextSibling: () => ILayer | undefined;
     getPreviousSibling: () => ILayer | undefined;
     dropChild: (child: unknown) => void;
@@ -34,7 +35,7 @@ export interface ILayer {
     ) => boolean;
     find: <S>(localPosition: IOffset) => S | undefined;
     findAllAnnotations: <S>(localPosition: IOffset) => IAnnotationResult<S>;
-    addToScene: (builder: ISceneBuilder, layerOffset: IOffset) => void;
+    addToScene: (builder: ISceneBuilder) => void;
     toStringShort: () => string;
     debugFillProperties: (properties: IDiagnosticPropertiesBuilder) => void;
     toString: (props: { minLevel: DiagnosticLevel }) => string;
@@ -76,9 +77,13 @@ export class Layer
             | "toDiagnosticsNode"
         >
 {
+    public readonly debugCreator: Object | undefined = undefined as any;
     public constructor() {
         flutter.rendering.layer(this);
     }
+    private readonly _dart_getDebugDisposed: () => boolean = undefined as any;
+    private readonly _dart_getDebugHandleCount: () => number = undefined as any;
+    private readonly _dart_dispose: () => void = undefined as any;
     private readonly _dart_getParent: () => IContainerLayer | undefined =
         undefined as any;
     private readonly _dart_markNeedsAddToScene: () => void = undefined as any;
@@ -108,10 +113,8 @@ export class Layer
     private readonly _dart_findAllAnnotations: <S>(
         localPosition: IOffset
     ) => IAnnotationResult<S> = undefined as any;
-    private readonly _dart_addToScene: (
-        builder: ISceneBuilder,
-        layerOffset: IOffset
-    ) => void = undefined as any;
+    private readonly _dart_addToScene: (builder: ISceneBuilder) => void =
+        undefined as any;
     private readonly _dart_toStringShort: () => string = undefined as any;
     private readonly _dart_debugFillProperties: (
         properties: IDiagnosticPropertiesBuilder
@@ -144,6 +147,15 @@ export class Layer
         undefined as any;
     private readonly _dart_getAttached: () => boolean = undefined as any;
     private readonly _dart_getHashCode: () => number = undefined as any;
+    public getDebugDisposed(): boolean {
+        return this._dart_getDebugDisposed();
+    }
+    public getDebugHandleCount(): number {
+        return this._dart_getDebugHandleCount();
+    }
+    public dispose(): void {
+        return this._dart_dispose();
+    }
     public getParent(): IContainerLayer | undefined {
         return this._dart_getParent();
     }
@@ -190,11 +202,8 @@ export class Layer
     public findAllAnnotations<S>(localPosition: IOffset): IAnnotationResult<S> {
         return this._dart_findAllAnnotations(localPosition);
     }
-    public addToScene(
-        builder: ISceneBuilder,
-        layerOffset: IOffset = Offset.zero
-    ): void {
-        return this._dart_addToScene(builder, layerOffset);
+    public addToScene(builder: ISceneBuilder): void {
+        return this._dart_addToScene(builder);
     }
     public toStringShort(): string {
         return this._dart_toStringShort();

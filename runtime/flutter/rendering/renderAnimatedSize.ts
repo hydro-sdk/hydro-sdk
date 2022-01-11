@@ -78,6 +78,7 @@ export interface IRenderAnimatedSize {
     performLayout: () => void;
     computeDryLayout: (constraints: IBoxConstraints) => ISize;
     paint: (context: IPaintingContext, offset: IOffset) => void;
+    dispose: () => void;
     alignChild: () => void;
     debugFillProperties: (properties: IDiagnosticPropertiesBuilder) => void;
     getAlignment: () => IAlignmentGeometry;
@@ -209,6 +210,7 @@ export interface IRenderAnimatedSize {
         name: string,
         props: { style: DiagnosticsTreeStyle }
     ) => IDiagnosticsNode;
+    getDebugDisposed: () => boolean | undefined;
     getDebugDoingThisResize: () => boolean;
     getDebugDoingThisLayout: () => boolean;
     getDebugCanParentUseSize: () => boolean;
@@ -295,6 +297,7 @@ export class RenderAnimatedSize
         context: IPaintingContext,
         offset: IOffset
     ) => void = undefined as any;
+    private readonly _dart_dispose: () => void = undefined as any;
     private readonly _dart_alignChild: () => void = undefined as any;
     private readonly _dart_debugFillProperties: (
         properties: IDiagnosticPropertiesBuilder
@@ -503,6 +506,8 @@ export class RenderAnimatedSize
         name: string,
         props: { style: DiagnosticsTreeStyle }
     ) => IDiagnosticsNode = undefined as any;
+    private readonly _dart_getDebugDisposed: () => boolean | undefined =
+        undefined as any;
     private readonly _dart_getDebugDoingThisResize: () => boolean =
         undefined as any;
     private readonly _dart_getDebugDoingThisLayout: () => boolean =
@@ -589,6 +594,9 @@ export class RenderAnimatedSize
     }
     public paint(context: IPaintingContext, offset: IOffset): void {
         return this._dart_paint(context, offset);
+    }
+    public dispose(): void {
+        return this._dart_dispose();
     }
     public alignChild(): void {
         return this._dart_alignChild();
@@ -917,6 +925,9 @@ export class RenderAnimatedSize
             ...describeForErrorDefaultProps,
             ...props,
         });
+    }
+    public getDebugDisposed(): boolean | undefined {
+        return this._dart_getDebugDisposed();
     }
     public getDebugDoingThisResize(): boolean {
         return this._dart_getDebugDoingThisResize();

@@ -16,7 +16,7 @@ import 'package:flutter/src/painting/binding.dart';
 import 'package:flutter/src/painting/image_cache.dart';
 import 'package:flutter/src/rendering/binding.dart';
 import 'package:flutter/src/rendering/box.dart';
-import 'package:flutter/src/rendering/mouse_tracking.dart';
+import 'package:flutter/src/rendering/mouse_tracker.dart';
 import 'package:flutter/src/rendering/object.dart';
 import 'package:flutter/src/rendering/view.dart';
 import 'package:flutter/src/scheduler/binding.dart';
@@ -24,6 +24,7 @@ import 'package:flutter/src/scheduler/priority.dart';
 import 'package:flutter/src/semantics/binding.dart';
 import 'package:flutter/src/services/binary_messenger.dart';
 import 'package:flutter/src/services/binding.dart';
+import 'package:flutter/src/services/hardware_keyboard.dart';
 import 'package:flutter/src/services/restoration.dart';
 
 import 'package:hydro_sdk/cfr/runtimeSupport.dart';
@@ -307,11 +308,52 @@ class VMManagedRenderingFlutterBinding
             table: HydroTable()),
       ];
     });
+    table['setSystemUiChangeCallback'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      Closure? unpackedcallback = luaCallerArguments[1];
+      vmObject.setSystemUiChangeCallback(unpackedcallback != null
+          ? (systemOverlaysAreVisible) =>
+              maybeUnBoxAndBuildArgument<Future<void>, void>(
+                  unpackedcallback.dispatch(
+                    [luaCallerArguments[0], systemOverlaysAreVisible],
+                    parentState: hydroState,
+                  )[0],
+                  parentState: hydroState)
+          : null);
+      return [];
+    });
+    table['getKeyboard'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        maybeBoxObject<HardwareKeyboard>(
+            object: vmObject.keyboard,
+            hydroState: hydroState,
+            table: HydroTable()),
+      ];
+    });
+    table['getKeyEventManager'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        maybeBoxObject<KeyEventManager>(
+            object: vmObject.keyEventManager,
+            hydroState: hydroState,
+            table: HydroTable()),
+      ];
+    });
     table['getDefaultBinaryMessenger'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<BinaryMessenger>(
             object: vmObject.defaultBinaryMessenger,
+            hydroState: hydroState,
+            table: HydroTable()),
+      ];
+    });
+    table['getChannelBuffers'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        maybeBoxObject<ChannelBuffers>(
+            object: vmObject.channelBuffers,
             hydroState: hydroState,
             table: HydroTable()),
       ];
@@ -602,6 +644,10 @@ class RTManagedRenderingFlutterBinding extends RenderingFlutterBinding
       super.resetGestureBinding();
       return [];
     });
+    table['_dart_getDebugSamplingClock'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.debugSamplingClock];
+    });
     table['_dart_addTimingsCallback'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       Closure unpackedcallback = luaCallerArguments[1];
@@ -824,9 +870,35 @@ class RTManagedRenderingFlutterBinding extends RenderingFlutterBinding
             table: HydroTable())
       ];
     });
+    table['_dart_setSystemUiChangeCallback'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      Closure? unpackedcallback = luaCallerArguments[1];
+      super.setSystemUiChangeCallback(unpackedcallback != null
+          ? (systemOverlaysAreVisible) =>
+              maybeUnBoxAndBuildArgument<Future<void>, void>(
+                  unpackedcallback.dispatch(
+                    [luaCallerArguments[0], systemOverlaysAreVisible],
+                    parentState: hydroState,
+                  )[0],
+                  parentState: hydroState)
+          : null);
+      return [];
+    });
+    table['_dart_getKeyboard'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.keyboard];
+    });
+    table['_dart_getKeyEventManager'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.keyEventManager];
+    });
     table['_dart_getDefaultBinaryMessenger'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.defaultBinaryMessenger];
+    });
+    table['_dart_getChannelBuffers'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.channelBuffers];
     });
     table['_dart_getRestorationManager'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -1217,6 +1289,14 @@ class RTManagedRenderingFlutterBinding extends RenderingFlutterBinding
   }
 
   @override
+  SamplingClock? get debugSamplingClock {
+    Closure closure = table["getDebugSamplingClock"];
+    return maybeUnBoxAndBuildArgument<SamplingClock?, dynamic>(
+        closure.dispatch([table], parentState: hydroState)[0],
+        parentState: hydroState);
+  }
+
+  @override
   void addTimingsCallback(callback) {
     Closure closure = table["addTimingsCallback"];
     return closure.dispatch([table], parentState: hydroState)[0];
@@ -1446,9 +1526,39 @@ class RTManagedRenderingFlutterBinding extends RenderingFlutterBinding
   }
 
   @override
+  void setSystemUiChangeCallback(callback) {
+    Closure closure = table["setSystemUiChangeCallback"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  HardwareKeyboard get keyboard {
+    Closure closure = table["getKeyboard"];
+    return maybeUnBoxAndBuildArgument<HardwareKeyboard, dynamic>(
+        closure.dispatch([table], parentState: hydroState)[0],
+        parentState: hydroState);
+  }
+
+  @override
+  KeyEventManager get keyEventManager {
+    Closure closure = table["getKeyEventManager"];
+    return maybeUnBoxAndBuildArgument<KeyEventManager, dynamic>(
+        closure.dispatch([table], parentState: hydroState)[0],
+        parentState: hydroState);
+  }
+
+  @override
   BinaryMessenger get defaultBinaryMessenger {
     Closure closure = table["getDefaultBinaryMessenger"];
     return maybeUnBoxAndBuildArgument<BinaryMessenger, dynamic>(
+        closure.dispatch([table], parentState: hydroState)[0],
+        parentState: hydroState);
+  }
+
+  @override
+  ChannelBuffers get channelBuffers {
+    Closure closure = table["getChannelBuffers"];
+    return maybeUnBoxAndBuildArgument<ChannelBuffers, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }

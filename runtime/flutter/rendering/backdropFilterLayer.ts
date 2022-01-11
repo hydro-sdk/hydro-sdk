@@ -1,7 +1,8 @@
 import { IList } from "../../dart/core/list";
+import { BlendMode } from "../../dart/ui/blendMode";
 import { IEngineLayer } from "../../dart/ui/engineLayer";
 import { IImageFilter } from "../../dart/ui/imageFilter";
-import { IOffset, Offset } from "../../dart/ui/offset";
+import { IOffset } from "../../dart/ui/offset";
 import { IScene } from "../../dart/ui/scene";
 import { ISceneBuilder } from "../../dart/ui/sceneBuilder";
 import { IMatrix4 } from "../../vector_math/matrix4";
@@ -21,16 +22,19 @@ declare const flutter: {
         backdropFilterLayer: (
             this: void,
             backdropFilterLayer: IBackdropFilterLayer,
-            props?: { filter?: IImageFilter | undefined }
+            props: { blendMode: BlendMode; filter?: IImageFilter | undefined }
         ) => IBackdropFilterLayer;
     };
 };
 export interface IBackdropFilterLayer {
-    debugCreator: any;
+    debugCreator: Object | undefined;
     getFilter: () => IImageFilter | undefined;
     setFilter: (value?: IImageFilter | undefined) => void;
-    addToScene: (builder: ISceneBuilder, layerOffset: IOffset) => void;
+    getBlendMode: () => BlendMode;
+    setBlendMode: (value: BlendMode) => void;
+    addToScene: (builder: ISceneBuilder) => void;
     buildScene: (builder: ISceneBuilder) => IScene;
+    dispose: () => void;
     updateSubtreeNeedsAddToScene: () => void;
     findAnnotations: <S>(
         result: IAnnotationResult<S>,
@@ -41,7 +45,7 @@ export interface IBackdropFilterLayer {
     detach: () => void;
     append: (child: ILayer) => void;
     removeAllChildren: () => void;
-    addChildrenToScene: (builder: ISceneBuilder, childOffset: IOffset) => void;
+    addChildrenToScene: (builder: ISceneBuilder) => void;
     applyTransform: (child: ILayer | undefined, transform: IMatrix4) => void;
     debugDescribeChildren: () => IList<IDiagnosticsNode>;
     getFirstChild: () => ILayer | undefined;
@@ -54,10 +58,10 @@ export interface IBackdropFilterLayer {
     findAllAnnotations: <S>(localPosition: IOffset) => IAnnotationResult<S>;
     toStringShort: () => string;
     debugFillProperties: (properties: IDiagnosticPropertiesBuilder) => void;
+    getDebugDisposed: () => boolean;
+    getDebugHandleCount: () => number;
     getParent: () => IContainerLayer | undefined;
     getAlwaysNeedsAddToScene: () => boolean;
-    getEngineLayer: () => IEngineLayer | undefined;
-    setEngineLayer: (value?: IEngineLayer | undefined) => void;
     getNextSibling: () => ILayer | undefined;
     getPreviousSibling: () => ILayer | undefined;
     toString: (props: { minLevel: DiagnosticLevel }) => string;
@@ -96,21 +100,29 @@ export class BackdropFilterLayer
             | "toDiagnosticsNode"
         >
 {
-    public readonly debugCreator: any = undefined as any;
-    public constructor(props?: { filter?: IImageFilter | undefined }) {
-        flutter.rendering.backdropFilterLayer(this, props);
+    public readonly debugCreator: Object | undefined = undefined as any;
+    public constructor(props: {
+        blendMode?: BlendMode;
+        filter?: IImageFilter | undefined;
+    }) {
+        flutter.rendering.backdropFilterLayer(this, {
+            ...backdropFilterLayerDefaultProps,
+            ...props,
+        });
     }
     private readonly _dart_getFilter: () => IImageFilter | undefined =
         undefined as any;
     private readonly _dart_setFilter: (
         value?: IImageFilter | undefined
     ) => void = undefined as any;
-    private readonly _dart_addToScene: (
-        builder: ISceneBuilder,
-        layerOffset: IOffset
-    ) => void = undefined as any;
+    private readonly _dart_getBlendMode: () => BlendMode = undefined as any;
+    private readonly _dart_setBlendMode: (value: BlendMode) => void =
+        undefined as any;
+    private readonly _dart_addToScene: (builder: ISceneBuilder) => void =
+        undefined as any;
     private readonly _dart_buildScene: (builder: ISceneBuilder) => IScene =
         undefined as any;
+    private readonly _dart_dispose: () => void = undefined as any;
     private readonly _dart_updateSubtreeNeedsAddToScene: () => void =
         undefined as any;
     private readonly _dart_findAnnotations: <S>(
@@ -123,8 +135,7 @@ export class BackdropFilterLayer
     private readonly _dart_append: (child: ILayer) => void = undefined as any;
     private readonly _dart_removeAllChildren: () => void = undefined as any;
     private readonly _dart_addChildrenToScene: (
-        builder: ISceneBuilder,
-        childOffset: IOffset
+        builder: ISceneBuilder
     ) => void = undefined as any;
     private readonly _dart_applyTransform: (
         child: ILayer | undefined,
@@ -150,6 +161,8 @@ export class BackdropFilterLayer
     private readonly _dart_debugFillProperties: (
         properties: IDiagnosticPropertiesBuilder
     ) => void = undefined as any;
+    private readonly _dart_getDebugDisposed: () => boolean = undefined as any;
+    private readonly _dart_getDebugHandleCount: () => number = undefined as any;
     private readonly _dart_getParent: () => IContainerLayer | undefined =
         undefined as any;
     private readonly _dart_getAlwaysNeedsAddToScene: () => boolean =
@@ -193,14 +206,20 @@ export class BackdropFilterLayer
     public setFilter(value?: IImageFilter | undefined): void {
         return this._dart_setFilter(value);
     }
-    public addToScene(
-        builder: ISceneBuilder,
-        layerOffset: IOffset = Offset.zero
-    ): void {
-        return this._dart_addToScene(builder, layerOffset);
+    public getBlendMode(): BlendMode {
+        return this._dart_getBlendMode();
+    }
+    public setBlendMode(value: BlendMode): void {
+        return this._dart_setBlendMode(value);
+    }
+    public addToScene(builder: ISceneBuilder): void {
+        return this._dart_addToScene(builder);
     }
     public buildScene(builder: ISceneBuilder): IScene {
         return this._dart_buildScene(builder);
+    }
+    public dispose(): void {
+        return this._dart_dispose();
     }
     public updateSubtreeNeedsAddToScene(): void {
         return this._dart_updateSubtreeNeedsAddToScene();
@@ -224,11 +243,8 @@ export class BackdropFilterLayer
     public removeAllChildren(): void {
         return this._dart_removeAllChildren();
     }
-    public addChildrenToScene(
-        builder: ISceneBuilder,
-        childOffset: IOffset = Offset.zero
-    ): void {
-        return this._dart_addChildrenToScene(builder, childOffset);
+    public addChildrenToScene(builder: ISceneBuilder): void {
+        return this._dart_addChildrenToScene(builder);
     }
     public applyTransform(
         child: ILayer | undefined,
@@ -271,6 +287,12 @@ export class BackdropFilterLayer
     }
     public debugFillProperties(properties: IDiagnosticPropertiesBuilder): void {
         return this._dart_debugFillProperties(properties);
+    }
+    public getDebugDisposed(): boolean {
+        return this._dart_getDebugDisposed();
+    }
+    public getDebugHandleCount(): number {
+        return this._dart_getDebugHandleCount();
     }
     public getParent(): IContainerLayer | undefined {
         return this._dart_getParent();
@@ -340,6 +362,9 @@ export class BackdropFilterLayer
         return this._dart_getHashCode();
     }
 }
+const backdropFilterLayerDefaultProps = {
+    blendMode: BlendMode.srcOver,
+};
 const toStringDefaultProps = {
     minLevel: DiagnosticLevel.info,
 };

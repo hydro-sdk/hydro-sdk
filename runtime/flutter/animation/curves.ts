@@ -1,7 +1,9 @@
+import { Offset } from "../../dart/ui/offset";
 import { Cubic } from "./cubic";
 import { ElasticInCurve } from "./elasticInCurve";
 import { ElasticInOutCurve } from "./elasticInOutCurve";
 import { ElasticOutCurve } from "./elasticOutCurve";
+import { ThreePointCubic } from "./threePointCubic";
 export interface ICurves {}
 export class Curves {
     public static fastLinearToSlowEaseIn = new Cubic(0.18, 1.0, 0.04, 1.0);
@@ -30,6 +32,13 @@ export class Curves {
     public static easeInOutSine = new Cubic(0.445, 0.05, 0.55, 0.95);
     public static easeInOutQuad = new Cubic(0.455, 0.03, 0.515, 0.955);
     public static easeInOutCubic = new Cubic(0.645, 0.045, 0.355, 1.0);
+    public static easeInOutCubicEmphasized = new ThreePointCubic(
+        new Offset(0.05, 0),
+        new Offset(0.133333, 0.06),
+        new Offset(0.166666, 0.4),
+        new Offset(0.208333, 0.82),
+        new Offset(0.25, 1)
+    );
     public static easeInOutQuart = new Cubic(0.77, 0.0, 0.175, 1.0);
     public static easeInOutQuint = new Cubic(0.86, 0.0, 0.07, 1.0);
     public static easeInOutExpo = new Cubic(1.0, 0.0, 0.0, 1.0);

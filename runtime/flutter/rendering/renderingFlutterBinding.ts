@@ -5,6 +5,7 @@ import { IFlow } from "../../dart/developer/flow";
 import { IUint8List } from "../../dart/typed_data/uint8List";
 import { IAccessibilityFeatures } from "../../dart/ui/accessibilityFeatures";
 import { AppLifecycleState } from "../../dart/ui/appLifecycleState";
+import { IChannelBuffers } from "../../dart/ui/channelBuffers";
 import { ICodec } from "../../dart/ui/codec";
 import { IFrameTiming } from "../../dart/ui/frameTiming";
 import { IOffset } from "../../dart/ui/offset";
@@ -23,6 +24,7 @@ import { IHitTestTarget } from "../gestures/hitTestTarget";
 import { IPointerEvent } from "../gestures/pointerEvent";
 import { IPointerRouter } from "../gestures/pointerRouter";
 import { IPointerSignalResolver } from "../gestures/pointerSignalResolver";
+import { ISamplingClock } from "../gestures/samplingClock";
 import { IImageCache } from "../painting/imageCache";
 import { IPaintingBinding } from "../painting/paintingBinding";
 import { IPriority } from "../scheduler/priority";
@@ -30,6 +32,8 @@ import { ISchedulerBinding } from "../scheduler/schedulerBinding";
 import { SchedulerPhase } from "../scheduler/schedulerPhase";
 import { ISemanticsBinding } from "../semantics/semanticsBinding";
 import { IBinaryMessenger } from "../services/binaryMessenger";
+import { IHardwareKeyboard } from "../services/hardwareKeyboard";
+import { IKeyEventManager } from "../services/keyEventManager";
 import { IRestorationManager } from "../services/restorationManager";
 import { IServicesBinding } from "../services/servicesBinding";
 import { IMouseTracker } from "./mouseTracker";
@@ -68,6 +72,7 @@ export interface IRenderingFlutterBinding {
     ) => void;
     handleEvent: (event: IPointerEvent, entry: IHitTestEntry) => void;
     resetGestureBinding: () => void;
+    getDebugSamplingClock: () => ISamplingClock | undefined;
     addTimingsCallback: (
         callback: (timings: IList<IFrameTiming>) => void
     ) => void;
@@ -114,7 +119,13 @@ export interface IRenderingFlutterBinding {
     evict: (asset: string) => void;
     readInitialLifecycleStateFromNativeWindow: () => void;
     createRestorationManager: () => IRestorationManager;
+    setSystemUiChangeCallback: (
+        callback?: (systemOverlaysAreVisible: boolean) => IFuture<void>
+    ) => void;
+    getKeyboard: () => IHardwareKeyboard;
+    getKeyEventManager: () => IKeyEventManager;
     getDefaultBinaryMessenger: () => IBinaryMessenger;
+    getChannelBuffers: () => IChannelBuffers;
     getRestorationManager: () => IRestorationManager;
     handleAccessibilityFeaturesChanged: () => void;
     createSemanticsUpdateBuilder: () => ISemanticsUpdateBuilder;
@@ -226,6 +237,9 @@ export class RenderingFlutterBinding
         entry: IHitTestEntry
     ) => void = undefined as any;
     private readonly _dart_resetGestureBinding: () => void = undefined as any;
+    private readonly _dart_getDebugSamplingClock: () =>
+        | ISamplingClock
+        | undefined = undefined as any;
     private readonly _dart_addTimingsCallback: (
         callback: (timings: IList<IFrameTiming>) => void
     ) => void = undefined as any;
@@ -295,7 +309,16 @@ export class RenderingFlutterBinding
         undefined as any;
     private readonly _dart_createRestorationManager: () => IRestorationManager =
         undefined as any;
+    private readonly _dart_setSystemUiChangeCallback: (
+        callback?: (systemOverlaysAreVisible: boolean) => IFuture<void>
+    ) => void = undefined as any;
+    private readonly _dart_getKeyboard: () => IHardwareKeyboard =
+        undefined as any;
+    private readonly _dart_getKeyEventManager: () => IKeyEventManager =
+        undefined as any;
     private readonly _dart_getDefaultBinaryMessenger: () => IBinaryMessenger =
+        undefined as any;
+    private readonly _dart_getChannelBuffers: () => IChannelBuffers =
         undefined as any;
     private readonly _dart_getRestorationManager: () => IRestorationManager =
         undefined as any;
@@ -412,6 +435,9 @@ export class RenderingFlutterBinding
     }
     public resetGestureBinding(): void {
         return this._dart_resetGestureBinding();
+    }
+    public getDebugSamplingClock(): ISamplingClock | undefined {
+        return this._dart_getDebugSamplingClock();
     }
     public addTimingsCallback(
         callback: (timings: IList<IFrameTiming>) => void
@@ -530,8 +556,22 @@ export class RenderingFlutterBinding
     public createRestorationManager(): IRestorationManager {
         return this._dart_createRestorationManager();
     }
+    public setSystemUiChangeCallback(
+        callback?: (systemOverlaysAreVisible: boolean) => IFuture<void>
+    ): void {
+        return this._dart_setSystemUiChangeCallback(callback);
+    }
+    public getKeyboard(): IHardwareKeyboard {
+        return this._dart_getKeyboard();
+    }
+    public getKeyEventManager(): IKeyEventManager {
+        return this._dart_getKeyEventManager();
+    }
     public getDefaultBinaryMessenger(): IBinaryMessenger {
         return this._dart_getDefaultBinaryMessenger();
+    }
+    public getChannelBuffers(): IChannelBuffers {
+        return this._dart_getChannelBuffers();
     }
     public getRestorationManager(): IRestorationManager {
         return this._dart_getRestorationManager();

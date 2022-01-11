@@ -2,7 +2,6 @@ import 'dart:core';
 
 import 'package:flutter/src/animation/curves.dart';
 import 'package:flutter/src/rendering/sliver_persistent_header.dart';
-import 'package:flutter/src/scheduler/ticker.dart';
 
 import 'package:hydro_sdk/cfr/runtimeSupport.dart';
 
@@ -15,8 +14,6 @@ class VMManagedFloatingHeaderSnapConfiguration
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['vsync'] = maybeBoxObject<TickerProvider?>(
-        object: vmObject.vsync, hydroState: hydroState, table: HydroTable());
     table['curve'] = maybeBoxObject<Curve>(
         object: vmObject.curve, hydroState: hydroState, table: HydroTable());
     table['duration'] = maybeBoxObject<Duration>(
@@ -36,16 +33,13 @@ class RTManagedFloatingHeaderSnapConfiguration
   RTManagedFloatingHeaderSnapConfiguration(
       {required Curve curve,
       required Duration duration,
-      TickerProvider? vsync,
       required this.table,
       required this.hydroState})
-      : super(curve: curve, duration: duration, vsync: vsync) {
+      : super(curve: curve, duration: duration) {
     table['vmObject'] = vmObject;
     table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [unwrap()];
     });
-    table['vsync'] = maybeBoxObject<TickerProvider?>(
-        object: this.vsync, hydroState: hydroState, table: HydroTable());
     table['curve'] = maybeBoxObject<Curve>(
         object: this.curve, hydroState: hydroState, table: HydroTable());
     table['duration'] = maybeBoxObject<Duration>(
@@ -76,11 +70,6 @@ void loadFloatingHeaderSnapConfiguration(
           duration: maybeUnBoxAndBuildArgument<Duration, dynamic>(
               luaCallerArguments.length >= 2
                   ? luaCallerArguments[1]['duration']
-                  : null,
-              parentState: hydroState),
-          vsync: maybeUnBoxAndBuildArgument<TickerProvider?, dynamic>(
-              luaCallerArguments.length >= 2
-                  ? luaCallerArguments[1]['vsync']
                   : null,
               parentState: hydroState))
     ];

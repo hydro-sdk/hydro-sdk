@@ -1,5 +1,6 @@
 import 'dart:core';
 
+import 'package:flutter/src/foundation/binding.dart';
 import 'package:flutter/src/widgets/focus_manager.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
@@ -57,6 +58,12 @@ class VMManagedBuildOwner extends VMManagedBox<BuildOwner> {
               : null);
       return [];
     });
+    table['getGlobalKeyCount'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        vmObject.globalKeyCount,
+      ];
+    });
     table['finalizeTree'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.finalizeTree();
@@ -64,9 +71,12 @@ class VMManagedBuildOwner extends VMManagedBox<BuildOwner> {
     });
     table['reassemble'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.reassemble(maybeUnBoxAndBuildArgument<Element, dynamic>(
-          luaCallerArguments[1],
-          parentState: hydroState));
+      vmObject.reassemble(
+          maybeUnBoxAndBuildArgument<Element, dynamic>(luaCallerArguments[1],
+              parentState: hydroState),
+          maybeUnBoxAndBuildArgument<DebugReassembleConfig?, dynamic>(
+              luaCallerArguments[2],
+              parentState: hydroState));
       return [];
     });
   }
@@ -129,6 +139,10 @@ class RTManagedBuildOwner extends BuildOwner implements Box<BuildOwner> {
               : null);
       return [];
     });
+    table['_dart_getGlobalKeyCount'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.globalKeyCount];
+    });
     table['_dart_finalizeTree'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       super.finalizeTree();
@@ -136,9 +150,12 @@ class RTManagedBuildOwner extends BuildOwner implements Box<BuildOwner> {
     });
     table['_dart_reassemble'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.reassemble(maybeUnBoxAndBuildArgument<Element, dynamic>(
-          luaCallerArguments[1],
-          parentState: hydroState));
+      super.reassemble(
+          maybeUnBoxAndBuildArgument<Element, dynamic>(luaCallerArguments[1],
+              parentState: hydroState),
+          maybeUnBoxAndBuildArgument<DebugReassembleConfig?, dynamic>(
+              luaCallerArguments[2],
+              parentState: hydroState));
       return [];
     });
   }
@@ -174,13 +191,19 @@ class RTManagedBuildOwner extends BuildOwner implements Box<BuildOwner> {
   }
 
   @override
+  int get globalKeyCount {
+    Closure closure = table["getGlobalKeyCount"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
   void finalizeTree() {
     Closure closure = table["finalizeTree"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void reassemble(Element root) {
+  void reassemble(Element root, DebugReassembleConfig? reassembleConfig) {
     Closure closure = table["reassemble"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }

@@ -4,6 +4,7 @@ export enum MaterialState {
     pressed,
     dragged,
     selected,
+    scrolledUnder,
     disabled,
     error,
 }

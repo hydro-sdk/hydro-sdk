@@ -29,6 +29,9 @@ class VMManagedRenderSemanticsGestureHandler
           hydroState: hydroState,
         ) {
     table['scrollFactor'] = vmObject.scrollFactor;
+    table['behavior'] = HitTestBehavior.values.indexWhere((x) {
+      return x == vmObject.behavior;
+    });
     table['parentData'] = maybeBoxObject<ParentData?>(
         object: vmObject.parentData,
         hydroState: hydroState,
@@ -159,6 +162,28 @@ class VMManagedRenderSemanticsGestureHandler
               luaCallerArguments[1],
               parentState: hydroState));
       return [];
+    });
+    table['hitTest'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        vmObject.hitTest(
+            maybeUnBoxAndBuildArgument<BoxHitTestResult, dynamic>(
+                luaCallerArguments[1],
+                parentState: hydroState),
+            position: maybeUnBoxAndBuildArgument<Offset, dynamic>(
+                luaCallerArguments.length >= 3
+                    ? luaCallerArguments[2]['position']
+                    : null,
+                parentState: hydroState)),
+      ];
+    });
+    table['hitTestSelf'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        vmObject.hitTestSelf(maybeUnBoxAndBuildArgument<Offset, dynamic>(
+            luaCallerArguments[1],
+            parentState: hydroState)),
+      ];
     });
     table['debugValidateChild'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -426,20 +451,6 @@ class VMManagedRenderSemanticsGestureHandler
       vmObject.performResize();
       return [];
     });
-    table['hitTest'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        vmObject.hitTest(
-            maybeUnBoxAndBuildArgument<BoxHitTestResult, dynamic>(
-                luaCallerArguments[1],
-                parentState: hydroState),
-            position: maybeUnBoxAndBuildArgument<Offset, dynamic>(
-                luaCallerArguments.length >= 3
-                    ? luaCallerArguments[2]['position']
-                    : null,
-                parentState: hydroState)),
-      ];
-    });
     table['globalToLocal'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
@@ -550,6 +561,11 @@ class VMManagedRenderSemanticsGestureHandler
     table['reassemble'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.reassemble();
+      return [];
+    });
+    table['dispose'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.dispose();
       return [];
     });
     table['adoptChild'] =
@@ -806,6 +822,16 @@ class VMManagedRenderSemanticsGestureHandler
             table: HydroTable()),
       ];
     });
+    table['getDebugDisposed'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      final returnValue = vmObject.debugDisposed;
+      if (returnValue != null) {
+        return [
+          returnValue,
+        ];
+      }
+      return [];
+    });
     table['getDebugDoingThisResize'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
@@ -952,7 +978,8 @@ class RTManagedRenderSemanticsGestureHandler
     extends RenderSemanticsGestureHandler
     implements Box<RenderSemanticsGestureHandler> {
   RTManagedRenderSemanticsGestureHandler(
-      {RenderBox? child,
+      {required HitTestBehavior behavior,
+      RenderBox? child,
       onHorizontalDragUpdate,
       onLongPress,
       onTap,
@@ -961,6 +988,7 @@ class RTManagedRenderSemanticsGestureHandler
       required this.table,
       required this.hydroState})
       : super(
+            behavior: behavior,
             child: child,
             onHorizontalDragUpdate: onHorizontalDragUpdate,
             onLongPress: onLongPress,
@@ -972,6 +1000,9 @@ class RTManagedRenderSemanticsGestureHandler
       return [unwrap()];
     });
     table['scrollFactor'] = this.scrollFactor;
+    table['behavior'] = HitTestBehavior.values.indexWhere((x) {
+      return x == this.behavior;
+    });
     table['parentData'] = maybeBoxObject<ParentData?>(
         object: parentData, hydroState: hydroState, table: HydroTable());
     table['debugCreator'] = maybeBoxObject<Object?>(
@@ -1051,6 +1082,28 @@ class RTManagedRenderSemanticsGestureHandler
               luaCallerArguments[1],
               parentState: hydroState));
       return [];
+    });
+    table['_dart_hitTest'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        super.hitTest(
+            maybeUnBoxAndBuildArgument<BoxHitTestResult, dynamic>(
+                luaCallerArguments[1],
+                parentState: hydroState),
+            position: maybeUnBoxAndBuildArgument<Offset, dynamic>(
+                luaCallerArguments.length >= 3
+                    ? luaCallerArguments[2]['position']
+                    : null,
+                parentState: hydroState))
+      ];
+    });
+    table['_dart_hitTestSelf'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        super.hitTestSelf(maybeUnBoxAndBuildArgument<Offset, dynamic>(
+            luaCallerArguments[1],
+            parentState: hydroState))
+      ];
     });
     table['_dart_debugValidateChild'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -1303,28 +1356,6 @@ class RTManagedRenderSemanticsGestureHandler
       super.performResize();
       return [];
     });
-    table['_dart_hitTest'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        super.hitTest(
-            maybeUnBoxAndBuildArgument<BoxHitTestResult, dynamic>(
-                luaCallerArguments[1],
-                parentState: hydroState),
-            position: maybeUnBoxAndBuildArgument<Offset, dynamic>(
-                luaCallerArguments.length >= 3
-                    ? luaCallerArguments[2]['position']
-                    : null,
-                parentState: hydroState))
-      ];
-    });
-    table['_dart_hitTestSelf'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        super.hitTestSelf(maybeUnBoxAndBuildArgument<Offset, dynamic>(
-            luaCallerArguments[1],
-            parentState: hydroState))
-      ];
-    });
     table['_dart_globalToLocal'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
@@ -1452,6 +1483,11 @@ class RTManagedRenderSemanticsGestureHandler
     table['_dart_reassemble'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       super.reassemble();
+      return [];
+    });
+    table['_dart_dispose'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.dispose();
       return [];
     });
     table['_dart_adoptChild'] =
@@ -1717,6 +1753,10 @@ class RTManagedRenderSemanticsGestureHandler
             table: HydroTable())
       ];
     });
+    table['_dart_getDebugDisposed'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.debugDisposed];
+    });
     table['_dart_getDebugDoingThisResize'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.debugDoingThisResize];
@@ -1880,6 +1920,18 @@ class RTManagedRenderSemanticsGestureHandler
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     Closure closure = table["debugFillProperties"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  bool hitTest(BoxHitTestResult result, {required Offset position}) {
+    Closure closure = table["hitTest"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  bool hitTestSelf(Offset position) {
+    Closure closure = table["hitTestSelf"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
@@ -2103,18 +2155,6 @@ class RTManagedRenderSemanticsGestureHandler
   }
 
   @override
-  bool hitTest(BoxHitTestResult result, {required Offset position}) {
-    Closure closure = table["hitTest"];
-    return closure.dispatch([table], parentState: hydroState)[0];
-  }
-
-  @override
-  bool hitTestSelf(Offset position) {
-    Closure closure = table["hitTestSelf"];
-    return closure.dispatch([table], parentState: hydroState)[0];
-  }
-
-  @override
   Offset globalToLocal(Offset point, {RenderObject? ancestor}) {
     Closure closure = table["globalToLocal"];
     return maybeUnBoxAndBuildArgument<Offset, dynamic>(
@@ -2213,6 +2253,13 @@ class RTManagedRenderSemanticsGestureHandler
   @override
   void reassemble() {
     Closure closure = table["reassemble"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    Closure closure = table["dispose"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
@@ -2408,6 +2455,12 @@ class RTManagedRenderSemanticsGestureHandler
   }
 
   @override
+  bool? get debugDisposed {
+    Closure closure = table["getDebugDisposed"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
   bool get debugDoingThisResize {
     Closure closure = table["getDebugDoingThisResize"];
     return closure.dispatch([table], parentState: hydroState)[0];
@@ -2573,6 +2626,11 @@ void loadRenderSemanticsGestureHandler(
       RTManagedRenderSemanticsGestureHandler(
           table: luaCallerArguments[0],
           hydroState: hydroState,
+          behavior: maybeUnBoxEnum(
+              values: HitTestBehavior.values,
+              boxedEnum: luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1]['behavior']
+                  : null),
           child: maybeUnBoxAndBuildArgument<RenderBox?, dynamic>(
               luaCallerArguments.length >= 2
                   ? luaCallerArguments[1]['child']

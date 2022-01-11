@@ -19,11 +19,26 @@ class VMManagedSemanticsData extends VMManagedBox<SemanticsData> {
         ) {
     table['flags'] = vmObject.flags;
     table['actions'] = vmObject.actions;
-    table['label'] = vmObject.label;
-    table['value'] = vmObject.value;
-    table['increasedValue'] = vmObject.increasedValue;
-    table['decreasedValue'] = vmObject.decreasedValue;
-    table['hint'] = vmObject.hint;
+    table['attributedLabel'] = maybeBoxObject<AttributedString>(
+        object: vmObject.attributedLabel,
+        hydroState: hydroState,
+        table: HydroTable());
+    table['attributedValue'] = maybeBoxObject<AttributedString>(
+        object: vmObject.attributedValue,
+        hydroState: hydroState,
+        table: HydroTable());
+    table['attributedIncreasedValue'] = maybeBoxObject<AttributedString>(
+        object: vmObject.attributedIncreasedValue,
+        hydroState: hydroState,
+        table: HydroTable());
+    table['attributedDecreasedValue'] = maybeBoxObject<AttributedString>(
+        object: vmObject.attributedDecreasedValue,
+        hydroState: hydroState,
+        table: HydroTable());
+    table['attributedHint'] = maybeBoxObject<AttributedString>(
+        object: vmObject.attributedHint,
+        hydroState: hydroState,
+        table: HydroTable());
     table['textDirection'] = TextDirection.values.indexWhere((x) {
       return x == vmObject.textDirection;
     });
@@ -53,6 +68,36 @@ class VMManagedSemanticsData extends VMManagedBox<SemanticsData> {
         object: vmObject.customSemanticsActionIds,
         hydroState: hydroState,
         table: HydroTable());
+    table['getLabel'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        vmObject.label,
+      ];
+    });
+    table['getValue'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        vmObject.value,
+      ];
+    });
+    table['getIncreasedValue'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        vmObject.increasedValue,
+      ];
+    });
+    table['getDecreasedValue'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        vmObject.decreasedValue,
+      ];
+    });
+    table['getHint'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [
+        vmObject.hint,
+      ];
+    });
     table['hasFlag'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
@@ -133,13 +178,14 @@ class RTManagedSemanticsData extends SemanticsData
       Set<SemanticsTag>? tags,
       Matrix4? transform,
       required int actions,
+      required AttributedString attributedDecreasedValue,
+      required AttributedString attributedHint,
+      required AttributedString attributedIncreasedValue,
+      required AttributedString attributedLabel,
+      required AttributedString attributedValue,
       int? currentValueLength,
-      required String decreasedValue,
       required double elevation,
       required int flags,
-      required String hint,
-      required String increasedValue,
-      required String label,
       int? maxValueLength,
       int? platformViewId,
       required Rect rect,
@@ -151,7 +197,6 @@ class RTManagedSemanticsData extends SemanticsData
       TextDirection? textDirection,
       TextSelection? textSelection,
       required double thickness,
-      required String value,
       required this.table,
       required this.hydroState})
       : super(
@@ -159,13 +204,14 @@ class RTManagedSemanticsData extends SemanticsData
             tags: tags,
             transform: transform,
             actions: actions,
+            attributedDecreasedValue: attributedDecreasedValue,
+            attributedHint: attributedHint,
+            attributedIncreasedValue: attributedIncreasedValue,
+            attributedLabel: attributedLabel,
+            attributedValue: attributedValue,
             currentValueLength: currentValueLength,
-            decreasedValue: decreasedValue,
             elevation: elevation,
             flags: flags,
-            hint: hint,
-            increasedValue: increasedValue,
-            label: label,
             maxValueLength: maxValueLength,
             platformViewId: platformViewId,
             rect: rect,
@@ -176,19 +222,33 @@ class RTManagedSemanticsData extends SemanticsData
             scrollPosition: scrollPosition,
             textDirection: textDirection,
             textSelection: textSelection,
-            thickness: thickness,
-            value: value) {
+            thickness: thickness) {
     table['vmObject'] = vmObject;
     table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [unwrap()];
     });
     table['flags'] = this.flags;
     table['actions'] = this.actions;
-    table['label'] = this.label;
-    table['value'] = this.value;
-    table['increasedValue'] = this.increasedValue;
-    table['decreasedValue'] = this.decreasedValue;
-    table['hint'] = this.hint;
+    table['attributedLabel'] = maybeBoxObject<AttributedString>(
+        object: this.attributedLabel,
+        hydroState: hydroState,
+        table: HydroTable());
+    table['attributedValue'] = maybeBoxObject<AttributedString>(
+        object: this.attributedValue,
+        hydroState: hydroState,
+        table: HydroTable());
+    table['attributedIncreasedValue'] = maybeBoxObject<AttributedString>(
+        object: this.attributedIncreasedValue,
+        hydroState: hydroState,
+        table: HydroTable());
+    table['attributedDecreasedValue'] = maybeBoxObject<AttributedString>(
+        object: this.attributedDecreasedValue,
+        hydroState: hydroState,
+        table: HydroTable());
+    table['attributedHint'] = maybeBoxObject<AttributedString>(
+        object: this.attributedHint,
+        hydroState: hydroState,
+        table: HydroTable());
     table['textDirection'] = TextDirection.values.indexWhere((x) {
       return x == this.textDirection;
     });
@@ -216,6 +276,26 @@ class RTManagedSemanticsData extends SemanticsData
         object: this.customSemanticsActionIds,
         hydroState: hydroState,
         table: HydroTable());
+    table['_dart_getLabel'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.label];
+    });
+    table['_dart_getValue'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.value];
+    });
+    table['_dart_getIncreasedValue'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.increasedValue];
+    });
+    table['_dart_getDecreasedValue'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.decreasedValue];
+    });
+    table['_dart_getHint'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.hint];
+    });
     table['_dart_hasFlag'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
@@ -284,6 +364,36 @@ class RTManagedSemanticsData extends SemanticsData
 
   SemanticsData unwrap() => this;
   SemanticsData get vmObject => this;
+  @override
+  String get label {
+    Closure closure = table["getLabel"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  String get value {
+    Closure closure = table["getValue"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  String get increasedValue {
+    Closure closure = table["getIncreasedValue"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  String get decreasedValue {
+    Closure closure = table["getDecreasedValue"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  String get hint {
+    Closure closure = table["getHint"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
   @override
   bool hasFlag(SemanticsFlag flag) {
     Closure closure = table["hasFlag"];
@@ -354,16 +464,16 @@ void loadSemanticsData(
                   ? luaCallerArguments[1]['transform']
                   : null,
               parentState: hydroState),
-          actions: luaCallerArguments.length >= 2
-              ? luaCallerArguments[1]['actions']
-              : null,
+          actions:
+              luaCallerArguments.length >= 2 ? luaCallerArguments[1]['actions'] : null,
+          attributedDecreasedValue: maybeUnBoxAndBuildArgument<AttributedString, dynamic>(luaCallerArguments.length >= 2 ? luaCallerArguments[1]['attributedDecreasedValue'] : null, parentState: hydroState),
+          attributedHint: maybeUnBoxAndBuildArgument<AttributedString, dynamic>(luaCallerArguments.length >= 2 ? luaCallerArguments[1]['attributedHint'] : null, parentState: hydroState),
+          attributedIncreasedValue: maybeUnBoxAndBuildArgument<AttributedString, dynamic>(luaCallerArguments.length >= 2 ? luaCallerArguments[1]['attributedIncreasedValue'] : null, parentState: hydroState),
+          attributedLabel: maybeUnBoxAndBuildArgument<AttributedString, dynamic>(luaCallerArguments.length >= 2 ? luaCallerArguments[1]['attributedLabel'] : null, parentState: hydroState),
+          attributedValue: maybeUnBoxAndBuildArgument<AttributedString, dynamic>(luaCallerArguments.length >= 2 ? luaCallerArguments[1]['attributedValue'] : null, parentState: hydroState),
           currentValueLength: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['currentValueLength'] : null,
-          decreasedValue: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['decreasedValue'] : null,
           elevation: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['elevation'] : null?.toDouble(),
           flags: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['flags'] : null,
-          hint: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['hint'] : null,
-          increasedValue: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['increasedValue'] : null,
-          label: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['label'] : null,
           maxValueLength: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['maxValueLength'] : null,
           platformViewId: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['platformViewId'] : null,
           rect: maybeUnBoxAndBuildArgument<Rect, dynamic>(luaCallerArguments.length >= 2 ? luaCallerArguments[1]['rect'] : null, parentState: hydroState),
@@ -374,8 +484,7 @@ void loadSemanticsData(
           scrollPosition: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['scrollPosition'] : null?.toDouble(),
           textDirection: maybeUnBoxEnum(values: TextDirection.values, boxedEnum: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['textDirection'] : null),
           textSelection: maybeUnBoxAndBuildArgument<TextSelection?, dynamic>(luaCallerArguments.length >= 2 ? luaCallerArguments[1]['textSelection'] : null, parentState: hydroState),
-          thickness: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['thickness'] : null?.toDouble(),
-          value: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['value'] : null)
+          thickness: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['thickness'] : null?.toDouble())
     ];
   });
   registerBoxer<SemanticsData>(boxer: (

@@ -11,12 +11,12 @@ import 'package:flutter/src/gestures/hit_test.dart';
 import 'package:flutter/src/gestures/recognizer.dart';
 import 'package:flutter/src/rendering/box.dart';
 import 'package:flutter/src/rendering/layer.dart';
-import 'package:flutter/src/rendering/mouse_cursor.dart';
-import 'package:flutter/src/rendering/mouse_tracking.dart';
 import 'package:flutter/src/rendering/object.dart';
 import 'package:flutter/src/rendering/platform_view.dart';
 import 'package:flutter/src/semantics/semantics.dart';
 import 'package:flutter/src/semantics/semantics_event.dart';
+import 'package:flutter/src/services/mouse_cursor.dart';
+import 'package:flutter/src/services/mouse_tracking.dart';
 import 'package:flutter/src/services/platform_views.dart';
 
 import 'package:vector_math/vector_math_64.dart';
@@ -43,11 +43,11 @@ class VMManagedRenderAndroidView extends VMManagedBox<RenderAndroidView> {
     table['cursor'] = maybeBoxObject<MouseCursor>(
         object: vmObject.cursor, hydroState: hydroState, table: HydroTable());
     table['validForMouseTracker'] = vmObject.validForMouseTracker;
-    table['getViewcontroller'] =
+    table['getViewController'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<AndroidViewController>(
-            object: vmObject.viewcontroller,
+            object: vmObject.viewController,
             hydroState: hydroState,
             table: HydroTable()),
       ];
@@ -124,6 +124,11 @@ class VMManagedRenderAndroidView extends VMManagedBox<RenderAndroidView> {
               parentState: hydroState),
           maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[2],
               parentState: hydroState));
+      return [];
+    });
+    table['dispose'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.dispose();
       return [];
     });
     table['describeSemanticsConfiguration'] =
@@ -718,6 +723,16 @@ class VMManagedRenderAndroidView extends VMManagedBox<RenderAndroidView> {
             table: HydroTable()),
       ];
     });
+    table['getDebugDisposed'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      final returnValue = vmObject.debugDisposed;
+      if (returnValue != null) {
+        return [
+          returnValue,
+        ];
+      }
+      return [];
+    });
     table['getDebugDoingThisResize'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
@@ -885,9 +900,9 @@ class RTManagedRenderAndroidView extends RenderAndroidView
     table['cursor'] = maybeBoxObject<MouseCursor>(
         object: cursor, hydroState: hydroState, table: HydroTable());
     table['validForMouseTracker'] = validForMouseTracker;
-    table['_dart_getViewcontroller'] =
+    table['_dart_getViewController'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [super.viewcontroller];
+      return [super.viewController];
     });
     table['_dart_setViewController'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -952,6 +967,11 @@ class RTManagedRenderAndroidView extends RenderAndroidView
               parentState: hydroState),
           maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[2],
               parentState: hydroState));
+      return [];
+    });
+    table['_dart_dispose'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.dispose();
       return [];
     });
     table['_dart_describeSemanticsConfiguration'] =
@@ -1586,6 +1606,10 @@ class RTManagedRenderAndroidView extends RenderAndroidView
             table: HydroTable())
       ];
     });
+    table['_dart_getDebugDisposed'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.debugDisposed];
+    });
     table['_dart_getDebugDoingThisResize'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.debugDoingThisResize];
@@ -1695,8 +1719,8 @@ class RTManagedRenderAndroidView extends RenderAndroidView
   RenderAndroidView unwrap() => this;
   RenderAndroidView get vmObject => this;
   @override
-  AndroidViewController get viewcontroller {
-    Closure closure = table["getViewcontroller"];
+  AndroidViewController get viewController {
+    Closure closure = table["getViewController"];
     return maybeUnBoxAndBuildArgument<AndroidViewController, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
@@ -1763,6 +1787,13 @@ class RTManagedRenderAndroidView extends RenderAndroidView
   @override
   void paint(PaintingContext context, Offset offset) {
     Closure closure = table["paint"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    Closure closure = table["dispose"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
@@ -2267,6 +2298,12 @@ class RTManagedRenderAndroidView extends RenderAndroidView
     return maybeUnBoxAndBuildArgument<DiagnosticsNode, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
+  }
+
+  @override
+  bool? get debugDisposed {
+    Closure closure = table["getDebugDisposed"];
+    return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
