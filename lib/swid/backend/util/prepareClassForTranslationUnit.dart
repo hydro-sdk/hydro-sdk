@@ -16,6 +16,7 @@ Tuple3<SwidClass, SwidClass, SwidClass> prepareClassForTranslationUnit({
 }) =>
     Tuple3(
       removeNonEmitCandidates(
+        pipeline: pipeline,
         swidClass: pipeline.reduceFromTerm(
           TransformPrimitiveClassTypeNamesToTs(
             swidClass: swidClass,
@@ -23,6 +24,7 @@ Tuple3<SwidClass, SwidClass, SwidClass> prepareClassForTranslationUnit({
         ),
       ),
       removeNonEmitCandidates(
+        pipeline: pipeline,
         swidClass: rewriteClassReferencesToInterfaceReferences(
           swidType: pipeline.reduceFromTerm(
             TransformPrimitiveNamesToTs(
@@ -41,6 +43,7 @@ Tuple3<SwidClass, SwidClass, SwidClass> prepareClassForTranslationUnit({
       pipeline.reduceFromTerm(
         ApplySuperTypes(
           swidClass: removeNonEmitCandidates(
+            pipeline: pipeline,
             swidClass: rewriteClassReferencesToInterfaceReferences(
               swidType: pipeline.reduceFromTerm(
                 TransformPrimitiveNamesToTs(
