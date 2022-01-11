@@ -52,10 +52,16 @@ void main(List<String> args) async {
     negatable: true,
     defaultsTo: true,
   );
+  parser.addOption(
+    "jobs",
+    abbr: "j",
+    defaultsTo: "1",
+  );
 
   final results = parser.parse(args);
 
   final bool? fsCache = results["fs-cache"];
+  final int jobs = int.parse(results["jobs"]);
 
   SwidConfig config = SwidConfig.fromJson(
       jsonDecode(await File(results["config"]).readAsString()));
@@ -223,7 +229,7 @@ void main(List<String> args) async {
   );
 
   final classTranslationUnitEmitSystem = ClassTranslationUnitEmitSystem(
-    parallelism: 4,
+    parallelism: jobs,
     workItems: classes,
     config: config,
   );
