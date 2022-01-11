@@ -339,17 +339,6 @@ class DartRTManagedClassDeclaration
                                                       : false
                                                   : true,
                                             )
-                                            //Exclude methods that return functions
-                                            .where(
-                                              (x) => x.returnType.when(
-                                                fromSwidInterface: (_) => true,
-                                                fromSwidClass: (_) => true,
-                                                fromSwidDefaultFormalParameter:
-                                                    (_) => true,
-                                                fromSwidFunctionType: (_) =>
-                                                    false,
-                                              ),
-                                            )
                                             .map(
                                               (x) => Code(
                                                 pipeline.reduceFromTerm(
