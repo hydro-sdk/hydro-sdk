@@ -1,8 +1,6 @@
 import 'dart:async';
 import 'dart:io';
 
-import 'package:tint/tint.dart';
-
 import 'package:hydro_sdk/tui/framework/component.dart';
 import 'package:hydro_sdk/tui/framework/context.dart';
 import 'package:hydro_sdk/tui/framework/handleSigint.dart';
@@ -78,7 +76,7 @@ class PipelineProgressState {
     required this.hashKey,
     required this.cacheGroup,
     required this.clear,
-    required this.increase,
+    required this.changeCompleted,
     required this.changeHashKey,
     required this.changeCacheGroup,
     required this.done,
@@ -91,7 +89,7 @@ class PipelineProgressState {
 
   void Function() clear;
 
-  void Function(int) increase;
+  void Function(int) changeCompleted;
   void Function(String?) changeHashKey;
   void Function(String?) changeCacheGroup;
 
@@ -130,32 +128,23 @@ class _PipelineProgressState extends State<PipelineProgress> {
   @override
   void render() {
     final line = StringBuffer();
+
     final leftPrompt = component.leftPrompt(
       completed: completed,
       total: total,
       cacheGroup: cacheGroup ?? "",
       hashKey: hashKey ?? "",
     );
+
     final rightPrompt = component.rightPrompt(
       completed: completed,
       total: total,
       cacheGroup: cacheGroup ?? "",
       hashKey: hashKey ?? "",
     );
-    final occupied = component.theme.progressPrefix.strip().length +
-        component.theme.progressSuffix.strip().length +
-        leftPrompt.strip().length +
-        rightPrompt.strip().length;
-    final available = (context.windowWidth * component.size).round() - occupied;
 
     line.write(leftPrompt);
-    line.write(component.theme.progressPrefix);
-    line.write(_progress(
-      component.theme,
-      available,
-      (available / component.length * completed).round(),
-    ));
-    line.write(component.theme.progressSuffix);
+    line.write(" ");
     line.write(rightPrompt);
 
     context.writeln(line.toString());
@@ -168,12 +157,10 @@ class _PipelineProgressState extends State<PipelineProgress> {
       total: total,
       cacheGroup: cacheGroup,
       hashKey: hashKey,
-      increase: (int n) {
-        if (completed < component.length) {
-          setState(() {
-            completed += n;
-          });
-        }
+      changeCompleted: (int n) {
+        setState(() {
+          completed = n;
+        });
       },
       changeHashKey: (String? val) => setState(
         () => hashKey = val,
@@ -202,23 +189,5 @@ class _PipelineProgressState extends State<PipelineProgress> {
     );
 
     return state;
-  }
-
-  String _progress(
-    Theme theme,
-    int length,
-    int filled,
-  ) {
-    final f = theme
-        .filledProgressStyle(''.padRight(filled - 1, theme.filledProgress));
-    final l = filled == 0
-        ? ''
-        : filled == length
-            ? theme.filledProgressStyle(theme.filledProgress)
-            : theme.leadingProgressStyle(theme.leadingProgress);
-    final e = theme
-        .emptyProgressStyle(''.padRight(length - filled, theme.emptyProgress));
-
-    return '$f$l$e';
   }
 }
