@@ -168,12 +168,6 @@ class Driver {
                 force: forcePackageInstall, silent: silent);
           }
 
-          // Skip analysis if no .packages.
-          if (!package.packagesFile.existsSync()) {
-            _print('No .packages in $dir (skipping analysis)');
-            continue;
-          }
-
           var surveyorContext = SurveyorContext(context);
 
           preAnalyze(surveyorContext, subDir: dir != root);
