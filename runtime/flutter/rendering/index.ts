@@ -1,4 +1,3 @@
-export * from "./selectionChangedCause";
 export * from "./wrapCrossAlignment";
 export * from "./wrapAlignment";
 export * from "./scrollDirection";
@@ -9,7 +8,6 @@ export * from "./stackFit";
 export * from "./decorationPosition";
 export * from "./crossAxisAlignment";
 export * from "./overflow";
-export * from "./textOverflow";
 export * from "./renderAnimatedSizeState";
 export * from "./cacheExtentStyle";
 export * from "./hitTestBehavior";
