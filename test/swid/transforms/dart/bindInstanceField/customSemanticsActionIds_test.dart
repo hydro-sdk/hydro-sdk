@@ -49,11 +49,9 @@ void main() {
       ),
     );
 
-    expect(res, 
-    """
+    expect(res, """
 table  [
 \'customSemanticsActionIds\'
-] = maybeBoxObject<List<int>?>(object: customSemanticsActionIds, hydroState: hydroState, table: HydroTable());"""
-    );
+] = maybeBoxObject<List<int>?>(object: customSemanticsActionIds, hydroState: hydroState, table: HydroTable());""");
   }, tags: "swid");
 }
