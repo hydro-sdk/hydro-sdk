@@ -1,0 +1,287 @@
+syntax = "proto3";
+package org.hydro_sdk.swid.ir;
+
+message SwidBooleanLiteralProto {
+    string value = 1;
+}
+
+message StringTupleProto {
+    string item1 = 1;
+    string item2 = 2;
+}
+
+message SwidDeclarationModifiersProto {
+    repeated string ignoredTransforms = 1;
+    repeated string ignoredAnalyses = 2;
+    repeated StringTupleProto overridenTransforms = 3;
+    bool isAbstract = 4;
+    bool isGetter = 5;
+    bool isOperator = 6;
+    bool isSetter = 7;
+    bool isStatic = 8;
+    bool isSynthetic = 9;
+    bool isCovariant = 10;
+    bool isExplicitlyCovariant = 11;
+    bool hasAlwaysThrows = 12;
+    bool hasDeprecated = 13;
+    bool hasFactory = 14;
+    bool hasImplicitReturnType = 15;
+    bool hasIsTest = 16;
+    bool hasIsTestGroup = 17;
+    bool hasJS = 18;
+    bool hasLiteral = 19;
+    bool hasMustCallSuper = 20;
+    bool hasNonVirtual = 21;
+    bool hasOptionalTypeArgs = 22;
+    bool hasOverride = 23;
+    bool hasProtected = 24;
+    bool hasRequired = 25;
+    bool hasSealed = 26;
+    bool hasVisibleForTemplate = 27;
+    bool hasVisibleForTesting = 28;
+    bool isPublic = 29;
+}
+
+message SwidClassProto {
+    string name = 1;
+    SwidNullabilitySuffixProto nullabilitySuffix = 2;
+    string originalPackagePath = 3;
+    optional SwidFunctionTypeProto constructorType = 4;
+    repeated SwidFunctionTypeProto generativeConstructors = 5;
+    repeated SwidFunctionTypeProto factoryConstructors = 6;
+    repeated SwidFunctionTypeProto staticMethods = 7;
+    repeated SwidFunctionTypeProto methods = 8;
+    repeated SwidStaticConstFieldDeclarationProto staticConstFieldDeclarations = 9;
+    map<string, SwidTypeProto> instanceFieldDeclarations = 10;
+    SwidDeclarationModifiersProto declarationModifiers = 11;
+    repeated SwidClassProto mixedInClasses = 12;
+    repeated SwidClassProto implementedClasses = 13;
+    bool isMixin = 14;
+    repeated SwidTypeFormalProto typeFormals = 15;
+    optional SwidTypeProto element = 16;
+    optional SwidClassProto extendedClass = 17;
+}
+
+message SwidDefaultFormalParameterProto {
+    SwidNullabilitySuffixProto nullabilitySuffix = 1;
+    string originalPackagePath = 2;
+    SwidTypeProto staticType = 3;
+    SwidStaticConstProto value = 4;
+    string defaultValueCode = 5;
+    optional SwidTypeProto element = 6;
+}
+
+message SwidDoubleLiteralProto {
+    string value = 1;
+}
+
+message SwidElementProto {
+    oneof value {
+        SwidTypeArgumentElementProto fromSwidTypeArgumentElement = 1;
+    }
+}
+
+message SwidEnumProto {
+    string originalPackagePath = 1;
+    string identifier = 2;
+    repeated string children = 3;
+}
+
+message SwidFunctionTypeProto {
+    string name = 1;
+    SwidNullabilitySuffixProto nullabilitySuffix = 2;
+    string originalPackagePath = 3;
+    map<string, SwidTypeProto> namedParameterTypes = 4;
+    map<string, SwidDefaultFormalParameterProto> namedDefaults = 5;
+    repeated string normalParameterNames = 6;
+    repeated SwidTypeProto normalParameterTypes = 7;
+    repeated string optionalParameterNames = 8;
+    repeated SwidTypeProto optionalParameterTypes = 9;
+    SwidTypeProto returnType = 10;
+    bool isFactory = 11;
+    repeated SwidTypeFormalProto typeFormals = 12;
+    SwidDeclarationModifiersProto declarationModifiers = 13;
+    optional SwidTypeProto element = 14;
+}
+
+message SwidGenericInstantiatorProto {
+    string name = 1;
+    SwidInstantiatedGenericProto instantiatedGeneric = 2;
+}
+
+message SwidInstantiableGenericProto {
+    oneof value {
+        SwidClassProto fromSwidClass = 1;
+        SwidInterfaceProto fromSwidInterface = 2;
+        SwidFunctionTypeProto fromSwidFunctionType = 3;
+    }
+}
+
+message SwidInstantiatedGenericProto {
+    SwidInstantiableGenericProto instantiableGeneric = 3;
+    SwidReferenceDeclarationKindProto referenceDeclarationKind = 4;
+}
+
+message SwidIntegerLiteralProto {
+    string value = 1;
+}
+
+message SwidInterfaceProto {
+    string name = 1;
+    SwidNullabilitySuffixProto nullabilitySuffix = 2;
+    string originalPackagePath = 3;
+    repeated SwidTypeArgumentTypeProto typeArguments = 4;
+    SwidReferenceDeclarationKindProto referenceDeclarationKind = 5; 
+    SwidDeclarationModifiersProto declarationModifiers = 6;
+}
+
+enum SwidNullabilitySuffixProto {
+    question = 0;
+    star = 1;
+    none = 2;
+}
+
+enum SwidOriginatedAncestorTypeFormalKindProto {
+    kClass = 0;
+    kMethod = 1;
+}
+
+message SwidOriginatedAncestorTypeFormalProto {
+    SwidTypeFormalProto swidTypeFormal = 1;
+    SwidOriginatedAncestorTypeFormalKindProto kind = 2;
+}
+
+enum SwidReferenceDeclarationKindProto {
+    classElement = 0;
+    enumElement = 1;
+    voidType = 2;
+    typeParameterType = 3;
+    dynamicType = 4;
+    unknown = 5;
+}
+
+message SwidStaticConstProto {
+    oneof value {
+        SwidBooleanLiteralProto fromSwidBooleanLiteral = 1;
+        SwidStringLiteralProto fromSwidStringLiteral = 2;
+        SwidIntegerLiteralProto fromSwidIntegerLiteral = 3;
+        SwidDoubleLiteralProto fromDoubleLiteral = 4;
+        SwidStaticConstFunctionInvocationProto fromSwidStaticConstFunctionInvocation = 5;
+        SwidStaticConstFieldReferenceProto fromSwidStaticConstFieldReference = 6;
+        SwidStaticConstPrefixedExpressionProto fromSwidStaticConstPrefixedExpression = 7;
+        SwidStaticConstBinaryExpressionProto fromSwidStaticConstBinaryExpression = 8;
+        SwidStaticConstPrefixedIdentifierProto fromSwidStaticConstPrefixedIdentifier = 9;
+        SwidStaticConstIdentifierProto fromSwidStaticConstIdentifier = 10;
+        SwidStaticConstListLiteralProto fromSwidStaticConstListLiteral = 11;
+        SwidStaticConstMapLiteralEntryProto fromSwidStaticConstMapLiteralEntry = 12;
+        SwidStaticConstMapLiteralProto fromSwidStaticConstMapLiteral = 13;
+        SwidStaticConstTopLevelVariableReferenceProto fromSwidStaticConstTopLevelVariableReference = 14;
+    }
+}
+
+message SwidStaticConstBinaryExpressionProto {
+    string operator = 1;
+    SwidStaticConstProto leftOperand = 2;
+    SwidStaticConstProto rightOperand = 3;
+}
+
+message SwidStaticConstFieldDeclarationProto {
+    string name = 1;
+    SwidStaticConstProto value = 2;
+}
+
+message SwidStaticConstFieldReferenceProto {
+    string name = 1;
+}
+
+message SwidStaticConstFunctionInvocationProto {
+    string value = 1;
+    SwidTypeProto staticType = 2;
+    repeated SwidStaticConstProto normalParameters = 3;
+    map<string, SwidStaticConstProto> namedParameters = 4;
+    bool isConstructorInvocation = 5;
+}
+
+message SwidStaticConstIdentifierProto {
+    string identifier = 1;
+    SwidTypeProto enclosingType = 2;
+}
+
+message SwidStaticConstListLiteralProto {
+    repeated SwidStaticConstProto elements = 1;
+    SwidTypeProto staticType = 2;
+}
+
+message SwidStaticConstMapLiteralProto {
+    repeated SwidStaticConstMapLiteralEntryProto elements = 1;
+    SwidTypeProto staticType = 2;
+}
+
+message SwidStaticConstMapLiteralEntryProto {
+    SwidStaticConstProto key = 1;
+    SwidStaticConstProto value = 2;
+}
+
+message SwidStaticConstPrefixedExpressionProto {
+    string prefix = 1;
+    SwidStaticConstProto expression = 2;
+}
+
+message SwidStaticConstPrefixedIdentifierProto {
+    SwidInterfaceProto prefix = 1;
+    SwidStaticConstFieldReferenceProto staticConstFieldReference = 2;
+}
+
+message SwidStaticConstTopLevelVariableReferenceProto {
+    string identifier = 1;
+    SwidTypeProto topLevelReference = 2;
+}
+
+message SwidStringLiteralProto {
+    string value = 1;
+}
+
+message SwidTopLevelStaticConstFieldDeclarationProto {
+    string originalPackagePath = 1;
+    SwidStaticConstFieldDeclarationProto declaration = 2;
+}
+
+message SwidTypeProto {
+    oneof value {
+        SwidInterfaceProto fromSwidInterface = 1;
+        SwidClassProto fromSwidClass = 2;
+        SwidDefaultFormalParameterProto fromSwidDefaultFormalParameter = 3;
+        SwidFunctionTypeProto fromSwidFunctionType = 4;
+    }
+}
+
+message SwidTypeArgumentElementProto {
+    SwidTypeProto bound = 1;
+}
+
+message SwidTypeArgumentTypeProto {
+    SwidTypeProto type = 1;
+    optional SwidElementProto element = 2;
+}
+
+message SwidTypeFormalProto {
+    SwidTypeFormalValueProto value = 1;
+    SwidReferenceDeclarationKindProto swidReferenceDeclarationKind = 2;
+    optional SwidTypeFormalBoundProto swidTypeFormalBound = 3;
+}
+
+message SwidTypeFormalBoundProto {
+    oneof value {
+        SwidInterfaceProto fromSwidInterface = 1;
+        SwidFunctionTypeProto fromSwidFunctionType = 2;
+    }
+}
+
+message SwidTypeFormalValueProto {
+    oneof value {
+        string fromString = 1;
+        SwidClassProto fromSwidClass = 2;
+        SwidInterfaceProto fromSwidInterface = 3;
+        SwidFunctionTypeProto fromSwidFunctionType = 4;
+    }
+}

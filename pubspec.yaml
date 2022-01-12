@@ -33,13 +33,18 @@ dependencies:
   path_provider: null
   quiver: 3.0.1
   theater: 0.1.52
+  protobuf:
 dev_dependencies:
   import_sorter: null
   build_runner: null
   test: ^1.16.5
   waveform: ^0.0.1-nightly.48
+  protoc_plugin: 20.0.0
   flutter_test:
     sdk: flutter
+dependency_overrides:
+  protoc_plugin: 20.0.0
+  dart_style: ^2.0.1
 environment:
   sdk: ">=2.12.0 <3.0.0"
 flutter:

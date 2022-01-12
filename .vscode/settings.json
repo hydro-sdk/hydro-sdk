@@ -10,4 +10,10 @@
         "sdk-tools/**/*.js": true,
         "scripts/**/*.js": true
     }
+    ,
+    "protoc": {
+        "options": [
+            "-I=lib/swid/ir/proto"
+        ]
+    }
 }
