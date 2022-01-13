@@ -13,7 +13,8 @@
     ,
     "protoc": {
         "options": [
-            "-I=lib/swid/ir/proto"
+            "-I=lib/swid/ir/proto",
+            "-I=lib/swid/frontend/swidi/ast/proto"
         ]
     }
 }

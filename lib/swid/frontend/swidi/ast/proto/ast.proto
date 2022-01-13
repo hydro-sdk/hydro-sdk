@@ -1,0 +1,205 @@
+syntax = "proto3";
+package org.hydro_sdk.swid.ir;
+
+message SwidiAnnotationProto {
+    SwidiConstProto value = 1;
+}
+
+message SwidiAnnotationListProto {
+    repeated SwidiAnnotationProto annotationList = 1;
+}
+
+message SwidiClassProto {
+    string name = 1;
+    SwidiLibraryScopePrefixProto libraryScopePrefix = 2;
+    repeated SwidiFunctionDeclarationProto methods = 3;
+    repeated SwidiFunctionDeclarationProto staticMethods = 4;
+    SwidiConstProto shortHandOverride = 5;
+}
+
+message SwidiConstProto {
+    oneof value {
+        SwidiEmptyConstProto fromSwidiEmptyConst = 1;
+        SwidiConstNumberProto fromSwidiConstNumber = 2;
+        SwidiConstStringProto fromSwidiConstString = 3;
+        SwidiConstFunctionInvocationProto fromSwidiConstFunctionInvocation = 4;
+        SwidiConstMapProto fromSwidiConstMap = 5;
+        SwidiConstBooleanProto fromSwidiConstBoolean = 6;
+    }
+}
+
+message SwidiConstBooleanProto {
+    oneof value {
+        SwidiConstBooleanTrueProto fromSwidiConstBooleanTrue = 1;
+        SwidiConstBooleanFalseProto SwidiConstBooleanFalse = 2;
+    }
+}
+
+message SwidiConstBooleanFalseProto {}
+
+message SwidiConstBooleanTrueProto {}
+
+message SwidiConstFunctionInvocationProto {
+    string value = 1;
+    repeated SwidiConstProto positionalParameters = 2;
+    map<string, SwidiConstProto> namedParameters = 3;
+}
+
+message SwidiConstTupleProto {
+    SwidiConstProto item1 = 1;
+    SwidiConstProto item2 = 2;
+}
+
+message SwidiConstMapProto {
+    repeated SwidiConstTupleProto entries = 1;
+}
+
+message SwidiConstNamedParameterProto {
+    string name = 1;
+    SwidiConstProto value = 2;
+}
+
+message SwidiConstNamedParameterListProto {
+    repeated SwidiConstNamedParameterProto parameters = 1;
+}
+
+message SwidiConstNumberProto {
+    string value = 1;
+}
+
+message SwidiConstParameterListProto {
+    repeated SwidiConstProto positionalParameters = 1;
+    repeated SwidiConstNamedParameterProto namedParameters = 2;
+}
+
+message SwidiConstPositionalParameterListProto {
+    repeated SwidiConstProto parameters = 1;
+}
+
+message SwidiConstStringProto {
+    string value = 1;
+}
+
+message SwidiDeclarationProto {
+    string name = 1;
+    SwidiTypeProto type = 2;
+    SwidiConstProto defaultConstValue = 3;
+}
+
+message SwidiEmptyConstProto {}
+
+message SwidiFunctionDeclarationProto {
+    string name = 1;
+    SwidiTypeProto returnType = 2;
+    repeated SwidiFunctionDeclarationPositionalParameterProto positionalParameters = 3;
+    repeated SwidiFunctionDeclarationOptionalParameterProto optionalParameters = 4;
+    repeated SwidiFunctionDeclarationNamedParameterProto namedParameters = 5;
+    repeated SwidiTypeFormalProto typeFormals = 6;
+    SwidiConstProto shortHandOverride = 7;
+}
+
+message SwidiFunctionDeclarationNamedParameterProto {
+    SwidiDeclarationProto declaration = 1;
+}
+
+message SwidiFunctionDeclarationOptionalParameterProto {
+    SwidiDeclarationProto declaration = 1;
+}
+
+message SwidiFunctionDeclarationPositionalOrOptionalOrNamedParameterProto {
+    oneof value {
+        SwidiFunctionDeclarationPositionalParameterProto fromSwidiFunctionDeclarationPositionalParameter = 1;
+        SwidiFunctionDeclarationOptionalParameterProto fromSwidiFunctionDeclarationOptionalParameter = 2;
+        SwidiFunctionDeclarationNamedParameterProto fromSwidiFunctionDeclarationNamedParameter = 3;
+    }
+}
+
+message SwidiFunctionDeclarationPositionalParameterProto {
+    SwidiDeclarationProto declaration = 1;
+}
+
+message SwidiFunctionTypeProto {
+    SwidiTypeProto returnType = 1;
+    repeated SwidiFunctionTypePositionalParameterProto positionalParameters = 2;
+    repeated SwidiFunctionTypeOptionalParameterProto optionalParameters = 3;
+    repeated SwidiFunctionTypeNamedParameterProto namedParameters = 4;
+    SwidiNullabilitySuffixProto nullabilitySuffix = 5;
+    SwidiTypeFormalProto typeFormals = 6;
+    SwidiAnnotationProto annotations = 7;
+}
+
+message SwidiFunctionTypeNamedParameterProto {
+    string name = 1;
+    SwidiTypeProto type = 2;
+}
+
+message SwidiFunctionTypeOptionalParameterProto {
+    SwidiTypeProto type = 1;
+}
+
+message SwidiFunctionTypePositionalOrOptionalOrNamedParameterProto {
+    oneof value {
+        SwidiFunctionTypePositionalParameterProto fromSwidiFunctionTypePositionalParameter = 1;
+        SwidiFunctionTypeOptionalParameterProto fromSwidiFunctionTypeOptionalParameter = 2;
+        SwidiFunctionTypeNamedParameterProto fromSwidiFunctionTypeNamedParameter = 3;
+    }
+}
+
+message SwidiFunctionTypePositionalParameterProto {
+    SwidiTypeProto type = 1;
+}
+
+message SwidiInterfaceProto {
+    string name = 1;
+    SwidiLibraryScopePrefixProto libraryScopePrefix = 2;
+    SwidiReferenceDeclarationPrefixProto referenceDeclarationPrefix = 3;
+    SwidiNullabilitySuffixProto nullabilitySuffix = 4;
+    repeated SwidiInterfaceProto typeArguments = 5;
+    repeated SwidiAnnotationProto annotations = 6;
+}
+
+message SwidiLibraryScopePrefixProto {
+    string name = 1;
+}
+
+enum SwidiNullabilitySuffixProto {
+    question = 0;
+    none = 1;
+}
+
+enum SwidiReferenceDeclarationKindProto {
+    classElement = 0;
+    enumElement = 1;
+    voidType = 2;
+    typeParameterType = 3;
+    dynamicType = 4;
+    unknown = 5;
+}
+
+message SwidiReferenceDeclarationPrefixProto {
+    string name = 1;
+}
+
+message SwidiStaticFunctionDeclarationProto {
+    SwidiFunctionDeclarationProto functionDeclaration = 1;
+}
+
+message SwidiTypeProto {
+    oneof value {
+        SwidiInterfaceProto fromSwidiInterface = 1;
+        SwidiFunctionTypeProto fromSwidiFunctionType = 2;
+    }
+}
+
+message SwidiTypeArgumentListProto {
+    repeated SwidiInterfaceProto typeList = 1;
+}
+
+message SwidiTypeFormalProto {
+    string name = 1;
+    SwidiInterfaceProto bound = 2;
+}
+
+message SwidiTypeFormalListProto {
+    repeated SwidiTypeFormalProto typeFormalList = 1;
+}
