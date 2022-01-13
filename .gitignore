@@ -72,6 +72,12 @@ sdk-tools/lua52/src/lua.dll
 sdk-tools/lua52/src/luac
 sdk-tools/lua52/src/luac.exe
 
+sdk-tools/sqlite3372/*.o
+sdk-tools/sqlite3372/*.a
+sdk-tools/sqlite3372/*.exe
+sdk-tools/sqlite3372/*.dll
+sdk-tools/sqlite3372/*.dylib
+
 #Typedoc 
 !docs/assets/js/main.js
 !docs/assets/js/search.js

@@ -1,0 +1,1 @@
+(cd sdk-tools/sqlite3372 ; make $1)
