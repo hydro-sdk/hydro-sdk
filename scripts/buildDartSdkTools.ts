@@ -16,7 +16,9 @@ program.parse();
     const skipSwid: boolean = program.opts().skipSwid;
 
     fs.readdirSync("bin").forEach((file) => {
-        dartEntryPoints.push(file);
+        if (path.extname(file) == "dart") {
+            dartEntryPoints.push(file);
+        }
     });
 
     const version = JSON.parse(
@@ -29,16 +31,13 @@ program.parse();
         fs.mkdirSync(outputFolder, { recursive: true });
     }
 
-    const dart2NativeCommand =
-        process.platform != "win32" ? "dart2native" : "dart2native.bat";
+    const dart2NativeCommand = "dart";
 
     for (let dartEntryPoint of dartEntryPoints) {
         const startTime = +new Date();
-        const outputPath = `${outputFolder}${path.sep}${
-            path.parse(dartEntryPoint).name
-        }-${process.platform}-${process.arch}${
-            process.platform == "win32" ? ".exe" : ""
-        }`;
+        const outputPath = `${outputFolder}${path.sep}${path.parse(dartEntryPoint).name
+            }-${process.platform}-${process.arch}${process.platform == "win32" ? ".exe" : ""
+            }`;
 
         if (dartEntryPoint == "swid.dart" && skipSwid) {
             console.log(`Building ${outputPath} explicitly skipped`);
@@ -52,7 +51,7 @@ program.parse();
 
         console.log(`Building ${dartEntryPoint} -> ${outputPath}`);
 
-        const dart2Native = cp.spawnSync(dart2NativeCommand, [
+        const dart2Native = cp.spawnSync(dart2NativeCommand, ["compile", "exe",
             `bin${path.sep}${dartEntryPoint}`,
             "-v",
             "-o",
