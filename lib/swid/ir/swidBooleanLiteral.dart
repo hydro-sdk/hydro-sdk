@@ -22,7 +22,7 @@ class SwidBooleanLiteral
     implements
         ICopyable<SwidBooleanLiteral,
             $SwidBooleanLiteralCopyWith<SwidBooleanLiteral>>,
-        IPbTransformable<SwidBooleanLiteralProto, SwidBooleanLiteral> {
+        IPbTransformable<SwidBooleanLiteral> {
   SwidBooleanLiteral._();
 
   factory SwidBooleanLiteral({

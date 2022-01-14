@@ -1,13 +1,9 @@
 import 'dart:typed_data';
-import 'package:protobuf/protobuf.dart';
 
-abstract class IPbTransformable<T extends GeneratedMessage,
-    U extends IPbTransformable<T, U>> {
+abstract class IPbTransformable<T extends Object> {
   const IPbTransformable();
 
-  T createGeneratedMessage();
+  Uint8List toPb();
 
-  Uint8List toPb(final T generatedMessage);
-
-  U fromPb(final Uint8List pb);
+  T fromPb(final Uint8List pb);
 }
