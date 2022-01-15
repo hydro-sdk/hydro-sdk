@@ -57,7 +57,7 @@ class ValidateSwidiType
   ISwarsTermResult<List<SwidiClassValidationState>> analyze({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromList(
+      SwarsTermResult.fromValue(
         swidiType.when(
           fromSwidiInterface: (swidiInterface) => swidiInterface
                   .annotations.isNotEmpty

@@ -49,7 +49,7 @@ class TsFunctionDefaultNamedPropsObjectName
   ISwarsTermResult<String> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromString(
+      SwarsTermResult.fromValue(
         "${transformToCamelCase(
           str: swidFunctionType.name,
         )}DefaultProps",

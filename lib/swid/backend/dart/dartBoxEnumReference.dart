@@ -61,7 +61,7 @@ class DartBoxEnumReference
   ISwarsTermResult<String> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromString(
+      SwarsTermResult.fromValue(
         ((Expression expression) => codeKind == CodeKind.statement
                 ? expression.statement
                 : codeKind == CodeKind.expression

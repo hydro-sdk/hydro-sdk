@@ -64,7 +64,7 @@ class TsInterface
         required final String superClause,
         required final List<SwidTypeFormal> typeFormals,
       }) =>
-          SwarsTermResult.fromString(
+          SwarsTermResult.fromValue(
             swidClass.declarationModifiers.overridenTransforms.firstWhereOrNull(
                       (x) => x.item1 == "tsInterface",
                     ) ==

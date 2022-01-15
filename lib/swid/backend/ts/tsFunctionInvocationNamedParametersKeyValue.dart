@@ -47,7 +47,7 @@ class TsFunctionInvocationNamedParametersKeyValue
   ISwarsTermResult<String> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromString(
+      SwarsTermResult.fromValue(
         namedReferences.entries
             .map((x) => "${x.key}: ${x.value}")
             .toList()

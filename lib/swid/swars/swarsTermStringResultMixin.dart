@@ -10,5 +10,5 @@ mixin SwarsTermStringResultMixin<T extends Object, U extends Object>
   @pragma('vm:prefer-inline')
   @pragma('dart2js:tryInline')
   ISwarsTermResult<String> deserializeTermResult(final String content) =>
-      SwarsTermResult.fromString(content);
+      SwarsTermResult.fromValue(content);
 }

@@ -54,7 +54,7 @@ class TsClassMethodInjectionFieldDeclarations
   ISwarsTermResult<String> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromString(
+      SwarsTermResult.fromValue(
         (swidClass.methods.isNotEmpty)
             ? [
                   ...pipeline

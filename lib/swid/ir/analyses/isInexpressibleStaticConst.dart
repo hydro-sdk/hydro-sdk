@@ -54,7 +54,7 @@ class IsInexpressibleStaticConst
   ISwarsTermResult<bool> analyze({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromBool(
+      SwarsTermResult.fromValue(
         swidStaticConst.when(
           fromSwidBooleanLiteral: (_) => false,
           fromSwidStringLiteral: (_) => false,

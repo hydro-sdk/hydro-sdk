@@ -52,7 +52,7 @@ class TsFunctionDefaultNamedProps
   ISwarsTermResult<String> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromString(
+      SwarsTermResult.fromValue(
         swidFunctionType.namedDefaultParameters.isNotEmpty
             ? "const ${pipeline.reduceFromTerm(
                   TsFunctionDefaultNamedPropsObjectName(

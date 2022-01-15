@@ -53,7 +53,7 @@ class TsTopLevelStaticConstFieldDeclaration
   ISwarsTermResult<String> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromString(
+      SwarsTermResult.fromValue(
         pipeline.reduceFromTerm(
           TransformTopLevelStaticConstFieldDeclaration(
             swidTopLevelStaticConstFieldDeclaration:

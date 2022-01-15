@@ -57,7 +57,7 @@ class InstantiateTypeArgumentsToLowestBoundInClass
   ISwarsTermResult<SwidClass> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromJsonTransformable(
+      SwarsTermResult.fromValue(
         (({
           required final List<SwidOriginatedAncestorTypeFormal>
               mergedTypeFormals,

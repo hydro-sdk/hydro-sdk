@@ -54,7 +54,7 @@ class TransformReturnTypeToTs
   ISwarsTermResult<String> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromString(
+      SwarsTermResult.fromValue(
         " ${trailingReturnTypeKind == TrailingReturnTypeKind.fatArrow ? "=>" : trailingReturnTypeKind == TrailingReturnTypeKind.colon ? ":" : ""} " +
             pipeline.reduceFromTerm(
               TransformTypeDeclarationToTs(

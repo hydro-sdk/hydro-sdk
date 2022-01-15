@@ -66,7 +66,7 @@ class TsFunctionInvocation
   ISwarsTermResult<String> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromString(
+      SwarsTermResult.fromValue(
         "${functionReference}(${pipeline.reduceFromTerm(
           tsFunctionInvocationPositionalParameters,
         )}${pipeline.reduceFromTerm(

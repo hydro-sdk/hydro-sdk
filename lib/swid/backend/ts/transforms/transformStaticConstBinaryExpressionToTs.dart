@@ -64,7 +64,7 @@ class TransformStaticConstBinaryExpressionToTs
   ISwarsTermResult<String> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromString(
+      SwarsTermResult.fromValue(
         pipeline.reduceFromTerm(
               TransformLiteralToTs(
                 swidLiteral: swidStaticConstBinaryExpression.leftOperand,

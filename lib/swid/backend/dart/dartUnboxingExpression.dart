@@ -83,7 +83,7 @@ class DartUnboxingExpression
   ISwarsTermResult<String> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromString(
+      SwarsTermResult.fromValue(
         swidType.when(
           fromSwidInterface: (val) => narrowSwidInterfaceByReferenceDeclaration(
             swidInterface: val,

@@ -57,7 +57,7 @@ class SuitableTypeFormalBound
   ISwarsTermResult<SwidInterface> analyze({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromJsonTransformable(
+      SwarsTermResult.fromValue(
         swidTypeFormals
                 ?.whereIndexed(
                   (i, x) =>

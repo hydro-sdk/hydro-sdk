@@ -60,7 +60,7 @@ class TransformCovariantTypesInFunction
   ISwarsTermResult<SwidFunctionType> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromJsonTransformable(
+      SwarsTermResult.fromValue(
         swidFunctionType.clone(
           namedParameterTypes: Map.fromEntries(
             swidFunctionType.namedParameterTypes.entries.map(

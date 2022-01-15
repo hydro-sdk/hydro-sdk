@@ -62,7 +62,7 @@ class TransformNormalParametersToTs
   ISwarsTermResult<String> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromString(
+      SwarsTermResult.fromValue(
         swidLiterals
             .map(
               (x) => pipeline.reduceFromTerm(

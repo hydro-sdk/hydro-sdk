@@ -94,7 +94,7 @@ class DartStaticMethodNamespaceSymbolDeclaration
   ISwarsTermResult<String> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromString(
+      SwarsTermResult.fromValue(
         swidFunctionType.declarationModifiers.ignoredTransforms
                     .firstWhereOrNull((x) =>
                         x == "dartStaticMethodNamespaceSymbolDeclaration") ==

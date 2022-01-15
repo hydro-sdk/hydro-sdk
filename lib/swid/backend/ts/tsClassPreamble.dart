@@ -47,7 +47,7 @@ class TsClassPreamble
   ISwarsTermResult<String> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromString(
+      SwarsTermResult.fromValue(
         ([
           "export class ${swidClass.name}",
           pipeline.reduceFromTerm(

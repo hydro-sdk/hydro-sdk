@@ -48,7 +48,7 @@ class TransformTypeFormalsToTs
   ISwarsTermResult<String> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromString(
+      SwarsTermResult.fromValue(
         swidTypeFormals.isNotEmpty
             ? ([
                 "<",

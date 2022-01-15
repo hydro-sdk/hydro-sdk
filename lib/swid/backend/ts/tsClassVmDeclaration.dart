@@ -132,7 +132,7 @@ class TsClassVmDeclaration
   ISwarsTermResult<String> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromString(
+      SwarsTermResult.fromValue(
         requiresDartBinding(
                   pipeline: pipeline,
                   swidClass: swidClass,

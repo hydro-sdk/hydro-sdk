@@ -54,7 +54,7 @@ class InstantiateTypeFormalToLowestBound
   ISwarsTermResult<SwidTypeFormal> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromJsonTransformable(
+      SwarsTermResult.fromValue(
         swidTypeFormal.swidTypeFormalBound != null
             ? swidTypeFormal.clone(
                 value: swidTypeFormal.swidTypeFormalBound?.when(

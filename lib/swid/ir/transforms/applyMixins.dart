@@ -48,7 +48,7 @@ class ApplyMixins
   ISwarsTermResult<SwidClass> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromJsonTransformable(
+      SwarsTermResult.fromValue(
         swidClass.mixedInClasses.isNotEmpty
             ? swidClass.mixedInClasses.fold<SwidClass>(
                 swidClass,

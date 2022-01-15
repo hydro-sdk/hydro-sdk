@@ -55,7 +55,7 @@ class TransformPrimitiveClassTypeNamesToTs
   ISwarsTermResult<SwidClass> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromJsonTransformable(
+      SwarsTermResult.fromValue(
         pipeline
             .reduceFromTerm(
               TransformPrimitiveNamesToTs(

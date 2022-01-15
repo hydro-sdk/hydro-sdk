@@ -45,7 +45,7 @@ class TsEnum
   ISwarsTermResult<String> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromString(
+      SwarsTermResult.fromValue(
         pipeline.reduceFromTerm(
           TransformEnumToTs(
             swidEnum: swidEnum,

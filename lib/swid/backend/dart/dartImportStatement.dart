@@ -44,7 +44,7 @@ class DartImportStatement
   ISwarsTermResult<String> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromString(
+      SwarsTermResult.fromValue(
         [
           "import ",
           "'",

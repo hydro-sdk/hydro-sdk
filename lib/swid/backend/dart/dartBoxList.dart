@@ -135,7 +135,7 @@ class DartBoxList
   ISwarsTermResult<String> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromString(
+      SwarsTermResult.fromValue(
         narrowSwidInterfaceByReferenceDeclaration(
           swidInterface: type.typeArguments.first.type.when(
             fromSwidInterface: (val) => val,

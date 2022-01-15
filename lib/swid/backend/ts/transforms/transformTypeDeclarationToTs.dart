@@ -111,7 +111,7 @@ class TransformTypeDeclarationToTs
   ISwarsTermResult<String> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromString(
+      SwarsTermResult.fromValue(
         ((String transformedType) =>
             transformedType +
             (swidType.nullabilitySuffix == SwidNullabilitySuffix.question

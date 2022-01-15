@@ -42,7 +42,7 @@ class TransformTypeFormalToTs
   ISwarsTermResult<String> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromString(
+      SwarsTermResult.fromValue(
         swidTypeFormal.value.name,
       );
 }

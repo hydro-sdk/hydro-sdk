@@ -119,7 +119,7 @@ class TransformStaticConstFunctionInvocation
       res = inexpressibleFunctionInvocationFallback + "()";
     }
 
-    return SwarsTermResult.fromString(
+    return SwarsTermResult.fromValue(
       res,
     );
   }

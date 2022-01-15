@@ -62,7 +62,7 @@ class InstantiateGeneric
   ISwarsTermResult<SwidType> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromJsonTransformable(
+      SwarsTermResult.fromValue(
         swidType.when(
           fromSwidInterface: (val) => narrowSwidInterfaceByReferenceDeclaration(
             swidInterface: val,

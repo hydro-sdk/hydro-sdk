@@ -59,7 +59,7 @@ class TransformNamedParametersToTs
   ISwarsTermResult<String> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromString(
+      SwarsTermResult.fromValue(
         namedParameters != null && namedParameters!.keys.isNotEmpty
             ? "{ " +
                 namedParameters!.keys

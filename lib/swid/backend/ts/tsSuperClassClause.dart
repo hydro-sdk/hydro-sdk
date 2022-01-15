@@ -56,7 +56,7 @@ class TsSuperClassClause
   ISwarsTermResult<String> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromString(
+      SwarsTermResult.fromValue(
         [
           ...((({
             required final List<SwidClass> superInterfaces,

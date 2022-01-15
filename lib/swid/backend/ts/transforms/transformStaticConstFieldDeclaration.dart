@@ -59,7 +59,7 @@ class TransformStaticConstFieldDeclaration
   ISwarsTermResult<String> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromString(
+      SwarsTermResult.fromValue(
         [
           "public",
           " ",

@@ -53,7 +53,7 @@ class HasInheritedMustCallSuperAnnotation
   ISwarsTermResult<bool> analyze({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromBool(
+      SwarsTermResult.fromValue(
         swidClass.methods.firstWhereOrNull(
                   (x) =>
                       x.name == swidFunctionType.name &&

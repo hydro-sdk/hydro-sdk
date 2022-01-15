@@ -50,7 +50,7 @@ class ApplySuperTypes
   ISwarsTermResult<SwidClass> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromJsonTransformable(
+      SwarsTermResult.fromValue(
         pipeline.reduceFromTerm(
           ApplyInterfaces(
             swidClass: pipeline.reduceFromTerm(

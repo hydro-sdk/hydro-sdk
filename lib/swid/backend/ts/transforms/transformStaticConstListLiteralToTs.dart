@@ -65,7 +65,7 @@ class TransformStaticConstListLiteralToTs
   ISwarsTermResult<String> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromString(
+      SwarsTermResult.fromValue(
         [
           "List.fromArray",
           ...(staticConstListLiteral.elements.isEmpty

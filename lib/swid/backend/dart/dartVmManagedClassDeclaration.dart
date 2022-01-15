@@ -71,7 +71,7 @@ class DartVMManagedClassDeclaration
   ISwarsTermResult<String> transform({
     required ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromString(
+      SwarsTermResult.fromValue(
         DartFormatter().format(
           Class(
             (c) => c

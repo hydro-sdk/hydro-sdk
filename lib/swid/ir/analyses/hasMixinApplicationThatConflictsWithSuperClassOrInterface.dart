@@ -52,7 +52,7 @@ class HasMixinApplicationThatConflictsWithSuperClassOrInterface
   ISwarsTermResult<bool> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromBool(
+      SwarsTermResult.fromValue(
         swidClass.implementedClasses.firstWhereOrNull(
                   (x) => swidClass.mixedInClasses
                       .map(

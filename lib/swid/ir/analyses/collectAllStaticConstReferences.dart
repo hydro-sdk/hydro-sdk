@@ -53,7 +53,7 @@ class CollectAllStaticConstReferences
   ISwarsTermResult<List<SwidInterface>> analyze({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromList(
+      SwarsTermResult.fromValue(
         ([
           ...swidType.when<List<SwidInterface>>(
             fromSwidInterface: (_) => [

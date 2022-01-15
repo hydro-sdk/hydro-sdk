@@ -46,7 +46,7 @@ class TransformStringLiteralToTs
   ISwarsTermResult<String> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromString(
+      SwarsTermResult.fromValue(
         "\"${swidStringLiteral.value}\"",
       );
 }

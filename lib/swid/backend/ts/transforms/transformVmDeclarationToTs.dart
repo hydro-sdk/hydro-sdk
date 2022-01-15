@@ -48,7 +48,7 @@ class TransformVmDeclarationToTs
   ISwarsTermResult<String> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromString(
+      SwarsTermResult.fromValue(
         "declare const " +
             _transformVmDeclarationToTs(
               tsVmDeclaration: tsVmDeclaration,

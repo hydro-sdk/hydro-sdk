@@ -51,7 +51,7 @@ class DartVMManagedClassBoxerRegistrant
   ISwarsTermResult<String> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromString(
+      SwarsTermResult.fromValue(
         refer("registerBoxer")
             .call(
               [],

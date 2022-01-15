@@ -58,7 +58,7 @@ class ValidateShortHandOverride
   ISwarsTermResult<List<SwidiClassValidationState>> analyze({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromList(
+      SwarsTermResult.fromValue(
         swidiConst.when(
           fromSwidiEmptyConst: (_) => [
             const SwidiClassValidationState.valid(),

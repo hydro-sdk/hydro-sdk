@@ -10,7 +10,7 @@ mixin SwarsTermBoolResultMixin<T extends Object, U extends Object>
   @pragma('vm:prefer-inline')
   @pragma('dart2js:tryInline')
   ISwarsTermResult<bool> deserializeTermResult(final String content) =>
-      SwarsTermResult.fromBool(
+      SwarsTermResult.fromValue(
         content.trim() == "true" ? true : false,
       );
 }

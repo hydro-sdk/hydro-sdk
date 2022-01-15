@@ -48,7 +48,7 @@ class ApplyInterfaces
   ISwarsTermResult<SwidClass> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromJsonTransformable(
+      SwarsTermResult.fromValue(
         swidClass.implementedClasses.isNotEmpty
             ? swidClass.implementedClasses.fold<SwidClass>(
                 swidClass,

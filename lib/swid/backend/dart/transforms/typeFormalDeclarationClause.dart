@@ -48,7 +48,7 @@ class TypeFormalDeclarationClause
   ISwarsTermResult<String> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromString(
+      SwarsTermResult.fromValue(
         swidTypeFormal.swidTypeFormalBound != null
             ? [
                 removeTypeArguments(

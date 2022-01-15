@@ -23,6 +23,6 @@ mixin SwarsTermJsonTransformableResultMixin<T extends Object, U extends Object,
   @pragma('vm:prefer-inline')
   @pragma('dart2js:tryInline')
   ISwarsTermResult<V> deserializeTermResult(final String content) =>
-      SwarsTermResult.fromJsonTransformable(
+      SwarsTermResult.fromValue(
           termResultDeserializer(json.decode(content)));
 }

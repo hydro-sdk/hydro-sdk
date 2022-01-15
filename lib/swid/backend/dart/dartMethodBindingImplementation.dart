@@ -192,7 +192,7 @@ class DartMethodBindingImplementation
   ISwarsTermResult<String> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromString(
+      SwarsTermResult.fromValue(
         swidFunctionType.returnType.when<String?>(
               fromSwidInterface: (val) =>
                   narrowSwidInterfaceByReferenceDeclaration<String>(

@@ -54,7 +54,7 @@ class DartUnpackClosures
   ISwarsTermResult<String> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromString(
+      SwarsTermResult.fromValue(
         ([
           ...([
             ...swidFunctionType.normalParameterNames

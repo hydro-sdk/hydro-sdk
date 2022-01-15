@@ -85,7 +85,7 @@ class DartFunctionSelfBindingInvocation
   ISwarsTermResult<String> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromString(
+      SwarsTermResult.fromValue(
         ((
           Expression expression,
         ) =>

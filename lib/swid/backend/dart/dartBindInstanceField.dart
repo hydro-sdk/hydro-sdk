@@ -64,7 +64,7 @@ class DartBindInstanceField
   ISwarsTermResult<String> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromString(
+      SwarsTermResult.fromValue(
         instanceField.when(
           fromSwidInterface: (val) => narrowSwidInterfaceByReferenceDeclaration(
             swidInterface: val,

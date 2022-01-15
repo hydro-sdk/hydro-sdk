@@ -185,7 +185,7 @@ mixin _SwarsTermResultFromListPbTransformable<T extends IPbTransformable>
 class _FromString {
   const _FromString();
 
-  _SwarsTermResult<String> fromString(final String string) =>
+  _SwarsTermResult<String> fromValue(final String string) =>
       _SwarsTermStringResultImpl(string);
 }
 
@@ -197,7 +197,7 @@ extension SwarsTermBoolStringExtension<T extends Object, U extends Object>
 class _FromBool {
   const _FromBool();
 
-  _SwarsTermResult<bool> fromBool(final bool boolean) =>
+  _SwarsTermResult<bool> fromValue(final bool boolean) =>
       _SwarsTermBooleanResultImpl(boolean);
 }
 
@@ -209,7 +209,7 @@ extension SwarsTermBoolExtension<T extends Object, U extends Object>
 class _FromJsonTransformable {
   const _FromJsonTransformable();
 
-  _SwarsTermResult<U> fromJsonTransformable<U extends IJsonTransformable>(
+  _SwarsTermResult<U> fromValue<U extends IJsonTransformable>(
           final U iJsonTransformable) =>
       _SwarsTermJsonTransformableResultImpl(iJsonTransformable);
 }
@@ -222,7 +222,7 @@ extension SwarsTermJsonTransformableExtension<T extends Object,
 class _FromListJsonTransformable {
   const _FromListJsonTransformable();
 
-  _SwarsTermResult<List<U>> fromList<U extends IJsonTransformable>(
+  _SwarsTermResult<List<U>> fromValue<U extends IJsonTransformable>(
           final List<U> list) =>
       _SwarsTermResultFromListJsonTransformableImpl(list);
 }
@@ -238,7 +238,7 @@ extension SwarsTermListJsonTransformableExtension<
 class _FromPbTransformable {
   const _FromPbTransformable();
 
-  _SwarsTermResult<U> fromPbTransformable<U extends IPbTransformable>(
+  _SwarsTermResult<U> fromValue<U extends IPbTransformable>(
           final U iPbTransformable) =>
       _SwarsTermPbTransformableResultImpl(iPbTransformable);
 }
@@ -251,7 +251,7 @@ extension SwarsTermPbTransformableExtension<T extends Object, U extends Object,
 class _FromListPbTransformable {
   const _FromListPbTransformable();
 
-  _SwarsTermResult<List<U>> fromList<U extends IPbTransformable>(
+  _SwarsTermResult<List<U>> fromValue<U extends IPbTransformable>(
           final List<U> list) =>
       _SwarsTermResultFromListPbTransformableImpl(list);
 }

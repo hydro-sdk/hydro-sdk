@@ -46,7 +46,7 @@ class TransformBooleanLiteralToTs
   ISwarsTermResult<String> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromString(
+      SwarsTermResult.fromValue(
         swidBooleanLiteral.value,
       );
 }

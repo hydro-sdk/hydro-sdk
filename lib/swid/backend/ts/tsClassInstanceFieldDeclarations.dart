@@ -49,7 +49,7 @@ class TsClassInstanceFieldDeclarations
   ISwarsTermResult<String> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromString(
+      SwarsTermResult.fromValue(
         (swidClass.instanceFieldDeclarations.isNotEmpty)
             ? [
                   ...swidClass.instanceFieldDeclarations.entries

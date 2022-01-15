@@ -57,7 +57,7 @@ class DartVMManagedClassMethodInjectionImplementation
   ISwarsTermResult<String> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromString(
+      SwarsTermResult.fromValue(
         DartFormatter().formatStatement(
           refer("table")
               .index(literalString(tableKey))

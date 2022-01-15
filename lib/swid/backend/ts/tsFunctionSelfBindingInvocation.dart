@@ -57,7 +57,7 @@ class TsFunctionSelfBindingInvocation
   ISwarsTermResult<String> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromString(
+      SwarsTermResult.fromValue(
         pipeline.reduceFromTerm(
           TsFunctionInvocation(
             functionReference: functionReference,

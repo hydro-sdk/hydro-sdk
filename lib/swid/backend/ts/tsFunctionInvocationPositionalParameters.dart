@@ -46,7 +46,7 @@ class TsFunctionInvocationPositionalParameters
   ISwarsTermResult<String> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromString(
+      SwarsTermResult.fromValue(
         positionalReferences.isNotEmpty
             ? positionalReferences.map((x) => x).join(", ")
             : "",

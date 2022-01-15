@@ -68,7 +68,7 @@ class TransformLiteralToTs
   ISwarsTermResult<String> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromString(
+      SwarsTermResult.fromValue(
         swidLiteral.when(
           fromSwidIntegerLiteral: (val) => pipeline.reduceFromTerm(
             TransformIntegerLiteralToTs(

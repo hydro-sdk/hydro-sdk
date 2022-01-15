@@ -52,7 +52,7 @@ class MergeClassDeclarations
   ISwarsTermResult<SwidClass> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromJsonTransformable(
+      SwarsTermResult.fromValue(
         superClass != null
             ? SwidClass.clone(
                 swidClass: swidClass,

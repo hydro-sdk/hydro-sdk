@@ -54,7 +54,7 @@ class TransformPrimitiveFunctionTypeNamesToTs
   ISwarsTermResult<SwidFunctionType> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromJsonTransformable(
+      SwarsTermResult.fromValue(
         SwidFunctionType.clone(
           swidFunctionType: swidFunctionType,
           normalParameterTypes: List.from(

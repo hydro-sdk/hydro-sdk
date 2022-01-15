@@ -60,7 +60,7 @@ class InstantiateTypeArgumentsToLowestBoundInDefaultFormalParameter
   ISwarsTermResult<SwidDefaultFormalParameter> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromJsonTransformable(
+      SwarsTermResult.fromValue(
         swidDefaultFormalParameter.clone(
           staticType: pipeline.reduceFromTerm(
             InstantiateTypeArgumentsToLowestBound(

@@ -46,7 +46,7 @@ class TsFunctionInvocationNamedParametersSpread
   ISwarsTermResult<String> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromString(
+      SwarsTermResult.fromValue(
         references.map((x) => "...${x}").toList().join(",\n"),
       );
 }

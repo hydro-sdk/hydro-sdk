@@ -47,7 +47,7 @@ class MapPrimitiveSwidTypeNameToPrimitiveTsTypeName
   ISwarsTermResult<String> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromString(
+      SwarsTermResult.fromValue(
         str == "String" || str == "String*" || str == "String?"
             ? "string"
             : str == "bool" || str == "bool*" || str == "bool?"

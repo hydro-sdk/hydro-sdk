@@ -59,7 +59,7 @@ class InstantiateTypeArgumentsToLowestBoundInInterface
   ISwarsTermResult<SwidInterface> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromJsonTransformable(
+      SwarsTermResult.fromValue(
         (({
           required final SwidInterface withInnerTransformedTypeArguments,
         }) =>

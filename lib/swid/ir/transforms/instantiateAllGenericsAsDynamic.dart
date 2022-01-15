@@ -61,7 +61,7 @@ class InstantiateAllGenericsAsDynamic
   ISwarsTermResult<SwidType> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromJsonTransformable(
+      SwarsTermResult.fromValue(
         pipeline.reduceFromTerm(
           InstantiateAllGenericsAs(
             swidType: swidType,

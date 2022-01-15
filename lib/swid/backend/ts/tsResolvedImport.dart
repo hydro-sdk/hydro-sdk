@@ -48,7 +48,7 @@ class TsResolvedImport
   ISwarsTermResult<String> transform({
     required ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromString(
+      SwarsTermResult.fromValue(
         [
           "import { ",
           symbols.join(","),

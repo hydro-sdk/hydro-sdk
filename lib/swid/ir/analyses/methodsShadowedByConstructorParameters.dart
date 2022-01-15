@@ -53,7 +53,7 @@ class MethodsShadowedByConstructorParameters
   ISwarsTermResult<List<SwidFunctionType>> analyze({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromList(
+      SwarsTermResult.fromValue(
         swidClass.constructorType != null
             ? swidClass.methods
                 .where(

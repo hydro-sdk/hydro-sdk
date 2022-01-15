@@ -59,7 +59,7 @@ class NormalConstructorParametersShadowingClassFields
   ISwarsTermResult<ConstructorParameterShadowingResult> analyze({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromJsonTransformable(ConstructorParameterShadowingResult(
+      SwarsTermResult.fromValue(ConstructorParameterShadowingResult(
           results: swidClass.constructorType != null
               ? [
                   ...swidClass.constructorType!.normalParameterNames,

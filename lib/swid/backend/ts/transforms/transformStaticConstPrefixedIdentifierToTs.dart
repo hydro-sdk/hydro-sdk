@@ -65,7 +65,7 @@ class TransformStaticConstPrefixedIdentifierToTs
   ISwarsTermResult<String> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromString(
+      SwarsTermResult.fromValue(
         [
           staticConstPrefixedIdentifier.prefix.name,
           ".",

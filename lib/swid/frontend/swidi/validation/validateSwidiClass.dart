@@ -79,7 +79,7 @@ class ValidateSwidiClass
   ISwarsTermResult<SwidiClassValidationState> analyze({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromJsonTransformable(
+      SwarsTermResult.fromValue(
         (({
           required final List<SwidiClassValidationState> aggregateValidations,
         }) =>

@@ -57,7 +57,7 @@ class RewriteShadowingNormalConstructorParameters
         required final ConstructorParameterShadowingResult
             constructorParameterShadowingResult,
       }) =>
-              SwarsTermResult.fromJsonTransformable(
+              SwarsTermResult.fromValue(
                   swidClass.constructorType != null
                       ? swidClass.clone(
                           constructorType: swidClass.constructorType!.clone(

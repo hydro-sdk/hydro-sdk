@@ -64,7 +64,7 @@ class TransformStaticConstPrefixedExpressionToTs
   ISwarsTermResult<String> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromString(
+      SwarsTermResult.fromValue(
         swidStaticConstPrefixedExpression.prefix +
             pipeline.reduceFromTerm(
               TransformLiteralToTs(

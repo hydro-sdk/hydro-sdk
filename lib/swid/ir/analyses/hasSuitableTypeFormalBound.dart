@@ -54,7 +54,7 @@ class HasSuitableTypeFormalBound
   ISwarsTermResult<bool> analyze({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromBool(
+      SwarsTermResult.fromValue(
         pipeline.reduceFromTerm(
               SuitableTypeFormalBound(
                 candidateInterface: candidateInterface,

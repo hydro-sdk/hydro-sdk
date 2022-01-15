@@ -67,7 +67,7 @@ class CollectAllReferences
   ISwarsTermResult<List<SwidInterface>> analyze({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromList(
+      SwarsTermResult.fromValue(
         ([
           ...(swidType.isAnalysisIgnored(
             analisysName: "referenceCollection",

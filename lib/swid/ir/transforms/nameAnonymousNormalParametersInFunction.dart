@@ -50,7 +50,7 @@ class NameAnonymousNormalParametersInFunction
   ISwarsTermResult<SwidFunctionType> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromJsonTransformable(
+      SwarsTermResult.fromValue(
         swidFunctionType.normalParameterNames.where((x) => x.isEmpty).isEmpty
             ? swidFunctionType.clone()
             : swidFunctionType.clone(

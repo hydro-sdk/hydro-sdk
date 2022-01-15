@@ -57,7 +57,7 @@ class ThisPrefixMethodsShadowedByConstructorParameters
       (({
         required final List<SwidFunctionType> shadowedMethods,
       }) =>
-          SwarsTermResult.fromJsonTransformable(
+          SwarsTermResult.fromValue(
             swidClass.clone(
               methods: swidClass.methods
                   .map(

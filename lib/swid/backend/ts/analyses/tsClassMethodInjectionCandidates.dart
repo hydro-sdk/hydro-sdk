@@ -55,7 +55,7 @@ class TsClassMethodInjectionCandidates
   ISwarsTermResult<List<SwidFunctionType>> analyze({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromList(
+      SwarsTermResult.fromValue(
         swidFunctionTypes
             .map(
               (x) => pipeline.reduceFromTerm(

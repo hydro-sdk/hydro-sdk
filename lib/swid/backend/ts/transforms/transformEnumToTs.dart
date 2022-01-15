@@ -46,7 +46,7 @@ class TransformEnumToTs
     required final ISwarsPipeline pipeline,
   }) {
     List<String> children = swidEnum.children.map((x) => "    ${x},").toList();
-    return SwarsTermResult.fromString(
+    return SwarsTermResult.fromValue(
       ["export enum ${swidEnum.identifier} {", ...children, "}", "\n"]
           .join("\n"),
     );

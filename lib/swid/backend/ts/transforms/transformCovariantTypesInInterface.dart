@@ -59,7 +59,7 @@ class TransformCovariantTypesInInterface
   ISwarsTermResult<SwidInterface> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromJsonTransformable(
+      SwarsTermResult.fromValue(
         covarianceTransformKind == CovarianceTransformKind.kIgnore
             ? swidInterface
             : (swidInterface.declarationModifiers.isCovariant ||

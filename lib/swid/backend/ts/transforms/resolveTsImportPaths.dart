@@ -55,7 +55,7 @@ class ResolveTsImportPaths
   ISwarsTermResult<String> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromString(
+      SwarsTermResult.fromValue(
         path.relative(
           prefixPaths.join(path.separator) +
               path.separator +

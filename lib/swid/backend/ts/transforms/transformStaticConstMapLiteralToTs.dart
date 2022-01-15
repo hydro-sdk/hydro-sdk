@@ -66,7 +66,7 @@ class TransformStaticConstMapLiteralToTs
   ISwarsTermResult<String> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromString(
+      SwarsTermResult.fromValue(
         [
           " Map.fromEntries(",
           "<IIterable<IMapEntry",

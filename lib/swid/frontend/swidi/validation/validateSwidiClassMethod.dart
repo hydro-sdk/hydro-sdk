@@ -58,7 +58,7 @@ class ValidateSwidiClassMethod
   ISwarsTermResult<List<SwidiClassValidationState>> analyze({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromList(
+      SwarsTermResult.fromValue(
         [
           ...pipeline.reduceFromTerm(
             ValidateSwidiType(

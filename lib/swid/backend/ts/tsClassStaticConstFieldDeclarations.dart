@@ -63,6 +63,6 @@ class TsClassStaticConstFieldDeclarations
           );
       res += "\n";
     });
-    return SwarsTermResult.fromString(res);
+    return SwarsTermResult.fromValue(res);
   }
 }

@@ -75,7 +75,7 @@ class DartLoadNamespaceSymbolDeclaration
   ISwarsTermResult<String> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromString(
+      SwarsTermResult.fromValue(
         DartFormatter().format(
           Method(
             (m) => m

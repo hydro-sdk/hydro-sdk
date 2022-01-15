@@ -304,7 +304,7 @@ class TransformFunctionTypeToTs
           ),
         );
       }
-      return SwarsTermResult.fromString(
+      return SwarsTermResult.fromValue(
         res,
       );
     })(

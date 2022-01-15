@@ -92,7 +92,7 @@ class InstanceFieldDeclarationsShadowedByConstructorParameters
   ISwarsTermResult<List<ShadowedInstanceFieldResult>> analyze({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromList(
+      SwarsTermResult.fromValue(
         swidClass.constructorType != null
             ? swidClass.instanceFieldDeclarations.entries
                 .where(

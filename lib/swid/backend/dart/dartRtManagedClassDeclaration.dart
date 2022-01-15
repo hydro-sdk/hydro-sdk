@@ -91,7 +91,7 @@ class DartRTManagedClassDeclaration
   ISwarsTermResult<String> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromString(
+      SwarsTermResult.fromValue(
         DartFormatter().format(
           Class(
             (x) => x

@@ -60,7 +60,7 @@ class TsClassConstructorImplementation
   ISwarsTermResult<String> transform({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromString(
+      SwarsTermResult.fromValue(
         swidClass.constructorType != null
             ? "public constructor" +
                 pipeline.reduceFromTerm(
