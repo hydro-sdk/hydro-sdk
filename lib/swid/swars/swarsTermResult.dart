@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:meta/meta.dart';
 
+import 'package:hydro_sdk/swid/swars/iSwarsTerm.dart';
 import 'package:hydro_sdk/swid/util/iJsonTransformable.dart';
 
 abstract class ISwarsTermResult<T extends Object> {
@@ -116,28 +117,67 @@ mixin _SwarsTermResultFromListJsonTransformable<T extends IJsonTransformable>
   List<T> unwrap() => list;
 }
 
-abstract class SwarsTermResult<T extends Object>
-    implements ISwarsTermResult<T> {
-  const SwarsTermResult._();
+class _FromString {
+  const _FromString();
 
-  static SwarsTermResult<bool> fromBool(final bool boolean) =>
-      _SwarsTermBooleanResultImpl(boolean);
-
-  static SwarsTermResult<String> fromString(final String string) =>
+  _SwarsTermResult<String> fromString(final String string) =>
       _SwarsTermStringResultImpl(string);
+}
 
-  static SwarsTermResult<U> fromJsonTransformable<U extends IJsonTransformable>(
+extension SwarsTermBoolStringExtension<T extends Object, U extends Object>
+    on ISwarsTerm<T, U, String> {
+  _FromString get SwarsTermResult => const _FromString();
+}
+
+class _FromBool {
+  const _FromBool();
+
+  _SwarsTermResult<bool> fromBool(final bool boolean) =>
+      _SwarsTermBooleanResultImpl(boolean);
+}
+
+extension SwarsTermBoolExtension<T extends Object, U extends Object>
+    on ISwarsTerm<T, U, bool> {
+  _FromBool get SwarsTermResult => const _FromBool();
+}
+
+class _FromJsonTransformable {
+  const _FromJsonTransformable();
+
+  _SwarsTermResult<U> fromJsonTransformable<U extends IJsonTransformable>(
           final U iJsonTransformable) =>
       _SwarsTermJsonTransformableResultImpl(iJsonTransformable);
+}
 
-  static SwarsTermResult<List<U>> fromList<U extends IJsonTransformable>(
+extension SwarsTermJsonTransformableExtension<T extends Object,
+    U extends Object, V extends IJsonTransformable> on ISwarsTerm<T, U, V> {
+  _FromJsonTransformable get SwarsTermResult => const _FromJsonTransformable();
+}
+
+class _FromListJsonTransformable {
+  const _FromListJsonTransformable();
+
+  _SwarsTermResult<List<U>> fromList<U extends IJsonTransformable>(
           final List<U> list) =>
       _SwarsTermResultFromListJsonTransformableImpl(list);
 }
 
+extension SwarsTermListJsonTransformableExtension<
+    T extends Object,
+    U extends Object,
+    V extends IJsonTransformable> on ISwarsTerm<T, U, List<V>> {
+  _FromListJsonTransformable get SwarsTermResult =>
+      const _FromListJsonTransformable();
+}
+
+abstract class _SwarsTermResult<T extends Object>
+    implements ISwarsTermResult<T> {
+  const _SwarsTermResult._();
+}
+
 class _SwarsTermStringResultImpl
     with _SwarsTermStringResult
-    implements SwarsTermResult<String> {
+    implements _SwarsTermResult<String> {
   final String _string;
 
   const _SwarsTermStringResultImpl(final this._string);
@@ -148,7 +188,7 @@ class _SwarsTermStringResultImpl
 
 class _SwarsTermBooleanResultImpl
     with _SwarsTermBooleanResult
-    implements SwarsTermResult<bool> {
+    implements _SwarsTermResult<bool> {
   final bool _boolean;
 
   const _SwarsTermBooleanResultImpl(final this._boolean);
@@ -159,7 +199,7 @@ class _SwarsTermBooleanResultImpl
 
 class _SwarsTermJsonTransformableResultImpl<T extends IJsonTransformable>
     with _SwarsTermJsonTransformableResult<T>
-    implements SwarsTermResult<T> {
+    implements _SwarsTermResult<T> {
   final T _jsonTransformable;
 
   const _SwarsTermJsonTransformableResultImpl(final this._jsonTransformable);
@@ -171,7 +211,7 @@ class _SwarsTermJsonTransformableResultImpl<T extends IJsonTransformable>
 class _SwarsTermResultFromListJsonTransformableImpl<
         T extends IJsonTransformable>
     with _SwarsTermResultFromListJsonTransformable<T>
-    implements SwarsTermResult<List<T>> {
+    implements _SwarsTermResult<List<T>> {
   final List<T> _list;
 
   const _SwarsTermResultFromListJsonTransformableImpl(final this._list);
