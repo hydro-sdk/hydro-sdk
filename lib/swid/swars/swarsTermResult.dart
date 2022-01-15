@@ -1,5 +1,7 @@
 import 'dart:convert';
+import 'dart:typed_data';
 
+import 'package:hydro_sdk/swid/util/iPbTransformable.dart';
 import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/swars/iSwarsTerm.dart';
@@ -93,6 +95,39 @@ mixin _SwarsTermJsonTransformableResult<T extends IJsonTransformable>
       jsonTransformable.fromJson(json) as T;
 }
 
+abstract class _ISwarsTermResultFromPbTransformable<
+    T extends IPbTransformable> {
+  const _ISwarsTermResultFromPbTransformable();
+
+  T get pbTransformable;
+}
+
+mixin _SwarsTermPbTransformableResult<T extends IPbTransformable>
+    implements
+        _ISwarsTermResultFromPbTransformable<T>,
+        ISwarsTermResult<T>,
+        IPbTransformable<T> {
+  @override
+  @nonVirtual
+  @pragma('vm:prefer-inline')
+  @pragma('dart2js:tryInline')
+  String serialize() => base64.encode(this.toPb());
+
+  @override
+  @nonVirtual
+  @pragma('vm:prefer-inline')
+  @pragma('dart2js:tryInline')
+  T unwrap() => pbTransformable;
+
+  @override
+  @nonVirtual
+  Uint8List toPb() => pbTransformable.toPb();
+
+  @override
+  @nonVirtual
+  T fromPb(final Uint8List pb) => pbTransformable.fromPb(pb) as T;
+}
+
 abstract class _ISwarsTermResultFromListJsonTransformable<
     T extends IJsonTransformable> {
   const _ISwarsTermResultFromListJsonTransformable();
@@ -109,6 +144,36 @@ mixin _SwarsTermResultFromListJsonTransformable<T extends IJsonTransformable>
   @pragma('vm:prefer-inline')
   @pragma('dart2js:tryInline')
   String serialize() => json.encode(list);
+
+  @override
+  @nonVirtual
+  @pragma('vm:prefer-inline')
+  @pragma('dart2js:tryInline')
+  List<T> unwrap() => list;
+}
+
+abstract class _ISwarsTermResultFromListPbTransformable<
+    T extends IPbTransformable> {
+  const _ISwarsTermResultFromListPbTransformable();
+
+  List<T> get list;
+}
+
+mixin _SwarsTermResultFromListPbTransformable<T extends IPbTransformable>
+    implements
+        _ISwarsTermResultFromListPbTransformable<T>,
+        ISwarsTermResult<List<T>> {
+  @override
+  @nonVirtual
+  @pragma('vm:prefer-inline')
+  @pragma('dart2js:tryInline')
+  String serialize() => json.encode(
+        list.map(
+          (x) => base64.encode(
+            x.toPb(),
+          ),
+        ),
+      );
 
   @override
   @nonVirtual
@@ -170,6 +235,33 @@ extension SwarsTermListJsonTransformableExtension<
       const _FromListJsonTransformable();
 }
 
+class _FromPbTransformable {
+  const _FromPbTransformable();
+
+  _SwarsTermResult<U> fromPbTransformable<U extends IPbTransformable>(
+          final U iPbTransformable) =>
+      _SwarsTermPbTransformableResultImpl(iPbTransformable);
+}
+
+extension SwarsTermPbTransformableExtension<T extends Object, U extends Object,
+    V extends IPbTransformable> on ISwarsTerm<T, U, V> {
+  _FromPbTransformable get SwarsTermResult => const _FromPbTransformable();
+}
+
+class _FromListPbTransformable {
+  const _FromListPbTransformable();
+
+  _SwarsTermResult<List<U>> fromList<U extends IPbTransformable>(
+          final List<U> list) =>
+      _SwarsTermResultFromListPbTransformableImpl(list);
+}
+
+extension SwarsTermListPbTransformableExtension<T extends Object,
+    U extends Object, V extends IPbTransformable> on ISwarsTerm<T, U, List<V>> {
+  _FromListPbTransformable get SwarsTermResult =>
+      const _FromListPbTransformable();
+}
+
 abstract class _SwarsTermResult<T extends Object>
     implements ISwarsTermResult<T> {
   const _SwarsTermResult._();
@@ -215,6 +307,28 @@ class _SwarsTermResultFromListJsonTransformableImpl<
   final List<T> _list;
 
   const _SwarsTermResultFromListJsonTransformableImpl(final this._list);
+
+  @override
+  List<T> get list => _list;
+}
+
+class _SwarsTermPbTransformableResultImpl<T extends IPbTransformable>
+    with _SwarsTermPbTransformableResult<T>
+    implements _SwarsTermResult<T> {
+  final T _pbTransformable;
+
+  const _SwarsTermPbTransformableResultImpl(final this._pbTransformable);
+
+  @override
+  T get pbTransformable => _pbTransformable;
+}
+
+class _SwarsTermResultFromListPbTransformableImpl<T extends IPbTransformable>
+    with _SwarsTermResultFromListPbTransformable<T>
+    implements _SwarsTermResult<List<T>> {
+  final List<T> _list;
+
+  const _SwarsTermResultFromListPbTransformableImpl(final this._list);
 
   @override
   List<T> get list => _list;
