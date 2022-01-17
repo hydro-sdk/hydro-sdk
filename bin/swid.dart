@@ -1,10 +1,13 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:ffi';
 import 'dart:io';
 
 import 'package:args/args.dart';
 import 'package:cli_util/cli_logging.dart';
 import 'package:collection/collection.dart';
+import 'package:sqlite3/sqlite3.dart';
+import 'package:sqlite3/open.dart';
 
 import 'package:hydro_sdk/swid/backend/dart/util/produceDartTranslationUnitsFromBarrelSpec.dart';
 import 'package:hydro_sdk/swid/backend/translationUnitProducer.dart';
@@ -44,24 +47,40 @@ void main(List<String> args) async {
     print("Using debug console bindings. Some TUI features may not work");
   }
 
-  var parser = ArgParser();
+  final parser = ArgParser();
 
   parser.addOption("config");
+
   parser.addFlag(
     "fs-cache",
     negatable: true,
     defaultsTo: true,
   );
+
   parser.addOption(
     "jobs",
     abbr: "j",
     defaultsTo: "1",
   );
 
+  parser.addOption(
+    "sqlite-path",
+    mandatory: true,
+  );
+
   final results = parser.parse(args);
 
   final bool? fsCache = results["fs-cache"];
   final int jobs = int.parse(results["jobs"]);
+  final String sqlitePath = results["sqlite-path"];
+
+  final openOnLinx = () => DynamicLibrary.open(sqlitePath);
+  final openOnDarwin = () => DynamicLibrary.open(sqlitePath);
+  final openOnWin32 = () => DynamicLibrary.open(sqlitePath);
+
+  open.overrideFor(OperatingSystem.linux, openOnLinx);
+  open.overrideFor(OperatingSystem.macOS, openOnDarwin);
+  open.overrideFor(OperatingSystem.windows, openOnWin32);
 
   SwidConfig config = SwidConfig.fromJson(
       jsonDecode(await File(results["config"]).readAsString()));
