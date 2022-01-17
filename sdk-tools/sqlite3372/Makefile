@@ -14,12 +14,12 @@ all: %.o
 
 macosx: 
 	$(CC) -O3 -Wall -c sqlite3.c
-	$(CC) -dynamiclib -undefined suppress -flat_namespace sqlite3.o -o libsqlite3.dylib
+	$(CC) -dynamiclib -undefined suppress -flat_namespace sqlite3.o -o libsqlite3372.dylib
 
 mingw:
 	$(CC) -O3 -Wall -c sqlite3.c
-	$(CC) -o sqlite3.dll -s -shared sqlite3.o
+	$(CC) -o sqlite3372.dll -s -shared sqlite3372.o
 
 linux:
 	$(CC) -O3 -Wall -c -fPIC sqlite3.c
-	$(CC) sqlite3.o -shared -o libsqlite3.so
+	$(CC) sqlite3372.o -shared -o libsqlite3372.so

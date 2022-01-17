@@ -13,7 +13,8 @@ import * as path from "path";
         fs.mkdirSync(outputFolder, { recursive: true });
     }
 
-    const outputPath = `${outputFolder}${path.sep}${"sqlite3372"}-${process.platform
+    const outputPath = `${outputFolder}${path.sep}${process.platform == "darwin" || process.platform == "linux" ? "lib" : ""
+        }${"sqlite3372"}-${process.platform
         }-${process.arch}${process.platform == "darwin" ? ".dylib" :
             process.platform == "win32" ? ".dll" : process.platform == "linux" ? ".so" : ""
         }`;
@@ -45,7 +46,8 @@ import * as path from "path";
     }
 
     fs.copyFileSync(
-        `sdk-tools/lua52/src/luac${process.platform == "darwin" ? ".dylib" :
+        `sdk-tools/sqlite3372/${process.platform == "darwin" || process.platform == "linux" ? "lib" : ""
+        }sqlite3372${process.platform == "darwin" ? ".dylib" :
             process.platform == "win32" ? ".dll" : process.platform == "linux" ? ".so" : ""}`,
         outputPath
     );
