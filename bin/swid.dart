@@ -6,7 +6,9 @@ import 'dart:io';
 import 'package:args/args.dart';
 import 'package:cli_util/cli_logging.dart';
 import 'package:collection/collection.dart';
-import 'package:sqlite3/sqlite3.dart';
+import 'package:drift/native.dart';
+import 'package:hydro_sdk/swid/storage/termResultsStore.dart';
+import 'package:hydro_sdk/swid/swars/pipelineNoopCacheMgr.dart';
 import 'package:sqlite3/open.dart';
 
 import 'package:hydro_sdk/swid/backend/dart/util/produceDartTranslationUnitsFromBarrelSpec.dart';
@@ -21,7 +23,6 @@ import 'package:hydro_sdk/swid/frontend/swidi/swidiFrontend.dart';
 import 'package:hydro_sdk/swid/frontend/swidiInputResolver.dart';
 import 'package:hydro_sdk/swid/ir/swidIr.dart';
 import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
-import 'package:hydro_sdk/swid/swars/pipelineFsCacheMgr.dart';
 import 'package:hydro_sdk/swid/transforms/transformPackageUri.dart';
 import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';
 import 'package:hydro_sdk/swid/util/cliTiming.dart';
@@ -70,7 +71,6 @@ void main(List<String> args) async {
 
   final results = parser.parse(args);
 
-  final bool? fsCache = results["fs-cache"];
   final int jobs = int.parse(results["jobs"]);
   final String sqlitePath = results["sqlite-path"];
 
@@ -86,9 +86,7 @@ void main(List<String> args) async {
       jsonDecode(await File(results["config"]).readAsString()));
 
   final pipeline = CachingPipeline(
-    cacheMgr: PipelineFsCacheMgr(
-      basePath: ".swid",
-    ),
+    cacheMgr: const PipelineNoopCacheMgr(),
   );
 
   final logger = Logger.standard();
@@ -102,14 +100,6 @@ void main(List<String> args) async {
     inputResolver: const SwidiInputResolver(),
     pipeline: pipeline,
   );
-
-  if (fsCache == true) {
-    await CliTiming(
-      logger: logger,
-      message: "Restoring pipeline cache",
-      fun: () async => await pipeline.deserializeResults(),
-    );
-  }
 
   final swidIr = await CliTiming(
     logger: logger,
@@ -251,11 +241,12 @@ void main(List<String> args) async {
     parallelism: jobs,
     workItems: classes,
     config: config,
+    termResultStore: TermResultsStore.queryExecutor(
+      NativeDatabase(
+        File(".swid/results.db"),
+      ),
+    ),
   );
 
   await classTranslationUnitEmitSystem.run();
-
-  if (fsCache == true) {
-    await pipeline.serialize();
-  }
 }
