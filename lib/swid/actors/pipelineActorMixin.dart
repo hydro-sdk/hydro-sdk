@@ -1,4 +1,3 @@
-import 'package:hydro_sdk/swid/actors/pipelineActorCacheMgr.dart';
 import 'package:meta/meta.dart';
 import 'package:theater/theater.dart';
 import 'package:tuple/tuple.dart';
@@ -7,6 +6,7 @@ import 'package:hydro_sdk/swid/actors/iPipelineActor.dart';
 import 'package:hydro_sdk/swid/actors/messages/actorCompleteMessageOut.dart';
 import 'package:hydro_sdk/swid/actors/messages/actorTopicMessageOut.dart';
 import 'package:hydro_sdk/swid/actors/messages/pipelineActorProgressMessageOut.dart';
+import 'package:hydro_sdk/swid/actors/pipelineActorCacheMgr.dart';
 import 'package:hydro_sdk/swid/pipelines/cachingActorPipeline.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/pipelineNoopCacheMgr.dart';

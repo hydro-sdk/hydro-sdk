@@ -57,31 +57,30 @@ class RewriteShadowingNormalConstructorParameters
         required final ConstructorParameterShadowingResult
             constructorParameterShadowingResult,
       }) =>
-              SwarsTermResult.fromValue(
-                  swidClass.constructorType != null
-                      ? swidClass.clone(
-                          constructorType: swidClass.constructorType!.clone(
-                            normalParameterNames: swidClass
-                                .constructorType!.normalParameterNames
-                                .map((x) => constructorParameterShadowingResult
-                                            .results
-                                            .firstWhereOrNull((k) => k == x) !=
-                                        null
-                                    ? "${x}\$"
-                                    : x)
-                                .toList(),
-                            optionalParameterNames: swidClass
-                                .constructorType!.optionalParameterNames
-                                .map((x) => constructorParameterShadowingResult
-                                            .results
-                                            .firstWhereOrNull((k) => k == x) !=
-                                        null
-                                    ? "${x}\$"
-                                    : x)
-                                .toList(),
-                          ),
-                        )
-                      : swidClass))(
+              SwarsTermResult.fromValue(swidClass.constructorType != null
+                  ? swidClass.clone(
+                      constructorType: swidClass.constructorType!.clone(
+                        normalParameterNames: swidClass
+                            .constructorType!.normalParameterNames
+                            .map((x) => constructorParameterShadowingResult
+                                        .results
+                                        .firstWhereOrNull((k) => k == x) !=
+                                    null
+                                ? "${x}\$"
+                                : x)
+                            .toList(),
+                        optionalParameterNames: swidClass
+                            .constructorType!.optionalParameterNames
+                            .map((x) => constructorParameterShadowingResult
+                                        .results
+                                        .firstWhereOrNull((k) => k == x) !=
+                                    null
+                                ? "${x}\$"
+                                : x)
+                            .toList(),
+                      ),
+                    )
+                  : swidClass))(
           constructorParameterShadowingResult: pipeline.reduceFromTerm(
         NormalConstructorParametersShadowingClassFields(
           swidClass: swidClass,

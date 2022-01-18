@@ -1,0 +1,4 @@
+enum SwarsTermResultPersistenceKind {
+  kEphemeral,
+  kDurable,
+}

@@ -1,4 +1,3 @@
-import 'package:hydro_sdk/swid/storage/iTermResultsStore.dart';
 import 'package:theater/theater.dart';
 
 import 'package:hydro_sdk/swid/actors/classTranslationUnitEmitActor.dart';
@@ -6,6 +5,7 @@ import 'package:hydro_sdk/swid/config/swidConfig.dart';
 import 'package:hydro_sdk/swid/emitSystems/emiSystemMixin.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/pipelines/cachingActorPipeline.dart';
+import 'package:hydro_sdk/swid/storage/iTermResultsStore.dart';
 
 class ClassTranslationUnitEmitSystem
     with

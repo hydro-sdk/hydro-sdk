@@ -1,7 +1,8 @@
 import 'package:drift/drift.dart';
 import 'package:drift/native.dart';
-import 'package:hydro_sdk/swid/storage/iTermResultsStore.dart';
 import 'package:tuple/tuple.dart';
+
+import 'package:hydro_sdk/swid/storage/iTermResultsStore.dart';
 
 part 'termResultsStore.g.dart';
 

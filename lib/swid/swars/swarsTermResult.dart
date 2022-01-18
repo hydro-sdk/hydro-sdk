@@ -1,11 +1,11 @@
 import 'dart:convert';
 import 'dart:typed_data';
 
-import 'package:hydro_sdk/swid/util/iPbTransformable.dart';
 import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/swars/iSwarsTerm.dart';
 import 'package:hydro_sdk/swid/util/iJsonTransformable.dart';
+import 'package:hydro_sdk/swid/util/iPbTransformable.dart';
 
 abstract class ISwarsTermResult<T extends Object> {
   const ISwarsTermResult();
