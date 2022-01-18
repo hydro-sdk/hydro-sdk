@@ -1,3 +1,4 @@
+import 'package:hydro_sdk/swid/actors/pipelineActorCacheMgr.dart';
 import 'package:meta/meta.dart';
 import 'package:theater/theater.dart';
 import 'package:tuple/tuple.dart';
@@ -22,8 +23,18 @@ mixin PipelineActorMixin<T extends Object, U extends UntypedActorProperties,
   @override
   Future<void> onStart(V context) async {
     pipeline = CachingActorPipeline(
-      cacheMgr: const PipelineNoopCacheMgr(),
-      topicContext: Tuple3(messageOutTopic, context, name),
+      cacheMgr: PipelineActorCacheMgr(
+        topicContext: Tuple3(
+          messageOutTopic,
+          context,
+          name,
+        ),
+      ),
+      topicContext: Tuple3(
+        messageOutTopic,
+        context,
+        name,
+      ),
     ) as L;
 
     super.onStart(context);

@@ -1,3 +1,4 @@
+import 'package:hydro_sdk/swid/actors/pipelineActorCacheMgr.dart';
 import 'package:meta/meta.dart';
 import 'package:theater/theater.dart';
 import 'package:tuple/tuple.dart';
@@ -22,7 +23,7 @@ class CachingActorPipeline<T extends Object, U extends UntypedActorProperties,
 
   @nonVirtual
   @protected
-  final ISwarsPipelineCacheMgr cacheMgr;
+  final PipelineActorCacheMgr cacheMgr;
 
   @nonVirtual
   @protected
@@ -41,7 +42,7 @@ class CachingActorPipeline<T extends Object, U extends UntypedActorProperties,
   Map<String, Map<String, int>> cacheHits = {};
 
   CachingActorPipeline({
-    required final ISwarsPipelineCacheMgr this.cacheMgr,
+    required final PipelineActorCacheMgr this.cacheMgr,
     required final Tuple3<String, V, String> this.topicContext,
   });
 
@@ -52,7 +53,7 @@ class CachingActorPipeline<T extends Object, U extends UntypedActorProperties,
         this.results,
     required final Map<String, Map<String, dynamic>> this.rawResults,
     required final Map<String, Map<String, int>> this.cacheHits,
-    required final ISwarsPipelineCacheMgr this.cacheMgr,
+    required final PipelineActorCacheMgr this.cacheMgr,
   });
 
   @override

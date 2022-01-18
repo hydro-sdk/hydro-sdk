@@ -207,7 +207,7 @@ class $TermResultsTable extends TermResults
   }
 
   @override
-  Set<GeneratedColumn> get $primaryKey => <GeneratedColumn>{};
+  Set<GeneratedColumn> get $primaryKey => {cacheGroup, hashKey};
   @override
   TermResult map(Map<String, dynamic> data, {String? tablePrefix}) {
     return TermResult.fromData(data,
@@ -220,8 +220,8 @@ class $TermResultsTable extends TermResults
   }
 }
 
-abstract class _$TermResultsDatabase extends GeneratedDatabase {
-  _$TermResultsDatabase(QueryExecutor e)
+abstract class _$_TermResultsDatabase extends GeneratedDatabase {
+  _$_TermResultsDatabase(QueryExecutor e)
       : super(SqlTypeSystem.defaultInstance, e);
   late final $TermResultsTable termResults = $TermResultsTable(this);
   @override

@@ -1,3 +1,4 @@
+import 'package:hydro_sdk/swid/storage/iTermResultsStore.dart';
 import 'package:theater/theater.dart';
 
 import 'package:hydro_sdk/swid/actors/classTranslationUnitEmitActor.dart';
@@ -25,10 +26,14 @@ class ClassTranslationUnitEmitSystem
   @override
   final List<SwidClass> workItems;
 
+  @override
+  final ITermResultStore termResultStore;
+
   ClassTranslationUnitEmitSystem({
     required final this.parallelism,
     required final this.config,
     required final this.workItems,
+    required final this.termResultStore,
   });
 
   @override

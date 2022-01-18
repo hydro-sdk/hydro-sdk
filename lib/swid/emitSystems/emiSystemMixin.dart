@@ -160,27 +160,31 @@ mixin EmitSystemMixin<
         milliseconds: parallelism * 100 < 1000 ? 1000 : parallelism * 100,
       ),
       (_) => scheduleMicrotask(
-        () {
-          pipelineMessageBuffers.entries.forEach(
-            (x) {
-              final state = pipelineProgressStates[x.key];
+        () => pipelineMessageBuffers.entries.forEach(
+          (x) {
+            final state = pipelineProgressStates[x.key];
 
-              state!.changeCompleted(x.value.completed);
-              state.changeCacheGroup(x.value.cacheGroup);
-              state.changeHashKey(x.value.hashKey);
+            state!.changeCompleted(x.value.completed);
+            state.changeCacheGroup(x.value.cacheGroup);
+            state.changeHashKey(x.value.hashKey);
 
-              if (runningActors <= 0 && !completer.isCompleted) {
-                completer.complete();
-              }
-            },
-          );
-        },
+            if (runningActors <= 0 && !completer.isCompleted) {
+              completer.complete();
+            }
+          },
+        ),
       ),
     );
 
     actorSystem.listenTopic<ActorTopicMessageOut>("gossipTopic",
         (message) async {
       message.when(
+        fromPipelineActorCacheMgrPersistentTermResult: (val) =>
+            termResultStore.upsertSingle(
+          hashKey: val.hashKey,
+          cacheGroup: val.cacheGroup,
+          result: val.result,
+        ),
         fromPipelineOnNonEmptyCacheGroupMessageOut: (val) {
           final buffer = pipelineMessageBuffers[val.sender];
 

@@ -109,27 +109,6 @@ mixin CachingPipelineMixin<T extends Object>
       results.containsKey(cacheGroup) &&
       results[cacheGroup]!.containsKey(hashKey);
 
-  Future<void> serialize() async => await Future.wait(
-        results.entries
-            .map(
-              (x) => cacheMgr.serializeTermResultsByCacheGroup(
-                cacheGroup: x.key,
-                termResults: x.value.entries
-                    .map(
-                      (x) => Tuple2(x.key, x.value),
-                    )
-                    .toList(),
-              ),
-            )
-            .toList(),
-      );
-
-  Future<Map<String, Map<String, dynamic>>> deserializeResults() async {
-    rawResults = await cacheMgr.deserializeResults();
-
-    return rawResults;
-  }
-
   @pragma('vm:prefer-inline')
   @pragma('dart2js:tryInline')
   void _moveRawCacheGroup({

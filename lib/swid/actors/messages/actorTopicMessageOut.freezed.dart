@@ -59,6 +59,16 @@ class _$ActorTopicMessageOutTearOff {
       pipelineActorProgressMessageOut: pipelineActorProgressMessageOut,
     );
   }
+
+  _$ActorTopicMessageOutFromPipelineActorCacheMgrPersistentTermResult
+      fromPipelineActorCacheMgrPersistentTermResult(
+          {required PipelineActorCacheMgrPersistentTermResult
+              pipelineActorCacheMgrPersistentTermResult}) {
+    return _$ActorTopicMessageOutFromPipelineActorCacheMgrPersistentTermResult(
+      pipelineActorCacheMgrPersistentTermResult:
+          pipelineActorCacheMgrPersistentTermResult,
+    );
+  }
 }
 
 /// @nodoc
@@ -83,6 +93,10 @@ mixin _$ActorTopicMessageOut {
     required TResult Function(
             PipelineActorProgressMessageOut pipelineActorProgressMessageOut)
         fromPipelineActorProgressMessageOut,
+    required TResult Function(
+            PipelineActorCacheMgrPersistentTermResult
+                pipelineActorCacheMgrPersistentTermResult)
+        fromPipelineActorCacheMgrPersistentTermResult,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -101,6 +115,10 @@ mixin _$ActorTopicMessageOut {
     TResult Function(
             PipelineActorProgressMessageOut pipelineActorProgressMessageOut)?
         fromPipelineActorProgressMessageOut,
+    TResult Function(
+            PipelineActorCacheMgrPersistentTermResult
+                pipelineActorCacheMgrPersistentTermResult)?
+        fromPipelineActorCacheMgrPersistentTermResult,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -122,6 +140,10 @@ mixin _$ActorTopicMessageOut {
     required TResult Function(
             _$ActorTopicMessageOutFromPipelineActorProgressMessageOut value)
         fromPipelineActorProgressMessageOut,
+    required TResult Function(
+            _$ActorTopicMessageOutFromPipelineActorCacheMgrPersistentTermResult
+                value)
+        fromPipelineActorCacheMgrPersistentTermResult,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -141,6 +163,10 @@ mixin _$ActorTopicMessageOut {
     TResult Function(
             _$ActorTopicMessageOutFromPipelineActorProgressMessageOut value)?
         fromPipelineActorProgressMessageOut,
+    TResult Function(
+            _$ActorTopicMessageOutFromPipelineActorCacheMgrPersistentTermResult
+                value)?
+        fromPipelineActorCacheMgrPersistentTermResult,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -288,6 +314,10 @@ class _$_$ActorTopicMessageOutFromPipelineOnNonEmptyCacheGroupMessageOut
     required TResult Function(
             PipelineActorProgressMessageOut pipelineActorProgressMessageOut)
         fromPipelineActorProgressMessageOut,
+    required TResult Function(
+            PipelineActorCacheMgrPersistentTermResult
+                pipelineActorCacheMgrPersistentTermResult)
+        fromPipelineActorCacheMgrPersistentTermResult,
   }) {
     return fromPipelineOnNonEmptyCacheGroupMessageOut(
         pipelineOnNonEmptyCacheGroupMessageOut);
@@ -310,6 +340,10 @@ class _$_$ActorTopicMessageOutFromPipelineOnNonEmptyCacheGroupMessageOut
     TResult Function(
             PipelineActorProgressMessageOut pipelineActorProgressMessageOut)?
         fromPipelineActorProgressMessageOut,
+    TResult Function(
+            PipelineActorCacheMgrPersistentTermResult
+                pipelineActorCacheMgrPersistentTermResult)?
+        fromPipelineActorCacheMgrPersistentTermResult,
     required TResult orElse(),
   }) {
     if (fromPipelineOnNonEmptyCacheGroupMessageOut != null) {
@@ -338,6 +372,10 @@ class _$_$ActorTopicMessageOutFromPipelineOnNonEmptyCacheGroupMessageOut
     required TResult Function(
             _$ActorTopicMessageOutFromPipelineActorProgressMessageOut value)
         fromPipelineActorProgressMessageOut,
+    required TResult Function(
+            _$ActorTopicMessageOutFromPipelineActorCacheMgrPersistentTermResult
+                value)
+        fromPipelineActorCacheMgrPersistentTermResult,
   }) {
     return fromPipelineOnNonEmptyCacheGroupMessageOut(this);
   }
@@ -360,6 +398,10 @@ class _$_$ActorTopicMessageOutFromPipelineOnNonEmptyCacheGroupMessageOut
     TResult Function(
             _$ActorTopicMessageOutFromPipelineActorProgressMessageOut value)?
         fromPipelineActorProgressMessageOut,
+    TResult Function(
+            _$ActorTopicMessageOutFromPipelineActorCacheMgrPersistentTermResult
+                value)?
+        fromPipelineActorCacheMgrPersistentTermResult,
     required TResult orElse(),
   }) {
     if (fromPipelineOnNonEmptyCacheGroupMessageOut != null) {
@@ -499,6 +541,10 @@ class _$_$ActorTopicMessageOutFromPipelineOnCacheHitMessageOut
     required TResult Function(
             PipelineActorProgressMessageOut pipelineActorProgressMessageOut)
         fromPipelineActorProgressMessageOut,
+    required TResult Function(
+            PipelineActorCacheMgrPersistentTermResult
+                pipelineActorCacheMgrPersistentTermResult)
+        fromPipelineActorCacheMgrPersistentTermResult,
   }) {
     return fromPipelineOnCacheHitMessageOut(pipelineOnCacheHitMessageOut);
   }
@@ -520,6 +566,10 @@ class _$_$ActorTopicMessageOutFromPipelineOnCacheHitMessageOut
     TResult Function(
             PipelineActorProgressMessageOut pipelineActorProgressMessageOut)?
         fromPipelineActorProgressMessageOut,
+    TResult Function(
+            PipelineActorCacheMgrPersistentTermResult
+                pipelineActorCacheMgrPersistentTermResult)?
+        fromPipelineActorCacheMgrPersistentTermResult,
     required TResult orElse(),
   }) {
     if (fromPipelineOnCacheHitMessageOut != null) {
@@ -547,6 +597,10 @@ class _$_$ActorTopicMessageOutFromPipelineOnCacheHitMessageOut
     required TResult Function(
             _$ActorTopicMessageOutFromPipelineActorProgressMessageOut value)
         fromPipelineActorProgressMessageOut,
+    required TResult Function(
+            _$ActorTopicMessageOutFromPipelineActorCacheMgrPersistentTermResult
+                value)
+        fromPipelineActorCacheMgrPersistentTermResult,
   }) {
     return fromPipelineOnCacheHitMessageOut(this);
   }
@@ -569,6 +623,10 @@ class _$_$ActorTopicMessageOutFromPipelineOnCacheHitMessageOut
     TResult Function(
             _$ActorTopicMessageOutFromPipelineActorProgressMessageOut value)?
         fromPipelineActorProgressMessageOut,
+    TResult Function(
+            _$ActorTopicMessageOutFromPipelineActorCacheMgrPersistentTermResult
+                value)?
+        fromPipelineActorCacheMgrPersistentTermResult,
     required TResult orElse(),
   }) {
     if (fromPipelineOnCacheHitMessageOut != null) {
@@ -708,6 +766,10 @@ class _$_$ActorTopicMessageOutFromPipelineOnCacheMissMessageOut
     required TResult Function(
             PipelineActorProgressMessageOut pipelineActorProgressMessageOut)
         fromPipelineActorProgressMessageOut,
+    required TResult Function(
+            PipelineActorCacheMgrPersistentTermResult
+                pipelineActorCacheMgrPersistentTermResult)
+        fromPipelineActorCacheMgrPersistentTermResult,
   }) {
     return fromPipelineOnCacheMissMessageOut(pipelineOnCacheMissMessageOut);
   }
@@ -729,6 +791,10 @@ class _$_$ActorTopicMessageOutFromPipelineOnCacheMissMessageOut
     TResult Function(
             PipelineActorProgressMessageOut pipelineActorProgressMessageOut)?
         fromPipelineActorProgressMessageOut,
+    TResult Function(
+            PipelineActorCacheMgrPersistentTermResult
+                pipelineActorCacheMgrPersistentTermResult)?
+        fromPipelineActorCacheMgrPersistentTermResult,
     required TResult orElse(),
   }) {
     if (fromPipelineOnCacheMissMessageOut != null) {
@@ -756,6 +822,10 @@ class _$_$ActorTopicMessageOutFromPipelineOnCacheMissMessageOut
     required TResult Function(
             _$ActorTopicMessageOutFromPipelineActorProgressMessageOut value)
         fromPipelineActorProgressMessageOut,
+    required TResult Function(
+            _$ActorTopicMessageOutFromPipelineActorCacheMgrPersistentTermResult
+                value)
+        fromPipelineActorCacheMgrPersistentTermResult,
   }) {
     return fromPipelineOnCacheMissMessageOut(this);
   }
@@ -778,6 +848,10 @@ class _$_$ActorTopicMessageOutFromPipelineOnCacheMissMessageOut
     TResult Function(
             _$ActorTopicMessageOutFromPipelineActorProgressMessageOut value)?
         fromPipelineActorProgressMessageOut,
+    TResult Function(
+            _$ActorTopicMessageOutFromPipelineActorCacheMgrPersistentTermResult
+                value)?
+        fromPipelineActorCacheMgrPersistentTermResult,
     required TResult orElse(),
   }) {
     if (fromPipelineOnCacheMissMessageOut != null) {
@@ -912,6 +986,10 @@ class _$_$ActorTopicMessageOutFromActorCompleteMessageOut
     required TResult Function(
             PipelineActorProgressMessageOut pipelineActorProgressMessageOut)
         fromPipelineActorProgressMessageOut,
+    required TResult Function(
+            PipelineActorCacheMgrPersistentTermResult
+                pipelineActorCacheMgrPersistentTermResult)
+        fromPipelineActorCacheMgrPersistentTermResult,
   }) {
     return fromActorCompleteMessageOut(actorCompleteMessageOut);
   }
@@ -933,6 +1011,10 @@ class _$_$ActorTopicMessageOutFromActorCompleteMessageOut
     TResult Function(
             PipelineActorProgressMessageOut pipelineActorProgressMessageOut)?
         fromPipelineActorProgressMessageOut,
+    TResult Function(
+            PipelineActorCacheMgrPersistentTermResult
+                pipelineActorCacheMgrPersistentTermResult)?
+        fromPipelineActorCacheMgrPersistentTermResult,
     required TResult orElse(),
   }) {
     if (fromActorCompleteMessageOut != null) {
@@ -960,6 +1042,10 @@ class _$_$ActorTopicMessageOutFromActorCompleteMessageOut
     required TResult Function(
             _$ActorTopicMessageOutFromPipelineActorProgressMessageOut value)
         fromPipelineActorProgressMessageOut,
+    required TResult Function(
+            _$ActorTopicMessageOutFromPipelineActorCacheMgrPersistentTermResult
+                value)
+        fromPipelineActorCacheMgrPersistentTermResult,
   }) {
     return fromActorCompleteMessageOut(this);
   }
@@ -982,6 +1068,10 @@ class _$_$ActorTopicMessageOutFromActorCompleteMessageOut
     TResult Function(
             _$ActorTopicMessageOutFromPipelineActorProgressMessageOut value)?
         fromPipelineActorProgressMessageOut,
+    TResult Function(
+            _$ActorTopicMessageOutFromPipelineActorCacheMgrPersistentTermResult
+                value)?
+        fromPipelineActorCacheMgrPersistentTermResult,
     required TResult orElse(),
   }) {
     if (fromActorCompleteMessageOut != null) {
@@ -1123,6 +1213,10 @@ class _$_$ActorTopicMessageOutFromPipelineActorProgressMessageOut
     required TResult Function(
             PipelineActorProgressMessageOut pipelineActorProgressMessageOut)
         fromPipelineActorProgressMessageOut,
+    required TResult Function(
+            PipelineActorCacheMgrPersistentTermResult
+                pipelineActorCacheMgrPersistentTermResult)
+        fromPipelineActorCacheMgrPersistentTermResult,
   }) {
     return fromPipelineActorProgressMessageOut(pipelineActorProgressMessageOut);
   }
@@ -1144,6 +1238,10 @@ class _$_$ActorTopicMessageOutFromPipelineActorProgressMessageOut
     TResult Function(
             PipelineActorProgressMessageOut pipelineActorProgressMessageOut)?
         fromPipelineActorProgressMessageOut,
+    TResult Function(
+            PipelineActorCacheMgrPersistentTermResult
+                pipelineActorCacheMgrPersistentTermResult)?
+        fromPipelineActorCacheMgrPersistentTermResult,
     required TResult orElse(),
   }) {
     if (fromPipelineActorProgressMessageOut != null) {
@@ -1172,6 +1270,10 @@ class _$_$ActorTopicMessageOutFromPipelineActorProgressMessageOut
     required TResult Function(
             _$ActorTopicMessageOutFromPipelineActorProgressMessageOut value)
         fromPipelineActorProgressMessageOut,
+    required TResult Function(
+            _$ActorTopicMessageOutFromPipelineActorCacheMgrPersistentTermResult
+                value)
+        fromPipelineActorCacheMgrPersistentTermResult,
   }) {
     return fromPipelineActorProgressMessageOut(this);
   }
@@ -1194,6 +1296,10 @@ class _$_$ActorTopicMessageOutFromPipelineActorProgressMessageOut
     TResult Function(
             _$ActorTopicMessageOutFromPipelineActorProgressMessageOut value)?
         fromPipelineActorProgressMessageOut,
+    TResult Function(
+            _$ActorTopicMessageOutFromPipelineActorCacheMgrPersistentTermResult
+                value)?
+        fromPipelineActorCacheMgrPersistentTermResult,
     required TResult orElse(),
   }) {
     if (fromPipelineActorProgressMessageOut != null) {
@@ -1217,5 +1323,246 @@ abstract class _$ActorTopicMessageOutFromPipelineActorProgressMessageOut
   @JsonKey(ignore: true)
   _$$ActorTopicMessageOutFromPipelineActorProgressMessageOutCopyWith<
           _$ActorTopicMessageOutFromPipelineActorProgressMessageOut>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ActorTopicMessageOutFromPipelineActorCacheMgrPersistentTermResultCopyWith<
+    $Res> {
+  factory _$$ActorTopicMessageOutFromPipelineActorCacheMgrPersistentTermResultCopyWith(
+          _$ActorTopicMessageOutFromPipelineActorCacheMgrPersistentTermResult value,
+          $Res Function(
+                  _$ActorTopicMessageOutFromPipelineActorCacheMgrPersistentTermResult)
+              then) =
+      __$$ActorTopicMessageOutFromPipelineActorCacheMgrPersistentTermResultCopyWithImpl<
+          $Res>;
+  $Res call(
+      {PipelineActorCacheMgrPersistentTermResult
+          pipelineActorCacheMgrPersistentTermResult});
+
+  $PipelineActorCacheMgrPersistentTermResultCopyWith<$Res>
+      get pipelineActorCacheMgrPersistentTermResult;
+}
+
+/// @nodoc
+class __$$ActorTopicMessageOutFromPipelineActorCacheMgrPersistentTermResultCopyWithImpl<
+        $Res> extends _$ActorTopicMessageOutCopyWithImpl<$Res>
+    implements
+        _$$ActorTopicMessageOutFromPipelineActorCacheMgrPersistentTermResultCopyWith<
+            $Res> {
+  __$$ActorTopicMessageOutFromPipelineActorCacheMgrPersistentTermResultCopyWithImpl(
+      _$ActorTopicMessageOutFromPipelineActorCacheMgrPersistentTermResult
+          _value,
+      $Res Function(
+              _$ActorTopicMessageOutFromPipelineActorCacheMgrPersistentTermResult)
+          _then)
+      : super(
+            _value,
+            (v) => _then(v
+                as _$ActorTopicMessageOutFromPipelineActorCacheMgrPersistentTermResult));
+
+  @override
+  _$ActorTopicMessageOutFromPipelineActorCacheMgrPersistentTermResult
+      get _value => super._value
+          as _$ActorTopicMessageOutFromPipelineActorCacheMgrPersistentTermResult;
+
+  @override
+  $Res call({
+    Object? pipelineActorCacheMgrPersistentTermResult = freezed,
+  }) {
+    return _then(
+        _$ActorTopicMessageOutFromPipelineActorCacheMgrPersistentTermResult(
+      pipelineActorCacheMgrPersistentTermResult:
+          pipelineActorCacheMgrPersistentTermResult == freezed
+              ? _value.pipelineActorCacheMgrPersistentTermResult
+              : pipelineActorCacheMgrPersistentTermResult // ignore: cast_nullable_to_non_nullable
+                  as PipelineActorCacheMgrPersistentTermResult,
+    ));
+  }
+
+  @override
+  $PipelineActorCacheMgrPersistentTermResultCopyWith<$Res>
+      get pipelineActorCacheMgrPersistentTermResult {
+    return $PipelineActorCacheMgrPersistentTermResultCopyWith<$Res>(
+        _value.pipelineActorCacheMgrPersistentTermResult, (value) {
+      return _then(
+          _value.copyWith(pipelineActorCacheMgrPersistentTermResult: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_$ActorTopicMessageOutFromPipelineActorCacheMgrPersistentTermResult
+    extends _$ActorTopicMessageOutFromPipelineActorCacheMgrPersistentTermResult {
+  const _$_$ActorTopicMessageOutFromPipelineActorCacheMgrPersistentTermResult(
+      {required this.pipelineActorCacheMgrPersistentTermResult})
+      : super._();
+
+  @override
+  final PipelineActorCacheMgrPersistentTermResult
+      pipelineActorCacheMgrPersistentTermResult;
+
+  @override
+  String toString() {
+    return 'ActorTopicMessageOut.fromPipelineActorCacheMgrPersistentTermResult(pipelineActorCacheMgrPersistentTermResult: $pipelineActorCacheMgrPersistentTermResult)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _$ActorTopicMessageOutFromPipelineActorCacheMgrPersistentTermResult &&
+            (identical(other.pipelineActorCacheMgrPersistentTermResult,
+                    pipelineActorCacheMgrPersistentTermResult) ||
+                const DeepCollectionEquality().equals(
+                    other.pipelineActorCacheMgrPersistentTermResult,
+                    pipelineActorCacheMgrPersistentTermResult)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality()
+          .hash(pipelineActorCacheMgrPersistentTermResult);
+
+  @JsonKey(ignore: true)
+  @override
+  _$$ActorTopicMessageOutFromPipelineActorCacheMgrPersistentTermResultCopyWith<
+          _$ActorTopicMessageOutFromPipelineActorCacheMgrPersistentTermResult>
+      get copyWith =>
+          __$$ActorTopicMessageOutFromPipelineActorCacheMgrPersistentTermResultCopyWithImpl<
+                  _$ActorTopicMessageOutFromPipelineActorCacheMgrPersistentTermResult>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            PipelineOnNonEmptyCacheGroupMessageOut
+                pipelineOnNonEmptyCacheGroupMessageOut)
+        fromPipelineOnNonEmptyCacheGroupMessageOut,
+    required TResult Function(
+            PipelineOnCacheHitMessageOut pipelineOnCacheHitMessageOut)
+        fromPipelineOnCacheHitMessageOut,
+    required TResult Function(
+            PipelineOnCacheMissMessageOut pipelineOnCacheMissMessageOut)
+        fromPipelineOnCacheMissMessageOut,
+    required TResult Function(ActorCompleteMessageOut actorCompleteMessageOut)
+        fromActorCompleteMessageOut,
+    required TResult Function(
+            PipelineActorProgressMessageOut pipelineActorProgressMessageOut)
+        fromPipelineActorProgressMessageOut,
+    required TResult Function(
+            PipelineActorCacheMgrPersistentTermResult
+                pipelineActorCacheMgrPersistentTermResult)
+        fromPipelineActorCacheMgrPersistentTermResult,
+  }) {
+    return fromPipelineActorCacheMgrPersistentTermResult(
+        pipelineActorCacheMgrPersistentTermResult);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            PipelineOnNonEmptyCacheGroupMessageOut
+                pipelineOnNonEmptyCacheGroupMessageOut)?
+        fromPipelineOnNonEmptyCacheGroupMessageOut,
+    TResult Function(PipelineOnCacheHitMessageOut pipelineOnCacheHitMessageOut)?
+        fromPipelineOnCacheHitMessageOut,
+    TResult Function(
+            PipelineOnCacheMissMessageOut pipelineOnCacheMissMessageOut)?
+        fromPipelineOnCacheMissMessageOut,
+    TResult Function(ActorCompleteMessageOut actorCompleteMessageOut)?
+        fromActorCompleteMessageOut,
+    TResult Function(
+            PipelineActorProgressMessageOut pipelineActorProgressMessageOut)?
+        fromPipelineActorProgressMessageOut,
+    TResult Function(
+            PipelineActorCacheMgrPersistentTermResult
+                pipelineActorCacheMgrPersistentTermResult)?
+        fromPipelineActorCacheMgrPersistentTermResult,
+    required TResult orElse(),
+  }) {
+    if (fromPipelineActorCacheMgrPersistentTermResult != null) {
+      return fromPipelineActorCacheMgrPersistentTermResult(
+          pipelineActorCacheMgrPersistentTermResult);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(
+            _$ActorTopicMessageOutFromPipelineOnNonEmptyCacheGroupMessageOut
+                value)
+        fromPipelineOnNonEmptyCacheGroupMessageOut,
+    required TResult Function(
+            _$ActorTopicMessageOutFromPipelineOnCacheHitMessageOut value)
+        fromPipelineOnCacheHitMessageOut,
+    required TResult Function(
+            _$ActorTopicMessageOutFromPipelineOnCacheMissMessageOut value)
+        fromPipelineOnCacheMissMessageOut,
+    required TResult Function(
+            _$ActorTopicMessageOutFromActorCompleteMessageOut value)
+        fromActorCompleteMessageOut,
+    required TResult Function(
+            _$ActorTopicMessageOutFromPipelineActorProgressMessageOut value)
+        fromPipelineActorProgressMessageOut,
+    required TResult Function(
+            _$ActorTopicMessageOutFromPipelineActorCacheMgrPersistentTermResult
+                value)
+        fromPipelineActorCacheMgrPersistentTermResult,
+  }) {
+    return fromPipelineActorCacheMgrPersistentTermResult(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(
+            _$ActorTopicMessageOutFromPipelineOnNonEmptyCacheGroupMessageOut
+                value)?
+        fromPipelineOnNonEmptyCacheGroupMessageOut,
+    TResult Function(
+            _$ActorTopicMessageOutFromPipelineOnCacheHitMessageOut value)?
+        fromPipelineOnCacheHitMessageOut,
+    TResult Function(
+            _$ActorTopicMessageOutFromPipelineOnCacheMissMessageOut value)?
+        fromPipelineOnCacheMissMessageOut,
+    TResult Function(_$ActorTopicMessageOutFromActorCompleteMessageOut value)?
+        fromActorCompleteMessageOut,
+    TResult Function(
+            _$ActorTopicMessageOutFromPipelineActorProgressMessageOut value)?
+        fromPipelineActorProgressMessageOut,
+    TResult Function(
+            _$ActorTopicMessageOutFromPipelineActorCacheMgrPersistentTermResult
+                value)?
+        fromPipelineActorCacheMgrPersistentTermResult,
+    required TResult orElse(),
+  }) {
+    if (fromPipelineActorCacheMgrPersistentTermResult != null) {
+      return fromPipelineActorCacheMgrPersistentTermResult(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _$ActorTopicMessageOutFromPipelineActorCacheMgrPersistentTermResult
+    extends ActorTopicMessageOut {
+  const factory _$ActorTopicMessageOutFromPipelineActorCacheMgrPersistentTermResult(
+          {required PipelineActorCacheMgrPersistentTermResult
+              pipelineActorCacheMgrPersistentTermResult}) =
+      _$_$ActorTopicMessageOutFromPipelineActorCacheMgrPersistentTermResult;
+  const _$ActorTopicMessageOutFromPipelineActorCacheMgrPersistentTermResult._()
+      : super._();
+
+  PipelineActorCacheMgrPersistentTermResult
+      get pipelineActorCacheMgrPersistentTermResult =>
+          throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$$ActorTopicMessageOutFromPipelineActorCacheMgrPersistentTermResultCopyWith<
+          _$ActorTopicMessageOutFromPipelineActorCacheMgrPersistentTermResult>
       get copyWith => throw _privateConstructorUsedError;
 }

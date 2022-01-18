@@ -1,3 +1,4 @@
+import 'package:hydro_sdk/swid/storage/iTermResultsStore.dart';
 import 'package:theater/theater.dart';
 
 import 'package:hydro_sdk/swid/actors/iPipelineActor.dart';
@@ -14,11 +15,13 @@ abstract class IEmitSystem<
   final int parallelism;
   final SwidConfig config;
   final List<K> workItems;
+  final ITermResultStore termResultStore;
 
   const IEmitSystem({
     required final this.parallelism,
     required final this.config,
     required final this.workItems,
+    required final this.termResultStore,
   });
 
   J createActor({
