@@ -7,6 +7,7 @@ import 'package:args/args.dart';
 import 'package:cli_util/cli_logging.dart';
 import 'package:collection/collection.dart';
 import 'package:drift/native.dart';
+import 'package:sqlite3/sqlite3.dart';
 import 'package:sqlite3/open.dart';
 
 import 'package:hydro_sdk/swid/backend/dart/util/produceDartTranslationUnitsFromBarrelSpec.dart';
@@ -35,7 +36,6 @@ void main(List<String> args) async {
     args = [
       "--config",
       "swid.flutter.json",
-      "--no-fs-cache",
     ];
     isDebugging = true;
     return true;
@@ -66,21 +66,37 @@ void main(List<String> args) async {
 
   parser.addOption(
     "sqlite-path",
-    mandatory: true,
+    mandatory: false,
   );
 
   final results = parser.parse(args);
 
   final int jobs = int.parse(results["jobs"]);
-  final String sqlitePath = results["sqlite-path"];
+  final String? sqlitePath = results["sqlite-path"];
 
-  final openOnLinx = () => DynamicLibrary.open(sqlitePath);
-  final openOnDarwin = () => DynamicLibrary.open(sqlitePath);
-  final openOnWin32 = () => DynamicLibrary.open(sqlitePath);
+  final openOnLinx = () => DynamicLibrary.open(sqlitePath ?? "");
+  final openOnDarwin = () => DynamicLibrary.open(sqlitePath ?? "");
+  final openOnWin32 = () => DynamicLibrary.open(sqlitePath ?? "");
 
-  open.overrideFor(OperatingSystem.linux, openOnLinx);
-  open.overrideFor(OperatingSystem.macOS, openOnDarwin);
-  open.overrideFor(OperatingSystem.windows, openOnWin32);
+  if (sqlitePath?.isNotEmpty ?? false) {
+    open.overrideFor(OperatingSystem.linux, openOnLinx);
+    open.overrideFor(OperatingSystem.macOS, openOnDarwin);
+    open.overrideFor(OperatingSystem.windows, openOnWin32);
+  }
+
+  late final Database? db;
+  if (sqlitePath?.isNotEmpty ?? false) {
+    db = sqlite3.open(".swid/results.db");
+  } else {
+    db = null;
+  }
+
+  late final NativeDatabase? termDb;
+  if (db != null) {
+    termDb = NativeDatabase.opened(db);
+  } else {
+    termDb = null;
+  }
 
   SwidConfig config = SwidConfig.fromJson(
       jsonDecode(await File(results["config"]).readAsString()));
@@ -241,11 +257,11 @@ void main(List<String> args) async {
     parallelism: jobs,
     workItems: classes,
     config: config,
-    termResultStore: TermResultsStore.queryExecutor(
-      NativeDatabase(
-        File(".swid/results.db"),
-      ),
-    ),
+    termResultStore: termDb != null
+        ? TermResultsStore.queryExecutor(
+            termDb,
+          )
+        : null,
   );
 
   await classTranslationUnitEmitSystem.run();

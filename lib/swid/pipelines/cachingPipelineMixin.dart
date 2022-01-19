@@ -60,13 +60,9 @@ mixin CachingPipelineMixin<T extends Object>
         cacheGroup: term.cacheGroup,
         hashKey: term.hashKey,
       );
-      if (term.cacheGroup == "dartRTManagedClassDeclaration") {
-        throw Exception(term.termResultPersistenceKind);
-      }
 
       if (term.termResultPersistenceKind ==
           SwarsTermResultPersistenceKind.kDurable) {
-        throw Exception(term.cacheGroup);
         cacheMgr.onCacheMiss(
           cacheGroup: term.cacheGroup,
           hashKey: term.hashKey,

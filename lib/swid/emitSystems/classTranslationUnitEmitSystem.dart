@@ -27,7 +27,7 @@ class ClassTranslationUnitEmitSystem
   final List<SwidClass> workItems;
 
   @override
-  final ITermResultStore termResultStore;
+  final ITermResultStore? termResultStore;
 
   ClassTranslationUnitEmitSystem({
     required final this.parallelism,

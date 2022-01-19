@@ -180,8 +180,7 @@ mixin EmitSystemMixin<
         (message) async {
       message.when(
         fromPipelineActorCacheMgrPersistentTermResult: (val) async {
-          throw Exception("Persist ${val.cacheGroup}");
-          await termResultStore.upsertSingle(
+          await termResultStore?.upsertSingle(
             hashKey: val.hashKey,
             cacheGroup: val.cacheGroup,
             result: val.result,

@@ -15,7 +15,7 @@ abstract class IEmitSystem<
   final int parallelism;
   final SwidConfig config;
   final List<K> workItems;
-  final ITermResultStore termResultStore;
+  final ITermResultStore? termResultStore;
 
   const IEmitSystem({
     required final this.parallelism,
