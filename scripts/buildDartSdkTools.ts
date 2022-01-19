@@ -35,9 +35,11 @@ program.parse();
 
     for (let dartEntryPoint of dartEntryPoints) {
         const startTime = +new Date();
-        const outputPath = `${outputFolder}${path.sep}${path.parse(dartEntryPoint).name
-            }-${process.platform}-${process.arch}${process.platform == "win32" ? ".exe" : ""
-            }`;
+        const outputPath = `${outputFolder}${path.sep}${
+            path.parse(dartEntryPoint).name
+        }-${process.platform}-${process.arch}${
+            process.platform == "win32" ? ".exe" : ""
+        }`;
 
         if (dartEntryPoint == "swid.dart" && skipSwid) {
             console.log(`Building ${outputPath} explicitly skipped`);
@@ -51,7 +53,9 @@ program.parse();
 
         console.log(`Building ${dartEntryPoint} -> ${outputPath}`);
 
-        const dart2Native = cp.spawnSync(dart2NativeCommand, ["compile", "exe",
+        const dart2Native = cp.spawnSync(dart2NativeCommand, [
+            "compile",
+            "exe",
             `bin${path.sep}${dartEntryPoint}`,
             "-v",
             "-o",

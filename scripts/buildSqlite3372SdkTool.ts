@@ -13,11 +13,17 @@ import * as path from "path";
         fs.mkdirSync(outputFolder, { recursive: true });
     }
 
-    const outputPath = `${outputFolder}${path.sep}${process.platform == "darwin" || process.platform == "linux" ? "lib" : ""
-        }${"sqlite3372"}-${process.platform
-        }-${process.arch}${process.platform == "darwin" ? ".dylib" :
-            process.platform == "win32" ? ".dll" : process.platform == "linux" ? ".so" : ""
-        }`;
+    const outputPath = `${outputFolder}${path.sep}${
+        process.platform == "darwin" || process.platform == "linux" ? "lib" : ""
+    }${"sqlite3372"}-${process.platform}-${process.arch}${
+        process.platform == "darwin"
+            ? ".dylib"
+            : process.platform == "win32"
+            ? ".dll"
+            : process.platform == "linux"
+            ? ".so"
+            : ""
+    }`;
     const startTime = +new Date();
 
     if (fs.existsSync(outputPath)) {
@@ -32,10 +38,10 @@ import * as path from "path";
         process.platform == "darwin"
             ? "macosx"
             : process.platform == "win32"
-                ? "mingw"
-                : process.platform == "linux"
-                    ? "linux"
-                    : "",
+            ? "mingw"
+            : process.platform == "linux"
+            ? "linux"
+            : "",
     ]);
 
     console.log(bash?.stdout?.toString());
@@ -46,9 +52,19 @@ import * as path from "path";
     }
 
     fs.copyFileSync(
-        `sdk-tools/sqlite3372/${process.platform == "darwin" || process.platform == "linux" ? "lib" : ""
-        }sqlite3372${process.platform == "darwin" ? ".dylib" :
-            process.platform == "win32" ? ".dll" : process.platform == "linux" ? ".so" : ""}`,
+        `sdk-tools/sqlite3372/${
+            process.platform == "darwin" || process.platform == "linux"
+                ? "lib"
+                : ""
+        }sqlite3372${
+            process.platform == "darwin"
+                ? ".dylib"
+                : process.platform == "win32"
+                ? ".dll"
+                : process.platform == "linux"
+                ? ".so"
+                : ""
+        }`,
         outputPath
     );
 
