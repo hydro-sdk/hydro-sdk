@@ -179,12 +179,14 @@ mixin EmitSystemMixin<
     actorSystem.listenTopic<ActorTopicMessageOut>("gossipTopic",
         (message) async {
       message.when(
-        fromPipelineActorCacheMgrPersistentTermResult: (val) =>
-            termResultStore.upsertSingle(
-          hashKey: val.hashKey,
-          cacheGroup: val.cacheGroup,
-          result: val.result,
-        ),
+        fromPipelineActorCacheMgrPersistentTermResult: (val) async {
+          throw Exception("Persist ${val.cacheGroup}");
+          await termResultStore.upsertSingle(
+            hashKey: val.hashKey,
+            cacheGroup: val.cacheGroup,
+            result: val.result,
+          );
+        },
         fromPipelineOnNonEmptyCacheGroupMessageOut: (val) {
           final buffer = pipelineMessageBuffers[val.sender];
 

@@ -19,8 +19,9 @@ class TermResults extends Table {
 }
 
 mixin _TermResultsMethods on _$_TermResultsDatabase {
-  Future<void> _insert(
-          {required final TermResultsCompanion termResultsCompanion}) async =>
+  Future<void> _insert({
+    required final TermResultsCompanion termResultsCompanion,
+  }) async =>
       into(termResults).insertOnConflictUpdate(termResultsCompanion);
 
   Future<List<TermResult>> _getAllByCacheGroup({
@@ -67,11 +68,12 @@ class TermResultsStore implements ITermResultStore {
     required final String result,
   }) async =>
       _termResultsDatabase._insert(
-          termResultsCompanion: TermResultsCompanion.insert(
-        cacheGroup: cacheGroup,
-        hashKey: hashKey,
-        result: result,
-      ));
+        termResultsCompanion: TermResultsCompanion.insert(
+          cacheGroup: cacheGroup,
+          hashKey: hashKey,
+          result: result,
+        ),
+      );
 
   Future<List<Tuple3<String, String, String>>> getAllByCacheGroup({
     required final String cacheGroup,

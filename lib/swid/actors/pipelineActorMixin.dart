@@ -9,7 +9,6 @@ import 'package:hydro_sdk/swid/actors/messages/pipelineActorProgressMessageOut.d
 import 'package:hydro_sdk/swid/actors/pipelineActorCacheMgr.dart';
 import 'package:hydro_sdk/swid/pipelines/cachingActorPipeline.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
-import 'package:hydro_sdk/swid/swars/pipelineNoopCacheMgr.dart';
 
 mixin PipelineActorMixin<T extends Object, U extends UntypedActorProperties,
         V extends NodeActorContext<U>, L extends ISwarsPipeline<T>>

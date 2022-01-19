@@ -1,3 +1,4 @@
+import 'package:hydro_sdk/swid/swars/swarsTermResultPersistenceKind.dart';
 import 'package:meta/meta.dart';
 import 'package:tuple/tuple.dart';
 
@@ -59,6 +60,19 @@ mixin CachingPipelineMixin<T extends Object>
         cacheGroup: term.cacheGroup,
         hashKey: term.hashKey,
       );
+      if (term.cacheGroup == "dartRTManagedClassDeclaration") {
+        throw Exception(term.termResultPersistenceKind);
+      }
+
+      if (term.termResultPersistenceKind ==
+          SwarsTermResultPersistenceKind.kDurable) {
+        throw Exception(term.cacheGroup);
+        cacheMgr.onCacheMiss(
+          cacheGroup: term.cacheGroup,
+          hashKey: term.hashKey,
+          result: res,
+        );
+      }
 
       return res;
     }
