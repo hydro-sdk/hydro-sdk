@@ -26,7 +26,7 @@ class TsFunctionDefaultNamedProps
             TsFunctionDefaultNamedProps,
             $TsFunctionDefaultNamedPropsCopyWith<TsFunctionDefaultNamedProps>,
             String>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         SwarsTermStringResultMixin {
   TsFunctionDefaultNamedProps._();
 

@@ -25,7 +25,7 @@ class TransformCovariantTypesInDefaultFormalParameter
             $TransformCovariantTypesInDefaultFormalParameterCopyWith<
                 TransformCovariantTypesInDefaultFormalParameter>,
             SwidDefaultFormalParameter>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         SwarsTermJsonTransformableResultMixin,
         SwarsTermSwidDefaultFormalParameterResultMixin {
   TransformCovariantTypesInDefaultFormalParameter._();

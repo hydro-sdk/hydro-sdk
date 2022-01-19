@@ -39,7 +39,6 @@ class TransformStaticConstPrefixedIdentifierToTs
             $TransformStaticConstPrefixedIdentifierToTsCopyWith<
                 TransformStaticConstPrefixedIdentifierToTs>,
             String>,
-        
         SwarsTermStringResultMixin {
   TransformStaticConstPrefixedIdentifierToTs._();
 

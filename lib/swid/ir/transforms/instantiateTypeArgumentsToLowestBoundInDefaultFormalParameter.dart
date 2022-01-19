@@ -27,7 +27,7 @@ class InstantiateTypeArgumentsToLowestBoundInDefaultFormalParameter
             $InstantiateTypeArgumentsToLowestBoundInDefaultFormalParameterCopyWith<
                 InstantiateTypeArgumentsToLowestBoundInDefaultFormalParameter>,
             SwidDefaultFormalParameter>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         SwarsTermJsonTransformableResultMixin,
         SwarsTermSwidDefaultFormalParameterResultMixin {
   InstantiateTypeArgumentsToLowestBoundInDefaultFormalParameter._();

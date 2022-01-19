@@ -42,7 +42,7 @@ class DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
             $DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclarationCopyWith<
                 DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration>,
             String>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         SwarsTermStringResultMixin {
   DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration._();
 

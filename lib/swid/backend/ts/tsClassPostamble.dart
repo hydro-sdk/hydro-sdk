@@ -19,7 +19,7 @@ class TsClassPostamble
         HashComparableMixin<TsClassPostamble>,
         SwarsTransformMixin<TsClassPostamble,
             $TsClassPostambleCopyWith<TsClassPostamble>, String>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         SwarsTermStringResultMixin {
   TsClassPostamble._();
 

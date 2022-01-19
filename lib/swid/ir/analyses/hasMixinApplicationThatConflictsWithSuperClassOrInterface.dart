@@ -25,7 +25,7 @@ class HasMixinApplicationThatConflictsWithSuperClassOrInterface
             $HasMixinApplicationThatConflictsWithSuperClassOrInterfaceCopyWith<
                 HasMixinApplicationThatConflictsWithSuperClassOrInterface>,
             bool>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         SwarsTermBoolResultMixin {
   HasMixinApplicationThatConflictsWithSuperClassOrInterface._();
 

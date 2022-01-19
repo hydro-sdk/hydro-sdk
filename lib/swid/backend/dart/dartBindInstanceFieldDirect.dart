@@ -24,7 +24,7 @@ class DartBindInstanceFieldDirect
             DartBindInstanceFieldDirect,
             $DartBindInstanceFieldDirectCopyWith<DartBindInstanceFieldDirect>,
             String>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         SwarsTermStringResultMixin {
   DartBindInstanceFieldDirect._();
 

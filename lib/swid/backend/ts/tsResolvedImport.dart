@@ -18,7 +18,7 @@ class TsResolvedImport
         HashComparableMixin<TsResolvedImport>,
         SwarsTransformMixin<TsResolvedImport,
             $TsResolvedImportCopyWith<TsResolvedImport>, String>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         SwarsTermStringResultMixin {
   TsResolvedImport._();
 

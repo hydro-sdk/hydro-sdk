@@ -36,7 +36,7 @@ class TransformFunctionTypeToTs
             TransformFunctionTypeToTs,
             $TransformFunctionTypeToTsCopyWith<TransformFunctionTypeToTs>,
             String>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         SwarsTermStringResultMixin {
   TransformFunctionTypeToTs._();
 

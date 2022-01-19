@@ -27,7 +27,7 @@ class InstantiateAllGenericsAsDynamic
             $InstantiateAllGenericsAsDynamicCopyWith<
                 InstantiateAllGenericsAsDynamic>,
             SwidType>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         SwarsTermJsonTransformableResultMixin,
         IrTermMixin {
   InstantiateAllGenericsAsDynamic._();

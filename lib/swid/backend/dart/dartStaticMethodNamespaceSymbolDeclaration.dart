@@ -31,7 +31,7 @@ class DartStaticMethodNamespaceSymbolDeclaration
             $DartStaticMethodNamespaceSymbolDeclarationCopyWith<
                 DartStaticMethodNamespaceSymbolDeclaration>,
             String>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         SwarsTermStringResultMixin {
   DartStaticMethodNamespaceSymbolDeclaration._();
 

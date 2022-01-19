@@ -45,7 +45,7 @@ class DartVMManagedClassDeclaration
             $DartVMManagedClassDeclarationCopyWith<
                 DartVMManagedClassDeclaration>,
             String>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         SwarsTermStringResultMixin {
   DartVMManagedClassDeclaration._();
 

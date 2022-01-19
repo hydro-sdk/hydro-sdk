@@ -20,7 +20,8 @@ class TsFunctionInvocationNamedParametersSpread
             TsFunctionInvocationNamedParametersSpread,
             $TsFunctionInvocationNamedParametersSpreadCopyWith<
                 TsFunctionInvocationNamedParametersSpread>,
-            String>,SwarsEphemeralTermMixin,
+            String>,
+        SwarsEphemeralTermMixin,
         SwarsTermStringResultMixin {
   TsFunctionInvocationNamedParametersSpread._();
 

@@ -48,7 +48,7 @@ class ValidateSwidiClass
             ValidateSwidiClass,
             $ValidateSwidiClassCopyWith<ValidateSwidiClass>,
             SwidiClassValidationState>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         SwarsTermJsonTransformableResultMixin {
   ValidateSwidiClass._();
 

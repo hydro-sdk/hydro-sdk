@@ -24,7 +24,7 @@ class TransformPrimitiveFunctionTypeNamesToTs
             $TransformPrimitiveFunctionTypeNamesToTsCopyWith<
                 TransformPrimitiveFunctionTypeNamesToTs>,
             SwidFunctionType>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         SwarsTermJsonTransformableResultMixin {
   TransformPrimitiveFunctionTypeNamesToTs._();
 

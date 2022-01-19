@@ -35,7 +35,7 @@ class TransformTypeDeclarationToTs
             TransformTypeDeclarationToTs,
             $TransformTypeDeclarationToTsCopyWith<TransformTypeDeclarationToTs>,
             String>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         SwarsTermStringResultMixin {
   TransformTypeDeclarationToTs._();
 

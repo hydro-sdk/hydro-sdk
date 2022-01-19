@@ -25,7 +25,7 @@ class TransformPrimitiveClassTypeNamesToTs
             $TransformPrimitiveClassTypeNamesToTsCopyWith<
                 TransformPrimitiveClassTypeNamesToTs>,
             SwidClass>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         SwarsTermJsonTransformableResultMixin {
   TransformPrimitiveClassTypeNamesToTs._();
 

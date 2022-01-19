@@ -28,7 +28,7 @@ class TsClassMethodInjectionFieldDeclarations
             $TsClassMethodInjectionFieldDeclarationsCopyWith<
                 TsClassMethodInjectionFieldDeclarations>,
             String>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         SwarsTermStringResultMixin {
   TsClassMethodInjectionFieldDeclarations._();
 

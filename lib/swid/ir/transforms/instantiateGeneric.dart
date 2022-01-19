@@ -31,7 +31,7 @@ class InstantiateGeneric
         HashComparableMixin<InstantiateGeneric>,
         SwarsTransformMixin<InstantiateGeneric,
             $InstantiateGenericCopyWith<InstantiateGeneric>, SwidType>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         SwarsTermJsonTransformableResultMixin,
         IrTermMixin {
   InstantiateGeneric._();

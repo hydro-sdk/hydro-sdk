@@ -19,7 +19,7 @@ class TransformEnumToTs
         HashComparableMixin<TransformEnumToTs>,
         SwarsTransformMixin<TransformEnumToTs,
             $TransformEnumToTsCopyWith<TransformEnumToTs>, String>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         SwarsTermStringResultMixin {
   TransformEnumToTs._();
 

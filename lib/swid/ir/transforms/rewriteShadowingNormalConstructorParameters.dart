@@ -22,7 +22,8 @@ class RewriteShadowingNormalConstructorParameters
             RewriteShadowingNormalConstructorParameters,
             $RewriteShadowingNormalConstructorParametersCopyWith<
                 RewriteShadowingNormalConstructorParameters>,
-            SwidClass>,SwarsEphemeralTermMixin,
+            SwidClass>,
+        SwarsEphemeralTermMixin,
         SwarsTermJsonTransformableResultMixin {
   RewriteShadowingNormalConstructorParameters._();
 

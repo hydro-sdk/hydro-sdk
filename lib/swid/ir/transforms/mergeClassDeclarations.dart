@@ -21,7 +21,7 @@ class MergeClassDeclarations
         HashComparableMixin<MergeClassDeclarations>,
         SwarsTransformMixin<MergeClassDeclarations,
             $MergeClassDeclarationsCopyWith<MergeClassDeclarations>, SwidClass>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         SwarsTermJsonTransformableResultMixin,
         SwarsTermSwidClassResultMixin {
   MergeClassDeclarations._();

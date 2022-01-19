@@ -23,7 +23,7 @@ class ApplySuperTypes
         HashComparableMixin<ApplySuperTypes>,
         SwarsTransformMixin<ApplySuperTypes,
             $ApplySuperTypesCopyWith<ApplySuperTypes>, SwidClass>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         SwarsTermJsonTransformableResultMixin,
         SwarsTermSwidClassResultMixin {
   ApplySuperTypes._();

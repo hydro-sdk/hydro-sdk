@@ -33,7 +33,7 @@ class DartMethodBindingImplementation
             $DartMethodBindingImplementationCopyWith<
                 DartMethodBindingImplementation>,
             String>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         SwarsTermStringResultMixin {
   DartMethodBindingImplementation._();
 

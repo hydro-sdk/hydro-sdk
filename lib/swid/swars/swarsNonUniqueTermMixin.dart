@@ -1,7 +1,7 @@
-import 'package:hydro_sdk/swid/swars/swarsEphemeralTermMixin.dart';
 import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/swars/iSwarsTerm.dart';
+import 'package:hydro_sdk/swid/swars/swarsEphemeralTermMixin.dart';
 import 'package:hydro_sdk/swid/util/unHashableMixin.dart';
 
 @immutable

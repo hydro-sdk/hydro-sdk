@@ -49,7 +49,7 @@ class DartLoadNamespaceSymbolDeclaration
             $DartLoadNamespaceSymbolDeclarationCopyWith<
                 DartLoadNamespaceSymbolDeclaration>,
             String>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         SwarsTermStringResultMixin {
   DartLoadNamespaceSymbolDeclaration._();
 

@@ -25,7 +25,7 @@ class TsInterface
         HashComparableMixin<TsInterface>,
         SwarsTransformMixin<TsInterface, $TsInterfaceCopyWith<TsInterface>,
             String>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         SwarsTermStringResultMixin {
   TsInterface._();
 

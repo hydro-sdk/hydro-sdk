@@ -25,7 +25,7 @@ class TsClassMethodInjectionCandidates
             $TsClassMethodInjectionCandidatesCopyWith<
                 TsClassMethodInjectionCandidates>,
             List<SwidFunctionType>>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         SwarsTermJsonTransformableListResultMixin {
   TsClassMethodInjectionCandidates._();
 

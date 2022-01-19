@@ -25,7 +25,7 @@ class TransformTopLevelStaticConstFieldDeclaration
             $TransformTopLevelStaticConstFieldDeclarationCopyWith<
                 TransformTopLevelStaticConstFieldDeclaration>,
             String>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         SwarsTermStringResultMixin {
   TransformTopLevelStaticConstFieldDeclaration._();
 

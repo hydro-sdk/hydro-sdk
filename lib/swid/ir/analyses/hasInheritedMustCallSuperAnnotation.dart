@@ -22,7 +22,8 @@ class HasInheritedMustCallSuperAnnotation
             HasInheritedMustCallSuperAnnotation,
             $HasInheritedMustCallSuperAnnotationCopyWith<
                 HasInheritedMustCallSuperAnnotation>,
-            bool>,SwarsEphemeralTermMixin,
+            bool>,
+        SwarsEphemeralTermMixin,
         SwarsTermBoolResultMixin {
   HasInheritedMustCallSuperAnnotation._();
 

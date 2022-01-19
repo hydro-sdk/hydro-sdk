@@ -23,7 +23,7 @@ class MethodsShadowedByConstructorParameters
             $MethodsShadowedByConstructorParametersCopyWith<
                 MethodsShadowedByConstructorParameters>,
             List<SwidFunctionType>>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         SwarsTermJsonTransformableListResultMixin {
   MethodsShadowedByConstructorParameters._();
 

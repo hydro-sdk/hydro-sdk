@@ -24,7 +24,7 @@ class SuperMethodInvocation
         HashComparableMixin<SuperMethodInvocation>,
         SwarsTransformMixin<SuperMethodInvocation,
             $SuperMethodInvocationCopyWith<SuperMethodInvocation>, String>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         SwarsTermStringResultMixin {
   SuperMethodInvocation._();
 

@@ -24,7 +24,7 @@ class InstantiateTypeFormalsToLowestBound
             $InstantiateTypeFormalsToLowestBoundCopyWith<
                 InstantiateTypeFormalsToLowestBound>,
             SwidType>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         SwarsTermJsonTransformableResultMixin,
         IrTermMixin {
   InstantiateTypeFormalsToLowestBound._();

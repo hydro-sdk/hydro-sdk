@@ -30,7 +30,7 @@ class TransformPrimitiveNamesToTs
             TransformPrimitiveNamesToTs,
             $TransformPrimitiveNamesToTsCopyWith<TransformPrimitiveNamesToTs>,
             SwidType>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         SwarsTermJsonTransformableResultMixin {
   TransformPrimitiveNamesToTs._();
 

@@ -31,7 +31,7 @@ class TsClassMethodDeclarations
             TsClassMethodDeclarations,
             $TsClassMethodDeclarationsCopyWith<TsClassMethodDeclarations>,
             String>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         SwarsTermStringResultMixin {
   TsClassMethodDeclarations._();
 

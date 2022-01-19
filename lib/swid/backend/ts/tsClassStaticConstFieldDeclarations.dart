@@ -24,7 +24,7 @@ class TsClassStaticConstFieldDeclarations
             $TsClassStaticConstFieldDeclarationsCopyWith<
                 TsClassStaticConstFieldDeclarations>,
             String>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         SwarsTermStringResultMixin {
   TsClassStaticConstFieldDeclarations._();
 

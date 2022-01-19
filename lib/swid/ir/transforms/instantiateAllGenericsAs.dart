@@ -30,7 +30,7 @@ class InstantiateAllGenericsAs
             InstantiateAllGenericsAs,
             $InstantiateAllGenericsAsCopyWith<InstantiateAllGenericsAs>,
             SwidType>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         SwarsTermJsonTransformableResultMixin {
   InstantiateAllGenericsAs._();
 

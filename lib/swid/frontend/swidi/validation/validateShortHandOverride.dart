@@ -23,7 +23,7 @@ class ValidateShortHandOverride
             ValidateShortHandOverride,
             $ValidateShortHandOverrideCopyWith<ValidateShortHandOverride>,
             List<SwidiClassValidationState>>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         SwarsTermJsonTransformableListResultMixin {
   ValidateShortHandOverride._();
 

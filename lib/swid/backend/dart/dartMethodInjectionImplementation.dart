@@ -33,7 +33,7 @@ class DartMethodInjectionImplementation
             $DartMethodInjectionImplementationCopyWith<
                 DartMethodInjectionImplementation>,
             String>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         SwarsTermStringResultMixin {
   DartMethodInjectionImplementation._();
 

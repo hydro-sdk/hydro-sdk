@@ -23,7 +23,7 @@ class TransformVmDeclarationToTs
             TransformVmDeclarationToTs,
             $TransformVmDeclarationToTsCopyWith<TransformVmDeclarationToTs>,
             String>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         SwarsTermStringResultMixin {
   TransformVmDeclarationToTs._();
 

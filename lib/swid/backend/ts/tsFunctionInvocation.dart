@@ -20,7 +20,7 @@ class TsFunctionInvocation
         HashComparableMixin<TsFunctionInvocation>,
         SwarsTransformMixin<TsFunctionInvocation,
             $TsFunctionInvocationCopyWith<TsFunctionInvocation>, String>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         SwarsTermStringResultMixin {
   TsFunctionInvocation._();
 

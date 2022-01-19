@@ -27,7 +27,7 @@ class TsFunctionSelfBindingInvocation
             $TsFunctionSelfBindingInvocationCopyWith<
                 TsFunctionSelfBindingInvocation>,
             String>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         SwarsTermStringResultMixin {
   TsFunctionSelfBindingInvocation._();
 

@@ -26,7 +26,7 @@ class CollectAllReferences
             CollectAllReferences,
             $CollectAllReferencesCopyWith<CollectAllReferences>,
             List<SwidInterface>>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         InterfaceTermListResultMixin {
   CollectAllReferences._();
 

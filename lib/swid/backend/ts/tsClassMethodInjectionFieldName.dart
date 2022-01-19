@@ -23,7 +23,7 @@ class TsClassMethodInjectionFieldName
             $TsClassMethodInjectionFieldNameCopyWith<
                 TsClassMethodInjectionFieldName>,
             String>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         SwarsTermStringResultMixin {
   TsClassMethodInjectionFieldName._();
 

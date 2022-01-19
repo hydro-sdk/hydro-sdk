@@ -25,7 +25,7 @@ class TsSuperClassClause
         HashComparableMixin<TsSuperClassClause>,
         SwarsTransformMixin<TsSuperClassClause,
             $TsSuperClassClauseCopyWith<TsSuperClassClause>, String>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         SwarsTermStringResultMixin {
   TsSuperClassClause._();
 

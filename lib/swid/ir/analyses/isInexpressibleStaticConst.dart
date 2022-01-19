@@ -24,7 +24,7 @@ class IsInexpressibleStaticConst
             IsInexpressibleStaticConst,
             $IsInexpressibleStaticConstCopyWith<IsInexpressibleStaticConst>,
             bool>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         SwarsTermBoolResultMixin {
   IsInexpressibleStaticConst._();
 

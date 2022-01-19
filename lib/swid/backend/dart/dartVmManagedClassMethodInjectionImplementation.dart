@@ -28,7 +28,7 @@ class DartVMManagedClassMethodInjectionImplementation
             $DartVMManagedClassMethodInjectionImplementationCopyWith<
                 DartVMManagedClassMethodInjectionImplementation>,
             String>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         SwarsTermStringResultMixin {
   DartVMManagedClassMethodInjectionImplementation._();
 

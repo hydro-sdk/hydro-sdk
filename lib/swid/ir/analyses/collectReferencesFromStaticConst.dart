@@ -28,7 +28,7 @@ class CollectReferencesFromStaticConst
             $CollectReferencesFromStaticConstCopyWith<
                 CollectReferencesFromStaticConst>,
             List<SwidInterface>>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         InterfaceTermListResultMixin {
   CollectReferencesFromStaticConst._();
 

@@ -23,7 +23,7 @@ class TsTopLevelStaticConstFieldDeclaration
             $TsTopLevelStaticConstFieldDeclarationCopyWith<
                 TsTopLevelStaticConstFieldDeclaration>,
             String>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         SwarsTermStringResultMixin {
   TsTopLevelStaticConstFieldDeclaration._();
 

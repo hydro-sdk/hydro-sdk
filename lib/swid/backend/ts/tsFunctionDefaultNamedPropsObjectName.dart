@@ -23,7 +23,7 @@ class TsFunctionDefaultNamedPropsObjectName
             $TsFunctionDefaultNamedPropsObjectNameCopyWith<
                 TsFunctionDefaultNamedPropsObjectName>,
             String>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         SwarsTermStringResultMixin {
   TsFunctionDefaultNamedPropsObjectName._();
 

@@ -18,7 +18,8 @@ class DartImportStatement
         HashComparableMixin<DartImportStatement>,
         SwarsTransformMixin<DartImportStatement,
             $DartImportStatementCopyWith<DartImportStatement>, String>,
-        SwarsEphemeralTermMixin,SwarsTermStringResultMixin {
+        SwarsEphemeralTermMixin,
+        SwarsTermStringResultMixin {
   DartImportStatement._();
 
   factory DartImportStatement({

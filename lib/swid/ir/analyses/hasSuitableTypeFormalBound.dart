@@ -24,7 +24,7 @@ class HasSuitableTypeFormalBound
             HasSuitableTypeFormalBound,
             $HasSuitableTypeFormalBoundCopyWith<HasSuitableTypeFormalBound>,
             bool>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         SwarsTermBoolResultMixin {
   HasSuitableTypeFormalBound._();
 

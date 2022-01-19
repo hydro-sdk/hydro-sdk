@@ -60,7 +60,7 @@ class InstanceFieldDeclarationsShadowedByConstructorParameters
             $InstanceFieldDeclarationsShadowedByConstructorParametersCopyWith<
                 InstanceFieldDeclarationsShadowedByConstructorParameters>,
             List<ShadowedInstanceFieldResult>>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         SwarsTermJsonTransformableListResultMixin {
   InstanceFieldDeclarationsShadowedByConstructorParameters._();
 

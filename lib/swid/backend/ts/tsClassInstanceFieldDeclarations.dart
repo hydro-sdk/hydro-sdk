@@ -22,7 +22,8 @@ class TsClassInstanceFieldDeclarations
             TsClassInstanceFieldDeclarations,
             $TsClassInstanceFieldDeclarationsCopyWith<
                 TsClassInstanceFieldDeclarations>,
-            String>,SwarsEphemeralTermMixin,
+            String>,
+        SwarsEphemeralTermMixin,
         SwarsTermStringResultMixin {
   TsClassInstanceFieldDeclarations._();
 

@@ -24,7 +24,7 @@ class ThisPrefixMethodsShadowedByConstructorParameters
             $ThisPrefixMethodsShadowedByConstructorParametersCopyWith<
                 ThisPrefixMethodsShadowedByConstructorParameters>,
             SwidClass>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         SwarsTermJsonTransformableResultMixin {
   ThisPrefixMethodsShadowedByConstructorParameters._();
 

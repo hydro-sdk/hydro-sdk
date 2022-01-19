@@ -28,7 +28,7 @@ class DartBoxList
         HashComparableMixin<DartBoxList>,
         SwarsTransformMixin<DartBoxList, $DartBoxListCopyWith<DartBoxList>,
             String>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         SwarsTermStringResultMixin {
   DartBoxList._();
 

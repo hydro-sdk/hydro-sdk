@@ -25,7 +25,7 @@ class DartVMManagedClassBoxerRegistrant
             $DartVMManagedClassBoxerRegistrantCopyWith<
                 DartVMManagedClassBoxerRegistrant>,
             String>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         SwarsTermStringResultMixin {
   DartVMManagedClassBoxerRegistrant._();
 

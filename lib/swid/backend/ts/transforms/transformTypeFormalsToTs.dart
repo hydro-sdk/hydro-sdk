@@ -21,7 +21,8 @@ class TransformTypeFormalsToTs
         SwarsTransformMixin<
             TransformTypeFormalsToTs,
             $TransformTypeFormalsToTsCopyWith<TransformTypeFormalsToTs>,
-            String>,SwarsEphemeralTermMixin,
+            String>,
+        SwarsEphemeralTermMixin,
         SwarsTermStringResultMixin {
   TransformTypeFormalsToTs._();
 

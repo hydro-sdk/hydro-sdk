@@ -21,7 +21,7 @@ class TsFunctionInvocationNamedParametersKeyValue
             $TsFunctionInvocationNamedParametersKeyValueCopyWith<
                 TsFunctionInvocationNamedParametersKeyValue>,
             String>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         SwarsTermStringResultMixin {
   TsFunctionInvocationNamedParametersKeyValue._();
 

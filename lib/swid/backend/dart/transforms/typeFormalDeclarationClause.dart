@@ -22,7 +22,7 @@ class TypeFormalDeclarationClause
             TypeFormalDeclarationClause,
             $TypeFormalDeclarationClauseCopyWith<TypeFormalDeclarationClause>,
             String>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         SwarsTermStringResultMixin {
   TypeFormalDeclarationClause._();
 

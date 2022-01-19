@@ -21,7 +21,7 @@ class ApplyInterfaces
         HashComparableMixin<ApplyInterfaces>,
         SwarsTransformMixin<ApplyInterfaces,
             $ApplyInterfacesCopyWith<ApplyInterfaces>, SwidClass>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         SwarsTermJsonTransformableResultMixin,
         SwarsTermSwidClassResultMixin {
   ApplyInterfaces._();

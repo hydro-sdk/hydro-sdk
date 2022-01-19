@@ -21,7 +21,7 @@ class TsClassPreamble
         HashComparableMixin<TsClassPreamble>,
         SwarsTransformMixin<TsClassPreamble,
             $TsClassPreambleCopyWith<TsClassPreamble>, String>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         SwarsTermStringResultMixin {
   TsClassPreamble._();
 

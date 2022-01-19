@@ -21,7 +21,8 @@ class TsFunctionInvocationPositionalParameters
             $TsFunctionInvocationPositionalParametersCopyWith<
                 TsFunctionInvocationPositionalParameters>,
             String>,
-        SwarsEphemeralTermMixin,SwarsTermStringResultMixin {
+        SwarsEphemeralTermMixin,
+        SwarsTermStringResultMixin {
   TsFunctionInvocationPositionalParameters._();
 
   factory TsFunctionInvocationPositionalParameters({

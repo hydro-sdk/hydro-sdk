@@ -26,7 +26,7 @@ class InstantiateTypeArgumentsToLowestBoundInFunction
             $InstantiateTypeArgumentsToLowestBoundInFunctionCopyWith<
                 InstantiateTypeArgumentsToLowestBoundInFunction>,
             SwidFunctionType>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         SwarsTermJsonTransformableResultMixin,
         SwarsTermSwidFunctionTypeResultMixin {
   InstantiateTypeArgumentsToLowestBoundInFunction._();

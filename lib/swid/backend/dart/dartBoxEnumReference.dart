@@ -23,7 +23,7 @@ class DartBoxEnumReference
         HashComparableMixin<DartBoxEnumReference>,
         SwarsTransformMixin<DartBoxEnumReference,
             $DartBoxEnumReferenceCopyWith<DartBoxEnumReference>, String>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         SwarsTermStringResultMixin {
   DartBoxEnumReference._();
 

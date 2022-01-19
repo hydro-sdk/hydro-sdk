@@ -20,7 +20,8 @@ class NameAnonymousNormalParametersInFunction
         HashComparableMixin<NameAnonymousNormalParametersInFunction>,
         SwarsTransformMixin<NameAnonymousNormalParametersInFunction,
             $NameAnonymousNormalParametersInFunctionCopyWith, SwidFunctionType>,
-        SwarsEphemeralTermMixin,SwarsTermJsonTransformableResultMixin {
+        SwarsEphemeralTermMixin,
+        SwarsTermJsonTransformableResultMixin {
   NameAnonymousNormalParametersInFunction._();
 
   factory NameAnonymousNormalParametersInFunction({

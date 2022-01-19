@@ -26,7 +26,7 @@ class TransformCovariantTypesInFunction
             $TransformCovariantTypesInFunctionCopyWith<
                 TransformCovariantTypesInFunction>,
             SwidFunctionType>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         SwarsTermJsonTransformableResultMixin,
         SwarsTermSwidFunctionTypeResultMixin {
   TransformCovariantTypesInFunction._();

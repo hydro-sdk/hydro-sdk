@@ -22,7 +22,8 @@ class InstantiateTypeFormalToLowestBound
             InstantiateTypeFormalToLowestBound,
             $InstantiateTypeFormalToLowestBoundCopyWith<
                 InstantiateTypeFormalToLowestBound>,
-            SwidTypeFormal>,SwarsEphemeralTermMixin,
+            SwidTypeFormal>,
+        SwarsEphemeralTermMixin,
         SwarsTermJsonTransformableResultMixin {
   InstantiateTypeFormalToLowestBound._();
 

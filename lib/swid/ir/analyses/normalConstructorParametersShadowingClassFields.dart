@@ -28,7 +28,7 @@ class NormalConstructorParametersShadowingClassFields
             $NormalConstructorParametersShadowingClassFieldsCopyWith<
                 NormalConstructorParametersShadowingClassFields>,
             ConstructorParameterShadowingResult>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         SwarsTermJsonTransformableResultMixin {
   NormalConstructorParametersShadowingClassFields._();
 

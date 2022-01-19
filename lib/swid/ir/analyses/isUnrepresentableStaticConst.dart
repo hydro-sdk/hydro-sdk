@@ -23,7 +23,7 @@ class IsUnrepresentableStaticConst
             IsUnrepresentableStaticConst,
             $IsUnrepresentableStaticConstCopyWith<IsUnrepresentableStaticConst>,
             bool>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         SwarsTermBoolResultMixin {
   IsUnrepresentableStaticConst._();
 

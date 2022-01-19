@@ -21,7 +21,7 @@ class TransformReturnTypeToTs
         HashComparableMixin<TransformReturnTypeToTs>,
         SwarsTransformMixin<TransformReturnTypeToTs,
             $TransformReturnTypeToTsCopyWith<TransformReturnTypeToTs>, String>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         SwarsTermStringResultMixin {
   TransformReturnTypeToTs._();
 

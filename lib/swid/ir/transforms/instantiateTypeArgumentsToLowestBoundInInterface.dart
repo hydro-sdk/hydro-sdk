@@ -28,7 +28,7 @@ class InstantiateTypeArgumentsToLowestBoundInInterface
             $InstantiateTypeArgumentsToLowestBoundInInterfaceCopyWith<
                 InstantiateTypeArgumentsToLowestBoundInInterface>,
             SwidInterface>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         SwarsTermJsonTransformableResultMixin,
         SwarsTermSwidInterfaceResultMixin {
   InstantiateTypeArgumentsToLowestBoundInInterface._();

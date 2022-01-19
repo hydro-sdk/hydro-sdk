@@ -28,7 +28,7 @@ class InstantiateGenericsToLowestBound
             $InstantiateGenericsToLowestBoundCopyWith<
                 InstantiateGenericsToLowestBound>,
             SwidType>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         SwarsTermJsonTransformableResultMixin,
         IrTermMixin {
   InstantiateGenericsToLowestBound._();

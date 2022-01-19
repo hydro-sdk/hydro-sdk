@@ -29,7 +29,7 @@ class DartBarrelLoadNamespaceSymbolDeclaration
             $DartBarrelLoadNamespaceSymbolDeclarationCopyWith<
                 DartBarrelLoadNamespaceSymbolDeclaration>,
             String>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         SwarsTermStringResultMixin {
   DartBarrelLoadNamespaceSymbolDeclaration._();
 

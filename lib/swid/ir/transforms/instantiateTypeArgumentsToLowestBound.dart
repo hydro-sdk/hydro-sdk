@@ -34,7 +34,7 @@ class InstantiateTypeArgumentsToLowestBound
             $InstantiateTypeArgumentsToLowestBoundCopyWith<
                 InstantiateTypeArgumentsToLowestBound>,
             SwidType>,
-            SwarsEphemeralTermMixin,
+        SwarsEphemeralTermMixin,
         SwarsTermJsonTransformableResultMixin,
         IrTermMixin {
   InstantiateTypeArgumentsToLowestBound._();
