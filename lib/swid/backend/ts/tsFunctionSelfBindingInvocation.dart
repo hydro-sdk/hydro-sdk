@@ -7,6 +7,7 @@ import 'package:hydro_sdk/swid/backend/ts/tsFunctionInvocationNamedParametersSpr
 import 'package:hydro_sdk/swid/backend/ts/tsFunctionInvocationPositionalParameters.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsEphemeralTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermStringResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
@@ -26,6 +27,7 @@ class TsFunctionSelfBindingInvocation
             $TsFunctionSelfBindingInvocationCopyWith<
                 TsFunctionSelfBindingInvocation>,
             String>,
+            SwarsEphemeralTermMixin,
         SwarsTermStringResultMixin {
   TsFunctionSelfBindingInvocation._();
 

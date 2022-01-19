@@ -6,6 +6,7 @@ import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsAnalysisMixin.dart';
+import 'package:hydro_sdk/swid/swars/swarsEphemeralTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermJsonTransformableResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
@@ -27,6 +28,7 @@ class NormalConstructorParametersShadowingClassFields
             $NormalConstructorParametersShadowingClassFieldsCopyWith<
                 NormalConstructorParametersShadowingClassFields>,
             ConstructorParameterShadowingResult>,
+            SwarsEphemeralTermMixin,
         SwarsTermJsonTransformableResultMixin {
   NormalConstructorParametersShadowingClassFields._();
 

@@ -5,6 +5,7 @@ import 'package:hydro_sdk/swid/frontend/swidi/validation/swidiValidationError.da
 import 'package:hydro_sdk/swid/frontend/swidi/validation/validateSwidiClass.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsAnalysisMixin.dart';
+import 'package:hydro_sdk/swid/swars/swarsEphemeralTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermJsonTransformableListResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
@@ -22,6 +23,7 @@ class ValidateShortHandOverride
             ValidateShortHandOverride,
             $ValidateShortHandOverrideCopyWith<ValidateShortHandOverride>,
             List<SwidiClassValidationState>>,
+            SwarsEphemeralTermMixin,
         SwarsTermJsonTransformableListResultMixin {
   ValidateShortHandOverride._();
 

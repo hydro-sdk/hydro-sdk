@@ -9,6 +9,7 @@ import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstFieldReference.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstFunctionInvocation.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsEphemeralTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsNonUniqueTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermStringResultMixin.dart';
@@ -25,13 +26,18 @@ class TransformStaticConstFunctionInvocation
         _$TransformStaticConstFunctionInvocation,
         HashKeyMixin<TransformStaticConstFunctionInvocation>,
         HashComparableMixin<TransformStaticConstFunctionInvocation>,
-        UnhashableMixin<TransformStaticConstFunctionInvocation>,
-        SwarsNonUniqueTermMixin<
+        SwarsTransformMixin<
             TransformStaticConstFunctionInvocation,
             $TransformStaticConstFunctionInvocationCopyWith<
                 TransformStaticConstFunctionInvocation>,
             String>,
-        SwarsTransformMixin<
+        UnhashableMixin<TransformStaticConstFunctionInvocation>,
+        SwarsEphemeralTermMixin<
+            TransformStaticConstFunctionInvocation,
+            $TransformStaticConstFunctionInvocationCopyWith<
+                TransformStaticConstFunctionInvocation>,
+            String>,
+        SwarsNonUniqueTermMixin<
             TransformStaticConstFunctionInvocation,
             $TransformStaticConstFunctionInvocationCopyWith<
                 TransformStaticConstFunctionInvocation>,

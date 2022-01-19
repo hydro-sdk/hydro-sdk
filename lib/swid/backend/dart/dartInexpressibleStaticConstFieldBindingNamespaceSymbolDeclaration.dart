@@ -18,6 +18,7 @@ import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstFieldDeclaration.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsEphemeralTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermStringResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
@@ -41,6 +42,7 @@ class DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
             $DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclarationCopyWith<
                 DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration>,
             String>,
+            SwarsEphemeralTermMixin,
         SwarsTermStringResultMixin {
   DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration._();
 

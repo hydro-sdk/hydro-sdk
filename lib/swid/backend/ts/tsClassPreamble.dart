@@ -4,6 +4,7 @@ import 'package:hydro_sdk/swid/backend/ts/transforms/transformTypeFormalsToTs.da
 import 'package:hydro_sdk/swid/backend/ts/tsSuperClassClause.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsEphemeralTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermStringResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
@@ -20,6 +21,7 @@ class TsClassPreamble
         HashComparableMixin<TsClassPreamble>,
         SwarsTransformMixin<TsClassPreamble,
             $TsClassPreambleCopyWith<TsClassPreamble>, String>,
+            SwarsEphemeralTermMixin,
         SwarsTermStringResultMixin {
   TsClassPreamble._();
 

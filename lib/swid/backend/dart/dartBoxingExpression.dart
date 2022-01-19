@@ -7,6 +7,7 @@ import 'package:hydro_sdk/swid/backend/dart/util/codeKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/util/narrowSwidInterfaceByReferenceDeclaration.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsEphemeralTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsNonUniqueTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermStringResultMixin.dart';
@@ -24,9 +25,11 @@ class DartBoxingExpression
         HashKeyMixin<DartBoxingExpression>,
         HashComparableMixin<DartBoxingExpression>,
         UnhashableMixin<DartBoxingExpression>,
-        SwarsNonUniqueTermMixin<DartBoxingExpression,
-            $DartBoxingExpressionCopyWith<DartBoxingExpression>, String>,
         SwarsTransformMixin<DartBoxingExpression,
+            $DartBoxingExpressionCopyWith<DartBoxingExpression>, String>,
+        SwarsEphemeralTermMixin<DartBoxingExpression,
+            $DartBoxingExpressionCopyWith<DartBoxingExpression>, String>,
+        SwarsNonUniqueTermMixin<DartBoxingExpression,
             $DartBoxingExpressionCopyWith<DartBoxingExpression>, String>,
         SwarsTermStringResultMixin {
   DartBoxingExpression._();

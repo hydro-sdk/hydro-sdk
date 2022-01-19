@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsEphemeralTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsNonUniqueTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermStringResultMixin.dart';
@@ -18,12 +19,17 @@ class MapPrimitiveSwidTypeNameToPrimitiveTsTypeName
         HashKeyMixin<MapPrimitiveSwidTypeNameToPrimitiveTsTypeName>,
         HashComparableMixin<MapPrimitiveSwidTypeNameToPrimitiveTsTypeName>,
         UnhashableMixin<MapPrimitiveSwidTypeNameToPrimitiveTsTypeName>,
-        SwarsNonUniqueTermMixin<
+        SwarsTransformMixin<
             MapPrimitiveSwidTypeNameToPrimitiveTsTypeName,
             $MapPrimitiveSwidTypeNameToPrimitiveTsTypeNameCopyWith<
                 MapPrimitiveSwidTypeNameToPrimitiveTsTypeName>,
             String>,
-        SwarsTransformMixin<
+        SwarsEphemeralTermMixin<
+            MapPrimitiveSwidTypeNameToPrimitiveTsTypeName,
+            $MapPrimitiveSwidTypeNameToPrimitiveTsTypeNameCopyWith<
+                MapPrimitiveSwidTypeNameToPrimitiveTsTypeName>,
+            String>,
+        SwarsNonUniqueTermMixin<
             MapPrimitiveSwidTypeNameToPrimitiveTsTypeName,
             $MapPrimitiveSwidTypeNameToPrimitiveTsTypeNameCopyWith<
                 MapPrimitiveSwidTypeNameToPrimitiveTsTypeName>,

@@ -5,6 +5,7 @@ import 'package:hydro_sdk/swid/ir/swidOriginatedAncestorTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/transforms/instantiateTypeArgumentsToLowestBound.dart';
 import 'package:hydro_sdk/swid/ir/util/swarsTermSwidDefaultFormalParameterMixin.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsEphemeralTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermJsonTransformableResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
@@ -26,6 +27,7 @@ class InstantiateTypeArgumentsToLowestBoundInDefaultFormalParameter
             $InstantiateTypeArgumentsToLowestBoundInDefaultFormalParameterCopyWith<
                 InstantiateTypeArgumentsToLowestBoundInDefaultFormalParameter>,
             SwidDefaultFormalParameter>,
+            SwarsEphemeralTermMixin,
         SwarsTermJsonTransformableResultMixin,
         SwarsTermSwidDefaultFormalParameterResultMixin {
   InstantiateTypeArgumentsToLowestBoundInDefaultFormalParameter._();

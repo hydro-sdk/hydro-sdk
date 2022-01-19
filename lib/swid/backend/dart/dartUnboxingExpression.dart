@@ -7,6 +7,7 @@ import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/transforms/nameAnonymousNormalParametersInFunction.dart';
 import 'package:hydro_sdk/swid/ir/util/narrowSwidInterfaceByReferenceDeclaration.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsEphemeralTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsNonUniqueTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermStringResultMixin.dart';
@@ -34,10 +35,12 @@ class DartUnboxingExpression
         _$DartUnboxingExpression,
         HashKeyMixin<DartUnboxingExpression>,
         HashComparableMixin<DartUnboxingExpression>,
-        UnhashableMixin<DartUnboxingExpression>,
-        SwarsNonUniqueTermMixin<DartUnboxingExpression,
-            $DartUnboxingExpressionCopyWith<DartUnboxingExpression>, String>,
         SwarsTransformMixin<DartUnboxingExpression,
+            $DartUnboxingExpressionCopyWith<DartUnboxingExpression>, String>,
+        UnhashableMixin<DartUnboxingExpression>,
+        SwarsEphemeralTermMixin<DartUnboxingExpression,
+            $DartUnboxingExpressionCopyWith<DartUnboxingExpression>, String>,
+        SwarsNonUniqueTermMixin<DartUnboxingExpression,
             $DartUnboxingExpressionCopyWith<DartUnboxingExpression>, String>,
         SwarsTermStringResultMixin {
   DartUnboxingExpression._();

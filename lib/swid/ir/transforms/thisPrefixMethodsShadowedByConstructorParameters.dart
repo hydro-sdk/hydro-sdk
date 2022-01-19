@@ -4,6 +4,7 @@ import 'package:hydro_sdk/swid/ir/analyses/methodsShadowedByConstructorParameter
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsEphemeralTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermJsonTransformableResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
@@ -23,6 +24,7 @@ class ThisPrefixMethodsShadowedByConstructorParameters
             $ThisPrefixMethodsShadowedByConstructorParametersCopyWith<
                 ThisPrefixMethodsShadowedByConstructorParameters>,
             SwidClass>,
+            SwarsEphemeralTermMixin,
         SwarsTermJsonTransformableResultMixin {
   ThisPrefixMethodsShadowedByConstructorParameters._();
 

@@ -3,6 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydro_sdk/swid/ir/analyses/normalConstructorParametersShadowingClassFields.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsEphemeralTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermJsonTransformableResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
@@ -21,7 +22,7 @@ class RewriteShadowingNormalConstructorParameters
             RewriteShadowingNormalConstructorParameters,
             $RewriteShadowingNormalConstructorParametersCopyWith<
                 RewriteShadowingNormalConstructorParameters>,
-            SwidClass>,
+            SwidClass>,SwarsEphemeralTermMixin,
         SwarsTermJsonTransformableResultMixin {
   RewriteShadowingNormalConstructorParameters._();
 

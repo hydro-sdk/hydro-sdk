@@ -4,6 +4,7 @@ import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsAnalysisMixin.dart';
+import 'package:hydro_sdk/swid/swars/swarsEphemeralTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermBoolResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
@@ -21,7 +22,7 @@ class HasInheritedMustCallSuperAnnotation
             HasInheritedMustCallSuperAnnotation,
             $HasInheritedMustCallSuperAnnotationCopyWith<
                 HasInheritedMustCallSuperAnnotation>,
-            bool>,
+            bool>,SwarsEphemeralTermMixin,
         SwarsTermBoolResultMixin {
   HasInheritedMustCallSuperAnnotation._();
 

@@ -6,6 +6,7 @@ import 'package:hydro_sdk/swid/backend/ts/transforms/transformCovariantTypesInDe
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/util/swarsTermSwidFunctionTypeResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsEphemeralTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermJsonTransformableResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
@@ -25,6 +26,7 @@ class TransformCovariantTypesInFunction
             $TransformCovariantTypesInFunctionCopyWith<
                 TransformCovariantTypesInFunction>,
             SwidFunctionType>,
+            SwarsEphemeralTermMixin,
         SwarsTermJsonTransformableResultMixin,
         SwarsTermSwidFunctionTypeResultMixin {
   TransformCovariantTypesInFunction._();

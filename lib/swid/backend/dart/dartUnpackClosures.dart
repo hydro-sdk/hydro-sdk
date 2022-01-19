@@ -2,6 +2,7 @@ import 'package:code_builder/code_builder.dart'
     show DartEmitter, refer, literalString, literalNum, Expression;
 
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/swars/swarsEphemeralTermMixin.dart';
 import 'package:tuple/tuple.dart';
 
 import 'package:hydro_sdk/swid/backend/dart/util/guardedLuaCallerNamedArgumentsIndex.dart';
@@ -27,6 +28,7 @@ class DartUnpackClosures
         HashComparableMixin<DartUnpackClosures>,
         SwarsTransformMixin<DartUnpackClosures,
             $DartUnpackClosuresCopyWith<DartUnpackClosures>, String>,
+            SwarsEphemeralTermMixin,
         SwarsTermStringResultMixin {
   DartUnpackClosures._();
 

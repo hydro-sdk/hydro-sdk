@@ -15,6 +15,7 @@ import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstFieldReference.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsEphemeralTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsNonUniqueTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermStringResultMixin.dart';
@@ -34,10 +35,12 @@ class TransformLiteralToTs
         _$TransformLiteralToTs,
         HashKeyMixin<TransformLiteralToTs>,
         HashComparableMixin<TransformLiteralToTs>,
-        UnhashableMixin<TransformLiteralToTs>,
-        SwarsNonUniqueTermMixin<TransformLiteralToTs,
-            $TransformLiteralToTsCopyWith<TransformLiteralToTs>, String>,
         SwarsTransformMixin<TransformLiteralToTs,
+            $TransformLiteralToTsCopyWith<TransformLiteralToTs>, String>,
+        UnhashableMixin<TransformLiteralToTs>,
+        SwarsEphemeralTermMixin<TransformLiteralToTs,
+            $TransformLiteralToTsCopyWith<TransformLiteralToTs>, String>,
+        SwarsNonUniqueTermMixin<TransformLiteralToTs,
             $TransformLiteralToTsCopyWith<TransformLiteralToTs>, String>,
         SwarsTermStringResultMixin {
   TransformLiteralToTs._();

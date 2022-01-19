@@ -13,6 +13,7 @@ import 'package:hydro_sdk/swid/ir/util/isPrimitive.dart';
 import 'package:hydro_sdk/swid/ir/util/isPrimitiveMap.dart';
 import 'package:hydro_sdk/swid/ir/util/narrowSwidInterfaceByReferenceDeclaration.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsEphemeralTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsNonUniqueTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermStringResultMixin.dart';
@@ -31,9 +32,11 @@ class DartBoxObjectReference
         HashKeyMixin<DartBoxObjectReference>,
         HashComparableMixin<DartBoxObjectReference>,
         UnhashableMixin<DartBoxObjectReference>,
-        SwarsNonUniqueTermMixin<DartBoxObjectReference,
-            $DartBoxObjectReferenceCopyWith<DartBoxObjectReference>, String>,
         SwarsTransformMixin<DartBoxObjectReference,
+            $DartBoxObjectReferenceCopyWith<DartBoxObjectReference>, String>,
+        SwarsEphemeralTermMixin<DartBoxObjectReference,
+            $DartBoxObjectReferenceCopyWith<DartBoxObjectReference>, String>,
+        SwarsNonUniqueTermMixin<DartBoxObjectReference,
             $DartBoxObjectReferenceCopyWith<DartBoxObjectReference>, String>,
         SwarsTermStringResultMixin {
   DartBoxObjectReference._();

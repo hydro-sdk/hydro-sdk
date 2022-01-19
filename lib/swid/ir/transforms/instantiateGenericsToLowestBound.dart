@@ -8,6 +8,7 @@ import 'package:hydro_sdk/swid/ir/transforms/instantiateTypeArgumentsToLowestBou
 import 'package:hydro_sdk/swid/ir/transforms/instantiateTypeFormalToLowestBound.dart';
 import 'package:hydro_sdk/swid/ir/util/irTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsEphemeralTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermJsonTransformableResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
@@ -27,6 +28,7 @@ class InstantiateGenericsToLowestBound
             $InstantiateGenericsToLowestBoundCopyWith<
                 InstantiateGenericsToLowestBound>,
             SwidType>,
+            SwarsEphemeralTermMixin,
         SwarsTermJsonTransformableResultMixin,
         IrTermMixin {
   InstantiateGenericsToLowestBound._();

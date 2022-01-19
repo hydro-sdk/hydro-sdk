@@ -5,6 +5,7 @@ import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstBinaryExpression.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstFieldReference.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsEphemeralTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsNonUniqueTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermStringResultMixin.dart';
@@ -21,13 +22,18 @@ class TransformStaticConstBinaryExpressionToTs
         _$TransformStaticConstBinaryExpressionToTs,
         HashKeyMixin<TransformStaticConstBinaryExpressionToTs>,
         HashComparableMixin<TransformStaticConstBinaryExpressionToTs>,
-        UnhashableMixin<TransformStaticConstBinaryExpressionToTs>,
-        SwarsNonUniqueTermMixin<
+        SwarsTransformMixin<
             TransformStaticConstBinaryExpressionToTs,
             $TransformStaticConstBinaryExpressionToTsCopyWith<
                 TransformStaticConstBinaryExpressionToTs>,
             String>,
-        SwarsTransformMixin<
+        UnhashableMixin<TransformStaticConstBinaryExpressionToTs>,
+        SwarsEphemeralTermMixin<
+            TransformStaticConstBinaryExpressionToTs,
+            $TransformStaticConstBinaryExpressionToTsCopyWith<
+                TransformStaticConstBinaryExpressionToTs>,
+            String>,
+        SwarsNonUniqueTermMixin<
             TransformStaticConstBinaryExpressionToTs,
             $TransformStaticConstBinaryExpressionToTsCopyWith<
                 TransformStaticConstBinaryExpressionToTs>,

@@ -6,6 +6,7 @@ import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstFieldDeclaration.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsAnalysisMixin.dart';
+import 'package:hydro_sdk/swid/swars/swarsEphemeralTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermBoolResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
@@ -23,6 +24,7 @@ class IsInexpressibleStaticConst
             IsInexpressibleStaticConst,
             $IsInexpressibleStaticConstCopyWith<IsInexpressibleStaticConst>,
             bool>,
+            SwarsEphemeralTermMixin,
         SwarsTermBoolResultMixin {
   IsInexpressibleStaticConst._();
 

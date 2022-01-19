@@ -5,6 +5,7 @@ import 'package:hydro_sdk/swid/ir/analyses/hasInheritedMustCallSuperAnnotation.d
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsEphemeralTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermStringResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
@@ -23,6 +24,7 @@ class SuperMethodInvocation
         HashComparableMixin<SuperMethodInvocation>,
         SwarsTransformMixin<SuperMethodInvocation,
             $SuperMethodInvocationCopyWith<SuperMethodInvocation>, String>,
+            SwarsEphemeralTermMixin,
         SwarsTermStringResultMixin {
   SuperMethodInvocation._();
 

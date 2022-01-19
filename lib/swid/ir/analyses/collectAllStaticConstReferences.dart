@@ -9,6 +9,7 @@ import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/util/interfaceTermListResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsAnalysisMixin.dart';
+import 'package:hydro_sdk/swid/swars/swarsEphemeralTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
@@ -26,6 +27,7 @@ class CollectAllStaticConstReferences
             $CollectAllStaticConstReferencesCopyWith<
                 CollectAllStaticConstReferences>,
             List<SwidInterface>>,
+            SwarsEphemeralTermMixin,
         InterfaceTermListResultMixin {
   CollectAllStaticConstReferences._();
 

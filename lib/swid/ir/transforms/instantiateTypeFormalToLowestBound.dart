@@ -3,6 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormalValue.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsEphemeralTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermJsonTransformableResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
@@ -21,7 +22,7 @@ class InstantiateTypeFormalToLowestBound
             InstantiateTypeFormalToLowestBound,
             $InstantiateTypeFormalToLowestBoundCopyWith<
                 InstantiateTypeFormalToLowestBound>,
-            SwidTypeFormal>,
+            SwidTypeFormal>,SwarsEphemeralTermMixin,
         SwarsTermJsonTransformableResultMixin {
   InstantiateTypeFormalToLowestBound._();
 

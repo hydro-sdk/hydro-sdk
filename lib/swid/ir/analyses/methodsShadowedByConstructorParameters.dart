@@ -4,6 +4,7 @@ import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsAnalysisMixin.dart';
+import 'package:hydro_sdk/swid/swars/swarsEphemeralTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermJsonTransformableListResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
@@ -22,6 +23,7 @@ class MethodsShadowedByConstructorParameters
             $MethodsShadowedByConstructorParametersCopyWith<
                 MethodsShadowedByConstructorParameters>,
             List<SwidFunctionType>>,
+            SwarsEphemeralTermMixin,
         SwarsTermJsonTransformableListResultMixin {
   MethodsShadowedByConstructorParameters._();
 

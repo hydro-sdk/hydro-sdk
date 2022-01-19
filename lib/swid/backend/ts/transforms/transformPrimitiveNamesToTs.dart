@@ -11,6 +11,7 @@ import 'package:hydro_sdk/swid/ir/swidTypeArgumentType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormalValue.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsEphemeralTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermJsonTransformableResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
@@ -29,6 +30,7 @@ class TransformPrimitiveNamesToTs
             TransformPrimitiveNamesToTs,
             $TransformPrimitiveNamesToTsCopyWith<TransformPrimitiveNamesToTs>,
             SwidType>,
+            SwarsEphemeralTermMixin,
         SwarsTermJsonTransformableResultMixin {
   TransformPrimitiveNamesToTs._();
 

@@ -8,6 +8,7 @@ import 'package:hydro_sdk/swid/backend/ts/tsClassMethodInjectionFieldName.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/util/rewriteClassReferencesToInterfaceReferencesInFunction.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsEphemeralTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermStringResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
@@ -27,6 +28,7 @@ class TsClassMethodInjectionFieldDeclarations
             $TsClassMethodInjectionFieldDeclarationsCopyWith<
                 TsClassMethodInjectionFieldDeclarations>,
             String>,
+            SwarsEphemeralTermMixin,
         SwarsTermStringResultMixin {
   TsClassMethodInjectionFieldDeclarations._();
 

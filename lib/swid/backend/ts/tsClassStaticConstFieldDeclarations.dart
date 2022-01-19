@@ -4,6 +4,7 @@ import 'package:hydro_sdk/swid/backend/ts/transforms/transformStaticConstFieldDe
 import 'package:hydro_sdk/swid/backend/ts/transforms/util/makeDefaultStaticConstFieldReferenceScopeResolver.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsEphemeralTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermStringResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
@@ -23,6 +24,7 @@ class TsClassStaticConstFieldDeclarations
             $TsClassStaticConstFieldDeclarationsCopyWith<
                 TsClassStaticConstFieldDeclarations>,
             String>,
+            SwarsEphemeralTermMixin,
         SwarsTermStringResultMixin {
   TsClassStaticConstFieldDeclarations._();
 

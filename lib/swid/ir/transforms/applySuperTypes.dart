@@ -6,6 +6,7 @@ import 'package:hydro_sdk/swid/ir/transforms/applyMixins.dart';
 import 'package:hydro_sdk/swid/ir/transforms/mergeClassDeclarations.dart';
 import 'package:hydro_sdk/swid/ir/util/swarsTermSwidClassResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsEphemeralTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermJsonTransformableResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
@@ -22,6 +23,7 @@ class ApplySuperTypes
         HashComparableMixin<ApplySuperTypes>,
         SwarsTransformMixin<ApplySuperTypes,
             $ApplySuperTypesCopyWith<ApplySuperTypes>, SwidClass>,
+            SwarsEphemeralTermMixin,
         SwarsTermJsonTransformableResultMixin,
         SwarsTermSwidClassResultMixin {
   ApplySuperTypes._();

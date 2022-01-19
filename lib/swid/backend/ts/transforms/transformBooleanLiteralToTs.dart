@@ -2,6 +2,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/ir/swidBooleanLiteral.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsEphemeralTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsNonUniqueTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermStringResultMixin.dart';
@@ -18,12 +19,16 @@ class TransformBooleanLiteralToTs
         _$TransformBooleanLiteralToTs,
         HashKeyMixin<TransformBooleanLiteralToTs>,
         HashComparableMixin<TransformBooleanLiteralToTs>,
-        UnhashableMixin<TransformBooleanLiteralToTs>,
-        SwarsNonUniqueTermMixin<
+        SwarsTransformMixin<
             TransformBooleanLiteralToTs,
             $TransformBooleanLiteralToTsCopyWith<TransformBooleanLiteralToTs>,
             String>,
-        SwarsTransformMixin<
+        UnhashableMixin<TransformBooleanLiteralToTs>,
+        SwarsEphemeralTermMixin<
+            TransformBooleanLiteralToTs,
+            $TransformBooleanLiteralToTsCopyWith<TransformBooleanLiteralToTs>,
+            String>,
+        SwarsNonUniqueTermMixin<
             TransformBooleanLiteralToTs,
             $TransformBooleanLiteralToTsCopyWith<TransformBooleanLiteralToTs>,
             String>,

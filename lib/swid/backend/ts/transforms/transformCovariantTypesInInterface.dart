@@ -5,6 +5,7 @@ import 'package:hydro_sdk/swid/backend/ts/transforms/covarianceTransformKind.dar
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/util/swarsTermSwidInterfaceResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsEphemeralTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermJsonTransformableResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
@@ -24,6 +25,7 @@ class TransformCovariantTypesInInterface
             $TransformCovariantTypesInInterfaceCopyWith<
                 TransformCovariantTypesInInterface>,
             SwidInterface>,
+            SwarsEphemeralTermMixin,
         SwarsTermJsonTransformableResultMixin,
         SwarsTermSwidInterfaceResultMixin {
   TransformCovariantTypesInInterface._();

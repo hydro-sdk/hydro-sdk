@@ -1,3 +1,4 @@
+import 'package:hydro_sdk/swid/swars/swarsTermResultPersistenceKind.dart';
 import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
@@ -12,9 +13,11 @@ import 'package:hydro_sdk/swid/util/iHashKey.dart';
 abstract class ISwarsTerm<T extends Object, U extends Object, V extends Object>
     implements ICloneable<T>, ICopyable<T, U>, IHashKey, IHashComparable {
   final String cacheGroup;
+  final SwarsTermResultPersistenceKind termResultPersistenceKind;
 
   const ISwarsTerm({
     required final this.cacheGroup,
+    required final this.termResultPersistenceKind,
   });
 
   @pragma('vm:prefer-inline')

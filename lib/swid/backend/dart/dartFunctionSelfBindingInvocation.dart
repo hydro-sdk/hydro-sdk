@@ -18,6 +18,7 @@ import 'package:hydro_sdk/swid/backend/dart/util/luaCallerArgumentsParameterName
 import 'package:hydro_sdk/swid/backend/dart/util/unpackedClosureName.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsEphemeralTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsNonUniqueTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermStringResultMixin.dart';
@@ -35,12 +36,17 @@ class DartFunctionSelfBindingInvocation
         HashKeyMixin<DartFunctionSelfBindingInvocation>,
         HashComparableMixin<DartFunctionSelfBindingInvocation>,
         UnhashableMixin<DartFunctionSelfBindingInvocation>,
-        SwarsNonUniqueTermMixin<
+        SwarsTransformMixin<
             DartFunctionSelfBindingInvocation,
             $DartFunctionSelfBindingInvocationCopyWith<
                 DartFunctionSelfBindingInvocation>,
             String>,
-        SwarsTransformMixin<
+        SwarsEphemeralTermMixin<
+            DartFunctionSelfBindingInvocation,
+            $DartFunctionSelfBindingInvocationCopyWith<
+                DartFunctionSelfBindingInvocation>,
+            String>,
+        SwarsNonUniqueTermMixin<
             DartFunctionSelfBindingInvocation,
             $DartFunctionSelfBindingInvocationCopyWith<
                 DartFunctionSelfBindingInvocation>,

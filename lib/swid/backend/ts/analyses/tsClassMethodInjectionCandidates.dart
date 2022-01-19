@@ -5,6 +5,7 @@ import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/util/isOperator.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsAnalysisMixin.dart';
+import 'package:hydro_sdk/swid/swars/swarsEphemeralTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermJsonTransformableListResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/transforms/transformAccessorName.dart';
@@ -24,6 +25,7 @@ class TsClassMethodInjectionCandidates
             $TsClassMethodInjectionCandidatesCopyWith<
                 TsClassMethodInjectionCandidates>,
             List<SwidFunctionType>>,
+            SwarsEphemeralTermMixin,
         SwarsTermJsonTransformableListResultMixin {
   TsClassMethodInjectionCandidates._();
 

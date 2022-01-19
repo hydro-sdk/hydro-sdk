@@ -2,6 +2,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/ir/swidDoubleLiteral.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsEphemeralTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsNonUniqueTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermStringResultMixin.dart';
@@ -18,12 +19,16 @@ class TransformDoubleLiteralToTs
         _$TransformDoubleLiteralToTs,
         HashKeyMixin<TransformDoubleLiteralToTs>,
         HashComparableMixin<TransformDoubleLiteralToTs>,
-        UnhashableMixin<TransformDoubleLiteralToTs>,
-        SwarsNonUniqueTermMixin<
+        SwarsTransformMixin<
             TransformDoubleLiteralToTs,
             $TransformDoubleLiteralToTsCopyWith<TransformDoubleLiteralToTs>,
             String>,
-        SwarsTransformMixin<
+        UnhashableMixin<TransformDoubleLiteralToTs>,
+        SwarsEphemeralTermMixin<
+            TransformDoubleLiteralToTs,
+            $TransformDoubleLiteralToTsCopyWith<TransformDoubleLiteralToTs>,
+            String>,
+        SwarsNonUniqueTermMixin<
             TransformDoubleLiteralToTs,
             $TransformDoubleLiteralToTsCopyWith<TransformDoubleLiteralToTs>,
             String>,

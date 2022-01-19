@@ -3,6 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydro_sdk/swid/backend/ts/tsFunctionInvocationNamedParametersKeyValue.dart';
 import 'package:hydro_sdk/swid/backend/ts/tsFunctionInvocationNamedParametersSpread.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsEphemeralTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermStringResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
@@ -19,6 +20,7 @@ class TsFunctionInvocationNamedParameters
         HashComparableMixin<TsFunctionInvocationNamedParameters>,
         SwarsTransformMixin<TsFunctionInvocationNamedParameters, Object,
             String>,
+        SwarsEphemeralTermMixin,
         SwarsTermStringResultMixin {
   TsFunctionInvocationNamedParameters._();
 

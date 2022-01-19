@@ -5,6 +5,7 @@ import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstFieldReference.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsEphemeralTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsNonUniqueTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermStringResultMixin.dart';
@@ -21,13 +22,18 @@ class TransformNormalParametersToTs
         _$TransformNormalParametersToTs,
         HashKeyMixin<TransformNormalParametersToTs>,
         HashComparableMixin<TransformNormalParametersToTs>,
-        UnhashableMixin<TransformNormalParametersToTs>,
-        SwarsNonUniqueTermMixin<
+        SwarsTransformMixin<
             TransformNormalParametersToTs,
             $TransformNormalParametersToTsCopyWith<
                 TransformNormalParametersToTs>,
             String>,
-        SwarsTransformMixin<
+        UnhashableMixin<TransformNormalParametersToTs>,
+        SwarsEphemeralTermMixin<
+            TransformNormalParametersToTs,
+            $TransformNormalParametersToTsCopyWith<
+                TransformNormalParametersToTs>,
+            String>,
+        SwarsNonUniqueTermMixin<
             TransformNormalParametersToTs,
             $TransformNormalParametersToTsCopyWith<
                 TransformNormalParametersToTs>,

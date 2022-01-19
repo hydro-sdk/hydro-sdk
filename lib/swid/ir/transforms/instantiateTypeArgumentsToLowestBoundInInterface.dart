@@ -8,6 +8,7 @@ import 'package:hydro_sdk/swid/ir/swidTypeArgumentType.dart';
 import 'package:hydro_sdk/swid/ir/transforms/instantiateTypeArgumentsToLowestBound.dart';
 import 'package:hydro_sdk/swid/ir/util/swarsTermSwidInterfaceResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsEphemeralTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermJsonTransformableResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
@@ -27,6 +28,7 @@ class InstantiateTypeArgumentsToLowestBoundInInterface
             $InstantiateTypeArgumentsToLowestBoundInInterfaceCopyWith<
                 InstantiateTypeArgumentsToLowestBoundInInterface>,
             SwidInterface>,
+            SwarsEphemeralTermMixin,
         SwarsTermJsonTransformableResultMixin,
         SwarsTermSwidInterfaceResultMixin {
   InstantiateTypeArgumentsToLowestBoundInInterface._();

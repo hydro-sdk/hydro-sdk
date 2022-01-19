@@ -7,6 +7,7 @@ import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/util/rewriteClassReferencesToInterfaceReferences.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsEphemeralTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermStringResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
@@ -25,6 +26,7 @@ class TsFunctionDefaultNamedProps
             TsFunctionDefaultNamedProps,
             $TsFunctionDefaultNamedPropsCopyWith<TsFunctionDefaultNamedProps>,
             String>,
+            SwarsEphemeralTermMixin,
         SwarsTermStringResultMixin {
   TsFunctionDefaultNamedProps._();
 

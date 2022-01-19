@@ -7,6 +7,7 @@ import 'package:hydro_sdk/swid/frontend/swidi/validation/validateShortHandOverri
 import 'package:hydro_sdk/swid/frontend/swidi/validation/validateSwidiClassMethod.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsAnalysisMixin.dart';
+import 'package:hydro_sdk/swid/swars/swarsEphemeralTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermJsonTransformableResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
@@ -47,6 +48,7 @@ class ValidateSwidiClass
             ValidateSwidiClass,
             $ValidateSwidiClassCopyWith<ValidateSwidiClass>,
             SwidiClassValidationState>,
+            SwarsEphemeralTermMixin,
         SwarsTermJsonTransformableResultMixin {
   ValidateSwidiClass._();
 

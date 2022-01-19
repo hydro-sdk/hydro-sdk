@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/swars/swarsEphemeralTermMixin.dart';
 import 'package:path/path.dart' as path;
 
 import 'package:hydro_sdk/swid/backend/ts/transforms/transformVmDeclarationToTs.dart';
@@ -35,6 +36,7 @@ class TsClassVmDeclaration
         HashComparableMixin<TsClassVmDeclaration>,
         SwarsTransformMixin<TsClassVmDeclaration,
             $TsClassVmDeclarationCopyWith<TsClassVmDeclaration>, String>,
+            SwarsEphemeralTermMixin,
         SwarsTermStringResultMixin {
   TsClassVmDeclaration._();
 

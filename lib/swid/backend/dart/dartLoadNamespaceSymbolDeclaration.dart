@@ -28,6 +28,7 @@ import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/transforms/instantiateAllGenericsAsDynamic.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
+import 'package:hydro_sdk/swid/swars/swarsEphemeralTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermStringResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
@@ -48,6 +49,7 @@ class DartLoadNamespaceSymbolDeclaration
             $DartLoadNamespaceSymbolDeclarationCopyWith<
                 DartLoadNamespaceSymbolDeclaration>,
             String>,
+            SwarsEphemeralTermMixin,
         SwarsTermStringResultMixin {
   DartLoadNamespaceSymbolDeclaration._();
 
