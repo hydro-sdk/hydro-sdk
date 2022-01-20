@@ -1,4 +1,3 @@
-import 'package:petitparser/definition.dart';
 import 'package:petitparser/petitparser.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iConstBooleanFalseLexer.dart';

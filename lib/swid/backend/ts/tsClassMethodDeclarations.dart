@@ -1,4 +1,3 @@
-import 'package:collection/collection.dart' show IterableExtension;
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/backend/ts/analyses/tsClassMethodInjectionCandidates.dart';

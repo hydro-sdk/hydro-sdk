@@ -17,7 +17,6 @@ import 'dart:io' as io;
 import 'package:analyzer/dart/ast/ast.dart';
 import 'package:analyzer/dart/element/type.dart';
 import 'package:analyzer/error/error.dart';
-import 'package:analyzer/source/line_info.dart';
 import 'package:path/path.dart' as path;
 
 import 'package:analyzer/src/generated/engine.dart'; // ignore: implementation_imports

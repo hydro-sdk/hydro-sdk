@@ -1,4 +1,3 @@
-import 'package:collection/collection.dart' show IterableExtension;
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:path/path.dart' as path;
 
