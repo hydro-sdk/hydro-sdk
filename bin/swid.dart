@@ -7,8 +7,8 @@ import 'package:args/args.dart';
 import 'package:cli_util/cli_logging.dart';
 import 'package:collection/collection.dart';
 import 'package:drift/native.dart';
-import 'package:sqlite3/sqlite3.dart';
 import 'package:sqlite3/open.dart';
+import 'package:sqlite3/sqlite3.dart';
 
 import 'package:hydro_sdk/swid/backend/dart/util/produceDartTranslationUnitsFromBarrelSpec.dart';
 import 'package:hydro_sdk/swid/backend/translationUnitProducer.dart';
