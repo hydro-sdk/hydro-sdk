@@ -216,7 +216,7 @@ void main() {
       returnType: SwidType.fromSwidInterface(
         swidInterface: SwidInterface(
           name: "State<StatefulWidget>",
-          nullabilitySuffix: SwidNullabilitySuffix.none,
+          nullabilitySuffix: SwidNullabilitySuffix.question,
           originalPackagePath: "package:flutter/src/widgets/framework.dart",
           typeArguments: [
             SwidTypeArgumentType(
