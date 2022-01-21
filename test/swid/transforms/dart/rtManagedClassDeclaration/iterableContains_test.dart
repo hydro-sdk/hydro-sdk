@@ -97,5 +97,5 @@ class RTManagedIterable extends Iterable implements Box<Iterable> {
   }
 }
 """);
-  });
+  }, tags: "swid");
 }
