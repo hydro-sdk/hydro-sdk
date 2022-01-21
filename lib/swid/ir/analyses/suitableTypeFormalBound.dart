@@ -90,7 +90,9 @@ class SuitableTypeFormalBound
                 ?.swidTypeFormal
                 .swidTypeFormalBound
                 ?.when(
-                  fromSwidInterface: (val) => val,
+                  fromSwidInterface: (val) => val.clone(
+                    nullabilitySuffix: candidateInterface.nullabilitySuffix,
+                  ),
                   fromSwidFunctionType: (_) => dartUnknownInterface,
                 ) ??
             dartUnknownInterface,
