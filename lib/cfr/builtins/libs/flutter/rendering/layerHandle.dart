@@ -74,18 +74,18 @@ class RTManagedLayerHandle extends LayerHandle implements Box<LayerHandle> {
   LayerHandle unwrap() => this;
   LayerHandle get vmObject => this;
   @override
-  Layer get layer {
+  Layer? get layer {
     Closure closure = table["getLayer"];
-    return maybeUnBoxAndBuildArgument<Layer, dynamic>(
+    return maybeUnBoxAndBuildArgument<Layer?, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
 
-  // @override
-  // void set layer(Layer layer) {
-  //   Closure closure = table["setLayer"];
-  //   return closure.dispatch([table], parentState: hydroState)[0];
-  // }
+  @override
+  void set layer(Layer? layer) {
+    Closure closure = table["setLayer"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
 
   @override
   String toString() {

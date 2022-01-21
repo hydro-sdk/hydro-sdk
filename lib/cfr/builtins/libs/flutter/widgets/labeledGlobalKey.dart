@@ -128,9 +128,9 @@ class RTManagedLabeledGlobalKey extends LabeledGlobalKey
   }
 
   @override
-  State<StatefulWidget> get currentState {
+  State<StatefulWidget>? get currentState {
     Closure closure = table["getCurrentState"];
-    return maybeUnBoxAndBuildArgument<State<StatefulWidget>, StatefulWidget>(
+    return maybeUnBoxAndBuildArgument<State<StatefulWidget>?, StatefulWidget>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
