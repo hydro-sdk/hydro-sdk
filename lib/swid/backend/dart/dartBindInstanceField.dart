@@ -45,7 +45,7 @@ class DartBindInstanceField
     yield [
       ...tableKey.codeUnits,
     ];
-    yield* instanceField.hashableParts;
+    yield* instanceField.hashKey.hashableParts;
   }
 
   @override

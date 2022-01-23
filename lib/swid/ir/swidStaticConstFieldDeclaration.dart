@@ -42,12 +42,8 @@ class SwidStaticConstFieldDeclaration
 
   @override
   late final Iterable<Iterable<int>> hashableParts = (() sync* {
-    yield [
-      ...name.hashableParts,
-    ];
-    yield [
-      ...value.hashKey.hashableParts,
-    ];
+    yield* name.hashableParts;
+    yield* value.hashKey.hashableParts;
   })();
 
   @override

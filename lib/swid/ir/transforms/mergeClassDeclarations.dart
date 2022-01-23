@@ -34,12 +34,8 @@ class MergeClassDeclarations
 
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
-    yield [
-      ...swidClass.hashKey.hashableParts,
-    ];
-    yield [
-      ...?superClass?.hashKey.hashableParts,
-    ];
+    yield* swidClass.hashKey.hashableParts;
+    yield* superClass?.hashKey.hashableParts ?? [];
   }
 
   @override

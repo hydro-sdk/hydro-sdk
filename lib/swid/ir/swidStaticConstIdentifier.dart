@@ -39,12 +39,8 @@ class SwidStaticConstIdentifier
 
   @override
   late final Iterable<Iterable<int>> hashableParts = (() sync* {
-    yield [
-      ...identifier.hashableParts,
-    ];
-    yield [
-      ...enclosingType.hashKey.hashableParts,
-    ];
+    yield* identifier.hashableParts;
+    yield* enclosingType.hashKey.hashableParts;
   })();
 
   @override

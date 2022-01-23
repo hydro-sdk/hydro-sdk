@@ -35,8 +35,8 @@ class IsUnrepresentableStaticConst
 
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
-    yield* parentClass?.hashableParts ?? [];
-    yield* staticConst.hashableParts;
+    yield* parentClass?.hashKey.hashableParts ?? [];
+    yield* staticConst.hashKey.hashableParts;
   }
 
   @override

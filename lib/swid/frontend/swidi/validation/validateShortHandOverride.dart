@@ -35,7 +35,7 @@ class ValidateShortHandOverride
 
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
-    yield* swidiConst.hashableParts;
+    yield* swidiConst.hashKey.hashableParts;
     yield* validKeys.hashableParts;
   }
 

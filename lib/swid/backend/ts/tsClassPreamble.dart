@@ -32,9 +32,7 @@ class TsClassPreamble
 
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
-    yield [
-      ...swidClass.hashKey.hashableParts,
-    ];
+    yield* swidClass.hashKey.hashableParts;
   }
 
   @override

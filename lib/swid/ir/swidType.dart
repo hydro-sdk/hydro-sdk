@@ -78,10 +78,10 @@ class SwidType
 
   @override
   late final Iterable<Iterable<int>> hashableParts = when(
-    fromSwidInterface: (val) => val.hashableParts,
-    fromSwidClass: (val) => val.hashableParts,
-    fromSwidDefaultFormalParameter: (val) => val.hashableParts,
-    fromSwidFunctionType: (val) => val.hashableParts,
+    fromSwidInterface: (val) => val.hashKey.hashableParts,
+    fromSwidClass: (val) => val.hashKey.hashableParts,
+    fromSwidDefaultFormalParameter: (val) => val.hashKey.hashableParts,
+    fromSwidFunctionType: (val) => val.hashKey.hashableParts,
   );
 
   @override

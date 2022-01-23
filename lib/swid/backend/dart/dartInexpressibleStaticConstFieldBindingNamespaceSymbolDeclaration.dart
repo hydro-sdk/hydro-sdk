@@ -56,8 +56,8 @@ class DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
 
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
-    yield* swidClass.hashableParts;
-    yield* swidStaticConstFieldDeclaration.hashableParts;
+    yield* swidClass.hashKey.hashableParts;
+    yield* swidStaticConstFieldDeclaration.hashKey.hashableParts;
   }
 
   @override

@@ -12,8 +12,6 @@ mixin UnhashableMixin<T extends Object> on HashKeyMixin<T>
   @nonVirtual
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
-    yield [
-      ...const Uuid().v4().hashableParts,
-    ];
+    yield* const Uuid().v4().hashableParts;
   }
 }

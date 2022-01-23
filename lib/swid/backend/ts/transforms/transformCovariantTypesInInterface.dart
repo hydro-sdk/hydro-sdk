@@ -38,7 +38,7 @@ class TransformCovariantTypesInInterface
 
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
-    yield* swidInterface.hashableParts;
+    yield* swidInterface.hashKey.hashableParts;
     yield [
       covarianceTransformKind.index,
     ];

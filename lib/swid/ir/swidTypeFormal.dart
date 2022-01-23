@@ -53,18 +53,16 @@ class SwidTypeFormal
 
   @override
   late final Iterable<Iterable<int>> hashableParts = (() sync* {
-    yield [
-      ...value.hashKey.hashableParts,
-    ];
+    yield* value.hashKey.hashableParts;
     yield [
       swidReferenceDeclarationKind.index,
     ];
-    yield [
-      ...swidTypeFormalBound?.hashKey.hashableParts ??
+    yield* swidTypeFormalBound?.hashKey.hashableParts ??
+        [
           [
             1,
           ],
-    ];
+        ];
   })();
 
   @override

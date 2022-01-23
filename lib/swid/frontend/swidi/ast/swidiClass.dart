@@ -45,10 +45,8 @@ class SwidiClass
 
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
-    yield [
-      ...name.hashableParts,
-    ];
-    yield* libraryScopePrefix.hashableParts;
+    yield* name.hashableParts;
+    yield* libraryScopePrefix.hashKey.hashableParts;
     yield* methods.hashableParts;
     yield* staticMethods.hashableParts;
     ;

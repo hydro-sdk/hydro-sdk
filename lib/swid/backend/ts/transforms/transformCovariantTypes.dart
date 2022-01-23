@@ -40,7 +40,7 @@ class TransformCovariantTypes
 
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
-    yield* swidType.hashableParts;
+    yield* swidType.hashKey.hashableParts;
     yield [
       covarianceTransformKind.index,
     ];

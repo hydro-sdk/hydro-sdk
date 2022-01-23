@@ -39,9 +39,7 @@ class InstantiateTypeArgumentsToLowestBoundInFunction
 
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
-    yield [
-      ...swidFunctionType.hashKey.hashableParts,
-    ];
+    yield* swidFunctionType.hashKey.hashableParts;
     yield* swidTypeFormals?.hashableParts ?? [];
   }
 

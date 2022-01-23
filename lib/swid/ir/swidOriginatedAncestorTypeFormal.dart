@@ -53,7 +53,7 @@ class SwidOriginatedAncestorTypeFormal
 
   @override
   late final Iterable<Iterable<int>> hashableParts = (() sync* {
-    yield* swidTypeFormal.hashableParts;
+    yield* swidTypeFormal.hashKey.hashableParts;
     yield [
       kind.index,
     ];

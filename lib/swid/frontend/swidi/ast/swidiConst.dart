@@ -73,12 +73,12 @@ class SwidiConst
 
   @override
   Iterable<Iterable<int>> get hashableParts => when(
-        fromSwidiEmptyConst: (val) => val.hashableParts,
-        fromSwidiConstNumber: (val) => val.hashableParts,
-        fromSwidiConstString: (val) => val.hashableParts,
-        fromSwidiConstFunctionInvocation: (val) => val.hashableParts,
-        fromSwidiConstMap: (val) => val.hashableParts,
-        fromSwidiConstBoolean: (val) => val.hashableParts,
+        fromSwidiEmptyConst: (val) => val.hashKey.hashableParts,
+        fromSwidiConstNumber: (val) => val.hashKey.hashableParts,
+        fromSwidiConstString: (val) => val.hashKey.hashableParts,
+        fromSwidiConstFunctionInvocation: (val) => val.hashKey.hashableParts,
+        fromSwidiConstMap: (val) => val.hashKey.hashableParts,
+        fromSwidiConstBoolean: (val) => val.hashKey.hashableParts,
       );
 
   @override

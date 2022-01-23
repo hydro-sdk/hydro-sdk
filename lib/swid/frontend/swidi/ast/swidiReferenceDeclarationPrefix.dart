@@ -36,9 +36,7 @@ class SwidiReferenceDeclarationPrefix
 
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
-    yield [
-      ...name.hashableParts,
-    ];
+    yield* name.hashableParts;
   }
 
   @override

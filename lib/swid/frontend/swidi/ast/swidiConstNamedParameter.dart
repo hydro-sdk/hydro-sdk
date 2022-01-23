@@ -35,10 +35,8 @@ class SwidiConstNamedParameter
 
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
-    yield [
-      ...name.hashableParts,
-    ];
-    yield* value.hashableParts;
+    yield* name.hashableParts;
+    yield* value.hashKey.hashableParts;
   }
 
   @override

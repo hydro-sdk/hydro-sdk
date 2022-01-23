@@ -25,8 +25,8 @@ class SwidiConstBoolean
 
   @override
   Iterable<Iterable<int>> get hashableParts => when(
-        fromSwidiConstBooleanTrue: (val) => val.hashableParts,
-        fromSwidiConstBooleanFalse: (val) => val.hashableParts,
+        fromSwidiConstBooleanTrue: (val) => val.hashKey.hashableParts,
+        fromSwidiConstBooleanFalse: (val) => val.hashKey.hashableParts,
       );
 
   @override

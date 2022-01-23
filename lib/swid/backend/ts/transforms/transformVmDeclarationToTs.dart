@@ -34,7 +34,7 @@ class TransformVmDeclarationToTs
 
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
-    yield* tsVmDeclaration.hashableParts;
+    yield* tsVmDeclaration.hashKey.hashableParts;
   }
 
   @override

@@ -34,7 +34,7 @@ class TsClassMethodInjectionFieldName
 
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
-    yield* swidFunctionType.hashableParts;
+    yield* swidFunctionType.hashKey.hashableParts;
   }
 
   @override

@@ -32,13 +32,11 @@ class SwidInstantiableGeneric
       _$SwidInstantiableGenericFromJson(json);
 
   @override
-  late final Iterable<Iterable<int>> hashableParts = [
-    when(
-      fromSwidClass: (val) => val.hashKey.hashableParts,
-      fromSwidInterface: (val) => val.hashKey.hashableParts,
-      fromSwidFunctionType: (val) => val.hashKey.hashableParts,
-    ),
-  ];
+  late final Iterable<Iterable<int>> hashableParts = when(
+    fromSwidClass: (val) => val.hashKey.hashableParts,
+    fromSwidInterface: (val) => val.hashKey.hashableParts,
+    fromSwidFunctionType: (val) => val.hashKey.hashableParts,
+  );
 
   @override
   SwidInstantiableGeneric clone() => when(

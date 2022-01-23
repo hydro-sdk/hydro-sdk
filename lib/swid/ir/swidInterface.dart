@@ -81,17 +81,17 @@ class SwidInterface
 
   @override
   late final Iterable<Iterable<int>> hashableParts = (() sync* {
-    yield name.hashableParts;
+    yield* name.hashableParts;
     yield [
       nullabilitySuffix.index,
     ];
-    yield originalPackagePath.hashableParts;
+    yield* originalPackagePath.hashableParts;
     yield* typeArguments.hashableParts;
     yield [
       referenceDeclarationKind.index,
     ];
-    yield* declarationModifiers.hashableParts;
-    yield* element?.hashableParts ?? [];
+    yield* declarationModifiers.hashKey.hashableParts;
+    yield* element?.hashKey.hashableParts ?? [];
   })();
 
   String get displayName =>

@@ -43,10 +43,11 @@ class SwidiFunctionDeclarationPositionalOrOptionalOrNamedParameter
   @override
   Iterable<Iterable<int>> get hashableParts => when(
         fromSwidiFunctionDeclarationPositionalParameter: (val) =>
-            val.hashableParts,
+            val.hashKey.hashableParts,
         fromSwidiFunctionDeclarationOptionalParameter: (val) =>
-            val.hashableParts,
-        fromSwidiFunctionDeclarationNamedParameter: (val) => val.hashableParts,
+            val.hashKey.hashableParts,
+        fromSwidiFunctionDeclarationNamedParameter: (val) =>
+            val.hashKey.hashableParts,
       );
 
   factory SwidiFunctionDeclarationPositionalOrOptionalOrNamedParameter.fromSwidiFunctionDeclarationPositionalParameter({

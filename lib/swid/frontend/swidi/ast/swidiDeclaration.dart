@@ -40,11 +40,9 @@ class SwidiDeclaration
 
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
-    yield [
-      ...name.hashableParts,
-    ];
-    yield* type.hashableParts;
-    yield* defaultConstValue.hashableParts;
+    yield* name.hashableParts;
+    yield* type.hashKey.hashableParts;
+    yield* defaultConstValue.hashKey.hashableParts;
   }
 
   @override

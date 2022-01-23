@@ -31,9 +31,7 @@ class TsResolvedImport
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
     yield* symbols.hashableParts;
-    yield [
-      ...path.hashableParts,
-    ];
+    yield* path.hashableParts;
   }
 
   @override
