@@ -35,6 +35,7 @@ dependencies:
   quiver: 3.0.1
   theater: 0.1.52
   protobuf:
+  dartlin: 0.6.2
 dev_dependencies:
   import_sorter: null
   build_runner: null
