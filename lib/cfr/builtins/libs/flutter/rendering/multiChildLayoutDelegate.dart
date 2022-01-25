@@ -173,13 +173,13 @@ class RTManagedMultiChildLayoutDelegate extends MultiChildLayoutDelegate
   MultiChildLayoutDelegate unwrap() => this;
   MultiChildLayoutDelegate get vmObject => this;
   @override
-  bool hasChild(Object childId) {
+  bool hasChild(childId) {
     Closure closure = table["hasChild"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  Size layoutChild(Object childId, BoxConstraints constraints) {
+  Size layoutChild(childId, constraints) {
     Closure closure = table["layoutChild"];
     return maybeUnBoxAndBuildArgument<Size, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -187,13 +187,13 @@ class RTManagedMultiChildLayoutDelegate extends MultiChildLayoutDelegate
   }
 
   @override
-  void positionChild(Object childId, Offset offset) {
+  void positionChild(childId, offset) {
     Closure closure = table["positionChild"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  Size getSize(BoxConstraints constraints) {
+  Size getSize(constraints) {
     Closure closure = table["getSize"];
     return maybeUnBoxAndBuildArgument<Size, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -201,13 +201,13 @@ class RTManagedMultiChildLayoutDelegate extends MultiChildLayoutDelegate
   }
 
   @override
-  void performLayout(Size size) {
+  void performLayout(size) {
     Closure closure = table["performLayout"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  bool shouldRelayout(MultiChildLayoutDelegate oldDelegate) {
+  bool shouldRelayout(oldDelegate) {
     Closure closure = table["shouldRelayout"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }

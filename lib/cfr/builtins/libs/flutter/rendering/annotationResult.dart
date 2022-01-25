@@ -79,7 +79,7 @@ class RTManagedAnnotationResult extends AnnotationResult
   AnnotationResult unwrap() => this;
   AnnotationResult get vmObject => this;
   @override
-  void add(AnnotationEntry entry) {
+  void add(entry) {
     Closure closure = table["add"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }

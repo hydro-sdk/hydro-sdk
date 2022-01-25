@@ -113,7 +113,7 @@ class RTManagedSliverPhysicalContainerParentData
   }
 
   @override
-  void applyPaintTransform(Matrix4 transform) {
+  void applyPaintTransform(transform) {
     Closure closure = table["applyPaintTransform"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }

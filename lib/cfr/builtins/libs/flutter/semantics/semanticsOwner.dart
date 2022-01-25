@@ -215,14 +215,13 @@ class RTManagedSemanticsOwner extends SemanticsOwner
   }
 
   @override
-  void performAction(int id, SemanticsAction action, [Object? args]) {
+  void performAction(id, action, [Object? args]) {
     Closure closure = table["performAction"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void performActionAt(Offset position, SemanticsAction action,
-      [Object? args]) {
+  void performActionAt(position, action, [Object? args]) {
     Closure closure = table["performActionAt"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }

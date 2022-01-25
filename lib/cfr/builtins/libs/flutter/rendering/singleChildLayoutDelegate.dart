@@ -135,7 +135,7 @@ class RTManagedSingleChildLayoutDelegate extends SingleChildLayoutDelegate
   SingleChildLayoutDelegate unwrap() => this;
   SingleChildLayoutDelegate get vmObject => this;
   @override
-  Size getSize(BoxConstraints constraints) {
+  Size getSize(constraints) {
     Closure closure = table["getSize"];
     return maybeUnBoxAndBuildArgument<Size, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -143,7 +143,7 @@ class RTManagedSingleChildLayoutDelegate extends SingleChildLayoutDelegate
   }
 
   @override
-  BoxConstraints getConstraintsForChild(BoxConstraints constraints) {
+  BoxConstraints getConstraintsForChild(constraints) {
     Closure closure = table["getConstraintsForChild"];
     return maybeUnBoxAndBuildArgument<BoxConstraints, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -151,7 +151,7 @@ class RTManagedSingleChildLayoutDelegate extends SingleChildLayoutDelegate
   }
 
   @override
-  Offset getPositionForChild(Size size, Size childSize) {
+  Offset getPositionForChild(size, childSize) {
     Closure closure = table["getPositionForChild"];
     return maybeUnBoxAndBuildArgument<Offset, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -159,7 +159,7 @@ class RTManagedSingleChildLayoutDelegate extends SingleChildLayoutDelegate
   }
 
   @override
-  bool shouldRelayout(SingleChildLayoutDelegate oldDelegate) {
+  bool shouldRelayout(oldDelegate) {
     Closure closure = table["shouldRelayout"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }

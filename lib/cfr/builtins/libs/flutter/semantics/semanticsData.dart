@@ -395,13 +395,13 @@ class RTManagedSemanticsData extends SemanticsData
   }
 
   @override
-  bool hasFlag(SemanticsFlag flag) {
+  bool hasFlag(flag) {
     Closure closure = table["hasFlag"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  bool hasAction(SemanticsAction action) {
+  bool hasAction(action) {
     Closure closure = table["hasAction"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -413,7 +413,7 @@ class RTManagedSemanticsData extends SemanticsData
   }
 
   @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+  void debugFillProperties(properties) {
     super.debugFillProperties(properties);
     Closure closure = table["debugFillProperties"];
     return closure.dispatch([table], parentState: hydroState)[0];

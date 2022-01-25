@@ -179,7 +179,7 @@ class RTManagedAlignmentTween extends AlignmentTween
   AlignmentTween unwrap() => this;
   AlignmentTween get vmObject => this;
   @override
-  Alignment lerp(double t) {
+  Alignment lerp(t) {
     Closure closure = table["lerp"];
     return maybeUnBoxAndBuildArgument<Alignment, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -187,7 +187,7 @@ class RTManagedAlignmentTween extends AlignmentTween
   }
 
   @override
-  Alignment transform(double t) {
+  Alignment transform(t) {
     Closure closure = table["transform"];
     return maybeUnBoxAndBuildArgument<Alignment, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -201,7 +201,7 @@ class RTManagedAlignmentTween extends AlignmentTween
   }
 
   @override
-  Alignment evaluate(Animation animation) {
+  Alignment evaluate(animation) {
     Closure closure = table["evaluate"];
     return maybeUnBoxAndBuildArgument<Alignment, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -209,7 +209,7 @@ class RTManagedAlignmentTween extends AlignmentTween
   }
 
   @override
-  Animation<Alignment> animate(Animation parent) {
+  Animation<Alignment> animate(parent) {
     Closure closure = table["animate"];
     return maybeUnBoxAndBuildArgument<Animation<Alignment>, Alignment>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -217,7 +217,7 @@ class RTManagedAlignmentTween extends AlignmentTween
   }
 
   @override
-  Animatable<Alignment> chain(Animatable parent) {
+  Animatable<Alignment> chain(parent) {
     Closure closure = table["chain"];
     return maybeUnBoxAndBuildArgument<Animatable<Alignment>, Alignment>(
         closure.dispatch([table], parentState: hydroState)[0],

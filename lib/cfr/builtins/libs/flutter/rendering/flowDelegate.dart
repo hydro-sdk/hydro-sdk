@@ -150,7 +150,7 @@ class RTManagedFlowDelegate extends FlowDelegate implements Box<FlowDelegate> {
   FlowDelegate unwrap() => this;
   FlowDelegate get vmObject => this;
   @override
-  Size getSize(BoxConstraints constraints) {
+  Size getSize(constraints) {
     Closure closure = table["getSize"];
     return maybeUnBoxAndBuildArgument<Size, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -158,7 +158,7 @@ class RTManagedFlowDelegate extends FlowDelegate implements Box<FlowDelegate> {
   }
 
   @override
-  BoxConstraints getConstraintsForChild(int i, BoxConstraints constraints) {
+  BoxConstraints getConstraintsForChild(i, constraints) {
     Closure closure = table["getConstraintsForChild"];
     return maybeUnBoxAndBuildArgument<BoxConstraints, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -166,19 +166,19 @@ class RTManagedFlowDelegate extends FlowDelegate implements Box<FlowDelegate> {
   }
 
   @override
-  void paintChildren(FlowPaintingContext context) {
+  void paintChildren(context) {
     Closure closure = table["paintChildren"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  bool shouldRelayout(FlowDelegate oldDelegate) {
+  bool shouldRelayout(oldDelegate) {
     Closure closure = table["shouldRelayout"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  bool shouldRepaint(FlowDelegate oldDelegate) {
+  bool shouldRepaint(oldDelegate) {
     Closure closure = table["shouldRepaint"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }

@@ -3515,7 +3515,7 @@ class RTManagedRenderEditable extends RenderEditable
   RenderEditable unwrap() => this;
   RenderEditable get vmObject => this;
   @override
-  void setupParentData(RenderBox child) {
+  void setupParentData(child) {
     Closure closure = table["setupParentData"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -3536,7 +3536,7 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  void set foregroundPainter(RenderEditablePainter? newPainter) {
+  void set foregroundPainter(newPainter) {
     Closure closure = table["setForegroundPainter"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -3550,7 +3550,7 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  void set painter(RenderEditablePainter? newPainter) {
+  void set painter(newPainter) {
     Closure closure = table["setPainter"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -3570,7 +3570,7 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  void set textHeightBehavior(TextHeightBehavior? value) {
+  void set textHeightBehavior(value) {
     Closure closure = table["setTextHeightBehavior"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -3584,7 +3584,7 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  void set textWidthBasis(TextWidthBasis value) {
+  void set textWidthBasis(value) {
     Closure closure = table["setTextWidthBasis"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -3596,7 +3596,7 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  void set devicePixelRatio(double value) {
+  void set devicePixelRatio(value) {
     Closure closure = table["setDevicePixelRatio"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -3608,7 +3608,7 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  void set obscuringCharacter(String value) {
+  void set obscuringCharacter(value) {
     Closure closure = table["setObscuringCharacter"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -3620,7 +3620,7 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  void set obscureText(bool value) {
+  void set obscureText(value) {
     Closure closure = table["setObscureText"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -3634,7 +3634,7 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  void set selectionHeightStyle(BoxHeightStyle value) {
+  void set selectionHeightStyle(value) {
     Closure closure = table["setSelectionHeightStyle"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -3648,7 +3648,7 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  void set selectionWidthStyle(BoxWidthStyle value) {
+  void set selectionWidthStyle(value) {
     Closure closure = table["setSelectionWidthStyle"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -3670,7 +3670,7 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  TextSelection getLineAtOffset(TextPosition position) {
+  TextSelection getLineAtOffset(position) {
     Closure closure = table["getLineAtOffset"];
     return maybeUnBoxAndBuildArgument<TextSelection, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -3678,7 +3678,7 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  TextRange getWordBoundary(TextPosition position) {
+  TextRange getWordBoundary(position) {
     Closure closure = table["getWordBoundary"];
     return maybeUnBoxAndBuildArgument<TextRange, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -3686,7 +3686,7 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  TextPosition getTextPositionAbove(TextPosition position) {
+  TextPosition getTextPositionAbove(position) {
     Closure closure = table["getTextPositionAbove"];
     return maybeUnBoxAndBuildArgument<TextPosition, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -3694,7 +3694,7 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  TextPosition getTextPositionBelow(TextPosition position) {
+  TextPosition getTextPositionBelow(position) {
     Closure closure = table["getTextPositionBelow"];
     return maybeUnBoxAndBuildArgument<TextPosition, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -3729,7 +3729,7 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  void set text(InlineSpan? value) {
+  void set text(value) {
     Closure closure = table["setText"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -3743,7 +3743,7 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  void set textAlign(TextAlign value) {
+  void set textAlign(value) {
     Closure closure = table["setTextAlign"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -3757,7 +3757,7 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  void set textDirection(TextDirection value) {
+  void set textDirection(value) {
     Closure closure = table["setTextDirection"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -3771,7 +3771,7 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  void set locale(Locale? value) {
+  void set locale(value) {
     Closure closure = table["setLocale"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -3785,7 +3785,7 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  void set strutStyle(StrutStyle? value) {
+  void set strutStyle(value) {
     Closure closure = table["setStrutStyle"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -3799,7 +3799,7 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  void set cursorColor(Color? value) {
+  void set cursorColor(value) {
     Closure closure = table["setCursorColor"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -3813,7 +3813,7 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  void set backgroundCursorColor(Color? value) {
+  void set backgroundCursorColor(value) {
     Closure closure = table["setBackgroundCursorColor"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -3827,7 +3827,7 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  void set showCursor(ValueNotifier value) {
+  void set showCursor(value) {
     Closure closure = table["setShowCursor"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -3839,7 +3839,7 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  void set hasFocus(bool value) {
+  void set hasFocus(value) {
     Closure closure = table["setHasFocus"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -3851,7 +3851,7 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  void set forceLine(bool value) {
+  void set forceLine(value) {
     Closure closure = table["setForceLine"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -3863,7 +3863,7 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  void set readOnly(bool value) {
+  void set readOnly(value) {
     Closure closure = table["setReadOnly"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -3875,7 +3875,7 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  void set maxLines(int? value) {
+  void set maxLines(value) {
     Closure closure = table["setMaxLines"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -3887,7 +3887,7 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  void set minLines(int? value) {
+  void set minLines(value) {
     Closure closure = table["setMinLines"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -3899,7 +3899,7 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  void set expands(bool value) {
+  void set expands(value) {
     Closure closure = table["setExpands"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -3913,7 +3913,7 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  void set selectionColor(Color? value) {
+  void set selectionColor(value) {
     Closure closure = table["setSelectionColor"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -3925,7 +3925,7 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  void set textScaleFactor(double value) {
+  void set textScaleFactor(value) {
     Closure closure = table["setTextScaleFactor"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -3939,7 +3939,7 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  void set selection(TextSelection? value) {
+  void set selection(value) {
     Closure closure = table["setSelection"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -3953,7 +3953,7 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  void set offset(ViewportOffset value) {
+  void set offset(value) {
     Closure closure = table["setOffset"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -3965,7 +3965,7 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  void set cursorWidth(double value) {
+  void set cursorWidth(value) {
     Closure closure = table["setCursorWidth"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -3977,7 +3977,7 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  void set cursorHeight(double? value) {
+  void set cursorHeight(value) {
     Closure closure = table["setCursorHeight"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -3989,7 +3989,7 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  void set paintCursorAboveText(bool value) {
+  void set paintCursorAboveText(value) {
     Closure closure = table["setPaintCursorAboveText"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -4003,7 +4003,7 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  void set cursorOffset(Offset value) {
+  void set cursorOffset(value) {
     Closure closure = table["setCursorOffset"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -4017,7 +4017,7 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  void set cursorRadius(Radius? value) {
+  void set cursorRadius(value) {
     Closure closure = table["setCursorRadius"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -4031,7 +4031,7 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  void set startHandleLayerLink(LayerLink value) {
+  void set startHandleLayerLink(value) {
     Closure closure = table["setStartHandleLayerLink"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -4045,7 +4045,7 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  void set endHandleLayerLink(LayerLink value) {
+  void set endHandleLayerLink(value) {
     Closure closure = table["setEndHandleLayerLink"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -4057,7 +4057,7 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  void set enableInteractiveSelection(bool? value) {
+  void set enableInteractiveSelection(value) {
     Closure closure = table["setEnableInteractiveSelection"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -4077,13 +4077,13 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  void set promptRectColor(Color? newValue) {
+  void set promptRectColor(newValue) {
     Closure closure = table["setPromptRectColor"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void setPromptRectRange(TextRange? newRange) {
+  void setPromptRectRange(newRange) {
     Closure closure = table["setPromptRectRange"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -4103,26 +4103,25 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  void set clipBehavior(Clip value) {
+  void set clipBehavior(value) {
     Closure closure = table["setClipBehavior"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void describeSemanticsConfiguration(SemanticsConfiguration config) {
+  void describeSemanticsConfiguration(config) {
     Closure closure = table["describeSemanticsConfiguration"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void assembleSemanticsNode(
-      SemanticsNode node, SemanticsConfiguration config, Iterable children) {
+  void assembleSemanticsNode(node, config, children) {
     Closure closure = table["assembleSemanticsNode"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void attach(PipelineOwner owner) {
+  void attach(owner) {
     super.attach(owner);
     Closure closure = table["attach"];
     return closure.dispatch([table], parentState: hydroState)[0];
@@ -4148,7 +4147,7 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  List<TextSelectionPoint> getEndpointsForSelection(TextSelection selection) {
+  List<TextSelectionPoint> getEndpointsForSelection(selection) {
     Closure closure = table["getEndpointsForSelection"];
     return maybeUnBoxAndBuildArgument<List<TextSelectionPoint>,
             TextSelectionPoint>(
@@ -4157,7 +4156,7 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  Rect? getRectForComposingRange(TextRange range) {
+  Rect? getRectForComposingRange(range) {
     Closure closure = table["getRectForComposingRange"];
     return maybeUnBoxAndBuildArgument<Rect?, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -4165,7 +4164,7 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  TextPosition getPositionForPoint(Offset globalPosition) {
+  TextPosition getPositionForPoint(globalPosition) {
     Closure closure = table["getPositionForPoint"];
     return maybeUnBoxAndBuildArgument<TextPosition, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -4173,7 +4172,7 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  Rect getLocalRectForCaret(TextPosition caretPosition) {
+  Rect getLocalRectForCaret(caretPosition) {
     Closure closure = table["getLocalRectForCaret"];
     return maybeUnBoxAndBuildArgument<Rect, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -4181,13 +4180,13 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  double computeMinIntrinsicWidth(double height) {
+  double computeMinIntrinsicWidth(height) {
     Closure closure = table["computeMinIntrinsicWidth"];
     return closure.dispatch([table], parentState: hydroState)[0]?.toDouble();
   }
 
   @override
-  double computeMaxIntrinsicWidth(double height) {
+  double computeMaxIntrinsicWidth(height) {
     Closure closure = table["computeMaxIntrinsicWidth"];
     return closure.dispatch([table], parentState: hydroState)[0]?.toDouble();
   }
@@ -4199,37 +4198,37 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  double computeMinIntrinsicHeight(double width) {
+  double computeMinIntrinsicHeight(width) {
     Closure closure = table["computeMinIntrinsicHeight"];
     return closure.dispatch([table], parentState: hydroState)[0]?.toDouble();
   }
 
   @override
-  double computeMaxIntrinsicHeight(double width) {
+  double computeMaxIntrinsicHeight(width) {
     Closure closure = table["computeMaxIntrinsicHeight"];
     return closure.dispatch([table], parentState: hydroState)[0]?.toDouble();
   }
 
   @override
-  double computeDistanceToActualBaseline(TextBaseline baseline) {
+  double computeDistanceToActualBaseline(baseline) {
     Closure closure = table["computeDistanceToActualBaseline"];
     return closure.dispatch([table], parentState: hydroState)[0]?.toDouble();
   }
 
   @override
-  bool hitTestSelf(Offset position) {
+  bool hitTestSelf(position) {
     Closure closure = table["hitTestSelf"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  bool hitTestChildren(BoxHitTestResult result, {required Offset position}) {
+  bool hitTestChildren(result, {required Offset position}) {
     Closure closure = table["hitTestChildren"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void handleEvent(PointerEvent event, BoxHitTestEntry entry) {
+  void handleEvent(event, entry) {
     Closure closure = table["handleEvent"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -4243,13 +4242,13 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  void handleSecondaryTapDown(TapDownDetails details) {
+  void handleSecondaryTapDown(details) {
     Closure closure = table["handleSecondaryTapDown"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void handleTapDown(TapDownDetails details) {
+  void handleTapDown(details) {
     Closure closure = table["handleTapDown"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -4309,7 +4308,7 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  Size computeDryLayout(BoxConstraints constraints) {
+  Size computeDryLayout(constraints) {
     Closure closure = table["computeDryLayout"];
     return maybeUnBoxAndBuildArgument<Size, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -4323,7 +4322,7 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  Offset calculateBoundedFloatingCursorOffset(Offset rawCursorOffset) {
+  Offset calculateBoundedFloatingCursorOffset(rawCursorOffset) {
     Closure closure = table["calculateBoundedFloatingCursorOffset"];
     return maybeUnBoxAndBuildArgument<Offset, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -4331,21 +4330,20 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  void setFloatingCursor(FloatingCursorDragState state, Offset boundedOffset,
-      TextPosition lastTextPosition,
+  void setFloatingCursor(state, boundedOffset, lastTextPosition,
       {double? resetLerpValue}) {
     Closure closure = table["setFloatingCursor"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void paint(PaintingContext context, Offset offset) {
+  void paint(context, offset) {
     Closure closure = table["paint"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  Rect? describeApproximatePaintClip(RenderObject child) {
+  Rect? describeApproximatePaintClip(child) {
     Closure closure = table["describeApproximatePaintClip"];
     return maybeUnBoxAndBuildArgument<Rect?, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -4353,7 +4351,7 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+  void debugFillProperties(properties) {
     super.debugFillProperties(properties);
     Closure closure = table["debugFillProperties"];
     return closure.dispatch([table], parentState: hydroState)[0];
@@ -4368,31 +4366,31 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  bool debugValidateChild(RenderObject child) {
+  bool debugValidateChild(child) {
     Closure closure = table["debugValidateChild"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void insert(RenderBox child, {RenderBox? after}) {
+  void insert(child, {RenderBox? after}) {
     Closure closure = table["insert"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void add(RenderBox child) {
+  void add(child) {
     Closure closure = table["add"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void addAll(List? children) {
+  void addAll(children) {
     Closure closure = table["addAll"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void remove(RenderBox child) {
+  void remove(child) {
     Closure closure = table["remove"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -4404,13 +4402,13 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  void move(RenderBox child, {RenderBox? after}) {
+  void move(child, {RenderBox? after}) {
     Closure closure = table["move"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  RenderBox? childBefore(RenderBox child) {
+  RenderBox? childBefore(child) {
     Closure closure = table["childBefore"];
     return maybeUnBoxAndBuildArgument<RenderBox?, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -4418,7 +4416,7 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  RenderBox? childAfter(RenderBox child) {
+  RenderBox? childAfter(child) {
     Closure closure = table["childAfter"];
     return maybeUnBoxAndBuildArgument<RenderBox?, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -4448,26 +4446,25 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  double? defaultComputeDistanceToFirstActualBaseline(TextBaseline baseline) {
+  double? defaultComputeDistanceToFirstActualBaseline(baseline) {
     Closure closure = table["defaultComputeDistanceToFirstActualBaseline"];
     return closure.dispatch([table], parentState: hydroState)[0]?.toDouble();
   }
 
   @override
-  double? defaultComputeDistanceToHighestActualBaseline(TextBaseline baseline) {
+  double? defaultComputeDistanceToHighestActualBaseline(baseline) {
     Closure closure = table["defaultComputeDistanceToHighestActualBaseline"];
     return closure.dispatch([table], parentState: hydroState)[0]?.toDouble();
   }
 
   @override
-  bool defaultHitTestChildren(BoxHitTestResult result,
-      {required Offset position}) {
+  bool defaultHitTestChildren(result, {required Offset position}) {
     Closure closure = table["defaultHitTestChildren"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void defaultPaint(PaintingContext context, Offset offset) {
+  void defaultPaint(context, offset) {
     Closure closure = table["defaultPaint"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -4481,35 +4478,35 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  double getMinIntrinsicWidth(double height) {
+  double getMinIntrinsicWidth(height) {
     super.getMinIntrinsicWidth(height);
     Closure closure = table["getMinIntrinsicWidth"];
     return closure.dispatch([table], parentState: hydroState)[0]?.toDouble();
   }
 
   @override
-  double getMaxIntrinsicWidth(double height) {
+  double getMaxIntrinsicWidth(height) {
     super.getMaxIntrinsicWidth(height);
     Closure closure = table["getMaxIntrinsicWidth"];
     return closure.dispatch([table], parentState: hydroState)[0]?.toDouble();
   }
 
   @override
-  double getMinIntrinsicHeight(double width) {
+  double getMinIntrinsicHeight(width) {
     super.getMinIntrinsicHeight(width);
     Closure closure = table["getMinIntrinsicHeight"];
     return closure.dispatch([table], parentState: hydroState)[0]?.toDouble();
   }
 
   @override
-  double getMaxIntrinsicHeight(double width) {
+  double getMaxIntrinsicHeight(width) {
     super.getMaxIntrinsicHeight(width);
     Closure closure = table["getMaxIntrinsicHeight"];
     return closure.dispatch([table], parentState: hydroState)[0]?.toDouble();
   }
 
   @override
-  Size getDryLayout(BoxConstraints constraints) {
+  Size getDryLayout(constraints) {
     super.getDryLayout(constraints);
     Closure closure = table["getDryLayout"];
     return maybeUnBoxAndBuildArgument<Size, dynamic>(
@@ -4524,7 +4521,7 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  Size debugAdoptSize(Size value) {
+  Size debugAdoptSize(value) {
     Closure closure = table["debugAdoptSize"];
     return maybeUnBoxAndBuildArgument<Size, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -4538,14 +4535,13 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  double? getDistanceToBaseline(TextBaseline baseline,
-      {bool onlyReal = false}) {
+  double? getDistanceToBaseline(baseline, {bool onlyReal = false}) {
     Closure closure = table["getDistanceToBaseline"];
     return closure.dispatch([table], parentState: hydroState)[0]?.toDouble();
   }
 
   @override
-  double? getDistanceToActualBaseline(TextBaseline baseline) {
+  double? getDistanceToActualBaseline(baseline) {
     super.getDistanceToActualBaseline(baseline);
     Closure closure = table["getDistanceToActualBaseline"];
     return closure.dispatch([table], parentState: hydroState)[0]?.toDouble();
@@ -4570,19 +4566,19 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  bool hitTest(BoxHitTestResult result, {required Offset position}) {
+  bool hitTest(result, {required Offset position}) {
     Closure closure = table["hitTest"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void applyPaintTransform(RenderObject child, Matrix4 transform) {
+  void applyPaintTransform(child, transform) {
     Closure closure = table["applyPaintTransform"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  Offset globalToLocal(Offset point, {RenderObject? ancestor}) {
+  Offset globalToLocal(point, {RenderObject? ancestor}) {
     Closure closure = table["globalToLocal"];
     return maybeUnBoxAndBuildArgument<Offset, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -4590,7 +4586,7 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  Offset localToGlobal(Offset point, {RenderObject? ancestor}) {
+  Offset localToGlobal(point, {RenderObject? ancestor}) {
     Closure closure = table["localToGlobal"];
     return maybeUnBoxAndBuildArgument<Offset, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -4598,31 +4594,31 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  bool debugHandleEvent(PointerEvent event, HitTestEntry entry) {
+  bool debugHandleEvent(event, entry) {
     Closure closure = table["debugHandleEvent"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void debugPaint(PaintingContext context, Offset offset) {
+  void debugPaint(context, offset) {
     Closure closure = table["debugPaint"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void debugPaintSize(PaintingContext context, Offset offset) {
+  void debugPaintSize(context, offset) {
     Closure closure = table["debugPaintSize"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void debugPaintBaselines(PaintingContext context, Offset offset) {
+  void debugPaintBaselines(context, offset) {
     Closure closure = table["debugPaintBaselines"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void debugPaintPointers(PaintingContext context, Offset offset) {
+  void debugPaintPointers(context, offset) {
     Closure closure = table["debugPaintPointers"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -4642,7 +4638,7 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  void set size(Size value) {
+  void set size(value) {
     Closure closure = table["setSize"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -4678,14 +4674,14 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  void adoptChild(RenderObject child) {
+  void adoptChild(child) {
     super.adoptChild(child);
     Closure closure = table["adoptChild"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void dropChild(RenderObject child) {
+  void dropChild(child) {
     super.dropChild(child);
     Closure closure = table["dropChild"];
     return closure.dispatch([table], parentState: hydroState)[0];
@@ -4710,7 +4706,7 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  void layout(Constraints constraints, {bool parentUsesSize = false}) {
+  void layout(constraints, {bool parentUsesSize = false}) {
     Closure closure = table["layout"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -4741,19 +4737,19 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  void scheduleInitialPaint(ContainerLayer rootLayer) {
+  void scheduleInitialPaint(rootLayer) {
     Closure closure = table["scheduleInitialPaint"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void replaceRootLayer(OffsetLayer rootLayer) {
+  void replaceRootLayer(rootLayer) {
     Closure closure = table["replaceRootLayer"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  Matrix4 getTransformTo(RenderObject? ancestor) {
+  Matrix4 getTransformTo(ancestor) {
     Closure closure = table["getTransformTo"];
     return maybeUnBoxAndBuildArgument<Matrix4, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -4761,7 +4757,7 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  Rect? describeSemanticsClip(RenderObject? child) {
+  Rect? describeSemanticsClip(child) {
     Closure closure = table["describeSemanticsClip"];
     return maybeUnBoxAndBuildArgument<Rect?, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -4775,7 +4771,7 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  void sendSemanticsEvent(SemanticsEvent semanticsEvent) {
+  void sendSemanticsEvent(semanticsEvent) {
     Closure closure = table["sendSemanticsEvent"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -4839,7 +4835,7 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  DiagnosticsNode describeForError(String name,
+  DiagnosticsNode describeForError(name,
       {DiagnosticsTreeStyle style = DiagnosticsTreeStyle.shallow}) {
     Closure closure = table["describeForError"];
     return maybeUnBoxAndBuildArgument<DiagnosticsNode, dynamic>(
@@ -4924,7 +4920,7 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  void set layer(ContainerLayer? newLayer) {
+  void set layer(newLayer) {
     Closure closure = table["setLayer"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -4967,7 +4963,7 @@ class RTManagedRenderEditable extends RenderEditable
   }
 
   @override
-  void redepthChild(AbstractNode child) {
+  void redepthChild(child) {
     Closure closure = table["redepthChild"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }

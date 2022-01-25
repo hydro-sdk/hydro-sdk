@@ -182,19 +182,19 @@ class RTManagedRenderSliverBoxChildManager extends RenderSliverBoxChildManager
   RenderSliverBoxChildManager unwrap() => this;
   RenderSliverBoxChildManager get vmObject => this;
   @override
-  void createChild(int index, {RenderBox? after}) {
+  void createChild(index, {RenderBox? after}) {
     Closure closure = table["createChild"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void removeChild(RenderBox child) {
+  void removeChild(child) {
     Closure closure = table["removeChild"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  double estimateMaxScrollOffset(SliverConstraints constraints,
+  double estimateMaxScrollOffset(constraints,
       {int? firstIndex,
       int? lastIndex,
       double? leadingScrollOffset,
@@ -210,13 +210,13 @@ class RTManagedRenderSliverBoxChildManager extends RenderSliverBoxChildManager
   }
 
   @override
-  void didAdoptChild(RenderBox child) {
+  void didAdoptChild(child) {
     Closure closure = table["didAdoptChild"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void setDidUnderflow(bool value) {
+  void setDidUnderflow(value) {
     Closure closure = table["setDidUnderflow"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }

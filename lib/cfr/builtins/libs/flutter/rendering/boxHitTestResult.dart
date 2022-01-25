@@ -336,19 +336,19 @@ class RTManagedBoxHitTestResult extends BoxHitTestResult
   }
 
   @override
-  void add(HitTestEntry entry) {
+  void add(entry) {
     Closure closure = table["add"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void pushTransform(Matrix4 transform) {
+  void pushTransform(transform) {
     Closure closure = table["pushTransform"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void pushOffset(Offset offset) {
+  void pushOffset(offset) {
     Closure closure = table["pushOffset"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }

@@ -146,7 +146,7 @@ class RTManagedAbstractNode extends AbstractNode implements Box<AbstractNode> {
   }
 
   @override
-  void redepthChild(AbstractNode child) {
+  void redepthChild(child) {
     Closure closure = table["redepthChild"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -172,7 +172,7 @@ class RTManagedAbstractNode extends AbstractNode implements Box<AbstractNode> {
   }
 
   @override
-  void attach(Object owner) {
+  void attach(owner) {
     super.attach(owner);
     Closure closure = table["attach"];
     return closure.dispatch([table], parentState: hydroState)[0];
@@ -194,14 +194,14 @@ class RTManagedAbstractNode extends AbstractNode implements Box<AbstractNode> {
   }
 
   @override
-  void adoptChild(AbstractNode child) {
+  void adoptChild(child) {
     super.adoptChild(child);
     Closure closure = table["adoptChild"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void dropChild(AbstractNode child) {
+  void dropChild(child) {
     super.dropChild(child);
     Closure closure = table["dropChild"];
     return closure.dispatch([table], parentState: hydroState)[0];

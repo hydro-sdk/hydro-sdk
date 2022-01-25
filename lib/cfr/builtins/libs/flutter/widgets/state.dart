@@ -238,7 +238,7 @@ class RTManagedState extends State implements Box<State> {
   }
 
   @override
-  void didUpdateWidget(StatefulWidget oldWidget) {
+  void didUpdateWidget(oldWidget) {
     super.didUpdateWidget(oldWidget);
     Closure closure = table["didUpdateWidget"];
     return closure.dispatch([table], parentState: hydroState)[0];
@@ -279,7 +279,7 @@ class RTManagedState extends State implements Box<State> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(context) {
     Closure closure = table["build"];
     return maybeUnBoxAndBuildArgument<Widget, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -294,7 +294,7 @@ class RTManagedState extends State implements Box<State> {
   }
 
   @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+  void debugFillProperties(properties) {
     super.debugFillProperties(properties);
     Closure closure = table["debugFillProperties"];
     return closure.dispatch([table], parentState: hydroState)[0];

@@ -206,7 +206,7 @@ class RTManagedTableBorder extends TableBorder implements Box<TableBorder> {
   }
 
   @override
-  TableBorder scale(double t) {
+  TableBorder scale(t) {
     Closure closure = table["scale"];
     return maybeUnBoxAndBuildArgument<TableBorder, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -214,7 +214,7 @@ class RTManagedTableBorder extends TableBorder implements Box<TableBorder> {
   }
 
   @override
-  void paint(Canvas canvas, Rect rect,
+  void paint(canvas, rect,
       {required Iterable columns, required Iterable rows}) {
     Closure closure = table["paint"];
     return closure.dispatch([table], parentState: hydroState)[0];

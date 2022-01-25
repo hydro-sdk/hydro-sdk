@@ -1001,7 +1001,7 @@ class RTManagedSemanticsNode extends SemanticsNode
   }
 
   @override
-  void set transform(Matrix4? value) {
+  void set transform(value) {
     Closure closure = table["setTransform"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -1015,7 +1015,7 @@ class RTManagedSemanticsNode extends SemanticsNode
   }
 
   @override
-  void set rect(Rect value) {
+  void set rect(value) {
     Closure closure = table["setRect"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -1033,7 +1033,7 @@ class RTManagedSemanticsNode extends SemanticsNode
   }
 
   @override
-  void set isMergedIntoParent(bool value) {
+  void set isMergedIntoParent(value) {
     Closure closure = table["setIsMergedIntoParent"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -1091,7 +1091,7 @@ class RTManagedSemanticsNode extends SemanticsNode
   }
 
   @override
-  void attach(SemanticsOwner owner) {
+  void attach(owner) {
     super.attach(owner);
     Closure closure = table["attach"];
     return closure.dispatch([table], parentState: hydroState)[0];
@@ -1105,13 +1105,13 @@ class RTManagedSemanticsNode extends SemanticsNode
   }
 
   @override
-  bool isTagged(SemanticsTag tag) {
+  bool isTagged(tag) {
     Closure closure = table["isTagged"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  bool hasFlag(SemanticsFlag flag) {
+  bool hasFlag(flag) {
     Closure closure = table["hasFlag"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -1300,7 +1300,7 @@ class RTManagedSemanticsNode extends SemanticsNode
   }
 
   @override
-  void sendEvent(SemanticsEvent event) {
+  void sendEvent(event) {
     Closure closure = table["sendEvent"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -1312,7 +1312,7 @@ class RTManagedSemanticsNode extends SemanticsNode
   }
 
   @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+  void debugFillProperties(properties) {
     super.debugFillProperties(properties);
     Closure closure = table["debugFillProperties"];
     return closure.dispatch([table], parentState: hydroState)[0];
@@ -1352,8 +1352,7 @@ class RTManagedSemanticsNode extends SemanticsNode
   }
 
   @override
-  List<SemanticsNode> debugListChildrenInOrder(
-      DebugSemanticsDumpOrder childOrder) {
+  List<SemanticsNode> debugListChildrenInOrder(childOrder) {
     Closure closure = table["debugListChildrenInOrder"];
     return maybeUnBoxAndBuildArgument<List<SemanticsNode>, SemanticsNode>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -1375,20 +1374,20 @@ class RTManagedSemanticsNode extends SemanticsNode
   }
 
   @override
-  void redepthChild(AbstractNode child) {
+  void redepthChild(child) {
     Closure closure = table["redepthChild"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void adoptChild(AbstractNode child) {
+  void adoptChild(child) {
     super.adoptChild(child);
     Closure closure = table["adoptChild"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void dropChild(AbstractNode child) {
+  void dropChild(child) {
     super.dropChild(child);
     Closure closure = table["dropChild"];
     return closure.dispatch([table], parentState: hydroState)[0];

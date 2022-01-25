@@ -1629,7 +1629,7 @@ class RTManagedRenderSliverFloatingPersistentHeader
   }
 
   @override
-  void set vsync(TickerProvider? value) {
+  void set vsync(value) {
     Closure closure = table["setVsync"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -1641,19 +1641,19 @@ class RTManagedRenderSliverFloatingPersistentHeader
   }
 
   @override
-  void updateScrollStartDirection(ScrollDirection direction) {
+  void updateScrollStartDirection(direction) {
     Closure closure = table["updateScrollStartDirection"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void maybeStartSnapAnimation(ScrollDirection direction) {
+  void maybeStartSnapAnimation(direction) {
     Closure closure = table["maybeStartSnapAnimation"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void maybeStopSnapAnimation(ScrollDirection direction) {
+  void maybeStopSnapAnimation(direction) {
     Closure closure = table["maybeStopSnapAnimation"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -1675,20 +1675,20 @@ class RTManagedRenderSliverFloatingPersistentHeader
   }
 
   @override
-  double childMainAxisPosition(RenderBox child) {
+  double childMainAxisPosition(child) {
     Closure closure = table["childMainAxisPosition"];
     return closure.dispatch([table], parentState: hydroState)[0]?.toDouble();
   }
 
   @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+  void debugFillProperties(properties) {
     super.debugFillProperties(properties);
     Closure closure = table["debugFillProperties"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void updateChild(double shrinkOffset, bool overlapsContent) {
+  void updateChild(shrinkOffset, overlapsContent) {
     Closure closure = table["updateChild"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -1700,33 +1700,32 @@ class RTManagedRenderSliverFloatingPersistentHeader
   }
 
   @override
-  void layoutChild(double scrollOffset, double maxExtent,
-      {bool overlapsContent = false}) {
+  void layoutChild(scrollOffset, maxExtent, {bool overlapsContent = false}) {
     Closure closure = table["layoutChild"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  bool hitTestChildren(SliverHitTestResult result,
+  bool hitTestChildren(result,
       {required double crossAxisPosition, required double mainAxisPosition}) {
     Closure closure = table["hitTestChildren"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void applyPaintTransform(RenderObject child, Matrix4 transform) {
+  void applyPaintTransform(child, transform) {
     Closure closure = table["applyPaintTransform"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void paint(PaintingContext context, Offset offset) {
+  void paint(context, offset) {
     Closure closure = table["paint"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void describeSemanticsConfiguration(SemanticsConfiguration config) {
+  void describeSemanticsConfiguration(config) {
     Closure closure = table["describeSemanticsConfiguration"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -1750,13 +1749,13 @@ class RTManagedRenderSliverFloatingPersistentHeader
   }
 
   @override
-  bool debugValidateChild(RenderObject child) {
+  bool debugValidateChild(child) {
     Closure closure = table["debugValidateChild"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void attach(PipelineOwner owner) {
+  void attach(owner) {
     super.attach(owner);
     Closure closure = table["attach"];
     return closure.dispatch([table], parentState: hydroState)[0];
@@ -1791,20 +1790,20 @@ class RTManagedRenderSliverFloatingPersistentHeader
   }
 
   @override
-  void set child(RenderBox? value) {
+  void set child(value) {
     Closure closure = table["setChild"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  bool hitTestBoxChild(BoxHitTestResult result, RenderBox child,
+  bool hitTestBoxChild(result, child,
       {required double crossAxisPosition, required double mainAxisPosition}) {
     Closure closure = table["hitTestBoxChild"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void applyPaintTransformForBoxChild(RenderBox child, Matrix4 transform) {
+  void applyPaintTransformForBoxChild(child, transform) {
     Closure closure = table["applyPaintTransformForBoxChild"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -1828,7 +1827,7 @@ class RTManagedRenderSliverFloatingPersistentHeader
   }
 
   @override
-  bool hitTest(SliverHitTestResult result,
+  bool hitTest(result,
       {required double crossAxisPosition, required double mainAxisPosition}) {
     Closure closure = table["hitTest"];
     return closure.dispatch([table], parentState: hydroState)[0];
@@ -1842,27 +1841,27 @@ class RTManagedRenderSliverFloatingPersistentHeader
   }
 
   @override
-  double calculatePaintOffset(SliverConstraints constraints,
+  double calculatePaintOffset(constraints,
       {required double from, required double to}) {
     Closure closure = table["calculatePaintOffset"];
     return closure.dispatch([table], parentState: hydroState)[0]?.toDouble();
   }
 
   @override
-  double calculateCacheOffset(SliverConstraints constraints,
+  double calculateCacheOffset(constraints,
       {required double from, required double to}) {
     Closure closure = table["calculateCacheOffset"];
     return closure.dispatch([table], parentState: hydroState)[0]?.toDouble();
   }
 
   @override
-  double childCrossAxisPosition(RenderObject child) {
+  double childCrossAxisPosition(child) {
     Closure closure = table["childCrossAxisPosition"];
     return closure.dispatch([table], parentState: hydroState)[0]?.toDouble();
   }
 
   @override
-  double? childScrollOffset(RenderObject child) {
+  double? childScrollOffset(child) {
     Closure closure = table["childScrollOffset"];
     return closure.dispatch([table], parentState: hydroState)[0]?.toDouble();
   }
@@ -1884,13 +1883,13 @@ class RTManagedRenderSliverFloatingPersistentHeader
   }
 
   @override
-  void debugPaint(PaintingContext context, Offset offset) {
+  void debugPaint(context, offset) {
     Closure closure = table["debugPaint"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void handleEvent(PointerEvent event, SliverHitTestEntry entry) {
+  void handleEvent(event, entry) {
     Closure closure = table["handleEvent"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -1912,7 +1911,7 @@ class RTManagedRenderSliverFloatingPersistentHeader
   }
 
   @override
-  void set geometry(SliverGeometry? value) {
+  void set geometry(value) {
     Closure closure = table["setGeometry"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -1953,20 +1952,20 @@ class RTManagedRenderSliverFloatingPersistentHeader
   }
 
   @override
-  void setupParentData(RenderObject child) {
+  void setupParentData(child) {
     Closure closure = table["setupParentData"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void adoptChild(RenderObject child) {
+  void adoptChild(child) {
     super.adoptChild(child);
     Closure closure = table["adoptChild"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void dropChild(RenderObject child) {
+  void dropChild(child) {
     super.dropChild(child);
     Closure closure = table["dropChild"];
     return closure.dispatch([table], parentState: hydroState)[0];
@@ -1991,7 +1990,7 @@ class RTManagedRenderSliverFloatingPersistentHeader
   }
 
   @override
-  void layout(Constraints constraints, {bool parentUsesSize = false}) {
+  void layout(constraints, {bool parentUsesSize = false}) {
     Closure closure = table["layout"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -2028,19 +2027,19 @@ class RTManagedRenderSliverFloatingPersistentHeader
   }
 
   @override
-  void scheduleInitialPaint(ContainerLayer rootLayer) {
+  void scheduleInitialPaint(rootLayer) {
     Closure closure = table["scheduleInitialPaint"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void replaceRootLayer(OffsetLayer rootLayer) {
+  void replaceRootLayer(rootLayer) {
     Closure closure = table["replaceRootLayer"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  Matrix4 getTransformTo(RenderObject? ancestor) {
+  Matrix4 getTransformTo(ancestor) {
     Closure closure = table["getTransformTo"];
     return maybeUnBoxAndBuildArgument<Matrix4, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -2048,7 +2047,7 @@ class RTManagedRenderSliverFloatingPersistentHeader
   }
 
   @override
-  Rect? describeApproximatePaintClip(RenderObject child) {
+  Rect? describeApproximatePaintClip(child) {
     Closure closure = table["describeApproximatePaintClip"];
     return maybeUnBoxAndBuildArgument<Rect?, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -2056,7 +2055,7 @@ class RTManagedRenderSliverFloatingPersistentHeader
   }
 
   @override
-  Rect? describeSemanticsClip(RenderObject? child) {
+  Rect? describeSemanticsClip(child) {
     Closure closure = table["describeSemanticsClip"];
     return maybeUnBoxAndBuildArgument<Rect?, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -2070,7 +2069,7 @@ class RTManagedRenderSliverFloatingPersistentHeader
   }
 
   @override
-  void sendSemanticsEvent(SemanticsEvent semanticsEvent) {
+  void sendSemanticsEvent(semanticsEvent) {
     Closure closure = table["sendSemanticsEvent"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -2095,8 +2094,7 @@ class RTManagedRenderSliverFloatingPersistentHeader
   }
 
   @override
-  void assembleSemanticsNode(
-      SemanticsNode node, SemanticsConfiguration config, Iterable children) {
+  void assembleSemanticsNode(node, config, children) {
     Closure closure = table["assembleSemanticsNode"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -2131,7 +2129,7 @@ class RTManagedRenderSliverFloatingPersistentHeader
   }
 
   @override
-  DiagnosticsNode describeForError(String name,
+  DiagnosticsNode describeForError(name,
       {DiagnosticsTreeStyle style = DiagnosticsTreeStyle.shallow}) {
     Closure closure = table["describeForError"];
     return maybeUnBoxAndBuildArgument<DiagnosticsNode, dynamic>(
@@ -2216,7 +2214,7 @@ class RTManagedRenderSliverFloatingPersistentHeader
   }
 
   @override
-  void set layer(ContainerLayer? newLayer) {
+  void set layer(newLayer) {
     Closure closure = table["setLayer"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -2259,7 +2257,7 @@ class RTManagedRenderSliverFloatingPersistentHeader
   }
 
   @override
-  void redepthChild(AbstractNode child) {
+  void redepthChild(child) {
     Closure closure = table["redepthChild"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }

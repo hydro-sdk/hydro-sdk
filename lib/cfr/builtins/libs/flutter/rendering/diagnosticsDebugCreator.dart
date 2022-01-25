@@ -416,7 +416,7 @@ class RTManagedDiagnosticsDebugCreator extends DiagnosticsDebugCreator
   DiagnosticsDebugCreator unwrap() => this;
   DiagnosticsDebugCreator get vmObject => this;
   @override
-  Map<String, Object?> toJsonMap(DiagnosticsSerializationDelegate delegate) {
+  Map<String, Object?> toJsonMap(delegate) {
     super.toJsonMap(delegate);
     Closure closure = table["toJsonMap"];
     return maybeUnBoxAndBuildArgument<Map<String, Object?>, String>(
@@ -491,7 +491,7 @@ class RTManagedDiagnosticsDebugCreator extends DiagnosticsDebugCreator
   }
 
   @override
-  bool isFiltered(DiagnosticLevel minLevel) {
+  bool isFiltered(minLevel) {
     Closure closure = table["isFiltered"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }

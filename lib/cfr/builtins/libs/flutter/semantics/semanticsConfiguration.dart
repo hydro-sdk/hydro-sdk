@@ -2028,7 +2028,7 @@ class RTManagedSemanticsConfiguration extends SemanticsConfiguration
   }
 
   @override
-  void set isSemanticBoundary(bool value) {
+  void set isSemanticBoundary(value) {
     Closure closure = table["setIsSemanticBoundary"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -2174,7 +2174,7 @@ class RTManagedSemanticsConfiguration extends SemanticsConfiguration
   }
 
   @override
-  void set sortKey(SemanticsSortKey? value) {
+  void set sortKey(value) {
     Closure closure = table["setSortKey"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -2186,7 +2186,7 @@ class RTManagedSemanticsConfiguration extends SemanticsConfiguration
   }
 
   @override
-  void set indexInParent(int? value) {
+  void set indexInParent(value) {
     Closure closure = table["setIndexInParent"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -2198,7 +2198,7 @@ class RTManagedSemanticsConfiguration extends SemanticsConfiguration
   }
 
   @override
-  void set scrollChildCount(int? value) {
+  void set scrollChildCount(value) {
     Closure closure = table["setScrollChildCount"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -2210,7 +2210,7 @@ class RTManagedSemanticsConfiguration extends SemanticsConfiguration
   }
 
   @override
-  void set scrollIndex(int? value) {
+  void set scrollIndex(value) {
     Closure closure = table["setScrollIndex"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -2222,7 +2222,7 @@ class RTManagedSemanticsConfiguration extends SemanticsConfiguration
   }
 
   @override
-  void set platformViewId(int? value) {
+  void set platformViewId(value) {
     Closure closure = table["setPlatformViewId"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -2234,7 +2234,7 @@ class RTManagedSemanticsConfiguration extends SemanticsConfiguration
   }
 
   @override
-  void set maxValueLength(int? value) {
+  void set maxValueLength(value) {
     Closure closure = table["setMaxValueLength"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -2246,7 +2246,7 @@ class RTManagedSemanticsConfiguration extends SemanticsConfiguration
   }
 
   @override
-  void set currentValueLength(int? value) {
+  void set currentValueLength(value) {
     Closure closure = table["setCurrentValueLength"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -2258,7 +2258,7 @@ class RTManagedSemanticsConfiguration extends SemanticsConfiguration
   }
 
   @override
-  void set isMergingSemanticsOfDescendants(bool value) {
+  void set isMergingSemanticsOfDescendants(value) {
     Closure closure = table["setIsMergingSemanticsOfDescendants"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -2273,7 +2273,7 @@ class RTManagedSemanticsConfiguration extends SemanticsConfiguration
   }
 
   @override
-  void set customSemanticsActions(Map value) {
+  void set customSemanticsActions(value) {
     Closure closure = table["setCustomSemanticsActions"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -2285,7 +2285,7 @@ class RTManagedSemanticsConfiguration extends SemanticsConfiguration
   }
 
   @override
-  void set label(String label) {
+  void set label(label) {
     Closure closure = table["setLabel"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -2299,7 +2299,7 @@ class RTManagedSemanticsConfiguration extends SemanticsConfiguration
   }
 
   @override
-  void set attributedLabel(AttributedString attributedLabel) {
+  void set attributedLabel(attributedLabel) {
     Closure closure = table["setAttributedLabel"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -2311,7 +2311,7 @@ class RTManagedSemanticsConfiguration extends SemanticsConfiguration
   }
 
   @override
-  void set value(String value) {
+  void set value(value) {
     Closure closure = table["setValue"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -2325,7 +2325,7 @@ class RTManagedSemanticsConfiguration extends SemanticsConfiguration
   }
 
   @override
-  void set attributedValue(AttributedString attributedValue) {
+  void set attributedValue(attributedValue) {
     Closure closure = table["setAttributedValue"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -2337,7 +2337,7 @@ class RTManagedSemanticsConfiguration extends SemanticsConfiguration
   }
 
   @override
-  void set increasedValue(String increasedValue) {
+  void set increasedValue(increasedValue) {
     Closure closure = table["setIncreasedValue"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -2351,7 +2351,7 @@ class RTManagedSemanticsConfiguration extends SemanticsConfiguration
   }
 
   @override
-  void set attributedIncreasedValue(AttributedString attributedIncreasedValue) {
+  void set attributedIncreasedValue(attributedIncreasedValue) {
     Closure closure = table["setAttributedIncreasedValue"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -2363,7 +2363,7 @@ class RTManagedSemanticsConfiguration extends SemanticsConfiguration
   }
 
   @override
-  void set decreasedValue(String decreasedValue) {
+  void set decreasedValue(decreasedValue) {
     Closure closure = table["setDecreasedValue"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -2377,7 +2377,7 @@ class RTManagedSemanticsConfiguration extends SemanticsConfiguration
   }
 
   @override
-  void set attributedDecreasedValue(AttributedString attributedDecreasedValue) {
+  void set attributedDecreasedValue(attributedDecreasedValue) {
     Closure closure = table["setAttributedDecreasedValue"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -2389,7 +2389,7 @@ class RTManagedSemanticsConfiguration extends SemanticsConfiguration
   }
 
   @override
-  void set hint(String hint) {
+  void set hint(hint) {
     Closure closure = table["setHint"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -2403,7 +2403,7 @@ class RTManagedSemanticsConfiguration extends SemanticsConfiguration
   }
 
   @override
-  void set attributedHint(AttributedString attributedHint) {
+  void set attributedHint(attributedHint) {
     Closure closure = table["setAttributedHint"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -2417,7 +2417,7 @@ class RTManagedSemanticsConfiguration extends SemanticsConfiguration
   }
 
   @override
-  void set hintOverrides(SemanticsHintOverrides? value) {
+  void set hintOverrides(value) {
     Closure closure = table["setHintOverrides"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -2429,7 +2429,7 @@ class RTManagedSemanticsConfiguration extends SemanticsConfiguration
   }
 
   @override
-  void set elevation(double value) {
+  void set elevation(value) {
     Closure closure = table["setElevation"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -2441,7 +2441,7 @@ class RTManagedSemanticsConfiguration extends SemanticsConfiguration
   }
 
   @override
-  void set thickness(double value) {
+  void set thickness(value) {
     Closure closure = table["setThickness"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -2453,7 +2453,7 @@ class RTManagedSemanticsConfiguration extends SemanticsConfiguration
   }
 
   @override
-  void set scopesRoute(bool value) {
+  void set scopesRoute(value) {
     Closure closure = table["setScopesRoute"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -2465,7 +2465,7 @@ class RTManagedSemanticsConfiguration extends SemanticsConfiguration
   }
 
   @override
-  void set namesRoute(bool value) {
+  void set namesRoute(value) {
     Closure closure = table["setNamesRoute"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -2477,7 +2477,7 @@ class RTManagedSemanticsConfiguration extends SemanticsConfiguration
   }
 
   @override
-  void set isImage(bool value) {
+  void set isImage(value) {
     Closure closure = table["setIsImage"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -2489,7 +2489,7 @@ class RTManagedSemanticsConfiguration extends SemanticsConfiguration
   }
 
   @override
-  void set liveRegion(bool value) {
+  void set liveRegion(value) {
     Closure closure = table["setLiveRegion"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -2503,7 +2503,7 @@ class RTManagedSemanticsConfiguration extends SemanticsConfiguration
   }
 
   @override
-  void set textDirection(TextDirection? textDirection) {
+  void set textDirection(textDirection) {
     Closure closure = table["setTextDirection"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -2515,7 +2515,7 @@ class RTManagedSemanticsConfiguration extends SemanticsConfiguration
   }
 
   @override
-  void set isSelected(bool value) {
+  void set isSelected(value) {
     Closure closure = table["setIsSelected"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -2527,7 +2527,7 @@ class RTManagedSemanticsConfiguration extends SemanticsConfiguration
   }
 
   @override
-  void set isEnabled(bool? value) {
+  void set isEnabled(value) {
     Closure closure = table["setIsEnabled"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -2539,7 +2539,7 @@ class RTManagedSemanticsConfiguration extends SemanticsConfiguration
   }
 
   @override
-  void set isChecked(bool? value) {
+  void set isChecked(value) {
     Closure closure = table["setIsChecked"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -2551,7 +2551,7 @@ class RTManagedSemanticsConfiguration extends SemanticsConfiguration
   }
 
   @override
-  void set isToggled(bool? value) {
+  void set isToggled(value) {
     Closure closure = table["setIsToggled"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -2563,7 +2563,7 @@ class RTManagedSemanticsConfiguration extends SemanticsConfiguration
   }
 
   @override
-  void set isInMutuallyExclusiveGroup(bool value) {
+  void set isInMutuallyExclusiveGroup(value) {
     Closure closure = table["setIsInMutuallyExclusiveGroup"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -2575,7 +2575,7 @@ class RTManagedSemanticsConfiguration extends SemanticsConfiguration
   }
 
   @override
-  void set isFocusable(bool value) {
+  void set isFocusable(value) {
     Closure closure = table["setIsFocusable"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -2587,7 +2587,7 @@ class RTManagedSemanticsConfiguration extends SemanticsConfiguration
   }
 
   @override
-  void set isFocused(bool value) {
+  void set isFocused(value) {
     Closure closure = table["setIsFocused"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -2599,7 +2599,7 @@ class RTManagedSemanticsConfiguration extends SemanticsConfiguration
   }
 
   @override
-  void set isButton(bool value) {
+  void set isButton(value) {
     Closure closure = table["setIsButton"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -2611,7 +2611,7 @@ class RTManagedSemanticsConfiguration extends SemanticsConfiguration
   }
 
   @override
-  void set isLink(bool value) {
+  void set isLink(value) {
     Closure closure = table["setIsLink"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -2623,7 +2623,7 @@ class RTManagedSemanticsConfiguration extends SemanticsConfiguration
   }
 
   @override
-  void set isHeader(bool value) {
+  void set isHeader(value) {
     Closure closure = table["setIsHeader"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -2635,7 +2635,7 @@ class RTManagedSemanticsConfiguration extends SemanticsConfiguration
   }
 
   @override
-  void set isSlider(bool value) {
+  void set isSlider(value) {
     Closure closure = table["setIsSlider"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -2647,7 +2647,7 @@ class RTManagedSemanticsConfiguration extends SemanticsConfiguration
   }
 
   @override
-  void set isKeyboardKey(bool value) {
+  void set isKeyboardKey(value) {
     Closure closure = table["setIsKeyboardKey"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -2659,7 +2659,7 @@ class RTManagedSemanticsConfiguration extends SemanticsConfiguration
   }
 
   @override
-  void set isHidden(bool value) {
+  void set isHidden(value) {
     Closure closure = table["setIsHidden"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -2671,7 +2671,7 @@ class RTManagedSemanticsConfiguration extends SemanticsConfiguration
   }
 
   @override
-  void set isTextField(bool value) {
+  void set isTextField(value) {
     Closure closure = table["setIsTextField"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -2683,7 +2683,7 @@ class RTManagedSemanticsConfiguration extends SemanticsConfiguration
   }
 
   @override
-  void set isReadOnly(bool value) {
+  void set isReadOnly(value) {
     Closure closure = table["setIsReadOnly"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -2695,7 +2695,7 @@ class RTManagedSemanticsConfiguration extends SemanticsConfiguration
   }
 
   @override
-  void set isObscured(bool value) {
+  void set isObscured(value) {
     Closure closure = table["setIsObscured"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -2707,7 +2707,7 @@ class RTManagedSemanticsConfiguration extends SemanticsConfiguration
   }
 
   @override
-  void set isMultiline(bool value) {
+  void set isMultiline(value) {
     Closure closure = table["setIsMultiline"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -2719,7 +2719,7 @@ class RTManagedSemanticsConfiguration extends SemanticsConfiguration
   }
 
   @override
-  void set hasImplicitScrolling(bool value) {
+  void set hasImplicitScrolling(value) {
     Closure closure = table["setHasImplicitScrolling"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -2733,7 +2733,7 @@ class RTManagedSemanticsConfiguration extends SemanticsConfiguration
   }
 
   @override
-  void set textSelection(TextSelection? value) {
+  void set textSelection(value) {
     Closure closure = table["setTextSelection"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -2745,7 +2745,7 @@ class RTManagedSemanticsConfiguration extends SemanticsConfiguration
   }
 
   @override
-  void set scrollPosition(double? value) {
+  void set scrollPosition(value) {
     Closure closure = table["setScrollPosition"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -2757,7 +2757,7 @@ class RTManagedSemanticsConfiguration extends SemanticsConfiguration
   }
 
   @override
-  void set scrollExtentMax(double? value) {
+  void set scrollExtentMax(value) {
     Closure closure = table["setScrollExtentMax"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -2769,7 +2769,7 @@ class RTManagedSemanticsConfiguration extends SemanticsConfiguration
   }
 
   @override
-  void set scrollExtentMin(double? value) {
+  void set scrollExtentMin(value) {
     Closure closure = table["setScrollExtentMin"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -2783,19 +2783,19 @@ class RTManagedSemanticsConfiguration extends SemanticsConfiguration
   }
 
   @override
-  void addTagForChildren(SemanticsTag tag) {
+  void addTagForChildren(tag) {
     Closure closure = table["addTagForChildren"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  bool isCompatibleWith(SemanticsConfiguration? other) {
+  bool isCompatibleWith(other) {
     Closure closure = table["isCompatibleWith"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void absorb(SemanticsConfiguration child) {
+  void absorb(child) {
     Closure closure = table["absorb"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }

@@ -139,19 +139,19 @@ class RTManagedSliverGridRegularTileLayout extends SliverGridRegularTileLayout
   SliverGridRegularTileLayout unwrap() => this;
   SliverGridRegularTileLayout get vmObject => this;
   @override
-  int getMinChildIndexForScrollOffset(double scrollOffset) {
+  int getMinChildIndexForScrollOffset(scrollOffset) {
     Closure closure = table["getMinChildIndexForScrollOffset"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  int getMaxChildIndexForScrollOffset(double scrollOffset) {
+  int getMaxChildIndexForScrollOffset(scrollOffset) {
     Closure closure = table["getMaxChildIndexForScrollOffset"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  SliverGridGeometry getGeometryForChildIndex(int index) {
+  SliverGridGeometry getGeometryForChildIndex(index) {
     Closure closure = table["getGeometryForChildIndex"];
     return maybeUnBoxAndBuildArgument<SliverGridGeometry, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -159,7 +159,7 @@ class RTManagedSliverGridRegularTileLayout extends SliverGridRegularTileLayout
   }
 
   @override
-  double computeMaxScrollOffset(int childCount) {
+  double computeMaxScrollOffset(childCount) {
     Closure closure = table["computeMaxScrollOffset"];
     return closure.dispatch([table], parentState: hydroState)[0]?.toDouble();
   }

@@ -318,31 +318,31 @@ class RTManagedViewportOffset extends ViewportOffset
   }
 
   @override
-  bool applyViewportDimension(double viewportDimension) {
+  bool applyViewportDimension(viewportDimension) {
     Closure closure = table["applyViewportDimension"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  bool applyContentDimensions(double minScrollExtent, double maxScrollExtent) {
+  bool applyContentDimensions(minScrollExtent, maxScrollExtent) {
     Closure closure = table["applyContentDimensions"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void correctBy(double correction) {
+  void correctBy(correction) {
     Closure closure = table["correctBy"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void jumpTo(double pixels) {
+  void jumpTo(pixels) {
     Closure closure = table["jumpTo"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  Future<void> animateTo(double to,
+  Future<void> animateTo(to,
       {required Curve curve, required Duration duration}) {
     Closure closure = table["animateTo"];
     return maybeUnBoxAndBuildArgument<Future<void>, void>(
@@ -351,8 +351,7 @@ class RTManagedViewportOffset extends ViewportOffset
   }
 
   @override
-  Future<void> moveTo(double to,
-      {bool? clamp, Curve? curve, Duration? duration}) {
+  Future<void> moveTo(to, {bool? clamp, Curve? curve, Duration? duration}) {
     Closure closure = table["moveTo"];
     return maybeUnBoxAndBuildArgument<Future<void>, void>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -379,12 +378,12 @@ class RTManagedViewportOffset extends ViewportOffset
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  // @override
-  // void debugFillDescription(List description) {
-  //   super.debugFillDescription(description);
-  //   Closure closure = table["debugFillDescription"];
-  //   return closure.dispatch([table], parentState: hydroState)[0];
-  // }
+  @override
+  void debugFillDescription(description) {
+    super.debugFillDescription(description);
+    Closure closure = table["debugFillDescription"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
 
   @override
   void addListener(listener) {

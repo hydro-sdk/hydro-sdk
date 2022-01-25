@@ -547,7 +547,7 @@ class RTManagedBoxConstraints extends BoxConstraints
   }
 
   @override
-  BoxConstraints deflate(EdgeInsets edges) {
+  BoxConstraints deflate(edges) {
     Closure closure = table["deflate"];
     return maybeUnBoxAndBuildArgument<BoxConstraints, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -563,7 +563,7 @@ class RTManagedBoxConstraints extends BoxConstraints
   }
 
   @override
-  BoxConstraints enforce(BoxConstraints constraints) {
+  BoxConstraints enforce(constraints) {
     Closure closure = table["enforce"];
     return maybeUnBoxAndBuildArgument<BoxConstraints, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -615,7 +615,7 @@ class RTManagedBoxConstraints extends BoxConstraints
   }
 
   @override
-  Size constrain(Size size) {
+  Size constrain(size) {
     Closure closure = table["constrain"];
     return maybeUnBoxAndBuildArgument<Size, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -623,7 +623,7 @@ class RTManagedBoxConstraints extends BoxConstraints
   }
 
   @override
-  Size constrainDimensions(double width, double height) {
+  Size constrainDimensions(width, height) {
     Closure closure = table["constrainDimensions"];
     return maybeUnBoxAndBuildArgument<Size, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -631,7 +631,7 @@ class RTManagedBoxConstraints extends BoxConstraints
   }
 
   @override
-  Size constrainSizeAndAttemptToPreserveAspectRatio(Size size) {
+  Size constrainSizeAndAttemptToPreserveAspectRatio(size) {
     Closure closure = table["constrainSizeAndAttemptToPreserveAspectRatio"];
     return maybeUnBoxAndBuildArgument<Size, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -697,7 +697,7 @@ class RTManagedBoxConstraints extends BoxConstraints
   }
 
   @override
-  bool isSatisfiedBy(Size size) {
+  bool isSatisfiedBy(size) {
     Closure closure = table["isSatisfiedBy"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }

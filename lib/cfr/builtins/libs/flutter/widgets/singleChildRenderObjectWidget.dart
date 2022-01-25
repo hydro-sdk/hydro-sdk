@@ -276,7 +276,7 @@ class RTManagedSingleChildRenderObjectWidget
   }
 
   @override
-  RenderObject createRenderObject(BuildContext context) {
+  RenderObject createRenderObject(context) {
     Closure closure = table["createRenderObject"];
     return maybeUnBoxAndBuildArgument<RenderObject, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -284,13 +284,13 @@ class RTManagedSingleChildRenderObjectWidget
   }
 
   @override
-  void updateRenderObject(BuildContext context, RenderObject renderObject) {
+  void updateRenderObject(context, renderObject) {
     Closure closure = table["updateRenderObject"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void didUnmountRenderObject(RenderObject renderObject) {
+  void didUnmountRenderObject(renderObject) {
     Closure closure = table["didUnmountRenderObject"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -302,7 +302,7 @@ class RTManagedSingleChildRenderObjectWidget
   }
 
   @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+  void debugFillProperties(properties) {
     super.debugFillProperties(properties);
     Closure closure = table["debugFillProperties"];
     return closure.dispatch([table], parentState: hydroState)[0];

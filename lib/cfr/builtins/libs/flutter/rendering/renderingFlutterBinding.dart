@@ -1253,31 +1253,31 @@ class RTManagedRenderingFlutterBinding extends RenderingFlutterBinding
   }
 
   @override
-  void cancelPointer(int pointer) {
+  void cancelPointer(pointer) {
     Closure closure = table["cancelPointer"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void handlePointerEvent(PointerEvent event) {
+  void handlePointerEvent(event) {
     Closure closure = table["handlePointerEvent"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void hitTest(HitTestResult result, Offset position) {
+  void hitTest(result, position) {
     Closure closure = table["hitTest"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void dispatchEvent(PointerEvent event, HitTestResult? hitTestResult) {
+  void dispatchEvent(event, hitTestResult) {
     Closure closure = table["dispatchEvent"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void handleEvent(PointerEvent event, HitTestEntry entry) {
+  void handleEvent(event, entry) {
     Closure closure = table["handleEvent"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -1316,15 +1316,14 @@ class RTManagedRenderingFlutterBinding extends RenderingFlutterBinding
   }
 
   @override
-  void handleAppLifecycleStateChanged(AppLifecycleState state) {
+  void handleAppLifecycleStateChanged(state) {
     super.handleAppLifecycleStateChanged(state);
     Closure closure = table["handleAppLifecycleStateChanged"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  Future<T> scheduleTask<T>(task, Priority priority,
-      {String? debugLabel, Flow? flow}) {
+  Future<T> scheduleTask<T>(task, priority, {String? debugLabel, Flow? flow}) {
     Closure closure = table["scheduleTask"];
     return maybeUnBoxAndBuildArgument<Future<T>, T>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -1344,13 +1343,13 @@ class RTManagedRenderingFlutterBinding extends RenderingFlutterBinding
   }
 
   @override
-  void cancelFrameCallbackWithId(int id) {
+  void cancelFrameCallbackWithId(id) {
     Closure closure = table["cancelFrameCallbackWithId"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  bool debugAssertNoTransientCallbacks(String reason) {
+  bool debugAssertNoTransientCallbacks(reason) {
     Closure closure = table["debugAssertNoTransientCallbacks"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -1404,7 +1403,7 @@ class RTManagedRenderingFlutterBinding extends RenderingFlutterBinding
   }
 
   @override
-  void handleBeginFrame(Duration? rawTimeStamp) {
+  void handleBeginFrame(rawTimeStamp) {
     Closure closure = table["handleBeginFrame"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -1489,7 +1488,7 @@ class RTManagedRenderingFlutterBinding extends RenderingFlutterBinding
   }
 
   @override
-  Future<void> handleSystemMessage(Object systemMessage) {
+  Future<void> handleSystemMessage(systemMessage) {
     super.handleSystemMessage(systemMessage);
     Closure closure = table["handleSystemMessage"];
     return maybeUnBoxAndBuildArgument<Future<void>, void>(
@@ -1505,7 +1504,7 @@ class RTManagedRenderingFlutterBinding extends RenderingFlutterBinding
   }
 
   @override
-  void evict(String asset) {
+  void evict(asset) {
     super.evict(asset);
     Closure closure = table["evict"];
     return closure.dispatch([table], parentState: hydroState)[0];
@@ -1608,7 +1607,7 @@ class RTManagedRenderingFlutterBinding extends RenderingFlutterBinding
   }
 
   @override
-  Future<Codec> instantiateImageCodec(Uint8List bytes,
+  Future<Codec> instantiateImageCodec(bytes,
       {bool allowUpscaling = false, int? cacheHeight, int? cacheWidth}) {
     Closure closure = table["instantiateImageCodec"];
     return maybeUnBoxAndBuildArgument<Future<Codec>, Codec>(
@@ -1671,7 +1670,7 @@ class RTManagedRenderingFlutterBinding extends RenderingFlutterBinding
   }
 
   @override
-  void setSemanticsEnabled(bool enabled) {
+  void setSemanticsEnabled(enabled) {
     Closure closure = table["setSemanticsEnabled"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -1734,7 +1733,7 @@ class RTManagedRenderingFlutterBinding extends RenderingFlutterBinding
   }
 
   @override
-  void set renderView(RenderView value) {
+  void set renderView(value) {
     Closure closure = table["setRenderView"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -1783,7 +1782,7 @@ class RTManagedRenderingFlutterBinding extends RenderingFlutterBinding
   }
 
   @override
-  void postEvent(String eventKind, Map eventData) {
+  void postEvent(eventKind, eventData) {
     Closure closure = table["postEvent"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }

@@ -249,7 +249,7 @@ class RTManagedStatelessWidget extends StatelessWidget
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(context) {
     Closure closure = table["build"];
     return maybeUnBoxAndBuildArgument<Widget, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -263,7 +263,7 @@ class RTManagedStatelessWidget extends StatelessWidget
   }
 
   @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+  void debugFillProperties(properties) {
     super.debugFillProperties(properties);
     Closure closure = table["debugFillProperties"];
     return closure.dispatch([table], parentState: hydroState)[0];

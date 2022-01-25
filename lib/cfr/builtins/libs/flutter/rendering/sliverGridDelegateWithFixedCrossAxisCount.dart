@@ -123,7 +123,7 @@ class RTManagedSliverGridDelegateWithFixedCrossAxisCount
   SliverGridDelegateWithFixedCrossAxisCount unwrap() => this;
   SliverGridDelegateWithFixedCrossAxisCount get vmObject => this;
   @override
-  SliverGridLayout getLayout(SliverConstraints constraints) {
+  SliverGridLayout getLayout(constraints) {
     Closure closure = table["getLayout"];
     return maybeUnBoxAndBuildArgument<SliverGridLayout, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -131,7 +131,7 @@ class RTManagedSliverGridDelegateWithFixedCrossAxisCount
   }
 
   @override
-  bool shouldRelayout(SliverGridDelegateWithFixedCrossAxisCount oldDelegate) {
+  bool shouldRelayout(oldDelegate) {
     Closure closure = table["shouldRelayout"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }

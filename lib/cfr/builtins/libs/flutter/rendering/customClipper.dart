@@ -172,13 +172,13 @@ class RTManagedCustomClipper extends CustomClipper
   }
 
   @override
-  dynamic getClip(Size size) {
+  dynamic getClip(size) {
     Closure closure = table["getClip"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  Rect getApproximateClipRect(Size size) {
+  Rect getApproximateClipRect(size) {
     Closure closure = table["getApproximateClipRect"];
     return maybeUnBoxAndBuildArgument<Rect, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -186,7 +186,7 @@ class RTManagedCustomClipper extends CustomClipper
   }
 
   @override
-  bool shouldReclip(CustomClipper oldClipper) {
+  bool shouldReclip(oldClipper) {
     Closure closure = table["shouldReclip"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }

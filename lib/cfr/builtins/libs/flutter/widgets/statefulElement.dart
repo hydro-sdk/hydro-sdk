@@ -977,7 +977,7 @@ class RTManagedStatefulElement extends StatefulElement
   }
 
   @override
-  void update(StatefulWidget newWidget) {
+  void update(newWidget) {
     super.update(newWidget);
     Closure closure = table["update"];
     return closure.dispatch([table], parentState: hydroState)[0];
@@ -1005,7 +1005,7 @@ class RTManagedStatefulElement extends StatefulElement
   }
 
   @override
-  InheritedWidget dependOnInheritedElement(Element ancestor, {Object? aspect}) {
+  InheritedWidget dependOnInheritedElement(ancestor, {Object? aspect}) {
     Closure closure = table["dependOnInheritedElement"];
     return maybeUnBoxAndBuildArgument<InheritedWidget, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -1029,14 +1029,14 @@ class RTManagedStatefulElement extends StatefulElement
   }
 
   @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+  void debugFillProperties(properties) {
     super.debugFillProperties(properties);
     Closure closure = table["debugFillProperties"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void mount(Element? parent, Object? newSlot) {
+  void mount(parent, newSlot) {
     super.mount(parent, newSlot);
     Closure closure = table["mount"];
     return closure.dispatch([table], parentState: hydroState)[0];
@@ -1049,7 +1049,7 @@ class RTManagedStatefulElement extends StatefulElement
   }
 
   @override
-  void forgetChild(Element child) {
+  void forgetChild(child) {
     super.forgetChild(child);
     Closure closure = table["forgetChild"];
     return closure.dispatch([table], parentState: hydroState)[0];
@@ -1071,7 +1071,7 @@ class RTManagedStatefulElement extends StatefulElement
   }
 
   @override
-  DiagnosticsNode describeElement(String name,
+  DiagnosticsNode describeElement(name,
       {DiagnosticsTreeStyle style = DiagnosticsTreeStyle.errorProperty}) {
     Closure closure = table["describeElement"];
     return maybeUnBoxAndBuildArgument<DiagnosticsNode, dynamic>(
@@ -1080,7 +1080,7 @@ class RTManagedStatefulElement extends StatefulElement
   }
 
   @override
-  DiagnosticsNode describeWidget(String name,
+  DiagnosticsNode describeWidget(name,
       {DiagnosticsTreeStyle style = DiagnosticsTreeStyle.errorProperty}) {
     Closure closure = table["describeWidget"];
     return maybeUnBoxAndBuildArgument<DiagnosticsNode, dynamic>(
@@ -1089,7 +1089,7 @@ class RTManagedStatefulElement extends StatefulElement
   }
 
   @override
-  DiagnosticsNode describeOwnershipChain(String name) {
+  DiagnosticsNode describeOwnershipChain(name) {
     Closure closure = table["describeOwnershipChain"];
     return maybeUnBoxAndBuildArgument<DiagnosticsNode, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -1109,7 +1109,7 @@ class RTManagedStatefulElement extends StatefulElement
   }
 
   @override
-  Element? updateChild(Element? child, Widget? newWidget, Object? newSlot) {
+  Element? updateChild(child, newWidget, newSlot) {
     Closure closure = table["updateChild"];
     return maybeUnBoxAndBuildArgument<Element?, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -1117,7 +1117,7 @@ class RTManagedStatefulElement extends StatefulElement
   }
 
   @override
-  void updateSlotForChild(Element child, Object? newSlot) {
+  void updateSlotForChild(child, newSlot) {
     Closure closure = table["updateSlotForChild"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -1129,13 +1129,13 @@ class RTManagedStatefulElement extends StatefulElement
   }
 
   @override
-  void attachRenderObject(Object? newSlot) {
+  void attachRenderObject(newSlot) {
     Closure closure = table["attachRenderObject"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  Element inflateWidget(Widget newWidget, Object? newSlot) {
+  Element inflateWidget(newWidget, newSlot) {
     Closure closure = table["inflateWidget"];
     return maybeUnBoxAndBuildArgument<Element, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -1143,7 +1143,7 @@ class RTManagedStatefulElement extends StatefulElement
   }
 
   @override
-  void deactivateChild(Element child) {
+  void deactivateChild(child) {
     Closure closure = table["deactivateChild"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -1210,7 +1210,7 @@ class RTManagedStatefulElement extends StatefulElement
   }
 
   @override
-  String debugGetCreatorChain(int limit) {
+  String debugGetCreatorChain(limit) {
     Closure closure = table["debugGetCreatorChain"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }

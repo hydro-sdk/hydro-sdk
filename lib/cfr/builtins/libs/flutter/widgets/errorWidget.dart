@@ -278,7 +278,7 @@ class RTManagedErrorWidget extends ErrorWidget implements Box<ErrorWidget> {
   ErrorWidget unwrap() => this;
   ErrorWidget get vmObject => this;
   @override
-  RenderBox createRenderObject(BuildContext context) {
+  RenderBox createRenderObject(context) {
     Closure closure = table["createRenderObject"];
     return maybeUnBoxAndBuildArgument<RenderBox, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -286,7 +286,7 @@ class RTManagedErrorWidget extends ErrorWidget implements Box<ErrorWidget> {
   }
 
   @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+  void debugFillProperties(properties) {
     super.debugFillProperties(properties);
     Closure closure = table["debugFillProperties"];
     return closure.dispatch([table], parentState: hydroState)[0];
@@ -301,13 +301,13 @@ class RTManagedErrorWidget extends ErrorWidget implements Box<ErrorWidget> {
   }
 
   @override
-  void updateRenderObject(BuildContext context, RenderObject renderObject) {
+  void updateRenderObject(context, renderObject) {
     Closure closure = table["updateRenderObject"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void didUnmountRenderObject(RenderObject renderObject) {
+  void didUnmountRenderObject(renderObject) {
     Closure closure = table["didUnmountRenderObject"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }

@@ -716,7 +716,7 @@ class RTManagedClipRectLayer extends ClipRectLayer
   }
 
   @override
-  void set clipRect(Rect? value) {
+  void set clipRect(value) {
     Closure closure = table["setClipRect"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -730,34 +730,33 @@ class RTManagedClipRectLayer extends ClipRectLayer
   }
 
   @override
-  void set clipBehavior(Clip value) {
+  void set clipBehavior(value) {
     Closure closure = table["setClipBehavior"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  bool findAnnotations<S extends Object>(
-      AnnotationResult result, Offset localPosition,
+  bool findAnnotations<S extends Object>(result, localPosition,
       {required bool onlyFirst}) {
     Closure closure = table["findAnnotations"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void addToScene(SceneBuilder builder) {
+  void addToScene(builder) {
     Closure closure = table["addToScene"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+  void debugFillProperties(properties) {
     super.debugFillProperties(properties);
     Closure closure = table["debugFillProperties"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  Scene buildScene(SceneBuilder builder) {
+  Scene buildScene(builder) {
     Closure closure = table["buildScene"];
     return maybeUnBoxAndBuildArgument<Scene, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -778,7 +777,7 @@ class RTManagedClipRectLayer extends ClipRectLayer
   }
 
   @override
-  void attach(Object owner) {
+  void attach(owner) {
     super.attach(owner);
     Closure closure = table["attach"];
     return closure.dispatch([table], parentState: hydroState)[0];
@@ -792,7 +791,7 @@ class RTManagedClipRectLayer extends ClipRectLayer
   }
 
   @override
-  void append(Layer child) {
+  void append(child) {
     Closure closure = table["append"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -804,13 +803,13 @@ class RTManagedClipRectLayer extends ClipRectLayer
   }
 
   @override
-  void addChildrenToScene(SceneBuilder builder) {
+  void addChildrenToScene(builder) {
     Closure closure = table["addChildrenToScene"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void applyTransform(Layer? child, Matrix4 transform) {
+  void applyTransform(child, transform) {
     Closure closure = table["applyTransform"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -866,14 +865,14 @@ class RTManagedClipRectLayer extends ClipRectLayer
   }
 
   @override
-  void dropChild(AbstractNode child) {
+  void dropChild(child) {
     super.dropChild(child);
     Closure closure = table["dropChild"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void adoptChild(AbstractNode child) {
+  void adoptChild(child) {
     super.adoptChild(child);
     Closure closure = table["adoptChild"];
     return closure.dispatch([table], parentState: hydroState)[0];
@@ -887,14 +886,13 @@ class RTManagedClipRectLayer extends ClipRectLayer
   }
 
   @override
-  S? find<S extends Object>(Offset localPosition) {
+  S? find<S extends Object>(localPosition) {
     Closure closure = table["find"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  AnnotationResult<S> findAllAnnotations<S extends Object>(
-      Offset localPosition) {
+  AnnotationResult<S> findAllAnnotations<S extends Object>(localPosition) {
     Closure closure = table["findAllAnnotations"];
     return maybeUnBoxAndBuildArgument<AnnotationResult<S>, S>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -948,7 +946,7 @@ class RTManagedClipRectLayer extends ClipRectLayer
   }
 
   @override
-  void set engineLayer(EngineLayer? value) {
+  void set engineLayer(value) {
     Closure closure = table["setEngineLayer"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -1002,7 +1000,7 @@ class RTManagedClipRectLayer extends ClipRectLayer
   }
 
   @override
-  void redepthChild(AbstractNode child) {
+  void redepthChild(child) {
     Closure closure = table["redepthChild"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }

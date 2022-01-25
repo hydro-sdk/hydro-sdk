@@ -199,7 +199,7 @@ class RTManagedMouseTracker extends MouseTracker implements Box<MouseTracker> {
   }
 
   @override
-  void updateWithEvent(PointerEvent event, getResult) {
+  void updateWithEvent(event, getResult) {
     Closure closure = table["updateWithEvent"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -211,7 +211,7 @@ class RTManagedMouseTracker extends MouseTracker implements Box<MouseTracker> {
   }
 
   @override
-  MouseCursor? debugDeviceActiveCursor(int device) {
+  MouseCursor? debugDeviceActiveCursor(device) {
     Closure closure = table["debugDeviceActiveCursor"];
     return maybeUnBoxAndBuildArgument<MouseCursor?, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],

@@ -167,7 +167,7 @@ class RTManagedBuildOwner extends BuildOwner implements Box<BuildOwner> {
   BuildOwner unwrap() => this;
   BuildOwner get vmObject => this;
   @override
-  void scheduleBuildFor(Element element) {
+  void scheduleBuildFor(element) {
     Closure closure = table["scheduleBuildFor"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -185,7 +185,7 @@ class RTManagedBuildOwner extends BuildOwner implements Box<BuildOwner> {
   }
 
   @override
-  void buildScope(Element context, [callback]) {
+  void buildScope(context, [callback]) {
     Closure closure = table["buildScope"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -203,7 +203,7 @@ class RTManagedBuildOwner extends BuildOwner implements Box<BuildOwner> {
   }
 
   @override
-  void reassemble(Element root, DebugReassembleConfig? reassembleConfig) {
+  void reassemble(root, reassembleConfig) {
     Closure closure = table["reassemble"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }

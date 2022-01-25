@@ -186,7 +186,7 @@ class RTManagedFractionalOffsetTween extends FractionalOffsetTween
   FractionalOffsetTween unwrap() => this;
   FractionalOffsetTween get vmObject => this;
   @override
-  FractionalOffset? lerp(double t) {
+  FractionalOffset? lerp(t) {
     Closure closure = table["lerp"];
     return maybeUnBoxAndBuildArgument<FractionalOffset?, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -194,7 +194,7 @@ class RTManagedFractionalOffsetTween extends FractionalOffsetTween
   }
 
   @override
-  FractionalOffset? transform(double t) {
+  FractionalOffset? transform(t) {
     Closure closure = table["transform"];
     return maybeUnBoxAndBuildArgument<FractionalOffset?, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -208,7 +208,7 @@ class RTManagedFractionalOffsetTween extends FractionalOffsetTween
   }
 
   @override
-  FractionalOffset? evaluate(Animation animation) {
+  FractionalOffset? evaluate(animation) {
     Closure closure = table["evaluate"];
     return maybeUnBoxAndBuildArgument<FractionalOffset?, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -216,7 +216,7 @@ class RTManagedFractionalOffsetTween extends FractionalOffsetTween
   }
 
   @override
-  Animation<FractionalOffset?> animate(Animation parent) {
+  Animation<FractionalOffset?> animate(parent) {
     Closure closure = table["animate"];
     return maybeUnBoxAndBuildArgument<Animation<FractionalOffset?>,
             FractionalOffset?>(
@@ -225,7 +225,7 @@ class RTManagedFractionalOffsetTween extends FractionalOffsetTween
   }
 
   @override
-  Animatable<FractionalOffset?> chain(Animatable parent) {
+  Animatable<FractionalOffset?> chain(parent) {
     Closure closure = table["chain"];
     return maybeUnBoxAndBuildArgument<Animatable<FractionalOffset?>,
             FractionalOffset?>(

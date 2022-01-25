@@ -141,7 +141,7 @@ class RTManagedStackParentData extends StackParentData
   }
 
   @override
-  void set rect(RelativeRect value) {
+  void set rect(value) {
     Closure closure = table["setRect"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }

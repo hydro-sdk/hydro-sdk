@@ -124,13 +124,13 @@ class RTManagedFixedColumnWidth extends FixedColumnWidth
   FixedColumnWidth unwrap() => this;
   FixedColumnWidth get vmObject => this;
   @override
-  double minIntrinsicWidth(Iterable cells, double containerWidth) {
+  double minIntrinsicWidth(cells, containerWidth) {
     Closure closure = table["minIntrinsicWidth"];
     return closure.dispatch([table], parentState: hydroState)[0]?.toDouble();
   }
 
   @override
-  double maxIntrinsicWidth(Iterable cells, double containerWidth) {
+  double maxIntrinsicWidth(cells, containerWidth) {
     Closure closure = table["maxIntrinsicWidth"];
     return closure.dispatch([table], parentState: hydroState)[0]?.toDouble();
   }
@@ -142,7 +142,7 @@ class RTManagedFixedColumnWidth extends FixedColumnWidth
   }
 
   @override
-  double? flex(Iterable cells) {
+  double? flex(cells) {
     Closure closure = table["flex"];
     return closure.dispatch([table], parentState: hydroState)[0]?.toDouble();
   }

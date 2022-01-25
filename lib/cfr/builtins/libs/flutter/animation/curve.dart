@@ -83,7 +83,7 @@ class RTManagedCurve extends Curve implements Box<Curve> {
   Curve unwrap() => this;
   Curve get vmObject => this;
   @override
-  double transform(double t) {
+  double transform(t) {
     Closure closure = table["transform"];
     return closure.dispatch([table], parentState: hydroState)[0]?.toDouble();
   }
@@ -97,7 +97,7 @@ class RTManagedCurve extends Curve implements Box<Curve> {
   }
 
   @override
-  double transformInternal(double t) {
+  double transformInternal(t) {
     Closure closure = table["transformInternal"];
     return closure.dispatch([table], parentState: hydroState)[0]?.toDouble();
   }

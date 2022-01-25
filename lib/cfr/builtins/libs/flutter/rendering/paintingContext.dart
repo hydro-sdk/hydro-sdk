@@ -661,13 +661,13 @@ class RTManagedPaintingContext extends PaintingContext
   PaintingContext unwrap() => this;
   PaintingContext get vmObject => this;
   @override
-  void paintChild(RenderObject child, Offset offset) {
+  void paintChild(child, offset) {
     Closure closure = table["paintChild"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void appendLayer(Layer layer) {
+  void appendLayer(layer) {
     Closure closure = table["appendLayer"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -700,20 +700,19 @@ class RTManagedPaintingContext extends PaintingContext
   }
 
   @override
-  void addLayer(Layer layer) {
+  void addLayer(layer) {
     Closure closure = table["addLayer"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void pushLayer(ContainerLayer childLayer, painter, Offset offset,
-      {Rect? childPaintBounds}) {
+  void pushLayer(childLayer, painter, offset, {Rect? childPaintBounds}) {
     Closure closure = table["pushLayer"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  PaintingContext createChildContext(ContainerLayer childLayer, Rect bounds) {
+  PaintingContext createChildContext(childLayer, bounds) {
     Closure closure = table["createChildContext"];
     return maybeUnBoxAndBuildArgument<PaintingContext, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -721,8 +720,7 @@ class RTManagedPaintingContext extends PaintingContext
   }
 
   @override
-  ClipRectLayer? pushClipRect(
-      bool needsCompositing, Offset offset, Rect clipRect, painter,
+  ClipRectLayer? pushClipRect(needsCompositing, offset, clipRect, painter,
       {Clip clipBehavior = Clip.hardEdge, ClipRectLayer? oldLayer}) {
     Closure closure = table["pushClipRect"];
     return maybeUnBoxAndBuildArgument<ClipRectLayer?, dynamic>(
@@ -731,8 +729,8 @@ class RTManagedPaintingContext extends PaintingContext
   }
 
   @override
-  ClipRRectLayer? pushClipRRect(bool needsCompositing, Offset offset,
-      Rect bounds, RRect clipRRect, painter,
+  ClipRRectLayer? pushClipRRect(
+      needsCompositing, offset, bounds, clipRRect, painter,
       {Clip clipBehavior = Clip.antiAlias, ClipRRectLayer? oldLayer}) {
     Closure closure = table["pushClipRRect"];
     return maybeUnBoxAndBuildArgument<ClipRRectLayer?, dynamic>(
@@ -742,7 +740,7 @@ class RTManagedPaintingContext extends PaintingContext
 
   @override
   ClipPathLayer? pushClipPath(
-      bool needsCompositing, Offset offset, Rect bounds, Path clipPath, painter,
+      needsCompositing, offset, bounds, clipPath, painter,
       {Clip clipBehavior = Clip.antiAlias, ClipPathLayer? oldLayer}) {
     Closure closure = table["pushClipPath"];
     return maybeUnBoxAndBuildArgument<ClipPathLayer?, dynamic>(
@@ -751,8 +749,7 @@ class RTManagedPaintingContext extends PaintingContext
   }
 
   @override
-  ColorFilterLayer pushColorFilter(
-      Offset offset, ColorFilter colorFilter, painter,
+  ColorFilterLayer pushColorFilter(offset, colorFilter, painter,
       {ColorFilterLayer? oldLayer}) {
     Closure closure = table["pushColorFilter"];
     return maybeUnBoxAndBuildArgument<ColorFilterLayer, dynamic>(
@@ -761,8 +758,7 @@ class RTManagedPaintingContext extends PaintingContext
   }
 
   @override
-  TransformLayer? pushTransform(
-      bool needsCompositing, Offset offset, Matrix4 transform, painter,
+  TransformLayer? pushTransform(needsCompositing, offset, transform, painter,
       {TransformLayer? oldLayer}) {
     Closure closure = table["pushTransform"];
     return maybeUnBoxAndBuildArgument<TransformLayer?, dynamic>(
@@ -771,8 +767,7 @@ class RTManagedPaintingContext extends PaintingContext
   }
 
   @override
-  OpacityLayer pushOpacity(Offset offset, int alpha, painter,
-      {OpacityLayer? oldLayer}) {
+  OpacityLayer pushOpacity(offset, alpha, painter, {OpacityLayer? oldLayer}) {
     Closure closure = table["pushOpacity"];
     return maybeUnBoxAndBuildArgument<OpacityLayer, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -786,19 +781,19 @@ class RTManagedPaintingContext extends PaintingContext
   }
 
   @override
-  void clipPathAndPaint(Path path, Clip clipBehavior, Rect bounds, painter) {
+  void clipPathAndPaint(path, clipBehavior, bounds, painter) {
     Closure closure = table["clipPathAndPaint"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void clipRRectAndPaint(RRect rrect, Clip clipBehavior, Rect bounds, painter) {
+  void clipRRectAndPaint(rrect, clipBehavior, bounds, painter) {
     Closure closure = table["clipRRectAndPaint"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void clipRectAndPaint(Rect rect, Clip clipBehavior, Rect bounds, painter) {
+  void clipRectAndPaint(rect, clipBehavior, bounds, painter) {
     Closure closure = table["clipRectAndPaint"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }

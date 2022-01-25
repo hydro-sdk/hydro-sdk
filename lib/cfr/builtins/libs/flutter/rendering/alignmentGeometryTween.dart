@@ -186,7 +186,7 @@ class RTManagedAlignmentGeometryTween extends AlignmentGeometryTween
   AlignmentGeometryTween unwrap() => this;
   AlignmentGeometryTween get vmObject => this;
   @override
-  AlignmentGeometry? lerp(double t) {
+  AlignmentGeometry? lerp(t) {
     Closure closure = table["lerp"];
     return maybeUnBoxAndBuildArgument<AlignmentGeometry?, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -194,7 +194,7 @@ class RTManagedAlignmentGeometryTween extends AlignmentGeometryTween
   }
 
   @override
-  AlignmentGeometry? transform(double t) {
+  AlignmentGeometry? transform(t) {
     Closure closure = table["transform"];
     return maybeUnBoxAndBuildArgument<AlignmentGeometry?, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -208,7 +208,7 @@ class RTManagedAlignmentGeometryTween extends AlignmentGeometryTween
   }
 
   @override
-  AlignmentGeometry? evaluate(Animation animation) {
+  AlignmentGeometry? evaluate(animation) {
     Closure closure = table["evaluate"];
     return maybeUnBoxAndBuildArgument<AlignmentGeometry?, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -216,7 +216,7 @@ class RTManagedAlignmentGeometryTween extends AlignmentGeometryTween
   }
 
   @override
-  Animation<AlignmentGeometry?> animate(Animation parent) {
+  Animation<AlignmentGeometry?> animate(parent) {
     Closure closure = table["animate"];
     return maybeUnBoxAndBuildArgument<Animation<AlignmentGeometry?>,
             AlignmentGeometry?>(
@@ -225,7 +225,7 @@ class RTManagedAlignmentGeometryTween extends AlignmentGeometryTween
   }
 
   @override
-  Animatable<AlignmentGeometry?> chain(Animatable parent) {
+  Animatable<AlignmentGeometry?> chain(parent) {
     Closure closure = table["chain"];
     return maybeUnBoxAndBuildArgument<Animatable<AlignmentGeometry?>,
             AlignmentGeometry?>(

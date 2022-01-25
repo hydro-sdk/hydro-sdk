@@ -149,19 +149,19 @@ class RTManagedSemanticsSortKey extends SemanticsSortKey
   SemanticsSortKey unwrap() => this;
   SemanticsSortKey get vmObject => this;
   @override
-  int compareTo(SemanticsSortKey other) {
+  int compareTo(other) {
     Closure closure = table["compareTo"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  int doCompare(SemanticsSortKey other) {
+  int doCompare(other) {
     Closure closure = table["doCompare"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+  void debugFillProperties(properties) {
     super.debugFillProperties(properties);
     Closure closure = table["debugFillProperties"];
     return closure.dispatch([table], parentState: hydroState)[0];

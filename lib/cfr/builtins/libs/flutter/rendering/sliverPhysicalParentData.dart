@@ -89,7 +89,7 @@ class RTManagedSliverPhysicalParentData extends SliverPhysicalParentData
   SliverPhysicalParentData unwrap() => this;
   SliverPhysicalParentData get vmObject => this;
   @override
-  void applyPaintTransform(Matrix4 transform) {
+  void applyPaintTransform(transform) {
     Closure closure = table["applyPaintTransform"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }

@@ -226,7 +226,7 @@ class RTManagedPipelineOwner extends PipelineOwner
   }
 
   @override
-  void set rootNode(AbstractNode? value) {
+  void set rootNode(value) {
     Closure closure = table["setRootNode"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }

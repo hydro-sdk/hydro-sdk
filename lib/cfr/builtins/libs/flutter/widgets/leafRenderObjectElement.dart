@@ -1003,27 +1003,26 @@ class RTManagedLeafRenderObjectElement extends LeafRenderObjectElement
   LeafRenderObjectElement unwrap() => this;
   LeafRenderObjectElement get vmObject => this;
   @override
-  void forgetChild(Element child) {
+  void forgetChild(child) {
     super.forgetChild(child);
     Closure closure = table["forgetChild"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void insertRenderObjectChild(RenderObject child, Object? slot) {
+  void insertRenderObjectChild(child, slot) {
     Closure closure = table["insertRenderObjectChild"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void moveRenderObjectChild(
-      RenderObject child, Object? oldSlot, Object? newSlot) {
+  void moveRenderObjectChild(child, oldSlot, newSlot) {
     Closure closure = table["moveRenderObjectChild"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void removeRenderObjectChild(RenderObject child, Object? slot) {
+  void removeRenderObjectChild(child, slot) {
     Closure closure = table["removeRenderObjectChild"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -1037,14 +1036,14 @@ class RTManagedLeafRenderObjectElement extends LeafRenderObjectElement
   }
 
   @override
-  void mount(Element? parent, Object? newSlot) {
+  void mount(parent, newSlot) {
     super.mount(parent, newSlot);
     Closure closure = table["mount"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void update(RenderObjectWidget newWidget) {
+  void update(newWidget) {
     super.update(newWidget);
     Closure closure = table["update"];
     return closure.dispatch([table], parentState: hydroState)[0];
@@ -1057,7 +1056,7 @@ class RTManagedLeafRenderObjectElement extends LeafRenderObjectElement
   }
 
   @override
-  List<Element> updateChildren(List oldChildren, List newWidgets,
+  List<Element> updateChildren(oldChildren, newWidgets,
       {Set? forgottenChildren, List? slots}) {
     Closure closure = table["updateChildren"];
     return maybeUnBoxAndBuildArgument<List<Element>, Element>(
@@ -1080,7 +1079,7 @@ class RTManagedLeafRenderObjectElement extends LeafRenderObjectElement
   }
 
   @override
-  void attachRenderObject(Object? newSlot) {
+  void attachRenderObject(newSlot) {
     Closure closure = table["attachRenderObject"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -1092,7 +1091,7 @@ class RTManagedLeafRenderObjectElement extends LeafRenderObjectElement
   }
 
   @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+  void debugFillProperties(properties) {
     super.debugFillProperties(properties);
     Closure closure = table["debugFillProperties"];
     return closure.dispatch([table], parentState: hydroState)[0];
@@ -1137,7 +1136,7 @@ class RTManagedLeafRenderObjectElement extends LeafRenderObjectElement
   }
 
   @override
-  DiagnosticsNode describeElement(String name,
+  DiagnosticsNode describeElement(name,
       {DiagnosticsTreeStyle style = DiagnosticsTreeStyle.errorProperty}) {
     Closure closure = table["describeElement"];
     return maybeUnBoxAndBuildArgument<DiagnosticsNode, dynamic>(
@@ -1146,7 +1145,7 @@ class RTManagedLeafRenderObjectElement extends LeafRenderObjectElement
   }
 
   @override
-  DiagnosticsNode describeWidget(String name,
+  DiagnosticsNode describeWidget(name,
       {DiagnosticsTreeStyle style = DiagnosticsTreeStyle.errorProperty}) {
     Closure closure = table["describeWidget"];
     return maybeUnBoxAndBuildArgument<DiagnosticsNode, dynamic>(
@@ -1155,7 +1154,7 @@ class RTManagedLeafRenderObjectElement extends LeafRenderObjectElement
   }
 
   @override
-  DiagnosticsNode describeOwnershipChain(String name) {
+  DiagnosticsNode describeOwnershipChain(name) {
     Closure closure = table["describeOwnershipChain"];
     return maybeUnBoxAndBuildArgument<DiagnosticsNode, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -1181,7 +1180,7 @@ class RTManagedLeafRenderObjectElement extends LeafRenderObjectElement
   }
 
   @override
-  Element? updateChild(Element? child, Widget? newWidget, Object? newSlot) {
+  Element? updateChild(child, newWidget, newSlot) {
     Closure closure = table["updateChild"];
     return maybeUnBoxAndBuildArgument<Element?, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -1189,13 +1188,13 @@ class RTManagedLeafRenderObjectElement extends LeafRenderObjectElement
   }
 
   @override
-  void updateSlotForChild(Element child, Object? newSlot) {
+  void updateSlotForChild(child, newSlot) {
     Closure closure = table["updateSlotForChild"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  Element inflateWidget(Widget newWidget, Object? newSlot) {
+  Element inflateWidget(newWidget, newSlot) {
     Closure closure = table["inflateWidget"];
     return maybeUnBoxAndBuildArgument<Element, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -1203,7 +1202,7 @@ class RTManagedLeafRenderObjectElement extends LeafRenderObjectElement
   }
 
   @override
-  void deactivateChild(Element child) {
+  void deactivateChild(child) {
     Closure closure = table["deactivateChild"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -1231,8 +1230,7 @@ class RTManagedLeafRenderObjectElement extends LeafRenderObjectElement
   }
 
   @override
-  InheritedWidget dependOnInheritedElement(InheritedElement ancestor,
-      {Object? aspect}) {
+  InheritedWidget dependOnInheritedElement(ancestor, {Object? aspect}) {
     Closure closure = table["dependOnInheritedElement"];
     return maybeUnBoxAndBuildArgument<InheritedWidget, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -1293,7 +1291,7 @@ class RTManagedLeafRenderObjectElement extends LeafRenderObjectElement
   }
 
   @override
-  String debugGetCreatorChain(int limit) {
+  String debugGetCreatorChain(limit) {
     Closure closure = table["debugGetCreatorChain"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }

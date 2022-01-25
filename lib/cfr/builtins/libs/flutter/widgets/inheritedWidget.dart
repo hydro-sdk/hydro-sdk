@@ -253,7 +253,7 @@ class RTManagedInheritedWidget extends InheritedWidget
   }
 
   @override
-  bool updateShouldNotify(InheritedWidget oldWidget) {
+  bool updateShouldNotify(oldWidget) {
     Closure closure = table["updateShouldNotify"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -265,7 +265,7 @@ class RTManagedInheritedWidget extends InheritedWidget
   }
 
   @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+  void debugFillProperties(properties) {
     super.debugFillProperties(properties);
     Closure closure = table["debugFillProperties"];
     return closure.dispatch([table], parentState: hydroState)[0];

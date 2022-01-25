@@ -180,7 +180,7 @@ class RTManagedShapeBorderClipper extends ShapeBorderClipper
   ShapeBorderClipper unwrap() => this;
   ShapeBorderClipper get vmObject => this;
   @override
-  Path getClip(Size size) {
+  Path getClip(size) {
     Closure closure = table["getClip"];
     return maybeUnBoxAndBuildArgument<Path, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -188,7 +188,7 @@ class RTManagedShapeBorderClipper extends ShapeBorderClipper
   }
 
   @override
-  bool shouldReclip(CustomClipper oldClipper) {
+  bool shouldReclip(oldClipper) {
     Closure closure = table["shouldReclip"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -206,7 +206,7 @@ class RTManagedShapeBorderClipper extends ShapeBorderClipper
   }
 
   @override
-  Rect getApproximateClipRect(Size size) {
+  Rect getApproximateClipRect(size) {
     Closure closure = table["getApproximateClipRect"];
     return maybeUnBoxAndBuildArgument<Rect, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],

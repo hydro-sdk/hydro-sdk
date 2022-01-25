@@ -108,7 +108,7 @@ class RTManagedSliverGridGeometry extends SliverGridGeometry
   }
 
   @override
-  BoxConstraints getBoxConstraints(SliverConstraints constraints) {
+  BoxConstraints getBoxConstraints(constraints) {
     Closure closure = table["getBoxConstraints"];
     return maybeUnBoxAndBuildArgument<BoxConstraints, dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],

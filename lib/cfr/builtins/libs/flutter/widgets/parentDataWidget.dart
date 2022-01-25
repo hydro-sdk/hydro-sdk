@@ -289,7 +289,7 @@ class RTManagedParentDataWidget extends ParentDataWidget
   }
 
   @override
-  bool debugIsValidRenderObject(RenderObject renderObject) {
+  bool debugIsValidRenderObject(renderObject) {
     Closure closure = table["debugIsValidRenderObject"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -303,7 +303,7 @@ class RTManagedParentDataWidget extends ParentDataWidget
   }
 
   @override
-  void applyParentData(RenderObject renderObject) {
+  void applyParentData(renderObject) {
     Closure closure = table["applyParentData"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -321,7 +321,7 @@ class RTManagedParentDataWidget extends ParentDataWidget
   }
 
   @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+  void debugFillProperties(properties) {
     super.debugFillProperties(properties);
     Closure closure = table["debugFillProperties"];
     return closure.dispatch([table], parentState: hydroState)[0];

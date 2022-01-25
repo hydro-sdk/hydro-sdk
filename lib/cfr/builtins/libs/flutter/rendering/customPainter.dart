@@ -199,25 +199,25 @@ class RTManagedCustomPainter extends CustomPainter
   }
 
   @override
-  void paint(Canvas canvas, Size size) {
+  void paint(canvas, size) {
     Closure closure = table["paint"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  bool shouldRebuildSemantics(CustomPainter oldDelegate) {
+  bool shouldRebuildSemantics(oldDelegate) {
     Closure closure = table["shouldRebuildSemantics"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  bool shouldRepaint(CustomPainter oldDelegate) {
+  bool shouldRepaint(oldDelegate) {
     Closure closure = table["shouldRepaint"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  bool? hitTest(Offset position) {
+  bool? hitTest(position) {
     Closure closure = table["hitTest"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
