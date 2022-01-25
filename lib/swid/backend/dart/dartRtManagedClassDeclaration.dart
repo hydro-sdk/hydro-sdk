@@ -497,17 +497,7 @@ class DartRTManagedClassDeclaration
                                   ...x.normalParameterNames
                                       .map(
                                         (e) => Parameter(
-                                          (p) => p
-                                            ..name = e
-                                            ..type =
-                                                swidTypeToDartTypeReference(
-                                              swidType: x.normalParameterTypes
-                                                  .elementAt(
-                                                x.normalParameterNames
-                                                    .indexWhere((element) =>
-                                                        element == e),
-                                              ),
-                                            ),
+                                          (p) => p..name = e,
                                         ),
                                       )
                                       .toList(),

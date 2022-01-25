@@ -127,7 +127,7 @@ class RTManagedPath extends Path implements Box<Path> {
   Path unwrap() => this;
   Path get vmObject => this;
   @override
-  void set fillType(PathFillType value) {
+  void set fillType(value) {
     Closure closure = table["setFillType"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }

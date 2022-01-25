@@ -201,7 +201,7 @@ class RTManagedLayerHandle extends LayerHandle implements Box<LayerHandle> {
   LayerHandle unwrap() => this;
   LayerHandle get vmObject => this;
   @override
-  void set layer(Layer? layer) {
+  void set layer(layer) {
     Closure closure = table["setLayer"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
