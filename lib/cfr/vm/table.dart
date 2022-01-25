@@ -2,6 +2,21 @@ class HydroTable {
   List<dynamic> arr = [];
   final Map<dynamic, dynamic> map = {};
 
+  HydroTable();
+
+  factory HydroTable.fromMap(final Map<dynamic, dynamic> newMap) {
+    final res = HydroTable();
+
+    newMap.entries.forEach(
+      (x) => res.rawset(
+        x.key,
+        x.value,
+      ),
+    );
+
+    return res;
+  }
+
   void rawset(dynamic k, dynamic v) {
     if (k == null) {
       throw "table index is nil";
