@@ -1,5 +1,7 @@
+import 'package:dartlin/control_flow.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'package:hydro_sdk/swid/backend/dart/dartBoxingExpression.dart';
 import 'package:hydro_sdk/swid/backend/dart/util/luaCallerArgumentsParameterName.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
@@ -182,6 +184,19 @@ class DartUnboxingExpression
                               .toList(),
                         ],
                       )
+                      ..optionalParameters.addAll(
+                        val.namedParameterTypes.entries
+                            .map(
+                              (x) => Parameter(
+                                (p) => p
+                                  ..name = x.key
+                                  ..named = true
+                                  ..required = x.value.declarationModifiers
+                                      .isRequiredNamed,
+                              ),
+                            )
+                            .toList(),
+                      )
                       ..body = Code(
                         pipeline.reduceFromTerm(
                           DartUnboxingExpression(
@@ -207,6 +222,34 @@ class DartUnboxingExpression
                                       .map((x) => x)
                                       .toList()
                                       .join(","),
+                                  val.namedParameterTypes.isNotEmpty ? "," : "",
+                                  val.namedParameterTypes.let(
+                                    (it) => it.isEmpty
+                                        ? ""
+                                        : [
+                                            "HydroTable.fromMap({",
+                                            it.entries
+                                                .map(
+                                                  (x) => [
+                                                    "\"${x.key}\":",
+                                                    pipeline.reduceFromTerm(
+                                                      DartBoxingExpression(
+                                                        swidType: x.value,
+                                                        expression:
+                                                            CodeExpression(
+                                                          Code(
+                                                            x.key,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    )
+                                                  ].join(),
+                                                )
+                                                .toList()
+                                                .join(","),
+                                            "}),",
+                                          ].join(),
+                                  ),
                                   "],parentState:hydroState,)",
                                   ...(val.returnType.nullabilitySuffix !=
                                           SwidNullabilitySuffix.question
