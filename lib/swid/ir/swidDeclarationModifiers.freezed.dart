@@ -220,7 +220,8 @@ class _$SwidDeclarationModifiersTearOff {
       required bool hasSealed,
       required bool hasVisibleForTemplate,
       required bool hasVisibleForTesting,
-      required bool isPublic}) {
+      required bool isPublic,
+      required bool isRequiredNamed}) {
     return _$Data(
       ignoredTransforms: ignoredTransforms,
       ignoredAnalyses: ignoredAnalyses,
@@ -251,6 +252,7 @@ class _$SwidDeclarationModifiersTearOff {
       hasVisibleForTemplate: hasVisibleForTemplate,
       hasVisibleForTesting: hasVisibleForTesting,
       isPublic: isPublic,
+      isRequiredNamed: isRequiredNamed,
     );
   }
 
@@ -294,6 +296,7 @@ mixin _$SwidDeclarationModifiers {
   bool get hasVisibleForTemplate => throw _privateConstructorUsedError;
   bool get hasVisibleForTesting => throw _privateConstructorUsedError;
   bool get isPublic => throw _privateConstructorUsedError;
+  bool get isRequiredNamed => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -335,7 +338,8 @@ abstract class $SwidDeclarationModifiersCopyWith<$Res> {
       bool hasSealed,
       bool hasVisibleForTemplate,
       bool hasVisibleForTesting,
-      bool isPublic});
+      bool isPublic,
+      bool isRequiredNamed});
 }
 
 /// @nodoc
@@ -378,6 +382,7 @@ class _$SwidDeclarationModifiersCopyWithImpl<$Res>
     Object? hasVisibleForTemplate = freezed,
     Object? hasVisibleForTesting = freezed,
     Object? isPublic = freezed,
+    Object? isRequiredNamed = freezed,
   }) {
     return _then(_value.copyWith(
       ignoredTransforms: ignoredTransforms == freezed
@@ -496,6 +501,10 @@ class _$SwidDeclarationModifiersCopyWithImpl<$Res>
           ? _value.isPublic
           : isPublic // ignore: cast_nullable_to_non_nullable
               as bool,
+      isRequiredNamed: isRequiredNamed == freezed
+          ? _value.isRequiredNamed
+          : isRequiredNamed // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -535,7 +544,8 @@ abstract class _$$DataCopyWith<$Res>
       bool hasSealed,
       bool hasVisibleForTemplate,
       bool hasVisibleForTesting,
-      bool isPublic});
+      bool isPublic,
+      bool isRequiredNamed});
 }
 
 /// @nodoc
@@ -579,6 +589,7 @@ class __$$DataCopyWithImpl<$Res>
     Object? hasVisibleForTemplate = freezed,
     Object? hasVisibleForTesting = freezed,
     Object? isPublic = freezed,
+    Object? isRequiredNamed = freezed,
   }) {
     return _then(_$Data(
       ignoredTransforms: ignoredTransforms == freezed
@@ -697,6 +708,10 @@ class __$$DataCopyWithImpl<$Res>
           ? _value.isPublic
           : isPublic // ignore: cast_nullable_to_non_nullable
               as bool,
+      isRequiredNamed: isRequiredNamed == freezed
+          ? _value.isRequiredNamed
+          : isRequiredNamed // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -733,7 +748,8 @@ class _$_$Data extends _$Data {
       required this.hasSealed,
       required this.hasVisibleForTemplate,
       required this.hasVisibleForTesting,
-      required this.isPublic})
+      required this.isPublic,
+      required this.isRequiredNamed})
       : super._();
 
   factory _$_$Data.fromJson(Map<String, dynamic> json) =>
@@ -797,10 +813,12 @@ class _$_$Data extends _$Data {
   final bool hasVisibleForTesting;
   @override
   final bool isPublic;
+  @override
+  final bool isRequiredNamed;
 
   @override
   String toString() {
-    return 'SwidDeclarationModifiers(ignoredTransforms: $ignoredTransforms, ignoredAnalyses: $ignoredAnalyses, overridenTransforms: $overridenTransforms, isAbstract: $isAbstract, isGetter: $isGetter, isOperator: $isOperator, isSetter: $isSetter, isStatic: $isStatic, isSynthetic: $isSynthetic, isCovariant: $isCovariant, isExplicitlyCovariant: $isExplicitlyCovariant, hasAlwaysThrows: $hasAlwaysThrows, hasDeprecated: $hasDeprecated, hasFactory: $hasFactory, hasImplicitReturnType: $hasImplicitReturnType, hasIsTest: $hasIsTest, hasIsTestGroup: $hasIsTestGroup, hasJS: $hasJS, hasLiteral: $hasLiteral, hasMustCallSuper: $hasMustCallSuper, hasNonVirtual: $hasNonVirtual, hasOptionalTypeArgs: $hasOptionalTypeArgs, hasOverride: $hasOverride, hasProtected: $hasProtected, hasRequired: $hasRequired, hasSealed: $hasSealed, hasVisibleForTemplate: $hasVisibleForTemplate, hasVisibleForTesting: $hasVisibleForTesting, isPublic: $isPublic)';
+    return 'SwidDeclarationModifiers(ignoredTransforms: $ignoredTransforms, ignoredAnalyses: $ignoredAnalyses, overridenTransforms: $overridenTransforms, isAbstract: $isAbstract, isGetter: $isGetter, isOperator: $isOperator, isSetter: $isSetter, isStatic: $isStatic, isSynthetic: $isSynthetic, isCovariant: $isCovariant, isExplicitlyCovariant: $isExplicitlyCovariant, hasAlwaysThrows: $hasAlwaysThrows, hasDeprecated: $hasDeprecated, hasFactory: $hasFactory, hasImplicitReturnType: $hasImplicitReturnType, hasIsTest: $hasIsTest, hasIsTestGroup: $hasIsTestGroup, hasJS: $hasJS, hasLiteral: $hasLiteral, hasMustCallSuper: $hasMustCallSuper, hasNonVirtual: $hasNonVirtual, hasOptionalTypeArgs: $hasOptionalTypeArgs, hasOverride: $hasOverride, hasProtected: $hasProtected, hasRequired: $hasRequired, hasSealed: $hasSealed, hasVisibleForTemplate: $hasVisibleForTemplate, hasVisibleForTesting: $hasVisibleForTesting, isPublic: $isPublic, isRequiredNamed: $isRequiredNamed)';
   }
 
   @override
@@ -878,7 +896,8 @@ class _$_$Data extends _$Data {
             (identical(other.hasSealed, hasSealed) || const DeepCollectionEquality().equals(other.hasSealed, hasSealed)) &&
             (identical(other.hasVisibleForTemplate, hasVisibleForTemplate) || const DeepCollectionEquality().equals(other.hasVisibleForTemplate, hasVisibleForTemplate)) &&
             (identical(other.hasVisibleForTesting, hasVisibleForTesting) || const DeepCollectionEquality().equals(other.hasVisibleForTesting, hasVisibleForTesting)) &&
-            (identical(other.isPublic, isPublic) || const DeepCollectionEquality().equals(other.isPublic, isPublic)));
+            (identical(other.isPublic, isPublic) || const DeepCollectionEquality().equals(other.isPublic, isPublic)) &&
+            (identical(other.isRequiredNamed, isRequiredNamed) || const DeepCollectionEquality().equals(other.isRequiredNamed, isRequiredNamed)));
   }
 
   @override
@@ -912,7 +931,8 @@ class _$_$Data extends _$Data {
       const DeepCollectionEquality().hash(hasSealed) ^
       const DeepCollectionEquality().hash(hasVisibleForTemplate) ^
       const DeepCollectionEquality().hash(hasVisibleForTesting) ^
-      const DeepCollectionEquality().hash(isPublic);
+      const DeepCollectionEquality().hash(isPublic) ^
+      const DeepCollectionEquality().hash(isRequiredNamed);
 
   @JsonKey(ignore: true)
   @override
@@ -955,7 +975,8 @@ abstract class _$Data extends SwidDeclarationModifiers {
       required bool hasSealed,
       required bool hasVisibleForTemplate,
       required bool hasVisibleForTesting,
-      required bool isPublic}) = _$_$Data;
+      required bool isPublic,
+      required bool isRequiredNamed}) = _$_$Data;
   _$Data._() : super._();
 
   factory _$Data.fromJson(Map<String, dynamic> json) = _$_$Data.fromJson;
@@ -1019,6 +1040,8 @@ abstract class _$Data extends SwidDeclarationModifiers {
   bool get hasVisibleForTesting => throw _privateConstructorUsedError;
   @override
   bool get isPublic => throw _privateConstructorUsedError;
+  @override
+  bool get isRequiredNamed => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$DataCopyWith<_$Data> get copyWith => throw _privateConstructorUsedError;

@@ -23,10 +23,11 @@ SwidType narrowDartTypeToSwidType({
     dartType is FunctionType
         ? SwidType.fromSwidFunctionType(
             swidFunctionType: swidFunctionTypeFromFunctionType(
-            functionType: dartType,
-            declarationModifiers: SwidDeclarationModifiers.empty(),
-            buildElements: buildElements,
-          ))
+              functionType: dartType,
+              declarationModifiers: SwidDeclarationModifiers.empty(),
+              buildElements: buildElements,
+            ),
+          )
         : dartType is InterfaceType
             ? SwidType.fromSwidInterface(
                 swidInterface: swidInterfaceFromInterface(

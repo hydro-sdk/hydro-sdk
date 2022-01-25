@@ -1,5 +1,6 @@
 import 'package:analyzer/dart/element/element.dart';
 import 'package:collection/collection.dart';
+import 'package:dartlin/control_flow.dart';
 
 import 'package:hydro_sdk/swid/frontend/dart/dartDefaultFieldFormalOrDefaultFormal.dart';
 import 'package:hydro_sdk/swid/frontend/dart/extractStaticConstFromSyntacticEntity.dart';
@@ -46,6 +47,20 @@ SwidFunctionType swidFunctionTypeFromFunctionType({
                 narrowDartTypeToSwidType(
                   dartType: functionType.namedParameterTypes[x],
                   buildElements: true,
+                ).let(
+                  (it) => SwidType.clone(
+                    swidType: it,
+                    declarationModifiers: it.declarationModifiers.clone(
+                      isRequiredNamed: functionType.parameters
+                          .whereType<DefaultParameterElementImpl>()
+                          .firstWhereOrNull(
+                            (k) => k.name == x,
+                          )
+                          ?.let(
+                            (it) => it.isRequiredNamed,
+                          ),
+                    ),
+                  ),
                 ),
               ),
             )
