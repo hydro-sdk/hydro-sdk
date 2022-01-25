@@ -2634,15 +2634,15 @@ class RTManagedRenderParagraph extends RenderParagraph
     return closure.dispatch([table], parentState: hydroState)[0]?.toDouble();
   }
 
-  // @override
-  // List<TextBox> getBoxesForSelection(TextSelection selection,
-  //     {required BoxHeightStyle boxHeightStyle,
-  //     required BoxWidthStyle boxWidthStyle}) {
-  //   Closure closure = table["getBoxesForSelection"];
-  //   return maybeUnBoxAndBuildArgument<List<TextBox>, TextBox>(
-  //       closure.dispatch([table], parentState: hydroState)[0],
-  //       parentState: hydroState);
-  // }
+  @override
+  List<TextBox> getBoxesForSelection(TextSelection selection,
+      {BoxHeightStyle boxHeightStyle = BoxHeightStyle.tight,
+      BoxWidthStyle boxWidthStyle = BoxWidthStyle.tight}) {
+    Closure closure = table["getBoxesForSelection"];
+    return maybeUnBoxAndBuildArgument<List<TextBox>, TextBox>(
+        closure.dispatch([table], parentState: hydroState)[0],
+        parentState: hydroState);
+  }
 
   @override
   TextPosition getPositionForOffset(Offset offset) {

@@ -806,9 +806,15 @@ export class RenderParagraph
     }
     public getBoxesForSelection(
         selection: ITextSelection,
-        props: { boxHeightStyle: BoxHeightStyle; boxWidthStyle: BoxWidthStyle }
+        props: {
+            boxHeightStyle?: BoxHeightStyle;
+            boxWidthStyle?: BoxWidthStyle;
+        }
     ): IList<ITextBox> {
-        return this._dart_getBoxesForSelection(selection, props);
+        return this._dart_getBoxesForSelection(selection, {
+            ...getBoxesForSelectionDefaultProps,
+            ...props,
+        });
     }
     public getPositionForOffset(offset: IOffset): ITextPosition {
         return this._dart_getPositionForOffset(offset);
@@ -1245,6 +1251,10 @@ const renderParagraphDefaultProps = {
     textAlign: TextAlign.start,
     textScaleFactor: 1.0,
     textWidthBasis: TextWidthBasis.parent,
+};
+const getBoxesForSelectionDefaultProps = {
+    boxHeightStyle: BoxHeightStyle.tight,
+    boxWidthStyle: BoxWidthStyle.tight,
 };
 const getDistanceToBaselineDefaultProps = {
     onlyReal: false,

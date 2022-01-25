@@ -494,8 +494,8 @@ export class RenderEditable
         readOnly?: boolean;
         selection?: ITextSelection | undefined;
         selectionColor?: IColor | undefined;
-        selectionHeightStyle: BoxHeightStyle;
-        selectionWidthStyle: BoxWidthStyle;
+        selectionHeightStyle?: BoxHeightStyle;
+        selectionWidthStyle?: BoxWidthStyle;
         showCursor?: IValueNotifier<boolean> | undefined;
         strutStyle?: IStrutStyle | undefined;
         text?: IInlineSpan | undefined;
@@ -1846,6 +1846,8 @@ const renderEditableDefaultProps = {
     obscuringCharacter: "•",
     paintCursorAboveText: false,
     readOnly: false,
+    selectionHeightStyle: BoxHeightStyle.tight,
+    selectionWidthStyle: BoxWidthStyle.tight,
     textAlign: TextAlign.start,
     textScaleFactor: 1.0,
     textWidthBasis: TextWidthBasis.parent,

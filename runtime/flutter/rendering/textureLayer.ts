@@ -102,7 +102,7 @@ export class TextureLayer
     public readonly filterQuality: FilterQuality = undefined as any;
     public readonly debugCreator: Object | undefined = undefined as any;
     public constructor(props: {
-        filterQuality: FilterQuality;
+        filterQuality?: FilterQuality;
         freeze?: boolean;
         rect: IRect;
         textureId: number;
@@ -302,6 +302,7 @@ export class TextureLayer
     }
 }
 const textureLayerDefaultProps = {
+    filterQuality: FilterQuality.low,
     freeze: false,
 };
 const toStringDefaultProps = {
