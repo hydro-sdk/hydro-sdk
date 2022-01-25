@@ -63,6 +63,10 @@ class IsInexpressibleStaticConst
           fromDoubleLiteral: (_) => false,
           fromSwidStaticConstIdentifier: (_) => false,
           fromSwidStaticConstTopLevelVariableReference: (_) => false,
+          fromSwidStaticConstPropertyAccess: (val) =>
+              val.receiver[0] == "_" ||
+              val.property[0] == "_" ||
+              val.staticType.displayName[0] == "_",
           fromSwidStaticConstFunctionInvocation: (val) =>
               val.value[0] == "_" ||
               val.staticType.displayName[0] == "_" ||

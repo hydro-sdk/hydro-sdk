@@ -63,6 +63,14 @@ class CollectReferencesFromStaticConst
             fromSwidIntegerLiteral: (_) => [],
             fromDoubleLiteral: (_) => [],
             fromSwidStaticConstIdentifier: (_) => [],
+            fromSwidStaticConstPropertyAccess: (val) => [
+              val.staticType.when(
+                fromSwidInterface: (val) => val,
+                fromSwidClass: (_) => dartUnknownInterface,
+                fromSwidDefaultFormalParameter: (_) => dartUnknownInterface,
+                fromSwidFunctionType: (_) => dartUnknownInterface,
+              )
+            ],
             fromSwidStaticConstTopLevelVariableReference: (val) => [
               val.topLevelReference.when(
                 fromSwidInterface: (val) => val,

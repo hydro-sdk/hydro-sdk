@@ -57,6 +57,7 @@ bool _hasStaticConstMap({
       fromSwidIntegerLiteral: (_) => false,
       fromDoubleLiteral: (_) => false,
       fromSwidStaticConstTopLevelVariableReference: (_) => false,
+      fromSwidStaticConstPropertyAccess: (_) => false,
       fromSwidStaticConstFunctionInvocation: (val) =>
           val.namedParameters.entries.any(
         (x) => _hasStaticConstMap(

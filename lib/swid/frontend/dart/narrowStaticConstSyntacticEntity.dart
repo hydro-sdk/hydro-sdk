@@ -12,6 +12,7 @@ import 'package:analyzer/dart/ast/ast.dart'
         SimpleStringLiteral,
         SetOrMapLiteral,
         MapLiteralEntry,
+        PropertyAccess,
         StringLiteral;
 
 import 'package:analyzer/dart/ast/syntactic_entity.dart' show SyntacticEntity;
@@ -32,6 +33,7 @@ T? narrowStaticConstSyntacticEntity<T>({
   required final T Function(ListLiteral) onListLiteral,
   required final T Function(SetOrMapLiteral) onSetOrMapLiteral,
   required final T Function(MapLiteralEntry) onMapLiteralEntry,
+  required final T Function(PropertyAccess) onPropertyAccess,
 }) =>
     syntacticEntity is InstanceCreationExpression
         ? onInstanceCreationExpression(syntacticEntity)
@@ -65,4 +67,8 @@ T? narrowStaticConstSyntacticEntity<T>({
                                                             is MapLiteralEntry
                                                         ? onMapLiteralEntry(
                                                             syntacticEntity)
-                                                        : null;
+                                                        : syntacticEntity
+                                                                is PropertyAccess
+                                                            ? onPropertyAccess(
+                                                                syntacticEntity)
+                                                            : null;

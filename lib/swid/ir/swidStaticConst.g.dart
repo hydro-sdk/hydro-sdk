@@ -213,3 +213,17 @@ Map<String, dynamic> _$_$_$FromSwidStaticConstTopLevelVariableReferenceToJson(
       'swidStaticConstTopLevelVariableReference':
           instance.swidStaticConstTopLevelVariableReference,
     };
+
+_$_$FromSwidStaticConstPropertyAccess
+    _$_$_$FromSwidStaticConstPropertyAccessFromJson(Map<String, dynamic> json) {
+  return _$_$FromSwidStaticConstPropertyAccess(
+    swidStaticConstPropertyAccess: SwidStaticConstPropertyAccess.fromJson(
+        json['swidStaticConstPropertyAccess'] as Map<String, dynamic>),
+  );
+}
+
+Map<String, dynamic> _$_$_$FromSwidStaticConstPropertyAccessToJson(
+        _$_$FromSwidStaticConstPropertyAccess instance) =>
+    <String, dynamic>{
+      'swidStaticConstPropertyAccess': instance.swidStaticConstPropertyAccess,
+    };

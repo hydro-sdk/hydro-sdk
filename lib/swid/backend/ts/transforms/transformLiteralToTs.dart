@@ -164,6 +164,11 @@ class TransformLiteralToTs
               scopeResolver: scopeResolver,
             ),
           ),
+          fromSwidStaticConstPropertyAccess: (val) => [
+            val.receiver,
+            ".",
+            val.property,
+          ].join(),
         ),
       );
 }

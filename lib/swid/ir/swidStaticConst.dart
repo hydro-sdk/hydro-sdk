@@ -12,6 +12,7 @@ import 'package:hydro_sdk/swid/ir/swidStaticConstMapLiteral.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstMapLiteralEntry.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstPrefixedExpression.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstPrefixedIdentifier.dart';
+import 'package:hydro_sdk/swid/ir/swidStaticConstPropertyAccess.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstTopLevelVariableReference.dart';
 import 'package:hydro_sdk/swid/ir/swidStringLiteral.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
@@ -90,6 +91,10 @@ class SwidStaticConst
         swidStaticConstTopLevelVariableReference,
   }) = _$FromSwidStaticConstTopLevelVariableReference;
 
+  factory SwidStaticConst.fromSwidStaticConstPropertyAccess({
+    required final SwidStaticConstPropertyAccess swidStaticConstPropertyAccess,
+  }) = _$FromSwidStaticConstPropertyAccess;
+
   factory SwidStaticConst.fromJson(Map<String, dynamic> json) =>
       _$SwidStaticConstFromJson(json);
 
@@ -149,6 +154,10 @@ class SwidStaticConst
             SwidStaticConst.fromSwidStaticConstTopLevelVariableReference(
           swidStaticConstTopLevelVariableReference: val,
         ),
+        fromSwidStaticConstPropertyAccess: (val) =>
+            SwidStaticConst.fromSwidStaticConstPropertyAccess(
+          swidStaticConstPropertyAccess: val,
+        ),
       );
 
   @override
@@ -168,6 +177,7 @@ class SwidStaticConst
     fromSwidStaticConstMapLiteral: (val) => val.hashKey.hashableParts,
     fromSwidStaticConstTopLevelVariableReference: (val) =>
         val.hashKey.hashableParts,
+    fromSwidStaticConstPropertyAccess: (val) => val.hashKey.hashableParts,
   );
 
   @override

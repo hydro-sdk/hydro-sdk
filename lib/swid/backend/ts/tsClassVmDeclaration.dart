@@ -236,6 +236,8 @@ class TsClassVmDeclaration
                                                           (_) => null,
                                                       fromSwidStaticConstListLiteral:
                                                           (_) => null,
+                                                      fromSwidStaticConstPropertyAccess:
+                                                          (_) => null,
                                                     )!,
                                                     isFactory: false,
                                                     typeFormals: [],

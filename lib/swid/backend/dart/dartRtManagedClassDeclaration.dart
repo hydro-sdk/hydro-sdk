@@ -1,22 +1,5 @@
-import 'package:code_builder/code_builder.dart'
-    show
-        Class,
-        Constructor,
-        DartEmitter,
-        Field,
-        FieldModifier,
-        Parameter,
-        TypeReference,
-        refer,
-        literalString,
-        literalList,
-        Method,
-        MethodType,
-        Block,
-        Code,
-        CodeExpression;
-
 import 'package:dart_style/dart_style.dart';
+import 'package:dartlin/dartlin.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:tuple/tuple.dart';
 
@@ -50,6 +33,24 @@ import 'package:hydro_sdk/swid/transforms/transformAccessorName.dart';
 import 'package:hydro_sdk/swid/transforms/tstl/transformTstlMethodNames.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
+
+import 'package:code_builder/code_builder.dart'
+    show
+        Class,
+        Constructor,
+        DartEmitter,
+        Field,
+        FieldModifier,
+        Parameter,
+        TypeReference,
+        refer,
+        literalString,
+        literalList,
+        Method,
+        MethodType,
+        Block,
+        Code,
+        CodeExpression;
 
 part 'dartRtManagedClassDeclaration.freezed.dart';
 
@@ -519,12 +520,63 @@ class DartRTManagedClassDeclaration
                                         (e) => Parameter(
                                           (p) => p
                                             ..name = e.key
-                                            ..defaultTo =
-                                                (x.namedDefaults[e.key] != null
-                                                    ? Code(x
-                                                        .namedDefaults[e.key]!
-                                                        .defaultValueCode)
-                                                    : null)
+                                            ..defaultTo = (x
+                                                        .namedDefaults[e.key] !=
+                                                    null
+                                                ? Code(
+                                                    x.namedDefaults[e.key]!.let(
+                                                      (it) => it.value.when(
+                                                        fromSwidBooleanLiteral:
+                                                            (_) => it
+                                                                .defaultValueCode,
+                                                        fromSwidStringLiteral:
+                                                            (_) => it
+                                                                .defaultValueCode,
+                                                        fromSwidIntegerLiteral:
+                                                            (_) => it
+                                                                .defaultValueCode,
+                                                        fromDoubleLiteral: (_) =>
+                                                            it.defaultValueCode,
+                                                        fromSwidStaticConstFunctionInvocation:
+                                                            (_) => it
+                                                                .defaultValueCode,
+                                                        fromSwidStaticConstFieldReference:
+                                                            (_) => it
+                                                                .defaultValueCode,
+                                                        fromSwidStaticConstPrefixedExpression:
+                                                            (_) => it
+                                                                .defaultValueCode,
+                                                        fromSwidStaticConstBinaryExpression:
+                                                            (_) => it
+                                                                .defaultValueCode,
+                                                        fromSwidStaticConstPrefixedIdentifier:
+                                                            (_) => it
+                                                                .defaultValueCode,
+                                                        fromSwidStaticConstIdentifier:
+                                                            (_) => it
+                                                                .defaultValueCode,
+                                                        fromSwidStaticConstListLiteral:
+                                                            (_) => it
+                                                                .defaultValueCode,
+                                                        fromSwidStaticConstMapLiteralEntry:
+                                                            (_) => it
+                                                                .defaultValueCode,
+                                                        fromSwidStaticConstMapLiteral:
+                                                            (_) => it
+                                                                .defaultValueCode,
+                                                        fromSwidStaticConstTopLevelVariableReference:
+                                                            (_) => it
+                                                                .defaultValueCode,
+                                                        fromSwidStaticConstPropertyAccess:
+                                                            (val) => [
+                                                          val.receiver,
+                                                          ".",
+                                                          val.property,
+                                                        ].join(),
+                                                      ),
+                                                    ),
+                                                  )
+                                                : null)
                                             ..named = true
                                             ..required = (x
                                                         .namedDefaults[e.key] ==

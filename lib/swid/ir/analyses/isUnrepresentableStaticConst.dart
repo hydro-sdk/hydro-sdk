@@ -60,6 +60,8 @@ class IsUnrepresentableStaticConst
           fromSwidStringLiteral: (_) => false,
           fromSwidIntegerLiteral: (_) => false,
           fromDoubleLiteral: (_) => false,
+          fromSwidStaticConstPropertyAccess: (val) =>
+              val.staticType.name[0] == "_",
           fromSwidStaticConstFunctionInvocation: (val) =>
               val.staticType.name[0] == "_",
           fromSwidStaticConstFieldReference: (_) => false,

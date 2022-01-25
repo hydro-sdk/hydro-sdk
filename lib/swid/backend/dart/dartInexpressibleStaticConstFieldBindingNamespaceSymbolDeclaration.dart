@@ -135,6 +135,8 @@ class DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
                                   dartUnknownInterface,
                               fromSwidStaticConstListLiteral: (_) =>
                                   dartUnknownInterface,
+                              fromSwidStaticConstPropertyAccess: (_) =>
+                                  dartUnknownInterface,
                             ),
                             objectReference: CodeExpression(
                               Code(

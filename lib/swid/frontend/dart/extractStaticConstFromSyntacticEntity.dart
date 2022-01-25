@@ -1,3 +1,5 @@
+import 'package:_fe_analyzer_shared/src/scanner/token.dart';
+import 'package:analyzer/dart/ast/ast.dart';
 import 'package:analyzer/dart/ast/syntactic_entity.dart';
 import 'package:analyzer/dart/element/element.dart' show ClassElement;
 import 'package:collection/collection.dart';
@@ -25,6 +27,7 @@ import 'package:hydro_sdk/swid/ir/swidStaticConstListLiteral.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstMapLiteral.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstMapLiteralEntry.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstPrefixedExpression.dart';
+import 'package:hydro_sdk/swid/ir/swidStaticConstPropertyAccess.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstTopLevelVariableReference.dart';
 import 'package:hydro_sdk/swid/ir/swidStringLiteral.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
@@ -190,6 +193,31 @@ SwidStaticConst extractStaticConstFromSyntacticEntity({
                         ))
                     .whereNotNull()
                     .toList(),
+                staticType:
+                    val.staticType != null && val.staticType is InterfaceType
+                        ? SwidType.fromSwidInterface(
+                            swidInterface: swidInterfaceFromInterface(
+                              interfaceType: val.staticType! as InterfaceType,
+                              buildElements: buildElements,
+                            ),
+                          )
+                        : dartUnknownType,
+              ),
+            )
+          : dartUnknownConst,
+      onPropertyAccess: (val) => val.childEntities.first
+                  is PrefixedIdentifier &&
+              val.childEntities.last is SimpleIdentifier &&
+              val.childEntities.length == 3 &&
+              val.childEntities.toList()[1] is SimpleToken &&
+              (val.childEntities.toList()[1] as SimpleToken).lexeme == "."
+          ? SwidStaticConst.fromSwidStaticConstPropertyAccess(
+              swidStaticConstPropertyAccess: SwidStaticConstPropertyAccess(
+                receiver: ((val.childEntities.first as PrefixedIdentifier)
+                        .childEntities
+                        .last as SimpleIdentifier)
+                    .name,
+                property: (val.childEntities.last as SimpleIdentifier).name,
                 staticType:
                     val.staticType != null && val.staticType is InterfaceType
                         ? SwidType.fromSwidInterface(

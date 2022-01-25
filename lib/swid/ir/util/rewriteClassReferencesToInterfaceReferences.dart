@@ -255,6 +255,10 @@ SwidType rewriteClassReferencesToInterfaceReferences({
                 ),
               ),
             ),
+            fromSwidStaticConstPropertyAccess: (val) =>
+                SwidStaticConst.fromSwidStaticConstPropertyAccess(
+              swidStaticConstPropertyAccess: val,
+            ),
           ),
         ),
       ),
@@ -356,6 +360,10 @@ SwidType rewriteClassReferencesToInterfaceReferences({
                         swidType: val.staticType,
                       ),
                     ),
+                  ),
+                  fromSwidStaticConstPropertyAccess: (val) =>
+                      SwidStaticConst.fromSwidStaticConstPropertyAccess(
+                    swidStaticConstPropertyAccess: val,
                   ),
                 ),
               ),

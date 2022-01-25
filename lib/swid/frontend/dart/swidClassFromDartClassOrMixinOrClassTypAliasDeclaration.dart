@@ -1,10 +1,3 @@
-import 'package:analyzer/dart/ast/ast.dart'
-    show
-        FieldDeclaration,
-        VariableDeclaration,
-        VariableDeclarationList,
-        TypeParameterList;
-
 import 'package:analyzer/dart/element/element.dart' show ConstructorElement;
 import 'package:analyzer/dart/element/type.dart' show InterfaceType;
 import 'package:collection/collection.dart' show IterableExtension;
@@ -26,6 +19,13 @@ import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstFieldDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
+
+import 'package:analyzer/dart/ast/ast.dart'
+    show
+        FieldDeclaration,
+        VariableDeclaration,
+        VariableDeclarationList,
+        TypeParameterList;
 
 import 'package:analyzer/src/dart/ast/ast.dart'
     show ConstructorDeclarationImpl, MethodDeclarationImpl;
