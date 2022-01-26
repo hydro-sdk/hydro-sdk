@@ -220,7 +220,7 @@ class VMManagedDiagnosticPropertiesBuilder
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table[\'properties\'] = maybeBoxObject<List<dynamic>>(
+    table[\'properties\'] = maybeBoxObject<List<DiagnosticsNode>>(
         object: vmObject.properties,
         hydroState: hydroState,
         table: HydroTable());
