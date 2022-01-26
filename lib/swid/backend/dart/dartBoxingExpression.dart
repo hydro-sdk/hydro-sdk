@@ -75,6 +75,7 @@ class DartBoxingExpression
                 type: val,
                 objectReference: expression,
                 boxLists: true,
+                preserveListTypes: false,
                 codeKind: CodeKind.expression,
                 tableExpression: tableExpression,
               ),

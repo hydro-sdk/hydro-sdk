@@ -1,6 +1,4 @@
-import 'package:code_builder/code_builder.dart'
-    show DartEmitter, refer, Reference, Expression, CodeExpression, Code;
-
+import 'package:dartlin/control_flow.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/backend/dart/dartBoxList.dart';
@@ -22,6 +20,9 @@ import 'package:hydro_sdk/swid/transforms/removeTypeArguments.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
 import 'package:hydro_sdk/swid/util/unHashableMixin.dart';
+
+import 'package:code_builder/code_builder.dart'
+    show DartEmitter, refer, Reference, Expression, CodeExpression, Code;
 
 part 'dartBoxObjectReference.freezed.dart';
 
@@ -45,6 +46,7 @@ class DartBoxObjectReference
     required final SwidInterface type,
     required final Expression objectReference,
     required final bool boxLists,
+    required final bool preserveListTypes,
     @Default(CodeKind.statement) final CodeKind codeKind,
     required final Expression? tableExpression,
   }) = _$DartBoxObjectReferenceCtor;
@@ -55,6 +57,7 @@ class DartBoxObjectReference
   DartBoxObjectReference clone({
     final SwidInterface? type,
     final Expression? objectReference,
+    final bool? preserveListTypes,
     final bool? boxLists,
     final CodeKind? codeKind,
     final Expression? tableExpression,
@@ -62,6 +65,7 @@ class DartBoxObjectReference
       DartBoxObjectReference(
         type: type ?? this.type.clone(),
         objectReference: objectReference ?? this.objectReference,
+        preserveListTypes: preserveListTypes ?? this.preserveListTypes,
         boxLists: boxLists ?? this.boxLists,
         tableExpression: tableExpression ?? this.tableExpression,
       );
@@ -105,14 +109,30 @@ class DartBoxObjectReference
         type.name[0] != "_"
             ? [
                 isList(
-                        swidType:
-                            SwidType.fromSwidInterface(swidInterface: type))
-                    ? !isPrimitive(swidType: type.typeArguments.first.type)
-                        ? Reference("List<dynamic>")
-                        : Reference(type.displayName)
+                  swidType: SwidType.fromSwidInterface(
+                    swidInterface: type,
+                  ),
+                )
+                    ? !isPrimitive(
+                        swidType: type.typeArguments.first.type,
+                      )
+                        ? preserveListTypes.let(
+                            (it) => it == false
+                                ? Reference(
+                                    "List<dynamic>",
+                                  )
+                                : Reference(
+                                    type.displayName,
+                                  ),
+                          )
+                        : Reference(
+                            type.displayName,
+                          )
                     : Reference(
                         [
-                          removeTypeArguments(str: type.name),
+                          removeTypeArguments(
+                            str: type.name,
+                          ),
                           type.nullabilitySuffix ==
                                   SwidNullabilitySuffix.question
                               ? "?"

@@ -19,6 +19,7 @@ void main() {
           DartBoxObjectReference(
             tableExpression: null,
             boxLists: true,
+            preserveListTypes: false,
             objectReference: refer("vmObject"),
             type: SwidInterface(
               declarationModifiers: SwidDeclarationModifiers.empty(),
@@ -41,6 +42,7 @@ maybeBoxObject<TextStyle>(object: vmObject, hydroState: hydroState, table: Hydro
           DartBoxObjectReference(
             tableExpression: null,
             boxLists: true,
+            preserveListTypes: false,
             objectReference: refer("vmObject").property("headline4").expression,
             type: SwidInterface(
               declarationModifiers: SwidDeclarationModifiers.empty(),
