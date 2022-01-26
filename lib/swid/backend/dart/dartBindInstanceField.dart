@@ -91,6 +91,7 @@ class DartBindInstanceField
                         DartBoxObjectReference(
                           type: val,
                           boxLists: false,
+                          preserveListTypes: true,
                           tableExpression: null,
                           objectReference: CodeExpression(
                             Code(instanceFieldName),

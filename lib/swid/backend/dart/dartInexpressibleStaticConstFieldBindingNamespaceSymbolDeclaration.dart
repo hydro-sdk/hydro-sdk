@@ -99,6 +99,7 @@ class DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
                             tableExpression: null,
                             codeKind: CodeKind.expression,
                             boxLists: true,
+                            preserveListTypes: false,
                             type: swidStaticConstFieldDeclaration.value
                                 .when<SwidInterface>(
                               fromSwidStaticConstTopLevelVariableReference:

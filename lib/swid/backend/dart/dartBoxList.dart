@@ -93,6 +93,7 @@ class DartBoxList
                                 DartBoxObjectReference(
                                   type: val,
                                   boxLists: true,
+                                  preserveListTypes: false,
                                   tableExpression: null,
                                   objectReference: refer("x"),
                                   codeKind: CodeKind.expression,

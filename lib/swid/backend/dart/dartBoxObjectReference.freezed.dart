@@ -20,12 +20,14 @@ class _$DartBoxObjectReferenceTearOff {
       {required SwidInterface type,
       required Expression objectReference,
       required bool boxLists,
+      required bool preserveListTypes,
       CodeKind codeKind = CodeKind.statement,
       required Expression? tableExpression}) {
     return _$DartBoxObjectReferenceCtor(
       type: type,
       objectReference: objectReference,
       boxLists: boxLists,
+      preserveListTypes: preserveListTypes,
       codeKind: codeKind,
       tableExpression: tableExpression,
     );
@@ -40,6 +42,7 @@ mixin _$DartBoxObjectReference {
   SwidInterface get type => throw _privateConstructorUsedError;
   Expression get objectReference => throw _privateConstructorUsedError;
   bool get boxLists => throw _privateConstructorUsedError;
+  bool get preserveListTypes => throw _privateConstructorUsedError;
   CodeKind get codeKind => throw _privateConstructorUsedError;
   Expression? get tableExpression => throw _privateConstructorUsedError;
 
@@ -57,6 +60,7 @@ abstract class $DartBoxObjectReferenceCopyWith<$Res> {
       {SwidInterface type,
       Expression objectReference,
       bool boxLists,
+      bool preserveListTypes,
       CodeKind codeKind,
       Expression? tableExpression});
 
@@ -77,6 +81,7 @@ class _$DartBoxObjectReferenceCopyWithImpl<$Res>
     Object? type = freezed,
     Object? objectReference = freezed,
     Object? boxLists = freezed,
+    Object? preserveListTypes = freezed,
     Object? codeKind = freezed,
     Object? tableExpression = freezed,
   }) {
@@ -92,6 +97,10 @@ class _$DartBoxObjectReferenceCopyWithImpl<$Res>
       boxLists: boxLists == freezed
           ? _value.boxLists
           : boxLists // ignore: cast_nullable_to_non_nullable
+              as bool,
+      preserveListTypes: preserveListTypes == freezed
+          ? _value.preserveListTypes
+          : preserveListTypes // ignore: cast_nullable_to_non_nullable
               as bool,
       codeKind: codeKind == freezed
           ? _value.codeKind
@@ -124,6 +133,7 @@ abstract class _$$DartBoxObjectReferenceCtorCopyWith<$Res>
       {SwidInterface type,
       Expression objectReference,
       bool boxLists,
+      bool preserveListTypes,
       CodeKind codeKind,
       Expression? tableExpression});
 
@@ -149,6 +159,7 @@ class __$$DartBoxObjectReferenceCtorCopyWithImpl<$Res>
     Object? type = freezed,
     Object? objectReference = freezed,
     Object? boxLists = freezed,
+    Object? preserveListTypes = freezed,
     Object? codeKind = freezed,
     Object? tableExpression = freezed,
   }) {
@@ -164,6 +175,10 @@ class __$$DartBoxObjectReferenceCtorCopyWithImpl<$Res>
       boxLists: boxLists == freezed
           ? _value.boxLists
           : boxLists // ignore: cast_nullable_to_non_nullable
+              as bool,
+      preserveListTypes: preserveListTypes == freezed
+          ? _value.preserveListTypes
+          : preserveListTypes // ignore: cast_nullable_to_non_nullable
               as bool,
       codeKind: codeKind == freezed
           ? _value.codeKind
@@ -184,6 +199,7 @@ class _$_$DartBoxObjectReferenceCtor extends _$DartBoxObjectReferenceCtor {
       {required this.type,
       required this.objectReference,
       required this.boxLists,
+      required this.preserveListTypes,
       this.codeKind = CodeKind.statement,
       required this.tableExpression})
       : super._();
@@ -194,6 +210,8 @@ class _$_$DartBoxObjectReferenceCtor extends _$DartBoxObjectReferenceCtor {
   final Expression objectReference;
   @override
   final bool boxLists;
+  @override
+  final bool preserveListTypes;
   @JsonKey(defaultValue: CodeKind.statement)
   @override
   final CodeKind codeKind;
@@ -202,7 +220,7 @@ class _$_$DartBoxObjectReferenceCtor extends _$DartBoxObjectReferenceCtor {
 
   @override
   String toString() {
-    return 'DartBoxObjectReference(type: $type, objectReference: $objectReference, boxLists: $boxLists, codeKind: $codeKind, tableExpression: $tableExpression)';
+    return 'DartBoxObjectReference(type: $type, objectReference: $objectReference, boxLists: $boxLists, preserveListTypes: $preserveListTypes, codeKind: $codeKind, tableExpression: $tableExpression)';
   }
 
   @override
@@ -217,6 +235,9 @@ class _$_$DartBoxObjectReferenceCtor extends _$DartBoxObjectReferenceCtor {
             (identical(other.boxLists, boxLists) ||
                 const DeepCollectionEquality()
                     .equals(other.boxLists, boxLists)) &&
+            (identical(other.preserveListTypes, preserveListTypes) ||
+                const DeepCollectionEquality()
+                    .equals(other.preserveListTypes, preserveListTypes)) &&
             (identical(other.codeKind, codeKind) ||
                 const DeepCollectionEquality()
                     .equals(other.codeKind, codeKind)) &&
@@ -231,6 +252,7 @@ class _$_$DartBoxObjectReferenceCtor extends _$DartBoxObjectReferenceCtor {
       const DeepCollectionEquality().hash(type) ^
       const DeepCollectionEquality().hash(objectReference) ^
       const DeepCollectionEquality().hash(boxLists) ^
+      const DeepCollectionEquality().hash(preserveListTypes) ^
       const DeepCollectionEquality().hash(codeKind) ^
       const DeepCollectionEquality().hash(tableExpression);
 
@@ -246,6 +268,7 @@ abstract class _$DartBoxObjectReferenceCtor extends DartBoxObjectReference {
       {required SwidInterface type,
       required Expression objectReference,
       required bool boxLists,
+      required bool preserveListTypes,
       CodeKind codeKind,
       required Expression? tableExpression}) = _$_$DartBoxObjectReferenceCtor;
   _$DartBoxObjectReferenceCtor._() : super._();
@@ -256,6 +279,8 @@ abstract class _$DartBoxObjectReferenceCtor extends DartBoxObjectReference {
   Expression get objectReference => throw _privateConstructorUsedError;
   @override
   bool get boxLists => throw _privateConstructorUsedError;
+  @override
+  bool get preserveListTypes => throw _privateConstructorUsedError;
   @override
   CodeKind get codeKind => throw _privateConstructorUsedError;
   @override
