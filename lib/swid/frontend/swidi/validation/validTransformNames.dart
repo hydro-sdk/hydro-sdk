@@ -6,7 +6,8 @@ const validMethodShortHandOverrideKeys = [
   "tsClassVmDeclaration",
   "dartStaticMethodNamespaceSymbolDeclaration",
   "dartRtManagedClassDeclaration",
-  "dartVmManagedClassDeclaration"
+  "dartVmManagedClassDeclaration",
+  "dartMethodInjectionImplementation"
 ];
 
 const validClassShortHandOverrideKeys = [

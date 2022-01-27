@@ -1,6 +1,6 @@
-class "package:flutter/src/painting/image_provider.dart"::AssetBundleImageProvider {
+class "package:flutter/src/painting/image_provider.dart"::ResizeImage {
     "package:flutter/src/painting/image_stream.dart"::class::ImageStreamCompleter load(
-        "package:flutter/src/painting/image_provider.dart"::class::AssetBundleImageKey key,
+        "package:flutter/src/painting/image_provider.dart"::class::ResizeImageKey key,
         Function "dart:async"::class::Future<"dart:ui"::class::Codec> (
             "dart:typed_data"::class::Uint8List, {
                 "dart:core"::class::int? cacheWidth,
