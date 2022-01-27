@@ -453,6 +453,11 @@ class DartRTManagedClassDeclaration
                 }) =>
                     swidClass.methods
                         .where(
+                          (x) => x.isTransformIgnored(
+                            transformName: "dartRtManagedClassDeclaration",
+                          ),
+                        )
+                        .where(
                           (x) => !isOperator(
                             swidFunctionType: x,
                           ),

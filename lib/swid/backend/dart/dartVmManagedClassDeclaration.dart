@@ -201,7 +201,14 @@ class DartVMManagedClassDeclaration
                             )
                             .toList()),
                         ...(swidClass.methods
-                            .where((x) => !x.declarationModifiers.hasProtected)
+                            .where(
+                              (x) => x.isTransformIgnored(
+                                transformName: "dartVmManagedClassDeclaration",
+                              ),
+                            )
+                            .where(
+                              (x) => !x.declarationModifiers.hasProtected,
+                            )
                             .where(
                               (x) => !isOperator(
                                 swidFunctionType: x,

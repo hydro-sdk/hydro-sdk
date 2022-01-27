@@ -1,6 +1,8 @@
 {
     "inputPackagePath": "/Users/chgibb/Documents/flutter",
-    "interfaces": [],
+    "interfaces": [
+        "interfaces/flutter/*.i"
+    ],
     "emitOptions": {
         "prefixPaths": [
             "runtime"
