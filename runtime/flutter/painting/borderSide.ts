@@ -1,48 +1,91 @@
-import { Color } from "./../../dart/ui/color";
-import { Type } from "../../dart/core/type";
-import { RuntimeBaseClass } from "../../runtimeBaseClass";
-import { JITAllocatingRTManagedBox } from "../../syntheticBox";
+import { Color, IColor } from "../../dart/ui/color";
+import { IPaint } from "../../dart/ui/paint";
 import { BorderStyle } from "./borderStyle";
-
-export interface BorderSideProps {
-    color?: Color | undefined;
-    width?: number | undefined;
-    style?: BorderStyle | undefined;
-}
-
 declare const flutter: {
     painting: {
-        borderSide: (this: void, props: BorderSideProps) => BorderSide;
+        borderSide: (
+            this: void,
+            borderSide: IBorderSide,
+            props: { color: IColor; style: BorderStyle; width: number }
+        ) => IBorderSide;
+        borderSideMerge: (a: IBorderSide, b: IBorderSide) => IBorderSide;
+        borderSideCanMerge: (a: IBorderSide, b: IBorderSide) => boolean;
+        borderSideLerp: (
+            a: IBorderSide,
+            b: IBorderSide,
+            t: number
+        ) => IBorderSide;
     };
 };
-
-export class BorderSide
-    extends JITAllocatingRTManagedBox<BorderSideProps, BorderSide>
-    implements RuntimeBaseClass
-{
-    public readonly internalRuntimeType = new Type(BorderSide);
-    public props: BorderSideProps;
-    public constructor(props: BorderSideProps) {
-        super();
-        this.props = props;
-
-        if (this.props.color === undefined) {
-            this.props.color = new Color(0xff000000);
-        }
-        if (this.props.width === undefined) {
-            this.props.width = 1.0;
-        }
-        if (this.props.style === undefined) {
-            this.props.style = BorderStyle.solid;
-        }
+export interface IBorderSide {
+    color: IColor;
+    width: number;
+    style: BorderStyle;
+    copyWith: (props?: {
+        color?: IColor | undefined;
+        style?: BorderStyle | undefined;
+        width?: number | undefined;
+    }) => IBorderSide;
+    scale: (t: number) => IBorderSide;
+    toPaint: () => IPaint;
+    getHashCode: () => number;
+    toString: () => string;
+}
+export class BorderSide {
+    public static none = new BorderSide();
+    public readonly color: IColor = undefined as any;
+    public readonly width: number = undefined as any;
+    public readonly style: BorderStyle = undefined as any;
+    public constructor(props: {
+        color?: IColor;
+        style?: BorderStyle;
+        width?: number;
+    }) {
+        flutter.painting.borderSide(this, {
+            ...borderSideDefaultProps,
+            ...props,
+        });
     }
-
-    static none = new BorderSide({
-        width: 0.0,
-        style: BorderStyle.none,
-    });
-
-    public unwrap(): BorderSide {
-        return flutter.painting.borderSide(this.props);
+    public static merge(a: IBorderSide, b: IBorderSide): IBorderSide {
+        return flutter.painting.borderSideMerge(a, b);
+    }
+    public static canMerge(a: IBorderSide, b: IBorderSide): boolean {
+        return flutter.painting.borderSideCanMerge(a, b);
+    }
+    public static lerp(a: IBorderSide, b: IBorderSide, t: number): IBorderSide {
+        return flutter.painting.borderSideLerp(a, b, t);
+    }
+    private readonly _dart_copyWith: (props?: {
+        color?: IColor | undefined;
+        style?: BorderStyle | undefined;
+        width?: number | undefined;
+    }) => IBorderSide = undefined as any;
+    private readonly _dart_scale: (t: number) => IBorderSide = undefined as any;
+    private readonly _dart_toPaint: () => IPaint = undefined as any;
+    private readonly _dart_getHashCode: () => number = undefined as any;
+    private readonly _dart_toString: () => string = undefined as any;
+    public copyWith(props?: {
+        color?: IColor | undefined;
+        style?: BorderStyle | undefined;
+        width?: number | undefined;
+    }): IBorderSide {
+        return this._dart_copyWith(props);
+    }
+    public scale(t: number): IBorderSide {
+        return this._dart_scale(t);
+    }
+    public toPaint(): IPaint {
+        return this._dart_toPaint();
+    }
+    public getHashCode(): number {
+        return this._dart_getHashCode();
+    }
+    public toString(): string {
+        return this._dart_toString();
     }
 }
+const borderSideDefaultProps = {
+    color: new Color(0xff000000),
+    style: BorderStyle.solid,
+    width: 1.0,
+};

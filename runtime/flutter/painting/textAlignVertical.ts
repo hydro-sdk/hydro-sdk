@@ -1,37 +1,26 @@
-import { JITAllocatingRTManagedBox } from "./../../syntheticBox";
-import { Type } from "../../dart/core/type";
-import { RuntimeBaseClass } from "../../runtimeBaseClass";
-import { Widget } from "../widget";
-
-export interface TextAlignVerticalProps {
-    y: number;
-}
-
 declare const flutter: {
-    widgets: {
-        TextAlignVertical: (
+    painting: {
+        textAlignVertical: (
             this: void,
-            props: TextAlignVerticalProps
-        ) => TextAlignVertical;
+            textAlignVertical: ITextAlignVertical,
+            props: { y: number }
+        ) => ITextAlignVertical;
     };
 };
-
-export class TextAlignVertical
-    extends JITAllocatingRTManagedBox<TextAlignVerticalProps, TextAlignVertical>
-    implements RuntimeBaseClass
-{
-    public readonly internalRuntimeType = new Type(TextAlignVertical);
-    public props: TextAlignVerticalProps;
-    public constructor(props: TextAlignVerticalProps) {
-        super();
-        this.props = props;
-    }
-
-    public static bottom = new TextAlignVertical({ y: 1.0 });
-    public static center = new TextAlignVertical({ y: 0.0 });
+export interface ITextAlignVertical {
+    y: number;
+    toString: () => string;
+}
+export class TextAlignVertical {
     public static top = new TextAlignVertical({ y: -1.0 });
-
-    public unwrap() {
-        return flutter.widgets.TextAlignVertical(this.props);
+    public static center = new TextAlignVertical();
+    public static bottom = new TextAlignVertical();
+    public readonly y: number = undefined as any;
+    public constructor(props: { y: number }) {
+        flutter.painting.textAlignVertical(this, props);
+    }
+    private readonly _dart_toString: () => string = undefined as any;
+    public toString(): string {
+        return this._dart_toString();
     }
 }
