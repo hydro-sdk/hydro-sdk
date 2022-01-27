@@ -69,6 +69,11 @@ class TsClassMethodInjectionCandidates
               ),
             )
             .where(
+              (x) => x.isTransformIgnored(
+                transformName: "tsClassMethodDeclaration",
+              ),
+            )
+            .where(
               (x) => !isOperator(
                 swidFunctionType: x,
               ),

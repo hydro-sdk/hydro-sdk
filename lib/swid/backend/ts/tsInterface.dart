@@ -85,6 +85,11 @@ class TsInterface
                           (x) => !x
                               .value.declarationModifiers.hasVisibleForTesting,
                         )
+                        .where(
+                          (x) => x.value.isTransformIgnored(
+                            transformName: "tsInterfaceMethodDeclaration",
+                          ),
+                        )
                         .map((x) => "${x.key}: ${pipeline.reduceFromTerm(
                               TransformTypeDeclarationToTs(
                                 parentClass: null,
