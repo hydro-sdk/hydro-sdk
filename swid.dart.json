@@ -1,7 +1,7 @@
 {
     "inputPackagePath": "/Users/chgibb/Documents/dev/sky_engine",
     "interfaces": [
-        "interfaces/*.i"
+        "interfaces/dart/*.i"
     ],
     "emitOptions": {
         "prefixPaths": [
