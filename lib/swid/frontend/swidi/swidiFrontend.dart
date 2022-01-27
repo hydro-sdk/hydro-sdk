@@ -1,3 +1,5 @@
+import 'package:dartlin/control_flow.dart';
+
 import 'package:hydro_sdk/swid/frontend/inputResolver.dart';
 import 'package:hydro_sdk/swid/frontend/swidFrontend.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/swidiSourceToSwidIr.dart';
@@ -22,18 +24,34 @@ class SwidiFrontend extends SwidFrontend {
     for (var i = 0; i != inputs.length; ++i) {
       result = [
         ...result,
-        ...((await inputResolver.resolveInput(input: inputs[i])).when(
+        ...((await inputResolver.resolveInput(
+          input: inputs[i],
+        ))
+            .when(
           fromString: (val) => swidiSourceToSwidIr(
             content: val,
             pipeline: pipeline,
           ),
           fromList: (val) => val
-              .map((x) => swidiSourceToSwidIr(
-                    content: x,
-                    pipeline: pipeline,
-                  ))
-              .reduce(
-                (value, element) => [...value, ...element].toList(),
+              .map(
+                (x) => swidiSourceToSwidIr(
+                  content: x,
+                  pipeline: pipeline,
+                ),
+              )
+              .let(
+                (it) => it.isNotEmpty
+                    ? it.reduce(
+                        (
+                          value,
+                          element,
+                        ) =>
+                            [
+                          ...value,
+                          ...element,
+                        ].toList(),
+                      )
+                    : [],
               ),
         ))
       ];
