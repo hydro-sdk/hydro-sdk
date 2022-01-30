@@ -223,7 +223,8 @@ TsTranslationUnit produceTsTranslationUnitFromSwidClass({
                       TsIr.fromTsInterface(
                         tsInterface: TsInterface(
                           emitSuperInterfaceExtensions: true,
-                          swidClass: unMergedSwidClassWithInterfaceReferences.clone(
+                          swidClass:
+                              unMergedSwidClassWithInterfaceReferences.clone(
                             name:
                                 "I${unMergedSwidClassWithInterfaceReferences.name}",
                             methods: pipeline.reduceFromTerm(

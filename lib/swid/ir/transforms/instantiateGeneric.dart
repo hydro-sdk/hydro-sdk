@@ -321,7 +321,7 @@ class InstantiateGeneric
                   ),
                 )
               : SwidType.fromSwidClass(
-                  swidClass:val.clone(),
+                  swidClass: val.clone(),
                 ),
           fromSwidDefaultFormalParameter: (val) =>
               SwidType.fromSwidDefaultFormalParameter(

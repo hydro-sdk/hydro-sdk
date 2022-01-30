@@ -55,4 +55,4 @@ SwidClass propagateUnsatisfiedTypeParameters({
                 )
                 .toList(),
           )
-        :  swidClass.clone();
+        : swidClass.clone();

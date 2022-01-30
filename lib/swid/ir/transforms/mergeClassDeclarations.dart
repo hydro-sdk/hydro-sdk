@@ -62,7 +62,7 @@ class MergeClassDeclarations
                 implementedClasses: [
                   ...swidClass.implementedClasses
                       .map(
-                        (x) =>x.clone(),
+                        (x) => x.clone(),
                       )
                       .toList(),
                   ...superClass!.implementedClasses
@@ -77,7 +77,7 @@ class MergeClassDeclarations
                             null,
                       )
                       .map(
-                        (x) =>x.clone(),
+                        (x) => x.clone(),
                       )
                       .toList()
                 ],
@@ -95,7 +95,7 @@ class MergeClassDeclarations
                             null,
                       )
                       .map(
-                        (x) =>x.clone(),
+                        (x) => x.clone(),
                       )
                       .toList()
                 ],
