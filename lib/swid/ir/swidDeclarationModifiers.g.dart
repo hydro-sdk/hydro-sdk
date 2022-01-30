@@ -58,6 +58,7 @@ _$_$Data _$_$_$DataFromJson(Map<String, dynamic> json) {
     hasVisibleForTesting: json['hasVisibleForTesting'] as bool,
     isPublic: json['isPublic'] as bool,
     isRequiredNamed: json['isRequiredNamed'] as bool,
+    removeConstructorType: json['removeConstructorType'] as bool,
   );
 }
 
@@ -92,4 +93,5 @@ Map<String, dynamic> _$_$_$DataToJson(_$_$Data instance) => <String, dynamic>{
       'hasVisibleForTesting': instance.hasVisibleForTesting,
       'isPublic': instance.isPublic,
       'isRequiredNamed': instance.isRequiredNamed,
+      'removeConstructorType': instance.removeConstructorType,
     };

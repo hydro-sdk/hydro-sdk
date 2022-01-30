@@ -37,4 +37,5 @@ SwidDeclarationModifiers swidDeclarationModifiersFromPropertyAccessorElement({
       hasVisibleForTesting: propertyAccessorElement.hasVisibleForTesting,
       isPublic: propertyAccessorElement.isPublic,
       isRequiredNamed: false,
+      removeConstructorType: false,
     );

@@ -158,6 +158,11 @@ void main(List<String> args) async {
         ),
       )
       .whereNotNull()
+      .map(
+        (x) => x.declarationModifiers.removeConstructorType
+            ? x.removeConstructorType()
+            : x,
+      )
       .toList();
 
   final topLevelDeclarations = ir
