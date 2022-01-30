@@ -119,8 +119,7 @@ class _SwidVisitor extends RecursiveAstVisitor
         buildElements: true,
       );
 
-      res = SwidClass.clone(
-        swidClass: res,
+      res = res.clone(
         declarationModifiers: swidDeclarationModifiersFromClassDeclaration(
           classDeclaration: node,
         ),

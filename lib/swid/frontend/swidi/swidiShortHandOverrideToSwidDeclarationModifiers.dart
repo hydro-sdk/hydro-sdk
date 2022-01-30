@@ -4,29 +4,42 @@ import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConst.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/validation/validTransformNames.dart';
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 
+bool _extractBool({
+  required final String boolName,
+  required final SwidiConst shortHandOverride,
+}) =>
+    shortHandOverride.maybeWhen(
+      fromSwidiConstMap: (val) =>
+          val.entries.firstWhereOrNull(
+            (x) =>
+                x.item1.maybeWhen(
+                  fromSwidiConstString: (val) => val.value == boolName,
+                  orElse: () => false,
+                ) &&
+                x.item2.maybeWhen(
+                  fromSwidiConstBoolean: (val) => val.maybeWhen(
+                    fromSwidiConstBooleanTrue: (_) => true,
+                    orElse: () => false,
+                  ),
+                  orElse: () => false,
+                ),
+          ) !=
+          null,
+      orElse: () => false,
+    );
+
 SwidDeclarationModifiers swidiShortHandOverrideToSwidDeclarationModifiers({
   required final SwidiConst shortHandOverride,
 }) =>
     SwidDeclarationModifiers.clone(
       declarationModifiers: SwidDeclarationModifiers.empty(),
-      isGetter: shortHandOverride.maybeWhen(
-        fromSwidiConstMap: (val) =>
-            val.entries.firstWhereOrNull(
-              (x) =>
-                  x.item1.maybeWhen(
-                    fromSwidiConstString: (val) => val.value == isGetterName,
-                    orElse: () => false,
-                  ) &&
-                  x.item2.maybeWhen(
-                    fromSwidiConstBoolean: (val) => val.maybeWhen(
-                      fromSwidiConstBooleanTrue: (_) => true,
-                      orElse: () => false,
-                    ),
-                    orElse: () => false,
-                  ),
-            ) !=
-            null,
-        orElse: () => false,
+      isGetter: _extractBool(
+        boolName: isGetterName,
+        shortHandOverride: shortHandOverride,
+      ),
+      removeConstructorType: _extractBool(
+        boolName: removeConstructorTypeName,
+        shortHandOverride: shortHandOverride,
       ),
       overridenTransforms: shortHandOverride
           .maybeWhen(

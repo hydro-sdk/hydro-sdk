@@ -1,7 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
-import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidGenericInstantiator.dart';
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
@@ -196,8 +195,7 @@ class InstantiateGeneric
                       orElse: () => null) !=
                   null
               ? SwidType.fromSwidClass(
-                  swidClass: SwidClass.clone(
-                    swidClass: val,
+                  swidClass: val.clone(
                     typeFormals: [
                       ...val.typeFormals
                           .map((x) => x.swidReferenceDeclarationKind ==
@@ -323,9 +321,7 @@ class InstantiateGeneric
                   ),
                 )
               : SwidType.fromSwidClass(
-                  swidClass: SwidClass.clone(
-                    swidClass: val,
-                  ),
+                  swidClass: val.clone(),
                 ),
           fromSwidDefaultFormalParameter: (val) =>
               SwidType.fromSwidDefaultFormalParameter(

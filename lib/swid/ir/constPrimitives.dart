@@ -74,6 +74,7 @@ final emptyDeclarationModifiers = SwidDeclarationModifiers(
   hasVisibleForTesting: false,
   isPublic: true,
   isRequiredNamed: false,
+  removeConstructorType: false,
 );
 
 final dartObject = SwidInterface(

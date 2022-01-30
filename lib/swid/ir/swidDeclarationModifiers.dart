@@ -94,6 +94,7 @@ class SwidDeclarationModifiers
     required final bool hasVisibleForTesting,
     required final bool isPublic,
     required final bool isRequiredNamed,
+    required final bool removeConstructorType,
   }) = _$Data;
 
   @override
@@ -182,6 +183,9 @@ class SwidDeclarationModifiers
     yield [
       ...isRequiredNamed.hashableParts,
     ];
+    yield [
+      ...removeConstructorType.hashableParts,
+    ];
   })();
 
   factory SwidDeclarationModifiers.fromJson(Map<String, dynamic> json) =>
@@ -219,6 +223,7 @@ class SwidDeclarationModifiers
     final bool? hasVisibleForTesting,
     final bool? isPublic,
     final bool? isRequiredNamed,
+    final bool? removeConstructorType,
   }) =>
       SwidDeclarationModifiers(
         ignoredTransforms:
@@ -266,6 +271,8 @@ class SwidDeclarationModifiers
         isPublic: isPublic ?? declarationModifiers.isPublic,
         isRequiredNamed:
             isRequiredNamed ?? declarationModifiers.isRequiredNamed,
+        removeConstructorType:
+            removeConstructorType ?? declarationModifiers.removeConstructorType,
       );
 
   factory SwidDeclarationModifiers.empty() => SwidDeclarationModifiers.only();
@@ -301,6 +308,7 @@ class SwidDeclarationModifiers
     final bool hasVisibleForTesting: false,
     final bool isPublic: true,
     final bool isRequiredNamed: false,
+    final bool removeConstructorType: false,
   }) =>
       SwidDeclarationModifiers(
         ignoredTransforms: ignoredTransforms,
@@ -333,6 +341,7 @@ class SwidDeclarationModifiers
         hasVisibleForTesting: hasVisibleForTesting,
         isPublic: isPublic,
         isRequiredNamed: isRequiredNamed,
+        removeConstructorType: removeConstructorType,
       );
 
   factory SwidDeclarationModifiers.syntheticGetter() =>
@@ -377,6 +386,7 @@ class SwidDeclarationModifiers
     final bool? hasVisibleForTesting,
     final bool? isPublic,
     final bool? isRequiredNamed,
+    final bool? removeConstructorType,
   }) =>
       SwidDeclarationModifiers.clone(
         declarationModifiers: this,
@@ -410,5 +420,6 @@ class SwidDeclarationModifiers
         hasVisibleForTesting: hasVisibleForTesting,
         isPublic: isPublic,
         isRequiredNamed: isRequiredNamed,
+        removeConstructorType: removeConstructorType,
       );
 }

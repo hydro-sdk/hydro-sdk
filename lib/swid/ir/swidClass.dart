@@ -79,7 +79,7 @@ class SwidClass
   @override
   SwidClass fromJson(Map<String, dynamic> json) => SwidClass.fromJson(json);
 
-  factory SwidClass.clone({
+  factory SwidClass._clone({
     required final SwidClass swidClass,
     final String? name,
     final SwidNullabilitySuffix? nullabilitySuffix,
@@ -173,6 +173,10 @@ class SwidClass
       )
       .toList();
 
+  SwidClass removeConstructorType() => this.clone().copyWith(
+        constructorType: null,
+      );
+
   @override
   SwidClass clone({
     final String? name,
@@ -193,7 +197,7 @@ class SwidClass
     final List<SwidTypeFormal>? typeFormals,
     final SwidType? element,
   }) =>
-      SwidClass.clone(
+      SwidClass._clone(
         swidClass: this,
         name: name,
         nullabilitySuffix: nullabilitySuffix,

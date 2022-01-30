@@ -36,4 +36,5 @@ SwidDeclarationModifiers swidDeclarationModifiersFromExecutableElement({
       hasVisibleForTesting: executableElement.hasVisibleForTesting,
       isPublic: executableElement.isPublic,
       isRequiredNamed: false,
+      removeConstructorType: false,
     );

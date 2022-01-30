@@ -13,6 +13,8 @@ const validMethodShortHandOverrideKeys = [
 const validClassShortHandOverrideKeys = [
   "tsInterface",
   "tsTranslationUnit",
+  "removeConstructorType",
 ];
 
 const isGetterName = "isGetter";
+const removeConstructorTypeName = "removeConstructorType";
