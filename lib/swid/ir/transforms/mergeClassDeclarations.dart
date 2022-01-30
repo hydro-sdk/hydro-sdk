@@ -56,16 +56,13 @@ class MergeClassDeclarations
   }) =>
       SwarsTermResult.fromValue(
         superClass != null
-            ? SwidClass.clone(
-                swidClass: swidClass,
+            ? swidClass.clone(
                 extendedClass:
                     swidClass.extendedClass ?? superClass!.extendedClass,
                 implementedClasses: [
                   ...swidClass.implementedClasses
                       .map(
-                        (x) => SwidClass.clone(
-                          swidClass: x,
-                        ),
+                        (x) =>x.clone(),
                       )
                       .toList(),
                   ...superClass!.implementedClasses
@@ -80,9 +77,7 @@ class MergeClassDeclarations
                             null,
                       )
                       .map(
-                        (x) => SwidClass.clone(
-                          swidClass: x,
-                        ),
+                        (x) =>x.clone(),
                       )
                       .toList()
                 ],
@@ -100,9 +95,7 @@ class MergeClassDeclarations
                             null,
                       )
                       .map(
-                        (x) => SwidClass.clone(
-                          swidClass: x,
-                        ),
+                        (x) =>x.clone(),
                       )
                       .toList()
                 ],
@@ -177,8 +170,6 @@ class MergeClassDeclarations
                   ],
                 ),
               )
-            : SwidClass.clone(
-                swidClass: swidClass,
-              ),
+            : swidClass.clone(),
       );
 }

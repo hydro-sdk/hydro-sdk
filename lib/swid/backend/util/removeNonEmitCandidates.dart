@@ -7,18 +7,19 @@ SwidClass removeNonEmitCandidates({
   required final SwidClass swidClass,
   required final ISwarsPipeline pipeline,
 }) =>
-    SwidClass.clone(
-      swidClass: swidClass,
+    swidClass.clone(
       methods: swidClass.methods
           .where((x) => methodIsEmitCandidate(swidFunctionType: x))
           .toList(),
       staticConstFieldDeclarations: swidClass.staticConstFieldDeclarations
-          .where((x) => !pipeline.reduceFromTerm(
-                IsUnrepresentableStaticConst(
-                  parentClass: swidClass,
-                  staticConst: x.value,
-                ),
-              ))
+          .where(
+            (x) => !pipeline.reduceFromTerm(
+              IsUnrepresentableStaticConst(
+                parentClass: swidClass,
+                staticConst: x.value,
+              ),
+            ),
+          )
           .toList(),
       extendedClass: swidClass.extendedClass != null
           ? removeNonEmitCandidates(

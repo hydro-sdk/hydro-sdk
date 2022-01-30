@@ -14,8 +14,7 @@ SwidClass propagateUnsatisfiedTypeParameters({
             swidType: SwidType.fromSwidClass(
       swidClass: swidClass,
     ))
-        ? SwidClass.clone(
-            swidClass: swidClass,
+        ? swidClass.clone(
             factoryConstructors: swidClass.factoryConstructors
                 .map(
                   (x) => ((List<SwidTypeFormal> unsatisfiedTypeParameters) =>
@@ -56,6 +55,4 @@ SwidClass propagateUnsatisfiedTypeParameters({
                 )
                 .toList(),
           )
-        : SwidClass.clone(
-            swidClass: swidClass,
-          );
+        :  swidClass.clone();

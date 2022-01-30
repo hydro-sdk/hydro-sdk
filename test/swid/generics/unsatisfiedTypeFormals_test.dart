@@ -325,8 +325,7 @@ void main() {
     expect(
       unsatisfiedTypeParameters(
         swidType: SwidType.fromSwidClass(
-          swidClass: SwidClass.clone(
-            swidClass: iterable,
+          swidClass: iterable.clone(
             typeFormals: [],
           ),
         ),
@@ -349,8 +348,7 @@ void main() {
      Iterable<T> map<T>(T f(E e))
     }
   */
-    var iterableWithMapMethod = SwidClass.clone(
-      swidClass: iterable,
+    var iterableWithMapMethod = iterable.clone(
       methods: [
         ...iterable.methods,
         map,
@@ -369,8 +367,7 @@ void main() {
     expect(
       unsatisfiedTypeParameters(
           swidType: SwidType.fromSwidClass(
-              swidClass: SwidClass.clone(
-                  swidClass: iterableWithMapMethod, typeFormals: []))),
+              swidClass: iterableWithMapMethod.clone(typeFormals: []))),
       [
         SwidTypeFormal(
           swidTypeFormalBound: null,
@@ -400,8 +397,7 @@ void main() {
      factory Iterable<E> Iterable.empty()
     }
   */
-    var iterableWithMapAndEmpty = SwidClass.clone(
-      swidClass: iterable,
+    var iterableWithMapAndEmpty = iterable.clone(
       methods: [
         ...iterable.methods,
         map,

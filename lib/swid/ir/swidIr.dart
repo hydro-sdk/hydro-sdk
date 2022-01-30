@@ -126,24 +126,25 @@ List<SwidClass> _mergeClasses({
                     x.name == element.name,
               ),
               [
-                SwidClass.clone(
-                  swidClass: CachingPipeline(
-                    //This is a hack.
-                    //IR merging should probably be a transform as well
-                    cacheMgr: const PipelineNoopCacheMgr(),
-                  ).reduceFromTerm(
-                    MergeClassDeclarations(
-                      swidClass: previousValue.firstWhere(
-                        (x) =>
-                            x.originalPackagePath ==
-                                element.originalPackagePath &&
-                            x.name == element.name,
+                CachingPipeline(
+                  //This is a hack.
+                  //IR merging should probably be a transform as well
+                  cacheMgr: const PipelineNoopCacheMgr(),
+                )
+                    .reduceFromTerm(
+                      MergeClassDeclarations(
+                        swidClass: previousValue.firstWhere(
+                          (x) =>
+                              x.originalPackagePath ==
+                                  element.originalPackagePath &&
+                              x.name == element.name,
+                        ),
+                        superClass: element,
                       ),
-                      superClass: element,
+                    )
+                    .clone(
+                      typeFormals: element.typeFormals,
                     ),
-                  ),
-                  typeFormals: element.typeFormals,
-                ),
               ],
             ))
           : [

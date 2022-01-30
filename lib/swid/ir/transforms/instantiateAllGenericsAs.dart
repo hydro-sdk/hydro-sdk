@@ -120,56 +120,55 @@ class InstantiateAllGenericsAs
             ),
           ),
           fromSwidClass: (val) => SwidType.fromSwidClass(
-            swidClass: SwidClass.clone(
-              swidClass: val.typeFormals.fold<SwidClass>(
-                val,
-                (previousValue, element) =>
-                    element.swidReferenceDeclarationKind ==
-                            SwidReferenceDeclarationKind.typeParameterType
-                        ? pipeline
-                            .reduceFromTerm(
-                              InstantiateGeneric(
-                                swidType: SwidType.fromSwidClass(
-                                  swidClass: previousValue,
+            swidClass: val.typeFormals
+                .fold<SwidClass>(
+                  val,
+                  (previousValue, element) =>
+                      element.swidReferenceDeclarationKind ==
+                              SwidReferenceDeclarationKind.typeParameterType
+                          ? pipeline
+                              .reduceFromTerm(
+                                InstantiateGeneric(
+                                  swidType: SwidType.fromSwidClass(
+                                    swidClass: previousValue,
+                                  ),
+                                  genericInstantiator: SwidGenericInstantiator(
+                                    name: element.value.name,
+                                    instantiatedGeneric: instantiatedGeneric,
+                                  ),
                                 ),
-                                genericInstantiator: SwidGenericInstantiator(
-                                  name: element.value.name,
-                                  instantiatedGeneric: instantiatedGeneric,
-                                ),
+                              )
+                              .when(
+                                fromSwidInterface: (_) => dartUnknownClass,
+                                fromSwidClass: (val) => val,
+                                fromSwidDefaultFormalParameter: (_) =>
+                                    dartUnknownClass,
+                                fromSwidFunctionType: (_) => dartUnknownClass,
+                              )
+                          : previousValue.clone(),
+                )
+                .clone(
+                  constructorType: val.constructorType != null
+                      ? pipeline
+                          .reduceFromTerm(
+                            InstantiateAllGenericsAs(
+                              instantiateNormalParameterTypes:
+                                  instantiateNormalParameterTypes,
+                              swidType: SwidType.fromSwidFunctionType(
+                                swidFunctionType: val.constructorType!,
                               ),
-                            )
-                            .when(
-                              fromSwidInterface: (_) => dartUnknownClass,
-                              fromSwidClass: (val) => val,
-                              fromSwidDefaultFormalParameter: (_) =>
-                                  dartUnknownClass,
-                              fromSwidFunctionType: (_) => dartUnknownClass,
-                            )
-                        : SwidClass.clone(
-                            swidClass: previousValue,
-                          ),
-              ),
-              constructorType: val.constructorType != null
-                  ? pipeline
-                      .reduceFromTerm(
-                        InstantiateAllGenericsAs(
-                          instantiateNormalParameterTypes:
-                              instantiateNormalParameterTypes,
-                          swidType: SwidType.fromSwidFunctionType(
-                            swidFunctionType: val.constructorType!,
-                          ),
-                          instantiatedGeneric: instantiatedGeneric,
-                        ),
-                      )
-                      .when(
-                        fromSwidInterface: (_) => dartUnknownFunction,
-                        fromSwidClass: (_) => dartUnknownFunction,
-                        fromSwidDefaultFormalParameter: (_) =>
-                            dartUnknownFunction,
-                        fromSwidFunctionType: (val) => val,
-                      )
-                  : null,
-            ),
+                              instantiatedGeneric: instantiatedGeneric,
+                            ),
+                          )
+                          .when(
+                            fromSwidInterface: (_) => dartUnknownFunction,
+                            fromSwidClass: (_) => dartUnknownFunction,
+                            fromSwidDefaultFormalParameter: (_) =>
+                                dartUnknownFunction,
+                            fromSwidFunctionType: (val) => val,
+                          )
+                      : null,
+                ),
           ),
           fromSwidFunctionType: (val) => SwidType.fromSwidFunctionType(
             swidFunctionType: (({
