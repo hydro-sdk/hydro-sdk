@@ -429,7 +429,9 @@ class CollectAllReferences
                   <SwidInterface?>[
                             ...prev,
                           ].firstWhere(
-                            (x) => x?.name == element.name,
+                            (x) => x?.name == element.name
+                            && x?.originalPackagePath == element.originalPackagePath
+                            ,
                             orElse: () => null,
                           ) ==
                           null

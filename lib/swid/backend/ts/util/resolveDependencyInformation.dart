@@ -22,27 +22,57 @@ List<Tuple2<List<String>, String>> resolveDependencyInformation({
   bool rewriteReferences = true,
 }) =>
     dependencies
-        .map((x) => SwidInterface.clone(
-            swidType: x, name: removeTypeArguments(str: x.name)))
+        .map(
+          (x) => SwidInterface.clone(
+            swidType: x,
+            name: removeTypeArguments(
+              str: x.name,
+            ),
+          ),
+        )
         .fold<List<SwidInterface>>(
-            <SwidInterface>[],
-            (prev, element) =>
-                prev.firstWhereOrNull((x) => x.name == element.name) == null
-                    ? [...prev, element]
-                    : prev)
+          <SwidInterface>[],
+          (prev, element) => prev.firstWhereOrNull(
+                    (x) =>
+                        x.name == element.name &&
+                        x.originalPackagePath == element.originalPackagePath,
+                  ) ==
+                  null
+              ? [
+                  ...prev,
+                  element,
+                ]
+              : prev,
+        )
         .toList()
         .cast<SwidInterface>()
-        .where((x) => !isPrimitiveMap(
-            swidType: SwidType.fromSwidInterface(swidInterface: x)))
-        .where((x) => x.name != "Object")
-        .where((x) =>
-            removeTypeArguments(str: x.name) !=
-            removeTypeArguments(str: importer.name))
-        .where((x) => !isDartObject(
-              swidType: SwidType.fromSwidInterface(
-                swidInterface: x,
-              ),
-            ))
+        .where(
+          (x) => !isPrimitiveMap(
+            swidType: SwidType.fromSwidInterface(
+              swidInterface: x,
+            ),
+          ),
+        )
+        .where(
+          (x) => x.name != "Object",
+        )
+        .where(
+          (x) => removeTypeArguments(
+                    str: x.name,
+                  ) ==
+                  removeTypeArguments(
+                    str: importer.name,
+                  )
+              ? x.originalPackagePath != importer.originalPackagePath
+              : true,
+        )
+        .where(
+          (x) => !isDartObject(
+            swidType: SwidType.fromSwidInterface(
+              swidInterface: x,
+            ),
+          ),
+        )
         .map(
           (x) => Tuple2(
             [
@@ -54,7 +84,9 @@ List<Tuple2<List<String>, String>> resolveDependencyInformation({
                         swidInterface: x,
                       ),
                     )
-                  : removeTypeArguments(str: x.name),
+                  : removeTypeArguments(
+                      str: x.name,
+                    ),
             ],
             pipeline.reduceFromTerm(
                   ResolveTsImportPaths(
@@ -75,17 +107,21 @@ List<Tuple2<List<String>, String>> resolveDependencyInformation({
         )
         .toList()
         .cast<Tuple2<List<String>, String>>()
-        .map((x) => Tuple2(
-              x.item1.fold<List<String>>(
-                <String>[],
-                (prev, element) =>
-                    prev.firstWhereOrNull((k) => k == element) == null
-                        ? [
-                            ...prev,
-                            element,
-                          ]
-                        : prev,
-              ),
-              x.item2,
-            ))
+        .map(
+          (x) => Tuple2(
+            x.item1.fold<List<String>>(
+              <String>[],
+              (prev, element) => prev.firstWhereOrNull(
+                        (k) => k == element,
+                      ) ==
+                      null
+                  ? [
+                      ...prev,
+                      element,
+                    ]
+                  : prev,
+            ),
+            x.item2,
+          ),
+        )
         .toList();
