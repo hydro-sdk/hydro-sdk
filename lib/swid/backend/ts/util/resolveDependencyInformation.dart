@@ -1,12 +1,17 @@
 import 'package:collection/collection.dart' show IterableExtension;
+import 'package:dartlin/control_flow.dart';
 import 'package:path/path.dart' as p;
 import 'package:tuple/tuple.dart';
 
+import 'package:hydro_sdk/swid/backend/ts/transforms/maybeTransformSixteenthHashName.dart';
 import 'package:hydro_sdk/swid/backend/ts/transforms/resolveTsImportPaths.dart';
+import 'package:hydro_sdk/swid/backend/ts/transforms/transformSixteenthHashName.dart';
+import 'package:hydro_sdk/swid/ir/analyses/isShadowingParentReference.dart';
 import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
+import 'package:hydro_sdk/swid/ir/transforms/sixteenthHashName.dart';
 import 'package:hydro_sdk/swid/ir/util/isPrimitiveMap.dart';
 import 'package:hydro_sdk/swid/ir/util/rewriteClassReferencesToInterfaceReferences.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
@@ -76,17 +81,41 @@ List<Tuple2<List<String>, String>> resolveDependencyInformation({
         .map(
           (x) => Tuple2(
             [
-              rewriteReferences &&
-                      x.referenceDeclarationKind ==
-                          SwidReferenceDeclarationKind.classElement
-                  ? rewriteReferenceName(
-                      swidType: SwidType.fromSwidInterface(
-                        swidInterface: x,
-                      ),
-                    )
-                  : removeTypeArguments(
-                      str: x.name,
+              (rewriteReferences &&
+                          x.referenceDeclarationKind ==
+                              SwidReferenceDeclarationKind.classElement
+                      ? rewriteReferenceName(
+                          swidType: SwidType.fromSwidInterface(
+                            swidInterface: x,
+                          ),
+                        )
+                      : removeTypeArguments(
+                          str: x.name,
+                        ))
+                  .let(
+                (it) => pipeline.reduceFromTerm(
+                  IsShadowingParentReference(
+                    parent: importer,
+                    reference: SwidType.fromSwidInterface(
+                      swidInterface: x,
                     ),
+                  ),
+                )
+                    ? [
+                        it,
+                        " as ",
+                        pipeline.reduceFromTerm(
+                          TransformSixteenthHashName(
+                            swidType: SwidType.fromSwidInterface(
+                              swidInterface: x.clone(
+                                name: it,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ].join()
+                    : it,
+              ),
             ],
             pipeline.reduceFromTerm(
                   ResolveTsImportPaths(
@@ -105,7 +134,6 @@ List<Tuple2<List<String>, String>> resolveDependencyInformation({
                 ),
           ),
         )
-        .toList()
         .cast<Tuple2<List<String>, String>>()
         .map(
           (x) => Tuple2(
@@ -124,4 +152,5 @@ List<Tuple2<List<String>, String>> resolveDependencyInformation({
             x.item2,
           ),
         )
-        .toList();
+        .toList()
+        .cast<Tuple2<List<String>, String>>();

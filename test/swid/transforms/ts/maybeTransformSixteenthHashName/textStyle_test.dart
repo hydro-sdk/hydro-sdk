@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:hydro_sdk/swid/backend/ts/tsImportBlock.dart';
+import 'package:hydro_sdk/swid/backend/ts/transforms/maybeTransformSixteenthHashName.dart';
 import 'package:hydro_sdk/swid/ir/swidBooleanLiteral.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
@@ -13,12 +13,11 @@ import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeArgumentType.dart';
-import 'package:hydro_sdk/swid/ir/transforms/applySuperTypes.dart';
 import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
 import 'package:hydro_sdk/swid/swars/pipelineNoopCacheMgr.dart';
 
 void main() {
-  // also do getTextStyle and merge to exercise both uses of TextStyle
+  LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
     final ir = SwidClass(
       name: "TextStyle",
@@ -506,43 +505,49 @@ void main() {
       isMixin: false,
       typeFormals: [],
     );
-    final pipeline = CachingPipeline(
-      cacheMgr: const PipelineNoopCacheMgr(),
-    );
 
-    final imports = tsImportBlock(
-      swidClass: pipeline.reduceFromTerm(
-        ApplySuperTypes(
+    final first = CachingPipeline(
+      cacheMgr: const PipelineNoopCacheMgr(),
+    ).reduceFromTerm(
+      MaybeTransformSixteenthHashName(
+        parent: SwidType.fromSwidClass(
           swidClass: ir,
         ),
+        reference: SwidType.fromSwidInterface(
+          swidInterface: SwidInterface(
+            name: "TextStyle",
+            nullabilitySuffix: SwidNullabilitySuffix.none,
+            originalPackagePath: "dart:ui",
+            typeArguments: [],
+            referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
+            declarationModifiers: SwidDeclarationModifiers.empty(),
+          ),
+        ),
       ),
-      prefixPaths: [],
-      pipeline: pipeline,
     );
 
-    final res = imports
-        .map(
-          (x) => x.transform(
-            pipeline: pipeline,
-          ),
-        )
-        .join();
+    expect(first, "_a643TextStyle");
 
-    expect(res, """
-import { IPaint } from "../../dart/ui/paint";
-import { IColor } from "../../dart/ui/color";
-import { ITextDecoration } from "../../dart/ui/textDecoration";
-import { ITextDecorationStyle } from "../../dart/ui/textDecorationStyle";
-import { IList } from "../../dart/core/list";
-import { IFontFeature } from "../../dart/ui/fontFeature";
-import { IFontStyle } from "../../dart/ui/fontStyle";
-import { IFontWeight } from "../../dart/ui/fontWeight";
-import { ITextLeadingDistribution } from "../../dart/ui/textLeadingDistribution";
-import { ILocale } from "../../dart/ui/locale";
-import { ITextOverflow } from "./textOverflow";
-import { IShadow } from "../../dart/ui/shadow";
-import { ITextBaseline } from "../../dart/ui/textBaseline";
-import { ITextStyle as _a643ITextStyle } from "../../dart/ui/textStyle";
-""");
+    final second = CachingPipeline(
+      cacheMgr: const PipelineNoopCacheMgr(),
+    ).reduceFromTerm(
+      MaybeTransformSixteenthHashName(
+        parent: SwidType.fromSwidClass(
+          swidClass: ir,
+        ),
+        reference: SwidType.fromSwidInterface(
+          swidInterface: SwidInterface(
+            name: "TextStyle",
+            nullabilitySuffix: SwidNullabilitySuffix.none,
+            originalPackagePath: "package:flutter/src/painting/text_style.dart",
+            typeArguments: [],
+            referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
+            declarationModifiers: SwidDeclarationModifiers.empty(),
+          ),
+        ),
+      ),
+    );
+
+    expect(second, "TextStyle");
   }, tags: "swid");
 }

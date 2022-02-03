@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:hydro_sdk/swid/ir/analyses/isShadowingParentReference.dart';
+import 'package:hydro_sdk/swid/backend/ts/transforms/maybeTransformSixteenthHashName.dart';
 import 'package:hydro_sdk/swid/ir/swidBooleanLiteral.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
@@ -262,7 +262,7 @@ void main() {
     final res = CachingPipeline(
       cacheMgr: const PipelineNoopCacheMgr(),
     ).reduceFromTerm(
-      IsShadowingParentReference(
+      MaybeTransformSixteenthHashName(
           parent: SwidType.fromSwidClass(
             swidClass: ir,
           ),
@@ -279,6 +279,6 @@ void main() {
           )),
     );
 
-    expect(res, false);
+    expect(res, "String");
   }, tags: "swid");
 }

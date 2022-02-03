@@ -35,7 +35,7 @@ class IsShadowingParentReference
   }) = _$IsShadowingParentReferenceCtor;
 
   @override
-  String get cacheGroup => "IsShadowingParentReference";
+  String get cacheGroup => "isShadowingParentReference";
 
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
@@ -70,35 +70,38 @@ class IsShadowingParentReference
   ISwarsTermResult<bool> analyze({
     required final ISwarsPipeline pipeline,
   }) =>
-      SwarsTermResult.fromValue(parent.when(
-        fromSwidInterface: (_) => false,
-        fromSwidClass: (_) => reference.when(
-          fromSwidInterface: (val) =>
-              pipeline
-                  .reduceFromTerm(
-                    CollectShadowingReferences(
-                      swidType: parent,
-                      includeFirstOrderSuperClass: includeFirstOrderSuperClass,
-                      includeFirstOrderSuperClassReferences:
-                          includeFirstOrderSuperClassReferences,
-                    ),
-                  )
-                  .firstWhereOrNull(
-                    (x) =>
-                        removeNullabilitySuffix(
-                              str: x.name,
-                            ) ==
-                            removeNullabilitySuffix(
-                              str: val.name,
-                            ) &&
-                        x.originalPackagePath == val.originalPackagePath,
-                  ) !=
-              null,
-          fromSwidClass: (_) => false,
+      SwarsTermResult.fromValue(
+        parent.when(
+          fromSwidInterface: (_) => false,
+          fromSwidClass: (_) => reference.when(
+            fromSwidInterface: (val) =>
+                pipeline
+                    .reduceFromTerm(
+                      CollectShadowingReferences(
+                        swidType: parent,
+                        includeFirstOrderSuperClass:
+                            includeFirstOrderSuperClass,
+                        includeFirstOrderSuperClassReferences:
+                            includeFirstOrderSuperClassReferences,
+                      ),
+                    )
+                    .firstWhereOrNull(
+                      (x) =>
+                          removeNullabilitySuffix(
+                                str: x.name,
+                              ) ==
+                              removeNullabilitySuffix(
+                                str: val.name,
+                              ) &&
+                          x.originalPackagePath == val.originalPackagePath,
+                    ) !=
+                null,
+            fromSwidClass: (_) => false,
+            fromSwidDefaultFormalParameter: (_) => false,
+            fromSwidFunctionType: (_) => false,
+          ),
           fromSwidDefaultFormalParameter: (_) => false,
           fromSwidFunctionType: (_) => false,
         ),
-        fromSwidDefaultFormalParameter: (_) => false,
-        fromSwidFunctionType: (_) => false,
-      ));
+      );
 }
