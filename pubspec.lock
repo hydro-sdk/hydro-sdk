@@ -729,7 +729,7 @@ packages:
       name: theater
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.1.52"
+    version: "0.2.0"
   timing:
     dependency: transitive
     description:

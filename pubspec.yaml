@@ -33,7 +33,7 @@ dependencies:
   glob: 2.0.1
   path_provider: null
   quiver: 3.0.1
-  theater: 0.1.52
+  theater: 0.2.0
   protobuf:
   dartlin: 0.6.2
 dev_dependencies:
