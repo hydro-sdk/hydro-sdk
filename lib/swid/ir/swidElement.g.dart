@@ -20,3 +20,18 @@ Map<String, dynamic> _$_$_$SwidElementFromSwidTypeArgumentElementToJson(
     <String, dynamic>{
       'swidTypeArgumentElement': instance.swidTypeArgumentElement,
     };
+
+_$_$SwidElementFromSwidInterfaceElement
+    _$_$_$SwidElementFromSwidInterfaceElementFromJson(
+        Map<String, dynamic> json) {
+  return _$_$SwidElementFromSwidInterfaceElement(
+    swidInterfaceElement: SwidInterfaceElement.fromJson(
+        json['swidInterfaceElement'] as Map<String, dynamic>),
+  );
+}
+
+Map<String, dynamic> _$_$_$SwidElementFromSwidInterfaceElementToJson(
+        _$_$SwidElementFromSwidInterfaceElement instance) =>
+    <String, dynamic>{
+      'swidInterfaceElement': instance.swidInterfaceElement,
+    };

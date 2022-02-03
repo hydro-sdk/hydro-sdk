@@ -41,7 +41,7 @@ _$_$Data _$_$_$DataFromJson(Map<String, dynamic> json) {
         json['declarationModifiers'] as Map<String, dynamic>),
     element: json['element'] == null
         ? null
-        : SwidType.fromJson(json['element'] as Map<String, dynamic>),
+        : SwidElement.fromJson(json['element'] as Map<String, dynamic>),
   );
 }
 

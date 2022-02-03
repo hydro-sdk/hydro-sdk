@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
+import 'package:hydro_sdk/swid/ir/swidElement.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstFieldDeclaration.dart';
@@ -44,7 +45,7 @@ class SwidClass
     required final List<SwidClass> implementedClasses,
     required final bool isMixin,
     required final List<SwidTypeFormal> typeFormals,
-    final SwidType? element,
+    final SwidElement? element,
     final SwidClass? extendedClass,
   }) = _$Data;
 
@@ -97,7 +98,7 @@ class SwidClass
     final bool? isMixin,
     final SwidClass? extendedClass,
     final List<SwidTypeFormal>? typeFormals,
-    final SwidType? element,
+    final SwidElement? element,
   }) =>
       SwidClass(
         name: name ?? swidClass.name,
@@ -195,7 +196,7 @@ class SwidClass
     final bool? isMixin,
     final SwidClass? extendedClass,
     final List<SwidTypeFormal>? typeFormals,
-    final SwidType? element,
+    final SwidElement? element,
   }) =>
       SwidClass._clone(
         swidClass: this,

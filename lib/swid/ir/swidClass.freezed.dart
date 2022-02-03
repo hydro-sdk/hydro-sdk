@@ -37,7 +37,7 @@ class _$SwidClassTearOff {
       required List<SwidClass> implementedClasses,
       required bool isMixin,
       required List<SwidTypeFormal> typeFormals,
-      SwidType? element,
+      SwidElement? element,
       SwidClass? extendedClass}) {
     return _$Data(
       name: name,
@@ -92,7 +92,7 @@ mixin _$SwidClass {
   List<SwidClass> get implementedClasses => throw _privateConstructorUsedError;
   bool get isMixin => throw _privateConstructorUsedError;
   List<SwidTypeFormal> get typeFormals => throw _privateConstructorUsedError;
-  SwidType? get element => throw _privateConstructorUsedError;
+  SwidElement? get element => throw _privateConstructorUsedError;
   SwidClass? get extendedClass => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -121,12 +121,12 @@ abstract class $SwidClassCopyWith<$Res> {
       List<SwidClass> implementedClasses,
       bool isMixin,
       List<SwidTypeFormal> typeFormals,
-      SwidType? element,
+      SwidElement? element,
       SwidClass? extendedClass});
 
   $SwidFunctionTypeCopyWith<$Res>? get constructorType;
   $SwidDeclarationModifiersCopyWith<$Res> get declarationModifiers;
-  $SwidTypeCopyWith<$Res>? get element;
+  $SwidElementCopyWith<$Res>? get element;
   $SwidClassCopyWith<$Res>? get extendedClass;
 }
 
@@ -222,7 +222,7 @@ class _$SwidClassCopyWithImpl<$Res> implements $SwidClassCopyWith<$Res> {
       element: element == freezed
           ? _value.element
           : element // ignore: cast_nullable_to_non_nullable
-              as SwidType?,
+              as SwidElement?,
       extendedClass: extendedClass == freezed
           ? _value.extendedClass
           : extendedClass // ignore: cast_nullable_to_non_nullable
@@ -250,12 +250,12 @@ class _$SwidClassCopyWithImpl<$Res> implements $SwidClassCopyWith<$Res> {
   }
 
   @override
-  $SwidTypeCopyWith<$Res>? get element {
+  $SwidElementCopyWith<$Res>? get element {
     if (_value.element == null) {
       return null;
     }
 
-    return $SwidTypeCopyWith<$Res>(_value.element!, (value) {
+    return $SwidElementCopyWith<$Res>(_value.element!, (value) {
       return _then(_value.copyWith(element: value));
     });
   }
@@ -293,7 +293,7 @@ abstract class _$$DataCopyWith<$Res> implements $SwidClassCopyWith<$Res> {
       List<SwidClass> implementedClasses,
       bool isMixin,
       List<SwidTypeFormal> typeFormals,
-      SwidType? element,
+      SwidElement? element,
       SwidClass? extendedClass});
 
   @override
@@ -301,7 +301,7 @@ abstract class _$$DataCopyWith<$Res> implements $SwidClassCopyWith<$Res> {
   @override
   $SwidDeclarationModifiersCopyWith<$Res> get declarationModifiers;
   @override
-  $SwidTypeCopyWith<$Res>? get element;
+  $SwidElementCopyWith<$Res>? get element;
   @override
   $SwidClassCopyWith<$Res>? get extendedClass;
 }
@@ -399,7 +399,7 @@ class __$$DataCopyWithImpl<$Res> extends _$SwidClassCopyWithImpl<$Res>
       element: element == freezed
           ? _value.element
           : element // ignore: cast_nullable_to_non_nullable
-              as SwidType?,
+              as SwidElement?,
       extendedClass: extendedClass == freezed
           ? _value.extendedClass
           : extendedClass // ignore: cast_nullable_to_non_nullable
@@ -465,7 +465,7 @@ class _$_$Data extends _$Data {
   @override
   final List<SwidTypeFormal> typeFormals;
   @override
-  final SwidType? element;
+  final SwidElement? element;
   @override
   final SwidClass? extendedClass;
 
@@ -581,7 +581,7 @@ abstract class _$Data extends SwidClass {
       required List<SwidClass> implementedClasses,
       required bool isMixin,
       required List<SwidTypeFormal> typeFormals,
-      SwidType? element,
+      SwidElement? element,
       SwidClass? extendedClass}) = _$_$Data;
   _$Data._() : super._();
 
@@ -625,7 +625,7 @@ abstract class _$Data extends SwidClass {
   @override
   List<SwidTypeFormal> get typeFormals => throw _privateConstructorUsedError;
   @override
-  SwidType? get element => throw _privateConstructorUsedError;
+  SwidElement? get element => throw _privateConstructorUsedError;
   @override
   SwidClass? get extendedClass => throw _privateConstructorUsedError;
   @override

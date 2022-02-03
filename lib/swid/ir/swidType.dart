@@ -4,6 +4,7 @@ import 'package:hydro_sdk/swid/ir/iSwidType.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidDefaultFormalParameter.dart';
+import 'package:hydro_sdk/swid/ir/swidElement.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
@@ -120,7 +121,7 @@ class SwidType
         fromSwidFunctionType: (val) => val.originalPackagePath,
       );
 
-  SwidType? get element => when(
+  SwidElement? get element => when(
         fromSwidInterface: (val) => val.element,
         fromSwidClass: (val) => val.element,
         fromSwidDefaultFormalParameter: (val) => val.element,

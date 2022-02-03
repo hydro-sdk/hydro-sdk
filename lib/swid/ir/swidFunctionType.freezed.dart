@@ -34,7 +34,7 @@ class _$SwidFunctionTypeTearOff {
       required bool isFactory,
       required List<SwidTypeFormal> typeFormals,
       required SwidDeclarationModifiers declarationModifiers,
-      SwidType? element}) {
+      SwidElement? element}) {
     return _$Data(
       name: name,
       nullabilitySuffix: nullabilitySuffix,
@@ -81,7 +81,7 @@ mixin _$SwidFunctionType {
   List<SwidTypeFormal> get typeFormals => throw _privateConstructorUsedError;
   SwidDeclarationModifiers get declarationModifiers =>
       throw _privateConstructorUsedError;
-  SwidType? get element => throw _privateConstructorUsedError;
+  SwidElement? get element => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -108,11 +108,11 @@ abstract class $SwidFunctionTypeCopyWith<$Res> {
       bool isFactory,
       List<SwidTypeFormal> typeFormals,
       SwidDeclarationModifiers declarationModifiers,
-      SwidType? element});
+      SwidElement? element});
 
   $SwidTypeCopyWith<$Res> get returnType;
   $SwidDeclarationModifiersCopyWith<$Res> get declarationModifiers;
-  $SwidTypeCopyWith<$Res>? get element;
+  $SwidElementCopyWith<$Res>? get element;
 }
 
 /// @nodoc
@@ -197,7 +197,7 @@ class _$SwidFunctionTypeCopyWithImpl<$Res>
       element: element == freezed
           ? _value.element
           : element // ignore: cast_nullable_to_non_nullable
-              as SwidType?,
+              as SwidElement?,
     ));
   }
 
@@ -217,12 +217,12 @@ class _$SwidFunctionTypeCopyWithImpl<$Res>
   }
 
   @override
-  $SwidTypeCopyWith<$Res>? get element {
+  $SwidElementCopyWith<$Res>? get element {
     if (_value.element == null) {
       return null;
     }
 
-    return $SwidTypeCopyWith<$Res>(_value.element!, (value) {
+    return $SwidElementCopyWith<$Res>(_value.element!, (value) {
       return _then(_value.copyWith(element: value));
     });
   }
@@ -248,14 +248,14 @@ abstract class _$$DataCopyWith<$Res>
       bool isFactory,
       List<SwidTypeFormal> typeFormals,
       SwidDeclarationModifiers declarationModifiers,
-      SwidType? element});
+      SwidElement? element});
 
   @override
   $SwidTypeCopyWith<$Res> get returnType;
   @override
   $SwidDeclarationModifiersCopyWith<$Res> get declarationModifiers;
   @override
-  $SwidTypeCopyWith<$Res>? get element;
+  $SwidElementCopyWith<$Res>? get element;
 }
 
 /// @nodoc
@@ -340,7 +340,7 @@ class __$$DataCopyWithImpl<$Res> extends _$SwidFunctionTypeCopyWithImpl<$Res>
       element: element == freezed
           ? _value.element
           : element // ignore: cast_nullable_to_non_nullable
-              as SwidType?,
+              as SwidElement?,
     ));
   }
 }
@@ -395,7 +395,7 @@ class _$_$Data extends _$Data {
   @override
   final SwidDeclarationModifiers declarationModifiers;
   @override
-  final SwidType? element;
+  final SwidElement? element;
 
   @override
   String toString() {
@@ -492,7 +492,7 @@ abstract class _$Data extends SwidFunctionType {
       required bool isFactory,
       required List<SwidTypeFormal> typeFormals,
       required SwidDeclarationModifiers declarationModifiers,
-      SwidType? element}) = _$_$Data;
+      SwidElement? element}) = _$_$Data;
   _$Data._() : super._();
 
   factory _$Data.fromJson(Map<String, dynamic> json) = _$_$Data.fromJson;
@@ -529,7 +529,7 @@ abstract class _$Data extends SwidFunctionType {
   SwidDeclarationModifiers get declarationModifiers =>
       throw _privateConstructorUsedError;
   @override
-  SwidType? get element => throw _privateConstructorUsedError;
+  SwidElement? get element => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$DataCopyWith<_$Data> get copyWith => throw _privateConstructorUsedError;

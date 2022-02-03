@@ -2,6 +2,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
+import 'package:hydro_sdk/swid/ir/swidElement.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
@@ -34,7 +35,7 @@ class SwidInterface
     required final List<SwidTypeArgumentType> typeArguments,
     required final SwidReferenceDeclarationKind referenceDeclarationKind,
     required final SwidDeclarationModifiers declarationModifiers,
-    final SwidType? element,
+    final SwidElement? element,
   }) = _$Data;
 
   factory SwidInterface.fromJson(Map<String, dynamic> json) =>
@@ -52,7 +53,7 @@ class SwidInterface
     final List<SwidTypeArgumentType>? typeArguments,
     final SwidReferenceDeclarationKind? referenceDeclarationKind,
     final SwidDeclarationModifiers? declarationModifiers,
-    final SwidType? element,
+    final SwidElement? element,
   }) =>
       SwidInterface(
         name: name ?? swidType.name,
@@ -105,7 +106,7 @@ class SwidInterface
     final List<SwidTypeArgumentType>? typeArguments,
     final SwidReferenceDeclarationKind? referenceDeclarationKind,
     final SwidDeclarationModifiers? declarationModifiers,
-    final SwidType? element,
+    final SwidElement? element,
   }) =>
       SwidInterface.clone(
         swidType: this,

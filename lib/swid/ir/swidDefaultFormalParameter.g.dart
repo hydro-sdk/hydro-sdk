@@ -16,7 +16,7 @@ _$_$Data _$_$_$DataFromJson(Map<String, dynamic> json) {
     defaultValueCode: json['defaultValueCode'] as String,
     element: json['element'] == null
         ? null
-        : SwidType.fromJson(json['element'] as Map<String, dynamic>),
+        : SwidElement.fromJson(json['element'] as Map<String, dynamic>),
   );
 }
 

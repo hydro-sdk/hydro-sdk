@@ -51,7 +51,7 @@ _$_$Data _$_$_$DataFromJson(Map<String, dynamic> json) {
         .toList(),
     element: json['element'] == null
         ? null
-        : SwidType.fromJson(json['element'] as Map<String, dynamic>),
+        : SwidElement.fromJson(json['element'] as Map<String, dynamic>),
     extendedClass: json['extendedClass'] == null
         ? null
         : SwidClass.fromJson(json['extendedClass'] as Map<String, dynamic>),

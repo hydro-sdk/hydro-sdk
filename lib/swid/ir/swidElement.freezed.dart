@@ -13,7 +13,15 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 SwidElement _$SwidElementFromJson(Map<String, dynamic> json) {
-  return _$SwidElementFromSwidTypeArgumentElement.fromJson(json);
+  switch (json['runtimeType'] as String) {
+    case 'fromSwidTypeArgumentElement':
+      return _$SwidElementFromSwidTypeArgumentElement.fromJson(json);
+    case 'fromSwidInterfaceElement':
+      return _$SwidElementFromSwidInterfaceElement.fromJson(json);
+
+    default:
+      throw FallThroughError();
+  }
 }
 
 /// @nodoc
@@ -27,6 +35,13 @@ class _$SwidElementTearOff {
     );
   }
 
+  _$SwidElementFromSwidInterfaceElement fromSwidInterfaceElement(
+      {required SwidInterfaceElement swidInterfaceElement}) {
+    return _$SwidElementFromSwidInterfaceElement(
+      swidInterfaceElement: swidInterfaceElement,
+    );
+  }
+
   SwidElement fromJson(Map<String, Object> json) {
     return SwidElement.fromJson(json);
   }
@@ -37,19 +52,20 @@ const $SwidElement = _$SwidElementTearOff();
 
 /// @nodoc
 mixin _$SwidElement {
-  SwidTypeArgumentElement get swidTypeArgumentElement =>
-      throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(SwidTypeArgumentElement swidTypeArgumentElement)
         fromSwidTypeArgumentElement,
+    required TResult Function(SwidInterfaceElement swidInterfaceElement)
+        fromSwidInterfaceElement,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(SwidTypeArgumentElement swidTypeArgumentElement)?
         fromSwidTypeArgumentElement,
+    TResult Function(SwidInterfaceElement swidInterfaceElement)?
+        fromSwidInterfaceElement,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -57,19 +73,20 @@ mixin _$SwidElement {
   TResult map<TResult extends Object?>({
     required TResult Function(_$SwidElementFromSwidTypeArgumentElement value)
         fromSwidTypeArgumentElement,
+    required TResult Function(_$SwidElementFromSwidInterfaceElement value)
+        fromSwidInterfaceElement,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_$SwidElementFromSwidTypeArgumentElement value)?
         fromSwidTypeArgumentElement,
+    TResult Function(_$SwidElementFromSwidInterfaceElement value)?
+        fromSwidInterfaceElement,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $SwidElementCopyWith<SwidElement> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -77,9 +94,6 @@ abstract class $SwidElementCopyWith<$Res> {
   factory $SwidElementCopyWith(
           SwidElement value, $Res Function(SwidElement) then) =
       _$SwidElementCopyWithImpl<$Res>;
-  $Res call({SwidTypeArgumentElement swidTypeArgumentElement});
-
-  $SwidTypeArgumentElementCopyWith<$Res> get swidTypeArgumentElement;
 }
 
 /// @nodoc
@@ -89,39 +103,16 @@ class _$SwidElementCopyWithImpl<$Res> implements $SwidElementCopyWith<$Res> {
   final SwidElement _value;
   // ignore: unused_field
   final $Res Function(SwidElement) _then;
-
-  @override
-  $Res call({
-    Object? swidTypeArgumentElement = freezed,
-  }) {
-    return _then(_value.copyWith(
-      swidTypeArgumentElement: swidTypeArgumentElement == freezed
-          ? _value.swidTypeArgumentElement
-          : swidTypeArgumentElement // ignore: cast_nullable_to_non_nullable
-              as SwidTypeArgumentElement,
-    ));
-  }
-
-  @override
-  $SwidTypeArgumentElementCopyWith<$Res> get swidTypeArgumentElement {
-    return $SwidTypeArgumentElementCopyWith<$Res>(
-        _value.swidTypeArgumentElement, (value) {
-      return _then(_value.copyWith(swidTypeArgumentElement: value));
-    });
-  }
 }
 
 /// @nodoc
-abstract class _$$SwidElementFromSwidTypeArgumentElementCopyWith<$Res>
-    implements $SwidElementCopyWith<$Res> {
+abstract class _$$SwidElementFromSwidTypeArgumentElementCopyWith<$Res> {
   factory _$$SwidElementFromSwidTypeArgumentElementCopyWith(
           _$SwidElementFromSwidTypeArgumentElement value,
           $Res Function(_$SwidElementFromSwidTypeArgumentElement) then) =
       __$$SwidElementFromSwidTypeArgumentElementCopyWithImpl<$Res>;
-  @override
   $Res call({SwidTypeArgumentElement swidTypeArgumentElement});
 
-  @override
   $SwidTypeArgumentElementCopyWith<$Res> get swidTypeArgumentElement;
 }
 
@@ -149,6 +140,14 @@ class __$$SwidElementFromSwidTypeArgumentElementCopyWithImpl<$Res>
           : swidTypeArgumentElement // ignore: cast_nullable_to_non_nullable
               as SwidTypeArgumentElement,
     ));
+  }
+
+  @override
+  $SwidTypeArgumentElementCopyWith<$Res> get swidTypeArgumentElement {
+    return $SwidTypeArgumentElementCopyWith<$Res>(
+        _value.swidTypeArgumentElement, (value) {
+      return _then(_value.copyWith(swidTypeArgumentElement: value));
+    });
   }
 }
 
@@ -199,6 +198,8 @@ class _$_$SwidElementFromSwidTypeArgumentElement
   TResult when<TResult extends Object?>({
     required TResult Function(SwidTypeArgumentElement swidTypeArgumentElement)
         fromSwidTypeArgumentElement,
+    required TResult Function(SwidInterfaceElement swidInterfaceElement)
+        fromSwidInterfaceElement,
   }) {
     return fromSwidTypeArgumentElement(swidTypeArgumentElement);
   }
@@ -208,6 +209,8 @@ class _$_$SwidElementFromSwidTypeArgumentElement
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(SwidTypeArgumentElement swidTypeArgumentElement)?
         fromSwidTypeArgumentElement,
+    TResult Function(SwidInterfaceElement swidInterfaceElement)?
+        fromSwidInterfaceElement,
     required TResult orElse(),
   }) {
     if (fromSwidTypeArgumentElement != null) {
@@ -221,6 +224,8 @@ class _$_$SwidElementFromSwidTypeArgumentElement
   TResult map<TResult extends Object?>({
     required TResult Function(_$SwidElementFromSwidTypeArgumentElement value)
         fromSwidTypeArgumentElement,
+    required TResult Function(_$SwidElementFromSwidInterfaceElement value)
+        fromSwidInterfaceElement,
   }) {
     return fromSwidTypeArgumentElement(this);
   }
@@ -230,6 +235,8 @@ class _$_$SwidElementFromSwidTypeArgumentElement
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_$SwidElementFromSwidTypeArgumentElement value)?
         fromSwidTypeArgumentElement,
+    TResult Function(_$SwidElementFromSwidInterfaceElement value)?
+        fromSwidInterfaceElement,
     required TResult orElse(),
   }) {
     if (fromSwidTypeArgumentElement != null) {
@@ -240,7 +247,8 @@ class _$_$SwidElementFromSwidTypeArgumentElement
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_$SwidElementFromSwidTypeArgumentElementToJson(this);
+    return _$_$_$SwidElementFromSwidTypeArgumentElementToJson(this)
+      ..['runtimeType'] = 'fromSwidTypeArgumentElement';
   }
 }
 
@@ -254,12 +262,172 @@ abstract class _$SwidElementFromSwidTypeArgumentElement extends SwidElement {
           Map<String, dynamic> json) =
       _$_$SwidElementFromSwidTypeArgumentElement.fromJson;
 
-  @override
   SwidTypeArgumentElement get swidTypeArgumentElement =>
       throw _privateConstructorUsedError;
-  @override
   @JsonKey(ignore: true)
   _$$SwidElementFromSwidTypeArgumentElementCopyWith<
           _$SwidElementFromSwidTypeArgumentElement>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SwidElementFromSwidInterfaceElementCopyWith<$Res> {
+  factory _$$SwidElementFromSwidInterfaceElementCopyWith(
+          _$SwidElementFromSwidInterfaceElement value,
+          $Res Function(_$SwidElementFromSwidInterfaceElement) then) =
+      __$$SwidElementFromSwidInterfaceElementCopyWithImpl<$Res>;
+  $Res call({SwidInterfaceElement swidInterfaceElement});
+
+  $SwidInterfaceElementCopyWith<$Res> get swidInterfaceElement;
+}
+
+/// @nodoc
+class __$$SwidElementFromSwidInterfaceElementCopyWithImpl<$Res>
+    extends _$SwidElementCopyWithImpl<$Res>
+    implements _$$SwidElementFromSwidInterfaceElementCopyWith<$Res> {
+  __$$SwidElementFromSwidInterfaceElementCopyWithImpl(
+      _$SwidElementFromSwidInterfaceElement _value,
+      $Res Function(_$SwidElementFromSwidInterfaceElement) _then)
+      : super(_value, (v) => _then(v as _$SwidElementFromSwidInterfaceElement));
+
+  @override
+  _$SwidElementFromSwidInterfaceElement get _value =>
+      super._value as _$SwidElementFromSwidInterfaceElement;
+
+  @override
+  $Res call({
+    Object? swidInterfaceElement = freezed,
+  }) {
+    return _then(_$SwidElementFromSwidInterfaceElement(
+      swidInterfaceElement: swidInterfaceElement == freezed
+          ? _value.swidInterfaceElement
+          : swidInterfaceElement // ignore: cast_nullable_to_non_nullable
+              as SwidInterfaceElement,
+    ));
+  }
+
+  @override
+  $SwidInterfaceElementCopyWith<$Res> get swidInterfaceElement {
+    return $SwidInterfaceElementCopyWith<$Res>(_value.swidInterfaceElement,
+        (value) {
+      return _then(_value.copyWith(swidInterfaceElement: value));
+    });
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_$SwidElementFromSwidInterfaceElement
+    extends _$SwidElementFromSwidInterfaceElement {
+  _$_$SwidElementFromSwidInterfaceElement({required this.swidInterfaceElement})
+      : super._();
+
+  factory _$_$SwidElementFromSwidInterfaceElement.fromJson(
+          Map<String, dynamic> json) =>
+      _$_$_$SwidElementFromSwidInterfaceElementFromJson(json);
+
+  @override
+  final SwidInterfaceElement swidInterfaceElement;
+
+  @override
+  String toString() {
+    return 'SwidElement.fromSwidInterfaceElement(swidInterfaceElement: $swidInterfaceElement)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _$SwidElementFromSwidInterfaceElement &&
+            (identical(other.swidInterfaceElement, swidInterfaceElement) ||
+                const DeepCollectionEquality()
+                    .equals(other.swidInterfaceElement, swidInterfaceElement)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(swidInterfaceElement);
+
+  @JsonKey(ignore: true)
+  @override
+  _$$SwidElementFromSwidInterfaceElementCopyWith<
+          _$SwidElementFromSwidInterfaceElement>
+      get copyWith => __$$SwidElementFromSwidInterfaceElementCopyWithImpl<
+          _$SwidElementFromSwidInterfaceElement>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(SwidTypeArgumentElement swidTypeArgumentElement)
+        fromSwidTypeArgumentElement,
+    required TResult Function(SwidInterfaceElement swidInterfaceElement)
+        fromSwidInterfaceElement,
+  }) {
+    return fromSwidInterfaceElement(swidInterfaceElement);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(SwidTypeArgumentElement swidTypeArgumentElement)?
+        fromSwidTypeArgumentElement,
+    TResult Function(SwidInterfaceElement swidInterfaceElement)?
+        fromSwidInterfaceElement,
+    required TResult orElse(),
+  }) {
+    if (fromSwidInterfaceElement != null) {
+      return fromSwidInterfaceElement(swidInterfaceElement);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_$SwidElementFromSwidTypeArgumentElement value)
+        fromSwidTypeArgumentElement,
+    required TResult Function(_$SwidElementFromSwidInterfaceElement value)
+        fromSwidInterfaceElement,
+  }) {
+    return fromSwidInterfaceElement(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$SwidElementFromSwidTypeArgumentElement value)?
+        fromSwidTypeArgumentElement,
+    TResult Function(_$SwidElementFromSwidInterfaceElement value)?
+        fromSwidInterfaceElement,
+    required TResult orElse(),
+  }) {
+    if (fromSwidInterfaceElement != null) {
+      return fromSwidInterfaceElement(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_$SwidElementFromSwidInterfaceElementToJson(this)
+      ..['runtimeType'] = 'fromSwidInterfaceElement';
+  }
+}
+
+abstract class _$SwidElementFromSwidInterfaceElement extends SwidElement {
+  factory _$SwidElementFromSwidInterfaceElement(
+          {required SwidInterfaceElement swidInterfaceElement}) =
+      _$_$SwidElementFromSwidInterfaceElement;
+  _$SwidElementFromSwidInterfaceElement._() : super._();
+
+  factory _$SwidElementFromSwidInterfaceElement.fromJson(
+          Map<String, dynamic> json) =
+      _$_$SwidElementFromSwidInterfaceElement.fromJson;
+
+  SwidInterfaceElement get swidInterfaceElement =>
+      throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$$SwidElementFromSwidInterfaceElementCopyWith<
+          _$SwidElementFromSwidInterfaceElement>
       get copyWith => throw _privateConstructorUsedError;
 }

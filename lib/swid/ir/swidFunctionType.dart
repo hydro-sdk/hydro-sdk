@@ -2,6 +2,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidDefaultFormalParameter.dart';
+import 'package:hydro_sdk/swid/ir/swidElement.dart';
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
@@ -43,7 +44,7 @@ class SwidFunctionType
     required final bool isFactory,
     required final List<SwidTypeFormal> typeFormals,
     required final SwidDeclarationModifiers declarationModifiers,
-    final SwidType? element,
+    final SwidElement? element,
   }) = _$Data;
 
   factory SwidFunctionType.fromJson(Map<String, dynamic> json) =>
@@ -109,7 +110,7 @@ class SwidFunctionType
     final bool? isFactory,
     final List<SwidTypeFormal>? typeFormals,
     final SwidDeclarationModifiers? declarationModifiers,
-    final SwidType? element,
+    final SwidElement? element,
   }) =>
       SwidFunctionType(
         name: name ?? swidFunctionType.name,
@@ -196,7 +197,7 @@ class SwidFunctionType
     final bool? isFactory,
     final List<SwidTypeFormal>? typeFormals,
     final SwidDeclarationModifiers? declarationModifiers,
-    final SwidType? element,
+    final SwidElement? element,
   }) =>
       SwidFunctionType.clone(
         swidFunctionType: this,

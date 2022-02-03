@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/ir/swidInterfaceElement.dart';
 
 import 'package:hydro_sdk/swid/ir/swidTypeArgumentElement.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
@@ -21,6 +22,10 @@ class SwidElement
     required final SwidTypeArgumentElement swidTypeArgumentElement,
   }) = _$SwidElementFromSwidTypeArgumentElement;
 
+  factory SwidElement.fromSwidInterfaceElement({
+    required final SwidInterfaceElement swidInterfaceElement,
+  }) = _$SwidElementFromSwidInterfaceElement;
+
   factory SwidElement.fromJson(Map<String, dynamic> json) =>
       _$SwidElementFromJson(json);
 
@@ -31,13 +36,16 @@ class SwidElement
   @override
   late final Iterable<Iterable<int>> hashableParts = when(
     fromSwidTypeArgumentElement: (val) => val.hashKey.hashableParts,
+    fromSwidInterfaceElement: (val) => val.hashKey.hashableParts,
   );
 
   @override
   SwidElement clone() => when(
-        fromSwidTypeArgumentElement: (val) =>
-            SwidElement.fromSwidTypeArgumentElement(
-          swidTypeArgumentElement: val.clone(),
-        ),
-      );
+      fromSwidTypeArgumentElement: (val) =>
+          SwidElement.fromSwidTypeArgumentElement(
+            swidTypeArgumentElement: val.clone(),
+          ),
+      fromSwidInterfaceElement: (val) => SwidElement.fromSwidInterfaceElement(
+            swidInterfaceElement: val.clone(),
+          ));
 }

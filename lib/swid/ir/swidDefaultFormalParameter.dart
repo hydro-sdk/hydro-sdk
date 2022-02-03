@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
+import 'package:hydro_sdk/swid/ir/swidElement.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
@@ -32,7 +33,7 @@ class SwidDefaultFormalParameter
     required final SwidType staticType,
     required final SwidStaticConst value,
     required final String defaultValueCode,
-    final SwidType? element,
+    final SwidElement? element,
   }) = _$Data;
 
   factory SwidDefaultFormalParameter.fromJson(Map<String, dynamic> json) =>
@@ -49,7 +50,7 @@ class SwidDefaultFormalParameter
     final SwidType? staticType,
     final SwidStaticConst? value,
     final String? defaultValueCode,
-    final SwidType? element,
+    final SwidElement? element,
   }) =>
       SwidDefaultFormalParameter(
         nullabilitySuffix:
@@ -89,7 +90,7 @@ class SwidDefaultFormalParameter
     final SwidType? staticType,
     final SwidStaticConst? value,
     final String? defaultValueCode,
-    final SwidType? element,
+    final SwidElement? element,
   }) =>
       SwidDefaultFormalParameter.clone(
         swidDefaultFormalParameter: this,
