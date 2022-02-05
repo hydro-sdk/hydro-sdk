@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:hydro_sdk/swid/ir/swidInterfaceElement.dart';
 
+import 'package:hydro_sdk/swid/ir/swidInterfaceElement.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeArgumentElement.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';

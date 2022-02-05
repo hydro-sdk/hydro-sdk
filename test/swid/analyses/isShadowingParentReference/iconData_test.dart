@@ -263,20 +263,20 @@ void main() {
       cacheMgr: const PipelineNoopCacheMgr(),
     ).reduceFromTerm(
       IsShadowingParentReference(
-          parent: SwidType.fromSwidClass(
-            swidClass: ir,
+        parent: SwidType.fromSwidClass(
+          swidClass: ir,
+        ),
+        reference: SwidType.fromSwidInterface(
+          swidInterface: SwidInterface(
+            name: "String",
+            nullabilitySuffix: SwidNullabilitySuffix.question,
+            originalPackagePath: "dart:core",
+            typeArguments: [],
+            referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
+            declarationModifiers: SwidDeclarationModifiers.empty(),
           ),
-          reference: SwidType.fromSwidInterface(
-            swidInterface: SwidInterface(
-              name: "String",
-              nullabilitySuffix: SwidNullabilitySuffix.question,
-              originalPackagePath: "dart:core",
-              typeArguments: [],
-              referenceDeclarationKind:
-                  SwidReferenceDeclarationKind.classElement,
-              declarationModifiers: SwidDeclarationModifiers.empty(),
-            ),
-          )),
+        ),
+      ),
     );
 
     expect(res, false);
