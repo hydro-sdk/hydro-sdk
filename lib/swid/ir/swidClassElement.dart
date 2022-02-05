@@ -5,41 +5,41 @@ import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
 import 'package:hydro_sdk/swid/util/iJsonTransformable.dart';
 
-part 'swidInterfaceElement.freezed.dart';
-part 'swidInterfaceElement.g.dart';
+part 'swidClassElement.freezed.dart';
+part 'swidClassElement.g.dart';
 
 @freezed
-class SwidInterfaceElement
+class SwidClassElement
     with
-        _$SwidInterfaceElement,
-        HashKeyMixin<SwidInterfaceElement>,
-        HashComparableMixin<SwidInterfaceElement>
+        _$SwidClassElement,
+        HashKeyMixin<SwidClassElement>,
+        HashComparableMixin<SwidClassElement>
     implements ISwidElementReferenceInfo, IJsonTransformable {
-  SwidInterfaceElement._();
+  SwidClassElement._();
 
-  factory SwidInterfaceElement({
+  factory SwidClassElement({
     required final bool isShadowingParent,
     required final bool isClassReference,
-  }) = _$SwidInterfaceElementCtor;
+  }) = _$SwidClassElementCtor;
 
-  factory SwidInterfaceElement.fromJson(final Map<String, dynamic> json) =>
-      _$SwidInterfaceElementFromJson(json);
+  factory SwidClassElement.fromJson(final Map<String, dynamic> json) =>
+      _$SwidClassElementFromJson(json);
 
-  factory SwidInterfaceElement.empty() => SwidInterfaceElement(
+  factory SwidClassElement.empty() => SwidClassElement(
         isShadowingParent: false,
         isClassReference: false,
       );
 
   @override
-  SwidInterfaceElement fromJson(final Map<String, dynamic> json) =>
-      SwidInterfaceElement.fromJson(json);
+  SwidClassElement fromJson(final Map<String, dynamic> json) =>
+      SwidClassElement.fromJson(json);
 
   @override
-  SwidInterfaceElement clone({
+  SwidClassElement clone({
     final bool? isShadowingParent,
     final bool? isClassReference,
   }) =>
-      SwidInterfaceElement(
+      SwidClassElement(
         isShadowingParent: isShadowingParent ?? this.isShadowingParent,
         isClassReference: isClassReference ?? this.isClassReference,
       );

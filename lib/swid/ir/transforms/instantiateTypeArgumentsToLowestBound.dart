@@ -148,6 +148,8 @@ class InstantiateTypeArgumentsToLowestBound
                                                       ) ==
                                                       null) &&
                                                   (x.element?.when(
+                                                        fromSwidClassElement:
+                                                            (_) => false,
                                                         fromSwidInterfaceElement:
                                                             (_) => false,
                                                         fromSwidTypeArgumentElement:
@@ -167,6 +169,8 @@ class InstantiateTypeArgumentsToLowestBound
                                               ? SwidType.fromSwidInterface(
                                                   swidInterface:
                                                       x.element!.when(
+                                                    fromSwidClassElement: (_) =>
+                                                        dartUnknownInterface,
                                                     fromSwidInterfaceElement:
                                                         (_) =>
                                                             dartUnknownInterface,

@@ -76,9 +76,17 @@ class MarkShadowingParentReferencesInInterface
             ? swidInterface.clone(
                 element: swidInterface.element?.let(
                       (it) => it.when(
+                        fromSwidClassElement: (_) =>
+                            SwidElement.fromSwidInterfaceElement(
+                          swidInterfaceElement:
+                              SwidInterfaceElement.empty().clone(
+                            isShadowingParent: true,
+                          ),
+                        ),
                         fromSwidTypeArgumentElement: (_) =>
                             SwidElement.fromSwidInterfaceElement(
-                          swidInterfaceElement: SwidInterfaceElement(
+                          swidInterfaceElement:
+                              SwidInterfaceElement.empty().clone(
                             isShadowingParent: true,
                           ),
                         ),
@@ -91,7 +99,7 @@ class MarkShadowingParentReferencesInInterface
                       ),
                     ) ??
                     SwidElement.fromSwidInterfaceElement(
-                      swidInterfaceElement: SwidInterfaceElement(
+                      swidInterfaceElement: SwidInterfaceElement.empty().clone(
                         isShadowingParent: true,
                       ),
                     ),

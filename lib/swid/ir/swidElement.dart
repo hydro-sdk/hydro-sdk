@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/ir/swidClassElement.dart';
 
 import 'package:hydro_sdk/swid/ir/swidInterfaceElement.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeArgumentElement.dart';
@@ -26,6 +27,10 @@ class SwidElement
     required final SwidInterfaceElement swidInterfaceElement,
   }) = _$SwidElementFromSwidInterfaceElement;
 
+  factory SwidElement.fromSwidClassElement({
+    required final SwidClassElement swidClassElement,
+  }) = _$SwidElementFromSwidClassElement;
+
   factory SwidElement.fromJson(Map<String, dynamic> json) =>
       _$SwidElementFromJson(json);
 
@@ -37,15 +42,20 @@ class SwidElement
   late final Iterable<Iterable<int>> hashableParts = when(
     fromSwidTypeArgumentElement: (val) => val.hashKey.hashableParts,
     fromSwidInterfaceElement: (val) => val.hashKey.hashableParts,
+    fromSwidClassElement: (val) => val.hashKey.hashableParts,
   );
 
   @override
   SwidElement clone() => when(
-      fromSwidTypeArgumentElement: (val) =>
-          SwidElement.fromSwidTypeArgumentElement(
-            swidTypeArgumentElement: val.clone(),
-          ),
-      fromSwidInterfaceElement: (val) => SwidElement.fromSwidInterfaceElement(
-            swidInterfaceElement: val.clone(),
-          ));
+        fromSwidTypeArgumentElement: (val) =>
+            SwidElement.fromSwidTypeArgumentElement(
+          swidTypeArgumentElement: val.clone(),
+        ),
+        fromSwidInterfaceElement: (val) => SwidElement.fromSwidInterfaceElement(
+          swidInterfaceElement: val.clone(),
+        ),
+        fromSwidClassElement: (val) => SwidElement.fromSwidClassElement(
+          swidClassElement: val.clone(),
+        ),
+      );
 }
