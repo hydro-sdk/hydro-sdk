@@ -86,34 +86,50 @@ class MarkClassReferences
                     swidInterface: val,
                     onPrimitive: (val) => val,
                     onClass: (val) => val.clone(
-                      element: !isPrimitive(
-                        swidType: SwidType.fromSwidInterface(
-                          swidInterface: val,
-                        ),
-                      )
-                          ? val.element?.let(
-                              (it) => it.when(
-                                fromSwidTypeArgumentElement: (val) =>
-                                    SwidElement.fromSwidInterfaceElement(
-                                  swidInterfaceElement:
-                                      SwidInterfaceElement.empty().clone(
-                                    isClassReference: true,
+                      element: (!isPrimitive(
+                                swidType: SwidType.fromSwidInterface(
+                                  swidInterface: val,
+                                ),
+                              ) &&
+                              !isDartObject(
+                                swidType: SwidType.fromSwidInterface(
+                                  swidInterface: val,
+                                ),
+                              ) &&
+                              !isDartType(
+                                swidType: SwidType.fromSwidInterface(
+                                  swidInterface: val,
+                                ),
+                              ))
+                          ? (val.element?.let(
+                                (it) => it.when(
+                                  fromSwidTypeArgumentElement: (val) =>
+                                      SwidElement.fromSwidInterfaceElement(
+                                    swidInterfaceElement:
+                                        SwidInterfaceElement.empty().clone(
+                                      isClassReference: true,
+                                    ),
+                                  ),
+                                  fromSwidInterfaceElement: (val) =>
+                                      SwidElement.fromSwidInterfaceElement(
+                                    swidInterfaceElement: val.clone(
+                                      isClassReference: true,
+                                    ),
+                                  ),
+                                  fromSwidClassElement: (val) =>
+                                      SwidElement.fromSwidClassElement(
+                                    swidClassElement: val.clone(
+                                      isClassReference: true,
+                                    ),
                                   ),
                                 ),
-                                fromSwidInterfaceElement: (val) =>
-                                    SwidElement.fromSwidInterfaceElement(
-                                  swidInterfaceElement: val.clone(
-                                    isClassReference: true,
-                                  ),
+                              ) ??
+                              SwidElement.fromSwidInterfaceElement(
+                                swidInterfaceElement:
+                                    SwidInterfaceElement.empty().clone(
+                                  isClassReference: true,
                                 ),
-                                fromSwidClassElement: (val) =>
-                                    SwidElement.fromSwidClassElement(
-                                  swidClassElement: val.clone(
-                                    isClassReference: true,
-                                  ),
-                                ),
-                              ),
-                            )
+                              ))
                           : val.element,
                       typeArguments: val.typeArguments
                           .map(
@@ -176,6 +192,40 @@ class MarkClassReferences
                                 fromSwidDefaultFormalParameter: (_) =>
                                     dartUnknownClass,
                                 fromSwidFunctionType: (_) => dartUnknownClass,
+                              )
+                              .let(
+                                (it) => it.clone(
+                                  element: it.element?.when(
+                                        fromSwidTypeArgumentElement: (val) =>
+                                            SwidElement
+                                                .fromSwidInterfaceElement(
+                                          swidInterfaceElement:
+                                              SwidInterfaceElement.empty()
+                                                  .clone(
+                                            isClassReference: true,
+                                          ),
+                                        ),
+                                        fromSwidInterfaceElement: (val) =>
+                                            SwidElement
+                                                .fromSwidInterfaceElement(
+                                          swidInterfaceElement: val.clone(
+                                            isClassReference: true,
+                                          ),
+                                        ),
+                                        fromSwidClassElement: (val) =>
+                                            SwidElement.fromSwidClassElement(
+                                          swidClassElement: val.clone(
+                                            isClassReference: true,
+                                          ),
+                                        ),
+                                      ) ??
+                                      SwidElement.fromSwidInterfaceElement(
+                                        swidInterfaceElement:
+                                            SwidInterfaceElement.empty().clone(
+                                          isClassReference: true,
+                                        ),
+                                      ),
+                                ),
                               ),
                         ),
                         fromSwidInterface: (val) =>
@@ -203,6 +253,25 @@ class MarkClassReferences
                         ),
                       ),
                     ),
+                  )
+                  .toList(),
+              generativeConstructors: val.generativeConstructors
+                  .map(
+                    (x) => pipeline
+                        .reduceFromTerm(
+                          MarkClassReferences(
+                            swidType: SwidType.fromSwidFunctionType(
+                              swidFunctionType: x,
+                            ),
+                          ),
+                        )
+                        .when(
+                          fromSwidInterface: (_) => dartUnknownFunction,
+                          fromSwidClass: (_) => dartUnknownFunction,
+                          fromSwidDefaultFormalParameter: (_) =>
+                              dartUnknownFunction,
+                          fromSwidFunctionType: (val) => val,
+                        ),
                   )
                   .toList(),
               factoryConstructors: val.factoryConstructors

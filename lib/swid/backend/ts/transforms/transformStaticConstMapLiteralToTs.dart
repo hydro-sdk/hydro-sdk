@@ -6,7 +6,8 @@ import 'package:hydro_sdk/swid/backend/ts/transforms/transformStaticConstMapLite
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstFieldReference.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstMapLiteral.dart';
-import 'package:hydro_sdk/swid/ir/util/rewriteClassReferencesToInterfaceReferences.dart';
+import 'package:hydro_sdk/swid/ir/transforms/markClassReferences.dart';
+import 'package:hydro_sdk/swid/ir/transforms/rewriteReferences.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsEphemeralTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsNonUniqueTermMixin.dart';
@@ -77,17 +78,28 @@ class TransformStaticConstMapLiteralToTs
           " Map.fromEntries(",
           "<IIterable<IMapEntry",
           "<",
-          rewriteClassReferencesToInterfaceReferences(
-            swidType: pipeline.reduceFromTerm(
-              TransformPrimitiveNamesToTs(
-                swidType: staticConstMapLiteral.staticType,
+          pipeline
+              .reduceFromTerm(
+                RewriteReferences(
+                  swidType: pipeline.reduceFromTerm(
+                    MarkClassReferences(
+                      swidType: pipeline.reduceFromTerm(
+                        TransformPrimitiveNamesToTs(
+                          swidType: staticConstMapLiteral.staticType,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              )
+              .maybeWhen(
+                fromSwidInterface: (val) => val.typeArguments
+                    .map(
+                      (x) => x.type.name,
+                    )
+                    .join(","),
+                orElse: () => "",
               ),
-            ),
-          ).maybeWhen(
-            fromSwidInterface: (val) =>
-                val.typeArguments.map((x) => x.type.name).join(","),
-            orElse: () => "",
-          ),
           ">>>",
           "<unknown>",
           "List.fromArray([",

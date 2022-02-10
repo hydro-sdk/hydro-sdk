@@ -5,7 +5,8 @@ import 'package:hydro_sdk/swid/backend/ts/tsFunctionDefaultNamedPropsObjectName.
 import 'package:hydro_sdk/swid/ir/analyses/isInexpressibleStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
-import 'package:hydro_sdk/swid/ir/util/rewriteClassReferencesToInterfaceReferences.dart';
+import 'package:hydro_sdk/swid/ir/transforms/markClassReferences.dart';
+import 'package:hydro_sdk/swid/ir/transforms/rewriteReferences.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsEphemeralTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
@@ -74,11 +75,17 @@ class TsFunctionDefaultNamedProps
                                     parentClass: null,
                                     emitTopLevelInitializersForOptionalPositionals:
                                         true,
-                                    swidType:
-                                        rewriteClassReferencesToInterfaceReferences(
-                                      swidType: SwidType
-                                          .fromSwidDefaultFormalParameter(
-                                        swidDefaultFormalParameter: x.value,
+                                    swidType: pipeline.reduceFromTerm(
+                                      RewriteReferences(
+                                        swidType: pipeline.reduceFromTerm(
+                                          MarkClassReferences(
+                                            swidType: SwidType
+                                                .fromSwidDefaultFormalParameter(
+                                              swidDefaultFormalParameter:
+                                                  x.value,
+                                            ),
+                                          ),
+                                        ),
                                       ),
                                     ),
                                   ),

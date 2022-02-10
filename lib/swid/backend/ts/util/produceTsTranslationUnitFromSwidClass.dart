@@ -1,4 +1,8 @@
 import 'package:collection/collection.dart';
+import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
+import 'package:hydro_sdk/swid/ir/swidType.dart';
+import 'package:hydro_sdk/swid/ir/transforms/markClassReferences.dart';
+import 'package:hydro_sdk/swid/ir/transforms/rewriteReferences.dart';
 import 'package:path/path.dart' as p;
 
 import 'package:hydro_sdk/swid/backend/ts/analyses/tsClassMethodInjectionCandidates.dart';
@@ -24,7 +28,6 @@ import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/transforms/applySuperTypes.dart';
 import 'package:hydro_sdk/swid/ir/util/propagateUnsatisfiedTypeParameters.dart';
-import 'package:hydro_sdk/swid/ir/util/rewriteClassReferencestoInterfaceReferencesInClass.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 
 TsTranslationUnit produceTsTranslationUnitFromSwidClass({
@@ -115,23 +118,53 @@ TsTranslationUnit produceTsTranslationUnitFromSwidClass({
                       TsIr.fromTsClassInstanceFieldDeclarations(
                         tsClassInstanceFieldDeclarations:
                             TsClassInstanceFieldDeclarations(
-                          swidClass:
-                              rewriteClassReferencesToInterfaceReferencesInClass(
-                            swidClass: pipeline.reduceFromTerm(
-                              ApplySuperTypes(
-                                swidClass: swidClass,
+                          swidClass: pipeline
+                              .reduceFromTerm(
+                                RewriteReferences(
+                                  swidType: pipeline.reduceFromTerm(
+                                    MarkClassReferences(
+                                      swidType: SwidType.fromSwidClass(
+                                        swidClass: pipeline.reduceFromTerm(
+                                          ApplySuperTypes(
+                                            swidClass: swidClass,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              )
+                              .when(
+                                fromSwidInterface: (_) => dartUnknownClass,
+                                fromSwidClass: (val) => val,
+                                fromSwidDefaultFormalParameter: (_) =>
+                                    dartUnknownClass,
+                                fromSwidFunctionType: (_) => dartUnknownClass,
                               ),
-                            ),
-                          ),
                         ),
                       ),
                       TsIr.fromTsClassConstructorImplementation(
                         tsClassConstructorImplementation:
                             TsClassConstructorImplementation(
-                          swidClass:
-                              rewriteClassReferencesToInterfaceReferencesInClass(
-                            swidClass: swidClass,
-                          ),
+                          swidClass: pipeline
+                              .reduceFromTerm(
+                                RewriteReferences(
+                                  swidType: pipeline.reduceFromTerm(
+                                    MarkClassReferences(
+                                      swidType: SwidType.fromSwidClass(
+                                        swidClass: swidClass,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              )
+                              .when(
+                                fromSwidInterface: (_) => dartUnknownClass,
+                                fromSwidClass: (val) => val,
+                                fromSwidDefaultFormalParameter: (_) =>
+                                    dartUnknownClass,
+                                fromSwidFunctionType: (_) => dartUnknownClass,
+                              ),
                         ),
                       ),
                       ...((SwidClass propagatedClass) => ([

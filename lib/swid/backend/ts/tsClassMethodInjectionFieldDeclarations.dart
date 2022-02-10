@@ -5,8 +5,11 @@ import 'package:hydro_sdk/swid/backend/ts/transforms/covarianceTransformKind.dar
 import 'package:hydro_sdk/swid/backend/ts/transforms/trailingReturnTypeKind.dart';
 import 'package:hydro_sdk/swid/backend/ts/transforms/transformFunctionTypeToTs.dart';
 import 'package:hydro_sdk/swid/backend/ts/tsClassMethodInjectionFieldName.dart';
+import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
-import 'package:hydro_sdk/swid/ir/util/rewriteClassReferencesToInterfaceReferencesInFunction.dart';
+import 'package:hydro_sdk/swid/ir/swidType.dart';
+import 'package:hydro_sdk/swid/ir/transforms/markClassReferences.dart';
+import 'package:hydro_sdk/swid/ir/transforms/rewriteReferences.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsEphemeralTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
@@ -69,20 +72,54 @@ class TsClassMethodInjectionFieldDeclarations
                           "    private readonly " +
                           pipeline.reduceFromTerm(
                             TsClassMethodInjectionFieldName(
-                              swidFunctionType:
-                                  rewriteClassReferencesToInterfaceReferencesInFunction(
-                                swidFunctionType: x,
-                              ),
+                              swidFunctionType: pipeline
+                                  .reduceFromTerm(
+                                    RewriteReferences(
+                                      swidType: pipeline.reduceFromTerm(
+                                        MarkClassReferences(
+                                          swidType:
+                                              SwidType.fromSwidFunctionType(
+                                            swidFunctionType: x,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  )
+                                  .when(
+                                    fromSwidInterface: (_) =>
+                                        dartUnknownFunction,
+                                    fromSwidClass: (_) => dartUnknownFunction,
+                                    fromSwidDefaultFormalParameter: (_) =>
+                                        dartUnknownFunction,
+                                    fromSwidFunctionType: (val) => val,
+                                  ),
                             ),
                           ) +
                           ": " +
                           pipeline.reduceFromTerm(
                             TransformFunctionTypeToTs(
                               parentClass: swidClass,
-                              swidFunctionType:
-                                  rewriteClassReferencesToInterfaceReferencesInFunction(
-                                swidFunctionType: x,
-                              ),
+                              swidFunctionType: pipeline
+                                  .reduceFromTerm(
+                                    RewriteReferences(
+                                      swidType: pipeline.reduceFromTerm(
+                                        MarkClassReferences(
+                                          swidType:
+                                              SwidType.fromSwidFunctionType(
+                                            swidFunctionType: x,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  )
+                                  .when(
+                                    fromSwidInterface: (_) =>
+                                        dartUnknownFunction,
+                                    fromSwidClass: (_) => dartUnknownFunction,
+                                    fromSwidDefaultFormalParameter: (_) =>
+                                        dartUnknownFunction,
+                                    fromSwidFunctionType: (val) => val,
+                                  ),
                               trailingReturnTypeKind:
                                   TrailingReturnTypeKind.fatArrow,
                               covarianceTransformKind:

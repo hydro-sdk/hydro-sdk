@@ -9,7 +9,8 @@ import 'package:hydro_sdk/swid/backend/ts/tsClassMethodInjectionFieldName.dart';
 import 'package:hydro_sdk/swid/backend/ts/tsFunctionSelfBindingInvocation.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
-import 'package:hydro_sdk/swid/ir/util/rewriteClassReferencesToInterfaceReferencesInFunction.dart';
+import 'package:hydro_sdk/swid/ir/transforms/markClassReferences.dart';
+import 'package:hydro_sdk/swid/ir/transforms/rewriteReferences.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsEphemeralTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
@@ -78,10 +79,15 @@ class TsClassMethodDeclarations
                                     true,
                                 topLevelTrailingReturnTypeKind:
                                     TrailingReturnTypeKind.colon,
-                                swidType: SwidType.fromSwidFunctionType(
-                                  swidFunctionType:
-                                      rewriteClassReferencesToInterfaceReferencesInFunction(
-                                    swidFunctionType: x,
+                                swidType: pipeline.reduceFromTerm(
+                                  RewriteReferences(
+                                    swidType: pipeline.reduceFromTerm(
+                                      MarkClassReferences(
+                                        swidType: SwidType.fromSwidFunctionType(
+                                          swidFunctionType: x,
+                                        ),
+                                      ),
+                                    ),
                                   ),
                                 ),
                                 covarianceTransformKind:

@@ -1,9 +1,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
-import 'package:hydro_sdk/swid/ir/transforms/markShadowingParentReferencesInDefaultFormalParameter.dart';
-import 'package:hydro_sdk/swid/ir/transforms/markShadowingParentReferencesInType.dart';
+import 'package:hydro_sdk/swid/ir/transforms/rewriteReferences.dart';
+import 'package:hydro_sdk/swid/ir/transforms/rewriteReferencesInDefaultFormalParameter.dart';
 import 'package:hydro_sdk/swid/ir/util/swarsTermSwidFunctionTypeResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsEphemeralTermMixin.dart';
@@ -13,45 +12,40 @@ import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
 
-part 'markShadowingParentReferencesInFunction.freezed.dart';
+part 'rewriteReferencesInFunction.freezed.dart';
 
 @freezed
-class MarkShadowingParentReferencesInFunction
+class RewriteReferencesInFunction
     with
-        _$MarkShadowingParentReferencesInFunction,
-        HashKeyMixin<MarkShadowingParentReferencesInFunction>,
-        HashComparableMixin<MarkShadowingParentReferencesInFunction>,
+        _$RewriteReferencesInFunction,
+        HashKeyMixin<RewriteReferencesInFunction>,
+        HashComparableMixin<RewriteReferencesInFunction>,
         SwarsTransformMixin<
-            MarkShadowingParentReferencesInFunction,
-            $MarkShadowingParentReferencesInFunctionCopyWith<
-                MarkShadowingParentReferencesInFunction>,
+            RewriteReferencesInFunction,
+            $RewriteReferencesInFunctionCopyWith<RewriteReferencesInFunction>,
             SwidFunctionType>,
         SwarsEphemeralTermMixin,
         SwarsTermJsonTransformableResultMixin,
         SwarsTermSwidFunctionTypeResultMixin {
-  MarkShadowingParentReferencesInFunction._();
+  RewriteReferencesInFunction._();
 
-  factory MarkShadowingParentReferencesInFunction({
-    required final SwidClass parent,
+  factory RewriteReferencesInFunction({
     required final SwidFunctionType swidFunctionType,
-  }) = _$MarkShadowingParentReferencesInFunctionCtor;
+  }) = _$RewriteReferencesInFunctionCtor;
 
   @override
-  String get cacheGroup => "markShadowingParentReferencesInFunction";
+  String get cacheGroup => "RewriteReferencesInFunction";
 
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
-    yield* parent.hashKey.hashableParts;
     yield* swidFunctionType.hashKey.hashableParts;
   }
 
   @override
-  MarkShadowingParentReferencesInFunction clone({
-    final SwidClass? parent,
+  RewriteReferencesInFunction clone({
     final SwidFunctionType? swidFunctionType,
   }) =>
-      MarkShadowingParentReferencesInFunction(
-        parent: parent ?? this.parent,
+      RewriteReferencesInFunction(
         swidFunctionType: swidFunctionType ?? this.swidFunctionType,
       );
 
@@ -61,10 +55,16 @@ class MarkShadowingParentReferencesInFunction
   }) =>
       SwarsTermResult.fromValue(
         swidFunctionType.clone(
-          returnType: pipeline.reduceFromTerm(
-            MarkShadowingParentReferencesInType(
-              parent: parent,
-              swidType: swidFunctionType.returnType,
+          namedParameterTypes: Map.fromEntries(
+            swidFunctionType.namedParameterTypes.entries.map(
+              (x) => MapEntry(
+                x.key,
+                pipeline.reduceFromTerm(
+                  RewriteReferences(
+                    swidType: x.value,
+                  ),
+                ),
+              ),
             ),
           ),
           namedDefaults: Map.fromEntries(
@@ -72,8 +72,7 @@ class MarkShadowingParentReferencesInFunction
               (x) => MapEntry(
                 x.key,
                 pipeline.reduceFromTerm(
-                  MarkShadowingParentReferencesInDefaultFormalParameter(
-                    parent: parent,
+                  RewriteReferencesInDefaultFormalParameter(
                     swidDefaultFormalParameter: x.value,
                   ),
                 ),
@@ -83,8 +82,7 @@ class MarkShadowingParentReferencesInFunction
           normalParameterTypes: swidFunctionType.normalParameterTypes
               .map(
                 (x) => pipeline.reduceFromTerm(
-                  MarkShadowingParentReferencesInType(
-                    parent: parent,
+                  RewriteReferences(
                     swidType: x,
                   ),
                 ),
@@ -93,24 +91,15 @@ class MarkShadowingParentReferencesInFunction
           optionalParameterTypes: swidFunctionType.optionalParameterTypes
               .map(
                 (x) => pipeline.reduceFromTerm(
-                  MarkShadowingParentReferencesInType(
-                    parent: parent,
+                  RewriteReferences(
                     swidType: x,
                   ),
                 ),
               )
               .toList(),
-          namedParameterTypes: Map.fromEntries(
-            swidFunctionType.namedParameterTypes.entries.map(
-              (x) => MapEntry(
-                x.key,
-                pipeline.reduceFromTerm(
-                  MarkShadowingParentReferencesInType(
-                    parent: parent,
-                    swidType: x.value,
-                  ),
-                ),
-              ),
+          returnType: pipeline.reduceFromTerm(
+            RewriteReferences(
+              swidType: swidFunctionType.returnType,
             ),
           ),
         ),

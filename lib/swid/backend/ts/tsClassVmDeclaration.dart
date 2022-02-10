@@ -1,4 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
+import 'package:hydro_sdk/swid/ir/transforms/markClassReferences.dart';
+import 'package:hydro_sdk/swid/ir/transforms/rewriteReferences.dart';
 import 'package:path/path.dart' as path;
 
 import 'package:hydro_sdk/swid/backend/ts/transforms/transformVmDeclarationToTs.dart';
@@ -13,8 +16,6 @@ import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeArgumentType.dart';
-import 'package:hydro_sdk/swid/ir/util/rewriteClassReferencesToInterfaceReferencesInFunction.dart';
-import 'package:hydro_sdk/swid/ir/util/rewriteClassReferencestoInterfaceReferencesInClass.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsEphemeralTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
@@ -62,6 +63,7 @@ class TsClassVmDeclaration
 
   TsVmDeclaration _addConstructorBindingDeclarations({
     required final TsVmDeclaration tsVmDeclaration,
+    required final ISwarsPipeline pipeline,
   }) =>
       swidClass.constructorType != null &&
               transformPackageUri(packageUri: swidClass.originalPackagePath)
@@ -71,61 +73,84 @@ class TsClassVmDeclaration
           ? TsVmDeclaration.clone(
               tsVmDeclaration: tsVmDeclaration,
               methods: [
-                rewriteClassReferencesToInterfaceReferencesInFunction(
-                  swidFunctionType: SwidFunctionType.MakeReceiverVoid(
-                    swidFunctionType:
-                        SwidFunctionType.InsertLeadingPositionalParameter(
-                      typeName: transformToCamelCase(str: swidClass.name),
-                      swidType: SwidType.fromSwidInterface(
-                        swidInterface: SwidInterface(
-                          declarationModifiers:
-                              SwidDeclarationModifiers.empty(),
-                          typeArguments: swidClass.typeFormals
-                              .map(
-                                (x) => SwidTypeArgumentType(
-                                  type: SwidType.fromSwidInterface(
+                pipeline
+                    .reduceFromTerm(
+                      RewriteReferences(
+                        swidType: pipeline.reduceFromTerm(
+                          MarkClassReferences(
+                            swidType: SwidType.fromSwidFunctionType(
+                              swidFunctionType:
+                                  SwidFunctionType.MakeReceiverVoid(
+                                swidFunctionType: SwidFunctionType
+                                    .InsertLeadingPositionalParameter(
+                                  typeName:
+                                      transformToCamelCase(str: swidClass.name),
+                                  swidType: SwidType.fromSwidInterface(
                                     swidInterface: SwidInterface(
                                       declarationModifiers:
                                           SwidDeclarationModifiers.empty(),
-                                      name: x.value.name,
-                                      nullabilitySuffix:
-                                          SwidNullabilitySuffix.none,
-                                      originalPackagePath: "",
+                                      typeArguments: swidClass.typeFormals
+                                          .map(
+                                            (x) => SwidTypeArgumentType(
+                                              type: SwidType.fromSwidInterface(
+                                                swidInterface: SwidInterface(
+                                                  declarationModifiers:
+                                                      SwidDeclarationModifiers
+                                                          .empty(),
+                                                  name: x.value.name,
+                                                  nullabilitySuffix:
+                                                      SwidNullabilitySuffix
+                                                          .none,
+                                                  originalPackagePath: "",
+                                                  referenceDeclarationKind:
+                                                      SwidReferenceDeclarationKind
+                                                          .typeParameterType,
+                                                  typeArguments: [],
+                                                ),
+                                              ),
+                                              element: null,
+                                            ),
+                                          )
+                                          .toList(),
+                                      name: swidClass.name +
+                                          (swidClass.typeFormals.isNotEmpty
+                                              ? "<" +
+                                                  swidClass.typeFormals
+                                                      .map((x) => x.value.name)
+                                                      .toList()
+                                                      .join(",") +
+                                                  ">"
+                                              : ""),
                                       referenceDeclarationKind:
                                           SwidReferenceDeclarationKind
-                                              .typeParameterType,
-                                      typeArguments: [],
+                                              .classElement,
+                                      nullabilitySuffix:
+                                          SwidNullabilitySuffix.star,
+                                      originalPackagePath: "",
                                     ),
                                   ),
-                                  element: null,
+                                  swidFunctionType: SwidFunctionType.clone(
+                                    swidFunctionType:
+                                        swidClass.constructorType!,
+                                    typeFormals: swidClass.typeFormals,
+                                    name: transformToCamelCase(
+                                      str: swidClass.name,
+                                    ),
+                                  ),
                                 ),
-                              )
-                              .toList(),
-                          name: swidClass.name +
-                              (swidClass.typeFormals.isNotEmpty
-                                  ? "<" +
-                                      swidClass.typeFormals
-                                          .map((x) => x.value.name)
-                                          .toList()
-                                          .join(",") +
-                                      ">"
-                                  : ""),
-                          referenceDeclarationKind:
-                              SwidReferenceDeclarationKind.classElement,
-                          nullabilitySuffix: SwidNullabilitySuffix.star,
-                          originalPackagePath: "",
+                              ),
+                            ),
+                          ),
                         ),
                       ),
-                      swidFunctionType: SwidFunctionType.clone(
-                        swidFunctionType: swidClass.constructorType!,
-                        typeFormals: swidClass.typeFormals,
-                        name: transformToCamelCase(
-                          str: swidClass.name,
-                        ),
-                      ),
+                    )
+                    .when(
+                      fromSwidInterface: (_) => dartUnknownFunction,
+                      fromSwidClass: (_) => dartUnknownFunction,
+                      fromSwidDefaultFormalParameter: (_) =>
+                          dartUnknownFunction,
+                      fromSwidFunctionType: (val) => val,
                     ),
-                  ),
-                ),
                 ...tsVmDeclaration.methods,
               ],
             )
@@ -157,10 +182,12 @@ class TsClassVmDeclaration
                               (previousValue, element) => TsVmDeclaration.clone(
                                 tsVmDeclaration:
                                     _addConstructorBindingDeclarations(
+                                  pipeline: pipeline,
                                   tsVmDeclaration: previousValue,
                                 ),
                                 children: [
                                   _addConstructorBindingDeclarations(
+                                    pipeline: pipeline,
                                     tsVmDeclaration: TsVmDeclaration.clone(
                                       tsVmDeclaration: element,
                                       methods: [
@@ -182,68 +209,106 @@ class TsClassVmDeclaration
                                               ),
                                             )
                                             .map(
-                                              (x) =>
-                                                  rewriteClassReferencesToInterfaceReferencesInFunction(
-                                                swidFunctionType:
-                                                    SwidFunctionType
-                                                        .MakeReceiverVoid(
-                                                  swidFunctionType:
-                                                      SwidFunctionType(
-                                                    declarationModifiers:
-                                                        SwidDeclarationModifiers
-                                                            .empty(),
-                                                    name: x.name,
-                                                    nullabilitySuffix:
-                                                        SwidNullabilitySuffix
-                                                            .none,
-                                                    originalPackagePath:
-                                                        swidClass
-                                                            .originalPackagePath,
-                                                    namedParameterTypes: {},
-                                                    namedDefaults: {},
-                                                    normalParameterNames: [],
-                                                    normalParameterTypes: [],
-                                                    optionalParameterNames: [],
-                                                    optionalParameterTypes: [],
-                                                    returnType:
-                                                        x.value.when<SwidType?>(
-                                                      fromSwidStaticConstTopLevelVariableReference:
-                                                          (_) => null,
-                                                      fromSwidStaticConstMapLiteral:
-                                                          (_) => null,
-                                                      fromSwidStaticConstMapLiteralEntry:
-                                                          (_) => null,
-                                                      fromSwidBooleanLiteral:
-                                                          (_) => null,
-                                                      fromSwidStringLiteral:
-                                                          (_) => null,
-                                                      fromSwidIntegerLiteral:
-                                                          (_) => null,
-                                                      fromDoubleLiteral: (_) =>
-                                                          null,
-                                                      fromSwidStaticConstFunctionInvocation:
-                                                          (val) =>
-                                                              val.staticType,
-                                                      fromSwidStaticConstFieldReference:
-                                                          (_) => null,
-                                                      fromSwidStaticConstPrefixedExpression:
-                                                          (_) => null,
-                                                      fromSwidStaticConstBinaryExpression:
-                                                          (_) => null,
-                                                      fromSwidStaticConstPrefixedIdentifier:
-                                                          (_) => null,
-                                                      fromSwidStaticConstIdentifier:
-                                                          (_) => null,
-                                                      fromSwidStaticConstListLiteral:
-                                                          (_) => null,
-                                                      fromSwidStaticConstPropertyAccess:
-                                                          (_) => null,
-                                                    )!,
-                                                    isFactory: false,
-                                                    typeFormals: [],
+                                              (x) => pipeline
+                                                  .reduceFromTerm(
+                                                    RewriteReferences(
+                                                      swidType: pipeline
+                                                          .reduceFromTerm(
+                                                        MarkClassReferences(
+                                                          swidType: SwidType
+                                                              .fromSwidFunctionType(
+                                                            swidFunctionType:
+                                                                SwidFunctionType
+                                                                    .MakeReceiverVoid(
+                                                              swidFunctionType:
+                                                                  SwidFunctionType(
+                                                                declarationModifiers:
+                                                                    SwidDeclarationModifiers
+                                                                        .empty(),
+                                                                name: x.name,
+                                                                nullabilitySuffix:
+                                                                    SwidNullabilitySuffix
+                                                                        .none,
+                                                                originalPackagePath:
+                                                                    swidClass
+                                                                        .originalPackagePath,
+                                                                namedParameterTypes: {},
+                                                                namedDefaults: {},
+                                                                normalParameterNames: [],
+                                                                normalParameterTypes: [],
+                                                                optionalParameterNames: [],
+                                                                optionalParameterTypes: [],
+                                                                returnType: x
+                                                                    .value
+                                                                    .when<
+                                                                        SwidType?>(
+                                                                  fromSwidStaticConstTopLevelVariableReference:
+                                                                      (_) =>
+                                                                          null,
+                                                                  fromSwidStaticConstMapLiteral:
+                                                                      (_) =>
+                                                                          null,
+                                                                  fromSwidStaticConstMapLiteralEntry:
+                                                                      (_) =>
+                                                                          null,
+                                                                  fromSwidBooleanLiteral:
+                                                                      (_) =>
+                                                                          null,
+                                                                  fromSwidStringLiteral:
+                                                                      (_) =>
+                                                                          null,
+                                                                  fromSwidIntegerLiteral:
+                                                                      (_) =>
+                                                                          null,
+                                                                  fromDoubleLiteral:
+                                                                      (_) =>
+                                                                          null,
+                                                                  fromSwidStaticConstFunctionInvocation:
+                                                                      (val) => val
+                                                                          .staticType,
+                                                                  fromSwidStaticConstFieldReference:
+                                                                      (_) =>
+                                                                          null,
+                                                                  fromSwidStaticConstPrefixedExpression:
+                                                                      (_) =>
+                                                                          null,
+                                                                  fromSwidStaticConstBinaryExpression:
+                                                                      (_) =>
+                                                                          null,
+                                                                  fromSwidStaticConstPrefixedIdentifier:
+                                                                      (_) =>
+                                                                          null,
+                                                                  fromSwidStaticConstIdentifier:
+                                                                      (_) =>
+                                                                          null,
+                                                                  fromSwidStaticConstListLiteral:
+                                                                      (_) =>
+                                                                          null,
+                                                                  fromSwidStaticConstPropertyAccess:
+                                                                      (_) =>
+                                                                          null,
+                                                                )!,
+                                                                isFactory:
+                                                                    false,
+                                                                typeFormals: [],
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  )
+                                                  .when(
+                                                    fromSwidInterface: (_) =>
+                                                        dartUnknownFunction,
+                                                    fromSwidClass: (_) =>
+                                                        dartUnknownFunction,
+                                                    fromSwidDefaultFormalParameter:
+                                                        (_) =>
+                                                            dartUnknownFunction,
+                                                    fromSwidFunctionType:
+                                                        (val) => val,
                                                   ),
-                                                ),
-                                              ),
                                             )
                                             .toList()
                                       ]
@@ -266,9 +331,24 @@ class TsClassVmDeclaration
                             ),
                       ),
                     ))(
-                  rewriteClassReferencesToInterfaceReferencesInClass(
-                    swidClass: swidClass,
-                  ),
+                  pipeline
+                      .reduceFromTerm(
+                        RewriteReferences(
+                          swidType: pipeline.reduceFromTerm(
+                            MarkClassReferences(
+                              swidType: SwidType.fromSwidClass(
+                                swidClass: swidClass,
+                              ),
+                            ),
+                          ),
+                        ),
+                      )
+                      .when(
+                        fromSwidInterface: (_) => dartUnknownClass,
+                        fromSwidClass: (val) => val,
+                        fromSwidDefaultFormalParameter: (_) => dartUnknownClass,
+                        fromSwidFunctionType: (_) => dartUnknownClass,
+                      ),
                 ) +
                 ";\n"
             : "",
