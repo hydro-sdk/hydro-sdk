@@ -1,13 +1,11 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
-import 'package:hydro_sdk/swid/ir/transforms/markClassReferences.dart';
-import 'package:hydro_sdk/swid/ir/transforms/rewriteReferences.dart';
 import 'package:path/path.dart' as path;
 
 import 'package:hydro_sdk/swid/backend/ts/transforms/transformVmDeclarationToTs.dart';
 import 'package:hydro_sdk/swid/backend/ts/tsVmDeclaration.dart';
 import 'package:hydro_sdk/swid/backend/util/requiresDartBinding.dart';
 import 'package:hydro_sdk/swid/ir/analyses/isInexpressibleStaticConst.dart';
+import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
@@ -16,6 +14,8 @@ import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeArgumentType.dart';
+import 'package:hydro_sdk/swid/ir/transforms/markClassReferences.dart';
+import 'package:hydro_sdk/swid/ir/transforms/rewriteReferences.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsEphemeralTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';

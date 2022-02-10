@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/transforms/rewriteReferencesInClass.dart';
 import 'package:hydro_sdk/swid/ir/transforms/rewriteReferencesInDefaultFormalParameter.dart';

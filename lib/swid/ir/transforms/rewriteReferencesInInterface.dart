@@ -1,8 +1,9 @@
 import 'package:dartlin/control_flow.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:tuple/tuple.dart';
+
 import 'package:hydro_sdk/swid/backend/ts/transforms/transformSixteenthHashName.dart';
 import 'package:hydro_sdk/swid/ir/swidElementReferenceInfo.dart';
-
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/transforms/rewriteReferences.dart';
@@ -15,7 +16,6 @@ import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
 import 'package:hydro_sdk/swid/transforms/removeNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
-import 'package:tuple/tuple.dart';
 
 part 'rewriteReferencesInInterface.freezed.dart';
 
