@@ -2,7 +2,11 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/backend/ts/transforms/transformTypeFormalsToTs.dart';
 import 'package:hydro_sdk/swid/backend/ts/tsSuperClassClause.dart';
+import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/swidType.dart';
+import 'package:hydro_sdk/swid/ir/transforms/markClassReferences.dart';
+import 'package:hydro_sdk/swid/ir/transforms/rewriteReferencesInClass.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsEphemeralTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
@@ -50,7 +54,7 @@ class TsClassPreamble
     required final ISwarsPipeline pipeline,
   }) =>
       SwarsTermResult.fromValue(
-        ([
+        [
           "export class ${swidClass.name}",
           pipeline.reduceFromTerm(
             TransformTypeFormalsToTs(
@@ -59,12 +63,28 @@ class TsClassPreamble
           ),
           pipeline.reduceFromTerm(
             TsSuperClassClause(
-              swidClass: swidClass,
+              swidClass: pipeline.reduceFromTerm(
+                RewriteReferencesInClass(
+                  swidClass: pipeline
+                      .reduceFromTerm(
+                        MarkClassReferences(
+                          swidType: SwidType.fromSwidClass(
+                            swidClass: swidClass,
+                          ),
+                        ),
+                      )
+                      .when(
+                        fromSwidInterface: (_) => dartUnknownClass,
+                        fromSwidClass: (val) => val,
+                        fromSwidDefaultFormalParameter: (_) => dartUnknownClass,
+                        fromSwidFunctionType: (_) => dartUnknownClass,
+                      ),
+                ),
+              ),
               clauseKeyword: "implements",
             ),
           ),
           "{"
-        ]..removeWhere((x) => x == null))
-            .join("\n"),
+        ].join("\n"),
       );
 }

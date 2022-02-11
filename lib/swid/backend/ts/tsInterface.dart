@@ -7,6 +7,7 @@ import 'package:hydro_sdk/swid/backend/ts/tsSuperClassClause.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
+import 'package:hydro_sdk/swid/ir/transforms/rewriteReferences.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsEphemeralTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
@@ -108,15 +109,41 @@ class TsInterface
                     .item2,
           ))(
         name: swidClass.name,
-        members: {
-          ...Map.fromEntries(swidClass.instanceFieldDeclarations.entries
-              .map((x) => MapEntry(x.key, x.value))
-              .toList()),
-          ...Map.fromEntries(swidClass.methods
-              .map((x) => MapEntry(
-                  x.name, SwidType.fromSwidFunctionType(swidFunctionType: x)))
-              .toList()),
-        },
+        members: Map.fromEntries(
+          {
+            ...Map.fromEntries(
+              swidClass.instanceFieldDeclarations.entries
+                  .map(
+                    (x) => MapEntry(
+                      x.key,
+                      x.value,
+                    ),
+                  )
+                  .toList(),
+            ),
+            ...Map.fromEntries(
+              swidClass.methods
+                  .map(
+                    (x) => MapEntry(
+                      x.name,
+                      SwidType.fromSwidFunctionType(
+                        swidFunctionType: x,
+                      ),
+                    ),
+                  )
+                  .toList(),
+            ),
+          }.entries.map(
+                (x) => MapEntry(
+                  x.key,
+                  pipeline.reduceFromTerm(
+                    RewriteReferences(
+                      swidType: x.value,
+                    ),
+                  ),
+                ),
+              ),
+        ),
         typeFormals: List.from(swidClass.typeFormals),
         superClause: pipeline.reduceFromTerm(
           TsSuperClassClause(

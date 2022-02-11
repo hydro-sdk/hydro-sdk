@@ -40,7 +40,7 @@ void main() {
                       SwidReferenceDeclarationKind.classElement,
                   originalPackagePath: "",
                   nullabilitySuffix: SwidNullabilitySuffix.none,
-                )),
+                ),),
               ],
               optionalParameterNames: ["onTap"],
               optionalParameterTypes: [
@@ -81,7 +81,7 @@ void main() {
                                       nullabilitySuffix:
                                           SwidNullabilitySuffix.question,
                                       originalPackagePath: "",
-                                    ))
+                                    ),)
                                   ],
                                   nullabilitySuffix:
                                       SwidNullabilitySuffix.question,
@@ -98,7 +98,7 @@ void main() {
                                     originalPackagePath: "",
                                     nullabilitySuffix:
                                         SwidNullabilitySuffix.none,
-                                  ))))
+                                  ),),),)
                         ],
                         originalPackagePath: "",
                         nullabilitySuffix: SwidNullabilitySuffix.question,
@@ -112,7 +112,7 @@ void main() {
                               SwidReferenceDeclarationKind.classElement,
                           originalPackagePath: "",
                           nullabilitySuffix: SwidNullabilitySuffix.none,
-                        ))))
+                        ),),),)
               ],
               namedParameterTypes: {},
               nullabilitySuffix: SwidNullabilitySuffix.star,
@@ -130,6 +130,6 @@ void main() {
             ),
           ),
         ),
-        "(itemCount: int, onTap? : (resolveDuration? : (millis?: number | undefined) => Duration) => Widget) => num | undefined");
+        "(itemCount: number, onTap? : (resolveDuration? : (millis?: number | undefined) => Duration) => Widget) => num | undefined");
   }, tags: "swid");
 }

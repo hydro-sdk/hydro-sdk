@@ -1,4 +1,4 @@
-import 'package:dartlin/control_flow.dart';
+import 'package:dartlin/dartlin.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
@@ -194,39 +194,60 @@ class MarkClassReferences
                                 fromSwidFunctionType: (_) => dartUnknownClass,
                               )
                               .let(
-                                (it) => it.clone(
-                                  element: it.element?.when(
-                                        fromSwidTypeArgumentElement: (val) =>
-                                            SwidElement
-                                                .fromSwidInterfaceElement(
+                                (it) => iff(
+                                  !isDartObject(
+                                        swidType: SwidType.fromSwidClass(
+                                          swidClass: it,
+                                        ),
+                                      ) &&
+                                      !isDartType(
+                                        swidType: SwidType.fromSwidClass(
+                                          swidClass: it,
+                                        ),
+                                      ) &&
+                                      !isPrimitive(
+                                        swidType: SwidType.fromSwidClass(
+                                          swidClass: it,
+                                        ),
+                                      ),
+                                  () => it.clone(
+                                    element: it.element?.when(
+                                          fromSwidTypeArgumentElement: (val) =>
+                                              SwidElement
+                                                  .fromSwidInterfaceElement(
+                                            swidInterfaceElement:
+                                                SwidInterfaceElement.empty()
+                                                    .clone(
+                                              isClassReference: true,
+                                            ),
+                                          ),
+                                          fromSwidInterfaceElement: (val) =>
+                                              SwidElement
+                                                  .fromSwidInterfaceElement(
+                                            swidInterfaceElement: val.clone(
+                                              isClassReference: true,
+                                            ),
+                                          ),
+                                          fromSwidClassElement: (val) =>
+                                              SwidElement.fromSwidClassElement(
+                                            swidClassElement: val.clone(
+                                              isClassReference: true,
+                                            ),
+                                          ),
+                                        ) ??
+                                        SwidElement.fromSwidInterfaceElement(
                                           swidInterfaceElement:
                                               SwidInterfaceElement.empty()
                                                   .clone(
                                             isClassReference: true,
                                           ),
                                         ),
-                                        fromSwidInterfaceElement: (val) =>
-                                            SwidElement
-                                                .fromSwidInterfaceElement(
-                                          swidInterfaceElement: val.clone(
-                                            isClassReference: true,
-                                          ),
-                                        ),
-                                        fromSwidClassElement: (val) =>
-                                            SwidElement.fromSwidClassElement(
-                                          swidClassElement: val.clone(
-                                            isClassReference: true,
-                                          ),
-                                        ),
-                                      ) ??
-                                      SwidElement.fromSwidInterfaceElement(
-                                        swidInterfaceElement:
-                                            SwidInterfaceElement.empty().clone(
-                                          isClassReference: true,
-                                        ),
-                                      ),
+                                  ),
+                                ).elseIf(
+                                  true,
+                                  () => it,
                                 ),
-                              ),
+                              )!,
                         ),
                         fromSwidInterface: (val) =>
                             SwidTypeFormalValue.fromSwidInterface(

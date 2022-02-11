@@ -9,8 +9,6 @@ import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/transforms/applySuperTypes.dart';
 import 'package:hydro_sdk/swid/ir/transforms/markClassReferences.dart';
 import 'package:hydro_sdk/swid/ir/transforms/markShadowingParentReferences.dart';
-import 'package:hydro_sdk/swid/ir/transforms/rewriteReferences.dart';
-import 'package:hydro_sdk/swid/ir/transforms/rewriteReferencesInClass.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 
 Tuple3<SwidClass, SwidClass, SwidClass> prepareClassForTranslationUnit({
@@ -47,17 +45,13 @@ Tuple3<SwidClass, SwidClass, SwidClass> prepareClassForTranslationUnit({
         pipeline: pipeline,
         swidClass: pipeline
             .reduceFromTerm(
-              RewriteReferences(
+              TransformPrimitiveNamesToTs(
                 swidType: pipeline.reduceFromTerm(
-                  TransformPrimitiveNamesToTs(
+                  MarkShadowingParentReferences(
                     swidType: pipeline.reduceFromTerm(
-                      MarkShadowingParentReferences(
-                        swidType: pipeline.reduceFromTerm(
-                          MarkClassReferences(
-                            swidType: SwidType.fromSwidClass(
-                              swidClass: swidClass,
-                            ),
-                          ),
+                      MarkClassReferences(
+                        swidType: SwidType.fromSwidClass(
+                          swidClass: swidClass,
                         ),
                       ),
                     ),
@@ -78,17 +72,13 @@ Tuple3<SwidClass, SwidClass, SwidClass> prepareClassForTranslationUnit({
             pipeline: pipeline,
             swidClass: pipeline
                 .reduceFromTerm(
-                  RewriteReferences(
+                  TransformPrimitiveNamesToTs(
                     swidType: pipeline.reduceFromTerm(
-                      TransformPrimitiveNamesToTs(
+                      MarkShadowingParentReferences(
                         swidType: pipeline.reduceFromTerm(
-                          MarkShadowingParentReferences(
-                            swidType: pipeline.reduceFromTerm(
-                              MarkClassReferences(
-                                swidType: SwidType.fromSwidClass(
-                                  swidClass: swidClass,
-                                ),
-                              ),
+                          MarkClassReferences(
+                            swidType: SwidType.fromSwidClass(
+                              swidClass: swidClass,
                             ),
                           ),
                         ),

@@ -1,5 +1,6 @@
 import 'package:collection/collection.dart' show IterableExtension;
 import 'package:dartlin/control_flow.dart';
+import 'package:hydro_sdk/swid/ir/swidElement.dart';
 import 'package:path/path.dart' as p;
 import 'package:tuple/tuple.dart';
 
@@ -89,7 +90,30 @@ List<Tuple2<List<String>, String>> resolveDependencyInformation({
                               swidType: pipeline.reduceFromTerm(
                                 MarkClassReferences(
                                   swidType: SwidType.fromSwidInterface(
-                                    swidInterface: x,
+                                    swidInterface: x.clone(
+                                      element: x.element?.let(
+                                        (it) => it.when(
+                                          fromSwidTypeArgumentElement: (val) =>
+                                              SwidElement
+                                                  .fromSwidTypeArgumentElement(
+                                            swidTypeArgumentElement: val,
+                                          ),
+                                          fromSwidInterfaceElement: (val) =>
+                                              SwidElement
+                                                  .fromSwidInterfaceElement(
+                                            swidInterfaceElement: val.clone(
+                                              isShadowingParent: false,
+                                            ),
+                                          ),
+                                          fromSwidClassElement: (val) =>
+                                              SwidElement.fromSwidClassElement(
+                                            swidClassElement: val.clone(
+                                              isShadowingParent: false,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
                                   ),
                                 ),
                               ),
