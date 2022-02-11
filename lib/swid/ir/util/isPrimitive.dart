@@ -27,6 +27,7 @@ bool isPrimitive({
           (x) =>
               swidType.maybeWhen(
                 fromSwidInterface: (val) => val.name,
+                fromSwidClass: (val) => val.name,
                 orElse: () => null,
               ) ==
               x.name,
