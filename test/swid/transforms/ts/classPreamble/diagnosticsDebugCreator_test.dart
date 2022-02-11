@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+
 import 'package:hydro_sdk/swid/backend/ts/tsClassPreamble.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
@@ -84,7 +85,7 @@ void main() {
 
     expect(
       res,
-"""
+      """
 export class DiagnosticsDebugCreator
 
  implements IDiagnosticsProperty<Object>

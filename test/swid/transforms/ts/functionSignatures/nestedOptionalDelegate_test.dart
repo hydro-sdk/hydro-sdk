@@ -32,87 +32,90 @@ void main() {
               normalParameterNames: ["itemCount"],
               normalParameterTypes: [
                 SwidType.fromSwidInterface(
-                    swidInterface: SwidInterface(
-                  declarationModifiers: SwidDeclarationModifiers.empty(),
-                  typeArguments: [],
-                  name: "int",
-                  referenceDeclarationKind:
-                      SwidReferenceDeclarationKind.classElement,
-                  originalPackagePath: "",
-                  nullabilitySuffix: SwidNullabilitySuffix.none,
-                ),),
+                  swidInterface: SwidInterface(
+                    declarationModifiers: SwidDeclarationModifiers.empty(),
+                    typeArguments: [],
+                    name: "int",
+                    referenceDeclarationKind:
+                        SwidReferenceDeclarationKind.classElement,
+                    originalPackagePath: "",
+                    nullabilitySuffix: SwidNullabilitySuffix.none,
+                  ),
+                ),
               ],
               optionalParameterNames: ["onTap"],
               optionalParameterTypes: [
                 SwidType.fromSwidFunctionType(
-                    swidFunctionType: SwidFunctionType(
-                        isFactory: false,
-                        typeFormals: [],
-                        namedDefaults: {},
-                        declarationModifiers: SwidDeclarationModifiers.empty(),
-                        name: "",
-                        normalParameterNames: [],
-                        normalParameterTypes: [],
-                        namedParameterTypes: {},
-                        optionalParameterNames: ["resolveDuration"],
-                        optionalParameterTypes: [
-                          SwidType.fromSwidFunctionType(
-                              swidFunctionType: SwidFunctionType(
-                                  isFactory: false,
-                                  typeFormals: [],
-                                  namedDefaults: {},
-                                  declarationModifiers:
-                                      SwidDeclarationModifiers.empty(),
-                                  name: "",
-                                  normalParameterNames: ["millis"],
-                                  namedParameterTypes: {},
-                                  optionalParameterNames: [],
-                                  optionalParameterTypes: [],
-                                  normalParameterTypes: [
-                                    SwidType.fromSwidInterface(
-                                        swidInterface: SwidInterface(
-                                      declarationModifiers:
-                                          SwidDeclarationModifiers.empty(),
-                                      typeArguments: [],
-                                      name: "int",
-                                      referenceDeclarationKind:
-                                          SwidReferenceDeclarationKind
-                                              .classElement,
-                                      nullabilitySuffix:
-                                          SwidNullabilitySuffix.question,
-                                      originalPackagePath: "",
-                                    ),)
-                                  ],
-                                  nullabilitySuffix:
-                                      SwidNullabilitySuffix.question,
-                                  originalPackagePath: "",
-                                  returnType: SwidType.fromSwidInterface(
-                                      swidInterface: SwidInterface(
-                                    declarationModifiers:
-                                        SwidDeclarationModifiers.empty(),
-                                    typeArguments: [],
-                                    name: "Duration",
-                                    referenceDeclarationKind:
-                                        SwidReferenceDeclarationKind
-                                            .classElement,
-                                    originalPackagePath: "",
-                                    nullabilitySuffix:
-                                        SwidNullabilitySuffix.none,
-                                  ),),),)
-                        ],
-                        originalPackagePath: "",
-                        nullabilitySuffix: SwidNullabilitySuffix.question,
-                        returnType: SwidType.fromSwidInterface(
-                            swidInterface: SwidInterface(
+                  swidFunctionType: SwidFunctionType(
+                    isFactory: false,
+                    typeFormals: [],
+                    namedDefaults: {},
+                    declarationModifiers: SwidDeclarationModifiers.empty(),
+                    name: "",
+                    normalParameterNames: [],
+                    normalParameterTypes: [],
+                    namedParameterTypes: {},
+                    optionalParameterNames: ["resolveDuration"],
+                    optionalParameterTypes: [
+                      SwidType.fromSwidFunctionType(
+                        swidFunctionType: SwidFunctionType(
+                          isFactory: false,
+                          typeFormals: [],
+                          namedDefaults: {},
                           declarationModifiers:
                               SwidDeclarationModifiers.empty(),
-                          typeArguments: [],
-                          name: "Widget",
-                          referenceDeclarationKind:
-                              SwidReferenceDeclarationKind.classElement,
+                          name: "",
+                          normalParameterNames: ["millis"],
+                          namedParameterTypes: {},
+                          optionalParameterNames: [],
+                          optionalParameterTypes: [],
+                          normalParameterTypes: [
+                            SwidType.fromSwidInterface(
+                              swidInterface: SwidInterface(
+                                declarationModifiers:
+                                    SwidDeclarationModifiers.empty(),
+                                typeArguments: [],
+                                name: "int",
+                                referenceDeclarationKind:
+                                    SwidReferenceDeclarationKind.classElement,
+                                nullabilitySuffix:
+                                    SwidNullabilitySuffix.question,
+                                originalPackagePath: "",
+                              ),
+                            )
+                          ],
+                          nullabilitySuffix: SwidNullabilitySuffix.question,
                           originalPackagePath: "",
-                          nullabilitySuffix: SwidNullabilitySuffix.none,
-                        ),),),)
+                          returnType: SwidType.fromSwidInterface(
+                            swidInterface: SwidInterface(
+                              declarationModifiers:
+                                  SwidDeclarationModifiers.empty(),
+                              typeArguments: [],
+                              name: "Duration",
+                              referenceDeclarationKind:
+                                  SwidReferenceDeclarationKind.classElement,
+                              originalPackagePath: "",
+                              nullabilitySuffix: SwidNullabilitySuffix.none,
+                            ),
+                          ),
+                        ),
+                      )
+                    ],
+                    originalPackagePath: "",
+                    nullabilitySuffix: SwidNullabilitySuffix.question,
+                    returnType: SwidType.fromSwidInterface(
+                      swidInterface: SwidInterface(
+                        declarationModifiers: SwidDeclarationModifiers.empty(),
+                        typeArguments: [],
+                        name: "Widget",
+                        referenceDeclarationKind:
+                            SwidReferenceDeclarationKind.classElement,
+                        originalPackagePath: "",
+                        nullabilitySuffix: SwidNullabilitySuffix.none,
+                      ),
+                    ),
+                  ),
+                )
               ],
               namedParameterTypes: {},
               nullabilitySuffix: SwidNullabilitySuffix.star,
