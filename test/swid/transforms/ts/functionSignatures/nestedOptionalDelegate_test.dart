@@ -130,6 +130,6 @@ void main() {
             ),
           ),
         ),
-        "(itemCount: int, onTap? : (resolveDuration? : (millis?: int | undefined) => Duration) => Widget) => num | undefined");
+        "(itemCount: int, onTap? : (resolveDuration? : (millis?: number | undefined) => Duration) => Widget) => num | undefined");
   }, tags: "swid");
 }
