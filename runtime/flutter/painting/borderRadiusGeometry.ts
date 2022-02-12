@@ -2,10 +2,6 @@ import { TextDirection } from "../../dart/ui/textDirection";
 import { IBorderRadius } from "./borderRadius";
 declare const flutter: {
     painting: {
-        borderRadiusGeometry: (
-            this: void,
-            borderRadiusGeometry: IBorderRadiusGeometry
-        ) => IBorderRadiusGeometry;
         borderRadiusGeometryLerp: (
             a: IBorderRadiusGeometry | undefined,
             b: IBorderRadiusGeometry | undefined,
@@ -21,9 +17,6 @@ export interface IBorderRadiusGeometry {
     getHashCode: () => number;
 }
 export class BorderRadiusGeometry {
-    public constructor() {
-        flutter.painting.borderRadiusGeometry(this);
-    }
     public static lerp(
         a: IBorderRadiusGeometry | undefined,
         b: IBorderRadiusGeometry | undefined,

@@ -2,10 +2,6 @@ import { TextDirection } from "../../dart/ui/textDirection";
 import { IAlignment } from "./alignment";
 declare const flutter: {
     painting: {
-        alignmentGeometry: (
-            this: void,
-            alignmentGeometry: IAlignmentGeometry
-        ) => IAlignmentGeometry;
         alignmentGeometryLerp: (
             a: IAlignmentGeometry | undefined,
             b: IAlignmentGeometry | undefined,
@@ -20,9 +16,6 @@ export interface IAlignmentGeometry {
     getHashCode: () => number;
 }
 export class AlignmentGeometry {
-    public constructor() {
-        flutter.painting.alignmentGeometry(this);
-    }
     public static lerp(
         a: IAlignmentGeometry | undefined,
         b: IAlignmentGeometry | undefined,

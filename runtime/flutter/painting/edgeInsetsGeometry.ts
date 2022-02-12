@@ -4,10 +4,6 @@ import { Axis } from "./axis";
 import { IEdgeInsets } from "./edgeInsets";
 declare const flutter: {
     painting: {
-        edgeInsetsGeometry: (
-            this: void,
-            edgeInsetsGeometry: IEdgeInsetsGeometry
-        ) => IEdgeInsetsGeometry;
         edgeInsetsGeometryLerp: (
             a: IEdgeInsetsGeometry | undefined,
             b: IEdgeInsetsGeometry | undefined,
@@ -35,9 +31,6 @@ export interface IEdgeInsetsGeometry {
     getHashCode: () => number;
 }
 export class EdgeInsetsGeometry {
-    public constructor() {
-        flutter.painting.edgeInsetsGeometry(this);
-    }
     public static lerp(
         a: IEdgeInsetsGeometry | undefined,
         b: IEdgeInsetsGeometry | undefined,

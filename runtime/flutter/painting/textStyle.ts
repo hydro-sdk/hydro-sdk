@@ -14,10 +14,11 @@ import { TextDecorationStyle } from "../../dart/ui/textDecorationStyle";
 import { TextDirection } from "../../dart/ui/textDirection";
 import { ITextHeightBehavior } from "../../dart/ui/textHeightBehavior";
 import { TextLeadingDistribution } from "../../dart/ui/textLeadingDistribution";
+import { ITextStyle as _a643ITextStyle } from "../../dart/ui/textStyle";
 import { IDiagnosticable } from "../foundation/diagnosticable";
 import { DiagnosticLevel } from "../foundation/diagnosticLevel";
 import { IDiagnosticPropertiesBuilder } from "../foundation/diagnosticPropertiesBuilder";
-import { IDiagnosticsNode as _1b4IDiagnosticsNode } from "../foundation/diagnosticsNode";
+import { IDiagnosticsNode } from "../foundation/diagnosticsNode";
 import { DiagnosticsTreeStyle } from "../foundation/diagnosticsTreeStyle";
 import { RenderComparison } from "./renderComparison";
 import { IStrutStyle } from "./strutStyle";
@@ -143,7 +144,7 @@ export interface ITextStyle {
         wordSpacingFactor: number;
     }) => ITextStyle;
     merge: (other?: ITextStyle | undefined) => ITextStyle;
-    getTextStyle: (props: { textScaleFactor: number }) => ITextStyle;
+    getTextStyle: (props: { textScaleFactor: number }) => _a643ITextStyle;
     getParagraphStyle: (props: {
         ellipsis?: string | undefined;
         fontFamily?: string | undefined;
@@ -301,7 +302,7 @@ export class TextStyle implements IDiagnosticable {
     ) => ITextStyle = undefined as any;
     private readonly _dart_getTextStyle: (props: {
         textScaleFactor: number;
-    }) => ITextStyle = undefined as any;
+    }) => _a643ITextStyle = undefined as any;
     private readonly _dart_getParagraphStyle: (props: {
         ellipsis?: string | undefined;
         fontFamily?: string | undefined;
@@ -400,7 +401,7 @@ export class TextStyle implements IDiagnosticable {
     public merge(other?: ITextStyle | undefined): ITextStyle {
         return this._dart_merge(other);
     }
-    public getTextStyle(props: { textScaleFactor?: number }): ITextStyle {
+    public getTextStyle(props: { textScaleFactor?: number }): _a643ITextStyle {
         return this._dart_getTextStyle({
             ...getTextStyleDefaultProps,
             ...props,
