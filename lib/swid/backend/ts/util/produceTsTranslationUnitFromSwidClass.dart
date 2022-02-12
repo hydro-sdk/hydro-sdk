@@ -2,6 +2,7 @@ import 'package:collection/collection.dart';
 import 'package:path/path.dart' as p;
 
 import 'package:hydro_sdk/swid/backend/ts/analyses/tsClassMethodInjectionCandidates.dart';
+import 'package:hydro_sdk/swid/backend/ts/transforms/rewriteReferences.dart';
 import 'package:hydro_sdk/swid/backend/ts/tsClassConstructorImplementation.dart';
 import 'package:hydro_sdk/swid/backend/ts/tsClassInstanceFieldDeclarations.dart';
 import 'package:hydro_sdk/swid/backend/ts/tsClassMethodDeclarations.dart';
@@ -26,7 +27,6 @@ import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/transforms/applySuperTypes.dart';
 import 'package:hydro_sdk/swid/ir/transforms/markClassReferences.dart';
-import 'package:hydro_sdk/swid/ir/transforms/rewriteReferences.dart';
 import 'package:hydro_sdk/swid/ir/util/propagateUnsatisfiedTypeParameters.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 

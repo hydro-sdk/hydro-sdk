@@ -1,8 +1,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'package:hydro_sdk/swid/backend/ts/transforms/rewriteReferences.dart';
+import 'package:hydro_sdk/swid/backend/ts/transforms/rewriteReferencesInDefaultFormalParameter.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
-import 'package:hydro_sdk/swid/ir/transforms/rewriteReferences.dart';
-import 'package:hydro_sdk/swid/ir/transforms/rewriteReferencesInDefaultFormalParameter.dart';
 import 'package:hydro_sdk/swid/ir/util/swarsTermSwidFunctionTypeResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsEphemeralTermMixin.dart';

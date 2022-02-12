@@ -4,6 +4,7 @@ import 'package:path/path.dart' as p;
 import 'package:tuple/tuple.dart';
 
 import 'package:hydro_sdk/swid/backend/ts/transforms/resolveTsImportPaths.dart';
+import 'package:hydro_sdk/swid/backend/ts/transforms/rewriteReferences.dart';
 import 'package:hydro_sdk/swid/backend/ts/transforms/transformSixteenthHashName.dart';
 import 'package:hydro_sdk/swid/ir/analyses/isShadowingParentReference.dart';
 import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
@@ -12,7 +13,6 @@ import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/transforms/markClassReferences.dart';
-import 'package:hydro_sdk/swid/ir/transforms/rewriteReferences.dart';
 import 'package:hydro_sdk/swid/ir/util/isPrimitiveMap.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/transforms/removeNullabilitySuffix.dart';

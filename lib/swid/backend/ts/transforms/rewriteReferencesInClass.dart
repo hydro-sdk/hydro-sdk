@@ -1,14 +1,13 @@
 import 'package:dartlin/control_flow.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'package:hydro_sdk/swid/ir/proto/pb/ir.pb.dart';
+import 'package:hydro_sdk/swid/backend/ts/transforms/rewriteReferences.dart';
+import 'package:hydro_sdk/swid/backend/ts/transforms/rewriteReferencesInFunction.dart';
+import 'package:hydro_sdk/swid/backend/ts/transforms/rewriteReferencesInInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormalValue.dart';
-import 'package:hydro_sdk/swid/ir/transforms/rewriteReferences.dart';
-import 'package:hydro_sdk/swid/ir/transforms/rewriteReferencesInFunction.dart';
-import 'package:hydro_sdk/swid/ir/transforms/rewriteReferencesInInterface.dart';
 import 'package:hydro_sdk/swid/ir/util/swarsTermSwidClassResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsEphemeralTermMixin.dart';
