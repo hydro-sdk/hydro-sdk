@@ -35,7 +35,7 @@ class RewriteReferencesInDefaultFormalParameter
   }) = _$RewriteReferencesInDefaultFormalParameterCtor;
 
   @override
-  String get cacheGroup => "RewriteReferencesInDefaultFormalParameter";
+  String get cacheGroup => "rewriteReferencesInDefaultFormalParameter";
 
   @override
   Iterable<Iterable<int>> get hashableParts sync* {

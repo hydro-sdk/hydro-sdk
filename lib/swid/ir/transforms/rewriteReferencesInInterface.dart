@@ -39,7 +39,7 @@ class RewriteReferencesInInterface
   }) = _$RewriteReferencesInInterfaceCtor;
 
   @override
-  String get cacheGroup => "RewriteReferencesInInterface";
+  String get cacheGroup => "rewriteReferencesInInterface";
 
   @override
   Iterable<Iterable<int>> get hashableParts sync* {

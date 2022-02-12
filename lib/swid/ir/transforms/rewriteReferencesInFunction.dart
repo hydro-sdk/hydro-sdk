@@ -34,7 +34,7 @@ class RewriteReferencesInFunction
   }) = _$RewriteReferencesInFunctionCtor;
 
   @override
-  String get cacheGroup => "RewriteReferencesInFunction";
+  String get cacheGroup => "rewriteReferencesInFunction";
 
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
