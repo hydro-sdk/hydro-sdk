@@ -3,13 +3,10 @@
 
 Author Flutter experiences in Typescript. No native bridge, no V8. Just Dart. From runtime to virtual machine.
 
-# Sponsored by:
-<a href="https://github.com/publicdomaincompany">
-    <img align="center" style="height:40px;width:40px" src="https://avatars.githubusercontent.com/u/79655805?s=200&v=4">
-</a>    
-
-# Documentation and Tutorials: https://hydro-sdk.io/
-
+# Sponsored by
+Possibly you! See [sponsoring Hydro-SDK](https://github.com/sponsors/hydro-sdk)
+# Documentation and Tutorials 
+https://hydro-sdk.io/
 # Features
 ## Hot Reload, Incremental Compilation
 ![Action Gif](https://github.com/hydro-sdk/counter-app/blob/master/media/action-gif.gif)
@@ -28,11 +25,31 @@ It aims to do that by:
 
 Hydro-SDK is currently only suitable for simple content. A few dozen Flutter widgets are supported. Content built with Hydro-SDK can be updated over the air using Hydro-SDK's built-in [codepush](https://hydro-sdk.io/blog/fluttering-over-the-air). Content can be authored in a similar manner as in Dart with hot-reload and limited IDE debugging support.
 
-## Near Term Projects
+## Near Term
 ### API Support
-Continue expanding available Dart APIs with automatic language projection (ALP) in the Structured Wrapper and Interface generator for Dart (SWID) sub-project https://github.com/hydro-sdk/hydro-sdk/tree/master/lib/swid This project is where the overwhelming amount of focus currently is. Having a stable and high quality ALP will allow for the re-use of existing packages from `pub.dev` in Typescript. This will also allow for expanding support for authoring Hydro-SDK content to other programming languages.
+Continue expanding available Dart and Flutter APIs with automatic language projection (ALP) using [Structured Wrapper and Interface generator for Dart (SWID)](https://github.com/hydro-sdk/hydro-sdk/tree/master/lib/swid).  This effort is where the overwhelming amount of focus currently is. Having a stable and high quality ALP will allow for the re-use of existing packages from `pub.dev` in Typescript. This will also allow for expanding support for authoring Hydro-SDK content to other programming languages.
+
+This work is tracked at a high-level in the [Binding Generator project](https://github.com/hydro-sdk/hydro-sdk/projects/5) and in other sub-projects.
+This work is required to expand support for Flutter 2.8 (and 2.10) and is directly related to the following umbrella issues.
+- [☂️ Support Flutter 2.8](https://github.com/hydro-sdk/hydro-sdk/issues/773)
+- [☂️ Cables](https://github.com/hydro-sdk/hydro-sdk/issues/684)
+
+## Medium Term
+### Developer Ergonomics  
+Improving developer ergonomics with more affective testing workflows and support for Typescript language features like `async` / `await` interop with Dart.
+This is being scoped and tracked at a high level in umbrella issues.
+- [☂️ Improved Test Ergonomics](https://github.com/hydro-sdk/hydro-sdk/issues/843)
+- [☂️ Typescript 4](https://github.com/hydro-sdk/hydro-sdk/issues/844)
+### Performance
+Establishing performance baselines through benchmarking. Some efforts to improve performance. This is being scoped and tracked at a high level in umbrella issues.
+- [☂️ Optimizing Lua Compiler](https://github.com/hydro-sdk/hydro-sdk/issues/797)
+- [☂️ Size Benchmarks](https://github.com/hydro-sdk/hydro-sdk/issues/846)
+- [☂️ CPU and Memory Benchmarks](https://github.com/hydro-sdk/hydro-sdk/issues/845)
 
 ## Long Term Projects
+## Developer Ergonomics
+Lower the barrier to entry for developers with non-mobile backgrounds that are interested in trying out Flutter and Hydro-SDK.
+- [☂️ Component Preview](https://github.com/hydro-sdk/hydro-sdk/issues/763)
 ## Services
 ### Registry
 A closed-source component registry for first-class support for hosting and running over-the-air (OTA) update packages built using the open-source Hydro-SDK. This service is already live as a basic [MVP](https://registry.hydro-sdk.io/#/).
