@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:hydro_sdk/swid/backend/dart/transforms/importPrefixReferences.dart';
 
+import 'package:hydro_sdk/swid/backend/dart/transforms/importPrefixReferences.dart';
 import 'package:hydro_sdk/swid/ir/swidDefaultFormalParameter.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/util/swarsTermSwidDefaultFormalParameterMixin.dart';

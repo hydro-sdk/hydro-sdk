@@ -1,9 +1,9 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 import 'package:hydro_sdk/swid/backend/dart/transforms/importPrefixReferencesInClass.dart';
 import 'package:hydro_sdk/swid/backend/dart/transforms/importPrefixReferencesInDefaultFormalParameter.dart';
 import 'package:hydro_sdk/swid/backend/dart/transforms/importPrefixReferencesInFunction.dart';
 import 'package:hydro_sdk/swid/backend/dart/transforms/importPrefixReferencesInInterface.dart';
-
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/util/irTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';

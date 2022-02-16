@@ -2,10 +2,10 @@ import 'package:code_builder/code_builder.dart'
     show refer, Block, Method, Parameter, TypeReference, DartEmitter;
 
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 import 'package:hydro_sdk/swid/backend/dart/transforms/dartImportPrefix.dart';
 import 'package:hydro_sdk/swid/backend/dart/transforms/importPrefixReferencesInClass.dart';
 import 'package:hydro_sdk/swid/backend/dart/util/constants.dart';
-
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
@@ -136,11 +136,14 @@ class DartVMManagedClassBoxerRegistrant
                     ..body = Block.of(
                       [
                         refer("VMManaged${swidClass.name}")
-                            .call([], {
-                              "vmObject": refer("vmObject"),
-                              "hydroState": refer("hydroState"),
-                              "table": refer("table"),
-                            })
+                            .call(
+                              [],
+                              {
+                                "vmObject": refer("vmObject"),
+                                "hydroState": refer("hydroState"),
+                                "table": refer("table"),
+                              },
+                            )
                             .returned
                             .statement,
                       ],

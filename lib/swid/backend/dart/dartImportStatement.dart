@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:hydro_sdk/swid/ir/transforms/sixteenthHashName.dart';
 
+import 'package:hydro_sdk/swid/ir/transforms/sixteenthHashName.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsEphemeralTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
