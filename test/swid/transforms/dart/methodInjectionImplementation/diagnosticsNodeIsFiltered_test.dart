@@ -1169,10 +1169,10 @@ void main() {
         ),
         """
 table[\'_dart_isFiltered\'] =
-    makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    _36c2.makeLuaDartFunc(func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
   return [
-    super.isFiltered(maybeUnBoxEnum(
-        values: DiagnosticLevel.values, boxedEnum: luaCallerArguments[1]))
+    super.isFiltered(_36c2.maybeUnBoxEnum(
+        values: _eaf3.DiagnosticLevel.values, boxedEnum: luaCallerArguments[1]))
   ];
 });""");
   }, tags: "swid");

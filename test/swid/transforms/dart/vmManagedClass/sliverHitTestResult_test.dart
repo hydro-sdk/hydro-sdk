@@ -203,7 +203,8 @@ void main() {
     );
 
     expect(res, """
-class VMManagedSliverHitTestResult extends VMManagedBox<SliverHitTestResult> {
+class VMManagedSliverHitTestResult
+    extends _36c2.VMManagedBox<_021d.SliverHitTestResult> {
   VMManagedSliverHitTestResult(
       {required this.table, required this.vmObject, required this.hydroState})
       : super(
@@ -211,9 +212,9 @@ class VMManagedSliverHitTestResult extends VMManagedBox<SliverHitTestResult> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table[\'addWithAxisOffset\'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      Closure unpackedhitTest = luaCallerArguments.length >= 2
+    table[\'addWithAxisOffset\'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      _36c2.Closure unpackedhitTest = luaCallerArguments.length >= 2
           ? luaCallerArguments[1][\'hitTest\']
           : null;
 
@@ -244,20 +245,21 @@ class VMManagedSliverHitTestResult extends VMManagedBox<SliverHitTestResult> {
             mainAxisPosition: luaCallerArguments.length >= 2
                 ? luaCallerArguments[1][\'mainAxisPosition\']
                 : null?.toDouble(),
-            paintOffset: maybeUnBoxAndBuildArgument<Offset?, dynamic>(
-                luaCallerArguments.length >= 2
-                    ? luaCallerArguments[1][\'paintOffset\']
-                    : null,
-                parentState: hydroState)),
+            paintOffset:
+                _36c2.maybeUnBoxAndBuildArgument<_a643.Offset?, _fac9.dynamic>(
+                    luaCallerArguments.length >= 2
+                        ? luaCallerArguments[1][\'paintOffset\']
+                        : null,
+                    parentState: hydroState)),
       ];
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  final SliverHitTestResult vmObject;
+  final _021d.SliverHitTestResult vmObject;
 }
 """);
   }, tags: "swid");

@@ -32,6 +32,6 @@ void main() {
             expression: refer("foo").call([]),
           ),
         ),
-        "maybeUnBoxAndBuildArgument<Offset, dynamic>(foo(), parentState: hydroState)");
+        "_36c2.maybeUnBoxAndBuildArgument<_a643.Offset, _fac9.dynamic>(foo(), parentState: hydroState)");
   }, tags: "swid");
 }

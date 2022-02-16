@@ -106,29 +106,30 @@ void main() {
           ),
         ),
         """
-class RTManagedPath extends Path implements Box<Path> {
+class RTManagedPath extends _a643.Path implements _36c2.Box<_a643.Path> {
   RTManagedPath({required this.table, required this.hydroState}) : super() {
     table[\'vmObject\'] = vmObject;
-    table[\'unwrap\'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table[\'unwrap\'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [unwrap()];
     });
-    table[\'_dart_setFillType\'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.fillType = (maybeUnBoxEnum(
-          values: PathFillType.values, boxedEnum: luaCallerArguments[1]));
+    table[\'_dart_setFillType\'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      super.fillType = (_36c2.maybeUnBoxEnum(
+          values: _a643.PathFillType.values, boxedEnum: luaCallerArguments[1]));
       return [];
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  Path unwrap() => this;
-  Path get vmObject => this;
-  @override
+  _a643.Path unwrap() => this;
+  _a643.Path get vmObject => this;
+  @_fac9.override
   void set fillType(value) {
-    Closure closure = table["setFillType"];
+    _36c2.Closure closure = table["setFillType"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 }

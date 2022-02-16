@@ -267,8 +267,10 @@ void main() {
           DartLoadNamespaceSymbolDeclaration(swidClass: iconDataClass),
         ),
         """
-void loadIconData({required HydroState hydroState, required HydroTable table}) {
-  table[\'iconData\'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+void loadIconData(
+    {required _36c2.HydroState hydroState, required _36c2.HydroTable table}) {
+  table[\'iconData\'] = _36c2.makeLuaDartFunc(
+      func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
     return [
       RTManagedIconData(luaCallerArguments[1],
           table: luaCallerArguments[0],
@@ -284,10 +286,10 @@ void loadIconData({required HydroState hydroState, required HydroTable table}) {
               : null)
     ];
   });
-  registerBoxer<IconData>(boxer: (
-      {required IconData vmObject,
-      required HydroState hydroState,
-      required HydroTable table}) {
+  _36c2.registerBoxer<_003a.IconData>(boxer: (
+      {required _003a.IconData vmObject,
+      required _36c2.HydroState hydroState,
+      required _36c2.HydroTable table}) {
     return VMManagedIconData(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

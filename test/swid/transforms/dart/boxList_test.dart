@@ -44,6 +44,6 @@ void main() {
         ).reduceFromTerm(
           DartBoxList(type: field, referenceName: "properties"),
         ),
-        "properties.map((x) => maybeBoxObject<DiagnosticsNode>(object: x, hydroState: hydroState, table: HydroTable())).toList();");
+        "properties.map((x) => _36c2.maybeBoxObject<_eaf3.DiagnosticsNode>(object: x, hydroState: hydroState, table: _36c2.HydroTable())).toList();");
   }, tags: "swid");
 }

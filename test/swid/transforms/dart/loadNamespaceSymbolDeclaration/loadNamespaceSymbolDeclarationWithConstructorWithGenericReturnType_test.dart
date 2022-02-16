@@ -156,21 +156,23 @@ void main() {
     );
 
     expect(res, """
-void loadMapView({required HydroState hydroState, required HydroTable table}) {
-  table['mapView'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+void loadMapView(
+    {required _36c2.HydroState hydroState, required _36c2.HydroTable table}) {
+  table[\'mapView\'] = _36c2.makeLuaDartFunc(
+      func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
     return [
       RTManagedMapView(
-          maybeUnBoxAndBuildArgument<Map<dynamic, dynamic>, dynamic>(
-              luaCallerArguments[1],
-              parentState: hydroState),
+          _36c2.maybeUnBoxAndBuildArgument<
+              _fac9.Map<_fac9.dynamic, _fac9.dynamic>,
+              _fac9.dynamic>(luaCallerArguments[1], parentState: hydroState),
           table: luaCallerArguments[0],
           hydroState: hydroState)
     ];
   });
-  registerBoxer<MapView>(boxer: (
-      {required MapView vmObject,
-      required HydroState hydroState,
-      required HydroTable table}) {
+  _36c2.registerBoxer<_0991.MapView>(boxer: (
+      {required _0991.MapView vmObject,
+      required _36c2.HydroState hydroState,
+      required _36c2.HydroTable table}) {
     return VMManagedMapView(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

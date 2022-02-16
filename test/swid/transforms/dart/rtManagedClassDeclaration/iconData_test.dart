@@ -273,11 +273,12 @@ void main() {
 
     expect(iconDataClass.instanceFieldDeclarations.length, 4);
     expect(res, """
-class RTManagedIconData extends IconData implements Box<IconData> {
-  RTManagedIconData(int codePoint\$,
-      {String? fontFamily,
-      String? fontPackage,
-      required bool matchTextDirection,
+class RTManagedIconData extends _003a.IconData
+    implements _36c2.Box<_003a.IconData> {
+  RTManagedIconData(_fac9.int codePoint\$,
+      {_fac9.String? fontFamily,
+      _fac9.String? fontPackage,
+      required _fac9.bool matchTextDirection,
       required this.table,
       required this.hydroState})
       : super(codePoint\$,
@@ -285,38 +286,56 @@ class RTManagedIconData extends IconData implements Box<IconData> {
             fontPackage: fontPackage,
             matchTextDirection: matchTextDirection) {
     table[\'vmObject\'] = vmObject;
-    table[\'unwrap\'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table[\'unwrap\'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [unwrap()];
     });
-    table[\'codePoint\'] = this.codePoint;
-    table[\'fontFamily\'] = this.fontFamily;
-    table[\'fontPackage\'] = this.fontPackage;
-    table[\'matchTextDirection\'] = this.matchTextDirection;
-    table[\'_dart_getHashCode\'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table[\'codePoint\'] = _36c2.maybeBoxObject(
+        object: this.codePoint,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table[\'fontFamily\'] = _36c2.maybeBoxObject(
+        object: this.fontFamily,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table[\'fontPackage\'] = _36c2.maybeBoxObject(
+        object: this.fontPackage,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table[\'matchTextDirection\'] = _36c2.maybeBoxObject(
+        object: this.matchTextDirection,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table[\'_dart_getHashCode\'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.hashCode];
     });
-    table[\'_dart_toString\'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [super.toString()];
+    table[\'_dart_toString\'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      return [
+        _36c2.maybeBoxObject(
+            object: super.toString(),
+            hydroState: hydroState,
+            table: _36c2.HydroTable())
+      ];
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  IconData unwrap() => this;
-  IconData get vmObject => this;
-  @override
-  int get hashCode {
-    Closure closure = table["getHashCode"];
+  _003a.IconData unwrap() => this;
+  _003a.IconData get vmObject => this;
+  @_fac9.override
+  _fac9.int get hashCode {
+    _36c2.Closure closure = table["getHashCode"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  String toString() {
-    Closure closure = table["__tostring"];
+  @_fac9.override
+  _fac9.String toString() {
+    _36c2.Closure closure = table["__tostring"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 }

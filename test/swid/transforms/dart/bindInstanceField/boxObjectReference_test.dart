@@ -33,7 +33,7 @@ void main() {
           ),
         ),
         """
-maybeBoxObject<TextStyle>(object: vmObject, hydroState: hydroState, table: HydroTable());""");
+_36c2.maybeBoxObject<_e3b0.TextStyle>(object: vmObject, hydroState: hydroState, table: _36c2.HydroTable());""");
 
     expect(
         CachingPipeline(
@@ -56,6 +56,6 @@ maybeBoxObject<TextStyle>(object: vmObject, hydroState: hydroState, table: Hydro
           ),
         ),
         """
-maybeBoxObject<TextStyle>(object: vmObject.headline4, hydroState: hydroState, table: HydroTable());""");
+_36c2.maybeBoxObject<_e3b0.TextStyle>(object: vmObject.headline4, hydroState: hydroState, table: _36c2.HydroTable());""");
   }, tags: "swid");
 }

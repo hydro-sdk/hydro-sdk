@@ -105,25 +105,26 @@ void main() {
     );
 
     expect(res, """
-class RTManagedDoubleLinkedQueueEntry extends DoubleLinkedQueueEntry
-    implements Box<DoubleLinkedQueueEntry> {
-  RTManagedDoubleLinkedQueueEntry(dynamic? _element,
+class RTManagedDoubleLinkedQueueEntry extends _0991.DoubleLinkedQueueEntry
+    implements _36c2.Box<_0991.DoubleLinkedQueueEntry> {
+  RTManagedDoubleLinkedQueueEntry(_fac9.dynamic? _element,
       {required this.table, required this.hydroState})
       : super(
           _element,
         ) {
-    table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table[\'vmObject\'] = vmObject;
+    table[\'unwrap\'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [unwrap()];
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  DoubleLinkedQueueEntry unwrap() => this;
-  DoubleLinkedQueueEntry get vmObject => this;
+  _0991.DoubleLinkedQueueEntry unwrap() => this;
+  _0991.DoubleLinkedQueueEntry get vmObject => this;
 }
 """);
   }, tags: "swid");

@@ -212,7 +212,7 @@ void main() {
         ),
         """
 class VMManagedDiagnosticPropertiesBuilder
-    extends VMManagedBox<DiagnosticPropertiesBuilder> {
+    extends _36c2.VMManagedBox<_eaf3.DiagnosticPropertiesBuilder> {
   VMManagedDiagnosticPropertiesBuilder(
       {required this.table, required this.vmObject, required this.hydroState})
       : super(
@@ -220,28 +220,29 @@ class VMManagedDiagnosticPropertiesBuilder
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table[\'properties\'] = maybeBoxObject<List<DiagnosticsNode>>(
-        object: vmObject.properties,
-        hydroState: hydroState,
-        table: HydroTable());
+    table[\'properties\'] =
+        _36c2.maybeBoxObject<_fac9.List<_eaf3.DiagnosticsNode>>(
+            object: vmObject.properties,
+            hydroState: hydroState,
+            table: _36c2.HydroTable());
     table[\'defaultDiagnosticsTreeStyle\'] =
-        DiagnosticsTreeStyle.values.indexWhere((x) {
+        _eaf3.DiagnosticsTreeStyle.values.indexWhere((x) {
       return x == vmObject.defaultDiagnosticsTreeStyle;
     });
     table[\'emptyBodyDescription\'] = vmObject.emptyBodyDescription;
-    table[\'add\'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.add(maybeUnBoxAndBuildArgument<DiagnosticsNode, dynamic>(
-          luaCallerArguments[1],
-          parentState: hydroState));
+    table[\'add\'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      vmObject.add(_36c2.maybeUnBoxAndBuildArgument<_eaf3.DiagnosticsNode,
+          _fac9.dynamic>(luaCallerArguments[1], parentState: hydroState));
       return [];
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  final DiagnosticPropertiesBuilder vmObject;
+  final _eaf3.DiagnosticPropertiesBuilder vmObject;
 }
 """);
   }, tags: "swid");

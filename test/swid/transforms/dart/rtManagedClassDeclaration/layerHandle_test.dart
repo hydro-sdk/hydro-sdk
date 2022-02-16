@@ -177,32 +177,34 @@ void main() {
     expect(
       res,
       """
-class RTManagedLayerHandle extends LayerHandle implements Box<LayerHandle> {
-  RTManagedLayerHandle(dynamic? _layer,
+class RTManagedLayerHandle extends _7d70.LayerHandle
+    implements _36c2.Box<_7d70.LayerHandle> {
+  RTManagedLayerHandle(_fac9.dynamic? _layer,
       {required this.table, required this.hydroState})
       : super(
           _layer,
         ) {
     table[\'vmObject\'] = vmObject;
-    table[\'unwrap\'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table[\'unwrap\'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [unwrap()];
     });
-    table[\'_dart_setLayer\'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table[\'_dart_setLayer\'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       super.layer = (luaCallerArguments[1]);
       return [];
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  LayerHandle unwrap() => this;
-  LayerHandle get vmObject => this;
-  @override
+  _7d70.LayerHandle unwrap() => this;
+  _7d70.LayerHandle get vmObject => this;
+  @_fac9.override
   void set layer(layer) {
-    Closure closure = table["setLayer"];
+    _36c2.Closure closure = table["setLayer"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 }

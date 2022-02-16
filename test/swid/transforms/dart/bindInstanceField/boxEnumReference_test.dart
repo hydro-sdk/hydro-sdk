@@ -31,6 +31,6 @@ void main() {
             ),
           ),
         ),
-        "TextStyle.values.indexWhere((x) { return x == style; } );");
+        "_e3b0.TextStyle.values.indexWhere((x) { return x == style; } );");
   }, tags: "swid");
 }

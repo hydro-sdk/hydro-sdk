@@ -81,18 +81,19 @@ void main() {
           ),
         ),
         """
-class RTManagedIterable extends Iterable implements Box<Iterable> {
+class RTManagedIterable extends _fac9.Iterable
+    implements _36c2.Box<_fac9.Iterable> {
   RTManagedIterable();
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  Iterable unwrap() => this;
-  Iterable get vmObject => this;
-  @override
-  bool contains(element) {
-    Closure closure = table["contains"];
+  _fac9.Iterable unwrap() => this;
+  _fac9.Iterable get vmObject => this;
+  @_fac9.override
+  _fac9.bool contains(element) {
+    _36c2.Closure closure = table["contains"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 }

@@ -76,7 +76,7 @@ void main() {
           ir,
         ),
         """
-class VMManagedfooClass extends VMManagedBox<fooClass> {
+class VMManagedfooClass extends _36c2.VMManagedBox<_e3b0.fooClass> {
   VMManagedfooClass(
       {required this.table, required this.vmObject, required this.hydroState})
       : super(
@@ -84,16 +84,16 @@ class VMManagedfooClass extends VMManagedBox<fooClass> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table[\'barField\'] = BarEnum.values.indexWhere((x) {
+    table[\'barField\'] = _e3b0.BarEnum.values.indexWhere((x) {
       return x == vmObject.barField;
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  final fooClass vmObject;
+  final _e3b0.fooClass vmObject;
 }
 """);
   }, tags: "swid");

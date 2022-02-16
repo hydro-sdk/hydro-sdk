@@ -194,7 +194,8 @@ void main() {
           ),
         ),
         """
-class VMManagedIterable extends VMManagedBox<Iterable<dynamic>> {
+class VMManagedIterable
+    extends _36c2.VMManagedBox<_fac9.Iterable<_fac9.dynamic>> {
   VMManagedIterable(
       {required this.table, required this.vmObject, required this.hydroState})
       : super(
@@ -202,8 +203,9 @@ class VMManagedIterable extends VMManagedBox<Iterable<dynamic>> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table[\'reduce\'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      Closure unpackedcombine = luaCallerArguments[1];
+    table[\'reduce\'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      _36c2.Closure unpackedcombine = luaCallerArguments[1];
       return [
         vmObject.reduce((value, element) => unpackedcombine.dispatch(
               [luaCallerArguments[0], value, element],
@@ -213,11 +215,11 @@ class VMManagedIterable extends VMManagedBox<Iterable<dynamic>> {
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  final Iterable<dynamic> vmObject;
+  final _fac9.Iterable<_fac9.dynamic> vmObject;
 }
 """);
   }, tags: "swid");

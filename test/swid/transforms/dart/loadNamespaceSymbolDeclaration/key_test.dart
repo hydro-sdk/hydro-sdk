@@ -102,25 +102,30 @@ void main() {
           DartLoadNamespaceSymbolDeclaration(swidClass: keyClass),
         ),
         """
-void loadKey({required HydroState hydroState, required HydroTable table}) {
-  table[\'key\'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+void loadKey(
+    {required _36c2.HydroState hydroState, required _36c2.HydroTable table}) {
+  table[\'key\'] = _36c2.makeLuaDartFunc(
+      func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
     return [
-      maybeBoxObject<Key>(
+      _36c2.maybeBoxObject<_ab4a.Key>(
           object: Key(luaCallerArguments[1]),
           hydroState: hydroState,
           table: luaCallerArguments[0])
     ];
   });
-  table[\'keyEmpty\'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+  table[\'keyEmpty\'] = _36c2.makeLuaDartFunc(
+      func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
     return [
-      maybeBoxObject<Key>(
-          object: Key.empty(), hydroState: hydroState, table: HydroTable()),
+      _36c2.maybeBoxObject<_ab4a.Key>(
+          object: Key.empty(),
+          hydroState: hydroState,
+          table: _36c2.HydroTable()),
     ];
   });
-  registerBoxer<Key>(boxer: (
-      {required Key vmObject,
-      required HydroState hydroState,
-      required HydroTable table}) {
+  _36c2.registerBoxer<_ab4a.Key>(boxer: (
+      {required _ab4a.Key vmObject,
+      required _36c2.HydroState hydroState,
+      required _36c2.HydroTable table}) {
     return VMManagedKey(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

@@ -120,10 +120,11 @@ void main() {
     );
 
     expect(res, """
-table['firstWhere'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-  Closure unpackedtest = luaCallerArguments[1];
-  Closure? unpackedorElse =
-      luaCallerArguments.length >= 3 ? luaCallerArguments[2]['orElse'] : null;
+table[\'firstWhere\'] =
+    _36c2.makeLuaDartFunc(func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+  _36c2.Closure unpackedtest = luaCallerArguments[1];
+  _36c2.Closure? unpackedorElse =
+      luaCallerArguments.length >= 3 ? luaCallerArguments[2][\'orElse\'] : null;
   return [
     vmObject.firstWhere(
         (element) => unpackedtest.dispatch(

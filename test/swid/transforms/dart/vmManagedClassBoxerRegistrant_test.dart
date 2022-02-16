@@ -63,6 +63,6 @@ void main() {
         ).reduceFromTerm(
           ir,
         ),
-        """registerBoxer<fooClass>(boxer: ({required fooClass vmObject, required HydroState hydroState, required HydroTable table}) { return  VMManagedfooClass(vmObject: vmObject, hydroState: hydroState, table: table); } );""");
+        """_36c2.registerBoxer<_e3b0.fooClass>(boxer: ({required _e3b0.fooClass vmObject, required _36c2.HydroState hydroState, required _36c2.HydroTable table}) { return  VMManagedfooClass(vmObject: vmObject, hydroState: hydroState, table: table); } );""");
   }, tags: "swid");
 }

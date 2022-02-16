@@ -1165,9 +1165,9 @@ void main() {
         ),
         """
 void loadDiagnosticsNode(
-    {required HydroState hydroState, required HydroTable table}) {
-  table[\'diagnosticsNode\'] =
-      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    {required _36c2.HydroState hydroState, required _36c2.HydroTable table}) {
+  table[\'diagnosticsNode\'] = _36c2.makeLuaDartFunc(
+      func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
     return [
       RTManagedDiagnosticsNode(
           table: luaCallerArguments[0],
@@ -1181,8 +1181,8 @@ void loadDiagnosticsNode(
           showSeparator: luaCallerArguments.length >= 2
               ? luaCallerArguments[1][\'showSeparator\']
               : null,
-          style: maybeUnBoxEnum(
-              values: DiagnosticsTreeStyle.values,
+          style: _36c2.maybeUnBoxEnum(
+              values: _eaf3.DiagnosticsTreeStyle.values,
               boxedEnum: luaCallerArguments.length >= 2
                   ? luaCallerArguments[1][\'style\']
                   : null),
@@ -1191,49 +1191,51 @@ void loadDiagnosticsNode(
               : null)
     ];
   });
-  table[\'diagnosticsNodeMessage\'] =
-      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+  table[\'diagnosticsNodeMessage\'] = _36c2.makeLuaDartFunc(
+      func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
     return [
-      maybeBoxObject<DiagnosticsNode>(
+      _36c2.maybeBoxObject<_eaf3.DiagnosticsNode>(
           object: DiagnosticsNode.message(luaCallerArguments[1],
               allowWrap: luaCallerArguments.length >= 3
                   ? luaCallerArguments[2][\'allowWrap\']
                   : null,
-              level: maybeUnBoxEnum(
-                  values: DiagnosticLevel.values,
+              level: _36c2.maybeUnBoxEnum(
+                  values: _eaf3.DiagnosticLevel.values,
                   boxedEnum: luaCallerArguments.length >= 3
                       ? luaCallerArguments[2][\'level\']
                       : null),
-              style: maybeUnBoxEnum(
-                  values: DiagnosticsTreeStyle.values,
+              style: _36c2.maybeUnBoxEnum(
+                  values: _eaf3.DiagnosticsTreeStyle.values,
                   boxedEnum: luaCallerArguments.length >= 3
                       ? luaCallerArguments[2][\'style\']
                       : null)),
           hydroState: hydroState,
-          table: HydroTable()),
+          table: _36c2.HydroTable()),
     ];
   });
-  table[\'diagnosticsNodeToJsonList\'] =
-      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+  table[\'diagnosticsNodeToJsonList\'] = _36c2.makeLuaDartFunc(
+      func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
     return [
-      maybeBoxObject<List<dynamic>>(
+      _36c2.maybeBoxObject<_fac9.List<_fac9.dynamic>>(
           object: DiagnosticsNode.toJsonList(
-              maybeUnBoxAndBuildArgument<List<DiagnosticsNode>?,
-                      DiagnosticsNode>(luaCallerArguments[1],
+              _36c2.maybeUnBoxAndBuildArgument<
+                      _fac9.List<_eaf3.DiagnosticsNode>?,
+                      _eaf3.DiagnosticsNode>(luaCallerArguments[1],
                   parentState: hydroState),
-              maybeUnBoxAndBuildArgument<DiagnosticsNode?, dynamic>(
-                  luaCallerArguments[2],
+              _36c2.maybeUnBoxAndBuildArgument<_eaf3.DiagnosticsNode?,
+                      _fac9.dynamic>(luaCallerArguments[2],
                   parentState: hydroState),
-              maybeUnBoxAndBuildArgument<DiagnosticsSerializationDelegate,
-                  dynamic>(luaCallerArguments[3], parentState: hydroState)),
+              _36c2.maybeUnBoxAndBuildArgument<
+                  _eaf3.DiagnosticsSerializationDelegate,
+                  _fac9.dynamic>(luaCallerArguments[3], parentState: hydroState)),
           hydroState: hydroState,
-          table: HydroTable()),
+          table: _36c2.HydroTable()),
     ];
   });
-  registerBoxer<DiagnosticsNode>(boxer: (
-      {required DiagnosticsNode vmObject,
-      required HydroState hydroState,
-      required HydroTable table}) {
+  _36c2.registerBoxer<_eaf3.DiagnosticsNode>(boxer: (
+      {required _eaf3.DiagnosticsNode vmObject,
+      required _36c2.HydroState hydroState,
+      required _36c2.HydroTable table}) {
     return VMManagedDiagnosticsNode(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

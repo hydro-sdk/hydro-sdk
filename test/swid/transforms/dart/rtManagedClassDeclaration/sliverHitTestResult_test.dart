@@ -203,25 +203,25 @@ void main() {
     );
 
     expect(res, """
-class RTManagedSliverHitTestResult extends SliverHitTestResult
-    implements Box<SliverHitTestResult> {
+class RTManagedSliverHitTestResult extends _021d.SliverHitTestResult
+    implements _36c2.Box<_021d.SliverHitTestResult> {
   RTManagedSliverHitTestResult();
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  SliverHitTestResult unwrap() => this;
-  SliverHitTestResult get vmObject => this;
-  @override
-  bool addWithAxisOffset(
-      {required double crossAxisOffset,
-      required double crossAxisPosition,
+  _021d.SliverHitTestResult unwrap() => this;
+  _021d.SliverHitTestResult get vmObject => this;
+  @_fac9.override
+  _fac9.bool addWithAxisOffset(
+      {required _fac9.double crossAxisOffset,
+      required _fac9.double crossAxisPosition,
       required hitTest,
-      required double mainAxisOffset,
-      required double mainAxisPosition,
-      Offset? paintOffset}) {
-    Closure closure = table["addWithAxisOffset"];
+      required _fac9.double mainAxisOffset,
+      required _fac9.double mainAxisPosition,
+      _a643.Offset? paintOffset}) {
+    _36c2.Closure closure = table["addWithAxisOffset"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 }
