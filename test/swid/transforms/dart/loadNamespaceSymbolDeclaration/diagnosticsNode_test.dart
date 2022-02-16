@@ -1195,7 +1195,7 @@ void loadDiagnosticsNode(
       func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
     return [
       _36c2.maybeBoxObject<_eaf3.DiagnosticsNode>(
-          object: DiagnosticsNode.message(luaCallerArguments[1],
+          object: _eaf3.DiagnosticsNode.message(luaCallerArguments[1],
               allowWrap: luaCallerArguments.length >= 3
                   ? luaCallerArguments[2][\'allowWrap\']
                   : null,
@@ -1217,17 +1217,18 @@ void loadDiagnosticsNode(
       func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
     return [
       _36c2.maybeBoxObject<_fac9.List<_fac9.dynamic>>(
-          object: DiagnosticsNode.toJsonList(
+          object: _eaf3.DiagnosticsNode.toJsonList(
               _36c2.maybeUnBoxAndBuildArgument<
                       _fac9.List<_eaf3.DiagnosticsNode>?,
                       _eaf3.DiagnosticsNode>(luaCallerArguments[1],
                   parentState: hydroState),
-              _36c2.maybeUnBoxAndBuildArgument<_eaf3.DiagnosticsNode?,
-                      _fac9.dynamic>(luaCallerArguments[2],
+              _36c2.maybeUnBoxAndBuildArgument<_eaf3.DiagnosticsNode?, _fac9.dynamic>(
+                  luaCallerArguments[2],
                   parentState: hydroState),
               _36c2.maybeUnBoxAndBuildArgument<
-                  _eaf3.DiagnosticsSerializationDelegate,
-                  _fac9.dynamic>(luaCallerArguments[3], parentState: hydroState)),
+                      _eaf3.DiagnosticsSerializationDelegate,
+                      _fac9.dynamic>(luaCallerArguments[3],
+                  parentState: hydroState)),
           hydroState: hydroState,
           table: _36c2.HydroTable()),
     ];

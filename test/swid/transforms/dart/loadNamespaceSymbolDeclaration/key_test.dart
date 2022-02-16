@@ -108,7 +108,7 @@ void loadKey(
       func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
     return [
       _36c2.maybeBoxObject<_ab4a.Key>(
-          object: Key(luaCallerArguments[1]),
+          object: _ab4a.Key(luaCallerArguments[1]),
           hydroState: hydroState,
           table: luaCallerArguments[0])
     ];
@@ -117,7 +117,7 @@ void loadKey(
       func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
     return [
       _36c2.maybeBoxObject<_ab4a.Key>(
-          object: Key.empty(),
+          object: _ab4a.Key.empty(),
           hydroState: hydroState,
           table: _36c2.HydroTable()),
     ];

@@ -1,9 +1,11 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/backend/dart/dartMethodBindingImplementation.dart';
+import 'package:hydro_sdk/swid/backend/dart/transforms/dartImportPrefix.dart';
 import 'package:hydro_sdk/swid/backend/dart/util/luaDartBinding.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsEphemeralTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
@@ -67,8 +69,12 @@ class DartStaticMethodNamespaceSymbolDeclaration
           ? refer("table")
               .index(
                 literalString(
-                  transformToCamelCase(str: swidClass.name) +
-                      transformToPascalCase(str: swidFunctionType.name),
+                  transformToCamelCase(
+                        str: swidClass.name,
+                      ) +
+                      transformToPascalCase(
+                        str: swidFunctionType.name,
+                      ),
                 ),
               )
               .assign(
@@ -80,6 +86,13 @@ class DartStaticMethodNamespaceSymbolDeclaration
                         swidFunctionType: SwidFunctionType.clone(
                           swidFunctionType: swidFunctionType,
                           name: [
+                            pipeline.reduceFromTerm(
+                              DartImportPrefix(
+                                swidType: SwidType.fromSwidClass(
+                                  swidClass: swidClass,
+                                ),
+                              ),
+                            ),
                             swidClass.name,
                             swidFunctionType.name,
                           ].join("."),

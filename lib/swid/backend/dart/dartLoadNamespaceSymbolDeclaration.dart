@@ -170,12 +170,25 @@ class DartLoadNamespaceSymbolDeclaration
                                                     !constructorType.isFactory,
                                                 swidFunctionType:
                                                     SwidFunctionType.clone(
-                                                        swidFunctionType:
-                                                            constructorType,
-                                                        name: !constructorType
-                                                                .isFactory
-                                                            ? "RTManaged${swidClass.name}"
-                                                            : swidClass.name),
+                                                  swidFunctionType:
+                                                      constructorType,
+                                                  name: !constructorType
+                                                          .isFactory
+                                                      ? "RTManaged${swidClass.name}"
+                                                      : [
+                                                          pipeline
+                                                              .reduceFromTerm(
+                                                            DartImportPrefix(
+                                                              swidType: SwidType
+                                                                  .fromSwidClass(
+                                                                swidClass:
+                                                                    swidClass,
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          swidClass.name
+                                                        ].join("."),
+                                                ),
                                                 returnValueBoxingTableExpression:
                                                     constructorType.isFactory
                                                         ? refer("$luaCallerArgumentsParameterName")
