@@ -15,6 +15,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/backend/dart/dartBindInstanceField.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartVmManagedClassMethodInjectionImplementation.dart';
+import 'package:hydro_sdk/swid/backend/dart/transforms/dartImportPrefix.dart';
+import 'package:hydro_sdk/swid/backend/dart/transforms/importPrefixReferencesInClass.dart';
+import 'package:hydro_sdk/swid/backend/dart/util/constants.dart';
 import 'package:hydro_sdk/swid/backend/util/methodIsEmitCandidate.dart';
 import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
@@ -80,7 +83,16 @@ class DartVMManagedClassDeclaration
               ..name = "VMManaged${swidClass.name}"
               ..extend = TypeReference(
                 (t) => t
-                  ..symbol = "VMManagedBox"
+                  ..symbol = [
+                    pipeline.reduceFromTerm(
+                      DartImportPrefix(
+                        swidType: SwidType.fromSwidInterface(
+                          swidInterface: vmManagedBox,
+                        ),
+                      ),
+                    ),
+                    vmManagedBox.name,
+                  ].join(".")
                   ..types.addAll(
                     [
                       (({
@@ -90,7 +102,11 @@ class DartVMManagedClassDeclaration
                             (t) => t
                               ..symbol = removeNullabilitySuffixFromTypeNames(
                                 swidType: SwidType.fromSwidClass(
-                                  swidClass: swidClass,
+                                  swidClass: pipeline.reduceFromTerm(
+                                    ImportPrefixReferencesInClass(
+                                      swidClass: swidClass,
+                                    ),
+                                  ),
                                 ),
                               ).displayName,
                           ))(
@@ -117,13 +133,37 @@ class DartVMManagedClassDeclaration
                 Field(
                   (k) => k
                     ..modifier = FieldModifier.final$
-                    ..type = TypeReference((i) => i..symbol = "HydroTable")
+                    ..type = TypeReference(
+                      (i) => i
+                        ..symbol = [
+                          pipeline.reduceFromTerm(
+                            DartImportPrefix(
+                              swidType: SwidType.fromSwidInterface(
+                                swidInterface: hydroTable,
+                              ),
+                            ),
+                          ),
+                          hydroTable.name,
+                        ].join("."),
+                    )
                     ..name = "table",
                 ),
                 Field(
                   (k) => k
                     ..modifier = FieldModifier.final$
-                    ..type = TypeReference((i) => i..symbol = "HydroState")
+                    ..type = TypeReference(
+                      (i) => i
+                        ..symbol = [
+                          pipeline.reduceFromTerm(
+                            DartImportPrefix(
+                              swidType: SwidType.fromSwidInterface(
+                                swidInterface: hydroState,
+                              ),
+                            ),
+                          ),
+                          hydroState.name
+                        ].join("."),
+                    )
                     ..name = "hydroState",
                 ),
                 Field(
@@ -133,7 +173,14 @@ class DartVMManagedClassDeclaration
                       required final SwidClass swidClass,
                     }) =>
                         TypeReference(
-                          (i) => i..symbol = swidClass.displayName,
+                          (i) => i
+                            ..symbol = pipeline
+                                .reduceFromTerm(
+                                  ImportPrefixReferencesInClass(
+                                    swidClass: swidClass,
+                                  ),
+                                )
+                                .displayName,
                         ))(
                       swidClass: pipeline
                           .reduceFromTerm(

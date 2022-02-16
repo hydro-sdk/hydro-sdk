@@ -19,6 +19,8 @@ import 'package:hydro_sdk/swid/backend/dart/dartInexpressibleStaticConstFieldBin
 import 'package:hydro_sdk/swid/backend/dart/dartStaticMethodNamespaceSymbolDeclaration.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartUnpackClosures.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartVmManagedClassBoxerRegistrant.dart';
+import 'package:hydro_sdk/swid/backend/dart/transforms/dartImportPrefix.dart';
+import 'package:hydro_sdk/swid/backend/dart/util/constants.dart';
 import 'package:hydro_sdk/swid/backend/dart/util/luaCallerArgumentsParameterName.dart';
 import 'package:hydro_sdk/swid/backend/dart/util/luaDartBinding.dart';
 import 'package:hydro_sdk/swid/ir/analyses/isInexpressibleStaticConst.dart';
@@ -83,29 +85,63 @@ class DartLoadNamespaceSymbolDeclaration
             (m) => m
               ..name = "load${swidClass.name}"
               ..returns = refer("void")
-              ..optionalParameters.addAll([
-                Parameter((p) => p
-                  ..required = true
-                  ..named = true
-                  ..name = "hydroState"
-                  ..type = refer("HydroState")),
-                Parameter((p) => p
-                  ..required = true
-                  ..named = true
-                  ..name = "table"
-                  ..type = refer("HydroTable")),
-              ])
+              ..optionalParameters.addAll(
+                [
+                  Parameter(
+                    (p) => p
+                      ..required = true
+                      ..named = true
+                      ..name = "hydroState"
+                      ..type = refer(
+                        [
+                          pipeline.reduceFromTerm(
+                            DartImportPrefix(
+                              swidType: SwidType.fromSwidInterface(
+                                swidInterface: hydroState,
+                              ),
+                            ),
+                          ),
+                          hydroState.name,
+                        ].join("."),
+                      ),
+                  ),
+                  Parameter(
+                    (p) => p
+                      ..required = true
+                      ..named = true
+                      ..name = "table"
+                      ..type = refer(
+                        [
+                          pipeline.reduceFromTerm(
+                            DartImportPrefix(
+                              swidType: SwidType.fromSwidInterface(
+                                swidInterface: hydroTable,
+                              ),
+                            ),
+                          ),
+                          hydroTable.name
+                        ].join("."),
+                      ),
+                  ),
+                ],
+              )
               ..body = Block.of(
                 [
                   !swidClass.isPureAbstract() && swidClass.isConstructible()
                       ? refer("table")
-                          .index(literalString(
-                              transformToCamelCase(str: swidClass.name)))
+                          .index(
+                            literalString(
+                              transformToCamelCase(
+                                str: swidClass.name,
+                              ),
+                            ),
+                          )
                           .assign(
                             (({
                               required final SwidFunctionType constructorType,
                             }) =>
                                 luaDartBinding(
+                                  pipeline: pipeline,
                                   code: Block.of(
                                     [
                                       Code(

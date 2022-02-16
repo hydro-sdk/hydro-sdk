@@ -38,57 +38,72 @@ DartTranslationUnit? produceDartTranslationUnitFromSwidClass({
                 path: prefixPaths.join(p.separator) + p.separator + path,
                 fileName: "$baseFileName.dart",
                 ir: [
-                  DartIr.fromDartLinebreak(dartLinebreak: DartLinebreak()),
-                  ...((
-                          {required final List<DartImportStatement>
-                              importStatements}) =>
+                  DartIr.fromDartLinebreak(
+                    dartLinebreak: DartLinebreak(),
+                  ),
+                  ...(({
+                    required final List<DartImportStatement> importStatements,
+                  }) =>
                       importStatements
                           .fold<List<DartImportStatement>>(
-                              <DartImportStatement>[],
-                              (prev, element) => prev.firstWhereOrNull(
-                                          (x) => x.path == element.path) ==
-                                      null
-                                  ? [...prev, element]
-                                  : prev)
-                          .map((x) => DartIr.fromDartImportStatement(
-                              dartImportStatement: x))
-                          .toList())(importStatements: [
-                    ...pipeline
-                        .reduceFromTerm(
-                          CollectAllReferences(
-                            swidType: SwidType.fromSwidClass(
-                              swidClass: pipeline.reduceFromTerm(
-                                ApplySuperTypes(
-                                  swidClass: swidClass,
+                            <DartImportStatement>[],
+                            (prev, element) => prev.firstWhereOrNull(
+                                      (x) => x.path == element.path,
+                                    ) ==
+                                    null
+                                ? [
+                                    ...prev,
+                                    element,
+                                  ]
+                                : prev,
+                          )
+                          .map(
+                            (x) => DartIr.fromDartImportStatement(
+                              dartImportStatement: x,
+                            ),
+                          )
+                          .toList())(
+                    importStatements: [
+                      ...pipeline
+                          .reduceFromTerm(
+                            CollectAllReferences(
+                              swidType: SwidType.fromSwidClass(
+                                swidClass: pipeline.reduceFromTerm(
+                                  ApplySuperTypes(
+                                    swidClass: swidClass,
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                        )
-                        .where(
-                          (x) =>
-                              x.originalPackagePath !=
-                              swidClass.originalPackagePath,
-                        )
-                        .where(
-                          (x) => x.originalPackagePath != "dart:_internal",
-                        )
-                        .where(
-                          (x) => x.originalPackagePath.isNotEmpty,
-                        )
-                        .map(
-                          (x) => DartImportStatement(
-                            path: x.originalPackagePath,
-                          ),
-                        )
-                        .toList(),
-                    DartImportStatement(
-                      path: swidClass.originalPackagePath,
-                    ),
-                    DartImportStatement(
-                      path: "package:hydro_sdk/cfr/runtimeSupport.dart",
-                    ),
-                  ]),
+                          )
+                          .where(
+                            (x) =>
+                                x.originalPackagePath !=
+                                swidClass.originalPackagePath,
+                          )
+                          .where(
+                            (x) => x.originalPackagePath != "dart:_internal",
+                          )
+                          .where(
+                            (x) => x.originalPackagePath.isNotEmpty,
+                          )
+                          .map(
+                            (x) => DartImportStatement(
+                              path: x.originalPackagePath,
+                            ),
+                          )
+                          .toList(),
+                      DartImportStatement(
+                        path: swidClass.originalPackagePath,
+                      ),
+                      DartImportStatement(
+                        path: "dart:core",
+                      ),
+                      DartImportStatement(
+                        path: "package:hydro_sdk/cfr/runtimeSupport.dart",
+                      ),
+                    ],
+                  ),
                   DartIr.fromVMManagedClassDeclaration(
                     vmManagedClassDeclaration: DartVMManagedClassDeclaration(
                       swidClass: removePrivateMethods(

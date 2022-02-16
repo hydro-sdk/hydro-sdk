@@ -2,7 +2,11 @@ import 'package:dartlin/control_flow.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/backend/dart/dartBoxingExpression.dart';
+import 'package:hydro_sdk/swid/backend/dart/transforms/dartImportPrefix.dart';
+import 'package:hydro_sdk/swid/backend/dart/transforms/importPrefixReferencesInInterface.dart';
+import 'package:hydro_sdk/swid/backend/dart/util/constants.dart';
 import 'package:hydro_sdk/swid/backend/dart/util/luaCallerArgumentsParameterName.dart';
+import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
@@ -105,52 +109,122 @@ class DartUnboxingExpression
                       useNullSafetySyntax: true,
                     ))
                     .toString(),
-            onClass: (val) => refer("maybeUnBoxAndBuildArgument")
-                .call([
-                  expression
-                ], {
-                  "parentState": refer("hydroState")
-                }, [
-                  TypeReference((t) => t..symbol = val.displayName),
-                  TypeReference(
-                    (t) => t
-                      ..symbol = val.typeArguments.isNotEmpty
-                          ? val.typeArguments.first.type.displayName
-                          : "dynamic",
+            onClass: (val) => refer([
+              pipeline.reduceFromTerm(
+                DartImportPrefix(
+                  swidType: SwidType.fromSwidInterface(
+                    swidInterface: maybeUnBoxAndBuildArgument,
                   ),
-                ])
-                .accept(DartEmitter(
-                  useNullSafetySyntax: true,
-                ))
+                ),
+              ),
+              maybeUnBoxAndBuildArgument.name
+            ].join("."))
+                .call(
+                  [expression],
+                  {"parentState": refer("hydroState")},
+                  [
+                    TypeReference(
+                      (t) => t
+                        ..symbol = pipeline
+                            .reduceFromTerm(
+                              ImportPrefixReferencesInInterface(
+                                swidInterface: val,
+                              ),
+                            )
+                            .displayName,
+                    ),
+                    TypeReference(
+                      (t) => t
+                        ..symbol = val.typeArguments.isNotEmpty
+                            ? pipeline
+                                .reduceFromTerm(
+                                  ImportPrefixReferencesInInterface(
+                                    swidInterface: val,
+                                  ),
+                                )
+                                .typeArguments
+                                .first
+                                .type
+                                .displayName
+                            : [
+                                pipeline.reduceFromTerm(
+                                  DartImportPrefix(
+                                    swidType: SwidType.fromSwidInterface(
+                                      swidInterface: dartDynamic,
+                                    ),
+                                  ),
+                                ),
+                                dartDynamic.name,
+                              ].join("."),
+                    ),
+                  ],
+                )
+                .accept(
+                  DartEmitter(
+                    useNullSafetySyntax: true,
+                  ),
+                )
                 .toString(),
-            onEnum: (val) => refer("maybeUnBoxEnum")
-                .call([], {
-                  "values": refer(val.name).property("values"),
-                  "boxedEnum": expression
-                })
-                .accept(DartEmitter(
-                  useNullSafetySyntax: true,
-                ))
+            onEnum: (val) => refer(
+              [
+                pipeline.reduceFromTerm(
+                  DartImportPrefix(
+                    swidType: SwidType.fromSwidInterface(
+                      swidInterface: maybeUnBoxEnum,
+                    ),
+                  ),
+                ),
+                maybeUnBoxEnum.name,
+              ].join("."),
+            )
+                .call(
+                  [],
+                  {
+                    "values": refer(
+                      pipeline
+                          .reduceFromTerm(
+                            ImportPrefixReferencesInInterface(
+                              swidInterface: val,
+                            ),
+                          )
+                          .name,
+                    ).property("values"),
+                    "boxedEnum": expression
+                  },
+                )
+                .accept(
+                  DartEmitter(
+                    useNullSafetySyntax: true,
+                  ),
+                )
                 .toString(),
             onVoid: (_) => expression
-                .accept(DartEmitter(
-                  useNullSafetySyntax: true,
-                ))
+                .accept(
+                  DartEmitter(
+                    useNullSafetySyntax: true,
+                  ),
+                )
                 .toString(),
             onTypeParameter: (_) => expression
-                .accept(DartEmitter(
-                  useNullSafetySyntax: true,
-                ))
+                .accept(
+                  DartEmitter(
+                    useNullSafetySyntax: true,
+                  ),
+                )
                 .toString(),
             onDynamic: (_) => expression
-                .accept(DartEmitter(
-                  useNullSafetySyntax: true,
-                ))
+                .accept(
+                  DartEmitter(
+                    useNullSafetySyntax: true,
+                  ),
+                )
                 .toString(),
             onUnknown: (_) => expression
-                .accept(DartEmitter(
-                  useNullSafetySyntax: true,
-                ))
+                .accept(
+                  DartEmitter(
+                    useNullSafetySyntax: true,
+                  ),
+                )
                 .toString(),
           ),
           fromSwidClass: (_) => "",
@@ -208,7 +282,34 @@ class DartUnboxingExpression
                                   ...(val.returnType.nullabilitySuffix ==
                                           SwidNullabilitySuffix.question
                                       ? [
-                                          "((final List<dynamic>? val,) => val != null && val.length >= 1 ?",
+                                          [
+                                            "((final ",
+                                            [
+                                              pipeline.reduceFromTerm(
+                                                DartImportPrefix(
+                                                  swidType: SwidType
+                                                      .fromSwidInterface(
+                                                    swidInterface: dartList,
+                                                  ),
+                                                ),
+                                              ),
+                                              dartList.name,
+                                            ].join("."),
+                                            "<",
+                                            [
+                                              pipeline.reduceFromTerm(
+                                                DartImportPrefix(
+                                                  swidType: SwidType
+                                                      .fromSwidInterface(
+                                                    swidInterface: dartDynamic,
+                                                  ),
+                                                ),
+                                              ),
+                                              dartDynamic.name,
+                                            ].join("."),
+                                            ">",
+                                            "? val,) => val != null && val.length >= 1 ?"
+                                          ].join(),
                                           "val",
                                           _destructureReturnType(
                                             swidFunctionType: val,
@@ -273,9 +374,11 @@ class DartUnboxingExpression
                       ),
                   )
                       .closure
-                      .accept(DartEmitter(
-                        useNullSafetySyntax: true,
-                      ))
+                      .accept(
+                        DartEmitter(
+                          useNullSafetySyntax: true,
+                        ),
+                      )
                       .toString(),
                 ],
                 ...(val.nullabilitySuffix == SwidNullabilitySuffix.question

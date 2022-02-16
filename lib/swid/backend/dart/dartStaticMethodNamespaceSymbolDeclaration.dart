@@ -73,6 +73,7 @@ class DartStaticMethodNamespaceSymbolDeclaration
               )
               .assign(
                 luaDartBinding(
+                  pipeline: pipeline,
                   code: Code(
                     pipeline.reduceFromTerm(
                       DartMethodBindingImplementation(

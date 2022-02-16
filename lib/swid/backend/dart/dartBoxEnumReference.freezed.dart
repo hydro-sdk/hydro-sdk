@@ -17,7 +17,7 @@ class _$DartBoxEnumReferenceTearOff {
   const _$DartBoxEnumReferenceTearOff();
 
   _$DartBoxEnumReferenceCtor call(
-      {required SwidType? type,
+      {required SwidType type,
       required String referenceName,
       CodeKind codeKind = CodeKind.statement}) {
     return _$DartBoxEnumReferenceCtor(
@@ -33,7 +33,7 @@ const $DartBoxEnumReference = _$DartBoxEnumReferenceTearOff();
 
 /// @nodoc
 mixin _$DartBoxEnumReference {
-  SwidType? get type => throw _privateConstructorUsedError;
+  SwidType get type => throw _privateConstructorUsedError;
   String get referenceName => throw _privateConstructorUsedError;
   CodeKind get codeKind => throw _privateConstructorUsedError;
 
@@ -47,9 +47,9 @@ abstract class $DartBoxEnumReferenceCopyWith<$Res> {
   factory $DartBoxEnumReferenceCopyWith(DartBoxEnumReference value,
           $Res Function(DartBoxEnumReference) then) =
       _$DartBoxEnumReferenceCopyWithImpl<$Res>;
-  $Res call({SwidType? type, String referenceName, CodeKind codeKind});
+  $Res call({SwidType type, String referenceName, CodeKind codeKind});
 
-  $SwidTypeCopyWith<$Res>? get type;
+  $SwidTypeCopyWith<$Res> get type;
 }
 
 /// @nodoc
@@ -71,7 +71,7 @@ class _$DartBoxEnumReferenceCopyWithImpl<$Res>
       type: type == freezed
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as SwidType?,
+              as SwidType,
       referenceName: referenceName == freezed
           ? _value.referenceName
           : referenceName // ignore: cast_nullable_to_non_nullable
@@ -84,12 +84,8 @@ class _$DartBoxEnumReferenceCopyWithImpl<$Res>
   }
 
   @override
-  $SwidTypeCopyWith<$Res>? get type {
-    if (_value.type == null) {
-      return null;
-    }
-
-    return $SwidTypeCopyWith<$Res>(_value.type!, (value) {
+  $SwidTypeCopyWith<$Res> get type {
+    return $SwidTypeCopyWith<$Res>(_value.type, (value) {
       return _then(_value.copyWith(type: value));
     });
   }
@@ -102,10 +98,10 @@ abstract class _$$DartBoxEnumReferenceCtorCopyWith<$Res>
           $Res Function(_$DartBoxEnumReferenceCtor) then) =
       __$$DartBoxEnumReferenceCtorCopyWithImpl<$Res>;
   @override
-  $Res call({SwidType? type, String referenceName, CodeKind codeKind});
+  $Res call({SwidType type, String referenceName, CodeKind codeKind});
 
   @override
-  $SwidTypeCopyWith<$Res>? get type;
+  $SwidTypeCopyWith<$Res> get type;
 }
 
 /// @nodoc
@@ -130,7 +126,7 @@ class __$$DartBoxEnumReferenceCtorCopyWithImpl<$Res>
       type: type == freezed
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as SwidType?,
+              as SwidType,
       referenceName: referenceName == freezed
           ? _value.referenceName
           : referenceName // ignore: cast_nullable_to_non_nullable
@@ -153,7 +149,7 @@ class _$_$DartBoxEnumReferenceCtor extends _$DartBoxEnumReferenceCtor {
       : super._();
 
   @override
-  final SwidType? type;
+  final SwidType type;
   @override
   final String referenceName;
   @JsonKey(defaultValue: CodeKind.statement)
@@ -196,13 +192,13 @@ class _$_$DartBoxEnumReferenceCtor extends _$DartBoxEnumReferenceCtor {
 
 abstract class _$DartBoxEnumReferenceCtor extends DartBoxEnumReference {
   factory _$DartBoxEnumReferenceCtor(
-      {required SwidType? type,
+      {required SwidType type,
       required String referenceName,
       CodeKind codeKind}) = _$_$DartBoxEnumReferenceCtor;
   _$DartBoxEnumReferenceCtor._() : super._();
 
   @override
-  SwidType? get type => throw _privateConstructorUsedError;
+  SwidType get type => throw _privateConstructorUsedError;
   @override
   String get referenceName => throw _privateConstructorUsedError;
   @override

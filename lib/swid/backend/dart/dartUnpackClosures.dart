@@ -2,6 +2,8 @@ import 'package:code_builder/code_builder.dart'
     show DartEmitter, refer, literalString, literalNum, Expression;
 
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/backend/dart/transforms/dartImportPrefix.dart';
+import 'package:hydro_sdk/swid/backend/dart/util/constants.dart';
 import 'package:tuple/tuple.dart';
 
 import 'package:hydro_sdk/swid/backend/dart/util/guardedLuaCallerNamedArgumentsIndex.dart';
@@ -101,7 +103,16 @@ class DartUnpackClosures
                       fromSwidClass: (_) => "",
                       fromSwidDefaultFormalParameter: (_) => "",
                       fromSwidFunctionType: (val) => ([
-                        "Closure",
+                        [
+                          pipeline.reduceFromTerm(
+                            DartImportPrefix(
+                              swidType: SwidType.fromSwidInterface(
+                                swidInterface: closure,
+                              ),
+                            ),
+                          ),
+                          closure.name
+                        ].join("."),
                         (val.nullabilitySuffix == SwidNullabilitySuffix.question
                             ? "? "
                             : " "),
@@ -138,7 +149,16 @@ class DartUnpackClosures
                       fromSwidClass: (_) => "",
                       fromSwidDefaultFormalParameter: (_) => "",
                       fromSwidFunctionType: (val) => ([
-                        "Closure",
+                        [
+                          pipeline.reduceFromTerm(
+                            DartImportPrefix(
+                              swidType: SwidType.fromSwidInterface(
+                                swidInterface: closure,
+                              ),
+                            ),
+                          ),
+                          closure.name
+                        ].join("."),
                         (val.nullabilitySuffix == SwidNullabilitySuffix.question
                             ? "? "
                             : " "),

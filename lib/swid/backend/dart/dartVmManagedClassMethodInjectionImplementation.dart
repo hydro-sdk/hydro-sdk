@@ -65,6 +65,7 @@ class DartVMManagedClassMethodInjectionImplementation
               .index(literalString(tableKey))
               .assign(
                 luaDartBinding(
+                  pipeline: pipeline,
                   code: Code(
                     pipeline.reduceFromTerm(
                       DartMethodBindingImplementation(

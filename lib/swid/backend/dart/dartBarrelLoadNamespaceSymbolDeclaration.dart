@@ -3,10 +3,13 @@ import 'package:code_builder/code_builder.dart'
 
 import 'package:dart_style/dart_style.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/backend/dart/transforms/dartImportPrefix.dart';
+import 'package:hydro_sdk/swid/backend/dart/util/constants.dart';
 
 import 'package:hydro_sdk/swid/backend/util/barrelSpec.dart';
 import 'package:hydro_sdk/swid/backend/util/requiresDartClassTranslationUnit.dart';
 import 'package:hydro_sdk/swid/ir/analyses/isUnrepresentableStaticConst.dart';
+import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsEphemeralTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
@@ -59,98 +62,195 @@ class DartBarrelLoadNamespaceSymbolDeclaration
   }) =>
       SwarsTermResult.fromValue(
         DartFormatter().format(
-          Method((m) => m
-                ..name = "load${barrelSpec.name}"
-                ..returns = refer("void")
-                ..optionalParameters.addAll([
-                  Parameter((p) => p
+          Method(
+            (m) => m
+              ..name = "load${barrelSpec.name}"
+              ..returns = refer("void")
+              ..optionalParameters.addAll([
+                Parameter(
+                  (p) => p
                     ..required = true
                     ..named = true
                     ..name = "hydroState"
-                    ..type = refer("HydroState")),
-                  barrelSpec.isTopLevel()
-                      ? Parameter((p) => p
-                        ..required = true
-                        ..named = true
-                        ..name = "context"
-                        ..type = refer("Context"))
-                      : Parameter((p) => p
-                        ..required = true
-                        ..named = true
-                        ..name = "table"
-                        ..type = refer("HydroTable")),
-                ])
-                ..body = Code([
-                  refer("HydroTable")
+                    ..type = refer(
+                      [
+                        pipeline.reduceFromTerm(
+                          DartImportPrefix(
+                            swidType: SwidType.fromSwidInterface(
+                              swidInterface: hydroState,
+                            ),
+                          ),
+                        ),
+                        hydroState.name,
+                      ].join("."),
+                    ),
+                ),
+                barrelSpec.isTopLevel()
+                    ? Parameter(
+                        (p) => p
+                          ..required = true
+                          ..named = true
+                          ..name = "context"
+                          ..type = refer(
+                            [
+                              pipeline.reduceFromTerm(
+                                DartImportPrefix(
+                                  swidType: SwidType.fromSwidInterface(
+                                    swidInterface: context,
+                                  ),
+                                ),
+                              ),
+                              context.name,
+                            ].join("."),
+                          ),
+                      )
+                    : Parameter(
+                        (p) => p
+                          ..required = true
+                          ..named = true
+                          ..name = "table"
+                          ..type = refer(
+                            [
+                              pipeline.reduceFromTerm(
+                                DartImportPrefix(
+                                  swidType: SwidType.fromSwidInterface(
+                                    swidInterface: hydroTable,
+                                  ),
+                                ),
+                              ),
+                              hydroTable.name,
+                            ].join("."),
+                          ),
+                      ),
+              ])
+              ..body = Code(
+                [
+                  refer(
+                    [
+                      pipeline.reduceFromTerm(
+                        DartImportPrefix(
+                          swidType: SwidType.fromSwidInterface(
+                            swidInterface: hydroTable,
+                          ),
+                        ),
+                      ),
+                      hydroTable.name,
+                    ].join("."),
+                  )
                       .call([])
-                      .assignFinal(barrelSpec.name)
+                      .assignFinal(
+                        barrelSpec.name,
+                      )
                       .statement
-                      .accept(DartEmitter(
-                        useNullSafetySyntax: true,
-                      ))
+                      .accept(
+                        DartEmitter(
+                          useNullSafetySyntax: true,
+                        ),
+                      )
                       .toString(),
                   barrelSpec.isTopLevel()
                       ? refer("context")
                           .property("env")
-                          .index(literalString(barrelSpec.name))
-                          .assign(refer(barrelSpec.name))
+                          .index(
+                            literalString(
+                              barrelSpec.name,
+                            ),
+                          )
+                          .assign(
+                            refer(
+                              barrelSpec.name,
+                            ),
+                          )
                           .statement
-                          .accept(DartEmitter(
-                            useNullSafetySyntax: true,
-                          ))
+                          .accept(
+                            DartEmitter(
+                              useNullSafetySyntax: true,
+                            ),
+                          )
                           .toString()
                       : refer("table")
-                          .index(literalString(barrelSpec.name))
-                          .assign(refer(barrelSpec.name))
+                          .index(
+                            literalString(
+                              barrelSpec.name,
+                            ),
+                          )
+                          .assign(
+                            refer(
+                              barrelSpec.name,
+                            ),
+                          )
                           .statement
-                          .accept(DartEmitter(
-                            useNullSafetySyntax: true,
-                          ))
+                          .accept(
+                            DartEmitter(
+                              useNullSafetySyntax: true,
+                            ),
+                          )
                           .toString(),
                   ...barrelSpec.members
-                      .where((x) => x.name != "_internal")
-                      .where((x) => x.when(
-                            fromSwidClass: (val) =>
-                                requiresDartClassTranslationUnit(
-                              pipeline: pipeline,
-                              swidClass: val.clone(
-                                staticConstFieldDeclarations:
-                                    val.staticConstFieldDeclarations
-                                        .where(
-                                          (x) => !pipeline.reduceFromTerm(
-                                            IsUnrepresentableStaticConst(
-                                              parentClass: val,
-                                              staticConst: x.value,
-                                            ),
+                      .where(
+                        (x) => x.name != "_internal",
+                      )
+                      .where(
+                        (x) => x.when(
+                          fromSwidClass: (val) =>
+                              requiresDartClassTranslationUnit(
+                            pipeline: pipeline,
+                            swidClass: val.clone(
+                              staticConstFieldDeclarations:
+                                  val.staticConstFieldDeclarations
+                                      .where(
+                                        (x) => !pipeline.reduceFromTerm(
+                                          IsUnrepresentableStaticConst(
+                                            parentClass: val,
+                                            staticConst: x.value,
                                           ),
-                                        )
-                                        .toList(),
-                              ),
+                                        ),
+                                      )
+                                      .toList(),
                             ),
-                            fromSwidEnum: (_) => true,
-                            fromBarrelSpec: (_) => true,
-                          ))
-                      .map((x) => refer(x.when(
+                          ),
+                          fromSwidEnum: (_) => true,
+                          fromBarrelSpec: (_) => true,
+                        ),
+                      )
+                      .map(
+                        (x) => refer(
+                          x.when(
                             fromSwidClass: (val) =>
                                 "load${transformToPascalCase(str: val.name)}",
                             fromSwidEnum: (val) =>
                                 "load${transformToPascalCase(str: val.identifier)}",
                             fromBarrelSpec: (val) => "load${val.name}",
-                          ))
-                              .call([], {
-                                "table": refer(barrelSpec.name),
-                                "hydroState": refer("hydroState"),
-                              })
-                              .statement
-                              .accept(DartEmitter(
+                          ),
+                        )
+                            .call(
+                              [],
+                              {
+                                "table": refer(
+                                  barrelSpec.name,
+                                ),
+                                "hydroState": refer(
+                                  "hydroState",
+                                ),
+                              },
+                            )
+                            .statement
+                            .accept(
+                              DartEmitter(
                                 useNullSafetySyntax: true,
-                              ))
-                              .toString())
+                              ),
+                            )
+                            .toString(),
+                      )
                       .toList()
-                ].join("\n")))
-              .accept(DartEmitter(
-                useNullSafetySyntax: true,
-              ))
+                ].join("\n"),
+              ),
+          )
+              .accept(
+                DartEmitter(
+                  useNullSafetySyntax: true,
+                ),
+              )
               .toString(),
         ),
       );

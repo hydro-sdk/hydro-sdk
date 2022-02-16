@@ -2,8 +2,12 @@ import 'package:code_builder/code_builder.dart'
     show refer, Block, Method, Parameter, TypeReference, DartEmitter;
 
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/backend/dart/transforms/dartImportPrefix.dart';
+import 'package:hydro_sdk/swid/backend/dart/transforms/importPrefixReferencesInClass.dart';
+import 'package:hydro_sdk/swid/backend/dart/util/constants.dart';
 
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsEphemeralTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
@@ -54,7 +58,18 @@ class DartVMManagedClassBoxerRegistrant
     required final ISwarsPipeline pipeline,
   }) =>
       SwarsTermResult.fromValue(
-        refer("registerBoxer")
+        refer(
+          [
+            pipeline.reduceFromTerm(
+              DartImportPrefix(
+                swidType: SwidType.fromSwidInterface(
+                  swidInterface: registerBoxer,
+                ),
+              ),
+            ),
+            registerBoxer.name,
+          ].join("."),
+        )
             .call(
               [],
               {
@@ -68,7 +83,14 @@ class DartVMManagedClassBoxerRegistrant
                             ..required = true
                             ..name = "vmObject"
                             ..type = TypeReference(
-                              (t) => t..symbol = swidClass.name,
+                              (t) => t
+                                ..symbol = pipeline
+                                    .reduceFromTerm(
+                                      ImportPrefixReferencesInClass(
+                                        swidClass: swidClass,
+                                      ),
+                                    )
+                                    .name,
                             ),
                         ),
                         Parameter(
@@ -77,7 +99,17 @@ class DartVMManagedClassBoxerRegistrant
                             ..required = true
                             ..name = "hydroState"
                             ..type = TypeReference(
-                              (t) => t..symbol = "HydroState",
+                              (t) => t
+                                ..symbol = [
+                                  pipeline.reduceFromTerm(
+                                    DartImportPrefix(
+                                      swidType: SwidType.fromSwidInterface(
+                                        swidInterface: hydroState,
+                                      ),
+                                    ),
+                                  ),
+                                  hydroState.name,
+                                ].join("."),
                             ),
                         ),
                         Parameter(
@@ -86,7 +118,17 @@ class DartVMManagedClassBoxerRegistrant
                             ..required = true
                             ..name = "table"
                             ..type = TypeReference(
-                              (t) => t..symbol = "HydroTable",
+                              (t) => t
+                                ..symbol = [
+                                  pipeline.reduceFromTerm(
+                                    DartImportPrefix(
+                                      swidType: SwidType.fromSwidInterface(
+                                        swidInterface: hydroTable,
+                                      ),
+                                    ),
+                                  ),
+                                  hydroTable.name
+                                ].join("."),
                             ),
                         ),
                       ],
@@ -106,7 +148,16 @@ class DartVMManagedClassBoxerRegistrant
                 ).closure
               },
               [
-                TypeReference((t) => t..symbol = swidClass.name),
+                TypeReference(
+                  (t) => t
+                    ..symbol = pipeline
+                        .reduceFromTerm(
+                          ImportPrefixReferencesInClass(
+                            swidClass: swidClass,
+                          ),
+                        )
+                        .name,
+                ),
               ],
             )
             .statement

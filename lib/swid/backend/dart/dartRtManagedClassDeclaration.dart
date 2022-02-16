@@ -1,6 +1,12 @@
 import 'package:dart_style/dart_style.dart';
 import 'package:dartlin/dartlin.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/backend/dart/transforms/dartImportPrefix.dart';
+import 'package:hydro_sdk/swid/backend/dart/transforms/importPrefixReferences.dart';
+import 'package:hydro_sdk/swid/backend/dart/transforms/importPrefixReferencesInClass.dart';
+import 'package:hydro_sdk/swid/backend/dart/transforms/importPrefixReferencesInDefaultFormalParameter.dart';
+import 'package:hydro_sdk/swid/backend/dart/transforms/importPrefixReferencesInInterface.dart';
+import 'package:hydro_sdk/swid/backend/dart/util/constants.dart';
 import 'package:tuple/tuple.dart';
 
 import 'package:hydro_sdk/swid/backend/dart/dartBindInstanceField.dart';
@@ -98,23 +104,81 @@ class DartRTManagedClassDeclaration
           Class(
             (x) => x
               ..name = "RTManaged${swidClass.name}"
-              ..extend = TypeReference((k) => k.symbol = swidClass.name)
+              ..extend = TypeReference(
+                (k) => k.symbol = [
+                  pipeline.reduceFromTerm(
+                    DartImportPrefix(
+                      swidType: SwidType.fromSwidClass(
+                        swidClass: swidClass,
+                      ),
+                    ),
+                  ),
+                  swidClass.name,
+                ].join("."),
+              )
               ..implements.add(TypeReference(
                 (k) => k
-                  ..symbol = "Box"
-                  ..types.add(TypeReference((i) => i..symbol = swidClass.name)),
+                  ..symbol = [
+                    pipeline.reduceFromTerm(
+                      DartImportPrefix(
+                        swidType: SwidType.fromSwidInterface(
+                          swidInterface: box,
+                        ),
+                      ),
+                    ),
+                    box.name,
+                  ].join(".")
+                  ..types.add(
+                    TypeReference(
+                      (i) => i
+                        ..symbol = [
+                          pipeline.reduceFromTerm(
+                            DartImportPrefix(
+                              swidType: SwidType.fromSwidClass(
+                                swidClass: swidClass,
+                              ),
+                            ),
+                          ),
+                          swidClass.name
+                        ].join("."),
+                    ),
+                  ),
               ))
               ..fields.addAll([
                 Field(
                   (k) => k
                     ..modifier = FieldModifier.final$
-                    ..type = TypeReference((i) => i..symbol = "HydroTable")
+                    ..type = TypeReference(
+                      (i) => i
+                        ..symbol = [
+                          pipeline.reduceFromTerm(
+                            DartImportPrefix(
+                              swidType: SwidType.fromSwidInterface(
+                                swidInterface: hydroTable,
+                              ),
+                            ),
+                          ),
+                          hydroTable.name
+                        ].join("."),
+                    )
                     ..name = "table",
                 ),
                 Field(
                   (k) => k
                     ..modifier = FieldModifier.final$
-                    ..type = TypeReference((i) => i..symbol = "HydroState")
+                    ..type = TypeReference(
+                      (i) => i
+                        ..symbol = [
+                          pipeline.reduceFromTerm(
+                            DartImportPrefix(
+                              swidType: SwidType.fromSwidInterface(
+                                swidInterface: hydroState,
+                              ),
+                            ),
+                          ),
+                          hydroState.name,
+                        ].join("."),
+                    )
                     ..name = "hydroState",
                 ),
               ])
@@ -140,12 +204,40 @@ class DartRTManagedClassDeclaration
                                                           .indexOf(e))
                                                       .when(
                                                         fromSwidInterface:
-                                                            (val) =>
-                                                                val.displayName,
+                                                            (val) => val
+                                                                .let(
+                                                                  (val) => pipeline
+                                                                      .reduceFromTerm(
+                                                                    ImportPrefixReferencesInInterface(
+                                                                      swidInterface:
+                                                                          val,
+                                                                    ),
+                                                                  ),
+                                                                )
+                                                                .displayName,
                                                         fromSwidClass: (val) =>
-                                                            val.displayName,
+                                                            val
+                                                                .let(
+                                                                  (val) => pipeline
+                                                                      .reduceFromTerm(
+                                                                    ImportPrefixReferencesInClass(
+                                                                      swidClass:
+                                                                          val,
+                                                                    ),
+                                                                  ),
+                                                                )
+                                                                .displayName,
                                                         fromSwidDefaultFormalParameter:
                                                             (val) => val
+                                                                .let(
+                                                                  (val) => pipeline
+                                                                      .reduceFromTerm(
+                                                                    ImportPrefixReferencesInDefaultFormalParameter(
+                                                                      swidDefaultFormalParameter:
+                                                                          val,
+                                                                    ),
+                                                                  ),
+                                                                )
                                                                 .staticType
                                                                 .displayName,
                                                         fromSwidFunctionType:
@@ -165,6 +257,7 @@ class DartRTManagedClassDeclaration
                                               )
                                               ..type =
                                                   swidTypeToDartTypeReference(
+                                                pipeline: pipeline,
                                                 preserveTypeArguments: true,
                                                 swidType: constructorType
                                                     .optionalParameterTypes
@@ -198,6 +291,7 @@ class DartRTManagedClassDeclaration
                                               ..name = x.key
                                               ..type =
                                                   swidTypeToDartTypeReference(
+                                                pipeline: pipeline,
                                                 preserveTypeArguments: true,
                                                 swidType: x.value,
                                               )
@@ -257,21 +351,69 @@ class DartRTManagedClassDeclaration
                                     refer("table")
                                         .index(literalString("unwrap"))
                                         .assign(
-                                          refer("makeLuaDartFunc").call(
+                                          refer(
+                                            [
+                                              pipeline.reduceFromTerm(
+                                                DartImportPrefix(
+                                                  swidType: SwidType
+                                                      .fromSwidInterface(
+                                                    swidInterface:
+                                                        makeLuaDartFunc,
+                                                  ),
+                                                ),
+                                              ),
+                                              makeLuaDartFunc.name,
+                                            ].join("."),
+                                          ).call(
                                             [],
                                             {
                                               "func": Method(
                                                 (x) => x
-                                                  ..requiredParameters.addAll([
-                                                    Parameter((i) => i
-                                                      ..name =
-                                                          "$luaCallerArgumentsParameterName"
-                                                      ..type = TypeReference(
-                                                          ((j) => j
-                                                            ..symbol = "List"
-                                                            ..types.add(refer(
-                                                                "dynamic")))))
-                                                  ])
+                                                  ..requiredParameters.addAll(
+                                                    [
+                                                      Parameter(
+                                                        (i) => i
+                                                          ..name =
+                                                              "$luaCallerArgumentsParameterName"
+                                                          ..type =
+                                                              TypeReference(
+                                                            ((j) => j
+                                                              ..symbol = [
+                                                                pipeline
+                                                                    .reduceFromTerm(
+                                                                  DartImportPrefix(
+                                                                    swidType:
+                                                                        SwidType
+                                                                            .fromSwidInterface(
+                                                                      swidInterface:
+                                                                          dartList,
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                                dartList.name,
+                                                              ].join(".")
+                                                              ..types.add(
+                                                                refer(
+                                                                  [
+                                                                    pipeline
+                                                                        .reduceFromTerm(
+                                                                      DartImportPrefix(
+                                                                        swidType:
+                                                                            SwidType.fromSwidInterface(
+                                                                          swidInterface:
+                                                                              dartDynamic,
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                    dartDynamic
+                                                                        .name,
+                                                                  ].join("."),
+                                                                ),
+                                                              )),
+                                                          ),
+                                                      )
+                                                    ],
+                                                  )
                                                   ..body = Block.of(
                                                     [
                                                       literalList([
@@ -306,7 +448,12 @@ class DartRTManagedClassDeclaration
                                                                 null
                                                             ? x.key
                                                             : "this.${x.key}",
-                                                    instanceField: x.value,
+                                                    instanceField:
+                                                        pipeline.reduceFromTerm(
+                                                      ImportPrefixReferences(
+                                                        swidType: x.value,
+                                                      ),
+                                                    ),
                                                   ),
                                                 ),
                                               ),
@@ -358,11 +505,16 @@ class DartRTManagedClassDeclaration
                                                   DartMethodInjectionImplementation(
                                                     swidFunctionType: pipeline
                                                         .reduceFromTerm(
-                                                          InstantiateAllGenericsAsDynamic(
-                                                            swidType: SwidType
-                                                                .fromSwidFunctionType(
-                                                              swidFunctionType:
-                                                                  x,
+                                                          ImportPrefixReferences(
+                                                            swidType: pipeline
+                                                                .reduceFromTerm(
+                                                              InstantiateAllGenericsAsDynamic(
+                                                                swidType: SwidType
+                                                                    .fromSwidFunctionType(
+                                                                  swidFunctionType:
+                                                                      x,
+                                                                ),
+                                                              ),
                                                             ),
                                                           ),
                                                         )
@@ -436,15 +588,35 @@ class DartRTManagedClassDeclaration
               )
               ..methods.addAll(
                 [
-                  Method((k) => k
-                    ..name = "unwrap"
-                    ..returns = refer(swidClass.name)
-                    ..body = refer("this").code),
-                  Method((k) => k
-                    ..name = "vmObject"
-                    ..type = MethodType.getter
-                    ..returns = refer(swidClass.name)
-                    ..body = refer("this").code)
+                  Method(
+                    (k) => k
+                      ..name = "unwrap"
+                      ..returns = refer(
+                        pipeline
+                            .reduceFromTerm(
+                              ImportPrefixReferencesInClass(
+                                swidClass: swidClass,
+                              ),
+                            )
+                            .name,
+                      )
+                      ..body = refer("this").code,
+                  ),
+                  Method(
+                    (k) => k
+                      ..name = "vmObject"
+                      ..type = MethodType.getter
+                      ..returns = refer(
+                        pipeline
+                            .reduceFromTerm(
+                              ImportPrefixReferencesInClass(
+                                swidClass: swidClass,
+                              ),
+                            )
+                            .name,
+                      )
+                      ..body = refer("this").code,
+                  )
                 ],
               )
               ..methods.addAll(
@@ -491,7 +663,20 @@ class DartRTManagedClassDeclaration
                         .map(
                           (x) => Method(
                             (k) => k
-                              ..annotations.add(refer("override"))
+                              ..annotations.add(
+                                refer(
+                                  [
+                                    pipeline.reduceFromTerm(
+                                      DartImportPrefix(
+                                        swidType: SwidType.fromSwidInterface(
+                                          swidInterface: dartOverride,
+                                        ),
+                                      ),
+                                    ),
+                                    dartOverride.name,
+                                  ].join("."),
+                                ),
+                              )
                               ..type = x.declarationModifiers.isGetter
                                   ? MethodType.getter
                                   : x.declarationModifiers.isSetter
@@ -581,6 +766,7 @@ class DartRTManagedClassDeclaration
                                                 : false
                                             ..type =
                                                 swidTypeToDartTypeReference(
+                                              pipeline: pipeline,
                                               swidType: e.value,
                                             ),
                                         ),
@@ -588,15 +774,20 @@ class DartRTManagedClassDeclaration
                                       .toList(),
                                   ...x.positionalDefaultParameters.entries
                                       .map(
-                                        (e) => Parameter((p) => p
-                                          ..name = e.key
-                                          ..type = swidTypeToDartTypeReference(
-                                            swidType: e.value.staticType,
-                                          )
-                                          ..named = false
-                                          ..required = false
-                                          ..defaultTo =
-                                              Code(e.value.defaultValueCode)),
+                                        (e) => Parameter(
+                                          (p) => p
+                                            ..name = e.key
+                                            ..type =
+                                                swidTypeToDartTypeReference(
+                                              pipeline: pipeline,
+                                              swidType: e.value.staticType,
+                                            )
+                                            ..named = false
+                                            ..required = false
+                                            ..defaultTo = Code(
+                                              e.value.defaultValueCode,
+                                            ),
+                                        ),
                                       )
                                       .toList(),
                                   ...x.optionalParameterNames
@@ -604,7 +795,8 @@ class DartRTManagedClassDeclaration
                                         (e) =>
                                             x.namedDefaults.entries
                                                 .firstWhereOrNull(
-                                                    (k) => k.key == e) ==
+                                              (k) => k.key == e,
+                                            ) ==
                                             null,
                                       )
                                       .map(
@@ -612,21 +804,27 @@ class DartRTManagedClassDeclaration
                                           Tuple2<String, SwidType>?
                                               optionalParameterType,
                                         }) =>
-                                            Parameter((p) => p
-                                              ..name =
-                                                  optionalParameterType!.item1
-                                              ..type =
-                                                  swidTypeToDartTypeReference(
-                                                      swidType:
-                                                          optionalParameterType
-                                                              .item2)
-                                              ..named = false
-                                              ..required = false))(
+                                            Parameter(
+                                              (p) => p
+                                                ..name =
+                                                    optionalParameterType!.item1
+                                                ..type =
+                                                    swidTypeToDartTypeReference(
+                                                  pipeline: pipeline,
+                                                  swidType:
+                                                      optionalParameterType
+                                                          .item2,
+                                                )
+                                                ..named = false
+                                                ..required = false,
+                                            ))(
                                           optionalParameterType: Tuple2(
                                             e,
                                             x.optionalParameterTypes.elementAt(
                                               x.optionalParameterNames
-                                                  .indexWhere((k) => k == e),
+                                                  .indexWhere(
+                                                (k) => k == e,
+                                              ),
                                             ),
                                           ),
                                         ),
@@ -654,7 +852,15 @@ class DartRTManagedClassDeclaration
                                       ].join(""))
                                     : "",
                               ].join()
-                              ..returns = refer(x.returnType.displayName)
+                              ..returns = refer(
+                                pipeline
+                                    .reduceFromTerm(
+                                      ImportPrefixReferences(
+                                        swidType: x.returnType,
+                                      ),
+                                    )
+                                    .displayName,
+                              )
                               ..body = Block.of(
                                 [
                                   Code(
@@ -665,8 +871,18 @@ class DartRTManagedClassDeclaration
                                       ),
                                     ),
                                   ),
-                                  Code(
-                                      "Closure closure = table[\"${transformAccessorName(swidFunctionType: transformTstlMethodNames(swidFunctionType: x)).name}\"];"),
+                                  Code([
+                                        pipeline.reduceFromTerm(
+                                          DartImportPrefix(
+                                            swidType:
+                                                SwidType.fromSwidInterface(
+                                              swidInterface: closure,
+                                            ),
+                                          ),
+                                        ),
+                                        closure.name
+                                      ].join(".") +
+                                      " closure = table[\"${transformAccessorName(swidFunctionType: transformTstlMethodNames(swidFunctionType: x)).name}\"];"),
                                   Code(
                                     "return " +
                                         pipeline.reduceFromTerm(

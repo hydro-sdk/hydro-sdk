@@ -89,6 +89,7 @@ class DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
           )
           .assign(
             luaDartBinding(
+              pipeline: pipeline,
               code: Block.of(
                 [
                   literalList(

@@ -2,6 +2,7 @@ import 'package:code_builder/code_builder.dart'
     show DartEmitter, Expression, refer, Method, Parameter, Block, Code;
 
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/backend/dart/transforms/importPrefixReferences.dart';
 
 import 'package:hydro_sdk/swid/backend/dart/util/codeKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
@@ -28,7 +29,7 @@ class DartBoxEnumReference
   DartBoxEnumReference._();
 
   factory DartBoxEnumReference({
-    required final SwidType? type,
+    required final SwidType type,
     required final String referenceName,
     @Default(CodeKind.statement) final CodeKind codeKind,
   }) = _$DartBoxEnumReferenceCtor;
@@ -38,7 +39,7 @@ class DartBoxEnumReference
 
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
-    yield* type?.hashKey.hashableParts ?? [];
+    yield* type.hashKey.hashableParts;
     yield [
       ...referenceName.codeUnits,
     ];
@@ -54,7 +55,7 @@ class DartBoxEnumReference
     final CodeKind? codeKind,
   }) =>
       DartBoxEnumReference(
-        type: type ?? this.type?.clone(),
+        type: type ?? this.type,
         referenceName: referenceName ?? this.referenceName,
         codeKind: codeKind ?? this.codeKind,
       );
@@ -69,7 +70,15 @@ class DartBoxEnumReference
                 : codeKind == CodeKind.expression
                     ? expression.expression
                     : null)(
-          refer(type!.name).property("values").property("indexWhere").call(
+          refer(
+            pipeline
+                .reduceFromTerm(
+                  ImportPrefixReferences(
+                    swidType: type,
+                  ),
+                )
+                .name,
+          ).property("values").property("indexWhere").call(
             [
               Method(
                 (k) => k

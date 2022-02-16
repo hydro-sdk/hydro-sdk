@@ -109,71 +109,73 @@ class DartMethodInjectionImplementation
         swidFunctionType.isTransformIgnored(
           transformName: "dartMethodInjectionImplementation",
         )
-            ? DartFormatter().formatStatement(
-                refer("table")
-                    .index(
-                      literalString(
-                        methodInjectionFieldName(
-                          swidFunctionType: transformAccessorName(
-                            swidFunctionType: swidFunctionType,
-                          ),
+            ?
+            DartFormatter().formatStatement(
+            refer("table")
+                .index(
+                  literalString(
+                    methodInjectionFieldName(
+                      swidFunctionType: transformAccessorName(
+                        swidFunctionType: swidFunctionType,
+                      ),
+                    ),
+                  ),
+                )
+                .assign(
+                  luaDartBinding(
+                    pipeline: pipeline,
+                    code: swidFunctionType.returnType.when<Block?>(
+                      fromSwidInterface: (val) =>
+                          narrowSwidInterfaceByReferenceDeclaration<Block>(
+                        swidInterface: val,
+                        onPrimitive: (_) => _nonVoidBody(
+                          pipeline: pipeline,
+                        ),
+                        onClass: (_) => _nonVoidBody(
+                          pipeline: pipeline,
+                        ),
+                        onEnum: (_) => _nonVoidBody(
+                          pipeline: pipeline,
+                        ),
+                        onTypeParameter: (_) => _nonVoidBody(
+                          pipeline: pipeline,
+                        ),
+                        onDynamic: (_) => _nonVoidBody(
+                          pipeline: pipeline,
+                        ),
+                        onUnknown: (_) => _nonVoidBody(
+                          pipeline: pipeline,
+                        ),
+                        onVoid: (_) => Block.of(
+                          [
+                            Code(pipeline.reduceFromTerm(
+                                  DartUnpackClosures(
+                                    swidFunctionType: swidFunctionType,
+                                  ),
+                                ) +
+                                _methodInvocation(
+                                  pipeline: pipeline,
+                                )! +
+                                ";" +
+                                "\n" +
+                                "return [];")
+                          ],
                         ),
                       ),
-                    )
-                    .assign(
-                      luaDartBinding(
-                        code: swidFunctionType.returnType.when<Block?>(
-                          fromSwidInterface: (val) =>
-                              narrowSwidInterfaceByReferenceDeclaration<Block>(
-                            swidInterface: val,
-                            onPrimitive: (_) => _nonVoidBody(
-                              pipeline: pipeline,
-                            ),
-                            onClass: (_) => _nonVoidBody(
-                              pipeline: pipeline,
-                            ),
-                            onEnum: (_) => _nonVoidBody(
-                              pipeline: pipeline,
-                            ),
-                            onTypeParameter: (_) => _nonVoidBody(
-                              pipeline: pipeline,
-                            ),
-                            onDynamic: (_) => _nonVoidBody(
-                              pipeline: pipeline,
-                            ),
-                            onUnknown: (_) => _nonVoidBody(
-                              pipeline: pipeline,
-                            ),
-                            onVoid: (_) => Block.of(
-                              [
-                                Code(pipeline.reduceFromTerm(
-                                      DartUnpackClosures(
-                                        swidFunctionType: swidFunctionType,
-                                      ),
-                                    ) +
-                                    _methodInvocation(
-                                      pipeline: pipeline,
-                                    )! +
-                                    ";" +
-                                    "\n" +
-                                    "return [];")
-                              ],
-                            ),
-                          ),
-                          fromSwidClass: (_) => null,
-                          fromSwidDefaultFormalParameter: (_) => null,
-                          fromSwidFunctionType: (_) => null,
-                        ),
-                      ),
-                    )
-                    .statement
-                    .accept(
-                      DartEmitter(
-                        useNullSafetySyntax: true,
-                      ),
-                    )
-                    .toString(),
-              )
+                      fromSwidClass: (_) => null,
+                      fromSwidDefaultFormalParameter: (_) => null,
+                      fromSwidFunctionType: (_) => null,
+                    ),
+                  ),
+                )
+                .statement
+                .accept(
+                  DartEmitter(
+                    useNullSafetySyntax: true,
+                  ),
+                )
+                .toString()
+            )
             : "",
       );
 }

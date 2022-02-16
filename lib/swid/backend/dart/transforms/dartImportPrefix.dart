@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/transforms/sixteenthHashName.dart';
-
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsEphemeralTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
@@ -9,38 +9,38 @@ import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
 
-part 'dartImportStatement.freezed.dart';
+part 'dartImportPrefix.freezed.dart';
 
 @freezed
-class DartImportStatement
+class DartImportPrefix
     with
-        _$DartImportStatement,
-        HashKeyMixin<DartImportStatement>,
-        HashComparableMixin<DartImportStatement>,
-        SwarsTransformMixin<DartImportStatement,
-            $DartImportStatementCopyWith<DartImportStatement>, String>,
+        _$DartImportPrefix,
+        HashKeyMixin<DartImportPrefix>,
+        HashComparableMixin<DartImportPrefix>,
+        SwarsTransformMixin<DartImportPrefix,
+            $DartImportPrefixCopyWith<DartImportPrefix>, String>,
         SwarsEphemeralTermMixin,
         SwarsTermStringResultMixin {
-  DartImportStatement._();
+  DartImportPrefix._();
 
-  factory DartImportStatement({
-    required final String path,
-  }) = _$DartImportStatementCtor;
+  factory DartImportPrefix({
+    required final SwidType swidType,
+  }) = _$DartImportPrefixCtor;
 
   @override
-  String get cacheGroup => "dartImportStatement";
+  String get cacheGroup => "dartImportPrefix";
 
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
-    yield* path.hashableParts;
+    yield* swidType.hashKey.hashableParts;
   }
 
   @override
-  DartImportStatement clone({
-    final String? path,
+  DartImportPrefix clone({
+    final SwidType? swidType,
   }) =>
-      DartImportStatement(
-        path: path ?? this.path,
+      DartImportPrefix(
+        swidType: swidType ?? this.swidType,
       );
 
   @override
@@ -49,18 +49,12 @@ class DartImportStatement
   }) =>
       SwarsTermResult.fromValue(
         [
-          "import ",
-          "'",
-          path,
-          "'",
-          " as _",
+          "_",
           pipeline.reduceFromTerm(
             SixteenthHashName(
-              str: path,
+              str: swidType.originalPackagePath,
             ),
-          ),
-          ";",
-          "\n",
+          )
         ].join(),
       );
 }

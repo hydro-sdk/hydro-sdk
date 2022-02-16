@@ -2,7 +2,11 @@ import 'package:dartlin/control_flow.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/backend/dart/dartBoxList.dart';
+import 'package:hydro_sdk/swid/backend/dart/transforms/dartImportPrefix.dart';
+import 'package:hydro_sdk/swid/backend/dart/transforms/importPrefixReferencesInInterface.dart';
 import 'package:hydro_sdk/swid/backend/dart/util/codeKind.dart';
+import 'package:hydro_sdk/swid/backend/dart/util/constants.dart';
+import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
@@ -51,7 +55,21 @@ class DartBoxObjectReference
     required final Expression? tableExpression,
   }) = _$DartBoxObjectReferenceCtor;
 
-  static _defaultTableExpression() => refer("HydroTable").call([]);
+  static _defaultTableExpression({
+    required final ISwarsPipeline pipeline,
+  }) =>
+      refer(
+        [
+          pipeline.reduceFromTerm(
+            DartImportPrefix(
+              swidType: SwidType.fromSwidInterface(
+                swidInterface: hydroTable,
+              ),
+            ),
+          ),
+          hydroTable.name,
+        ].join("."),
+      ).call([]);
 
   @override
   DartBoxObjectReference clone({
@@ -73,7 +91,18 @@ class DartBoxObjectReference
   Expression _boxObject({
     required final ISwarsPipeline pipeline,
   }) =>
-      refer("maybeBoxObject").call(
+      refer(
+        [
+          pipeline.reduceFromTerm(
+            DartImportPrefix(
+              swidType: SwidType.fromSwidInterface(
+                swidInterface: maybeBoxObject,
+              ),
+            ),
+          ),
+          maybeBoxObject.name,
+        ].join("."),
+      ).call(
         [],
         {
           "object": boxLists &&
@@ -104,7 +133,10 @@ class DartBoxObjectReference
                 )
               : objectReference,
           "hydroState": refer("hydroState"),
-          "table": tableExpression ?? _defaultTableExpression(),
+          "table": tableExpression ??
+              _defaultTableExpression(
+                pipeline: pipeline,
+              ),
         },
         type.name[0] != "_"
             ? [
@@ -119,19 +151,58 @@ class DartBoxObjectReference
                         ? preserveListTypes.let(
                             (it) => it == false
                                 ? Reference(
-                                    "List<dynamic>",
+                                    [
+                                      pipeline.reduceFromTerm(
+                                        DartImportPrefix(
+                                          swidType: SwidType.fromSwidInterface(
+                                            swidInterface: dartList,
+                                          ),
+                                        ),
+                                      ),
+                                      ".",
+                                      dartList.name,
+                                      "<",
+                                      pipeline.reduceFromTerm(
+                                        DartImportPrefix(
+                                          swidType: SwidType.fromSwidInterface(
+                                            swidInterface: dartDynamic,
+                                          ),
+                                        ),
+                                      ),
+                                      ".",
+                                      dartDynamic.name,
+                                      ">",
+                                    ].join(),
                                   )
                                 : Reference(
-                                    type.displayName,
+                                    pipeline
+                                        .reduceFromTerm(
+                                          ImportPrefixReferencesInInterface(
+                                            swidInterface: type,
+                                          ),
+                                        )
+                                        .displayName,
                                   ),
                           )
                         : Reference(
-                            type.displayName,
+                            pipeline
+                                .reduceFromTerm(
+                                  ImportPrefixReferencesInInterface(
+                                    swidInterface: type,
+                                  ),
+                                )
+                                .displayName,
                           )
                     : Reference(
                         [
                           removeTypeArguments(
-                            str: type.name,
+                            str: pipeline
+                                .reduceFromTerm(
+                                  ImportPrefixReferencesInInterface(
+                                    swidInterface: type,
+                                  ),
+                                )
+                                .name,
                           ),
                           type.nullabilitySuffix ==
                                   SwidNullabilitySuffix.question

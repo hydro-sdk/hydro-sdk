@@ -276,7 +276,7 @@ final dartStarNum = SwidInterface(
 final dartDynamic = SwidInterface(
   name: "dynamic",
   nullabilitySuffix: SwidNullabilitySuffix.none,
-  originalPackagePath: "",
+  originalPackagePath: "dart:core",
   referenceDeclarationKind: SwidReferenceDeclarationKind.dynamicType,
   declarationModifiers: emptyDeclarationModifiers,
   typeArguments: [],
@@ -293,6 +293,15 @@ final dartVoid = SwidInterface(
 
 final dartNull = SwidInterface(
   name: "Null",
+  nullabilitySuffix: SwidNullabilitySuffix.none,
+  originalPackagePath: "dart:core",
+  referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
+  declarationModifiers: emptyDeclarationModifiers,
+  typeArguments: [],
+);
+
+final dartOverride = SwidInterface(
+  name: "override",
   nullabilitySuffix: SwidNullabilitySuffix.none,
   originalPackagePath: "dart:core",
   referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
