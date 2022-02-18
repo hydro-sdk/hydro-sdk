@@ -18,14 +18,7 @@ TypeReference swidTypeToDartTypeReference({
     }) =>
         TypeReference(
           (t) => t
-            ..symbol = name.isNotEmpty
-                ? [
-                    name,
-                    swidType.nullabilitySuffix == SwidNullabilitySuffix.question
-                        ? "?"
-                        : "",
-                  ].join("")
-                : ""
+            ..symbol = name.isNotEmpty ? name : ""
             ..isNullable = false,
         ))(
       name: swidType.let(
@@ -39,11 +32,21 @@ TypeReference swidTypeToDartTypeReference({
               (it) => preserveTypeArguments
                   ? removeNullabilitySuffixFromTypeNames(
                       swidType: it,
-                    ).name
+                    ).displayName
                   : removeTypeArguments(
                       str: removeNullabilitySuffixFromTypeNames(
                         swidType: it,
                       ).name,
+                    ).let(
+                      (str) => str.isNotEmpty
+                          ? it.nullabilitySuffix ==
+                                  SwidNullabilitySuffix.question
+                              ? [
+                                  str,
+                                  "?",
+                                ].join("")
+                              : ""
+                          : str,
                     ),
             ),
       ),
