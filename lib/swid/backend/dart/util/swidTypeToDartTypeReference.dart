@@ -33,20 +33,34 @@ TypeReference swidTypeToDartTypeReference({
                   ? removeNullabilitySuffixFromTypeNames(
                       swidType: it,
                     ).displayName
-                  : removeTypeArguments(
-                      str: removeNullabilitySuffixFromTypeNames(
-                        swidType: it,
-                      ).name,
-                    ).let(
-                      (str) => str.isNotEmpty
-                          ? it.nullabilitySuffix ==
-                                  SwidNullabilitySuffix.question
-                              ? [
-                                  str,
-                                  "?",
-                                ].join("")
-                              : ""
-                          : str,
+                  : removeNullabilitySuffixFromTypeNames(
+                      swidType: it.when(
+                        fromSwidInterface: (val) => SwidType.fromSwidInterface(
+                          swidInterface: val.clone(
+                            typeArguments: [],
+                          ),
+                        ),
+                        fromSwidClass: (val) => SwidType.fromSwidClass(
+                          swidClass: val.clone(
+                            typeFormals: [],
+                          ),
+                        ),
+                        fromSwidDefaultFormalParameter: (val) =>
+                            SwidType.fromSwidDefaultFormalParameter(
+                          swidDefaultFormalParameter: val,
+                        ),
+                        fromSwidFunctionType: (val) =>
+                            SwidType.fromSwidFunctionType(
+                          swidFunctionType: val.clone(
+                            typeFormals: [],
+                          ),
+                        ),
+                      ),
+                    ).when(
+                      fromSwidInterface: (val) => val.displayName,
+                      fromSwidClass: (val) => val.name,
+                      fromSwidDefaultFormalParameter: (val) => val.name,
+                      fromSwidFunctionType: (val) => val.name,
                     ),
             ),
       ),

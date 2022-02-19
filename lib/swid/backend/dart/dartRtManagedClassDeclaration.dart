@@ -730,8 +730,18 @@ class DartRTManagedClassDeclaration
                                                             (_) => it
                                                                 .defaultValueCode,
                                                         fromSwidStaticConstPrefixedIdentifier:
-                                                            (_) => it
-                                                                .defaultValueCode,
+                                                            (val) => [
+                                                          pipeline
+                                                              .reduceFromTerm(
+                                                                ImportPrefixReferencesInInterface(
+                                                                  swidInterface:
+                                                                      val.prefix,
+                                                                ),
+                                                              )
+                                                              .displayName,
+                                                          val.staticConstFieldReference
+                                                              .name,
+                                                        ].join("."),
                                                         fromSwidStaticConstIdentifier:
                                                             (_) => it
                                                                 .defaultValueCode,
