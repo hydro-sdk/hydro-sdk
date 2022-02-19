@@ -27,7 +27,8 @@ class ImportPrefixReferencesInClass
         HashComparableMixin<ImportPrefixReferencesInClass>,
         SwarsTransformMixin<
             ImportPrefixReferencesInClass,
-            $ImportPrefixReferencesInClassCopyWith<ImportPrefixReferencesInClass>,
+            $ImportPrefixReferencesInClassCopyWith<
+                ImportPrefixReferencesInClass>,
             SwidClass>,
         SwarsEphemeralTermMixin,
         SwarsTermJsonTransformableResultMixin,

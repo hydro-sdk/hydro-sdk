@@ -109,9 +109,7 @@ class DartMethodInjectionImplementation
         swidFunctionType.isTransformIgnored(
           transformName: "dartMethodInjectionImplementation",
         )
-            ?
-            DartFormatter().formatStatement(
-            refer("table")
+            ? DartFormatter().formatStatement(refer("table")
                 .index(
                   literalString(
                     methodInjectionFieldName(
@@ -174,8 +172,7 @@ class DartMethodInjectionImplementation
                     useNullSafetySyntax: true,
                   ),
                 )
-                .toString()
-            )
+                .toString())
             : "",
       );
 }
