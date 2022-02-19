@@ -40,6 +40,6 @@ void main() {
       ),
     );
 
-    expect(res, "T extends InheritedWidget");
+    expect(res, "T extends _e2dc.InheritedWidget");
   }, tags: "swid");
 }

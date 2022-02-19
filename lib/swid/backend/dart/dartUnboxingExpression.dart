@@ -328,7 +328,18 @@ class DartUnboxingExpression
                                     (it) => it.isEmpty
                                         ? ""
                                         : [
-                                            "HydroTable.fromMap({",
+                                            [
+                                              pipeline.reduceFromTerm(
+                                                DartImportPrefix(
+                                                  swidType: SwidType
+                                                      .fromSwidInterface(
+                                                    swidInterface: hydroTable,
+                                                  ),
+                                                ),
+                                              ),
+                                              hydroTable.name
+                                            ].join("."),
+                                            ".fromMap({",
                                             it.entries
                                                 .map(
                                                   (x) => [

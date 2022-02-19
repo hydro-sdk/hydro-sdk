@@ -232,7 +232,7 @@ class VMManagedSliverHitTestResult
                   [
                     luaCallerArguments[0],
                     result,
-                    HydroTable.fromMap({
+                    _36c2.HydroTable.fromMap({
                       "crossAxisPosition": crossAxisPosition,
                       "mainAxisPosition": mainAxisPosition
                     }),
