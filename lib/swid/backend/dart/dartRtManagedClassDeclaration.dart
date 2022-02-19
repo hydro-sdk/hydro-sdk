@@ -1,6 +1,7 @@
 import 'package:dart_style/dart_style.dart';
 import 'package:dartlin/dartlin.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:tuple/tuple.dart';
 
 import 'package:hydro_sdk/swid/backend/dart/dartBindInstanceField.dart';
@@ -700,73 +701,108 @@ class DartRTManagedClassDeclaration
                                         (e) => Parameter(
                                           (p) => p
                                             ..name = e.key
-                                            ..defaultTo = (x
-                                                        .namedDefaults[e.key] !=
-                                                    null
-                                                ? Code(
-                                                    x.namedDefaults[e.key]!.let(
-                                                      (it) => it.value.when(
-                                                        fromSwidBooleanLiteral:
-                                                            (_) => it
-                                                                .defaultValueCode,
-                                                        fromSwidStringLiteral:
-                                                            (_) => it
-                                                                .defaultValueCode,
-                                                        fromSwidIntegerLiteral:
-                                                            (_) => it
-                                                                .defaultValueCode,
-                                                        fromDoubleLiteral: (_) =>
-                                                            it.defaultValueCode,
-                                                        fromSwidStaticConstFunctionInvocation:
-                                                            (_) => it
-                                                                .defaultValueCode,
-                                                        fromSwidStaticConstFieldReference:
-                                                            (_) => it
-                                                                .defaultValueCode,
-                                                        fromSwidStaticConstPrefixedExpression:
-                                                            (_) => it
-                                                                .defaultValueCode,
-                                                        fromSwidStaticConstBinaryExpression:
-                                                            (_) => it
-                                                                .defaultValueCode,
-                                                        fromSwidStaticConstPrefixedIdentifier:
-                                                            (val) => [
-                                                          pipeline
-                                                              .reduceFromTerm(
-                                                                ImportPrefixReferencesInInterface(
-                                                                  swidInterface:
-                                                                      val.prefix,
-                                                                ),
-                                                              )
-                                                              .displayName,
-                                                          val.staticConstFieldReference
-                                                              .name,
-                                                        ].join("."),
-                                                        fromSwidStaticConstIdentifier:
-                                                            (_) => it
-                                                                .defaultValueCode,
-                                                        fromSwidStaticConstListLiteral:
-                                                            (_) => it
-                                                                .defaultValueCode,
-                                                        fromSwidStaticConstMapLiteralEntry:
-                                                            (_) => it
-                                                                .defaultValueCode,
-                                                        fromSwidStaticConstMapLiteral:
-                                                            (_) => it
-                                                                .defaultValueCode,
-                                                        fromSwidStaticConstTopLevelVariableReference:
-                                                            (_) => it
-                                                                .defaultValueCode,
-                                                        fromSwidStaticConstPropertyAccess:
-                                                            (val) => [
-                                                          val.receiver,
-                                                          ".",
-                                                          val.property,
-                                                        ].join(),
-                                                      ),
-                                                    ),
-                                                  )
-                                                : null)
+                                            ..defaultTo =
+                                                (x.namedDefaults[e.key] != null
+                                                    ? Code(
+                                                        x.namedDefaults[e.key]!
+                                                            .let(
+                                                          (it) => it.value.when(
+                                                            fromSwidBooleanLiteral:
+                                                                (_) => it
+                                                                    .defaultValueCode,
+                                                            fromSwidStringLiteral:
+                                                                (_) => it
+                                                                    .defaultValueCode,
+                                                            fromSwidIntegerLiteral:
+                                                                (_) => it
+                                                                    .defaultValueCode,
+                                                            fromDoubleLiteral:
+                                                                (_) => it
+                                                                    .defaultValueCode,
+                                                            fromSwidStaticConstFunctionInvocation:
+                                                                (_) => it
+                                                                    .defaultValueCode,
+                                                            fromSwidStaticConstFieldReference:
+                                                                (_) => it
+                                                                    .defaultValueCode,
+                                                            fromSwidStaticConstPrefixedExpression:
+                                                                (_) => it
+                                                                    .defaultValueCode,
+                                                            fromSwidStaticConstBinaryExpression:
+                                                                (_) => it
+                                                                    .defaultValueCode,
+                                                            fromSwidStaticConstPrefixedIdentifier:
+                                                                (val) => [
+                                                              pipeline
+                                                                  .reduceFromTerm(
+                                                                    ImportPrefixReferencesInInterface(
+                                                                      swidInterface:
+                                                                          val.prefix,
+                                                                    ),
+                                                                  )
+                                                                  .displayName,
+                                                              val.staticConstFieldReference
+                                                                  .name,
+                                                            ].join("."),
+                                                            fromSwidStaticConstIdentifier:
+                                                                (_) => it
+                                                                    .defaultValueCode,
+                                                            fromSwidStaticConstListLiteral:
+                                                                (_) => it
+                                                                    .defaultValueCode,
+                                                            fromSwidStaticConstMapLiteralEntry:
+                                                                (_) => it
+                                                                    .defaultValueCode,
+                                                            fromSwidStaticConstMapLiteral:
+                                                                (_) => it
+                                                                    .defaultValueCode,
+                                                            fromSwidStaticConstTopLevelVariableReference:
+                                                                (_) => it
+                                                                    .defaultValueCode,
+                                                            fromSwidStaticConstPropertyAccess:
+                                                                (val) => iff(
+                                                                        val
+                                                                            .staticType
+                                                                            .when(
+                                                                              fromSwidInterface: (val) => val,
+                                                                              fromSwidClass: (_) => dartUnknownInterface,
+                                                                              fromSwidDefaultFormalParameter: (_) => dartUnknownInterface,
+                                                                              fromSwidFunctionType: (_) => dartUnknownInterface,
+                                                                            )
+                                                                            .let((it) =>
+                                                                                it.referenceDeclarationKind ==
+                                                                                SwidReferenceDeclarationKind.enumElement),
+                                                                        () => val.staticType.when(
+                                                                              fromSwidInterface: (val) => val,
+                                                                              fromSwidClass: (_) => dartUnknownInterface,
+                                                                              fromSwidDefaultFormalParameter: (_) => dartUnknownInterface,
+                                                                              fromSwidFunctionType: (_) => dartUnknownInterface,
+                                                                            ))
+                                                                    .let(
+                                                                      (it) => [
+                                                                        pipeline
+                                                                            .reduceFromTerm(
+                                                                              ImportPrefixReferencesInInterface(
+                                                                                swidInterface: it!,
+                                                                              ),
+                                                                            )
+                                                                            .displayName,
+                                                                        val.property,
+                                                                      ].join(
+                                                                        ".",
+                                                                      ),
+                                                                    )
+                                                                    .orElse(
+                                                                      () => [
+                                                                        val.receiver,
+                                                                        ".",
+                                                                        val.property,
+                                                                      ].join(),
+                                                                    ),
+                                                          ),
+                                                        ),
+                                                      )
+                                                    : null)
                                             ..named = true
                                             ..required = (x
                                                         .namedDefaults[e.key] ==
