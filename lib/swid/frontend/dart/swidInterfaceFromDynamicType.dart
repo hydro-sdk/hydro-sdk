@@ -15,7 +15,7 @@ SwidInterface swidInterfaceFromDynamicType({
       nullabilitySuffix: mapNullabilitySuffix(
           nullabilitySuffix: dynamicType.nullabilitySuffix)!,
       originalPackagePath:
-          dynamicType.element?.librarySource?.uri.toString() ?? "",
+          dynamicType.element?.librarySource?.uri.toString() ?? "dart:core",
       referenceDeclarationKind: SwidReferenceDeclarationKind.dynamicType,
       declarationModifiers: SwidDeclarationModifiers.empty(),
     );
