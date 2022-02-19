@@ -1,8 +1,6 @@
 import 'package:dart_style/dart_style.dart';
 import 'package:dartlin/dartlin.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:hydro_sdk/swid/ir/swidDefaultFormalParameter.dart';
-import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:tuple/tuple.dart';
 
 import 'package:hydro_sdk/swid/backend/dart/dartBindInstanceField.dart';
@@ -21,8 +19,10 @@ import 'package:hydro_sdk/swid/backend/dart/util/swidTypeToDartTypeReference.dar
 import 'package:hydro_sdk/swid/ir/analyses/instanceFieldDeclarationsShadowedByConstructorParameters.dart';
 import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/swidDefaultFormalParameter.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
+import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/transforms/instantiateAllGenericsAsDynamic.dart';
 import 'package:hydro_sdk/swid/ir/transforms/instantiateGenericsToLowestBound.dart';
