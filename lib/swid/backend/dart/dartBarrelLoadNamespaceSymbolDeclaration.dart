@@ -1,3 +1,4 @@
+import 'package:dartlin/control_flow.dart';
 import 'package:code_builder/code_builder.dart'
     show DartEmitter, Parameter, refer, literalString, Method, Code;
 
@@ -6,10 +7,12 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/backend/dart/transforms/dartImportPrefix.dart';
 import 'package:hydro_sdk/swid/backend/dart/util/constants.dart';
+import 'package:hydro_sdk/swid/backend/dart/util/dartBarrelMemberImportPath.dart';
 import 'package:hydro_sdk/swid/backend/util/barrelSpec.dart';
 import 'package:hydro_sdk/swid/backend/util/requiresDartClassTranslationUnit.dart';
 import 'package:hydro_sdk/swid/ir/analyses/isUnrepresentableStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
+import 'package:hydro_sdk/swid/ir/transforms/sixteenthHashName.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsEphemeralTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
@@ -18,6 +21,7 @@ import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
 import 'package:hydro_sdk/swid/transforms/transformToPascalCase.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
+import 'package:tuple/tuple.dart';
 
 part 'dartBarrelLoadNamespaceSymbolDeclaration.freezed.dart';
 
@@ -38,6 +42,8 @@ class DartBarrelLoadNamespaceSymbolDeclaration
 
   factory DartBarrelLoadNamespaceSymbolDeclaration({
     required final BarrelSpec barrelSpec,
+    required final String packageName,
+    required final List<String> prefixPaths,
   }) = _$DartBarrelLoadNamespaceSymbolDeclarationCtor;
 
   @override
@@ -46,14 +52,20 @@ class DartBarrelLoadNamespaceSymbolDeclaration
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
     yield* barrelSpec.hashKey.hashableParts;
+    yield* packageName.hashableParts;
+    yield* prefixPaths.hashableParts;
   }
 
   @override
   DartBarrelLoadNamespaceSymbolDeclaration clone({
     final BarrelSpec? barrelSpec,
+    final String? packageName,
+    final List<String>? prefixPaths,
   }) =>
       DartBarrelLoadNamespaceSymbolDeclaration(
         barrelSpec: barrelSpec ?? this.barrelSpec.clone(),
+        packageName: packageName ?? this.packageName,
+        prefixPaths: prefixPaths ?? this.prefixPaths,
       );
 
   @override
@@ -215,13 +227,40 @@ class DartBarrelLoadNamespaceSymbolDeclaration
                       )
                       .map(
                         (x) => refer(
-                          x.when(
-                            fromSwidClass: (val) =>
-                                "load${transformToPascalCase(str: val.name)}",
-                            fromSwidEnum: (val) =>
-                                "load${transformToPascalCase(str: val.identifier)}",
-                            fromBarrelSpec: (val) => "load${val.name}",
-                          ),
+                          x
+                              .let(
+                                (it) => Tuple2(
+                                  [
+                                    "_",
+                                    pipeline.reduceFromTerm(
+                                      SixteenthHashName(
+                                        str: dartBarrelMemberImportPath(
+                                          barrelMember: it,
+                                          packageName: packageName,
+                                          prefixPaths: prefixPaths,
+                                        ),
+                                      ),
+                                    ),
+                                  ].join(),
+                                  it,
+                                ),
+                              )
+                              .let(
+                                (it) => it.item2.when(
+                                  fromSwidClass: (val) => [
+                                    it.item1,
+                                    "load${transformToPascalCase(str: val.name)}",
+                                  ].join("."),
+                                  fromSwidEnum: (val) => [
+                                    it.item1,
+                                    "load${transformToPascalCase(str: val.identifier)}",
+                                  ].join("."),
+                                  fromBarrelSpec: (val) => [
+                                    it.item1,
+                                    "load${val.name}",
+                                  ].join("."),
+                                ),
+                              ),
                         )
                             .call(
                               [],

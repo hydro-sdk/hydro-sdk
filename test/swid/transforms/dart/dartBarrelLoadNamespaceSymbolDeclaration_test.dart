@@ -143,16 +143,22 @@ void main() {
         CachingPipeline(
           cacheMgr: const PipelineNoopCacheMgr(),
         ).reduceFromTerm(
-          DartBarrelLoadNamespaceSymbolDeclaration(barrelSpec: barrelSpec),
+          DartBarrelLoadNamespaceSymbolDeclaration(
+            barrelSpec: barrelSpec,
+            packageName: "test",
+            prefixPaths: [
+              "test",
+            ],
+          ),
         ),
         """
 void loaddart(
     {required _36c2.HydroState hydroState, required _36c2.Context context}) {
   final dart = _36c2.HydroTable();
   context.env[\'dart\'] = dart;
-  loadcore(table: dart, hydroState: hydroState);
-  loadui(table: dart, hydroState: hydroState);
-  loadmath(table: dart, hydroState: hydroState);
+  _e3a5.loadcore(table: dart, hydroState: hydroState);
+  _7a67.loadui(table: dart, hydroState: hydroState);
+  _e2e9.loadmath(table: dart, hydroState: hydroState);
 }
 """);
   }, tags: "swid");
