@@ -1,16 +1,16 @@
-import 'dart:core';
-import 'dart:ui';
+import 'dart:core' as _fac9;
+import 'dart:ui' as _a643;
 
-import 'package:flutter/src/foundation/diagnostics.dart';
-import 'package:flutter/src/gestures/events.dart';
-import 'package:flutter/src/gestures/gesture_settings.dart';
-import 'package:flutter/src/gestures/multidrag.dart';
-import 'package:flutter/src/gestures/recognizer.dart';
+import 'package:flutter/src/foundation/diagnostics.dart' as _eaf3;
+import 'package:flutter/src/gestures/events.dart' as _0e77;
+import 'package:flutter/src/gestures/gesture_settings.dart' as _352d;
+import 'package:flutter/src/gestures/multidrag.dart' as _d5f6;
+import 'package:flutter/src/gestures/recognizer.dart' as _02d2;
 
-import 'package:hydro_sdk/cfr/runtimeSupport.dart';
+import 'package:hydro_sdk/cfr/runtimeSupport.dart' as _36c2;
 
 class VMManagedMultiDragGestureRecognizer
-    extends VMManagedBox<MultiDragGestureRecognizer> {
+    extends _36c2.VMManagedBox<_d5f6.MultiDragGestureRecognizer> {
   VMManagedMultiDragGestureRecognizer(
       {required this.table, required this.vmObject, required this.hydroState})
       : super(
@@ -18,89 +18,88 @@ class VMManagedMultiDragGestureRecognizer
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['debugOwner'] = maybeBoxObject<Object?>(
+    table['debugOwner'] = _36c2.maybeBoxObject<_fac9.Object?>(
         object: vmObject.debugOwner,
         hydroState: hydroState,
-        table: HydroTable());
-    table['gestureSettings'] = maybeBoxObject<DeviceGestureSettings?>(
-        object: vmObject.gestureSettings,
-        hydroState: hydroState,
-        table: HydroTable());
-    table['addAllowedPointer'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.addAllowedPointer(
-          maybeUnBoxAndBuildArgument<PointerDownEvent, dynamic>(
-              luaCallerArguments[1],
-              parentState: hydroState));
+        table: _36c2.HydroTable());
+    table['gestureSettings'] =
+        _36c2.maybeBoxObject<_352d.DeviceGestureSettings?>(
+            object: vmObject.gestureSettings,
+            hydroState: hydroState,
+            table: _36c2.HydroTable());
+    table['addAllowedPointer'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      vmObject.addAllowedPointer(_36c2.maybeUnBoxAndBuildArgument<
+          _0e77.PointerDownEvent,
+          _fac9.dynamic>(luaCallerArguments[1], parentState: hydroState));
       return [];
     });
-    table['acceptGesture'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['acceptGesture'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       vmObject.acceptGesture(luaCallerArguments[1]);
       return [];
     });
-    table['rejectGesture'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['rejectGesture'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       vmObject.rejectGesture(luaCallerArguments[1]);
       return [];
     });
-    table['dispose'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['dispose'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       vmObject.dispose();
       return [];
     });
-    table['addPointer'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.addPointer(maybeUnBoxAndBuildArgument<PointerDownEvent, dynamic>(
-          luaCallerArguments[1],
-          parentState: hydroState));
+    table['addPointer'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      vmObject.addPointer(_36c2.maybeUnBoxAndBuildArgument<
+          _0e77.PointerDownEvent,
+          _fac9.dynamic>(luaCallerArguments[1], parentState: hydroState));
       return [];
     });
-    table['debugFillProperties'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.debugFillProperties(
-          maybeUnBoxAndBuildArgument<DiagnosticPropertiesBuilder, dynamic>(
-              luaCallerArguments[1],
-              parentState: hydroState));
+    table['debugFillProperties'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      vmObject.debugFillProperties(_36c2.maybeUnBoxAndBuildArgument<
+          _eaf3.DiagnosticPropertiesBuilder,
+          _fac9.dynamic>(luaCallerArguments[1], parentState: hydroState));
       return [];
     });
-    table['getDebugDescription'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getDebugDescription'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.debugDescription,
       ];
     });
-    table['toString'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['toString'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.toString(
-            minLevel: maybeUnBoxEnum(
-                values: DiagnosticLevel.values,
+            minLevel: _36c2.maybeUnBoxEnum(
+                values: _eaf3.DiagnosticLevel.values,
                 boxedEnum: luaCallerArguments.length >= 2
                     ? luaCallerArguments[1]['minLevel']
                     : null)),
       ];
     });
-    table['toStringShallow'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['toStringShallow'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.toStringShallow(
             joiner: luaCallerArguments.length >= 2
                 ? luaCallerArguments[1]['joiner']
                 : null,
-            minLevel: maybeUnBoxEnum(
-                values: DiagnosticLevel.values,
+            minLevel: _36c2.maybeUnBoxEnum(
+                values: _eaf3.DiagnosticLevel.values,
                 boxedEnum: luaCallerArguments.length >= 2
                     ? luaCallerArguments[1]['minLevel']
                     : null)),
       ];
     });
-    table['toStringDeep'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['toStringDeep'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.toStringDeep(
-            minLevel: maybeUnBoxEnum(
-                values: DiagnosticLevel.values,
+            minLevel: _36c2.maybeUnBoxEnum(
+                values: _eaf3.DiagnosticLevel.values,
                 boxedEnum: luaCallerArguments.length >= 2
                     ? luaCallerArguments[1]['minLevel']
                     : null),
@@ -112,63 +111,66 @@ class VMManagedMultiDragGestureRecognizer
                 : null),
       ];
     });
-    table['toStringShort'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['toStringShort'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.toStringShort(),
       ];
     });
-    table['toDiagnosticsNode'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['toDiagnosticsNode'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<DiagnosticsNode>(
+        _36c2.maybeBoxObject<_eaf3.DiagnosticsNode>(
             object: vmObject.toDiagnosticsNode(
                 name: luaCallerArguments.length >= 2
                     ? luaCallerArguments[1]['name']
                     : null,
-                style: maybeUnBoxEnum(
-                    values: DiagnosticsTreeStyle.values,
+                style: _36c2.maybeUnBoxEnum(
+                    values: _eaf3.DiagnosticsTreeStyle.values,
                     boxedEnum: luaCallerArguments.length >= 2
                         ? luaCallerArguments[1]['style']
                         : null)),
             hydroState: hydroState,
-            table: HydroTable()),
+            table: _36c2.HydroTable()),
       ];
     });
-    table['debugDescribeChildren'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['debugDescribeChildren'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<List<dynamic>>(
+        _36c2.maybeBoxObject<_fac9.List<_fac9.dynamic>>(
             object: vmObject
                 .debugDescribeChildren()
-                .map((x) => maybeBoxObject<DiagnosticsNode>(
-                    object: x, hydroState: hydroState, table: HydroTable()))
+                .map((x) => _36c2.maybeBoxObject<_eaf3.DiagnosticsNode>(
+                    object: x,
+                    hydroState: hydroState,
+                    table: _36c2.HydroTable()))
                 .toList(),
             hydroState: hydroState,
-            table: HydroTable()),
+            table: _36c2.HydroTable()),
       ];
     });
-    table['getHashCode'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getHashCode'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.hashCode,
       ];
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  final MultiDragGestureRecognizer vmObject;
+  final _d5f6.MultiDragGestureRecognizer vmObject;
 }
 
-class RTManagedMultiDragGestureRecognizer extends MultiDragGestureRecognizer
-    implements Box<MultiDragGestureRecognizer> {
+class RTManagedMultiDragGestureRecognizer
+    extends _d5f6.MultiDragGestureRecognizer
+    implements _36c2.Box<_d5f6.MultiDragGestureRecognizer> {
   RTManagedMultiDragGestureRecognizer(
-      {PointerDeviceKind? kind,
-      Set<PointerDeviceKind>? supportedDevices,
-      Object? debugOwner,
+      {_a643.PointerDeviceKind? kind,
+      _fac9.Set<_a643.PointerDeviceKind>? supportedDevices,
+      _fac9.Object? debugOwner,
       required this.table,
       required this.hydroState})
       : super(
@@ -176,89 +178,104 @@ class RTManagedMultiDragGestureRecognizer extends MultiDragGestureRecognizer
             supportedDevices: supportedDevices,
             debugOwner: debugOwner) {
     table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['unwrap'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [unwrap()];
     });
-    table['debugOwner'] = maybeBoxObject<Object?>(
-        object: this.debugOwner, hydroState: hydroState, table: HydroTable());
-    table['gestureSettings'] = maybeBoxObject<DeviceGestureSettings?>(
-        object: gestureSettings, hydroState: hydroState, table: HydroTable());
-    table['_dart_addAllowedPointer'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.addAllowedPointer(
-          maybeUnBoxAndBuildArgument<PointerDownEvent, dynamic>(
+    table['debugOwner'] = _36c2.maybeBoxObject(
+        object: this.debugOwner,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['gestureSettings'] = _36c2.maybeBoxObject(
+        object: gestureSettings,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['_dart_addAllowedPointer'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      super.addAllowedPointer(_36c2.maybeUnBoxAndBuildArgument<
+          _0e77.PointerDownEvent,
+          _fac9.dynamic>(luaCallerArguments[1], parentState: hydroState));
+      return [];
+    });
+    table['_dart_createNewPointerState'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      return [
+        _36c2.maybeBoxObject(
+            object: createNewPointerState(_36c2.maybeUnBoxAndBuildArgument<
+                _0e77.PointerDownEvent,
+                _fac9.dynamic>(luaCallerArguments[1], parentState: hydroState)),
+            hydroState: hydroState,
+            table: _36c2.HydroTable())
+      ];
+    });
+    table['_dart_acceptGesture'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      super.acceptGesture(
+          _36c2.maybeUnBoxAndBuildArgument<_fac9.int, _fac9.dynamic>(
               luaCallerArguments[1],
               parentState: hydroState));
       return [];
     });
-    table['_dart_createNewPointerState'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        maybeBoxObject<MultiDragPointerState>(
-            object: createNewPointerState(
-                maybeUnBoxAndBuildArgument<PointerDownEvent, dynamic>(
-                    luaCallerArguments[1],
-                    parentState: hydroState)),
-            hydroState: hydroState,
-            table: HydroTable())
-      ];
-    });
-    table['_dart_acceptGesture'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.acceptGesture(luaCallerArguments[1]);
+    table['_dart_rejectGesture'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      super.rejectGesture(
+          _36c2.maybeUnBoxAndBuildArgument<_fac9.int, _fac9.dynamic>(
+              luaCallerArguments[1],
+              parentState: hydroState));
       return [];
     });
-    table['_dart_rejectGesture'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.rejectGesture(luaCallerArguments[1]);
-      return [];
-    });
-    table['_dart_dispose'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_dispose'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       super.dispose();
       return [];
     });
-    table['_dart_addPointer'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.addPointer(maybeUnBoxAndBuildArgument<PointerDownEvent, dynamic>(
-          luaCallerArguments[1],
-          parentState: hydroState));
+    table['_dart_addPointer'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      super.addPointer(_36c2.maybeUnBoxAndBuildArgument<_0e77.PointerDownEvent,
+          _fac9.dynamic>(luaCallerArguments[1], parentState: hydroState));
       return [];
     });
-    table['_dart_handleNonAllowedPointer'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.handleNonAllowedPointer(
-          maybeUnBoxAndBuildArgument<PointerDownEvent, dynamic>(
-              luaCallerArguments[1],
-              parentState: hydroState));
+    table['_dart_handleNonAllowedPointer'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      super.handleNonAllowedPointer(_36c2.maybeUnBoxAndBuildArgument<
+          _0e77.PointerDownEvent,
+          _fac9.dynamic>(luaCallerArguments[1], parentState: hydroState));
       return [];
     });
-    table['_dart_isPointerAllowed'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_isPointerAllowed'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        super.isPointerAllowed(
-            maybeUnBoxAndBuildArgument<PointerDownEvent, dynamic>(
-                luaCallerArguments[1],
-                parentState: hydroState))
+        _36c2.maybeBoxObject(
+            object: super.isPointerAllowed(_36c2.maybeUnBoxAndBuildArgument<
+                _0e77.PointerDownEvent,
+                _fac9.dynamic>(luaCallerArguments[1], parentState: hydroState)),
+            hydroState: hydroState,
+            table: _36c2.HydroTable())
       ];
     });
-    table['_dart_getKindForPointer'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getKindForPointer'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        PointerDeviceKind.values.indexWhere((x) {
-          return x == super.getKindForPointer(luaCallerArguments[1]);
+        _a643.PointerDeviceKind.values.indexWhere((x) {
+          return x ==
+              super.getKindForPointer(
+                  _36c2.maybeUnBoxAndBuildArgument<_fac9.int, _fac9.dynamic>(
+                      luaCallerArguments[1],
+                      parentState: hydroState));
         })
       ];
     });
-    table['_dart_invokeCallback'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      Closure unpackedcallback = luaCallerArguments[2];
-      Closure? unpackeddebugReport = luaCallerArguments.length >= 4
+    table['_dart_invokeCallback'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      _36c2.Closure unpackedcallback = luaCallerArguments[2];
+      _36c2.Closure? unpackeddebugReport = luaCallerArguments.length >= 4
           ? luaCallerArguments[3]['debugReport']
           : null;
       return [
         super.invokeCallback(
-            luaCallerArguments[1],
+            _36c2.maybeUnBoxAndBuildArgument<_fac9.String, _fac9.dynamic>(
+                luaCallerArguments[1],
+                parentState: hydroState),
             () => unpackedcallback.dispatch(
                   [
                     luaCallerArguments[0],
@@ -266,276 +283,305 @@ class RTManagedMultiDragGestureRecognizer extends MultiDragGestureRecognizer
                   parentState: hydroState,
                 )[0],
             debugReport: unpackeddebugReport != null
-                ? () => unpackeddebugReport.dispatch(
-                      [
-                        luaCallerArguments[0],
-                      ],
-                      parentState: hydroState,
-                    )[0]
+                ? () => _36c2
+                    .maybeUnBoxAndBuildArgument<_fac9.String, _fac9.dynamic>(
+                        unpackeddebugReport.dispatch(
+                          [
+                            luaCallerArguments[0],
+                          ],
+                          parentState: hydroState,
+                        )[0],
+                        parentState: hydroState)
                 : null)
       ];
     });
-    table['_dart_debugFillProperties'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.debugFillProperties(
-          maybeUnBoxAndBuildArgument<DiagnosticPropertiesBuilder, dynamic>(
-              luaCallerArguments[1],
-              parentState: hydroState));
+    table['_dart_debugFillProperties'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      super.debugFillProperties(_36c2.maybeUnBoxAndBuildArgument<
+          _eaf3.DiagnosticPropertiesBuilder,
+          _fac9.dynamic>(luaCallerArguments[1], parentState: hydroState));
       return [];
     });
-    table['_dart_getDebugDescription'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getDebugDescription'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [debugDescription];
     });
-    table['_dart_toString'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_toString'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        super.toString(
-            minLevel: maybeUnBoxEnum(
-                values: DiagnosticLevel.values,
-                boxedEnum: luaCallerArguments.length >= 2
-                    ? luaCallerArguments[1]['minLevel']
-                    : null))
+        _36c2.maybeBoxObject(
+            object: super.toString(
+                minLevel: _36c2.maybeUnBoxEnum(
+                    values: _eaf3.DiagnosticLevel.values,
+                    boxedEnum: luaCallerArguments.length >= 2
+                        ? luaCallerArguments[1]['minLevel']
+                        : null)),
+            hydroState: hydroState,
+            table: _36c2.HydroTable())
       ];
     });
-    table['_dart_toStringShallow'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_toStringShallow'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        super.toStringShallow(
-            joiner: luaCallerArguments.length >= 2
-                ? luaCallerArguments[1]['joiner']
-                : null,
-            minLevel: maybeUnBoxEnum(
-                values: DiagnosticLevel.values,
-                boxedEnum: luaCallerArguments.length >= 2
-                    ? luaCallerArguments[1]['minLevel']
-                    : null))
+        _36c2.maybeBoxObject(
+            object: super.toStringShallow(
+                joiner: _36c2
+                    .maybeUnBoxAndBuildArgument<_fac9.String, _fac9.dynamic>(
+                        luaCallerArguments.length >= 2
+                            ? luaCallerArguments[1]['joiner']
+                            : null,
+                        parentState: hydroState),
+                minLevel: _36c2.maybeUnBoxEnum(
+                    values: _eaf3.DiagnosticLevel.values,
+                    boxedEnum: luaCallerArguments.length >= 2
+                        ? luaCallerArguments[1]['minLevel']
+                        : null)),
+            hydroState: hydroState,
+            table: _36c2.HydroTable())
       ];
     });
-    table['_dart_toStringDeep'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_toStringDeep'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        super.toStringDeep(
-            minLevel: maybeUnBoxEnum(
-                values: DiagnosticLevel.values,
-                boxedEnum: luaCallerArguments.length >= 2
-                    ? luaCallerArguments[1]['minLevel']
-                    : null),
-            prefixLineOne: luaCallerArguments.length >= 2
-                ? luaCallerArguments[1]['prefixLineOne']
-                : null,
-            prefixOtherLines: luaCallerArguments.length >= 2
-                ? luaCallerArguments[1]['prefixOtherLines']
-                : null)
+        _36c2.maybeBoxObject(
+            object: super.toStringDeep(
+                minLevel: _36c2.maybeUnBoxEnum(
+                    values: _eaf3.DiagnosticLevel.values,
+                    boxedEnum: luaCallerArguments.length >= 2
+                        ? luaCallerArguments[1]['minLevel']
+                        : null),
+                prefixLineOne:
+                    _36c2.maybeUnBoxAndBuildArgument<_fac9.String, _fac9.dynamic>(
+                        luaCallerArguments.length >= 2
+                            ? luaCallerArguments[1]['prefixLineOne']
+                            : null,
+                        parentState: hydroState),
+                prefixOtherLines:
+                    _36c2.maybeUnBoxAndBuildArgument<_fac9.String?, _fac9.dynamic>(
+                        luaCallerArguments.length >= 2
+                            ? luaCallerArguments[1]['prefixOtherLines']
+                            : null,
+                        parentState: hydroState)),
+            hydroState: hydroState,
+            table: _36c2.HydroTable())
       ];
     });
-    table['_dart_toStringShort'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [super.toStringShort()];
-    });
-    table['_dart_toDiagnosticsNode'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_toStringShort'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<DiagnosticsNode>(
+        _36c2.maybeBoxObject(
+            object: super.toStringShort(),
+            hydroState: hydroState,
+            table: _36c2.HydroTable())
+      ];
+    });
+    table['_dart_toDiagnosticsNode'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      return [
+        _36c2.maybeBoxObject(
             object: super.toDiagnosticsNode(
-                name: luaCallerArguments.length >= 2
-                    ? luaCallerArguments[1]['name']
-                    : null,
-                style: maybeUnBoxEnum(
-                    values: DiagnosticsTreeStyle.values,
+                name: _36c2
+                    .maybeUnBoxAndBuildArgument<_fac9.String?, _fac9.dynamic>(
+                        luaCallerArguments.length >= 2
+                            ? luaCallerArguments[1]['name']
+                            : null,
+                        parentState: hydroState),
+                style: _36c2.maybeUnBoxEnum(
+                    values: _eaf3.DiagnosticsTreeStyle.values,
                     boxedEnum: luaCallerArguments.length >= 2
                         ? luaCallerArguments[1]['style']
                         : null)),
             hydroState: hydroState,
-            table: HydroTable())
+            table: _36c2.HydroTable())
       ];
     });
-    table['_dart_debugDescribeChildren'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_debugDescribeChildren'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<List<dynamic>>(
-            object: super
-                .debugDescribeChildren()
-                .map((x) => maybeBoxObject<DiagnosticsNode>(
-                    object: x, hydroState: hydroState, table: HydroTable()))
-                .toList(),
+        _36c2.maybeBoxObject(
+            object: super.debugDescribeChildren(),
             hydroState: hydroState,
-            table: HydroTable())
+            table: _36c2.HydroTable())
       ];
     });
-    table['_dart_getHashCode'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getHashCode'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.hashCode];
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  MultiDragGestureRecognizer unwrap() => this;
-  MultiDragGestureRecognizer get vmObject => this;
-  @override
+  _d5f6.MultiDragGestureRecognizer unwrap() => this;
+  _d5f6.MultiDragGestureRecognizer get vmObject => this;
+  @_fac9.override
   void addAllowedPointer(event) {
-    Closure closure = table["addAllowedPointer"];
+    _36c2.Closure closure = table["addAllowedPointer"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  MultiDragPointerState createNewPointerState(event) {
-    Closure closure = table["createNewPointerState"];
-    return maybeUnBoxAndBuildArgument<MultiDragPointerState, dynamic>(
-        closure.dispatch([table], parentState: hydroState)[0],
-        parentState: hydroState);
+  @_fac9.override
+  _d5f6.MultiDragPointerState createNewPointerState(event) {
+    _36c2.Closure closure = table["createNewPointerState"];
+    return _36c2
+        .maybeUnBoxAndBuildArgument<_d5f6.MultiDragPointerState, _fac9.dynamic>(
+            closure.dispatch([table], parentState: hydroState)[0],
+            parentState: hydroState);
   }
 
-  @override
+  @_fac9.override
   void acceptGesture(pointer) {
-    Closure closure = table["acceptGesture"];
+    _36c2.Closure closure = table["acceptGesture"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
+  @_fac9.override
   void rejectGesture(pointer) {
-    Closure closure = table["rejectGesture"];
+    _36c2.Closure closure = table["rejectGesture"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
+  @_fac9.override
   void dispose() {
     super.dispose();
-    Closure closure = table["dispose"];
+    _36c2.Closure closure = table["dispose"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
+  @_fac9.override
   void addPointer(event) {
-    Closure closure = table["addPointer"];
+    _36c2.Closure closure = table["addPointer"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
+  @_fac9.override
   void handleNonAllowedPointer(event) {
-    Closure closure = table["handleNonAllowedPointer"];
+    _36c2.Closure closure = table["handleNonAllowedPointer"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  bool isPointerAllowed(event) {
-    Closure closure = table["isPointerAllowed"];
+  @_fac9.override
+  _fac9.bool isPointerAllowed(event) {
+    _36c2.Closure closure = table["isPointerAllowed"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  PointerDeviceKind getKindForPointer(pointer) {
-    Closure closure = table["getKindForPointer"];
-    return maybeUnBoxEnum(
-        values: PointerDeviceKind.values,
+  @_fac9.override
+  _a643.PointerDeviceKind getKindForPointer(pointer) {
+    _36c2.Closure closure = table["getKindForPointer"];
+    return _36c2.maybeUnBoxEnum(
+        values: _a643.PointerDeviceKind.values,
         boxedEnum: closure.dispatch([table], parentState: hydroState)[0]);
   }
 
-  @override
-  T? invokeCallback<T>(name, callback, {debugReport}) {
-    Closure closure = table["invokeCallback"];
+  @_fac9.override
+  T? invokeCallback<T>(name, callback, {_fac9.String Function()? debugReport}) {
+    _36c2.Closure closure = table["invokeCallback"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
+  @_fac9.override
   void debugFillProperties(properties) {
     super.debugFillProperties(properties);
-    Closure closure = table["debugFillProperties"];
+    _36c2.Closure closure = table["debugFillProperties"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  String get debugDescription {
-    Closure closure = table["getDebugDescription"];
+  @_fac9.override
+  _fac9.String get debugDescription {
+    _36c2.Closure closure = table["getDebugDescription"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    Closure closure = table["__tostring"];
+  @_fac9.override
+  _fac9.String toString(
+      {_eaf3.DiagnosticLevel minLevel = _eaf3.DiagnosticLevel.info}) {
+    _36c2.Closure closure = table["__tostring"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  String toStringShallow(
-      {String joiner = ', ',
-      DiagnosticLevel minLevel = DiagnosticLevel.debug}) {
-    Closure closure = table["toStringShallow"];
+  @_fac9.override
+  _fac9.String toStringShallow(
+      {_fac9.String joiner = ', ',
+      _eaf3.DiagnosticLevel minLevel = _eaf3.DiagnosticLevel.debug}) {
+    _36c2.Closure closure = table["toStringShallow"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  String toStringDeep(
-      {DiagnosticLevel minLevel = DiagnosticLevel.debug,
-      String prefixLineOne = '',
-      String? prefixOtherLines}) {
-    Closure closure = table["toStringDeep"];
+  @_fac9.override
+  _fac9.String toStringDeep(
+      {_eaf3.DiagnosticLevel minLevel = _eaf3.DiagnosticLevel.debug,
+      _fac9.String prefixLineOne = '',
+      _fac9.String? prefixOtherLines}) {
+    _36c2.Closure closure = table["toStringDeep"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  String toStringShort() {
-    Closure closure = table["toStringShort"];
+  @_fac9.override
+  _fac9.String toStringShort() {
+    _36c2.Closure closure = table["toStringShort"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  DiagnosticsNode toDiagnosticsNode(
-      {String? name, DiagnosticsTreeStyle? style}) {
-    Closure closure = table["toDiagnosticsNode"];
-    return maybeUnBoxAndBuildArgument<DiagnosticsNode, dynamic>(
+  @_fac9.override
+  _eaf3.DiagnosticsNode toDiagnosticsNode(
+      {_fac9.String? name, _eaf3.DiagnosticsTreeStyle? style}) {
+    _36c2.Closure closure = table["toDiagnosticsNode"];
+    return _36c2
+        .maybeUnBoxAndBuildArgument<_eaf3.DiagnosticsNode, _fac9.dynamic>(
+            closure.dispatch([table], parentState: hydroState)[0],
+            parentState: hydroState);
+  }
+
+  @_fac9.override
+  _fac9.List<_eaf3.DiagnosticsNode> debugDescribeChildren() {
+    _36c2.Closure closure = table["debugDescribeChildren"];
+    return _36c2.maybeUnBoxAndBuildArgument<_fac9.List<_eaf3.DiagnosticsNode>,
+            _eaf3.DiagnosticsNode>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
 
-  @override
-  List<DiagnosticsNode> debugDescribeChildren() {
-    Closure closure = table["debugDescribeChildren"];
-    return maybeUnBoxAndBuildArgument<List<DiagnosticsNode>, DiagnosticsNode>(
-        closure.dispatch([table], parentState: hydroState)[0],
-        parentState: hydroState);
-  }
-
-  @override
-  int get hashCode {
-    Closure closure = table["getHashCode"];
+  @_fac9.override
+  _fac9.int get hashCode {
+    _36c2.Closure closure = table["getHashCode"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 }
 
 void loadMultiDragGestureRecognizer(
-    {required HydroState hydroState, required HydroTable table}) {
-  table['multiDragGestureRecognizer'] =
-      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    {required _36c2.HydroState hydroState, required _36c2.HydroTable table}) {
+  table['multiDragGestureRecognizer'] = _36c2.makeLuaDartFunc(
+      func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
     return [
       RTManagedMultiDragGestureRecognizer(
           table: luaCallerArguments[0],
           hydroState: hydroState,
-          kind: maybeUnBoxEnum(
-              values: PointerDeviceKind.values,
+          kind: _36c2.maybeUnBoxEnum(
+              values: _a643.PointerDeviceKind.values,
               boxedEnum: luaCallerArguments.length >= 2
                   ? luaCallerArguments[1]['kind']
                   : null),
-          supportedDevices: maybeUnBoxAndBuildArgument<Set<PointerDeviceKind>?,
-                  PointerDeviceKind>(
+          supportedDevices: _36c2.maybeUnBoxAndBuildArgument<
+                  _fac9.Set<_a643.PointerDeviceKind>?, _a643.PointerDeviceKind>(
               luaCallerArguments.length >= 2
                   ? luaCallerArguments[1]['supportedDevices']
                   : null,
               parentState: hydroState),
-          debugOwner: maybeUnBoxAndBuildArgument<Object?, dynamic>(
-              luaCallerArguments.length >= 2
-                  ? luaCallerArguments[1]['debugOwner']
-                  : null,
-              parentState: hydroState))
+          debugOwner:
+              _36c2.maybeUnBoxAndBuildArgument<_fac9.Object?, _fac9.dynamic>(
+                  luaCallerArguments.length >= 2
+                      ? luaCallerArguments[1]['debugOwner']
+                      : null,
+                  parentState: hydroState))
     ];
   });
-  registerBoxer<MultiDragGestureRecognizer>(boxer: (
-      {required MultiDragGestureRecognizer vmObject,
-      required HydroState hydroState,
-      required HydroTable table}) {
+  _36c2.registerBoxer<_d5f6.MultiDragGestureRecognizer>(boxer: (
+      {required _d5f6.MultiDragGestureRecognizer vmObject,
+      required _36c2.HydroState hydroState,
+      required _36c2.HydroTable table}) {
     return VMManagedMultiDragGestureRecognizer(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

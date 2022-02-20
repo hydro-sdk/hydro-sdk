@@ -1,16 +1,16 @@
-import 'dart:core';
-import 'dart:ui';
+import 'dart:core' as _fac9;
+import 'dart:ui' as _a643;
 
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/rendering/custom_paint.dart';
-import 'package:flutter/src/semantics/semantics.dart';
+import 'package:flutter/src/foundation/key.dart' as _ab4a;
+import 'package:flutter/src/rendering/custom_paint.dart' as _93cf;
+import 'package:flutter/src/semantics/semantics.dart' as _4c98;
 
-import 'package:vector_math/vector_math_64.dart';
+import 'package:vector_math/vector_math_64.dart' as _db98;
 
-import 'package:hydro_sdk/cfr/runtimeSupport.dart';
+import 'package:hydro_sdk/cfr/runtimeSupport.dart' as _36c2;
 
 class VMManagedCustomPainterSemantics
-    extends VMManagedBox<CustomPainterSemantics> {
+    extends _36c2.VMManagedBox<_93cf.CustomPainterSemantics> {
   VMManagedCustomPainterSemantics(
       {required this.table, required this.vmObject, required this.hydroState})
       : super(
@@ -18,37 +18,43 @@ class VMManagedCustomPainterSemantics
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['key'] = maybeBoxObject<Key?>(
-        object: vmObject.key, hydroState: hydroState, table: HydroTable());
-    table['rect'] = maybeBoxObject<Rect>(
-        object: vmObject.rect, hydroState: hydroState, table: HydroTable());
-    table['transform'] = maybeBoxObject<Matrix4?>(
+    table['key'] = _36c2.maybeBoxObject<_ab4a.Key?>(
+        object: vmObject.key,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['rect'] = _36c2.maybeBoxObject<_a643.Rect>(
+        object: vmObject.rect,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['transform'] = _36c2.maybeBoxObject<_db98.Matrix4?>(
         object: vmObject.transform,
         hydroState: hydroState,
-        table: HydroTable());
-    table['properties'] = maybeBoxObject<SemanticsProperties>(
+        table: _36c2.HydroTable());
+    table['properties'] = _36c2.maybeBoxObject<_4c98.SemanticsProperties>(
         object: vmObject.properties,
         hydroState: hydroState,
-        table: HydroTable());
-    table['tags'] = maybeBoxObject<Set?>(
-        object: vmObject.tags, hydroState: hydroState, table: HydroTable());
+        table: _36c2.HydroTable());
+    table['tags'] = _36c2.maybeBoxObject<_fac9.Set?>(
+        object: vmObject.tags,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  final CustomPainterSemantics vmObject;
+  final _93cf.CustomPainterSemantics vmObject;
 }
 
-class RTManagedCustomPainterSemantics extends CustomPainterSemantics
-    implements Box<CustomPainterSemantics> {
+class RTManagedCustomPainterSemantics extends _93cf.CustomPainterSemantics
+    implements _36c2.Box<_93cf.CustomPainterSemantics> {
   RTManagedCustomPainterSemantics(
-      {Key? key,
-      Set<SemanticsTag>? tags,
-      Matrix4? transform,
-      required SemanticsProperties properties,
-      required Rect rect,
+      {_ab4a.Key? key,
+      _fac9.Set<_4c98.SemanticsTag>? tags,
+      _db98.Matrix4? transform,
+      required _4c98.SemanticsProperties properties,
+      required _a643.Rect rect,
       required this.table,
       required this.hydroState})
       : super(
@@ -58,60 +64,64 @@ class RTManagedCustomPainterSemantics extends CustomPainterSemantics
             properties: properties,
             rect: rect) {
     table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['unwrap'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [unwrap()];
     });
-    table['key'] = maybeBoxObject<Key?>(
-        object: this.key, hydroState: hydroState, table: HydroTable());
-    table['rect'] = maybeBoxObject<Rect>(
-        object: this.rect, hydroState: hydroState, table: HydroTable());
-    table['transform'] = maybeBoxObject<Matrix4?>(
-        object: this.transform, hydroState: hydroState, table: HydroTable());
-    table['properties'] = maybeBoxObject<SemanticsProperties>(
-        object: this.properties, hydroState: hydroState, table: HydroTable());
-    table['tags'] = maybeBoxObject<Set?>(
-        object: this.tags, hydroState: hydroState, table: HydroTable());
+    table['key'] = _36c2.maybeBoxObject(
+        object: this.key, hydroState: hydroState, table: _36c2.HydroTable());
+    table['rect'] = _36c2.maybeBoxObject(
+        object: this.rect, hydroState: hydroState, table: _36c2.HydroTable());
+    table['transform'] = _36c2.maybeBoxObject(
+        object: this.transform,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['properties'] = _36c2.maybeBoxObject(
+        object: this.properties,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['tags'] = _36c2.maybeBoxObject(
+        object: this.tags, hydroState: hydroState, table: _36c2.HydroTable());
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  CustomPainterSemantics unwrap() => this;
-  CustomPainterSemantics get vmObject => this;
+  _93cf.CustomPainterSemantics unwrap() => this;
+  _93cf.CustomPainterSemantics get vmObject => this;
 }
 
 void loadCustomPainterSemantics(
-    {required HydroState hydroState, required HydroTable table}) {
-  table['customPainterSemantics'] =
-      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    {required _36c2.HydroState hydroState, required _36c2.HydroTable table}) {
+  table['customPainterSemantics'] = _36c2.makeLuaDartFunc(
+      func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
     return [
       RTManagedCustomPainterSemantics(
           table: luaCallerArguments[0],
           hydroState: hydroState,
-          key:
-              maybeUnBoxAndBuildArgument<Key?, dynamic>(luaCallerArguments.length >= 2 ? luaCallerArguments[1]['key'] : null,
+          key: _36c2.maybeUnBoxAndBuildArgument<_ab4a.Key?, _fac9.dynamic>(
+              luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1]['key']
+                  : null,
+              parentState: hydroState),
+          tags:
+              _36c2.maybeUnBoxAndBuildArgument<_fac9.Set<_4c98.SemanticsTag>?, _4c98.SemanticsTag>(
+                  luaCallerArguments.length >= 2
+                      ? luaCallerArguments[1]['tags']
+                      : null,
                   parentState: hydroState),
-          tags: maybeUnBoxAndBuildArgument<Set<SemanticsTag>?, SemanticsTag>(
-              luaCallerArguments.length >= 2
-                  ? luaCallerArguments[1]['tags']
-                  : null,
+          transform: _36c2.maybeUnBoxAndBuildArgument<_db98.Matrix4?, _fac9.dynamic>(
+              luaCallerArguments.length >= 2 ? luaCallerArguments[1]['transform'] : null,
               parentState: hydroState),
-          transform: maybeUnBoxAndBuildArgument<Matrix4?, dynamic>(
-              luaCallerArguments.length >= 2
-                  ? luaCallerArguments[1]['transform']
-                  : null,
-              parentState: hydroState),
-          properties: maybeUnBoxAndBuildArgument<SemanticsProperties, dynamic>(
-              luaCallerArguments.length >= 2 ? luaCallerArguments[1]['properties'] : null,
-              parentState: hydroState),
-          rect: maybeUnBoxAndBuildArgument<Rect, dynamic>(luaCallerArguments.length >= 2 ? luaCallerArguments[1]['rect'] : null, parentState: hydroState))
+          properties: _36c2.maybeUnBoxAndBuildArgument<_4c98.SemanticsProperties, _fac9.dynamic>(luaCallerArguments.length >= 2 ? luaCallerArguments[1]['properties'] : null, parentState: hydroState),
+          rect: _36c2.maybeUnBoxAndBuildArgument<_a643.Rect, _fac9.dynamic>(luaCallerArguments.length >= 2 ? luaCallerArguments[1]['rect'] : null, parentState: hydroState))
     ];
   });
-  registerBoxer<CustomPainterSemantics>(boxer: (
-      {required CustomPainterSemantics vmObject,
-      required HydroState hydroState,
-      required HydroTable table}) {
+  _36c2.registerBoxer<_93cf.CustomPainterSemantics>(boxer: (
+      {required _93cf.CustomPainterSemantics vmObject,
+      required _36c2.HydroState hydroState,
+      required _36c2.HydroTable table}) {
     return VMManagedCustomPainterSemantics(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

@@ -1,10 +1,10 @@
-import 'dart:core';
+import 'dart:core' as _fac9;
 
-import 'package:flutter/src/semantics/semantics_event.dart';
+import 'package:flutter/src/semantics/semantics_event.dart' as _7afa;
 
-import 'package:hydro_sdk/cfr/runtimeSupport.dart';
+import 'package:hydro_sdk/cfr/runtimeSupport.dart' as _36c2;
 
-class VMManagedSemanticsEvent extends VMManagedBox<SemanticsEvent> {
+class VMManagedSemanticsEvent extends _36c2.VMManagedBox<_7afa.SemanticsEvent> {
   VMManagedSemanticsEvent(
       {required this.table, required this.vmObject, required this.hydroState})
       : super(
@@ -13,120 +13,135 @@ class VMManagedSemanticsEvent extends VMManagedBox<SemanticsEvent> {
           hydroState: hydroState,
         ) {
     table['type'] = vmObject.type;
-    table['toMap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['toMap'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<Map>(
+        _36c2.maybeBoxObject<_fac9.Map>(
             object: vmObject.toMap(
                 nodeId: luaCallerArguments.length >= 2
                     ? luaCallerArguments[1]['nodeId']
                     : null),
             hydroState: hydroState,
-            table: HydroTable()),
+            table: _36c2.HydroTable()),
       ];
     });
-    table['getDataMap'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getDataMap'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<Map>(
+        _36c2.maybeBoxObject<_fac9.Map>(
             object: vmObject.getDataMap(),
             hydroState: hydroState,
-            table: HydroTable()),
+            table: _36c2.HydroTable()),
       ];
     });
-    table['toString'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['toString'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.toString(),
       ];
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  final SemanticsEvent vmObject;
+  final _7afa.SemanticsEvent vmObject;
 }
 
-class RTManagedSemanticsEvent extends SemanticsEvent
-    implements Box<SemanticsEvent> {
-  RTManagedSemanticsEvent(String type$,
+class RTManagedSemanticsEvent extends _7afa.SemanticsEvent
+    implements _36c2.Box<_7afa.SemanticsEvent> {
+  RTManagedSemanticsEvent(_fac9.String type$,
       {required this.table, required this.hydroState})
       : super(
           type$,
         ) {
     table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['unwrap'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [unwrap()];
     });
-    table['type'] = this.type;
-    table['_dart_toMap'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['type'] = _36c2.maybeBoxObject(
+        object: this.type, hydroState: hydroState, table: _36c2.HydroTable());
+    table['_dart_toMap'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<Map>(
+        _36c2.maybeBoxObject(
             object: super.toMap(
-                nodeId: luaCallerArguments.length >= 2
-                    ? luaCallerArguments[1]['nodeId']
-                    : null),
+                nodeId:
+                    _36c2.maybeUnBoxAndBuildArgument<_fac9.int?, _fac9.dynamic>(
+                        luaCallerArguments.length >= 2
+                            ? luaCallerArguments[1]['nodeId']
+                            : null,
+                        parentState: hydroState)),
             hydroState: hydroState,
-            table: HydroTable())
+            table: _36c2.HydroTable())
       ];
     });
-    table['_dart_getDataMap'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getDataMap'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<Map>(
-            object: getDataMap(), hydroState: hydroState, table: HydroTable())
+        _36c2.maybeBoxObject(
+            object: getDataMap(),
+            hydroState: hydroState,
+            table: _36c2.HydroTable())
       ];
     });
-    table['_dart_toString'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [super.toString()];
+    table['_dart_toString'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      return [
+        _36c2.maybeBoxObject(
+            object: super.toString(),
+            hydroState: hydroState,
+            table: _36c2.HydroTable())
+      ];
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  SemanticsEvent unwrap() => this;
-  SemanticsEvent get vmObject => this;
-  @override
-  Map<String, dynamic> toMap({int? nodeId}) {
-    Closure closure = table["toMap"];
-    return maybeUnBoxAndBuildArgument<Map<String, dynamic>, String>(
-        closure.dispatch([table], parentState: hydroState)[0],
+  _7afa.SemanticsEvent unwrap() => this;
+  _7afa.SemanticsEvent get vmObject => this;
+  @_fac9.override
+  _fac9.Map<_fac9.String, _fac9.dynamic> toMap({_fac9.int? nodeId}) {
+    _36c2.Closure closure = table["toMap"];
+    return _36c2.maybeUnBoxAndBuildArgument<
+            _fac9.Map<_fac9.String, _fac9.dynamic>,
+            _fac9.String>(closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
 
-  @override
-  Map<String, dynamic> getDataMap() {
-    Closure closure = table["getDataMap"];
-    return maybeUnBoxAndBuildArgument<Map<String, dynamic>, String>(
-        closure.dispatch([table], parentState: hydroState)[0],
+  @_fac9.override
+  _fac9.Map<_fac9.String, _fac9.dynamic> getDataMap() {
+    _36c2.Closure closure = table["getDataMap"];
+    return _36c2.maybeUnBoxAndBuildArgument<
+            _fac9.Map<_fac9.String, _fac9.dynamic>,
+            _fac9.String>(closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
 
-  @override
-  String toString() {
-    Closure closure = table["__tostring"];
+  @_fac9.override
+  _fac9.String toString() {
+    _36c2.Closure closure = table["__tostring"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 }
 
 void loadSemanticsEvent(
-    {required HydroState hydroState, required HydroTable table}) {
-  table['semanticsEvent'] =
-      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    {required _36c2.HydroState hydroState, required _36c2.HydroTable table}) {
+  table['semanticsEvent'] = _36c2.makeLuaDartFunc(
+      func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
     return [
       RTManagedSemanticsEvent(luaCallerArguments[1],
           table: luaCallerArguments[0], hydroState: hydroState)
     ];
   });
-  registerBoxer<SemanticsEvent>(boxer: (
-      {required SemanticsEvent vmObject,
-      required HydroState hydroState,
-      required HydroTable table}) {
+  _36c2.registerBoxer<_7afa.SemanticsEvent>(boxer: (
+      {required _7afa.SemanticsEvent vmObject,
+      required _36c2.HydroState hydroState,
+      required _36c2.HydroTable table}) {
     return VMManagedSemanticsEvent(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

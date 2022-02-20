@@ -1,12 +1,12 @@
-import 'dart:core';
-import 'dart:ui';
+import 'dart:core' as _fac9;
+import 'dart:ui' as _a643;
 
-import 'package:flutter/src/gestures/events.dart';
-import 'package:flutter/src/gestures/recognizer.dart';
+import 'package:flutter/src/gestures/events.dart' as _0e77;
+import 'package:flutter/src/gestures/recognizer.dart' as _02d2;
 
-import 'package:hydro_sdk/cfr/runtimeSupport.dart';
+import 'package:hydro_sdk/cfr/runtimeSupport.dart' as _36c2;
 
-class VMManagedOffsetPair extends VMManagedBox<OffsetPair> {
+class VMManagedOffsetPair extends _36c2.VMManagedBox<_02d2.OffsetPair> {
   VMManagedOffsetPair(
       {required this.table, required this.vmObject, required this.hydroState})
       : super(
@@ -14,107 +14,118 @@ class VMManagedOffsetPair extends VMManagedBox<OffsetPair> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['local'] = maybeBoxObject<Offset>(
-        object: vmObject.local, hydroState: hydroState, table: HydroTable());
-    table['global'] = maybeBoxObject<Offset>(
-        object: vmObject.global, hydroState: hydroState, table: HydroTable());
-    table['toString'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['local'] = _36c2.maybeBoxObject<_a643.Offset>(
+        object: vmObject.local,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['global'] = _36c2.maybeBoxObject<_a643.Offset>(
+        object: vmObject.global,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['toString'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.toString(),
       ];
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  final OffsetPair vmObject;
+  final _02d2.OffsetPair vmObject;
 }
 
-class RTManagedOffsetPair extends OffsetPair implements Box<OffsetPair> {
+class RTManagedOffsetPair extends _02d2.OffsetPair
+    implements _36c2.Box<_02d2.OffsetPair> {
   RTManagedOffsetPair(
-      {required Offset global,
-      required Offset local,
+      {required _a643.Offset global,
+      required _a643.Offset local,
       required this.table,
       required this.hydroState})
       : super(global: global, local: local) {
     table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['unwrap'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [unwrap()];
     });
-    table['local'] = maybeBoxObject<Offset>(
-        object: this.local, hydroState: hydroState, table: HydroTable());
-    table['global'] = maybeBoxObject<Offset>(
-        object: this.global, hydroState: hydroState, table: HydroTable());
-    table['_dart_toString'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [super.toString()];
+    table['local'] = _36c2.maybeBoxObject(
+        object: this.local, hydroState: hydroState, table: _36c2.HydroTable());
+    table['global'] = _36c2.maybeBoxObject(
+        object: this.global, hydroState: hydroState, table: _36c2.HydroTable());
+    table['_dart_toString'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      return [
+        _36c2.maybeBoxObject(
+            object: super.toString(),
+            hydroState: hydroState,
+            table: _36c2.HydroTable())
+      ];
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  OffsetPair unwrap() => this;
-  OffsetPair get vmObject => this;
-  @override
-  String toString() {
-    Closure closure = table["__tostring"];
+  _02d2.OffsetPair unwrap() => this;
+  _02d2.OffsetPair get vmObject => this;
+  @_fac9.override
+  _fac9.String toString() {
+    _36c2.Closure closure = table["__tostring"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 }
 
 void loadOffsetPair(
-    {required HydroState hydroState, required HydroTable table}) {
-  table['offsetPair'] =
-      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    {required _36c2.HydroState hydroState, required _36c2.HydroTable table}) {
+  table['offsetPair'] = _36c2.makeLuaDartFunc(
+      func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
     return [
       RTManagedOffsetPair(
           table: luaCallerArguments[0],
           hydroState: hydroState,
-          global: maybeUnBoxAndBuildArgument<Offset, dynamic>(
+          global: _36c2.maybeUnBoxAndBuildArgument<_a643.Offset, _fac9.dynamic>(
               luaCallerArguments.length >= 2
                   ? luaCallerArguments[1]['global']
                   : null,
               parentState: hydroState),
-          local: maybeUnBoxAndBuildArgument<Offset, dynamic>(
+          local: _36c2.maybeUnBoxAndBuildArgument<_a643.Offset, _fac9.dynamic>(
               luaCallerArguments.length >= 2
                   ? luaCallerArguments[1]['local']
                   : null,
               parentState: hydroState))
     ];
   });
-  table['offsetPairFromEventPosition'] =
-      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+  table['offsetPairFromEventPosition'] = _36c2.makeLuaDartFunc(
+      func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
     return [
-      maybeBoxObject<OffsetPair>(
-          object: OffsetPair.fromEventPosition(
-              maybeUnBoxAndBuildArgument<PointerEvent, dynamic>(
+      _36c2.maybeBoxObject<_02d2.OffsetPair>(
+          object: _02d2.OffsetPair.fromEventPosition(_36c2
+              .maybeUnBoxAndBuildArgument<_0e77.PointerEvent, _fac9.dynamic>(
                   luaCallerArguments[1],
                   parentState: hydroState)),
           hydroState: hydroState,
-          table: HydroTable()),
+          table: _36c2.HydroTable()),
     ];
   });
-  table['offsetPairFromEventDelta'] =
-      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+  table['offsetPairFromEventDelta'] = _36c2.makeLuaDartFunc(
+      func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
     return [
-      maybeBoxObject<OffsetPair>(
-          object: OffsetPair.fromEventDelta(
-              maybeUnBoxAndBuildArgument<PointerEvent, dynamic>(
+      _36c2.maybeBoxObject<_02d2.OffsetPair>(
+          object: _02d2.OffsetPair.fromEventDelta(_36c2
+              .maybeUnBoxAndBuildArgument<_0e77.PointerEvent, _fac9.dynamic>(
                   luaCallerArguments[1],
                   parentState: hydroState)),
           hydroState: hydroState,
-          table: HydroTable()),
+          table: _36c2.HydroTable()),
     ];
   });
-  registerBoxer<OffsetPair>(boxer: (
-      {required OffsetPair vmObject,
-      required HydroState hydroState,
-      required HydroTable table}) {
+  _36c2.registerBoxer<_02d2.OffsetPair>(boxer: (
+      {required _02d2.OffsetPair vmObject,
+      required _36c2.HydroState hydroState,
+      required _36c2.HydroTable table}) {
     return VMManagedOffsetPair(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

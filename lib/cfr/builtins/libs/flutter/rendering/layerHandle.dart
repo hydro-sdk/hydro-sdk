@@ -1,10 +1,11 @@
-import 'dart:core';
+import 'dart:core' as _fac9;
 
-import 'package:flutter/src/rendering/layer.dart';
+import 'package:flutter/src/rendering/layer.dart' as _7d70;
 
-import 'package:hydro_sdk/cfr/runtimeSupport.dart';
+import 'package:hydro_sdk/cfr/runtimeSupport.dart' as _36c2;
 
-class VMManagedLayerHandle extends VMManagedBox<LayerHandle<Layer>> {
+class VMManagedLayerHandle
+    extends _36c2.VMManagedBox<_7d70.LayerHandle<_7d70.Layer>> {
   VMManagedLayerHandle(
       {required this.table, required this.vmObject, required this.hydroState})
       : super(
@@ -12,8 +13,8 @@ class VMManagedLayerHandle extends VMManagedBox<LayerHandle<Layer>> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['getLayer'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getLayer'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       final returnValue = vmObject.layer;
       if (returnValue != null) {
         return [
@@ -22,91 +23,98 @@ class VMManagedLayerHandle extends VMManagedBox<LayerHandle<Layer>> {
       }
       return [];
     });
-    table['setLayer'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['setLayer'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       vmObject.layer = (luaCallerArguments[1]);
       return [];
     });
-    table['toString'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['toString'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.toString(),
       ];
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  final LayerHandle<Layer> vmObject;
+  final _7d70.LayerHandle<_7d70.Layer> vmObject;
 }
 
-class RTManagedLayerHandle extends LayerHandle implements Box<LayerHandle> {
-  RTManagedLayerHandle(dynamic? _layer,
+class RTManagedLayerHandle extends _7d70.LayerHandle
+    implements _36c2.Box<_7d70.LayerHandle> {
+  RTManagedLayerHandle(_fac9.dynamic? _layer,
       {required this.table, required this.hydroState})
       : super(
           _layer,
         ) {
     table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['unwrap'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [unwrap()];
     });
-    table['_dart_getLayer'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getLayer'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.layer];
     });
-    table['_dart_setLayer'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_setLayer'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       super.layer = (luaCallerArguments[1]);
       return [];
     });
-    table['_dart_toString'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [super.toString()];
+    table['_dart_toString'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      return [
+        _36c2.maybeBoxObject(
+            object: super.toString(),
+            hydroState: hydroState,
+            table: _36c2.HydroTable())
+      ];
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  LayerHandle unwrap() => this;
-  LayerHandle get vmObject => this;
-  @override
-  Layer? get layer {
-    Closure closure = table["getLayer"];
-    return maybeUnBoxAndBuildArgument<Layer?, dynamic>(
+  _7d70.LayerHandle unwrap() => this;
+  _7d70.LayerHandle get vmObject => this;
+  @_fac9.override
+  _7d70.Layer? get layer {
+    _36c2.Closure closure = table["getLayer"];
+    return _36c2.maybeUnBoxAndBuildArgument<_7d70.Layer?, _fac9.dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
 
-  @override
+  @_fac9.override
   void set layer(layer) {
-    Closure closure = table["setLayer"];
+    _36c2.Closure closure = table["setLayer"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  String toString() {
-    Closure closure = table["__tostring"];
+  @_fac9.override
+  _fac9.String toString() {
+    _36c2.Closure closure = table["__tostring"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 }
 
 void loadLayerHandle(
-    {required HydroState hydroState, required HydroTable table}) {
-  table['layerHandle'] =
-      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    {required _36c2.HydroState hydroState, required _36c2.HydroTable table}) {
+  table['layerHandle'] = _36c2.makeLuaDartFunc(
+      func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
     return [
       RTManagedLayerHandle(luaCallerArguments[1],
           table: luaCallerArguments[0], hydroState: hydroState)
     ];
   });
-  registerBoxer<LayerHandle>(boxer: (
-      {required LayerHandle vmObject,
-      required HydroState hydroState,
-      required HydroTable table}) {
+  _36c2.registerBoxer<_7d70.LayerHandle>(boxer: (
+      {required _7d70.LayerHandle vmObject,
+      required _36c2.HydroState hydroState,
+      required _36c2.HydroTable table}) {
     return VMManagedLayerHandle(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

@@ -1,9 +1,11 @@
-import 'package:flutter/src/gestures/drag.dart';
-import 'package:flutter/src/gestures/drag_details.dart';
+import 'dart:core' as _fac9;
 
-import 'package:hydro_sdk/cfr/runtimeSupport.dart';
+import 'package:flutter/src/gestures/drag.dart' as _d9fd;
+import 'package:flutter/src/gestures/drag_details.dart' as _4bc7;
 
-class VMManagedDrag extends VMManagedBox<Drag> {
+import 'package:hydro_sdk/cfr/runtimeSupport.dart' as _36c2;
+
+class VMManagedDrag extends _36c2.VMManagedBox<_d9fd.Drag> {
   VMManagedDrag(
       {required this.table, required this.vmObject, required this.hydroState})
       : super(
@@ -11,93 +13,99 @@ class VMManagedDrag extends VMManagedBox<Drag> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['update'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.update(maybeUnBoxAndBuildArgument<DragUpdateDetails, dynamic>(
-          luaCallerArguments[1],
-          parentState: hydroState));
+    table['update'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      vmObject.update(_36c2.maybeUnBoxAndBuildArgument<_4bc7.DragUpdateDetails,
+          _fac9.dynamic>(luaCallerArguments[1], parentState: hydroState));
       return [];
     });
-    table['end'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.end(maybeUnBoxAndBuildArgument<DragEndDetails, dynamic>(
-          luaCallerArguments[1],
-          parentState: hydroState));
+    table['end'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      vmObject.end(
+          _36c2.maybeUnBoxAndBuildArgument<_4bc7.DragEndDetails, _fac9.dynamic>(
+              luaCallerArguments[1],
+              parentState: hydroState));
       return [];
     });
-    table['cancel'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['cancel'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       vmObject.cancel();
       return [];
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  final Drag vmObject;
+  final _d9fd.Drag vmObject;
 }
 
-class RTManagedDrag extends Drag implements Box<Drag> {
+class RTManagedDrag extends _d9fd.Drag implements _36c2.Box<_d9fd.Drag> {
   RTManagedDrag({required this.table, required this.hydroState}) : super() {
     table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['unwrap'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [unwrap()];
     });
-    table['_dart_update'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.update(maybeUnBoxAndBuildArgument<DragUpdateDetails, dynamic>(
-          luaCallerArguments[1],
-          parentState: hydroState));
+    table['_dart_update'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      super.update(_36c2.maybeUnBoxAndBuildArgument<_4bc7.DragUpdateDetails,
+          _fac9.dynamic>(luaCallerArguments[1], parentState: hydroState));
       return [];
     });
-    table['_dart_end'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.end(maybeUnBoxAndBuildArgument<DragEndDetails, dynamic>(
-          luaCallerArguments[1],
-          parentState: hydroState));
+    table['_dart_end'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      super.end(
+          _36c2.maybeUnBoxAndBuildArgument<_4bc7.DragEndDetails, _fac9.dynamic>(
+              luaCallerArguments[1],
+              parentState: hydroState));
       return [];
     });
-    table['_dart_cancel'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_cancel'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       super.cancel();
       return [];
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  Drag unwrap() => this;
-  Drag get vmObject => this;
-  @override
+  _d9fd.Drag unwrap() => this;
+  _d9fd.Drag get vmObject => this;
+  @_fac9.override
   void update(details) {
-    Closure closure = table["update"];
+    _36c2.Closure closure = table["update"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
+  @_fac9.override
   void end(details) {
-    Closure closure = table["end"];
+    _36c2.Closure closure = table["end"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
+  @_fac9.override
   void cancel() {
-    Closure closure = table["cancel"];
+    _36c2.Closure closure = table["cancel"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 }
 
-void loadDrag({required HydroState hydroState, required HydroTable table}) {
-  table['drag'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+void loadDrag(
+    {required _36c2.HydroState hydroState, required _36c2.HydroTable table}) {
+  table['drag'] = _36c2.makeLuaDartFunc(
+      func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
     return [
       RTManagedDrag(table: luaCallerArguments[0], hydroState: hydroState)
     ];
   });
-  registerBoxer<Drag>(boxer: (
-      {required Drag vmObject,
-      required HydroState hydroState,
-      required HydroTable table}) {
+  _36c2.registerBoxer<_d9fd.Drag>(boxer: (
+      {required _d9fd.Drag vmObject,
+      required _36c2.HydroState hydroState,
+      required _36c2.HydroTable table}) {
     return VMManagedDrag(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

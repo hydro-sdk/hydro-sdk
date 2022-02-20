@@ -1,13 +1,14 @@
-import 'dart:core';
-import 'dart:ui';
+import 'dart:core' as _fac9;
+import 'dart:ui' as _a643;
 
-import 'package:flutter/src/rendering/flow.dart';
+import 'package:flutter/src/rendering/flow.dart' as _43b9;
 
-import 'package:vector_math/vector_math_64.dart';
+import 'package:vector_math/vector_math_64.dart' as _db98;
 
-import 'package:hydro_sdk/cfr/runtimeSupport.dart';
+import 'package:hydro_sdk/cfr/runtimeSupport.dart' as _36c2;
 
-class VMManagedFlowPaintingContext extends VMManagedBox<FlowPaintingContext> {
+class VMManagedFlowPaintingContext
+    extends _36c2.VMManagedBox<_43b9.FlowPaintingContext> {
   VMManagedFlowPaintingContext(
       {required this.table, required this.vmObject, required this.hydroState})
       : super(
@@ -15,58 +16,63 @@ class VMManagedFlowPaintingContext extends VMManagedBox<FlowPaintingContext> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['getSize'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getSize'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<Size>(
-            object: vmObject.size, hydroState: hydroState, table: HydroTable()),
+        _36c2.maybeBoxObject<_a643.Size>(
+            object: vmObject.size,
+            hydroState: hydroState,
+            table: _36c2.HydroTable()),
       ];
     });
-    table['getChildCount'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getChildCount'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.childCount,
       ];
     });
-    table['getChildSize'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getChildSize'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       final returnValue = vmObject.getChildSize(luaCallerArguments[1]);
       if (returnValue != null) {
         return [
-          maybeBoxObject<Size?>(
-              object: returnValue, hydroState: hydroState, table: HydroTable()),
+          _36c2.maybeBoxObject<_a643.Size?>(
+              object: returnValue,
+              hydroState: hydroState,
+              table: _36c2.HydroTable()),
         ];
       }
       return [];
     });
-    table['paintChild'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['paintChild'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       vmObject.paintChild(luaCallerArguments[1],
           opacity: luaCallerArguments.length >= 3
               ? luaCallerArguments[2]['opacity']
               : null?.toDouble(),
-          transform: maybeUnBoxAndBuildArgument<Matrix4, dynamic>(
-              luaCallerArguments.length >= 3
-                  ? luaCallerArguments[2]['transform']
-                  : null,
-              parentState: hydroState));
+          transform:
+              _36c2.maybeUnBoxAndBuildArgument<_db98.Matrix4, _fac9.dynamic>(
+                  luaCallerArguments.length >= 3
+                      ? luaCallerArguments[2]['transform']
+                      : null,
+                  parentState: hydroState));
       return [];
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  final FlowPaintingContext vmObject;
+  final _43b9.FlowPaintingContext vmObject;
 }
 
 void loadFlowPaintingContext(
-    {required HydroState hydroState, required HydroTable table}) {
-  registerBoxer<FlowPaintingContext>(boxer: (
-      {required FlowPaintingContext vmObject,
-      required HydroState hydroState,
-      required HydroTable table}) {
+    {required _36c2.HydroState hydroState, required _36c2.HydroTable table}) {
+  _36c2.registerBoxer<_43b9.FlowPaintingContext>(boxer: (
+      {required _43b9.FlowPaintingContext vmObject,
+      required _36c2.HydroState hydroState,
+      required _36c2.HydroTable table}) {
     return VMManagedFlowPaintingContext(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

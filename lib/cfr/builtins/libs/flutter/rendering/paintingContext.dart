@@ -1,15 +1,16 @@
-import 'dart:core';
-import 'dart:ui';
+import 'dart:core' as _fac9;
+import 'dart:ui' as _a643;
 
-import 'package:flutter/src/painting/clip.dart';
-import 'package:flutter/src/rendering/layer.dart';
-import 'package:flutter/src/rendering/object.dart';
+import 'package:flutter/src/painting/clip.dart' as _35bd;
+import 'package:flutter/src/rendering/layer.dart' as _7d70;
+import 'package:flutter/src/rendering/object.dart' as _9742;
 
-import 'package:vector_math/vector_math_64.dart';
+import 'package:vector_math/vector_math_64.dart' as _db98;
 
-import 'package:hydro_sdk/cfr/runtimeSupport.dart';
+import 'package:hydro_sdk/cfr/runtimeSupport.dart' as _36c2;
 
-class VMManagedPaintingContext extends VMManagedBox<PaintingContext> {
+class VMManagedPaintingContext
+    extends _36c2.VMManagedBox<_9742.PaintingContext> {
   VMManagedPaintingContext(
       {required this.table, required this.vmObject, required this.hydroState})
       : super(
@@ -17,226 +18,252 @@ class VMManagedPaintingContext extends VMManagedBox<PaintingContext> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['estimatedBounds'] = maybeBoxObject<Rect>(
+    table['estimatedBounds'] = _36c2.maybeBoxObject<_a643.Rect>(
         object: vmObject.estimatedBounds,
         hydroState: hydroState,
-        table: HydroTable());
-    table['paintChild'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+        table: _36c2.HydroTable());
+    table['paintChild'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       vmObject.paintChild(
-          maybeUnBoxAndBuildArgument<RenderObject, dynamic>(
+          _36c2.maybeUnBoxAndBuildArgument<_9742.RenderObject, _fac9.dynamic>(
               luaCallerArguments[1],
               parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[2],
+          _36c2.maybeUnBoxAndBuildArgument<_a643.Offset, _fac9.dynamic>(
+              luaCallerArguments[2],
               parentState: hydroState));
       return [];
     });
-    table['getCanvas'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getCanvas'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<Canvas>(
+        _36c2.maybeBoxObject<_a643.Canvas>(
             object: vmObject.canvas,
             hydroState: hydroState,
-            table: HydroTable()),
+            table: _36c2.HydroTable()),
       ];
     });
-    table['setIsComplexHint'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['setIsComplexHint'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       vmObject.setIsComplexHint();
       return [];
     });
-    table['setWillChangeHint'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['setWillChangeHint'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       vmObject.setWillChangeHint();
       return [];
     });
-    table['addLayer'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.addLayer(maybeUnBoxAndBuildArgument<Layer, dynamic>(
-          luaCallerArguments[1],
-          parentState: hydroState));
+    table['addLayer'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      vmObject.addLayer(
+          _36c2.maybeUnBoxAndBuildArgument<_7d70.Layer, _fac9.dynamic>(
+              luaCallerArguments[1],
+              parentState: hydroState));
       return [];
     });
-    table['pushLayer'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      Closure unpackedpainter = luaCallerArguments[2];
+    table['pushLayer'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      _36c2.Closure unpackedpainter = luaCallerArguments[2];
 
       vmObject.pushLayer(
-          maybeUnBoxAndBuildArgument<ContainerLayer, dynamic>(
+          _36c2.maybeUnBoxAndBuildArgument<_7d70.ContainerLayer, _fac9.dynamic>(
               luaCallerArguments[1],
               parentState: hydroState),
           (context, offset) => unpackedpainter.dispatch(
                 [luaCallerArguments[0], context, offset],
                 parentState: hydroState,
               ),
-          maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[3],
+          _36c2.maybeUnBoxAndBuildArgument<_a643.Offset, _fac9.dynamic>(
+              luaCallerArguments[3],
               parentState: hydroState),
-          childPaintBounds: maybeUnBoxAndBuildArgument<Rect?, dynamic>(
-              luaCallerArguments.length >= 5
-                  ? luaCallerArguments[4]['childPaintBounds']
-                  : null,
-              parentState: hydroState));
+          childPaintBounds:
+              _36c2.maybeUnBoxAndBuildArgument<_a643.Rect?, _fac9.dynamic>(
+                  luaCallerArguments.length >= 5
+                      ? luaCallerArguments[4]['childPaintBounds']
+                      : null,
+                  parentState: hydroState));
       return [];
     });
-    table['pushClipRect'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      Closure unpackedpainter = luaCallerArguments[4];
+    table['pushClipRect'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      _36c2.Closure unpackedpainter = luaCallerArguments[4];
 
       final returnValue = vmObject.pushClipRect(
           luaCallerArguments[1],
-          maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[2],
+          _36c2.maybeUnBoxAndBuildArgument<_a643.Offset, _fac9.dynamic>(
+              luaCallerArguments[2],
               parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Rect, dynamic>(luaCallerArguments[3],
+          _36c2.maybeUnBoxAndBuildArgument<_a643.Rect, _fac9.dynamic>(
+              luaCallerArguments[3],
               parentState: hydroState),
           (context, offset) => unpackedpainter.dispatch(
                 [luaCallerArguments[0], context, offset],
                 parentState: hydroState,
               ),
-          clipBehavior: maybeUnBoxEnum(
-              values: Clip.values,
+          clipBehavior: _36c2.maybeUnBoxEnum(
+              values: _a643.Clip.values,
               boxedEnum: luaCallerArguments.length >= 6
                   ? luaCallerArguments[5]['clipBehavior']
                   : null),
-          oldLayer: maybeUnBoxAndBuildArgument<ClipRectLayer?, dynamic>(
-              luaCallerArguments.length >= 6
-                  ? luaCallerArguments[5]['oldLayer']
-                  : null,
-              parentState: hydroState));
+          oldLayer: _36c2
+              .maybeUnBoxAndBuildArgument<_7d70.ClipRectLayer?, _fac9.dynamic>(
+                  luaCallerArguments.length >= 6
+                      ? luaCallerArguments[5]['oldLayer']
+                      : null,
+                  parentState: hydroState));
       if (returnValue != null) {
         return [
-          maybeBoxObject<ClipRectLayer?>(
-              object: returnValue, hydroState: hydroState, table: HydroTable()),
+          _36c2.maybeBoxObject<_7d70.ClipRectLayer?>(
+              object: returnValue,
+              hydroState: hydroState,
+              table: _36c2.HydroTable()),
         ];
       }
       return [];
     });
-    table['pushClipRRect'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      Closure unpackedpainter = luaCallerArguments[5];
+    table['pushClipRRect'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      _36c2.Closure unpackedpainter = luaCallerArguments[5];
 
       final returnValue = vmObject.pushClipRRect(
           luaCallerArguments[1],
-          maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[2],
+          _36c2.maybeUnBoxAndBuildArgument<_a643.Offset, _fac9.dynamic>(
+              luaCallerArguments[2],
               parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Rect, dynamic>(luaCallerArguments[3],
+          _36c2.maybeUnBoxAndBuildArgument<_a643.Rect, _fac9.dynamic>(
+              luaCallerArguments[3],
               parentState: hydroState),
-          maybeUnBoxAndBuildArgument<RRect, dynamic>(luaCallerArguments[4],
+          _36c2.maybeUnBoxAndBuildArgument<_a643.RRect, _fac9.dynamic>(
+              luaCallerArguments[4],
               parentState: hydroState),
           (context, offset) => unpackedpainter.dispatch(
                 [luaCallerArguments[0], context, offset],
                 parentState: hydroState,
               ),
-          clipBehavior: maybeUnBoxEnum(
-              values: Clip.values,
+          clipBehavior: _36c2.maybeUnBoxEnum(
+              values: _a643.Clip.values,
               boxedEnum: luaCallerArguments.length >= 7
                   ? luaCallerArguments[6]['clipBehavior']
                   : null),
-          oldLayer: maybeUnBoxAndBuildArgument<ClipRRectLayer?, dynamic>(
-              luaCallerArguments.length >= 7
-                  ? luaCallerArguments[6]['oldLayer']
-                  : null,
-              parentState: hydroState));
+          oldLayer: _36c2
+              .maybeUnBoxAndBuildArgument<_7d70.ClipRRectLayer?, _fac9.dynamic>(
+                  luaCallerArguments.length >= 7
+                      ? luaCallerArguments[6]['oldLayer']
+                      : null,
+                  parentState: hydroState));
       if (returnValue != null) {
         return [
-          maybeBoxObject<ClipRRectLayer?>(
-              object: returnValue, hydroState: hydroState, table: HydroTable()),
+          _36c2.maybeBoxObject<_7d70.ClipRRectLayer?>(
+              object: returnValue,
+              hydroState: hydroState,
+              table: _36c2.HydroTable()),
         ];
       }
       return [];
     });
-    table['pushClipPath'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      Closure unpackedpainter = luaCallerArguments[5];
+    table['pushClipPath'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      _36c2.Closure unpackedpainter = luaCallerArguments[5];
 
       final returnValue = vmObject.pushClipPath(
           luaCallerArguments[1],
-          maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[2],
+          _36c2.maybeUnBoxAndBuildArgument<_a643.Offset, _fac9.dynamic>(
+              luaCallerArguments[2],
               parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Rect, dynamic>(luaCallerArguments[3],
+          _36c2.maybeUnBoxAndBuildArgument<_a643.Rect, _fac9.dynamic>(
+              luaCallerArguments[3],
               parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Path, dynamic>(luaCallerArguments[4],
+          _36c2.maybeUnBoxAndBuildArgument<_a643.Path, _fac9.dynamic>(
+              luaCallerArguments[4],
               parentState: hydroState),
           (context, offset) => unpackedpainter.dispatch(
                 [luaCallerArguments[0], context, offset],
                 parentState: hydroState,
               ),
-          clipBehavior: maybeUnBoxEnum(
-              values: Clip.values,
+          clipBehavior: _36c2.maybeUnBoxEnum(
+              values: _a643.Clip.values,
               boxedEnum: luaCallerArguments.length >= 7
                   ? luaCallerArguments[6]['clipBehavior']
                   : null),
-          oldLayer: maybeUnBoxAndBuildArgument<ClipPathLayer?, dynamic>(
-              luaCallerArguments.length >= 7
-                  ? luaCallerArguments[6]['oldLayer']
-                  : null,
-              parentState: hydroState));
+          oldLayer: _36c2
+              .maybeUnBoxAndBuildArgument<_7d70.ClipPathLayer?, _fac9.dynamic>(
+                  luaCallerArguments.length >= 7
+                      ? luaCallerArguments[6]['oldLayer']
+                      : null,
+                  parentState: hydroState));
       if (returnValue != null) {
         return [
-          maybeBoxObject<ClipPathLayer?>(
-              object: returnValue, hydroState: hydroState, table: HydroTable()),
+          _36c2.maybeBoxObject<_7d70.ClipPathLayer?>(
+              object: returnValue,
+              hydroState: hydroState,
+              table: _36c2.HydroTable()),
         ];
       }
       return [];
     });
-    table['pushColorFilter'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      Closure unpackedpainter = luaCallerArguments[3];
+    table['pushColorFilter'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      _36c2.Closure unpackedpainter = luaCallerArguments[3];
       return [
-        maybeBoxObject<ColorFilterLayer>(
+        _36c2.maybeBoxObject<_7d70.ColorFilterLayer>(
             object: vmObject.pushColorFilter(
-                maybeUnBoxAndBuildArgument<Offset, dynamic>(
+                _36c2.maybeUnBoxAndBuildArgument<_a643.Offset, _fac9.dynamic>(
                     luaCallerArguments[1],
                     parentState: hydroState),
-                maybeUnBoxAndBuildArgument<ColorFilter, dynamic>(
-                    luaCallerArguments[2],
+                _36c2.maybeUnBoxAndBuildArgument<_a643.ColorFilter,
+                        _fac9.dynamic>(luaCallerArguments[2],
                     parentState: hydroState),
                 (context, offset) => unpackedpainter.dispatch(
                       [luaCallerArguments[0], context, offset],
                       parentState: hydroState,
                     ),
-                oldLayer:
-                    maybeUnBoxAndBuildArgument<ColorFilterLayer?, dynamic>(
-                        luaCallerArguments.length >= 5
-                            ? luaCallerArguments[4]['oldLayer']
-                            : null,
-                        parentState: hydroState)),
+                oldLayer: _36c2.maybeUnBoxAndBuildArgument<
+                        _7d70.ColorFilterLayer?, _fac9.dynamic>(
+                    luaCallerArguments.length >= 5
+                        ? luaCallerArguments[4]['oldLayer']
+                        : null,
+                    parentState: hydroState)),
             hydroState: hydroState,
-            table: HydroTable()),
+            table: _36c2.HydroTable()),
       ];
     });
-    table['pushTransform'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      Closure unpackedpainter = luaCallerArguments[4];
+    table['pushTransform'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      _36c2.Closure unpackedpainter = luaCallerArguments[4];
       final returnValue = vmObject.pushTransform(
           luaCallerArguments[1],
-          maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[2],
+          _36c2.maybeUnBoxAndBuildArgument<_a643.Offset, _fac9.dynamic>(
+              luaCallerArguments[2],
               parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Matrix4, dynamic>(luaCallerArguments[3],
+          _36c2.maybeUnBoxAndBuildArgument<_db98.Matrix4, _fac9.dynamic>(
+              luaCallerArguments[3],
               parentState: hydroState),
           (context, offset) => unpackedpainter.dispatch(
                 [luaCallerArguments[0], context, offset],
                 parentState: hydroState,
               ),
-          oldLayer: maybeUnBoxAndBuildArgument<TransformLayer?, dynamic>(
-              luaCallerArguments.length >= 6
-                  ? luaCallerArguments[5]['oldLayer']
-                  : null,
-              parentState: hydroState));
+          oldLayer: _36c2
+              .maybeUnBoxAndBuildArgument<_7d70.TransformLayer?, _fac9.dynamic>(
+                  luaCallerArguments.length >= 6
+                      ? luaCallerArguments[5]['oldLayer']
+                      : null,
+                  parentState: hydroState));
       if (returnValue != null) {
         return [
-          maybeBoxObject<TransformLayer?>(
-              object: returnValue, hydroState: hydroState, table: HydroTable()),
+          _36c2.maybeBoxObject<_7d70.TransformLayer?>(
+              object: returnValue,
+              hydroState: hydroState,
+              table: _36c2.HydroTable()),
         ];
       }
       return [];
     });
-    table['pushOpacity'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      Closure unpackedpainter = luaCallerArguments[3];
+    table['pushOpacity'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      _36c2.Closure unpackedpainter = luaCallerArguments[3];
       return [
-        maybeBoxObject<OpacityLayer>(
+        _36c2.maybeBoxObject<_7d70.OpacityLayer>(
             object: vmObject.pushOpacity(
-                maybeUnBoxAndBuildArgument<Offset, dynamic>(
+                _36c2.maybeUnBoxAndBuildArgument<_a643.Offset, _fac9.dynamic>(
                     luaCallerArguments[1],
                     parentState: hydroState),
                 luaCallerArguments[2],
@@ -244,29 +271,33 @@ class VMManagedPaintingContext extends VMManagedBox<PaintingContext> {
                       [luaCallerArguments[0], context, offset],
                       parentState: hydroState,
                     ),
-                oldLayer: maybeUnBoxAndBuildArgument<OpacityLayer?, dynamic>(
+                oldLayer: _36c2.maybeUnBoxAndBuildArgument<_7d70.OpacityLayer?,
+                        _fac9.dynamic>(
                     luaCallerArguments.length >= 5
                         ? luaCallerArguments[4]['oldLayer']
                         : null,
                     parentState: hydroState)),
             hydroState: hydroState,
-            table: HydroTable()),
+            table: _36c2.HydroTable()),
       ];
     });
-    table['toString'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['toString'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.toString(),
       ];
     });
-    table['clipPathAndPaint'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      Closure unpackedpainter = luaCallerArguments[4];
+    table['clipPathAndPaint'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      _36c2.Closure unpackedpainter = luaCallerArguments[4];
       vmObject.clipPathAndPaint(
-          maybeUnBoxAndBuildArgument<Path, dynamic>(luaCallerArguments[1],
+          _36c2.maybeUnBoxAndBuildArgument<_a643.Path, _fac9.dynamic>(
+              luaCallerArguments[1],
               parentState: hydroState),
-          maybeUnBoxEnum(values: Clip.values, boxedEnum: luaCallerArguments[2]),
-          maybeUnBoxAndBuildArgument<Rect, dynamic>(luaCallerArguments[3],
+          _36c2.maybeUnBoxEnum(
+              values: _a643.Clip.values, boxedEnum: luaCallerArguments[2]),
+          _36c2.maybeUnBoxAndBuildArgument<_a643.Rect, _fac9.dynamic>(
+              luaCallerArguments[3],
               parentState: hydroState),
           () => unpackedpainter.dispatch(
                 [
@@ -276,14 +307,17 @@ class VMManagedPaintingContext extends VMManagedBox<PaintingContext> {
               ));
       return [];
     });
-    table['clipRRectAndPaint'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      Closure unpackedpainter = luaCallerArguments[4];
+    table['clipRRectAndPaint'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      _36c2.Closure unpackedpainter = luaCallerArguments[4];
       vmObject.clipRRectAndPaint(
-          maybeUnBoxAndBuildArgument<RRect, dynamic>(luaCallerArguments[1],
+          _36c2.maybeUnBoxAndBuildArgument<_a643.RRect, _fac9.dynamic>(
+              luaCallerArguments[1],
               parentState: hydroState),
-          maybeUnBoxEnum(values: Clip.values, boxedEnum: luaCallerArguments[2]),
-          maybeUnBoxAndBuildArgument<Rect, dynamic>(luaCallerArguments[3],
+          _36c2.maybeUnBoxEnum(
+              values: _a643.Clip.values, boxedEnum: luaCallerArguments[2]),
+          _36c2.maybeUnBoxAndBuildArgument<_a643.Rect, _fac9.dynamic>(
+              luaCallerArguments[3],
               parentState: hydroState),
           () => unpackedpainter.dispatch(
                 [
@@ -293,14 +327,17 @@ class VMManagedPaintingContext extends VMManagedBox<PaintingContext> {
               ));
       return [];
     });
-    table['clipRectAndPaint'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      Closure unpackedpainter = luaCallerArguments[4];
+    table['clipRectAndPaint'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      _36c2.Closure unpackedpainter = luaCallerArguments[4];
       vmObject.clipRectAndPaint(
-          maybeUnBoxAndBuildArgument<Rect, dynamic>(luaCallerArguments[1],
+          _36c2.maybeUnBoxAndBuildArgument<_a643.Rect, _fac9.dynamic>(
+              luaCallerArguments[1],
               parentState: hydroState),
-          maybeUnBoxEnum(values: Clip.values, boxedEnum: luaCallerArguments[2]),
-          maybeUnBoxAndBuildArgument<Rect, dynamic>(luaCallerArguments[3],
+          _36c2.maybeUnBoxEnum(
+              values: _a643.Clip.values, boxedEnum: luaCallerArguments[2]),
+          _36c2.maybeUnBoxAndBuildArgument<_a643.Rect, _fac9.dynamic>(
+              luaCallerArguments[3],
               parentState: hydroState),
           () => unpackedpainter.dispatch(
                 [
@@ -310,301 +347,331 @@ class VMManagedPaintingContext extends VMManagedBox<PaintingContext> {
               ));
       return [];
     });
-    table['getHashCode'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getHashCode'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.hashCode,
       ];
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  final PaintingContext vmObject;
+  final _9742.PaintingContext vmObject;
 }
 
-class RTManagedPaintingContext extends PaintingContext
-    implements Box<PaintingContext> {
+class RTManagedPaintingContext extends _9742.PaintingContext
+    implements _36c2.Box<_9742.PaintingContext> {
   RTManagedPaintingContext(
-      ContainerLayer _containerLayer, Rect estimatedBounds$,
+      _7d70.ContainerLayer _containerLayer, _a643.Rect estimatedBounds$,
       {required this.table, required this.hydroState})
       : super(
           _containerLayer,
           estimatedBounds$,
         ) {
     table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['unwrap'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [unwrap()];
     });
-    table['estimatedBounds'] = maybeBoxObject<Rect>(
+    table['estimatedBounds'] = _36c2.maybeBoxObject(
         object: this.estimatedBounds,
         hydroState: hydroState,
-        table: HydroTable());
-    table['_dart_paintChild'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+        table: _36c2.HydroTable());
+    table['_dart_paintChild'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       super.paintChild(
-          maybeUnBoxAndBuildArgument<RenderObject, dynamic>(
+          _36c2.maybeUnBoxAndBuildArgument<_9742.RenderObject, _fac9.dynamic>(
               luaCallerArguments[1],
               parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[2],
+          _36c2.maybeUnBoxAndBuildArgument<_a643.Offset, _fac9.dynamic>(
+              luaCallerArguments[2],
               parentState: hydroState));
       return [];
     });
-    table['_dart_appendLayer'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.appendLayer(maybeUnBoxAndBuildArgument<Layer, dynamic>(
-          luaCallerArguments[1],
-          parentState: hydroState));
+    table['_dart_appendLayer'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      super.appendLayer(
+          _36c2.maybeUnBoxAndBuildArgument<_7d70.Layer, _fac9.dynamic>(
+              luaCallerArguments[1],
+              parentState: hydroState));
       return [];
     });
-    table['_dart_getCanvas'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getCanvas'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.canvas];
     });
-    table['_dart_stopRecordingIfNeeded'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_stopRecordingIfNeeded'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       super.stopRecordingIfNeeded();
       return [];
     });
-    table['_dart_setIsComplexHint'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_setIsComplexHint'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       super.setIsComplexHint();
       return [];
     });
-    table['_dart_setWillChangeHint'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_setWillChangeHint'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       super.setWillChangeHint();
       return [];
     });
-    table['_dart_addLayer'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.addLayer(maybeUnBoxAndBuildArgument<Layer, dynamic>(
-          luaCallerArguments[1],
-          parentState: hydroState));
+    table['_dart_addLayer'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      super.addLayer(
+          _36c2.maybeUnBoxAndBuildArgument<_7d70.Layer, _fac9.dynamic>(
+              luaCallerArguments[1],
+              parentState: hydroState));
       return [];
     });
-    table['_dart_pushLayer'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      Closure unpackedpainter = luaCallerArguments[2];
+    table['_dart_pushLayer'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      _36c2.Closure unpackedpainter = luaCallerArguments[2];
 
       super.pushLayer(
-          maybeUnBoxAndBuildArgument<ContainerLayer, dynamic>(
+          _36c2.maybeUnBoxAndBuildArgument<_7d70.ContainerLayer, _fac9.dynamic>(
               luaCallerArguments[1],
               parentState: hydroState),
           (context, offset) => unpackedpainter.dispatch(
                 [luaCallerArguments[0], context, offset],
                 parentState: hydroState,
               ),
-          maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[3],
+          _36c2.maybeUnBoxAndBuildArgument<_a643.Offset, _fac9.dynamic>(
+              luaCallerArguments[3],
               parentState: hydroState),
-          childPaintBounds: maybeUnBoxAndBuildArgument<Rect?, dynamic>(
-              luaCallerArguments.length >= 5
-                  ? luaCallerArguments[4]['childPaintBounds']
-                  : null,
-              parentState: hydroState));
+          childPaintBounds:
+              _36c2.maybeUnBoxAndBuildArgument<_a643.Rect?, _fac9.dynamic>(
+                  luaCallerArguments.length >= 5
+                      ? luaCallerArguments[4]['childPaintBounds']
+                      : null,
+                  parentState: hydroState));
       return [];
     });
-    table['_dart_createChildContext'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_createChildContext'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<PaintingContext>(
+        _36c2.maybeBoxObject(
             object: super.createChildContext(
-                maybeUnBoxAndBuildArgument<ContainerLayer, dynamic>(
-                    luaCallerArguments[1],
+                _36c2.maybeUnBoxAndBuildArgument<_7d70.ContainerLayer,
+                        _fac9.dynamic>(luaCallerArguments[1],
                     parentState: hydroState),
-                maybeUnBoxAndBuildArgument<Rect, dynamic>(luaCallerArguments[2],
+                _36c2.maybeUnBoxAndBuildArgument<_a643.Rect, _fac9.dynamic>(
+                    luaCallerArguments[2],
                     parentState: hydroState)),
             hydroState: hydroState,
-            table: HydroTable())
+            table: _36c2.HydroTable())
       ];
     });
-    table['_dart_pushClipRect'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      Closure unpackedpainter = luaCallerArguments[4];
+    table['_dart_pushClipRect'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      _36c2.Closure unpackedpainter = luaCallerArguments[4];
 
       return [
-        maybeBoxObject<ClipRectLayer?>(
+        _36c2.maybeBoxObject(
             object: super.pushClipRect(
-                luaCallerArguments[1],
-                maybeUnBoxAndBuildArgument<Offset, dynamic>(
-                    luaCallerArguments[2],
-                    parentState: hydroState),
-                maybeUnBoxAndBuildArgument<Rect, dynamic>(luaCallerArguments[3],
-                    parentState: hydroState),
-                (context, offset) => unpackedpainter.dispatch(
-                      [luaCallerArguments[0], context, offset],
-                      parentState: hydroState,
-                    ),
-                clipBehavior: maybeUnBoxEnum(
-                    values: Clip.values,
-                    boxedEnum: luaCallerArguments.length >= 6
-                        ? luaCallerArguments[5]['clipBehavior']
-                        : null),
-                oldLayer: maybeUnBoxAndBuildArgument<ClipRectLayer?, dynamic>(
-                    luaCallerArguments.length >= 6
-                        ? luaCallerArguments[5]['oldLayer']
-                        : null,
-                    parentState: hydroState)),
-            hydroState: hydroState,
-            table: HydroTable())
-      ];
-    });
-    table['_dart_pushClipRRect'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      Closure unpackedpainter = luaCallerArguments[5];
-
-      return [
-        maybeBoxObject<ClipRRectLayer?>(
-            object: super.pushClipRRect(
-                luaCallerArguments[1],
-                maybeUnBoxAndBuildArgument<Offset, dynamic>(
-                    luaCallerArguments[2],
-                    parentState: hydroState),
-                maybeUnBoxAndBuildArgument<Rect, dynamic>(luaCallerArguments[3],
-                    parentState: hydroState),
-                maybeUnBoxAndBuildArgument<RRect, dynamic>(
-                    luaCallerArguments[4],
-                    parentState: hydroState),
-                (context, offset) => unpackedpainter.dispatch(
-                      [luaCallerArguments[0], context, offset],
-                      parentState: hydroState,
-                    ),
-                clipBehavior: maybeUnBoxEnum(
-                    values: Clip.values,
-                    boxedEnum: luaCallerArguments.length >= 7
-                        ? luaCallerArguments[6]['clipBehavior']
-                        : null),
-                oldLayer: maybeUnBoxAndBuildArgument<ClipRRectLayer?, dynamic>(
-                    luaCallerArguments.length >= 7
-                        ? luaCallerArguments[6]['oldLayer']
-                        : null,
-                    parentState: hydroState)),
-            hydroState: hydroState,
-            table: HydroTable())
-      ];
-    });
-    table['_dart_pushClipPath'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      Closure unpackedpainter = luaCallerArguments[5];
-
-      return [
-        maybeBoxObject<ClipPathLayer?>(
-            object: super.pushClipPath(
-                luaCallerArguments[1],
-                maybeUnBoxAndBuildArgument<Offset, dynamic>(
-                    luaCallerArguments[2],
-                    parentState: hydroState),
-                maybeUnBoxAndBuildArgument<Rect, dynamic>(luaCallerArguments[3],
-                    parentState: hydroState),
-                maybeUnBoxAndBuildArgument<Path, dynamic>(luaCallerArguments[4],
-                    parentState: hydroState),
-                (context, offset) => unpackedpainter.dispatch(
-                      [luaCallerArguments[0], context, offset],
-                      parentState: hydroState,
-                    ),
-                clipBehavior: maybeUnBoxEnum(
-                    values: Clip.values,
-                    boxedEnum: luaCallerArguments.length >= 7
-                        ? luaCallerArguments[6]['clipBehavior']
-                        : null),
-                oldLayer: maybeUnBoxAndBuildArgument<ClipPathLayer?, dynamic>(
-                    luaCallerArguments.length >= 7
-                        ? luaCallerArguments[6]['oldLayer']
-                        : null,
-                    parentState: hydroState)),
-            hydroState: hydroState,
-            table: HydroTable())
-      ];
-    });
-    table['_dart_pushColorFilter'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      Closure unpackedpainter = luaCallerArguments[3];
-      return [
-        maybeBoxObject<ColorFilterLayer>(
-            object: super.pushColorFilter(
-                maybeUnBoxAndBuildArgument<Offset, dynamic>(
+                _36c2.maybeUnBoxAndBuildArgument<_fac9.bool, _fac9.dynamic>(
                     luaCallerArguments[1],
                     parentState: hydroState),
-                maybeUnBoxAndBuildArgument<ColorFilter, dynamic>(
+                _36c2.maybeUnBoxAndBuildArgument<_a643.Offset, _fac9.dynamic>(
                     luaCallerArguments[2],
                     parentState: hydroState),
-                (context, offset) => unpackedpainter.dispatch(
-                      [luaCallerArguments[0], context, offset],
-                      parentState: hydroState,
-                    ),
-                oldLayer:
-                    maybeUnBoxAndBuildArgument<ColorFilterLayer?, dynamic>(
-                        luaCallerArguments.length >= 5
-                            ? luaCallerArguments[4]['oldLayer']
-                            : null,
-                        parentState: hydroState)),
-            hydroState: hydroState,
-            table: HydroTable())
-      ];
-    });
-    table['_dart_pushTransform'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      Closure unpackedpainter = luaCallerArguments[4];
-      return [
-        maybeBoxObject<TransformLayer?>(
-            object: super.pushTransform(
-                luaCallerArguments[1],
-                maybeUnBoxAndBuildArgument<Offset, dynamic>(
-                    luaCallerArguments[2],
-                    parentState: hydroState),
-                maybeUnBoxAndBuildArgument<Matrix4, dynamic>(
+                _36c2.maybeUnBoxAndBuildArgument<_a643.Rect, _fac9.dynamic>(
                     luaCallerArguments[3],
                     parentState: hydroState),
                 (context, offset) => unpackedpainter.dispatch(
                       [luaCallerArguments[0], context, offset],
                       parentState: hydroState,
                     ),
-                oldLayer: maybeUnBoxAndBuildArgument<TransformLayer?, dynamic>(
-                    luaCallerArguments.length >= 6
-                        ? luaCallerArguments[5]['oldLayer']
-                        : null,
-                    parentState: hydroState)),
+                clipBehavior: _36c2.maybeUnBoxEnum(
+                    values: _a643.Clip.values,
+                    boxedEnum: luaCallerArguments.length >= 6
+                        ? luaCallerArguments[5]['clipBehavior']
+                        : null),
+                oldLayer: _36c2
+                    .maybeUnBoxAndBuildArgument<_7d70.ClipRectLayer?, _fac9.dynamic>(
+                        luaCallerArguments.length >= 6
+                            ? luaCallerArguments[5]['oldLayer']
+                            : null,
+                        parentState: hydroState)),
             hydroState: hydroState,
-            table: HydroTable())
+            table: _36c2.HydroTable())
       ];
     });
-    table['_dart_pushOpacity'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      Closure unpackedpainter = luaCallerArguments[3];
+    table['_dart_pushClipRRect'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      _36c2.Closure unpackedpainter = luaCallerArguments[5];
+
       return [
-        maybeBoxObject<OpacityLayer>(
-            object: super.pushOpacity(
-                maybeUnBoxAndBuildArgument<Offset, dynamic>(
+        _36c2.maybeBoxObject(
+            object: super.pushClipRRect(
+                _36c2.maybeUnBoxAndBuildArgument<_fac9.bool, _fac9.dynamic>(
                     luaCallerArguments[1],
                     parentState: hydroState),
-                luaCallerArguments[2],
+                _36c2.maybeUnBoxAndBuildArgument<_a643.Offset, _fac9.dynamic>(
+                    luaCallerArguments[2],
+                    parentState: hydroState),
+                _36c2.maybeUnBoxAndBuildArgument<_a643.Rect, _fac9.dynamic>(
+                    luaCallerArguments[3],
+                    parentState: hydroState),
+                _36c2.maybeUnBoxAndBuildArgument<_a643.RRect, _fac9.dynamic>(
+                    luaCallerArguments[4],
+                    parentState: hydroState),
                 (context, offset) => unpackedpainter.dispatch(
                       [luaCallerArguments[0], context, offset],
                       parentState: hydroState,
                     ),
-                oldLayer: maybeUnBoxAndBuildArgument<OpacityLayer?, dynamic>(
+                clipBehavior: _36c2.maybeUnBoxEnum(
+                    values: _a643.Clip.values,
+                    boxedEnum: luaCallerArguments.length >= 7
+                        ? luaCallerArguments[6]['clipBehavior']
+                        : null),
+                oldLayer: _36c2
+                    .maybeUnBoxAndBuildArgument<_7d70.ClipRRectLayer?, _fac9.dynamic>(
+                        luaCallerArguments.length >= 7 ? luaCallerArguments[6]['oldLayer'] : null,
+                        parentState: hydroState)),
+            hydroState: hydroState,
+            table: _36c2.HydroTable())
+      ];
+    });
+    table['_dart_pushClipPath'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      _36c2.Closure unpackedpainter = luaCallerArguments[5];
+
+      return [
+        _36c2.maybeBoxObject(
+            object: super.pushClipPath(
+                _36c2.maybeUnBoxAndBuildArgument<_fac9.bool, _fac9.dynamic>(
+                    luaCallerArguments[1],
+                    parentState: hydroState),
+                _36c2.maybeUnBoxAndBuildArgument<_a643.Offset, _fac9.dynamic>(
+                    luaCallerArguments[2],
+                    parentState: hydroState),
+                _36c2.maybeUnBoxAndBuildArgument<_a643.Rect, _fac9.dynamic>(
+                    luaCallerArguments[3],
+                    parentState: hydroState),
+                _36c2.maybeUnBoxAndBuildArgument<_a643.Path, _fac9.dynamic>(
+                    luaCallerArguments[4],
+                    parentState: hydroState),
+                (context, offset) => unpackedpainter.dispatch(
+                      [luaCallerArguments[0], context, offset],
+                      parentState: hydroState,
+                    ),
+                clipBehavior: _36c2.maybeUnBoxEnum(
+                    values: _a643.Clip.values,
+                    boxedEnum: luaCallerArguments.length >= 7
+                        ? luaCallerArguments[6]['clipBehavior']
+                        : null),
+                oldLayer: _36c2
+                    .maybeUnBoxAndBuildArgument<_7d70.ClipPathLayer?, _fac9.dynamic>(
+                        luaCallerArguments.length >= 7 ? luaCallerArguments[6]['oldLayer'] : null,
+                        parentState: hydroState)),
+            hydroState: hydroState,
+            table: _36c2.HydroTable())
+      ];
+    });
+    table['_dart_pushColorFilter'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      _36c2.Closure unpackedpainter = luaCallerArguments[3];
+      return [
+        _36c2.maybeBoxObject(
+            object: super.pushColorFilter(
+                _36c2.maybeUnBoxAndBuildArgument<_a643.Offset, _fac9.dynamic>(
+                    luaCallerArguments[1],
+                    parentState: hydroState),
+                _36c2.maybeUnBoxAndBuildArgument<_a643.ColorFilter,
+                        _fac9.dynamic>(luaCallerArguments[2],
+                    parentState: hydroState),
+                (context, offset) => unpackedpainter.dispatch(
+                      [luaCallerArguments[0], context, offset],
+                      parentState: hydroState,
+                    ),
+                oldLayer: _36c2.maybeUnBoxAndBuildArgument<
+                        _7d70.ColorFilterLayer?, _fac9.dynamic>(
                     luaCallerArguments.length >= 5
                         ? luaCallerArguments[4]['oldLayer']
                         : null,
                     parentState: hydroState)),
             hydroState: hydroState,
-            table: HydroTable())
+            table: _36c2.HydroTable())
       ];
     });
-    table['_dart_toString'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [super.toString()];
+    table['_dart_pushTransform'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      _36c2.Closure unpackedpainter = luaCallerArguments[4];
+      return [
+        _36c2.maybeBoxObject(
+            object: super.pushTransform(
+                _36c2.maybeUnBoxAndBuildArgument<_fac9.bool, _fac9.dynamic>(
+                    luaCallerArguments[1],
+                    parentState: hydroState),
+                _36c2.maybeUnBoxAndBuildArgument<_a643.Offset, _fac9.dynamic>(
+                    luaCallerArguments[2],
+                    parentState: hydroState),
+                _36c2.maybeUnBoxAndBuildArgument<_db98.Matrix4, _fac9.dynamic>(
+                    luaCallerArguments[3],
+                    parentState: hydroState),
+                (context, offset) => unpackedpainter.dispatch(
+                      [luaCallerArguments[0], context, offset],
+                      parentState: hydroState,
+                    ),
+                oldLayer: _36c2.maybeUnBoxAndBuildArgument<
+                        _7d70.TransformLayer?, _fac9.dynamic>(
+                    luaCallerArguments.length >= 6
+                        ? luaCallerArguments[5]['oldLayer']
+                        : null,
+                    parentState: hydroState)),
+            hydroState: hydroState,
+            table: _36c2.HydroTable())
+      ];
     });
-    table['_dart_clipPathAndPaint'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      Closure unpackedpainter = luaCallerArguments[4];
+    table['_dart_pushOpacity'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      _36c2.Closure unpackedpainter = luaCallerArguments[3];
+      return [
+        _36c2.maybeBoxObject(
+            object: super.pushOpacity(
+                _36c2.maybeUnBoxAndBuildArgument<_a643.Offset, _fac9.dynamic>(
+                    luaCallerArguments[1],
+                    parentState: hydroState),
+                _36c2.maybeUnBoxAndBuildArgument<_fac9.int, _fac9.dynamic>(
+                    luaCallerArguments[2],
+                    parentState: hydroState),
+                (context, offset) => unpackedpainter.dispatch(
+                      [luaCallerArguments[0], context, offset],
+                      parentState: hydroState,
+                    ),
+                oldLayer: _36c2.maybeUnBoxAndBuildArgument<_7d70.OpacityLayer?,
+                        _fac9.dynamic>(
+                    luaCallerArguments.length >= 5
+                        ? luaCallerArguments[4]['oldLayer']
+                        : null,
+                    parentState: hydroState)),
+            hydroState: hydroState,
+            table: _36c2.HydroTable())
+      ];
+    });
+    table['_dart_toString'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      return [
+        _36c2.maybeBoxObject(
+            object: super.toString(),
+            hydroState: hydroState,
+            table: _36c2.HydroTable())
+      ];
+    });
+    table['_dart_clipPathAndPaint'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      _36c2.Closure unpackedpainter = luaCallerArguments[4];
       super.clipPathAndPaint(
-          maybeUnBoxAndBuildArgument<Path, dynamic>(luaCallerArguments[1],
+          _36c2.maybeUnBoxAndBuildArgument<_a643.Path, _fac9.dynamic>(
+              luaCallerArguments[1],
               parentState: hydroState),
-          maybeUnBoxEnum(values: Clip.values, boxedEnum: luaCallerArguments[2]),
-          maybeUnBoxAndBuildArgument<Rect, dynamic>(luaCallerArguments[3],
+          _36c2.maybeUnBoxEnum(
+              values: _a643.Clip.values, boxedEnum: luaCallerArguments[2]),
+          _36c2.maybeUnBoxAndBuildArgument<_a643.Rect, _fac9.dynamic>(
+              luaCallerArguments[3],
               parentState: hydroState),
           () => unpackedpainter.dispatch(
                 [
@@ -614,14 +681,17 @@ class RTManagedPaintingContext extends PaintingContext
               ));
       return [];
     });
-    table['_dart_clipRRectAndPaint'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      Closure unpackedpainter = luaCallerArguments[4];
+    table['_dart_clipRRectAndPaint'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      _36c2.Closure unpackedpainter = luaCallerArguments[4];
       super.clipRRectAndPaint(
-          maybeUnBoxAndBuildArgument<RRect, dynamic>(luaCallerArguments[1],
+          _36c2.maybeUnBoxAndBuildArgument<_a643.RRect, _fac9.dynamic>(
+              luaCallerArguments[1],
               parentState: hydroState),
-          maybeUnBoxEnum(values: Clip.values, boxedEnum: luaCallerArguments[2]),
-          maybeUnBoxAndBuildArgument<Rect, dynamic>(luaCallerArguments[3],
+          _36c2.maybeUnBoxEnum(
+              values: _a643.Clip.values, boxedEnum: luaCallerArguments[2]),
+          _36c2.maybeUnBoxAndBuildArgument<_a643.Rect, _fac9.dynamic>(
+              luaCallerArguments[3],
               parentState: hydroState),
           () => unpackedpainter.dispatch(
                 [
@@ -631,14 +701,17 @@ class RTManagedPaintingContext extends PaintingContext
               ));
       return [];
     });
-    table['_dart_clipRectAndPaint'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      Closure unpackedpainter = luaCallerArguments[4];
+    table['_dart_clipRectAndPaint'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      _36c2.Closure unpackedpainter = luaCallerArguments[4];
       super.clipRectAndPaint(
-          maybeUnBoxAndBuildArgument<Rect, dynamic>(luaCallerArguments[1],
+          _36c2.maybeUnBoxAndBuildArgument<_a643.Rect, _fac9.dynamic>(
+              luaCallerArguments[1],
               parentState: hydroState),
-          maybeUnBoxEnum(values: Clip.values, boxedEnum: luaCallerArguments[2]),
-          maybeUnBoxAndBuildArgument<Rect, dynamic>(luaCallerArguments[3],
+          _36c2.maybeUnBoxEnum(
+              values: _a643.Clip.values, boxedEnum: luaCallerArguments[2]),
+          _36c2.maybeUnBoxAndBuildArgument<_a643.Rect, _fac9.dynamic>(
+              luaCallerArguments[3],
               parentState: hydroState),
           () => unpackedpainter.dispatch(
                 [
@@ -648,207 +721,222 @@ class RTManagedPaintingContext extends PaintingContext
               ));
       return [];
     });
-    table['_dart_getHashCode'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getHashCode'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.hashCode];
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  PaintingContext unwrap() => this;
-  PaintingContext get vmObject => this;
-  @override
+  _9742.PaintingContext unwrap() => this;
+  _9742.PaintingContext get vmObject => this;
+  @_fac9.override
   void paintChild(child, offset) {
-    Closure closure = table["paintChild"];
+    _36c2.Closure closure = table["paintChild"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
+  @_fac9.override
   void appendLayer(layer) {
-    Closure closure = table["appendLayer"];
+    _36c2.Closure closure = table["appendLayer"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  Canvas get canvas {
-    Closure closure = table["getCanvas"];
-    return maybeUnBoxAndBuildArgument<Canvas, dynamic>(
+  @_fac9.override
+  _a643.Canvas get canvas {
+    _36c2.Closure closure = table["getCanvas"];
+    return _36c2.maybeUnBoxAndBuildArgument<_a643.Canvas, _fac9.dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
 
-  @override
+  @_fac9.override
   void stopRecordingIfNeeded() {
     super.stopRecordingIfNeeded();
-    Closure closure = table["stopRecordingIfNeeded"];
+    _36c2.Closure closure = table["stopRecordingIfNeeded"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
+  @_fac9.override
   void setIsComplexHint() {
-    Closure closure = table["setIsComplexHint"];
+    _36c2.Closure closure = table["setIsComplexHint"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
+  @_fac9.override
   void setWillChangeHint() {
-    Closure closure = table["setWillChangeHint"];
+    _36c2.Closure closure = table["setWillChangeHint"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
+  @_fac9.override
   void addLayer(layer) {
-    Closure closure = table["addLayer"];
+    _36c2.Closure closure = table["addLayer"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  void pushLayer(childLayer, painter, offset, {Rect? childPaintBounds}) {
-    Closure closure = table["pushLayer"];
+  @_fac9.override
+  void pushLayer(childLayer, painter, offset, {_a643.Rect? childPaintBounds}) {
+    _36c2.Closure closure = table["pushLayer"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  PaintingContext createChildContext(childLayer, bounds) {
-    Closure closure = table["createChildContext"];
-    return maybeUnBoxAndBuildArgument<PaintingContext, dynamic>(
-        closure.dispatch([table], parentState: hydroState)[0],
-        parentState: hydroState);
+  @_fac9.override
+  _9742.PaintingContext createChildContext(childLayer, bounds) {
+    _36c2.Closure closure = table["createChildContext"];
+    return _36c2
+        .maybeUnBoxAndBuildArgument<_9742.PaintingContext, _fac9.dynamic>(
+            closure.dispatch([table], parentState: hydroState)[0],
+            parentState: hydroState);
   }
 
-  @override
-  ClipRectLayer? pushClipRect(needsCompositing, offset, clipRect, painter,
-      {Clip clipBehavior = Clip.hardEdge, ClipRectLayer? oldLayer}) {
-    Closure closure = table["pushClipRect"];
-    return maybeUnBoxAndBuildArgument<ClipRectLayer?, dynamic>(
-        closure.dispatch([table], parentState: hydroState)[0],
-        parentState: hydroState);
+  @_fac9.override
+  _7d70.ClipRectLayer? pushClipRect(needsCompositing, offset, clipRect, painter,
+      {_a643.Clip clipBehavior = _a643.Clip.hardEdge,
+      _7d70.ClipRectLayer? oldLayer}) {
+    _36c2.Closure closure = table["pushClipRect"];
+    return _36c2
+        .maybeUnBoxAndBuildArgument<_7d70.ClipRectLayer?, _fac9.dynamic>(
+            closure.dispatch([table], parentState: hydroState)[0],
+            parentState: hydroState);
   }
 
-  @override
-  ClipRRectLayer? pushClipRRect(
+  @_fac9.override
+  _7d70.ClipRRectLayer? pushClipRRect(
       needsCompositing, offset, bounds, clipRRect, painter,
-      {Clip clipBehavior = Clip.antiAlias, ClipRRectLayer? oldLayer}) {
-    Closure closure = table["pushClipRRect"];
-    return maybeUnBoxAndBuildArgument<ClipRRectLayer?, dynamic>(
-        closure.dispatch([table], parentState: hydroState)[0],
-        parentState: hydroState);
+      {_a643.Clip clipBehavior = _a643.Clip.antiAlias,
+      _7d70.ClipRRectLayer? oldLayer}) {
+    _36c2.Closure closure = table["pushClipRRect"];
+    return _36c2
+        .maybeUnBoxAndBuildArgument<_7d70.ClipRRectLayer?, _fac9.dynamic>(
+            closure.dispatch([table], parentState: hydroState)[0],
+            parentState: hydroState);
   }
 
-  @override
-  ClipPathLayer? pushClipPath(
+  @_fac9.override
+  _7d70.ClipPathLayer? pushClipPath(
       needsCompositing, offset, bounds, clipPath, painter,
-      {Clip clipBehavior = Clip.antiAlias, ClipPathLayer? oldLayer}) {
-    Closure closure = table["pushClipPath"];
-    return maybeUnBoxAndBuildArgument<ClipPathLayer?, dynamic>(
+      {_a643.Clip clipBehavior = _a643.Clip.antiAlias,
+      _7d70.ClipPathLayer? oldLayer}) {
+    _36c2.Closure closure = table["pushClipPath"];
+    return _36c2
+        .maybeUnBoxAndBuildArgument<_7d70.ClipPathLayer?, _fac9.dynamic>(
+            closure.dispatch([table], parentState: hydroState)[0],
+            parentState: hydroState);
+  }
+
+  @_fac9.override
+  _7d70.ColorFilterLayer pushColorFilter(offset, colorFilter, painter,
+      {_7d70.ColorFilterLayer? oldLayer}) {
+    _36c2.Closure closure = table["pushColorFilter"];
+    return _36c2
+        .maybeUnBoxAndBuildArgument<_7d70.ColorFilterLayer, _fac9.dynamic>(
+            closure.dispatch([table], parentState: hydroState)[0],
+            parentState: hydroState);
+  }
+
+  @_fac9.override
+  _7d70.TransformLayer? pushTransform(
+      needsCompositing, offset, transform, painter,
+      {_7d70.TransformLayer? oldLayer}) {
+    _36c2.Closure closure = table["pushTransform"];
+    return _36c2
+        .maybeUnBoxAndBuildArgument<_7d70.TransformLayer?, _fac9.dynamic>(
+            closure.dispatch([table], parentState: hydroState)[0],
+            parentState: hydroState);
+  }
+
+  @_fac9.override
+  _7d70.OpacityLayer pushOpacity(offset, alpha, painter,
+      {_7d70.OpacityLayer? oldLayer}) {
+    _36c2.Closure closure = table["pushOpacity"];
+    return _36c2.maybeUnBoxAndBuildArgument<_7d70.OpacityLayer, _fac9.dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
 
-  @override
-  ColorFilterLayer pushColorFilter(offset, colorFilter, painter,
-      {ColorFilterLayer? oldLayer}) {
-    Closure closure = table["pushColorFilter"];
-    return maybeUnBoxAndBuildArgument<ColorFilterLayer, dynamic>(
-        closure.dispatch([table], parentState: hydroState)[0],
-        parentState: hydroState);
-  }
-
-  @override
-  TransformLayer? pushTransform(needsCompositing, offset, transform, painter,
-      {TransformLayer? oldLayer}) {
-    Closure closure = table["pushTransform"];
-    return maybeUnBoxAndBuildArgument<TransformLayer?, dynamic>(
-        closure.dispatch([table], parentState: hydroState)[0],
-        parentState: hydroState);
-  }
-
-  @override
-  OpacityLayer pushOpacity(offset, alpha, painter, {OpacityLayer? oldLayer}) {
-    Closure closure = table["pushOpacity"];
-    return maybeUnBoxAndBuildArgument<OpacityLayer, dynamic>(
-        closure.dispatch([table], parentState: hydroState)[0],
-        parentState: hydroState);
-  }
-
-  @override
-  String toString() {
-    Closure closure = table["__tostring"];
+  @_fac9.override
+  _fac9.String toString() {
+    _36c2.Closure closure = table["__tostring"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
+  @_fac9.override
   void clipPathAndPaint(path, clipBehavior, bounds, painter) {
-    Closure closure = table["clipPathAndPaint"];
+    _36c2.Closure closure = table["clipPathAndPaint"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
+  @_fac9.override
   void clipRRectAndPaint(rrect, clipBehavior, bounds, painter) {
-    Closure closure = table["clipRRectAndPaint"];
+    _36c2.Closure closure = table["clipRRectAndPaint"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
+  @_fac9.override
   void clipRectAndPaint(rect, clipBehavior, bounds, painter) {
-    Closure closure = table["clipRectAndPaint"];
+    _36c2.Closure closure = table["clipRectAndPaint"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  int get hashCode {
-    Closure closure = table["getHashCode"];
+  @_fac9.override
+  _fac9.int get hashCode {
+    _36c2.Closure closure = table["getHashCode"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 }
 
 void loadPaintingContext(
-    {required HydroState hydroState, required HydroTable table}) {
-  table['paintingContext'] =
-      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    {required _36c2.HydroState hydroState, required _36c2.HydroTable table}) {
+  table['paintingContext'] = _36c2.makeLuaDartFunc(
+      func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
     return [
       RTManagedPaintingContext(
-          maybeUnBoxAndBuildArgument<ContainerLayer, dynamic>(
+          _36c2.maybeUnBoxAndBuildArgument<_7d70.ContainerLayer, _fac9.dynamic>(
               luaCallerArguments[1],
               parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Rect, dynamic>(luaCallerArguments[2],
+          _36c2.maybeUnBoxAndBuildArgument<_a643.Rect, _fac9.dynamic>(
+              luaCallerArguments[2],
               parentState: hydroState),
           table: luaCallerArguments[0],
           hydroState: hydroState)
     ];
   });
-  table['paintingContextRepaintCompositedChild'] =
-      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-    PaintingContext.repaintCompositedChild(
-        maybeUnBoxAndBuildArgument<RenderObject, dynamic>(luaCallerArguments[1],
+  table['paintingContextRepaintCompositedChild'] = _36c2.makeLuaDartFunc(
+      func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+    _9742.PaintingContext.repaintCompositedChild(
+        _36c2.maybeUnBoxAndBuildArgument<_9742.RenderObject, _fac9.dynamic>(
+            luaCallerArguments[1],
             parentState: hydroState),
         debugAlsoPaintedParent: luaCallerArguments.length >= 3
             ? luaCallerArguments[2]['debugAlsoPaintedParent']
             : null);
     return [];
   });
-  table['paintingContextDebugInstrumentRepaintCompositedChild'] =
-      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-    PaintingContext.debugInstrumentRepaintCompositedChild(
-        maybeUnBoxAndBuildArgument<RenderObject, dynamic>(luaCallerArguments[1],
+  table['paintingContextDebugInstrumentRepaintCompositedChild'] = _36c2
+      .makeLuaDartFunc(func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+    _9742.PaintingContext.debugInstrumentRepaintCompositedChild(
+        _36c2.maybeUnBoxAndBuildArgument<_9742.RenderObject, _fac9.dynamic>(
+            luaCallerArguments[1],
             parentState: hydroState),
         debugAlsoPaintedParent: luaCallerArguments.length >= 3
             ? luaCallerArguments[2]['debugAlsoPaintedParent']
             : null,
-        customContext: maybeUnBoxAndBuildArgument<PaintingContext, dynamic>(
-            luaCallerArguments.length >= 3
-                ? luaCallerArguments[2]['customContext']
-                : null,
-            parentState: hydroState));
+        customContext: _36c2
+            .maybeUnBoxAndBuildArgument<_9742.PaintingContext, _fac9.dynamic>(
+                luaCallerArguments.length >= 3
+                    ? luaCallerArguments[2]['customContext']
+                    : null,
+                parentState: hydroState));
     return [];
   });
-  registerBoxer<PaintingContext>(boxer: (
-      {required PaintingContext vmObject,
-      required HydroState hydroState,
-      required HydroTable table}) {
+  _36c2.registerBoxer<_9742.PaintingContext>(boxer: (
+      {required _9742.PaintingContext vmObject,
+      required _36c2.HydroState hydroState,
+      required _36c2.HydroTable table}) {
     return VMManagedPaintingContext(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

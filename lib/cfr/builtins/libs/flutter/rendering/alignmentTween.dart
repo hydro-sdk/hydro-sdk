@@ -1,13 +1,13 @@
-import 'dart:core';
+import 'dart:core' as _fac9;
 
-import 'package:flutter/src/animation/animation.dart';
-import 'package:flutter/src/animation/tween.dart';
-import 'package:flutter/src/painting/alignment.dart';
-import 'package:flutter/src/rendering/tweens.dart';
+import 'package:flutter/src/animation/animation.dart' as _86ca;
+import 'package:flutter/src/animation/tween.dart' as _e83e;
+import 'package:flutter/src/painting/alignment.dart' as _ca85;
+import 'package:flutter/src/rendering/tweens.dart' as _eb24;
 
-import 'package:hydro_sdk/cfr/runtimeSupport.dart';
+import 'package:hydro_sdk/cfr/runtimeSupport.dart' as _36c2;
 
-class VMManagedAlignmentTween extends VMManagedBox<AlignmentTween> {
+class VMManagedAlignmentTween extends _36c2.VMManagedBox<_eb24.AlignmentTween> {
   VMManagedAlignmentTween(
       {required this.table, required this.vmObject, required this.hydroState})
       : super(
@@ -15,246 +15,262 @@ class VMManagedAlignmentTween extends VMManagedBox<AlignmentTween> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['begin'] = maybeBoxObject<Alignment?>(
-        object: vmObject.begin, hydroState: hydroState, table: HydroTable());
-    table['end'] = maybeBoxObject<Alignment?>(
-        object: vmObject.end, hydroState: hydroState, table: HydroTable());
-    table['lerp'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['begin'] = _36c2.maybeBoxObject<_ca85.Alignment?>(
+        object: vmObject.begin,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['end'] = _36c2.maybeBoxObject<_ca85.Alignment?>(
+        object: vmObject.end,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['lerp'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<Alignment>(
+        _36c2.maybeBoxObject<_ca85.Alignment>(
             object: vmObject.lerp(luaCallerArguments[1]?.toDouble()),
             hydroState: hydroState,
-            table: HydroTable()),
+            table: _36c2.HydroTable()),
       ];
     });
-    table['transform'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['transform'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<Alignment>(
+        _36c2.maybeBoxObject<_ca85.Alignment>(
             object: vmObject.transform(luaCallerArguments[1]?.toDouble()),
             hydroState: hydroState,
-            table: HydroTable()),
+            table: _36c2.HydroTable()),
       ];
     });
-    table['toString'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['toString'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.toString(),
       ];
     });
-    table['evaluate'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['evaluate'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<Alignment>(
-            object: vmObject.evaluate(
-                maybeUnBoxAndBuildArgument<Animation<double>, double>(
-                    luaCallerArguments[1],
-                    parentState: hydroState)),
+        _36c2.maybeBoxObject<_ca85.Alignment>(
+            object: vmObject.evaluate(_36c2.maybeUnBoxAndBuildArgument<
+                _86ca.Animation<_fac9.double>,
+                _fac9.double>(luaCallerArguments[1], parentState: hydroState)),
             hydroState: hydroState,
-            table: HydroTable()),
+            table: _36c2.HydroTable()),
       ];
     });
-    table['animate'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['animate'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<Animation>(
-            object: vmObject.animate(
-                maybeUnBoxAndBuildArgument<Animation<double>, double>(
-                    luaCallerArguments[1],
-                    parentState: hydroState)),
+        _36c2.maybeBoxObject<_86ca.Animation>(
+            object: vmObject.animate(_36c2.maybeUnBoxAndBuildArgument<
+                _86ca.Animation<_fac9.double>,
+                _fac9.double>(luaCallerArguments[1], parentState: hydroState)),
             hydroState: hydroState,
-            table: HydroTable()),
+            table: _36c2.HydroTable()),
       ];
     });
-    table['chain'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['chain'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<Animatable>(
-            object: vmObject.chain(
-                maybeUnBoxAndBuildArgument<Animatable<double>, double>(
-                    luaCallerArguments[1],
-                    parentState: hydroState)),
+        _36c2.maybeBoxObject<_e83e.Animatable>(
+            object: vmObject.chain(_36c2.maybeUnBoxAndBuildArgument<
+                _e83e.Animatable<_fac9.double>,
+                _fac9.double>(luaCallerArguments[1], parentState: hydroState)),
             hydroState: hydroState,
-            table: HydroTable()),
+            table: _36c2.HydroTable()),
       ];
     });
-    table['getHashCode'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getHashCode'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.hashCode,
       ];
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  final AlignmentTween vmObject;
+  final _eb24.AlignmentTween vmObject;
 }
 
-class RTManagedAlignmentTween extends AlignmentTween
-    implements Box<AlignmentTween> {
+class RTManagedAlignmentTween extends _eb24.AlignmentTween
+    implements _36c2.Box<_eb24.AlignmentTween> {
   RTManagedAlignmentTween(
-      {Alignment? begin,
-      Alignment? end,
+      {_ca85.Alignment? begin,
+      _ca85.Alignment? end,
       required this.table,
       required this.hydroState})
       : super(begin: begin, end: end) {
     table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['unwrap'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [unwrap()];
     });
-    table['begin'] = maybeBoxObject<Alignment?>(
-        object: this.begin, hydroState: hydroState, table: HydroTable());
-    table['end'] = maybeBoxObject<Alignment?>(
-        object: this.end, hydroState: hydroState, table: HydroTable());
-    table['_dart_lerp'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['begin'] = _36c2.maybeBoxObject(
+        object: this.begin, hydroState: hydroState, table: _36c2.HydroTable());
+    table['end'] = _36c2.maybeBoxObject(
+        object: this.end, hydroState: hydroState, table: _36c2.HydroTable());
+    table['_dart_lerp'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<Alignment>(
-            object: super.lerp(luaCallerArguments[1]?.toDouble()),
-            hydroState: hydroState,
-            table: HydroTable())
-      ];
-    });
-    table['_dart_transform'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        maybeBoxObject<Alignment>(
-            object: super.transform(luaCallerArguments[1]?.toDouble()),
-            hydroState: hydroState,
-            table: HydroTable())
-      ];
-    });
-    table['_dart_toString'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [super.toString()];
-    });
-    table['_dart_evaluate'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        maybeBoxObject<Alignment>(
-            object: super.evaluate(
-                maybeUnBoxAndBuildArgument<Animation<double>, double>(
+        _36c2.maybeBoxObject(
+            object: super.lerp(
+                _36c2.maybeUnBoxAndBuildArgument<_fac9.double, _fac9.dynamic>(
                     luaCallerArguments[1],
                     parentState: hydroState)),
             hydroState: hydroState,
-            table: HydroTable())
+            table: _36c2.HydroTable())
       ];
     });
-    table['_dart_animate'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_transform'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<Animation>(
-            object: super.animate(
-                maybeUnBoxAndBuildArgument<Animation<double>, double>(
+        _36c2.maybeBoxObject(
+            object: super.transform(
+                _36c2.maybeUnBoxAndBuildArgument<_fac9.double, _fac9.dynamic>(
                     luaCallerArguments[1],
                     parentState: hydroState)),
             hydroState: hydroState,
-            table: HydroTable())
+            table: _36c2.HydroTable())
       ];
     });
-    table['_dart_chain'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_toString'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<Animatable>(
-            object: super.chain(
-                maybeUnBoxAndBuildArgument<Animatable<double>, double>(
-                    luaCallerArguments[1],
-                    parentState: hydroState)),
+        _36c2.maybeBoxObject(
+            object: super.toString(),
             hydroState: hydroState,
-            table: HydroTable())
+            table: _36c2.HydroTable())
       ];
     });
-    table['_dart_getHashCode'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_evaluate'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      return [
+        _36c2.maybeBoxObject(
+            object: super.evaluate(_36c2.maybeUnBoxAndBuildArgument<
+                _86ca.Animation<_fac9.double>,
+                _fac9.double>(luaCallerArguments[1], parentState: hydroState)),
+            hydroState: hydroState,
+            table: _36c2.HydroTable())
+      ];
+    });
+    table['_dart_animate'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      return [
+        _36c2.maybeBoxObject(
+            object: super.animate(_36c2.maybeUnBoxAndBuildArgument<
+                _86ca.Animation<_fac9.double>,
+                _fac9.double>(luaCallerArguments[1], parentState: hydroState)),
+            hydroState: hydroState,
+            table: _36c2.HydroTable())
+      ];
+    });
+    table['_dart_chain'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      return [
+        _36c2.maybeBoxObject(
+            object: super.chain(_36c2.maybeUnBoxAndBuildArgument<
+                _e83e.Animatable<_fac9.double>,
+                _fac9.double>(luaCallerArguments[1], parentState: hydroState)),
+            hydroState: hydroState,
+            table: _36c2.HydroTable())
+      ];
+    });
+    table['_dart_getHashCode'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.hashCode];
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  AlignmentTween unwrap() => this;
-  AlignmentTween get vmObject => this;
-  @override
-  Alignment lerp(t) {
-    Closure closure = table["lerp"];
-    return maybeUnBoxAndBuildArgument<Alignment, dynamic>(
+  _eb24.AlignmentTween unwrap() => this;
+  _eb24.AlignmentTween get vmObject => this;
+  @_fac9.override
+  _ca85.Alignment lerp(t) {
+    _36c2.Closure closure = table["lerp"];
+    return _36c2.maybeUnBoxAndBuildArgument<_ca85.Alignment, _fac9.dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
 
-  @override
-  Alignment transform(t) {
-    Closure closure = table["transform"];
-    return maybeUnBoxAndBuildArgument<Alignment, dynamic>(
+  @_fac9.override
+  _ca85.Alignment transform(t) {
+    _36c2.Closure closure = table["transform"];
+    return _36c2.maybeUnBoxAndBuildArgument<_ca85.Alignment, _fac9.dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
 
-  @override
-  String toString() {
-    Closure closure = table["__tostring"];
+  @_fac9.override
+  _fac9.String toString() {
+    _36c2.Closure closure = table["__tostring"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  Alignment evaluate(animation) {
-    Closure closure = table["evaluate"];
-    return maybeUnBoxAndBuildArgument<Alignment, dynamic>(
+  @_fac9.override
+  _ca85.Alignment evaluate(animation) {
+    _36c2.Closure closure = table["evaluate"];
+    return _36c2.maybeUnBoxAndBuildArgument<_ca85.Alignment, _fac9.dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
 
-  @override
-  Animation<Alignment> animate(parent) {
-    Closure closure = table["animate"];
-    return maybeUnBoxAndBuildArgument<Animation<Alignment>, Alignment>(
+  @_fac9.override
+  _86ca.Animation<_ca85.Alignment> animate(parent) {
+    _36c2.Closure closure = table["animate"];
+    return _36c2.maybeUnBoxAndBuildArgument<_86ca.Animation<_ca85.Alignment>,
+            _ca85.Alignment>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
 
-  @override
-  Animatable<Alignment> chain(parent) {
-    Closure closure = table["chain"];
-    return maybeUnBoxAndBuildArgument<Animatable<Alignment>, Alignment>(
+  @_fac9.override
+  _e83e.Animatable<_ca85.Alignment> chain(parent) {
+    _36c2.Closure closure = table["chain"];
+    return _36c2.maybeUnBoxAndBuildArgument<_e83e.Animatable<_ca85.Alignment>,
+            _ca85.Alignment>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
 
-  @override
-  int get hashCode {
-    Closure closure = table["getHashCode"];
+  @_fac9.override
+  _fac9.int get hashCode {
+    _36c2.Closure closure = table["getHashCode"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 }
 
 void loadAlignmentTween(
-    {required HydroState hydroState, required HydroTable table}) {
-  table['alignmentTween'] =
-      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    {required _36c2.HydroState hydroState, required _36c2.HydroTable table}) {
+  table['alignmentTween'] = _36c2.makeLuaDartFunc(
+      func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
     return [
       RTManagedAlignmentTween(
           table: luaCallerArguments[0],
           hydroState: hydroState,
-          begin: maybeUnBoxAndBuildArgument<Alignment?, dynamic>(
-              luaCallerArguments.length >= 2
-                  ? luaCallerArguments[1]['begin']
-                  : null,
-              parentState: hydroState),
-          end: maybeUnBoxAndBuildArgument<Alignment?, dynamic>(
-              luaCallerArguments.length >= 2
-                  ? luaCallerArguments[1]['end']
-                  : null,
-              parentState: hydroState))
+          begin: _36c2
+              .maybeUnBoxAndBuildArgument<_ca85.Alignment?, _fac9.dynamic>(
+                  luaCallerArguments.length >= 2
+                      ? luaCallerArguments[1]['begin']
+                      : null,
+                  parentState: hydroState),
+          end:
+              _36c2.maybeUnBoxAndBuildArgument<_ca85.Alignment?, _fac9.dynamic>(
+                  luaCallerArguments.length >= 2
+                      ? luaCallerArguments[1]['end']
+                      : null,
+                  parentState: hydroState))
     ];
   });
-  registerBoxer<AlignmentTween>(boxer: (
-      {required AlignmentTween vmObject,
-      required HydroState hydroState,
-      required HydroTable table}) {
+  _36c2.registerBoxer<_eb24.AlignmentTween>(boxer: (
+      {required _eb24.AlignmentTween vmObject,
+      required _36c2.HydroState hydroState,
+      required _36c2.HydroTable table}) {
     return VMManagedAlignmentTween(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

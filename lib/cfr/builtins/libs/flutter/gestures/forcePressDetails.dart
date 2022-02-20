@@ -1,11 +1,12 @@
-import 'dart:core';
-import 'dart:ui';
+import 'dart:core' as _fac9;
+import 'dart:ui' as _a643;
 
-import 'package:flutter/src/gestures/force_press.dart';
+import 'package:flutter/src/gestures/force_press.dart' as _6dde;
 
-import 'package:hydro_sdk/cfr/runtimeSupport.dart';
+import 'package:hydro_sdk/cfr/runtimeSupport.dart' as _36c2;
 
-class VMManagedForcePressDetails extends VMManagedBox<ForcePressDetails> {
+class VMManagedForcePressDetails
+    extends _36c2.VMManagedBox<_6dde.ForcePressDetails> {
   VMManagedForcePressDetails(
       {required this.table, required this.vmObject, required this.hydroState})
       : super(
@@ -13,30 +14,30 @@ class VMManagedForcePressDetails extends VMManagedBox<ForcePressDetails> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['globalPosition'] = maybeBoxObject<Offset>(
+    table['globalPosition'] = _36c2.maybeBoxObject<_a643.Offset>(
         object: vmObject.globalPosition,
         hydroState: hydroState,
-        table: HydroTable());
-    table['localPosition'] = maybeBoxObject<Offset>(
+        table: _36c2.HydroTable());
+    table['localPosition'] = _36c2.maybeBoxObject<_a643.Offset>(
         object: vmObject.localPosition,
         hydroState: hydroState,
-        table: HydroTable());
+        table: _36c2.HydroTable());
     table['pressure'] = vmObject.pressure;
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  final ForcePressDetails vmObject;
+  final _6dde.ForcePressDetails vmObject;
 }
 
-class RTManagedForcePressDetails extends ForcePressDetails
-    implements Box<ForcePressDetails> {
+class RTManagedForcePressDetails extends _6dde.ForcePressDetails
+    implements _36c2.Box<_6dde.ForcePressDetails> {
   RTManagedForcePressDetails(
-      {Offset? localPosition,
-      required Offset globalPosition,
-      required double pressure,
+      {_a643.Offset? localPosition,
+      required _a643.Offset globalPosition,
+      required _fac9.double pressure,
       required this.table,
       required this.hydroState})
       : super(
@@ -44,55 +45,61 @@ class RTManagedForcePressDetails extends ForcePressDetails
             globalPosition: globalPosition,
             pressure: pressure) {
     table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['unwrap'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [unwrap()];
     });
-    table['globalPosition'] = maybeBoxObject<Offset>(
+    table['globalPosition'] = _36c2.maybeBoxObject(
         object: this.globalPosition,
         hydroState: hydroState,
-        table: HydroTable());
-    table['localPosition'] = maybeBoxObject<Offset>(
+        table: _36c2.HydroTable());
+    table['localPosition'] = _36c2.maybeBoxObject(
         object: this.localPosition,
         hydroState: hydroState,
-        table: HydroTable());
-    table['pressure'] = this.pressure;
+        table: _36c2.HydroTable());
+    table['pressure'] = _36c2.maybeBoxObject(
+        object: this.pressure,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  ForcePressDetails unwrap() => this;
-  ForcePressDetails get vmObject => this;
+  _6dde.ForcePressDetails unwrap() => this;
+  _6dde.ForcePressDetails get vmObject => this;
 }
 
 void loadForcePressDetails(
-    {required HydroState hydroState, required HydroTable table}) {
-  table['forcePressDetails'] =
-      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    {required _36c2.HydroState hydroState, required _36c2.HydroTable table}) {
+  table['forcePressDetails'] = _36c2.makeLuaDartFunc(
+      func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
     return [
       RTManagedForcePressDetails(
           table: luaCallerArguments[0],
           hydroState: hydroState,
-          localPosition: maybeUnBoxAndBuildArgument<Offset?, dynamic>(
-              luaCallerArguments.length >= 2
-                  ? luaCallerArguments[1]['localPosition']
-                  : null,
-              parentState: hydroState),
-          globalPosition: maybeUnBoxAndBuildArgument<Offset, dynamic>(
-              luaCallerArguments.length >= 2
-                  ? luaCallerArguments[1]['globalPosition']
-                  : null,
-              parentState: hydroState),
+          localPosition:
+              _36c2.maybeUnBoxAndBuildArgument<_a643.Offset?, _fac9.dynamic>(
+                  luaCallerArguments.length >= 2
+                      ? luaCallerArguments[1]['localPosition']
+                      : null,
+                  parentState: hydroState),
+          globalPosition:
+              _36c2.maybeUnBoxAndBuildArgument<_a643.Offset, _fac9.dynamic>(
+                  luaCallerArguments.length >= 2
+                      ? luaCallerArguments[1]['globalPosition']
+                      : null,
+                  parentState: hydroState),
           pressure: luaCallerArguments.length >= 2
               ? luaCallerArguments[1]['pressure']
               : null?.toDouble())
     ];
   });
-  registerBoxer<ForcePressDetails>(boxer: (
-      {required ForcePressDetails vmObject,
-      required HydroState hydroState,
-      required HydroTable table}) {
+  _36c2.registerBoxer<_6dde.ForcePressDetails>(boxer: (
+      {required _6dde.ForcePressDetails vmObject,
+      required _36c2.HydroState hydroState,
+      required _36c2.HydroTable table}) {
     return VMManagedForcePressDetails(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

@@ -1,15 +1,15 @@
-import 'dart:core';
-import 'dart:ui';
+import 'dart:core' as _fac9;
+import 'dart:ui' as _a643;
 
-import 'package:flutter/src/rendering/object.dart';
-import 'package:flutter/src/rendering/sliver.dart';
+import 'package:flutter/src/rendering/object.dart' as _9742;
+import 'package:flutter/src/rendering/sliver.dart' as _021d;
 
-import 'package:vector_math/vector_math_64.dart';
+import 'package:vector_math/vector_math_64.dart' as _db98;
 
-import 'package:hydro_sdk/cfr/runtimeSupport.dart';
+import 'package:hydro_sdk/cfr/runtimeSupport.dart' as _36c2;
 
 class VMManagedSliverPhysicalParentData
-    extends VMManagedBox<SliverPhysicalParentData> {
+    extends _36c2.VMManagedBox<_021d.SliverPhysicalParentData> {
   VMManagedSliverPhysicalParentData(
       {required this.table, required this.vmObject, required this.hydroState})
       : super(
@@ -17,116 +17,124 @@ class VMManagedSliverPhysicalParentData
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['paintOffset'] = maybeBoxObject<Offset>(
+    table['paintOffset'] = _36c2.maybeBoxObject<_a643.Offset>(
         object: vmObject.paintOffset,
         hydroState: hydroState,
-        table: HydroTable());
-    table['applyPaintTransform'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.applyPaintTransform(maybeUnBoxAndBuildArgument<Matrix4, dynamic>(
-          luaCallerArguments[1],
-          parentState: hydroState));
+        table: _36c2.HydroTable());
+    table['applyPaintTransform'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      vmObject.applyPaintTransform(
+          _36c2.maybeUnBoxAndBuildArgument<_db98.Matrix4, _fac9.dynamic>(
+              luaCallerArguments[1],
+              parentState: hydroState));
       return [];
     });
-    table['toString'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['toString'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.toString(),
       ];
     });
-    table['getHashCode'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getHashCode'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.hashCode,
       ];
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  final SliverPhysicalParentData vmObject;
+  final _021d.SliverPhysicalParentData vmObject;
 }
 
-class RTManagedSliverPhysicalParentData extends SliverPhysicalParentData
-    implements Box<SliverPhysicalParentData> {
+class RTManagedSliverPhysicalParentData extends _021d.SliverPhysicalParentData
+    implements _36c2.Box<_021d.SliverPhysicalParentData> {
   RTManagedSliverPhysicalParentData(
       {required this.table, required this.hydroState})
       : super() {
     table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['unwrap'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [unwrap()];
     });
-    table['paintOffset'] = maybeBoxObject<Offset>(
-        object: paintOffset, hydroState: hydroState, table: HydroTable());
-    table['_dart_applyPaintTransform'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.applyPaintTransform(maybeUnBoxAndBuildArgument<Matrix4, dynamic>(
-          luaCallerArguments[1],
-          parentState: hydroState));
+    table['paintOffset'] = _36c2.maybeBoxObject(
+        object: paintOffset, hydroState: hydroState, table: _36c2.HydroTable());
+    table['_dart_applyPaintTransform'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      super.applyPaintTransform(
+          _36c2.maybeUnBoxAndBuildArgument<_db98.Matrix4, _fac9.dynamic>(
+              luaCallerArguments[1],
+              parentState: hydroState));
       return [];
     });
-    table['_dart_toString'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [super.toString()];
+    table['_dart_toString'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      return [
+        _36c2.maybeBoxObject(
+            object: super.toString(),
+            hydroState: hydroState,
+            table: _36c2.HydroTable())
+      ];
     });
-    table['_dart_detach'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_detach'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       super.detach();
       return [];
     });
-    table['_dart_getHashCode'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getHashCode'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.hashCode];
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  SliverPhysicalParentData unwrap() => this;
-  SliverPhysicalParentData get vmObject => this;
-  @override
+  _021d.SliverPhysicalParentData unwrap() => this;
+  _021d.SliverPhysicalParentData get vmObject => this;
+  @_fac9.override
   void applyPaintTransform(transform) {
-    Closure closure = table["applyPaintTransform"];
+    _36c2.Closure closure = table["applyPaintTransform"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  String toString() {
-    Closure closure = table["__tostring"];
+  @_fac9.override
+  _fac9.String toString() {
+    _36c2.Closure closure = table["__tostring"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
+  @_fac9.override
   void detach() {
     super.detach();
-    Closure closure = table["detach"];
+    _36c2.Closure closure = table["detach"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  int get hashCode {
-    Closure closure = table["getHashCode"];
+  @_fac9.override
+  _fac9.int get hashCode {
+    _36c2.Closure closure = table["getHashCode"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 }
 
 void loadSliverPhysicalParentData(
-    {required HydroState hydroState, required HydroTable table}) {
-  table['sliverPhysicalParentData'] =
-      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    {required _36c2.HydroState hydroState, required _36c2.HydroTable table}) {
+  table['sliverPhysicalParentData'] = _36c2.makeLuaDartFunc(
+      func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
     return [
       RTManagedSliverPhysicalParentData(
           table: luaCallerArguments[0], hydroState: hydroState)
     ];
   });
-  registerBoxer<SliverPhysicalParentData>(boxer: (
-      {required SliverPhysicalParentData vmObject,
-      required HydroState hydroState,
-      required HydroTable table}) {
+  _36c2.registerBoxer<_021d.SliverPhysicalParentData>(boxer: (
+      {required _021d.SliverPhysicalParentData vmObject,
+      required _36c2.HydroState hydroState,
+      required _36c2.HydroTable table}) {
     return VMManagedSliverPhysicalParentData(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

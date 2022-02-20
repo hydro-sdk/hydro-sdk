@@ -1,11 +1,11 @@
-import 'dart:core';
+import 'dart:core' as _fac9;
 
-import 'package:flutter/src/rendering/sliver_persistent_header.dart';
+import 'package:flutter/src/rendering/sliver_persistent_header.dart' as _2805;
 
-import 'package:hydro_sdk/cfr/runtimeSupport.dart';
+import 'package:hydro_sdk/cfr/runtimeSupport.dart' as _36c2;
 
-class VMManagedPersistentHeaderShowOnScreenConfiguration
-    extends VMManagedBox<PersistentHeaderShowOnScreenConfiguration> {
+class VMManagedPersistentHeaderShowOnScreenConfiguration extends _36c2
+    .VMManagedBox<_2805.PersistentHeaderShowOnScreenConfiguration> {
   VMManagedPersistentHeaderShowOnScreenConfiguration(
       {required this.table, required this.vmObject, required this.hydroState})
       : super(
@@ -17,44 +17,51 @@ class VMManagedPersistentHeaderShowOnScreenConfiguration
     table['maxShowOnScreenExtent'] = vmObject.maxShowOnScreenExtent;
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  final PersistentHeaderShowOnScreenConfiguration vmObject;
+  final _2805.PersistentHeaderShowOnScreenConfiguration vmObject;
 }
 
 class RTManagedPersistentHeaderShowOnScreenConfiguration
-    extends PersistentHeaderShowOnScreenConfiguration
-    implements Box<PersistentHeaderShowOnScreenConfiguration> {
+    extends _2805.PersistentHeaderShowOnScreenConfiguration
+    implements _36c2.Box<_2805.PersistentHeaderShowOnScreenConfiguration> {
   RTManagedPersistentHeaderShowOnScreenConfiguration(
-      {required double maxShowOnScreenExtent,
-      required double minShowOnScreenExtent,
+      {required _fac9.double maxShowOnScreenExtent,
+      required _fac9.double minShowOnScreenExtent,
       required this.table,
       required this.hydroState})
       : super(
             maxShowOnScreenExtent: maxShowOnScreenExtent,
             minShowOnScreenExtent: minShowOnScreenExtent) {
     table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['unwrap'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [unwrap()];
     });
-    table['minShowOnScreenExtent'] = this.minShowOnScreenExtent;
-    table['maxShowOnScreenExtent'] = this.maxShowOnScreenExtent;
+    table['minShowOnScreenExtent'] = _36c2.maybeBoxObject(
+        object: this.minShowOnScreenExtent,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['maxShowOnScreenExtent'] = _36c2.maybeBoxObject(
+        object: this.maxShowOnScreenExtent,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  PersistentHeaderShowOnScreenConfiguration unwrap() => this;
-  PersistentHeaderShowOnScreenConfiguration get vmObject => this;
+  _2805.PersistentHeaderShowOnScreenConfiguration unwrap() => this;
+  _2805.PersistentHeaderShowOnScreenConfiguration get vmObject => this;
 }
 
 void loadPersistentHeaderShowOnScreenConfiguration(
-    {required HydroState hydroState, required HydroTable table}) {
-  table['persistentHeaderShowOnScreenConfiguration'] =
-      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    {required _36c2.HydroState hydroState, required _36c2.HydroTable table}) {
+  table['persistentHeaderShowOnScreenConfiguration'] = _36c2.makeLuaDartFunc(
+      func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
     return [
       RTManagedPersistentHeaderShowOnScreenConfiguration(
           table: luaCallerArguments[0],
@@ -67,10 +74,10 @@ void loadPersistentHeaderShowOnScreenConfiguration(
               : null?.toDouble())
     ];
   });
-  registerBoxer<PersistentHeaderShowOnScreenConfiguration>(boxer: (
-      {required PersistentHeaderShowOnScreenConfiguration vmObject,
-      required HydroState hydroState,
-      required HydroTable table}) {
+  _36c2.registerBoxer<_2805.PersistentHeaderShowOnScreenConfiguration>(boxer: (
+      {required _2805.PersistentHeaderShowOnScreenConfiguration vmObject,
+      required _36c2.HydroState hydroState,
+      required _36c2.HydroTable table}) {
     return VMManagedPersistentHeaderShowOnScreenConfiguration(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

@@ -1,12 +1,12 @@
-import 'dart:core';
+import 'dart:core' as _fac9;
 
-import 'package:flutter/src/foundation/node.dart';
-import 'package:flutter/src/rendering/object.dart';
-import 'package:flutter/src/semantics/semantics.dart';
+import 'package:flutter/src/foundation/node.dart' as _b05e;
+import 'package:flutter/src/rendering/object.dart' as _9742;
+import 'package:flutter/src/semantics/semantics.dart' as _4c98;
 
-import 'package:hydro_sdk/cfr/runtimeSupport.dart';
+import 'package:hydro_sdk/cfr/runtimeSupport.dart' as _36c2;
 
-class VMManagedPipelineOwner extends VMManagedBox<PipelineOwner> {
+class VMManagedPipelineOwner extends _36c2.VMManagedBox<_9742.PipelineOwner> {
   VMManagedPipelineOwner(
       {required this.table, required this.vmObject, required this.hydroState})
       : super(
@@ -14,80 +14,85 @@ class VMManagedPipelineOwner extends VMManagedBox<PipelineOwner> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['requestVisualUpdate'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['requestVisualUpdate'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       vmObject.requestVisualUpdate();
       return [];
     });
-    table['getRootNode'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getRootNode'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       final returnValue = vmObject.rootNode;
       if (returnValue != null) {
         return [
-          maybeBoxObject<AbstractNode?>(
-              object: returnValue, hydroState: hydroState, table: HydroTable()),
+          _36c2.maybeBoxObject<_b05e.AbstractNode?>(
+              object: returnValue,
+              hydroState: hydroState,
+              table: _36c2.HydroTable()),
         ];
       }
       return [];
     });
-    table['setRootNode'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.rootNode = (maybeUnBoxAndBuildArgument<AbstractNode?, dynamic>(
-          luaCallerArguments[1],
-          parentState: hydroState));
+    table['setRootNode'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      vmObject.rootNode =
+          (_36c2.maybeUnBoxAndBuildArgument<_b05e.AbstractNode?, _fac9.dynamic>(
+              luaCallerArguments[1],
+              parentState: hydroState));
       return [];
     });
-    table['getDebugDoingLayout'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getDebugDoingLayout'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.debugDoingLayout,
       ];
     });
-    table['flushLayout'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['flushLayout'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       vmObject.flushLayout();
       return [];
     });
-    table['flushCompositingBits'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['flushCompositingBits'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       vmObject.flushCompositingBits();
       return [];
     });
-    table['getDebugDoingPaint'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getDebugDoingPaint'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.debugDoingPaint,
       ];
     });
-    table['flushPaint'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['flushPaint'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       vmObject.flushPaint();
       return [];
     });
-    table['getSemanticsOwner'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getSemanticsOwner'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       final returnValue = vmObject.semanticsOwner;
       if (returnValue != null) {
         return [
-          maybeBoxObject<SemanticsOwner?>(
-              object: returnValue, hydroState: hydroState, table: HydroTable()),
+          _36c2.maybeBoxObject<_4c98.SemanticsOwner?>(
+              object: returnValue,
+              hydroState: hydroState,
+              table: _36c2.HydroTable()),
         ];
       }
       return [];
     });
-    table['getDebugOutstandingSemanticsHandles'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getDebugOutstandingSemanticsHandles'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.debugOutstandingSemanticsHandles,
       ];
     });
-    table['ensureSemantics'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      Closure? unpackedlistener = luaCallerArguments.length >= 2
+    table['ensureSemantics'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      _36c2.Closure? unpackedlistener = luaCallerArguments.length >= 2
           ? luaCallerArguments[1]['listener']
           : null;
       return [
-        maybeBoxObject<SemanticsHandle>(
+        _36c2.maybeBoxObject<_9742.SemanticsHandle>(
             object: vmObject.ensureSemantics(
                 listener: unpackedlistener != null
                     ? () => unpackedlistener.dispatch(
@@ -98,29 +103,29 @@ class VMManagedPipelineOwner extends VMManagedBox<PipelineOwner> {
                         )
                     : null),
             hydroState: hydroState,
-            table: HydroTable()),
+            table: _36c2.HydroTable()),
       ];
     });
-    table['flushSemantics'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['flushSemantics'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       vmObject.flushSemantics();
       return [];
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  final PipelineOwner vmObject;
+  final _9742.PipelineOwner vmObject;
 }
 
-class RTManagedPipelineOwner extends PipelineOwner
-    implements Box<PipelineOwner> {
+class RTManagedPipelineOwner extends _9742.PipelineOwner
+    implements _36c2.Box<_9742.PipelineOwner> {
   RTManagedPipelineOwner(
-      {onNeedVisualUpdate,
-      onSemanticsOwnerCreated,
-      onSemanticsOwnerDisposed,
+      {void Function()? onNeedVisualUpdate,
+      void Function()? onSemanticsOwnerCreated,
+      void Function()? onSemanticsOwnerDisposed,
       required this.table,
       required this.hydroState})
       : super(
@@ -128,63 +133,65 @@ class RTManagedPipelineOwner extends PipelineOwner
             onSemanticsOwnerCreated: onSemanticsOwnerCreated,
             onSemanticsOwnerDisposed: onSemanticsOwnerDisposed) {
     table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['unwrap'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [unwrap()];
     });
-    table['_dart_requestVisualUpdate'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_requestVisualUpdate'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       super.requestVisualUpdate();
       return [];
     });
-    table['_dart_getRootNode'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getRootNode'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.rootNode];
     });
-    table['_dart_setRootNode'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.rootNode = (maybeUnBoxAndBuildArgument<AbstractNode?, dynamic>(
-          luaCallerArguments[1],
-          parentState: hydroState));
+    table['_dart_setRootNode'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      super.rootNode =
+          (_36c2.maybeUnBoxAndBuildArgument<_b05e.AbstractNode?, _fac9.dynamic>(
+              luaCallerArguments[1],
+              parentState: hydroState));
       return [];
     });
-    table['_dart_getDebugDoingLayout'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getDebugDoingLayout'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.debugDoingLayout];
     });
-    table['_dart_flushLayout'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_flushLayout'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       super.flushLayout();
       return [];
     });
-    table['_dart_flushCompositingBits'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_flushCompositingBits'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       super.flushCompositingBits();
       return [];
     });
-    table['_dart_getDebugDoingPaint'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getDebugDoingPaint'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.debugDoingPaint];
     });
-    table['_dart_flushPaint'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_flushPaint'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       super.flushPaint();
       return [];
     });
-    table['_dart_getSemanticsOwner'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getSemanticsOwner'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.semanticsOwner];
     });
-    table['_dart_getDebugOutstandingSemanticsHandles'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getDebugOutstandingSemanticsHandles'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.debugOutstandingSemanticsHandles];
     });
-    table['_dart_ensureSemantics'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      Closure? unpackedlistener = luaCallerArguments.length >= 2
+    table['_dart_ensureSemantics'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      _36c2.Closure? unpackedlistener = luaCallerArguments.length >= 2
           ? luaCallerArguments[1]['listener']
           : null;
       return [
-        maybeBoxObject<SemanticsHandle>(
+        _36c2.maybeBoxObject(
             object: super.ensureSemantics(
                 listener: unpackedlistener != null
                     ? () => unpackedlistener.dispatch(
@@ -195,114 +202,118 @@ class RTManagedPipelineOwner extends PipelineOwner
                         )
                     : null),
             hydroState: hydroState,
-            table: HydroTable())
+            table: _36c2.HydroTable())
       ];
     });
-    table['_dart_flushSemantics'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_flushSemantics'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       super.flushSemantics();
       return [];
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  PipelineOwner unwrap() => this;
-  PipelineOwner get vmObject => this;
-  @override
+  _9742.PipelineOwner unwrap() => this;
+  _9742.PipelineOwner get vmObject => this;
+  @_fac9.override
   void requestVisualUpdate() {
-    Closure closure = table["requestVisualUpdate"];
+    _36c2.Closure closure = table["requestVisualUpdate"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  AbstractNode? get rootNode {
-    Closure closure = table["getRootNode"];
-    return maybeUnBoxAndBuildArgument<AbstractNode?, dynamic>(
+  @_fac9.override
+  _b05e.AbstractNode? get rootNode {
+    _36c2.Closure closure = table["getRootNode"];
+    return _36c2.maybeUnBoxAndBuildArgument<_b05e.AbstractNode?, _fac9.dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
 
-  @override
+  @_fac9.override
   void set rootNode(value) {
-    Closure closure = table["setRootNode"];
+    _36c2.Closure closure = table["setRootNode"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  bool get debugDoingLayout {
-    Closure closure = table["getDebugDoingLayout"];
+  @_fac9.override
+  _fac9.bool get debugDoingLayout {
+    _36c2.Closure closure = table["getDebugDoingLayout"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
+  @_fac9.override
   void flushLayout() {
-    Closure closure = table["flushLayout"];
+    _36c2.Closure closure = table["flushLayout"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
+  @_fac9.override
   void flushCompositingBits() {
-    Closure closure = table["flushCompositingBits"];
+    _36c2.Closure closure = table["flushCompositingBits"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  bool get debugDoingPaint {
-    Closure closure = table["getDebugDoingPaint"];
+  @_fac9.override
+  _fac9.bool get debugDoingPaint {
+    _36c2.Closure closure = table["getDebugDoingPaint"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
+  @_fac9.override
   void flushPaint() {
-    Closure closure = table["flushPaint"];
+    _36c2.Closure closure = table["flushPaint"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  SemanticsOwner? get semanticsOwner {
-    Closure closure = table["getSemanticsOwner"];
-    return maybeUnBoxAndBuildArgument<SemanticsOwner?, dynamic>(
-        closure.dispatch([table], parentState: hydroState)[0],
-        parentState: hydroState);
+  @_fac9.override
+  _4c98.SemanticsOwner? get semanticsOwner {
+    _36c2.Closure closure = table["getSemanticsOwner"];
+    return _36c2
+        .maybeUnBoxAndBuildArgument<_4c98.SemanticsOwner?, _fac9.dynamic>(
+            closure.dispatch([table], parentState: hydroState)[0],
+            parentState: hydroState);
   }
 
-  @override
-  int get debugOutstandingSemanticsHandles {
-    Closure closure = table["getDebugOutstandingSemanticsHandles"];
+  @_fac9.override
+  _fac9.int get debugOutstandingSemanticsHandles {
+    _36c2.Closure closure = table["getDebugOutstandingSemanticsHandles"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  SemanticsHandle ensureSemantics({listener}) {
-    Closure closure = table["ensureSemantics"];
-    return maybeUnBoxAndBuildArgument<SemanticsHandle, dynamic>(
-        closure.dispatch([table], parentState: hydroState)[0],
-        parentState: hydroState);
+  @_fac9.override
+  _9742.SemanticsHandle ensureSemantics({void Function()? listener}) {
+    _36c2.Closure closure = table["ensureSemantics"];
+    return _36c2
+        .maybeUnBoxAndBuildArgument<_9742.SemanticsHandle, _fac9.dynamic>(
+            closure.dispatch([table], parentState: hydroState)[0],
+            parentState: hydroState);
   }
 
-  @override
+  @_fac9.override
   void flushSemantics() {
-    Closure closure = table["flushSemantics"];
+    _36c2.Closure closure = table["flushSemantics"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 }
 
 void loadPipelineOwner(
-    {required HydroState hydroState, required HydroTable table}) {
-  table['pipelineOwner'] =
-      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-    Closure? unpackedonNeedVisualUpdate = luaCallerArguments.length >= 2
+    {required _36c2.HydroState hydroState, required _36c2.HydroTable table}) {
+  table['pipelineOwner'] = _36c2.makeLuaDartFunc(
+      func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+    _36c2.Closure? unpackedonNeedVisualUpdate = luaCallerArguments.length >= 2
         ? luaCallerArguments[1]['onNeedVisualUpdate']
         : null;
-    Closure? unpackedonSemanticsOwnerCreated = luaCallerArguments.length >= 2
-        ? luaCallerArguments[1]['onSemanticsOwnerCreated']
-        : null;
-    Closure? unpackedonSemanticsOwnerDisposed = luaCallerArguments.length >= 2
-        ? luaCallerArguments[1]['onSemanticsOwnerDisposed']
-        : null;
+    _36c2.Closure? unpackedonSemanticsOwnerCreated =
+        luaCallerArguments.length >= 2
+            ? luaCallerArguments[1]['onSemanticsOwnerCreated']
+            : null;
+    _36c2.Closure? unpackedonSemanticsOwnerDisposed =
+        luaCallerArguments.length >= 2
+            ? luaCallerArguments[1]['onSemanticsOwnerDisposed']
+            : null;
     return [
       RTManagedPipelineOwner(
           table: luaCallerArguments[0],
@@ -333,10 +344,10 @@ void loadPipelineOwner(
               : null)
     ];
   });
-  registerBoxer<PipelineOwner>(boxer: (
-      {required PipelineOwner vmObject,
-      required HydroState hydroState,
-      required HydroTable table}) {
+  _36c2.registerBoxer<_9742.PipelineOwner>(boxer: (
+      {required _9742.PipelineOwner vmObject,
+      required _36c2.HydroState hydroState,
+      required _36c2.HydroTable table}) {
     return VMManagedPipelineOwner(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

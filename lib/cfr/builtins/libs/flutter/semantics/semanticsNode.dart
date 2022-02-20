@@ -1,18 +1,18 @@
-import 'dart:core';
-import 'dart:ui';
+import 'dart:core' as _fac9;
+import 'dart:ui' as _a643;
 
-import 'package:flutter/src/foundation/diagnostics.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/foundation/node.dart';
-import 'package:flutter/src/semantics/semantics.dart';
-import 'package:flutter/src/semantics/semantics_event.dart';
-import 'package:flutter/src/services/text_editing.dart';
+import 'package:flutter/src/foundation/diagnostics.dart' as _eaf3;
+import 'package:flutter/src/foundation/key.dart' as _ab4a;
+import 'package:flutter/src/foundation/node.dart' as _b05e;
+import 'package:flutter/src/semantics/semantics.dart' as _4c98;
+import 'package:flutter/src/semantics/semantics_event.dart' as _7afa;
+import 'package:flutter/src/services/text_editing.dart' as _7986;
 
-import 'package:vector_math/vector_math_64.dart';
+import 'package:vector_math/vector_math_64.dart' as _db98;
 
-import 'package:hydro_sdk/cfr/runtimeSupport.dart';
+import 'package:hydro_sdk/cfr/runtimeSupport.dart' as _36c2;
 
-class VMManagedSemanticsNode extends VMManagedBox<SemanticsNode> {
+class VMManagedSemanticsNode extends _36c2.VMManagedBox<_4c98.SemanticsNode> {
   VMManagedSemanticsNode(
       {required this.table, required this.vmObject, required this.hydroState})
       : super(
@@ -20,294 +20,318 @@ class VMManagedSemanticsNode extends VMManagedBox<SemanticsNode> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['key'] = maybeBoxObject<Key?>(
-        object: vmObject.key, hydroState: hydroState, table: HydroTable());
-    table['parentSemanticsClipRect'] = maybeBoxObject<Rect?>(
+    table['key'] = _36c2.maybeBoxObject<_ab4a.Key?>(
+        object: vmObject.key,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['parentSemanticsClipRect'] = _36c2.maybeBoxObject<_a643.Rect?>(
         object: vmObject.parentSemanticsClipRect,
         hydroState: hydroState,
-        table: HydroTable());
-    table['parentPaintClipRect'] = maybeBoxObject<Rect?>(
+        table: _36c2.HydroTable());
+    table['parentPaintClipRect'] = _36c2.maybeBoxObject<_a643.Rect?>(
         object: vmObject.parentPaintClipRect,
         hydroState: hydroState,
-        table: HydroTable());
+        table: _36c2.HydroTable());
     table['elevationAdjustment'] = vmObject.elevationAdjustment;
     table['indexInParent'] = vmObject.indexInParent;
-    table['tags'] = maybeBoxObject<Set?>(
-        object: vmObject.tags, hydroState: hydroState, table: HydroTable());
-    table['getId'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['tags'] = _36c2.maybeBoxObject<_fac9.Set?>(
+        object: vmObject.tags,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['getId'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.id,
       ];
     });
-    table['getTransform'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getTransform'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       final returnValue = vmObject.transform;
       if (returnValue != null) {
         return [
-          maybeBoxObject<Matrix4?>(
-              object: returnValue, hydroState: hydroState, table: HydroTable()),
+          _36c2.maybeBoxObject<_db98.Matrix4?>(
+              object: returnValue,
+              hydroState: hydroState,
+              table: _36c2.HydroTable()),
         ];
       }
       return [];
     });
-    table['setTransform'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.transform = (maybeUnBoxAndBuildArgument<Matrix4?, dynamic>(
-          luaCallerArguments[1],
-          parentState: hydroState));
+    table['setTransform'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      vmObject.transform =
+          (_36c2.maybeUnBoxAndBuildArgument<_db98.Matrix4?, _fac9.dynamic>(
+              luaCallerArguments[1],
+              parentState: hydroState));
       return [];
     });
-    table['getRect'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getRect'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<Rect>(
-            object: vmObject.rect, hydroState: hydroState, table: HydroTable()),
+        _36c2.maybeBoxObject<_a643.Rect>(
+            object: vmObject.rect,
+            hydroState: hydroState,
+            table: _36c2.HydroTable()),
       ];
     });
-    table['setRect'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.rect = (maybeUnBoxAndBuildArgument<Rect, dynamic>(
-          luaCallerArguments[1],
-          parentState: hydroState));
+    table['setRect'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      vmObject.rect =
+          (_36c2.maybeUnBoxAndBuildArgument<_a643.Rect, _fac9.dynamic>(
+              luaCallerArguments[1],
+              parentState: hydroState));
       return [];
     });
-    table['getIsInvisible'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getIsInvisible'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.isInvisible,
       ];
     });
-    table['getIsMergedIntoParent'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getIsMergedIntoParent'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.isMergedIntoParent,
       ];
     });
-    table['setIsMergedIntoParent'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['setIsMergedIntoParent'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       vmObject.isMergedIntoParent = (luaCallerArguments[1]);
       return [];
     });
-    table['getIsPartOfNodeMerging'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getIsPartOfNodeMerging'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.isPartOfNodeMerging,
       ];
     });
-    table['getMergeAllDescendantsIntoThisNode'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getMergeAllDescendantsIntoThisNode'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.mergeAllDescendantsIntoThisNode,
       ];
     });
-    table['getHasChildren'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getHasChildren'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.hasChildren,
       ];
     });
-    table['getChildrenCount'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getChildrenCount'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.childrenCount,
       ];
     });
-    table['visitChildren'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      Closure unpackedvisitor = luaCallerArguments[1];
+    table['visitChildren'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      _36c2.Closure unpackedvisitor = luaCallerArguments[1];
       vmObject.visitChildren((node) => unpackedvisitor.dispatch(
             [luaCallerArguments[0], node],
             parentState: hydroState,
           )[0]);
       return [];
     });
-    table['getOwner'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getOwner'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       final returnValue = vmObject.owner;
       if (returnValue != null) {
         return [
-          maybeBoxObject<SemanticsOwner?>(
-              object: returnValue, hydroState: hydroState, table: HydroTable()),
+          _36c2.maybeBoxObject<_4c98.SemanticsOwner?>(
+              object: returnValue,
+              hydroState: hydroState,
+              table: _36c2.HydroTable()),
         ];
       }
       return [];
     });
-    table['getParent'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getParent'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       final returnValue = vmObject.parent;
       if (returnValue != null) {
         return [
-          maybeBoxObject<SemanticsNode?>(
-              object: returnValue, hydroState: hydroState, table: HydroTable()),
+          _36c2.maybeBoxObject<_4c98.SemanticsNode?>(
+              object: returnValue,
+              hydroState: hydroState,
+              table: _36c2.HydroTable()),
         ];
       }
       return [];
     });
-    table['redepthChildren'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['redepthChildren'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       vmObject.redepthChildren();
       return [];
     });
-    table['attach'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.attach(maybeUnBoxAndBuildArgument<SemanticsOwner, dynamic>(
-          luaCallerArguments[1],
-          parentState: hydroState));
+    table['attach'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      vmObject.attach(
+          _36c2.maybeUnBoxAndBuildArgument<_4c98.SemanticsOwner, _fac9.dynamic>(
+              luaCallerArguments[1],
+              parentState: hydroState));
       return [];
     });
-    table['detach'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['detach'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       vmObject.detach();
       return [];
     });
-    table['isTagged'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['isTagged'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        vmObject.isTagged(maybeUnBoxAndBuildArgument<SemanticsTag, dynamic>(
-            luaCallerArguments[1],
-            parentState: hydroState)),
+        vmObject.isTagged(
+            _36c2.maybeUnBoxAndBuildArgument<_4c98.SemanticsTag, _fac9.dynamic>(
+                luaCallerArguments[1],
+                parentState: hydroState)),
       ];
     });
-    table['hasFlag'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['hasFlag'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        vmObject.hasFlag(maybeUnBoxAndBuildArgument<SemanticsFlag, dynamic>(
-            luaCallerArguments[1],
-            parentState: hydroState)),
+        vmObject.hasFlag(_36c2.maybeUnBoxAndBuildArgument<_a643.SemanticsFlag,
+            _fac9.dynamic>(luaCallerArguments[1], parentState: hydroState)),
       ];
     });
-    table['getLabel'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getLabel'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.label,
       ];
     });
-    table['getAttributedLabel'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getAttributedLabel'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<AttributedString>(
+        _36c2.maybeBoxObject<_4c98.AttributedString>(
             object: vmObject.attributedLabel,
             hydroState: hydroState,
-            table: HydroTable()),
+            table: _36c2.HydroTable()),
       ];
     });
-    table['getValue'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getValue'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.value,
       ];
     });
-    table['getAttributedValue'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getAttributedValue'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<AttributedString>(
+        _36c2.maybeBoxObject<_4c98.AttributedString>(
             object: vmObject.attributedValue,
             hydroState: hydroState,
-            table: HydroTable()),
+            table: _36c2.HydroTable()),
       ];
     });
-    table['getIncreasedValue'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getIncreasedValue'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.increasedValue,
       ];
     });
-    table['getAttributedIncreasedValue'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getAttributedIncreasedValue'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<AttributedString>(
+        _36c2.maybeBoxObject<_4c98.AttributedString>(
             object: vmObject.attributedIncreasedValue,
             hydroState: hydroState,
-            table: HydroTable()),
+            table: _36c2.HydroTable()),
       ];
     });
-    table['getDecreasedValue'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getDecreasedValue'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.decreasedValue,
       ];
     });
-    table['getAttributedDecreasedValue'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getAttributedDecreasedValue'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<AttributedString>(
+        _36c2.maybeBoxObject<_4c98.AttributedString>(
             object: vmObject.attributedDecreasedValue,
             hydroState: hydroState,
-            table: HydroTable()),
+            table: _36c2.HydroTable()),
       ];
     });
-    table['getHint'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getHint'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.hint,
       ];
     });
-    table['getAttributedHint'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getAttributedHint'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<AttributedString>(
+        _36c2.maybeBoxObject<_4c98.AttributedString>(
             object: vmObject.attributedHint,
             hydroState: hydroState,
-            table: HydroTable()),
+            table: _36c2.HydroTable()),
       ];
     });
-    table['getElevation'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getElevation'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.elevation,
       ];
     });
-    table['getThickness'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getThickness'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.thickness,
       ];
     });
-    table['getHintOverrides'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getHintOverrides'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       final returnValue = vmObject.hintOverrides;
       if (returnValue != null) {
         return [
-          maybeBoxObject<SemanticsHintOverrides?>(
-              object: returnValue, hydroState: hydroState, table: HydroTable()),
+          _36c2.maybeBoxObject<_4c98.SemanticsHintOverrides?>(
+              object: returnValue,
+              hydroState: hydroState,
+              table: _36c2.HydroTable()),
         ];
       }
       return [];
     });
-    table['getTextDirection'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getTextDirection'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       final returnValue = vmObject.textDirection;
       if (returnValue != null) {
         return [
-          TextDirection.values.indexWhere((x) {
+          _a643.TextDirection.values.indexWhere((x) {
             return x == returnValue;
           }),
         ];
       }
       return [];
     });
-    table['getSortKey'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getSortKey'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       final returnValue = vmObject.sortKey;
       if (returnValue != null) {
         return [
-          maybeBoxObject<SemanticsSortKey?>(
-              object: returnValue, hydroState: hydroState, table: HydroTable()),
+          _36c2.maybeBoxObject<_4c98.SemanticsSortKey?>(
+              object: returnValue,
+              hydroState: hydroState,
+              table: _36c2.HydroTable()),
         ];
       }
       return [];
     });
-    table['getTextSelection'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getTextSelection'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       final returnValue = vmObject.textSelection;
       if (returnValue != null) {
         return [
-          maybeBoxObject<TextSelection?>(
-              object: returnValue, hydroState: hydroState, table: HydroTable()),
+          _36c2.maybeBoxObject<_7986.TextSelection?>(
+              object: returnValue,
+              hydroState: hydroState,
+              table: _36c2.HydroTable()),
         ];
       }
       return [];
     });
-    table['getIsMultiline'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getIsMultiline'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       final returnValue = vmObject.isMultiline;
       if (returnValue != null) {
         return [
@@ -316,8 +340,8 @@ class VMManagedSemanticsNode extends VMManagedBox<SemanticsNode> {
       }
       return [];
     });
-    table['getScrollChildCount'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getScrollChildCount'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       final returnValue = vmObject.scrollChildCount;
       if (returnValue != null) {
         return [
@@ -326,8 +350,8 @@ class VMManagedSemanticsNode extends VMManagedBox<SemanticsNode> {
       }
       return [];
     });
-    table['getScrollIndex'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getScrollIndex'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       final returnValue = vmObject.scrollIndex;
       if (returnValue != null) {
         return [
@@ -336,8 +360,8 @@ class VMManagedSemanticsNode extends VMManagedBox<SemanticsNode> {
       }
       return [];
     });
-    table['getScrollPosition'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getScrollPosition'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       final returnValue = vmObject.scrollPosition;
       if (returnValue != null) {
         return [
@@ -346,8 +370,8 @@ class VMManagedSemanticsNode extends VMManagedBox<SemanticsNode> {
       }
       return [];
     });
-    table['getScrollExtentMax'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getScrollExtentMax'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       final returnValue = vmObject.scrollExtentMax;
       if (returnValue != null) {
         return [
@@ -356,8 +380,8 @@ class VMManagedSemanticsNode extends VMManagedBox<SemanticsNode> {
       }
       return [];
     });
-    table['getScrollExtentMin'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getScrollExtentMin'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       final returnValue = vmObject.scrollExtentMin;
       if (returnValue != null) {
         return [
@@ -366,8 +390,8 @@ class VMManagedSemanticsNode extends VMManagedBox<SemanticsNode> {
       }
       return [];
     });
-    table['getPlatformViewId'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getPlatformViewId'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       final returnValue = vmObject.platformViewId;
       if (returnValue != null) {
         return [
@@ -376,8 +400,8 @@ class VMManagedSemanticsNode extends VMManagedBox<SemanticsNode> {
       }
       return [];
     });
-    table['getMaxValueLength'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getMaxValueLength'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       final returnValue = vmObject.maxValueLength;
       if (returnValue != null) {
         return [
@@ -386,8 +410,8 @@ class VMManagedSemanticsNode extends VMManagedBox<SemanticsNode> {
       }
       return [];
     });
-    table['getCurrentValueLength'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getCurrentValueLength'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       final returnValue = vmObject.currentValueLength;
       if (returnValue != null) {
         return [
@@ -396,63 +420,64 @@ class VMManagedSemanticsNode extends VMManagedBox<SemanticsNode> {
       }
       return [];
     });
-    table['updateWith'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['updateWith'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       vmObject.updateWith(
-          childrenInInversePaintOrder:
-              maybeUnBoxAndBuildArgument<List<SemanticsNode>?, SemanticsNode>(
-                  luaCallerArguments.length >= 2
-                      ? luaCallerArguments[1]['childrenInInversePaintOrder']
-                      : null,
-                  parentState: hydroState),
-          config: maybeUnBoxAndBuildArgument<SemanticsConfiguration?, dynamic>(
+          childrenInInversePaintOrder: _36c2.maybeUnBoxAndBuildArgument<
+                  _fac9.List<_4c98.SemanticsNode>?, _4c98.SemanticsNode>(
+              luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1]['childrenInInversePaintOrder']
+                  : null,
+              parentState: hydroState),
+          config: _36c2.maybeUnBoxAndBuildArgument<
+                  _4c98.SemanticsConfiguration?, _fac9.dynamic>(
               luaCallerArguments.length >= 2
                   ? luaCallerArguments[1]['config']
                   : null,
               parentState: hydroState));
       return [];
     });
-    table['getSemanticsData'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getSemanticsData'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<SemanticsData>(
+        _36c2.maybeBoxObject<_4c98.SemanticsData>(
             object: vmObject.getSemanticsData(),
             hydroState: hydroState,
-            table: HydroTable()),
+            table: _36c2.HydroTable()),
       ];
     });
-    table['sendEvent'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.sendEvent(maybeUnBoxAndBuildArgument<SemanticsEvent, dynamic>(
-          luaCallerArguments[1],
-          parentState: hydroState));
-      return [];
-    });
-    table['toStringShort'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        vmObject.toStringShort(),
-      ];
-    });
-    table['debugFillProperties'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.debugFillProperties(
-          maybeUnBoxAndBuildArgument<DiagnosticPropertiesBuilder, dynamic>(
+    table['sendEvent'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      vmObject.sendEvent(
+          _36c2.maybeUnBoxAndBuildArgument<_7afa.SemanticsEvent, _fac9.dynamic>(
               luaCallerArguments[1],
               parentState: hydroState));
       return [];
     });
-    table['toStringDeep'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['toStringShort'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      return [
+        vmObject.toStringShort(),
+      ];
+    });
+    table['debugFillProperties'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      vmObject.debugFillProperties(_36c2.maybeUnBoxAndBuildArgument<
+          _eaf3.DiagnosticPropertiesBuilder,
+          _fac9.dynamic>(luaCallerArguments[1], parentState: hydroState));
+      return [];
+    });
+    table['toStringDeep'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.toStringDeep(
-            childOrder: maybeUnBoxEnum(
-                values: DebugSemanticsDumpOrder.values,
+            childOrder: _36c2.maybeUnBoxEnum(
+                values: _4c98.DebugSemanticsDumpOrder.values,
                 boxedEnum: luaCallerArguments.length >= 2
                     ? luaCallerArguments[1]['childOrder']
                     : null),
-            minLevel: maybeUnBoxEnum(
-                values: DiagnosticLevel.values,
+            minLevel: _36c2.maybeUnBoxEnum(
+                values: _eaf3.DiagnosticLevel.values,
                 boxedEnum: luaCallerArguments.length >= 2
                     ? luaCallerArguments[1]['minLevel']
                     : null),
@@ -464,966 +489,1029 @@ class VMManagedSemanticsNode extends VMManagedBox<SemanticsNode> {
                 : null),
       ];
     });
-    table['toDiagnosticsNode'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['toDiagnosticsNode'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<DiagnosticsNode>(
+        _36c2.maybeBoxObject<_eaf3.DiagnosticsNode>(
             object: vmObject.toDiagnosticsNode(
-                childOrder: maybeUnBoxEnum(
-                    values: DebugSemanticsDumpOrder.values,
+                childOrder: _36c2.maybeUnBoxEnum(
+                    values: _4c98.DebugSemanticsDumpOrder.values,
                     boxedEnum: luaCallerArguments.length >= 2
                         ? luaCallerArguments[1]['childOrder']
                         : null),
                 name: luaCallerArguments.length >= 2
                     ? luaCallerArguments[1]['name']
                     : null,
-                style: maybeUnBoxEnum(
-                    values: DiagnosticsTreeStyle.values,
+                style: _36c2.maybeUnBoxEnum(
+                    values: _eaf3.DiagnosticsTreeStyle.values,
                     boxedEnum: luaCallerArguments.length >= 2
                         ? luaCallerArguments[1]['style']
                         : null)),
             hydroState: hydroState,
-            table: HydroTable()),
+            table: _36c2.HydroTable()),
       ];
     });
-    table['debugDescribeChildren'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['debugDescribeChildren'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<List<dynamic>>(
+        _36c2.maybeBoxObject<_fac9.List<_fac9.dynamic>>(
             object: vmObject
                 .debugDescribeChildren(
-                    childOrder: maybeUnBoxEnum(
-                        values: DebugSemanticsDumpOrder.values,
+                    childOrder: _36c2.maybeUnBoxEnum(
+                        values: _4c98.DebugSemanticsDumpOrder.values,
                         boxedEnum: luaCallerArguments.length >= 2
                             ? luaCallerArguments[1]['childOrder']
                             : null))
-                .map((x) => maybeBoxObject<DiagnosticsNode>(
-                    object: x, hydroState: hydroState, table: HydroTable()))
+                .map((x) => _36c2.maybeBoxObject<_eaf3.DiagnosticsNode>(
+                    object: x,
+                    hydroState: hydroState,
+                    table: _36c2.HydroTable()))
                 .toList(),
             hydroState: hydroState,
-            table: HydroTable()),
+            table: _36c2.HydroTable()),
       ];
     });
-    table['debugListChildrenInOrder'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['debugListChildrenInOrder'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<List<dynamic>>(
+        _36c2.maybeBoxObject<_fac9.List<_fac9.dynamic>>(
             object: vmObject
-                .debugListChildrenInOrder(maybeUnBoxEnum(
-                    values: DebugSemanticsDumpOrder.values,
+                .debugListChildrenInOrder(_36c2.maybeUnBoxEnum(
+                    values: _4c98.DebugSemanticsDumpOrder.values,
                     boxedEnum: luaCallerArguments[1]))
-                .map((x) => maybeBoxObject<SemanticsNode>(
-                    object: x, hydroState: hydroState, table: HydroTable()))
+                .map((x) => _36c2.maybeBoxObject<_4c98.SemanticsNode>(
+                    object: x,
+                    hydroState: hydroState,
+                    table: _36c2.HydroTable()))
                 .toList(),
             hydroState: hydroState,
-            table: HydroTable()),
+            table: _36c2.HydroTable()),
       ];
     });
-    table['toString'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['toString'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.toString(
-            minLevel: maybeUnBoxEnum(
-                values: DiagnosticLevel.values,
+            minLevel: _36c2.maybeUnBoxEnum(
+                values: _eaf3.DiagnosticLevel.values,
                 boxedEnum: luaCallerArguments.length >= 2
                     ? luaCallerArguments[1]['minLevel']
                     : null)),
       ];
     });
-    table['toStringShallow'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['toStringShallow'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.toStringShallow(
             joiner: luaCallerArguments.length >= 2
                 ? luaCallerArguments[1]['joiner']
                 : null,
-            minLevel: maybeUnBoxEnum(
-                values: DiagnosticLevel.values,
+            minLevel: _36c2.maybeUnBoxEnum(
+                values: _eaf3.DiagnosticLevel.values,
                 boxedEnum: luaCallerArguments.length >= 2
                     ? luaCallerArguments[1]['minLevel']
                     : null)),
       ];
     });
-    table['getDepth'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getDepth'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.depth,
       ];
     });
-    table['getAttached'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getAttached'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.attached,
       ];
     });
-    table['getHashCode'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getHashCode'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.hashCode,
       ];
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  final SemanticsNode vmObject;
+  final _4c98.SemanticsNode vmObject;
 }
 
-class RTManagedSemanticsNode extends SemanticsNode
-    implements Box<SemanticsNode> {
+class RTManagedSemanticsNode extends _4c98.SemanticsNode
+    implements _36c2.Box<_4c98.SemanticsNode> {
   RTManagedSemanticsNode(
-      {Key? key, showOnScreen, required this.table, required this.hydroState})
+      {_ab4a.Key? key,
+      void Function()? showOnScreen,
+      required this.table,
+      required this.hydroState})
       : super(key: key, showOnScreen: showOnScreen) {
     table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['unwrap'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [unwrap()];
     });
-    table['key'] = maybeBoxObject<Key?>(
-        object: this.key, hydroState: hydroState, table: HydroTable());
-    table['parentSemanticsClipRect'] = maybeBoxObject<Rect?>(
+    table['key'] = _36c2.maybeBoxObject(
+        object: this.key, hydroState: hydroState, table: _36c2.HydroTable());
+    table['parentSemanticsClipRect'] = _36c2.maybeBoxObject(
         object: parentSemanticsClipRect,
         hydroState: hydroState,
-        table: HydroTable());
-    table['parentPaintClipRect'] = maybeBoxObject<Rect?>(
+        table: _36c2.HydroTable());
+    table['parentPaintClipRect'] = _36c2.maybeBoxObject(
         object: parentPaintClipRect,
         hydroState: hydroState,
-        table: HydroTable());
-    table['elevationAdjustment'] = elevationAdjustment;
-    table['indexInParent'] = indexInParent;
-    table['tags'] = maybeBoxObject<Set?>(
-        object: tags, hydroState: hydroState, table: HydroTable());
-    table['_dart_getId'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+        table: _36c2.HydroTable());
+    table['elevationAdjustment'] = _36c2.maybeBoxObject(
+        object: elevationAdjustment,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['indexInParent'] = _36c2.maybeBoxObject(
+        object: indexInParent,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['tags'] = _36c2.maybeBoxObject(
+        object: tags, hydroState: hydroState, table: _36c2.HydroTable());
+    table['_dart_getId'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.id];
     });
-    table['_dart_getTransform'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getTransform'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.transform];
     });
-    table['_dart_setTransform'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.transform = (maybeUnBoxAndBuildArgument<Matrix4?, dynamic>(
-          luaCallerArguments[1],
-          parentState: hydroState));
+    table['_dart_setTransform'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      super.transform =
+          (_36c2.maybeUnBoxAndBuildArgument<_db98.Matrix4?, _fac9.dynamic>(
+              luaCallerArguments[1],
+              parentState: hydroState));
       return [];
     });
-    table['_dart_getRect'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getRect'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.rect];
     });
-    table['_dart_setRect'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.rect = (maybeUnBoxAndBuildArgument<Rect, dynamic>(
+    table['_dart_setRect'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      super.rect = (_36c2.maybeUnBoxAndBuildArgument<_a643.Rect, _fac9.dynamic>(
           luaCallerArguments[1],
           parentState: hydroState));
       return [];
     });
-    table['_dart_getIsInvisible'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getIsInvisible'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.isInvisible];
     });
-    table['_dart_getIsMergedIntoParent'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getIsMergedIntoParent'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.isMergedIntoParent];
     });
-    table['_dart_setIsMergedIntoParent'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.isMergedIntoParent = (luaCallerArguments[1]);
+    table['_dart_setIsMergedIntoParent'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      super.isMergedIntoParent =
+          (_36c2.maybeUnBoxAndBuildArgument<_fac9.bool, _fac9.dynamic>(
+              luaCallerArguments[1],
+              parentState: hydroState));
       return [];
     });
-    table['_dart_getIsPartOfNodeMerging'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getIsPartOfNodeMerging'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.isPartOfNodeMerging];
     });
-    table['_dart_getMergeAllDescendantsIntoThisNode'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getMergeAllDescendantsIntoThisNode'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.mergeAllDescendantsIntoThisNode];
     });
-    table['_dart_getHasChildren'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getHasChildren'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.hasChildren];
     });
-    table['_dart_getChildrenCount'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getChildrenCount'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.childrenCount];
     });
-    table['_dart_visitChildren'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      Closure unpackedvisitor = luaCallerArguments[1];
-      super.visitChildren((node) => unpackedvisitor.dispatch(
-            [luaCallerArguments[0], node],
-            parentState: hydroState,
-          )[0]);
+    table['_dart_visitChildren'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      _36c2.Closure unpackedvisitor = luaCallerArguments[1];
+      super.visitChildren(
+          (node) => _36c2.maybeUnBoxAndBuildArgument<_fac9.bool, _fac9.dynamic>(
+              unpackedvisitor.dispatch(
+                [luaCallerArguments[0], node],
+                parentState: hydroState,
+              )[0],
+              parentState: hydroState));
       return [];
     });
-    table['_dart_getOwner'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getOwner'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.owner];
     });
-    table['_dart_getParent'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getParent'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.parent];
     });
-    table['_dart_redepthChildren'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_redepthChildren'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       super.redepthChildren();
       return [];
     });
-    table['_dart_attach'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.attach(maybeUnBoxAndBuildArgument<SemanticsOwner, dynamic>(
-          luaCallerArguments[1],
-          parentState: hydroState));
+    table['_dart_attach'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      super.attach(
+          _36c2.maybeUnBoxAndBuildArgument<_4c98.SemanticsOwner, _fac9.dynamic>(
+              luaCallerArguments[1],
+              parentState: hydroState));
       return [];
     });
-    table['_dart_detach'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_detach'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       super.detach();
       return [];
     });
-    table['_dart_isTagged'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_isTagged'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        super.isTagged(maybeUnBoxAndBuildArgument<SemanticsTag, dynamic>(
-            luaCallerArguments[1],
-            parentState: hydroState))
+        _36c2.maybeBoxObject(
+            object: super.isTagged(_36c2.maybeUnBoxAndBuildArgument<
+                _4c98.SemanticsTag,
+                _fac9.dynamic>(luaCallerArguments[1], parentState: hydroState)),
+            hydroState: hydroState,
+            table: _36c2.HydroTable())
       ];
     });
-    table['_dart_hasFlag'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_hasFlag'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        super.hasFlag(maybeUnBoxAndBuildArgument<SemanticsFlag, dynamic>(
-            luaCallerArguments[1],
-            parentState: hydroState))
+        _36c2.maybeBoxObject(
+            object: super.hasFlag(_36c2.maybeUnBoxAndBuildArgument<
+                _a643.SemanticsFlag,
+                _fac9.dynamic>(luaCallerArguments[1], parentState: hydroState)),
+            hydroState: hydroState,
+            table: _36c2.HydroTable())
       ];
     });
-    table['_dart_getLabel'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getLabel'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.label];
     });
-    table['_dart_getAttributedLabel'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getAttributedLabel'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.attributedLabel];
     });
-    table['_dart_getValue'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getValue'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.value];
     });
-    table['_dart_getAttributedValue'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getAttributedValue'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.attributedValue];
     });
-    table['_dart_getIncreasedValue'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getIncreasedValue'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.increasedValue];
     });
-    table['_dart_getAttributedIncreasedValue'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getAttributedIncreasedValue'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.attributedIncreasedValue];
     });
-    table['_dart_getDecreasedValue'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getDecreasedValue'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.decreasedValue];
     });
-    table['_dart_getAttributedDecreasedValue'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getAttributedDecreasedValue'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.attributedDecreasedValue];
     });
-    table['_dart_getHint'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getHint'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.hint];
     });
-    table['_dart_getAttributedHint'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getAttributedHint'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.attributedHint];
     });
-    table['_dart_getElevation'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getElevation'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.elevation];
     });
-    table['_dart_getThickness'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getThickness'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.thickness];
     });
-    table['_dart_getHintOverrides'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getHintOverrides'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.hintOverrides];
     });
-    table['_dart_getTextDirection'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getTextDirection'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.textDirection];
     });
-    table['_dart_getSortKey'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getSortKey'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.sortKey];
     });
-    table['_dart_getTextSelection'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getTextSelection'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.textSelection];
     });
-    table['_dart_getIsMultiline'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getIsMultiline'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.isMultiline];
     });
-    table['_dart_getScrollChildCount'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getScrollChildCount'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.scrollChildCount];
     });
-    table['_dart_getScrollIndex'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getScrollIndex'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.scrollIndex];
     });
-    table['_dart_getScrollPosition'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getScrollPosition'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.scrollPosition];
     });
-    table['_dart_getScrollExtentMax'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getScrollExtentMax'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.scrollExtentMax];
     });
-    table['_dart_getScrollExtentMin'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getScrollExtentMin'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.scrollExtentMin];
     });
-    table['_dart_getPlatformViewId'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getPlatformViewId'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.platformViewId];
     });
-    table['_dart_getMaxValueLength'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getMaxValueLength'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.maxValueLength];
     });
-    table['_dart_getCurrentValueLength'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getCurrentValueLength'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.currentValueLength];
     });
-    table['_dart_updateWith'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_updateWith'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       super.updateWith(
-          childrenInInversePaintOrder:
-              maybeUnBoxAndBuildArgument<List<SemanticsNode>?, SemanticsNode>(
-                  luaCallerArguments.length >= 2
-                      ? luaCallerArguments[1]['childrenInInversePaintOrder']
-                      : null,
-                  parentState: hydroState),
-          config: maybeUnBoxAndBuildArgument<SemanticsConfiguration?, dynamic>(
+          childrenInInversePaintOrder: _36c2.maybeUnBoxAndBuildArgument<
+                  _fac9.List<_4c98.SemanticsNode>?, _4c98.SemanticsNode>(
+              luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1]['childrenInInversePaintOrder']
+                  : null,
+              parentState: hydroState),
+          config: _36c2.maybeUnBoxAndBuildArgument<
+                  _4c98.SemanticsConfiguration?, _fac9.dynamic>(
               luaCallerArguments.length >= 2
                   ? luaCallerArguments[1]['config']
                   : null,
               parentState: hydroState));
       return [];
     });
-    table['_dart_getSemanticsData'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getSemanticsData'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<SemanticsData>(
+        _36c2.maybeBoxObject(
             object: super.getSemanticsData(),
             hydroState: hydroState,
-            table: HydroTable())
+            table: _36c2.HydroTable())
       ];
     });
-    table['_dart_sendEvent'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.sendEvent(maybeUnBoxAndBuildArgument<SemanticsEvent, dynamic>(
-          luaCallerArguments[1],
-          parentState: hydroState));
-      return [];
-    });
-    table['_dart_toStringShort'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [super.toStringShort()];
-    });
-    table['_dart_debugFillProperties'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.debugFillProperties(
-          maybeUnBoxAndBuildArgument<DiagnosticPropertiesBuilder, dynamic>(
+    table['_dart_sendEvent'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      super.sendEvent(
+          _36c2.maybeUnBoxAndBuildArgument<_7afa.SemanticsEvent, _fac9.dynamic>(
               luaCallerArguments[1],
               parentState: hydroState));
       return [];
     });
-    table['_dart_toStringDeep'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_toStringShort'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        super.toStringDeep(
-            childOrder: maybeUnBoxEnum(
-                values: DebugSemanticsDumpOrder.values,
-                boxedEnum: luaCallerArguments.length >= 2
-                    ? luaCallerArguments[1]['childOrder']
-                    : null),
-            minLevel: maybeUnBoxEnum(
-                values: DiagnosticLevel.values,
-                boxedEnum: luaCallerArguments.length >= 2
-                    ? luaCallerArguments[1]['minLevel']
-                    : null),
-            prefixLineOne: luaCallerArguments.length >= 2
-                ? luaCallerArguments[1]['prefixLineOne']
-                : null,
-            prefixOtherLines: luaCallerArguments.length >= 2
-                ? luaCallerArguments[1]['prefixOtherLines']
-                : null)
+        _36c2.maybeBoxObject(
+            object: super.toStringShort(),
+            hydroState: hydroState,
+            table: _36c2.HydroTable())
       ];
     });
-    table['_dart_toDiagnosticsNode'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_debugFillProperties'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      super.debugFillProperties(_36c2.maybeUnBoxAndBuildArgument<
+          _eaf3.DiagnosticPropertiesBuilder,
+          _fac9.dynamic>(luaCallerArguments[1], parentState: hydroState));
+      return [];
+    });
+    table['_dart_toStringDeep'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<DiagnosticsNode>(
-            object: super.toDiagnosticsNode(
-                childOrder: maybeUnBoxEnum(
-                    values: DebugSemanticsDumpOrder.values,
+        _36c2.maybeBoxObject(
+            object: super.toStringDeep(
+                childOrder: _36c2.maybeUnBoxEnum(
+                    values: _4c98.DebugSemanticsDumpOrder.values,
                     boxedEnum: luaCallerArguments.length >= 2
                         ? luaCallerArguments[1]['childOrder']
                         : null),
-                name: luaCallerArguments.length >= 2
-                    ? luaCallerArguments[1]['name']
-                    : null,
-                style: maybeUnBoxEnum(
-                    values: DiagnosticsTreeStyle.values,
+                minLevel: _36c2.maybeUnBoxEnum(
+                    values: _eaf3.DiagnosticLevel.values,
+                    boxedEnum: luaCallerArguments.length >= 2
+                        ? luaCallerArguments[1]['minLevel']
+                        : null),
+                prefixLineOne: _36c2
+                    .maybeUnBoxAndBuildArgument<_fac9.String, _fac9.dynamic>(
+                        luaCallerArguments.length >= 2
+                            ? luaCallerArguments[1]['prefixLineOne']
+                            : null,
+                        parentState: hydroState),
+                prefixOtherLines: _36c2
+                    .maybeUnBoxAndBuildArgument<_fac9.String?, _fac9.dynamic>(
+                        luaCallerArguments.length >= 2 ? luaCallerArguments[1]['prefixOtherLines'] : null,
+                        parentState: hydroState)),
+            hydroState: hydroState,
+            table: _36c2.HydroTable())
+      ];
+    });
+    table['_dart_toDiagnosticsNode'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      return [
+        _36c2.maybeBoxObject(
+            object: super.toDiagnosticsNode(
+                childOrder: _36c2.maybeUnBoxEnum(
+                    values: _4c98.DebugSemanticsDumpOrder.values,
+                    boxedEnum: luaCallerArguments.length >= 2
+                        ? luaCallerArguments[1]['childOrder']
+                        : null),
+                name: _36c2
+                    .maybeUnBoxAndBuildArgument<_fac9.String?, _fac9.dynamic>(
+                        luaCallerArguments.length >= 2
+                            ? luaCallerArguments[1]['name']
+                            : null,
+                        parentState: hydroState),
+                style: _36c2.maybeUnBoxEnum(
+                    values: _eaf3.DiagnosticsTreeStyle.values,
                     boxedEnum: luaCallerArguments.length >= 2
                         ? luaCallerArguments[1]['style']
                         : null)),
             hydroState: hydroState,
-            table: HydroTable())
+            table: _36c2.HydroTable())
       ];
     });
-    table['_dart_debugDescribeChildren'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_debugDescribeChildren'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<List<dynamic>>(
-            object: super
-                .debugDescribeChildren(
-                    childOrder: maybeUnBoxEnum(
-                        values: DebugSemanticsDumpOrder.values,
-                        boxedEnum: luaCallerArguments.length >= 2
-                            ? luaCallerArguments[1]['childOrder']
-                            : null))
-                .map((x) => maybeBoxObject<DiagnosticsNode>(
-                    object: x, hydroState: hydroState, table: HydroTable()))
-                .toList(),
+        _36c2.maybeBoxObject(
+            object: super.debugDescribeChildren(
+                childOrder: _36c2.maybeUnBoxEnum(
+                    values: _4c98.DebugSemanticsDumpOrder.values,
+                    boxedEnum: luaCallerArguments.length >= 2
+                        ? luaCallerArguments[1]['childOrder']
+                        : null)),
             hydroState: hydroState,
-            table: HydroTable())
+            table: _36c2.HydroTable())
       ];
     });
-    table['_dart_debugListChildrenInOrder'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_debugListChildrenInOrder'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<List<dynamic>>(
-            object: super
-                .debugListChildrenInOrder(maybeUnBoxEnum(
-                    values: DebugSemanticsDumpOrder.values,
-                    boxedEnum: luaCallerArguments[1]))
-                .map((x) => maybeBoxObject<SemanticsNode>(
-                    object: x, hydroState: hydroState, table: HydroTable()))
-                .toList(),
+        _36c2.maybeBoxObject(
+            object: super.debugListChildrenInOrder(_36c2.maybeUnBoxEnum(
+                values: _4c98.DebugSemanticsDumpOrder.values,
+                boxedEnum: luaCallerArguments[1])),
             hydroState: hydroState,
-            table: HydroTable())
+            table: _36c2.HydroTable())
       ];
     });
-    table['_dart_toString'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_toString'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        super.toString(
-            minLevel: maybeUnBoxEnum(
-                values: DiagnosticLevel.values,
-                boxedEnum: luaCallerArguments.length >= 2
-                    ? luaCallerArguments[1]['minLevel']
-                    : null))
+        _36c2.maybeBoxObject(
+            object: super.toString(
+                minLevel: _36c2.maybeUnBoxEnum(
+                    values: _eaf3.DiagnosticLevel.values,
+                    boxedEnum: luaCallerArguments.length >= 2
+                        ? luaCallerArguments[1]['minLevel']
+                        : null)),
+            hydroState: hydroState,
+            table: _36c2.HydroTable())
       ];
     });
-    table['_dart_toStringShallow'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_toStringShallow'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        super.toStringShallow(
-            joiner: luaCallerArguments.length >= 2
-                ? luaCallerArguments[1]['joiner']
-                : null,
-            minLevel: maybeUnBoxEnum(
-                values: DiagnosticLevel.values,
-                boxedEnum: luaCallerArguments.length >= 2
-                    ? luaCallerArguments[1]['minLevel']
-                    : null))
+        _36c2.maybeBoxObject(
+            object: super.toStringShallow(
+                joiner: _36c2
+                    .maybeUnBoxAndBuildArgument<_fac9.String, _fac9.dynamic>(
+                        luaCallerArguments.length >= 2
+                            ? luaCallerArguments[1]['joiner']
+                            : null,
+                        parentState: hydroState),
+                minLevel: _36c2.maybeUnBoxEnum(
+                    values: _eaf3.DiagnosticLevel.values,
+                    boxedEnum: luaCallerArguments.length >= 2
+                        ? luaCallerArguments[1]['minLevel']
+                        : null)),
+            hydroState: hydroState,
+            table: _36c2.HydroTable())
       ];
     });
-    table['_dart_redepthChild'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.redepthChild(maybeUnBoxAndBuildArgument<AbstractNode, dynamic>(
-          luaCallerArguments[1],
-          parentState: hydroState));
+    table['_dart_redepthChild'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      super.redepthChild(
+          _36c2.maybeUnBoxAndBuildArgument<_b05e.AbstractNode, _fac9.dynamic>(
+              luaCallerArguments[1],
+              parentState: hydroState));
       return [];
     });
-    table['_dart_adoptChild'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.adoptChild(maybeUnBoxAndBuildArgument<AbstractNode, dynamic>(
-          luaCallerArguments[1],
-          parentState: hydroState));
+    table['_dart_adoptChild'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      super.adoptChild(
+          _36c2.maybeUnBoxAndBuildArgument<_b05e.AbstractNode, _fac9.dynamic>(
+              luaCallerArguments[1],
+              parentState: hydroState));
       return [];
     });
-    table['_dart_dropChild'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.dropChild(maybeUnBoxAndBuildArgument<AbstractNode, dynamic>(
-          luaCallerArguments[1],
-          parentState: hydroState));
+    table['_dart_dropChild'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      super.dropChild(
+          _36c2.maybeUnBoxAndBuildArgument<_b05e.AbstractNode, _fac9.dynamic>(
+              luaCallerArguments[1],
+              parentState: hydroState));
       return [];
     });
-    table['_dart_getDepth'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getDepth'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.depth];
     });
-    table['_dart_getAttached'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getAttached'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.attached];
     });
-    table['_dart_getHashCode'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getHashCode'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.hashCode];
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  SemanticsNode unwrap() => this;
-  SemanticsNode get vmObject => this;
-  @override
-  int get id {
-    Closure closure = table["getId"];
+  _4c98.SemanticsNode unwrap() => this;
+  _4c98.SemanticsNode get vmObject => this;
+  @_fac9.override
+  _fac9.int get id {
+    _36c2.Closure closure = table["getId"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  Matrix4? get transform {
-    Closure closure = table["getTransform"];
-    return maybeUnBoxAndBuildArgument<Matrix4?, dynamic>(
+  @_fac9.override
+  _db98.Matrix4? get transform {
+    _36c2.Closure closure = table["getTransform"];
+    return _36c2.maybeUnBoxAndBuildArgument<_db98.Matrix4?, _fac9.dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
 
-  @override
+  @_fac9.override
   void set transform(value) {
-    Closure closure = table["setTransform"];
+    _36c2.Closure closure = table["setTransform"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  Rect get rect {
-    Closure closure = table["getRect"];
-    return maybeUnBoxAndBuildArgument<Rect, dynamic>(
+  @_fac9.override
+  _a643.Rect get rect {
+    _36c2.Closure closure = table["getRect"];
+    return _36c2.maybeUnBoxAndBuildArgument<_a643.Rect, _fac9.dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
 
-  @override
+  @_fac9.override
   void set rect(value) {
-    Closure closure = table["setRect"];
+    _36c2.Closure closure = table["setRect"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  bool get isInvisible {
-    Closure closure = table["getIsInvisible"];
+  @_fac9.override
+  _fac9.bool get isInvisible {
+    _36c2.Closure closure = table["getIsInvisible"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  bool get isMergedIntoParent {
-    Closure closure = table["getIsMergedIntoParent"];
+  @_fac9.override
+  _fac9.bool get isMergedIntoParent {
+    _36c2.Closure closure = table["getIsMergedIntoParent"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
+  @_fac9.override
   void set isMergedIntoParent(value) {
-    Closure closure = table["setIsMergedIntoParent"];
+    _36c2.Closure closure = table["setIsMergedIntoParent"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  bool get isPartOfNodeMerging {
-    Closure closure = table["getIsPartOfNodeMerging"];
+  @_fac9.override
+  _fac9.bool get isPartOfNodeMerging {
+    _36c2.Closure closure = table["getIsPartOfNodeMerging"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  bool get mergeAllDescendantsIntoThisNode {
-    Closure closure = table["getMergeAllDescendantsIntoThisNode"];
+  @_fac9.override
+  _fac9.bool get mergeAllDescendantsIntoThisNode {
+    _36c2.Closure closure = table["getMergeAllDescendantsIntoThisNode"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  bool get hasChildren {
-    Closure closure = table["getHasChildren"];
+  @_fac9.override
+  _fac9.bool get hasChildren {
+    _36c2.Closure closure = table["getHasChildren"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  int get childrenCount {
-    Closure closure = table["getChildrenCount"];
+  @_fac9.override
+  _fac9.int get childrenCount {
+    _36c2.Closure closure = table["getChildrenCount"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
+  @_fac9.override
   void visitChildren(visitor) {
-    Closure closure = table["visitChildren"];
+    _36c2.Closure closure = table["visitChildren"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  SemanticsOwner? get owner {
-    Closure closure = table["getOwner"];
-    return maybeUnBoxAndBuildArgument<SemanticsOwner?, dynamic>(
-        closure.dispatch([table], parentState: hydroState)[0],
-        parentState: hydroState);
+  @_fac9.override
+  _4c98.SemanticsOwner? get owner {
+    _36c2.Closure closure = table["getOwner"];
+    return _36c2
+        .maybeUnBoxAndBuildArgument<_4c98.SemanticsOwner?, _fac9.dynamic>(
+            closure.dispatch([table], parentState: hydroState)[0],
+            parentState: hydroState);
   }
 
-  @override
-  SemanticsNode? get parent {
-    Closure closure = table["getParent"];
-    return maybeUnBoxAndBuildArgument<SemanticsNode?, dynamic>(
-        closure.dispatch([table], parentState: hydroState)[0],
-        parentState: hydroState);
+  @_fac9.override
+  _4c98.SemanticsNode? get parent {
+    _36c2.Closure closure = table["getParent"];
+    return _36c2
+        .maybeUnBoxAndBuildArgument<_4c98.SemanticsNode?, _fac9.dynamic>(
+            closure.dispatch([table], parentState: hydroState)[0],
+            parentState: hydroState);
   }
 
-  @override
+  @_fac9.override
   void redepthChildren() {
-    Closure closure = table["redepthChildren"];
+    _36c2.Closure closure = table["redepthChildren"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
+  @_fac9.override
   void attach(owner) {
     super.attach(owner);
-    Closure closure = table["attach"];
+    _36c2.Closure closure = table["attach"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
+  @_fac9.override
   void detach() {
     super.detach();
-    Closure closure = table["detach"];
+    _36c2.Closure closure = table["detach"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  bool isTagged(tag) {
-    Closure closure = table["isTagged"];
+  @_fac9.override
+  _fac9.bool isTagged(tag) {
+    _36c2.Closure closure = table["isTagged"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  bool hasFlag(flag) {
-    Closure closure = table["hasFlag"];
+  @_fac9.override
+  _fac9.bool hasFlag(flag) {
+    _36c2.Closure closure = table["hasFlag"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  String get label {
-    Closure closure = table["getLabel"];
+  @_fac9.override
+  _fac9.String get label {
+    _36c2.Closure closure = table["getLabel"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  AttributedString get attributedLabel {
-    Closure closure = table["getAttributedLabel"];
-    return maybeUnBoxAndBuildArgument<AttributedString, dynamic>(
-        closure.dispatch([table], parentState: hydroState)[0],
-        parentState: hydroState);
+  @_fac9.override
+  _4c98.AttributedString get attributedLabel {
+    _36c2.Closure closure = table["getAttributedLabel"];
+    return _36c2
+        .maybeUnBoxAndBuildArgument<_4c98.AttributedString, _fac9.dynamic>(
+            closure.dispatch([table], parentState: hydroState)[0],
+            parentState: hydroState);
   }
 
-  @override
-  String get value {
-    Closure closure = table["getValue"];
+  @_fac9.override
+  _fac9.String get value {
+    _36c2.Closure closure = table["getValue"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  AttributedString get attributedValue {
-    Closure closure = table["getAttributedValue"];
-    return maybeUnBoxAndBuildArgument<AttributedString, dynamic>(
-        closure.dispatch([table], parentState: hydroState)[0],
-        parentState: hydroState);
+  @_fac9.override
+  _4c98.AttributedString get attributedValue {
+    _36c2.Closure closure = table["getAttributedValue"];
+    return _36c2
+        .maybeUnBoxAndBuildArgument<_4c98.AttributedString, _fac9.dynamic>(
+            closure.dispatch([table], parentState: hydroState)[0],
+            parentState: hydroState);
   }
 
-  @override
-  String get increasedValue {
-    Closure closure = table["getIncreasedValue"];
+  @_fac9.override
+  _fac9.String get increasedValue {
+    _36c2.Closure closure = table["getIncreasedValue"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  AttributedString get attributedIncreasedValue {
-    Closure closure = table["getAttributedIncreasedValue"];
-    return maybeUnBoxAndBuildArgument<AttributedString, dynamic>(
-        closure.dispatch([table], parentState: hydroState)[0],
-        parentState: hydroState);
+  @_fac9.override
+  _4c98.AttributedString get attributedIncreasedValue {
+    _36c2.Closure closure = table["getAttributedIncreasedValue"];
+    return _36c2
+        .maybeUnBoxAndBuildArgument<_4c98.AttributedString, _fac9.dynamic>(
+            closure.dispatch([table], parentState: hydroState)[0],
+            parentState: hydroState);
   }
 
-  @override
-  String get decreasedValue {
-    Closure closure = table["getDecreasedValue"];
+  @_fac9.override
+  _fac9.String get decreasedValue {
+    _36c2.Closure closure = table["getDecreasedValue"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  AttributedString get attributedDecreasedValue {
-    Closure closure = table["getAttributedDecreasedValue"];
-    return maybeUnBoxAndBuildArgument<AttributedString, dynamic>(
-        closure.dispatch([table], parentState: hydroState)[0],
-        parentState: hydroState);
+  @_fac9.override
+  _4c98.AttributedString get attributedDecreasedValue {
+    _36c2.Closure closure = table["getAttributedDecreasedValue"];
+    return _36c2
+        .maybeUnBoxAndBuildArgument<_4c98.AttributedString, _fac9.dynamic>(
+            closure.dispatch([table], parentState: hydroState)[0],
+            parentState: hydroState);
   }
 
-  @override
-  String get hint {
-    Closure closure = table["getHint"];
+  @_fac9.override
+  _fac9.String get hint {
+    _36c2.Closure closure = table["getHint"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  AttributedString get attributedHint {
-    Closure closure = table["getAttributedHint"];
-    return maybeUnBoxAndBuildArgument<AttributedString, dynamic>(
-        closure.dispatch([table], parentState: hydroState)[0],
-        parentState: hydroState);
+  @_fac9.override
+  _4c98.AttributedString get attributedHint {
+    _36c2.Closure closure = table["getAttributedHint"];
+    return _36c2
+        .maybeUnBoxAndBuildArgument<_4c98.AttributedString, _fac9.dynamic>(
+            closure.dispatch([table], parentState: hydroState)[0],
+            parentState: hydroState);
   }
 
-  @override
-  double get elevation {
-    Closure closure = table["getElevation"];
+  @_fac9.override
+  _fac9.double get elevation {
+    _36c2.Closure closure = table["getElevation"];
     return closure.dispatch([table], parentState: hydroState)[0]?.toDouble();
   }
 
-  @override
-  double get thickness {
-    Closure closure = table["getThickness"];
+  @_fac9.override
+  _fac9.double get thickness {
+    _36c2.Closure closure = table["getThickness"];
     return closure.dispatch([table], parentState: hydroState)[0]?.toDouble();
   }
 
-  @override
-  SemanticsHintOverrides? get hintOverrides {
-    Closure closure = table["getHintOverrides"];
-    return maybeUnBoxAndBuildArgument<SemanticsHintOverrides?, dynamic>(
+  @_fac9.override
+  _4c98.SemanticsHintOverrides? get hintOverrides {
+    _36c2.Closure closure = table["getHintOverrides"];
+    return _36c2.maybeUnBoxAndBuildArgument<_4c98.SemanticsHintOverrides?,
+            _fac9.dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
 
-  @override
-  TextDirection? get textDirection {
-    Closure closure = table["getTextDirection"];
-    return maybeUnBoxEnum(
-        values: TextDirection.values,
+  @_fac9.override
+  _a643.TextDirection? get textDirection {
+    _36c2.Closure closure = table["getTextDirection"];
+    return _36c2.maybeUnBoxEnum(
+        values: _a643.TextDirection.values,
         boxedEnum: closure.dispatch([table], parentState: hydroState)[0]);
   }
 
-  @override
-  SemanticsSortKey? get sortKey {
-    Closure closure = table["getSortKey"];
-    return maybeUnBoxAndBuildArgument<SemanticsSortKey?, dynamic>(
-        closure.dispatch([table], parentState: hydroState)[0],
-        parentState: hydroState);
+  @_fac9.override
+  _4c98.SemanticsSortKey? get sortKey {
+    _36c2.Closure closure = table["getSortKey"];
+    return _36c2
+        .maybeUnBoxAndBuildArgument<_4c98.SemanticsSortKey?, _fac9.dynamic>(
+            closure.dispatch([table], parentState: hydroState)[0],
+            parentState: hydroState);
   }
 
-  @override
-  TextSelection? get textSelection {
-    Closure closure = table["getTextSelection"];
-    return maybeUnBoxAndBuildArgument<TextSelection?, dynamic>(
-        closure.dispatch([table], parentState: hydroState)[0],
-        parentState: hydroState);
+  @_fac9.override
+  _7986.TextSelection? get textSelection {
+    _36c2.Closure closure = table["getTextSelection"];
+    return _36c2
+        .maybeUnBoxAndBuildArgument<_7986.TextSelection?, _fac9.dynamic>(
+            closure.dispatch([table], parentState: hydroState)[0],
+            parentState: hydroState);
   }
 
-  @override
-  bool? get isMultiline {
-    Closure closure = table["getIsMultiline"];
+  @_fac9.override
+  _fac9.bool? get isMultiline {
+    _36c2.Closure closure = table["getIsMultiline"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  int? get scrollChildCount {
-    Closure closure = table["getScrollChildCount"];
+  @_fac9.override
+  _fac9.int? get scrollChildCount {
+    _36c2.Closure closure = table["getScrollChildCount"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  int? get scrollIndex {
-    Closure closure = table["getScrollIndex"];
+  @_fac9.override
+  _fac9.int? get scrollIndex {
+    _36c2.Closure closure = table["getScrollIndex"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  double? get scrollPosition {
-    Closure closure = table["getScrollPosition"];
+  @_fac9.override
+  _fac9.double? get scrollPosition {
+    _36c2.Closure closure = table["getScrollPosition"];
     return closure.dispatch([table], parentState: hydroState)[0]?.toDouble();
   }
 
-  @override
-  double? get scrollExtentMax {
-    Closure closure = table["getScrollExtentMax"];
+  @_fac9.override
+  _fac9.double? get scrollExtentMax {
+    _36c2.Closure closure = table["getScrollExtentMax"];
     return closure.dispatch([table], parentState: hydroState)[0]?.toDouble();
   }
 
-  @override
-  double? get scrollExtentMin {
-    Closure closure = table["getScrollExtentMin"];
+  @_fac9.override
+  _fac9.double? get scrollExtentMin {
+    _36c2.Closure closure = table["getScrollExtentMin"];
     return closure.dispatch([table], parentState: hydroState)[0]?.toDouble();
   }
 
-  @override
-  int? get platformViewId {
-    Closure closure = table["getPlatformViewId"];
+  @_fac9.override
+  _fac9.int? get platformViewId {
+    _36c2.Closure closure = table["getPlatformViewId"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  int? get maxValueLength {
-    Closure closure = table["getMaxValueLength"];
+  @_fac9.override
+  _fac9.int? get maxValueLength {
+    _36c2.Closure closure = table["getMaxValueLength"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  int? get currentValueLength {
-    Closure closure = table["getCurrentValueLength"];
+  @_fac9.override
+  _fac9.int? get currentValueLength {
+    _36c2.Closure closure = table["getCurrentValueLength"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
+  @_fac9.override
   void updateWith(
-      {List? childrenInInversePaintOrder, SemanticsConfiguration? config}) {
-    Closure closure = table["updateWith"];
+      {_fac9.List? childrenInInversePaintOrder,
+      _4c98.SemanticsConfiguration? config}) {
+    _36c2.Closure closure = table["updateWith"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  SemanticsData getSemanticsData() {
-    Closure closure = table["getSemanticsData"];
-    return maybeUnBoxAndBuildArgument<SemanticsData, dynamic>(
+  @_fac9.override
+  _4c98.SemanticsData getSemanticsData() {
+    _36c2.Closure closure = table["getSemanticsData"];
+    return _36c2.maybeUnBoxAndBuildArgument<_4c98.SemanticsData, _fac9.dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
 
-  @override
+  @_fac9.override
   void sendEvent(event) {
-    Closure closure = table["sendEvent"];
+    _36c2.Closure closure = table["sendEvent"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  String toStringShort() {
-    Closure closure = table["toStringShort"];
+  @_fac9.override
+  _fac9.String toStringShort() {
+    _36c2.Closure closure = table["toStringShort"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
+  @_fac9.override
   void debugFillProperties(properties) {
     super.debugFillProperties(properties);
-    Closure closure = table["debugFillProperties"];
+    _36c2.Closure closure = table["debugFillProperties"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  String toStringDeep(
-      {DebugSemanticsDumpOrder childOrder =
-          DebugSemanticsDumpOrder.traversalOrder,
-      DiagnosticLevel minLevel = DiagnosticLevel.debug,
-      String prefixLineOne = '',
-      String? prefixOtherLines}) {
-    Closure closure = table["toStringDeep"];
+  @_fac9.override
+  _fac9.String toStringDeep(
+      {_4c98.DebugSemanticsDumpOrder childOrder =
+          _4c98.DebugSemanticsDumpOrder.traversalOrder,
+      _eaf3.DiagnosticLevel minLevel = _eaf3.DiagnosticLevel.debug,
+      _fac9.String prefixLineOne = '',
+      _fac9.String? prefixOtherLines}) {
+    _36c2.Closure closure = table["toStringDeep"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  DiagnosticsNode toDiagnosticsNode(
-      {DebugSemanticsDumpOrder childOrder =
-          DebugSemanticsDumpOrder.traversalOrder,
-      String? name,
-      DiagnosticsTreeStyle? style = DiagnosticsTreeStyle.sparse}) {
-    Closure closure = table["toDiagnosticsNode"];
-    return maybeUnBoxAndBuildArgument<DiagnosticsNode, dynamic>(
+  @_fac9.override
+  _eaf3.DiagnosticsNode toDiagnosticsNode(
+      {_4c98.DebugSemanticsDumpOrder childOrder =
+          _4c98.DebugSemanticsDumpOrder.traversalOrder,
+      _fac9.String? name,
+      _eaf3.DiagnosticsTreeStyle? style = _eaf3.DiagnosticsTreeStyle.sparse}) {
+    _36c2.Closure closure = table["toDiagnosticsNode"];
+    return _36c2
+        .maybeUnBoxAndBuildArgument<_eaf3.DiagnosticsNode, _fac9.dynamic>(
+            closure.dispatch([table], parentState: hydroState)[0],
+            parentState: hydroState);
+  }
+
+  @_fac9.override
+  _fac9.List<_eaf3.DiagnosticsNode> debugDescribeChildren(
+      {_4c98.DebugSemanticsDumpOrder childOrder =
+          _4c98.DebugSemanticsDumpOrder.inverseHitTest}) {
+    _36c2.Closure closure = table["debugDescribeChildren"];
+    return _36c2.maybeUnBoxAndBuildArgument<_fac9.List<_eaf3.DiagnosticsNode>,
+            _eaf3.DiagnosticsNode>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
 
-  @override
-  List<DiagnosticsNode> debugDescribeChildren(
-      {DebugSemanticsDumpOrder childOrder =
-          DebugSemanticsDumpOrder.inverseHitTest}) {
-    Closure closure = table["debugDescribeChildren"];
-    return maybeUnBoxAndBuildArgument<List<DiagnosticsNode>, DiagnosticsNode>(
+  @_fac9.override
+  _fac9.List<_4c98.SemanticsNode> debugListChildrenInOrder(childOrder) {
+    _36c2.Closure closure = table["debugListChildrenInOrder"];
+    return _36c2.maybeUnBoxAndBuildArgument<_fac9.List<_4c98.SemanticsNode>,
+            _4c98.SemanticsNode>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
 
-  @override
-  List<SemanticsNode> debugListChildrenInOrder(childOrder) {
-    Closure closure = table["debugListChildrenInOrder"];
-    return maybeUnBoxAndBuildArgument<List<SemanticsNode>, SemanticsNode>(
-        closure.dispatch([table], parentState: hydroState)[0],
-        parentState: hydroState);
-  }
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    Closure closure = table["__tostring"];
+  @_fac9.override
+  _fac9.String toString(
+      {_eaf3.DiagnosticLevel minLevel = _eaf3.DiagnosticLevel.info}) {
+    _36c2.Closure closure = table["__tostring"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  String toStringShallow(
-      {String joiner = ', ',
-      DiagnosticLevel minLevel = DiagnosticLevel.debug}) {
-    Closure closure = table["toStringShallow"];
+  @_fac9.override
+  _fac9.String toStringShallow(
+      {_fac9.String joiner = ', ',
+      _eaf3.DiagnosticLevel minLevel = _eaf3.DiagnosticLevel.debug}) {
+    _36c2.Closure closure = table["toStringShallow"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
+  @_fac9.override
   void redepthChild(child) {
-    Closure closure = table["redepthChild"];
+    _36c2.Closure closure = table["redepthChild"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
+  @_fac9.override
   void adoptChild(child) {
     super.adoptChild(child);
-    Closure closure = table["adoptChild"];
+    _36c2.Closure closure = table["adoptChild"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
+  @_fac9.override
   void dropChild(child) {
     super.dropChild(child);
-    Closure closure = table["dropChild"];
+    _36c2.Closure closure = table["dropChild"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  int get depth {
-    Closure closure = table["getDepth"];
+  @_fac9.override
+  _fac9.int get depth {
+    _36c2.Closure closure = table["getDepth"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  bool get attached {
-    Closure closure = table["getAttached"];
+  @_fac9.override
+  _fac9.bool get attached {
+    _36c2.Closure closure = table["getAttached"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  int get hashCode {
-    Closure closure = table["getHashCode"];
+  @_fac9.override
+  _fac9.int get hashCode {
+    _36c2.Closure closure = table["getHashCode"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 }
 
 void loadSemanticsNode(
-    {required HydroState hydroState, required HydroTable table}) {
-  table['semanticsNode'] =
-      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-    Closure? unpackedshowOnScreen = luaCallerArguments.length >= 2
+    {required _36c2.HydroState hydroState, required _36c2.HydroTable table}) {
+  table['semanticsNode'] = _36c2.makeLuaDartFunc(
+      func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+    _36c2.Closure? unpackedshowOnScreen = luaCallerArguments.length >= 2
         ? luaCallerArguments[1]['showOnScreen']
         : null;
     return [
       RTManagedSemanticsNode(
           table: luaCallerArguments[0],
           hydroState: hydroState,
-          key: maybeUnBoxAndBuildArgument<Key?, dynamic>(
+          key: _36c2.maybeUnBoxAndBuildArgument<_ab4a.Key?, _fac9.dynamic>(
               luaCallerArguments.length >= 2
                   ? luaCallerArguments[1]['key']
                   : null,
@@ -1438,10 +1526,10 @@ void loadSemanticsNode(
               : null)
     ];
   });
-  registerBoxer<SemanticsNode>(boxer: (
-      {required SemanticsNode vmObject,
-      required HydroState hydroState,
-      required HydroTable table}) {
+  _36c2.registerBoxer<_4c98.SemanticsNode>(boxer: (
+      {required _4c98.SemanticsNode vmObject,
+      required _36c2.HydroState hydroState,
+      required _36c2.HydroTable table}) {
     return VMManagedSemanticsNode(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

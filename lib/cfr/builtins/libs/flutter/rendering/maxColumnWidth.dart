@@ -1,11 +1,11 @@
-import 'dart:core';
+import 'dart:core' as _fac9;
 
-import 'package:flutter/src/rendering/box.dart';
-import 'package:flutter/src/rendering/table.dart';
+import 'package:flutter/src/rendering/box.dart' as _be2e;
+import 'package:flutter/src/rendering/table.dart' as _31d2;
 
-import 'package:hydro_sdk/cfr/runtimeSupport.dart';
+import 'package:hydro_sdk/cfr/runtimeSupport.dart' as _36c2;
 
-class VMManagedMaxColumnWidth extends VMManagedBox<MaxColumnWidth> {
+class VMManagedMaxColumnWidth extends _36c2.VMManagedBox<_31d2.MaxColumnWidth> {
   VMManagedMaxColumnWidth(
       {required this.table, required this.vmObject, required this.hydroState})
       : super(
@@ -13,35 +13,35 @@ class VMManagedMaxColumnWidth extends VMManagedBox<MaxColumnWidth> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['a'] = maybeBoxObject<TableColumnWidth>(
-        object: vmObject.a, hydroState: hydroState, table: HydroTable());
-    table['b'] = maybeBoxObject<TableColumnWidth>(
-        object: vmObject.b, hydroState: hydroState, table: HydroTable());
-    table['minIntrinsicWidth'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['a'] = _36c2.maybeBoxObject<_31d2.TableColumnWidth>(
+        object: vmObject.a, hydroState: hydroState, table: _36c2.HydroTable());
+    table['b'] = _36c2.maybeBoxObject<_31d2.TableColumnWidth>(
+        object: vmObject.b, hydroState: hydroState, table: _36c2.HydroTable());
+    table['minIntrinsicWidth'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.minIntrinsicWidth(
-            maybeUnBoxAndBuildArgument<Iterable<RenderBox>, RenderBox>(
-                luaCallerArguments[1],
+            _36c2.maybeUnBoxAndBuildArgument<_fac9.Iterable<_be2e.RenderBox>,
+                    _be2e.RenderBox>(luaCallerArguments[1],
                 parentState: hydroState),
             luaCallerArguments[2]?.toDouble()),
       ];
     });
-    table['maxIntrinsicWidth'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['maxIntrinsicWidth'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.maxIntrinsicWidth(
-            maybeUnBoxAndBuildArgument<Iterable<RenderBox>, RenderBox>(
-                luaCallerArguments[1],
+            _36c2.maybeUnBoxAndBuildArgument<_fac9.Iterable<_be2e.RenderBox>,
+                    _be2e.RenderBox>(luaCallerArguments[1],
                 parentState: hydroState),
             luaCallerArguments[2]?.toDouble()),
       ];
     });
-    table['flex'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      final returnValue = vmObject.flex(
-          maybeUnBoxAndBuildArgument<Iterable<RenderBox>, RenderBox>(
-              luaCallerArguments[1],
-              parentState: hydroState));
+    table['flex'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      final returnValue = vmObject.flex(_36c2.maybeUnBoxAndBuildArgument<
+          _fac9.Iterable<_be2e.RenderBox>,
+          _be2e.RenderBox>(luaCallerArguments[1], parentState: hydroState));
       if (returnValue != null) {
         return [
           returnValue,
@@ -49,138 +49,158 @@ class VMManagedMaxColumnWidth extends VMManagedBox<MaxColumnWidth> {
       }
       return [];
     });
-    table['toString'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['toString'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.toString(),
       ];
     });
-    table['getHashCode'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getHashCode'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.hashCode,
       ];
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  final MaxColumnWidth vmObject;
+  final _31d2.MaxColumnWidth vmObject;
 }
 
-class RTManagedMaxColumnWidth extends MaxColumnWidth
-    implements Box<MaxColumnWidth> {
-  RTManagedMaxColumnWidth(TableColumnWidth a$, TableColumnWidth b$,
+class RTManagedMaxColumnWidth extends _31d2.MaxColumnWidth
+    implements _36c2.Box<_31d2.MaxColumnWidth> {
+  RTManagedMaxColumnWidth(_31d2.TableColumnWidth a$, _31d2.TableColumnWidth b$,
       {required this.table, required this.hydroState})
       : super(
           a$,
           b$,
         ) {
     table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['unwrap'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [unwrap()];
     });
-    table['a'] = maybeBoxObject<TableColumnWidth>(
-        object: this.a, hydroState: hydroState, table: HydroTable());
-    table['b'] = maybeBoxObject<TableColumnWidth>(
-        object: this.b, hydroState: hydroState, table: HydroTable());
-    table['_dart_minIntrinsicWidth'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['a'] = _36c2.maybeBoxObject(
+        object: this.a, hydroState: hydroState, table: _36c2.HydroTable());
+    table['b'] = _36c2.maybeBoxObject(
+        object: this.b, hydroState: hydroState, table: _36c2.HydroTable());
+    table['_dart_minIntrinsicWidth'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        super.minIntrinsicWidth(
-            maybeUnBoxAndBuildArgument<Iterable<RenderBox>, RenderBox>(
-                luaCallerArguments[1],
-                parentState: hydroState),
-            luaCallerArguments[2]?.toDouble())
+        _36c2.maybeBoxObject(
+            object: super.minIntrinsicWidth(
+                _36c2.maybeUnBoxAndBuildArgument<
+                        _fac9.Iterable<_be2e.RenderBox>,
+                        _be2e.RenderBox>(luaCallerArguments[1],
+                    parentState: hydroState),
+                _36c2.maybeUnBoxAndBuildArgument<_fac9.double, _fac9.dynamic>(
+                    luaCallerArguments[2],
+                    parentState: hydroState)),
+            hydroState: hydroState,
+            table: _36c2.HydroTable())
       ];
     });
-    table['_dart_maxIntrinsicWidth'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_maxIntrinsicWidth'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        super.maxIntrinsicWidth(
-            maybeUnBoxAndBuildArgument<Iterable<RenderBox>, RenderBox>(
-                luaCallerArguments[1],
-                parentState: hydroState),
-            luaCallerArguments[2]?.toDouble())
+        _36c2.maybeBoxObject(
+            object: super.maxIntrinsicWidth(
+                _36c2.maybeUnBoxAndBuildArgument<
+                        _fac9.Iterable<_be2e.RenderBox>,
+                        _be2e.RenderBox>(luaCallerArguments[1],
+                    parentState: hydroState),
+                _36c2.maybeUnBoxAndBuildArgument<_fac9.double, _fac9.dynamic>(
+                    luaCallerArguments[2],
+                    parentState: hydroState)),
+            hydroState: hydroState,
+            table: _36c2.HydroTable())
       ];
     });
-    table['_dart_flex'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_flex'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        super.flex(maybeUnBoxAndBuildArgument<Iterable<RenderBox>, RenderBox>(
-            luaCallerArguments[1],
-            parentState: hydroState))
+        _36c2.maybeBoxObject(
+            object: super.flex(_36c2.maybeUnBoxAndBuildArgument<
+                    _fac9.Iterable<_be2e.RenderBox>,
+                    _be2e.RenderBox>(luaCallerArguments[1],
+                parentState: hydroState)),
+            hydroState: hydroState,
+            table: _36c2.HydroTable())
       ];
     });
-    table['_dart_toString'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [super.toString()];
+    table['_dart_toString'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      return [
+        _36c2.maybeBoxObject(
+            object: super.toString(),
+            hydroState: hydroState,
+            table: _36c2.HydroTable())
+      ];
     });
-    table['_dart_getHashCode'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getHashCode'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.hashCode];
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  MaxColumnWidth unwrap() => this;
-  MaxColumnWidth get vmObject => this;
-  @override
-  double minIntrinsicWidth(cells, containerWidth) {
-    Closure closure = table["minIntrinsicWidth"];
+  _31d2.MaxColumnWidth unwrap() => this;
+  _31d2.MaxColumnWidth get vmObject => this;
+  @_fac9.override
+  _fac9.double minIntrinsicWidth(cells, containerWidth) {
+    _36c2.Closure closure = table["minIntrinsicWidth"];
     return closure.dispatch([table], parentState: hydroState)[0]?.toDouble();
   }
 
-  @override
-  double maxIntrinsicWidth(cells, containerWidth) {
-    Closure closure = table["maxIntrinsicWidth"];
+  @_fac9.override
+  _fac9.double maxIntrinsicWidth(cells, containerWidth) {
+    _36c2.Closure closure = table["maxIntrinsicWidth"];
     return closure.dispatch([table], parentState: hydroState)[0]?.toDouble();
   }
 
-  @override
-  double? flex(cells) {
-    Closure closure = table["flex"];
+  @_fac9.override
+  _fac9.double? flex(cells) {
+    _36c2.Closure closure = table["flex"];
     return closure.dispatch([table], parentState: hydroState)[0]?.toDouble();
   }
 
-  @override
-  String toString() {
-    Closure closure = table["__tostring"];
+  @_fac9.override
+  _fac9.String toString() {
+    _36c2.Closure closure = table["__tostring"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  int get hashCode {
-    Closure closure = table["getHashCode"];
+  @_fac9.override
+  _fac9.int get hashCode {
+    _36c2.Closure closure = table["getHashCode"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 }
 
 void loadMaxColumnWidth(
-    {required HydroState hydroState, required HydroTable table}) {
-  table['maxColumnWidth'] =
-      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    {required _36c2.HydroState hydroState, required _36c2.HydroTable table}) {
+  table['maxColumnWidth'] = _36c2.makeLuaDartFunc(
+      func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
     return [
       RTManagedMaxColumnWidth(
-          maybeUnBoxAndBuildArgument<TableColumnWidth, dynamic>(
-              luaCallerArguments[1],
-              parentState: hydroState),
-          maybeUnBoxAndBuildArgument<TableColumnWidth, dynamic>(
-              luaCallerArguments[2],
-              parentState: hydroState),
+          _36c2.maybeUnBoxAndBuildArgument<_31d2.TableColumnWidth,
+              _fac9.dynamic>(luaCallerArguments[1], parentState: hydroState),
+          _36c2.maybeUnBoxAndBuildArgument<_31d2.TableColumnWidth,
+              _fac9.dynamic>(luaCallerArguments[2], parentState: hydroState),
           table: luaCallerArguments[0],
           hydroState: hydroState)
     ];
   });
-  registerBoxer<MaxColumnWidth>(boxer: (
-      {required MaxColumnWidth vmObject,
-      required HydroState hydroState,
-      required HydroTable table}) {
+  _36c2.registerBoxer<_31d2.MaxColumnWidth>(boxer: (
+      {required _31d2.MaxColumnWidth vmObject,
+      required _36c2.HydroState hydroState,
+      required _36c2.HydroTable table}) {
     return VMManagedMaxColumnWidth(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

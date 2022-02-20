@@ -1,10 +1,11 @@
-import 'dart:ui';
+import 'dart:core' as _fac9;
+import 'dart:ui' as _a643;
 
-import 'package:flutter/src/gestures/tap.dart';
+import 'package:flutter/src/gestures/tap.dart' as _1275;
 
-import 'package:hydro_sdk/cfr/runtimeSupport.dart';
+import 'package:hydro_sdk/cfr/runtimeSupport.dart' as _36c2;
 
-class VMManagedTapUpDetails extends VMManagedBox<TapUpDetails> {
+class VMManagedTapUpDetails extends _36c2.VMManagedBox<_1275.TapUpDetails> {
   VMManagedTapUpDetails(
       {required this.table, required this.vmObject, required this.hydroState})
       : super(
@@ -12,31 +13,32 @@ class VMManagedTapUpDetails extends VMManagedBox<TapUpDetails> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['globalPosition'] = maybeBoxObject<Offset>(
+    table['globalPosition'] = _36c2.maybeBoxObject<_a643.Offset>(
         object: vmObject.globalPosition,
         hydroState: hydroState,
-        table: HydroTable());
-    table['localPosition'] = maybeBoxObject<Offset>(
+        table: _36c2.HydroTable());
+    table['localPosition'] = _36c2.maybeBoxObject<_a643.Offset>(
         object: vmObject.localPosition,
         hydroState: hydroState,
-        table: HydroTable());
-    table['kind'] = PointerDeviceKind.values.indexWhere((x) {
+        table: _36c2.HydroTable());
+    table['kind'] = _a643.PointerDeviceKind.values.indexWhere((x) {
       return x == vmObject.kind;
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  final TapUpDetails vmObject;
+  final _1275.TapUpDetails vmObject;
 }
 
-class RTManagedTapUpDetails extends TapUpDetails implements Box<TapUpDetails> {
+class RTManagedTapUpDetails extends _1275.TapUpDetails
+    implements _36c2.Box<_1275.TapUpDetails> {
   RTManagedTapUpDetails(
-      {required Offset globalPosition,
-      Offset? localPosition,
-      required PointerDeviceKind kind,
+      {required _a643.Offset globalPosition,
+      _a643.Offset? localPosition,
+      required _a643.PointerDeviceKind kind,
       required this.table,
       required this.hydroState})
       : super(
@@ -44,59 +46,62 @@ class RTManagedTapUpDetails extends TapUpDetails implements Box<TapUpDetails> {
             localPosition: localPosition,
             kind: kind) {
     table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['unwrap'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [unwrap()];
     });
-    table['globalPosition'] = maybeBoxObject<Offset>(
+    table['globalPosition'] = _36c2.maybeBoxObject(
         object: this.globalPosition,
         hydroState: hydroState,
-        table: HydroTable());
-    table['localPosition'] = maybeBoxObject<Offset>(
+        table: _36c2.HydroTable());
+    table['localPosition'] = _36c2.maybeBoxObject(
         object: this.localPosition,
         hydroState: hydroState,
-        table: HydroTable());
-    table['kind'] = PointerDeviceKind.values.indexWhere((x) {
+        table: _36c2.HydroTable());
+    table['kind'] = _a643.PointerDeviceKind.values.indexWhere((x) {
       return x == this.kind;
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  TapUpDetails unwrap() => this;
-  TapUpDetails get vmObject => this;
+  _1275.TapUpDetails unwrap() => this;
+  _1275.TapUpDetails get vmObject => this;
 }
 
 void loadTapUpDetails(
-    {required HydroState hydroState, required HydroTable table}) {
-  table['tapUpDetails'] =
-      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    {required _36c2.HydroState hydroState, required _36c2.HydroTable table}) {
+  table['tapUpDetails'] = _36c2.makeLuaDartFunc(
+      func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
     return [
       RTManagedTapUpDetails(
           table: luaCallerArguments[0],
           hydroState: hydroState,
-          globalPosition: maybeUnBoxAndBuildArgument<Offset, dynamic>(
-              luaCallerArguments.length >= 2
-                  ? luaCallerArguments[1]['globalPosition']
-                  : null,
-              parentState: hydroState),
-          localPosition: maybeUnBoxAndBuildArgument<Offset?, dynamic>(
-              luaCallerArguments.length >= 2
-                  ? luaCallerArguments[1]['localPosition']
-                  : null,
-              parentState: hydroState),
-          kind: maybeUnBoxEnum(
-              values: PointerDeviceKind.values,
+          globalPosition:
+              _36c2.maybeUnBoxAndBuildArgument<_a643.Offset, _fac9.dynamic>(
+                  luaCallerArguments.length >= 2
+                      ? luaCallerArguments[1]['globalPosition']
+                      : null,
+                  parentState: hydroState),
+          localPosition:
+              _36c2.maybeUnBoxAndBuildArgument<_a643.Offset?, _fac9.dynamic>(
+                  luaCallerArguments.length >= 2
+                      ? luaCallerArguments[1]['localPosition']
+                      : null,
+                  parentState: hydroState),
+          kind: _36c2.maybeUnBoxEnum(
+              values: _a643.PointerDeviceKind.values,
               boxedEnum: luaCallerArguments.length >= 2
                   ? luaCallerArguments[1]['kind']
                   : null))
     ];
   });
-  registerBoxer<TapUpDetails>(boxer: (
-      {required TapUpDetails vmObject,
-      required HydroState hydroState,
-      required HydroTable table}) {
+  _36c2.registerBoxer<_1275.TapUpDetails>(boxer: (
+      {required _1275.TapUpDetails vmObject,
+      required _36c2.HydroState hydroState,
+      required _36c2.HydroTable table}) {
     return VMManagedTapUpDetails(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

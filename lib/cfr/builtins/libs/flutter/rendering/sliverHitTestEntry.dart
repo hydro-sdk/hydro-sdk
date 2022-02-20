@@ -1,13 +1,14 @@
-import 'dart:core';
+import 'dart:core' as _fac9;
 
-import 'package:flutter/src/gestures/hit_test.dart';
-import 'package:flutter/src/rendering/sliver.dart';
+import 'package:flutter/src/gestures/hit_test.dart' as _baac;
+import 'package:flutter/src/rendering/sliver.dart' as _021d;
 
-import 'package:vector_math/vector_math_64.dart';
+import 'package:vector_math/vector_math_64.dart' as _db98;
 
-import 'package:hydro_sdk/cfr/runtimeSupport.dart';
+import 'package:hydro_sdk/cfr/runtimeSupport.dart' as _36c2;
 
-class VMManagedSliverHitTestEntry extends VMManagedBox<SliverHitTestEntry> {
+class VMManagedSliverHitTestEntry
+    extends _36c2.VMManagedBox<_021d.SliverHitTestEntry> {
   VMManagedSliverHitTestEntry(
       {required this.table, required this.vmObject, required this.hydroState})
       : super(
@@ -17,127 +18,143 @@ class VMManagedSliverHitTestEntry extends VMManagedBox<SliverHitTestEntry> {
         ) {
     table['mainAxisPosition'] = vmObject.mainAxisPosition;
     table['crossAxisPosition'] = vmObject.crossAxisPosition;
-    table['target'] = maybeBoxObject<HitTestTarget>(
-        object: vmObject.target, hydroState: hydroState, table: HydroTable());
-    table['getTarget'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['target'] = _36c2.maybeBoxObject<_baac.HitTestTarget>(
+        object: vmObject.target,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['getTarget'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<RenderSliver>(
+        _36c2.maybeBoxObject<_021d.RenderSliver>(
             object: vmObject.target,
             hydroState: hydroState,
-            table: HydroTable()),
+            table: _36c2.HydroTable()),
       ];
     });
-    table['toString'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['toString'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.toString(),
       ];
     });
-    table['getTransform'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getTransform'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       final returnValue = vmObject.transform;
       if (returnValue != null) {
         return [
-          maybeBoxObject<Matrix4?>(
-              object: returnValue, hydroState: hydroState, table: HydroTable()),
+          _36c2.maybeBoxObject<_db98.Matrix4?>(
+              object: returnValue,
+              hydroState: hydroState,
+              table: _36c2.HydroTable()),
         ];
       }
       return [];
     });
-    table['getHashCode'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getHashCode'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.hashCode,
       ];
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  final SliverHitTestEntry vmObject;
+  final _021d.SliverHitTestEntry vmObject;
 }
 
-class RTManagedSliverHitTestEntry extends SliverHitTestEntry
-    implements Box<SliverHitTestEntry> {
-  RTManagedSliverHitTestEntry(RenderSliver target$,
-      {required double crossAxisPosition,
-      required double mainAxisPosition,
+class RTManagedSliverHitTestEntry extends _021d.SliverHitTestEntry
+    implements _36c2.Box<_021d.SliverHitTestEntry> {
+  RTManagedSliverHitTestEntry(_021d.RenderSliver target$,
+      {required _fac9.double crossAxisPosition,
+      required _fac9.double mainAxisPosition,
       required this.table,
       required this.hydroState})
       : super(target$,
             crossAxisPosition: crossAxisPosition,
             mainAxisPosition: mainAxisPosition) {
     table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['unwrap'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [unwrap()];
     });
-    table['mainAxisPosition'] = this.mainAxisPosition;
-    table['crossAxisPosition'] = this.crossAxisPosition;
-    table['target'] = maybeBoxObject<HitTestTarget>(
-        object: this.target, hydroState: hydroState, table: HydroTable());
-    table['_dart_getTarget'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['mainAxisPosition'] = _36c2.maybeBoxObject(
+        object: this.mainAxisPosition,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['crossAxisPosition'] = _36c2.maybeBoxObject(
+        object: this.crossAxisPosition,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['target'] = _36c2.maybeBoxObject(
+        object: this.target, hydroState: hydroState, table: _36c2.HydroTable());
+    table['_dart_getTarget'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.target];
     });
-    table['_dart_toString'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [super.toString()];
+    table['_dart_toString'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      return [
+        _36c2.maybeBoxObject(
+            object: super.toString(),
+            hydroState: hydroState,
+            table: _36c2.HydroTable())
+      ];
     });
-    table['_dart_getTransform'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getTransform'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.transform];
     });
-    table['_dart_getHashCode'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getHashCode'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.hashCode];
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  SliverHitTestEntry unwrap() => this;
-  SliverHitTestEntry get vmObject => this;
-  @override
-  RenderSliver get target {
-    Closure closure = table["getTarget"];
-    return maybeUnBoxAndBuildArgument<RenderSliver, dynamic>(
+  _021d.SliverHitTestEntry unwrap() => this;
+  _021d.SliverHitTestEntry get vmObject => this;
+  @_fac9.override
+  _021d.RenderSliver get target {
+    _36c2.Closure closure = table["getTarget"];
+    return _36c2.maybeUnBoxAndBuildArgument<_021d.RenderSliver, _fac9.dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
 
-  @override
-  String toString() {
-    Closure closure = table["__tostring"];
+  @_fac9.override
+  _fac9.String toString() {
+    _36c2.Closure closure = table["__tostring"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  Matrix4? get transform {
-    Closure closure = table["getTransform"];
-    return maybeUnBoxAndBuildArgument<Matrix4?, dynamic>(
+  @_fac9.override
+  _db98.Matrix4? get transform {
+    _36c2.Closure closure = table["getTransform"];
+    return _36c2.maybeUnBoxAndBuildArgument<_db98.Matrix4?, _fac9.dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
 
-  @override
-  int get hashCode {
-    Closure closure = table["getHashCode"];
+  @_fac9.override
+  _fac9.int get hashCode {
+    _36c2.Closure closure = table["getHashCode"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 }
 
 void loadSliverHitTestEntry(
-    {required HydroState hydroState, required HydroTable table}) {
-  table['sliverHitTestEntry'] =
-      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    {required _36c2.HydroState hydroState, required _36c2.HydroTable table}) {
+  table['sliverHitTestEntry'] = _36c2.makeLuaDartFunc(
+      func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
     return [
       RTManagedSliverHitTestEntry(
-          maybeUnBoxAndBuildArgument<RenderSliver, dynamic>(
+          _36c2.maybeUnBoxAndBuildArgument<_021d.RenderSliver, _fac9.dynamic>(
               luaCallerArguments[1],
               parentState: hydroState),
           table: luaCallerArguments[0],
@@ -150,10 +167,10 @@ void loadSliverHitTestEntry(
               : null?.toDouble())
     ];
   });
-  registerBoxer<SliverHitTestEntry>(boxer: (
-      {required SliverHitTestEntry vmObject,
-      required HydroState hydroState,
-      required HydroTable table}) {
+  _36c2.registerBoxer<_021d.SliverHitTestEntry>(boxer: (
+      {required _021d.SliverHitTestEntry vmObject,
+      required _36c2.HydroState hydroState,
+      required _36c2.HydroTable table}) {
     return VMManagedSliverHitTestEntry(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

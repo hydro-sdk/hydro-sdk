@@ -1,12 +1,12 @@
-import 'dart:core';
+import 'dart:core' as _fac9;
 
-import 'package:flutter/src/foundation/binding.dart';
-import 'package:flutter/src/widgets/focus_manager.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/src/foundation/binding.dart' as _8f1c;
+import 'package:flutter/src/widgets/focus_manager.dart' as _b485;
+import 'package:flutter/src/widgets/framework.dart' as _e2dc;
 
-import 'package:hydro_sdk/cfr/runtimeSupport.dart';
+import 'package:hydro_sdk/cfr/runtimeSupport.dart' as _36c2;
 
-class VMManagedBuildOwner extends VMManagedBox<BuildOwner> {
+class VMManagedBuildOwner extends _36c2.VMManagedBox<_e2dc.BuildOwner> {
   VMManagedBuildOwner(
       {required this.table, required this.vmObject, required this.hydroState})
       : super(
@@ -14,26 +14,27 @@ class VMManagedBuildOwner extends VMManagedBox<BuildOwner> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['focusManager'] = maybeBoxObject<FocusManager>(
+    table['focusManager'] = _36c2.maybeBoxObject<_b485.FocusManager>(
         object: vmObject.focusManager,
         hydroState: hydroState,
-        table: HydroTable());
-    table['scheduleBuildFor'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.scheduleBuildFor(maybeUnBoxAndBuildArgument<Element, dynamic>(
-          luaCallerArguments[1],
-          parentState: hydroState));
+        table: _36c2.HydroTable());
+    table['scheduleBuildFor'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      vmObject.scheduleBuildFor(
+          _36c2.maybeUnBoxAndBuildArgument<_e2dc.Element, _fac9.dynamic>(
+              luaCallerArguments[1],
+              parentState: hydroState));
       return [];
     });
-    table['getDebugBuilding'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getDebugBuilding'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.debugBuilding,
       ];
     });
-    table['lockState'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      Closure unpackedcallback = luaCallerArguments[1];
+    table['lockState'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      _36c2.Closure unpackedcallback = luaCallerArguments[1];
       vmObject.lockState(() => unpackedcallback.dispatch(
             [
               luaCallerArguments[0],
@@ -42,11 +43,12 @@ class VMManagedBuildOwner extends VMManagedBox<BuildOwner> {
           ));
       return [];
     });
-    table['buildScope'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      Closure? unpackedcallback = luaCallerArguments[2];
+    table['buildScope'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      _36c2.Closure? unpackedcallback = luaCallerArguments[2];
       vmObject.buildScope(
-          maybeUnBoxAndBuildArgument<Element, dynamic>(luaCallerArguments[1],
+          _36c2.maybeUnBoxAndBuildArgument<_e2dc.Element, _fac9.dynamic>(
+              luaCallerArguments[1],
               parentState: hydroState),
           unpackedcallback != null
               ? () => unpackedcallback.dispatch(
@@ -58,63 +60,68 @@ class VMManagedBuildOwner extends VMManagedBox<BuildOwner> {
               : null);
       return [];
     });
-    table['getGlobalKeyCount'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getGlobalKeyCount'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.globalKeyCount,
       ];
     });
-    table['finalizeTree'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['finalizeTree'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       vmObject.finalizeTree();
       return [];
     });
-    table['reassemble'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['reassemble'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       vmObject.reassemble(
-          maybeUnBoxAndBuildArgument<Element, dynamic>(luaCallerArguments[1],
+          _36c2.maybeUnBoxAndBuildArgument<_e2dc.Element, _fac9.dynamic>(
+              luaCallerArguments[1],
               parentState: hydroState),
-          maybeUnBoxAndBuildArgument<DebugReassembleConfig?, dynamic>(
-              luaCallerArguments[2],
-              parentState: hydroState));
+          _36c2.maybeUnBoxAndBuildArgument<_8f1c.DebugReassembleConfig?,
+              _fac9.dynamic>(luaCallerArguments[2], parentState: hydroState));
       return [];
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  final BuildOwner vmObject;
+  final _e2dc.BuildOwner vmObject;
 }
 
-class RTManagedBuildOwner extends BuildOwner implements Box<BuildOwner> {
+class RTManagedBuildOwner extends _e2dc.BuildOwner
+    implements _36c2.Box<_e2dc.BuildOwner> {
   RTManagedBuildOwner(
-      {FocusManager? focusManager,
-      onBuildScheduled,
+      {_b485.FocusManager? focusManager,
+      void Function()? onBuildScheduled,
       required this.table,
       required this.hydroState})
       : super(focusManager: focusManager, onBuildScheduled: onBuildScheduled) {
     table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['unwrap'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [unwrap()];
     });
-    table['focusManager'] = maybeBoxObject<FocusManager>(
-        object: this.focusManager, hydroState: hydroState, table: HydroTable());
-    table['_dart_scheduleBuildFor'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.scheduleBuildFor(maybeUnBoxAndBuildArgument<Element, dynamic>(
-          luaCallerArguments[1],
-          parentState: hydroState));
+    table['focusManager'] = _36c2.maybeBoxObject(
+        object: this.focusManager,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['_dart_scheduleBuildFor'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      super.scheduleBuildFor(
+          _36c2.maybeUnBoxAndBuildArgument<_e2dc.Element, _fac9.dynamic>(
+              luaCallerArguments[1],
+              parentState: hydroState));
       return [];
     });
-    table['_dart_getDebugBuilding'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getDebugBuilding'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.debugBuilding];
     });
-    table['_dart_lockState'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      Closure unpackedcallback = luaCallerArguments[1];
+    table['_dart_lockState'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      _36c2.Closure unpackedcallback = luaCallerArguments[1];
       super.lockState(() => unpackedcallback.dispatch(
             [
               luaCallerArguments[0],
@@ -123,11 +130,12 @@ class RTManagedBuildOwner extends BuildOwner implements Box<BuildOwner> {
           ));
       return [];
     });
-    table['_dart_buildScope'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      Closure? unpackedcallback = luaCallerArguments[2];
+    table['_dart_buildScope'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      _36c2.Closure? unpackedcallback = luaCallerArguments[2];
       super.buildScope(
-          maybeUnBoxAndBuildArgument<Element, dynamic>(luaCallerArguments[1],
+          _36c2.maybeUnBoxAndBuildArgument<_e2dc.Element, _fac9.dynamic>(
+              luaCallerArguments[1],
               parentState: hydroState),
           unpackedcallback != null
               ? () => unpackedcallback.dispatch(
@@ -139,92 +147,93 @@ class RTManagedBuildOwner extends BuildOwner implements Box<BuildOwner> {
               : null);
       return [];
     });
-    table['_dart_getGlobalKeyCount'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getGlobalKeyCount'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.globalKeyCount];
     });
-    table['_dart_finalizeTree'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_finalizeTree'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       super.finalizeTree();
       return [];
     });
-    table['_dart_reassemble'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_reassemble'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       super.reassemble(
-          maybeUnBoxAndBuildArgument<Element, dynamic>(luaCallerArguments[1],
+          _36c2.maybeUnBoxAndBuildArgument<_e2dc.Element, _fac9.dynamic>(
+              luaCallerArguments[1],
               parentState: hydroState),
-          maybeUnBoxAndBuildArgument<DebugReassembleConfig?, dynamic>(
-              luaCallerArguments[2],
-              parentState: hydroState));
+          _36c2.maybeUnBoxAndBuildArgument<_8f1c.DebugReassembleConfig?,
+              _fac9.dynamic>(luaCallerArguments[2], parentState: hydroState));
       return [];
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  BuildOwner unwrap() => this;
-  BuildOwner get vmObject => this;
-  @override
+  _e2dc.BuildOwner unwrap() => this;
+  _e2dc.BuildOwner get vmObject => this;
+  @_fac9.override
   void scheduleBuildFor(element) {
-    Closure closure = table["scheduleBuildFor"];
+    _36c2.Closure closure = table["scheduleBuildFor"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  bool get debugBuilding {
-    Closure closure = table["getDebugBuilding"];
+  @_fac9.override
+  _fac9.bool get debugBuilding {
+    _36c2.Closure closure = table["getDebugBuilding"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
+  @_fac9.override
   void lockState(callback) {
-    Closure closure = table["lockState"];
+    _36c2.Closure closure = table["lockState"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  void buildScope(context, [callback]) {
-    Closure closure = table["buildScope"];
+  @_fac9.override
+  void buildScope(context, [void Function()? callback]) {
+    _36c2.Closure closure = table["buildScope"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  int get globalKeyCount {
-    Closure closure = table["getGlobalKeyCount"];
+  @_fac9.override
+  _fac9.int get globalKeyCount {
+    _36c2.Closure closure = table["getGlobalKeyCount"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
+  @_fac9.override
   void finalizeTree() {
-    Closure closure = table["finalizeTree"];
+    _36c2.Closure closure = table["finalizeTree"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
+  @_fac9.override
   void reassemble(root, reassembleConfig) {
-    Closure closure = table["reassemble"];
+    _36c2.Closure closure = table["reassemble"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 }
 
 void loadBuildOwner(
-    {required HydroState hydroState, required HydroTable table}) {
-  table['buildOwner'] =
-      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-    Closure? unpackedonBuildScheduled = luaCallerArguments.length >= 2
+    {required _36c2.HydroState hydroState, required _36c2.HydroTable table}) {
+  table['buildOwner'] = _36c2.makeLuaDartFunc(
+      func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+    _36c2.Closure? unpackedonBuildScheduled = luaCallerArguments.length >= 2
         ? luaCallerArguments[1]['onBuildScheduled']
         : null;
     return [
       RTManagedBuildOwner(
           table: luaCallerArguments[0],
           hydroState: hydroState,
-          focusManager: maybeUnBoxAndBuildArgument<FocusManager?, dynamic>(
-              luaCallerArguments.length >= 2
-                  ? luaCallerArguments[1]['focusManager']
-                  : null,
-              parentState: hydroState),
+          focusManager: _36c2
+              .maybeUnBoxAndBuildArgument<_b485.FocusManager?, _fac9.dynamic>(
+                  luaCallerArguments.length >= 2
+                      ? luaCallerArguments[1]['focusManager']
+                      : null,
+                  parentState: hydroState),
           onBuildScheduled: unpackedonBuildScheduled != null
               ? () => unpackedonBuildScheduled.dispatch(
                     [
@@ -235,10 +244,10 @@ void loadBuildOwner(
               : null)
     ];
   });
-  registerBoxer<BuildOwner>(boxer: (
-      {required BuildOwner vmObject,
-      required HydroState hydroState,
-      required HydroTable table}) {
+  _36c2.registerBoxer<_e2dc.BuildOwner>(boxer: (
+      {required _e2dc.BuildOwner vmObject,
+      required _36c2.HydroState hydroState,
+      required _36c2.HydroTable table}) {
     return VMManagedBuildOwner(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

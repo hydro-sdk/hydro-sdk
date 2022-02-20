@@ -1,11 +1,12 @@
-import 'dart:core';
-import 'dart:ui';
+import 'dart:core' as _fac9;
+import 'dart:ui' as _a643;
 
-import 'package:flutter/src/rendering/layer.dart';
+import 'package:flutter/src/rendering/layer.dart' as _7d70;
 
-import 'package:hydro_sdk/cfr/runtimeSupport.dart';
+import 'package:hydro_sdk/cfr/runtimeSupport.dart' as _36c2;
 
-class VMManagedAnnotationEntry extends VMManagedBox<AnnotationEntry<dynamic>> {
+class VMManagedAnnotationEntry
+    extends _36c2.VMManagedBox<_7d70.AnnotationEntry<_fac9.dynamic>> {
   VMManagedAnnotationEntry(
       {required this.table, required this.vmObject, required this.hydroState})
       : super(
@@ -13,64 +14,70 @@ class VMManagedAnnotationEntry extends VMManagedBox<AnnotationEntry<dynamic>> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['localPosition'] = maybeBoxObject<Offset>(
+    table['localPosition'] = _36c2.maybeBoxObject<_a643.Offset>(
         object: vmObject.localPosition,
         hydroState: hydroState,
-        table: HydroTable());
-    table['toString'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+        table: _36c2.HydroTable());
+    table['toString'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.toString(),
       ];
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  final AnnotationEntry<dynamic> vmObject;
+  final _7d70.AnnotationEntry<_fac9.dynamic> vmObject;
 }
 
-class RTManagedAnnotationEntry extends AnnotationEntry
-    implements Box<AnnotationEntry> {
+class RTManagedAnnotationEntry extends _7d70.AnnotationEntry
+    implements _36c2.Box<_7d70.AnnotationEntry> {
   RTManagedAnnotationEntry(
-      {required dynamic annotation,
-      required Offset localPosition,
+      {required _fac9.dynamic annotation,
+      required _a643.Offset localPosition,
       required this.table,
       required this.hydroState})
       : super(annotation: annotation, localPosition: localPosition) {
     table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['unwrap'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [unwrap()];
     });
-    table['localPosition'] = maybeBoxObject<Offset>(
+    table['localPosition'] = _36c2.maybeBoxObject(
         object: this.localPosition,
         hydroState: hydroState,
-        table: HydroTable());
-    table['_dart_toString'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [super.toString()];
+        table: _36c2.HydroTable());
+    table['_dart_toString'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      return [
+        _36c2.maybeBoxObject(
+            object: super.toString(),
+            hydroState: hydroState,
+            table: _36c2.HydroTable())
+      ];
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  AnnotationEntry unwrap() => this;
-  AnnotationEntry get vmObject => this;
-  @override
-  String toString() {
-    Closure closure = table["__tostring"];
+  _7d70.AnnotationEntry unwrap() => this;
+  _7d70.AnnotationEntry get vmObject => this;
+  @_fac9.override
+  _fac9.String toString() {
+    _36c2.Closure closure = table["__tostring"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 }
 
 void loadAnnotationEntry(
-    {required HydroState hydroState, required HydroTable table}) {
-  table['annotationEntry'] =
-      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    {required _36c2.HydroState hydroState, required _36c2.HydroTable table}) {
+  table['annotationEntry'] = _36c2.makeLuaDartFunc(
+      func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
     return [
       RTManagedAnnotationEntry(
           table: luaCallerArguments[0],
@@ -78,17 +85,18 @@ void loadAnnotationEntry(
           annotation: luaCallerArguments.length >= 2
               ? luaCallerArguments[1]['annotation']
               : null,
-          localPosition: maybeUnBoxAndBuildArgument<Offset, dynamic>(
-              luaCallerArguments.length >= 2
-                  ? luaCallerArguments[1]['localPosition']
-                  : null,
-              parentState: hydroState))
+          localPosition:
+              _36c2.maybeUnBoxAndBuildArgument<_a643.Offset, _fac9.dynamic>(
+                  luaCallerArguments.length >= 2
+                      ? luaCallerArguments[1]['localPosition']
+                      : null,
+                  parentState: hydroState))
     ];
   });
-  registerBoxer<AnnotationEntry>(boxer: (
-      {required AnnotationEntry vmObject,
-      required HydroState hydroState,
-      required HydroTable table}) {
+  _36c2.registerBoxer<_7d70.AnnotationEntry>(boxer: (
+      {required _7d70.AnnotationEntry vmObject,
+      required _36c2.HydroState hydroState,
+      required _36c2.HydroTable table}) {
     return VMManagedAnnotationEntry(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

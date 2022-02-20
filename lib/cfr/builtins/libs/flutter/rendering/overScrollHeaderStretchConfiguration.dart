@@ -1,12 +1,12 @@
-import 'dart:async';
-import 'dart:core';
+import 'dart:async' as _7de1;
+import 'dart:core' as _fac9;
 
-import 'package:flutter/src/rendering/sliver_persistent_header.dart';
+import 'package:flutter/src/rendering/sliver_persistent_header.dart' as _2805;
 
-import 'package:hydro_sdk/cfr/runtimeSupport.dart';
+import 'package:hydro_sdk/cfr/runtimeSupport.dart' as _36c2;
 
 class VMManagedOverScrollHeaderStretchConfiguration
-    extends VMManagedBox<OverScrollHeaderStretchConfiguration> {
+    extends _36c2.VMManagedBox<_2805.OverScrollHeaderStretchConfiguration> {
   VMManagedOverScrollHeaderStretchConfiguration(
       {required this.table, required this.vmObject, required this.hydroState})
       : super(
@@ -17,44 +17,48 @@ class VMManagedOverScrollHeaderStretchConfiguration
     table['stretchTriggerOffset'] = vmObject.stretchTriggerOffset;
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  final OverScrollHeaderStretchConfiguration vmObject;
+  final _2805.OverScrollHeaderStretchConfiguration vmObject;
 }
 
 class RTManagedOverScrollHeaderStretchConfiguration
-    extends OverScrollHeaderStretchConfiguration
-    implements Box<OverScrollHeaderStretchConfiguration> {
+    extends _2805.OverScrollHeaderStretchConfiguration
+    implements _36c2.Box<_2805.OverScrollHeaderStretchConfiguration> {
   RTManagedOverScrollHeaderStretchConfiguration(
-      {onStretchTrigger,
-      required double stretchTriggerOffset,
+      {_7de1.Future<void> Function()? onStretchTrigger,
+      required _fac9.double stretchTriggerOffset,
       required this.table,
       required this.hydroState})
       : super(
             onStretchTrigger: onStretchTrigger,
             stretchTriggerOffset: stretchTriggerOffset) {
     table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['unwrap'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [unwrap()];
     });
-    table['stretchTriggerOffset'] = this.stretchTriggerOffset;
+    table['stretchTriggerOffset'] = _36c2.maybeBoxObject(
+        object: this.stretchTriggerOffset,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  OverScrollHeaderStretchConfiguration unwrap() => this;
-  OverScrollHeaderStretchConfiguration get vmObject => this;
+  _2805.OverScrollHeaderStretchConfiguration unwrap() => this;
+  _2805.OverScrollHeaderStretchConfiguration get vmObject => this;
 }
 
 void loadOverScrollHeaderStretchConfiguration(
-    {required HydroState hydroState, required HydroTable table}) {
-  table['overScrollHeaderStretchConfiguration'] =
-      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-    Closure? unpackedonStretchTrigger = luaCallerArguments.length >= 2
+    {required _36c2.HydroState hydroState, required _36c2.HydroTable table}) {
+  table['overScrollHeaderStretchConfiguration'] = _36c2.makeLuaDartFunc(
+      func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+    _36c2.Closure? unpackedonStretchTrigger = luaCallerArguments.length >= 2
         ? luaCallerArguments[1]['onStretchTrigger']
         : null;
 
@@ -63,24 +67,25 @@ void loadOverScrollHeaderStretchConfiguration(
           table: luaCallerArguments[0],
           hydroState: hydroState,
           onStretchTrigger: unpackedonStretchTrigger != null
-              ? () => maybeUnBoxAndBuildArgument<Future<void>, void>(
-                  unpackedonStretchTrigger.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
-                    parentState: hydroState,
-                  )[0],
-                  parentState: hydroState)
+              ? () =>
+                  _36c2.maybeUnBoxAndBuildArgument<_7de1.Future<void>, void>(
+                      unpackedonStretchTrigger.dispatch(
+                        [
+                          luaCallerArguments[0],
+                        ],
+                        parentState: hydroState,
+                      )[0],
+                      parentState: hydroState)
               : null,
           stretchTriggerOffset: luaCallerArguments.length >= 2
               ? luaCallerArguments[1]['stretchTriggerOffset']
               : null?.toDouble())
     ];
   });
-  registerBoxer<OverScrollHeaderStretchConfiguration>(boxer: (
-      {required OverScrollHeaderStretchConfiguration vmObject,
-      required HydroState hydroState,
-      required HydroTable table}) {
+  _36c2.registerBoxer<_2805.OverScrollHeaderStretchConfiguration>(boxer: (
+      {required _2805.OverScrollHeaderStretchConfiguration vmObject,
+      required _36c2.HydroState hydroState,
+      required _36c2.HydroTable table}) {
     return VMManagedOverScrollHeaderStretchConfiguration(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

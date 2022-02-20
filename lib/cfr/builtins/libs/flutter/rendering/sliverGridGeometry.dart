@@ -1,12 +1,13 @@
-import 'dart:core';
+import 'dart:core' as _fac9;
 
-import 'package:flutter/src/rendering/box.dart';
-import 'package:flutter/src/rendering/sliver.dart';
-import 'package:flutter/src/rendering/sliver_grid.dart';
+import 'package:flutter/src/rendering/box.dart' as _be2e;
+import 'package:flutter/src/rendering/sliver.dart' as _021d;
+import 'package:flutter/src/rendering/sliver_grid.dart' as _a3c0;
 
-import 'package:hydro_sdk/cfr/runtimeSupport.dart';
+import 'package:hydro_sdk/cfr/runtimeSupport.dart' as _36c2;
 
-class VMManagedSliverGridGeometry extends VMManagedBox<SliverGridGeometry> {
+class VMManagedSliverGridGeometry
+    extends _36c2.VMManagedBox<_a3c0.SliverGridGeometry> {
   VMManagedSliverGridGeometry(
       {required this.table, required this.vmObject, required this.hydroState})
       : super(
@@ -18,46 +19,45 @@ class VMManagedSliverGridGeometry extends VMManagedBox<SliverGridGeometry> {
     table['crossAxisOffset'] = vmObject.crossAxisOffset;
     table['mainAxisExtent'] = vmObject.mainAxisExtent;
     table['crossAxisExtent'] = vmObject.crossAxisExtent;
-    table['getTrailingScrollOffset'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getTrailingScrollOffset'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.trailingScrollOffset,
       ];
     });
-    table['getBoxConstraints'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getBoxConstraints'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<BoxConstraints>(
-            object: vmObject.getBoxConstraints(
-                maybeUnBoxAndBuildArgument<SliverConstraints, dynamic>(
-                    luaCallerArguments[1],
-                    parentState: hydroState)),
+        _36c2.maybeBoxObject<_be2e.BoxConstraints>(
+            object: vmObject.getBoxConstraints(_36c2.maybeUnBoxAndBuildArgument<
+                _021d.SliverConstraints,
+                _fac9.dynamic>(luaCallerArguments[1], parentState: hydroState)),
             hydroState: hydroState,
-            table: HydroTable()),
+            table: _36c2.HydroTable()),
       ];
     });
-    table['toString'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['toString'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.toString(),
       ];
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  final SliverGridGeometry vmObject;
+  final _a3c0.SliverGridGeometry vmObject;
 }
 
-class RTManagedSliverGridGeometry extends SliverGridGeometry
-    implements Box<SliverGridGeometry> {
+class RTManagedSliverGridGeometry extends _a3c0.SliverGridGeometry
+    implements _36c2.Box<_a3c0.SliverGridGeometry> {
   RTManagedSliverGridGeometry(
-      {required double crossAxisExtent,
-      required double crossAxisOffset,
-      required double mainAxisExtent,
-      required double scrollOffset,
+      {required _fac9.double crossAxisExtent,
+      required _fac9.double crossAxisOffset,
+      required _fac9.double mainAxisExtent,
+      required _fac9.double scrollOffset,
       required this.table,
       required this.hydroState})
       : super(
@@ -66,66 +66,84 @@ class RTManagedSliverGridGeometry extends SliverGridGeometry
             mainAxisExtent: mainAxisExtent,
             scrollOffset: scrollOffset) {
     table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['unwrap'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [unwrap()];
     });
-    table['scrollOffset'] = this.scrollOffset;
-    table['crossAxisOffset'] = this.crossAxisOffset;
-    table['mainAxisExtent'] = this.mainAxisExtent;
-    table['crossAxisExtent'] = this.crossAxisExtent;
-    table['_dart_getTrailingScrollOffset'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['scrollOffset'] = _36c2.maybeBoxObject(
+        object: this.scrollOffset,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['crossAxisOffset'] = _36c2.maybeBoxObject(
+        object: this.crossAxisOffset,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['mainAxisExtent'] = _36c2.maybeBoxObject(
+        object: this.mainAxisExtent,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['crossAxisExtent'] = _36c2.maybeBoxObject(
+        object: this.crossAxisExtent,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['_dart_getTrailingScrollOffset'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.trailingScrollOffset];
     });
-    table['_dart_getBoxConstraints'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getBoxConstraints'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<BoxConstraints>(
-            object: super.getBoxConstraints(
-                maybeUnBoxAndBuildArgument<SliverConstraints, dynamic>(
-                    luaCallerArguments[1],
-                    parentState: hydroState)),
+        _36c2.maybeBoxObject(
+            object: super.getBoxConstraints(_36c2.maybeUnBoxAndBuildArgument<
+                _021d.SliverConstraints,
+                _fac9.dynamic>(luaCallerArguments[1], parentState: hydroState)),
             hydroState: hydroState,
-            table: HydroTable())
+            table: _36c2.HydroTable())
       ];
     });
-    table['_dart_toString'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [super.toString()];
+    table['_dart_toString'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      return [
+        _36c2.maybeBoxObject(
+            object: super.toString(),
+            hydroState: hydroState,
+            table: _36c2.HydroTable())
+      ];
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  SliverGridGeometry unwrap() => this;
-  SliverGridGeometry get vmObject => this;
-  @override
-  double get trailingScrollOffset {
-    Closure closure = table["getTrailingScrollOffset"];
+  _a3c0.SliverGridGeometry unwrap() => this;
+  _a3c0.SliverGridGeometry get vmObject => this;
+  @_fac9.override
+  _fac9.double get trailingScrollOffset {
+    _36c2.Closure closure = table["getTrailingScrollOffset"];
     return closure.dispatch([table], parentState: hydroState)[0]?.toDouble();
   }
 
-  @override
-  BoxConstraints getBoxConstraints(constraints) {
-    Closure closure = table["getBoxConstraints"];
-    return maybeUnBoxAndBuildArgument<BoxConstraints, dynamic>(
-        closure.dispatch([table], parentState: hydroState)[0],
-        parentState: hydroState);
+  @_fac9.override
+  _be2e.BoxConstraints getBoxConstraints(constraints) {
+    _36c2.Closure closure = table["getBoxConstraints"];
+    return _36c2
+        .maybeUnBoxAndBuildArgument<_be2e.BoxConstraints, _fac9.dynamic>(
+            closure.dispatch([table], parentState: hydroState)[0],
+            parentState: hydroState);
   }
 
-  @override
-  String toString() {
-    Closure closure = table["__tostring"];
+  @_fac9.override
+  _fac9.String toString() {
+    _36c2.Closure closure = table["__tostring"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 }
 
 void loadSliverGridGeometry(
-    {required HydroState hydroState, required HydroTable table}) {
-  table['sliverGridGeometry'] =
-      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    {required _36c2.HydroState hydroState, required _36c2.HydroTable table}) {
+  table['sliverGridGeometry'] = _36c2.makeLuaDartFunc(
+      func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
     return [
       RTManagedSliverGridGeometry(
           table: luaCallerArguments[0],
@@ -144,10 +162,10 @@ void loadSliverGridGeometry(
               : null?.toDouble())
     ];
   });
-  registerBoxer<SliverGridGeometry>(boxer: (
-      {required SliverGridGeometry vmObject,
-      required HydroState hydroState,
-      required HydroTable table}) {
+  _36c2.registerBoxer<_a3c0.SliverGridGeometry>(boxer: (
+      {required _a3c0.SliverGridGeometry vmObject,
+      required _36c2.HydroState hydroState,
+      required _36c2.HydroTable table}) {
     return VMManagedSliverGridGeometry(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

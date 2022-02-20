@@ -1,12 +1,12 @@
-import 'dart:core';
+import 'dart:core' as _fac9;
 
-import 'package:flutter/src/gestures/events.dart';
-import 'package:flutter/src/gestures/resampler.dart';
+import 'package:flutter/src/gestures/events.dart' as _0e77;
+import 'package:flutter/src/gestures/resampler.dart' as _6a3f;
 
-import 'package:hydro_sdk/cfr/runtimeSupport.dart';
+import 'package:hydro_sdk/cfr/runtimeSupport.dart' as _36c2;
 
 class VMManagedPointerEventResampler
-    extends VMManagedBox<PointerEventResampler> {
+    extends _36c2.VMManagedBox<_6a3f.PointerEventResampler> {
   VMManagedPointerEventResampler(
       {required this.table, required this.vmObject, required this.hydroState})
       : super(
@@ -14,19 +14,23 @@ class VMManagedPointerEventResampler
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['addEvent'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.addEvent(maybeUnBoxAndBuildArgument<PointerEvent, dynamic>(
-          luaCallerArguments[1],
-          parentState: hydroState));
+    table['addEvent'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      vmObject.addEvent(
+          _36c2.maybeUnBoxAndBuildArgument<_0e77.PointerEvent, _fac9.dynamic>(
+              luaCallerArguments[1],
+              parentState: hydroState));
       return [];
     });
-    table['sample'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      Closure unpackedcallback = luaCallerArguments[3];
+    table['sample'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      _36c2.Closure unpackedcallback = luaCallerArguments[3];
       vmObject.sample(
-          maybeUnBoxAndBuildArgument<Duration, dynamic>(luaCallerArguments[1],
+          _36c2.maybeUnBoxAndBuildArgument<_fac9.Duration, _fac9.dynamic>(
+              luaCallerArguments[1],
               parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Duration, dynamic>(luaCallerArguments[2],
+          _36c2.maybeUnBoxAndBuildArgument<_fac9.Duration, _fac9.dynamic>(
+              luaCallerArguments[2],
               parentState: hydroState),
           (event) => unpackedcallback.dispatch(
                 [luaCallerArguments[0], event],
@@ -34,64 +38,69 @@ class VMManagedPointerEventResampler
               ));
       return [];
     });
-    table['stop'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      Closure unpackedcallback = luaCallerArguments[1];
+    table['stop'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      _36c2.Closure unpackedcallback = luaCallerArguments[1];
       vmObject.stop((event) => unpackedcallback.dispatch(
             [luaCallerArguments[0], event],
             parentState: hydroState,
           ));
       return [];
     });
-    table['getHasPendingEvents'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getHasPendingEvents'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.hasPendingEvents,
       ];
     });
-    table['getIsTracked'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getIsTracked'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.isTracked,
       ];
     });
-    table['getIsDown'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getIsDown'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.isDown,
       ];
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  final PointerEventResampler vmObject;
+  final _6a3f.PointerEventResampler vmObject;
 }
 
-class RTManagedPointerEventResampler extends PointerEventResampler
-    implements Box<PointerEventResampler> {
+class RTManagedPointerEventResampler extends _6a3f.PointerEventResampler
+    implements _36c2.Box<_6a3f.PointerEventResampler> {
   RTManagedPointerEventResampler(
       {required this.table, required this.hydroState})
       : super() {
     table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['unwrap'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [unwrap()];
     });
-    table['_dart_addEvent'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.addEvent(maybeUnBoxAndBuildArgument<PointerEvent, dynamic>(
-          luaCallerArguments[1],
-          parentState: hydroState));
+    table['_dart_addEvent'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      super.addEvent(
+          _36c2.maybeUnBoxAndBuildArgument<_0e77.PointerEvent, _fac9.dynamic>(
+              luaCallerArguments[1],
+              parentState: hydroState));
       return [];
     });
-    table['_dart_sample'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      Closure unpackedcallback = luaCallerArguments[3];
+    table['_dart_sample'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      _36c2.Closure unpackedcallback = luaCallerArguments[3];
       super.sample(
-          maybeUnBoxAndBuildArgument<Duration, dynamic>(luaCallerArguments[1],
+          _36c2.maybeUnBoxAndBuildArgument<_fac9.Duration, _fac9.dynamic>(
+              luaCallerArguments[1],
               parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Duration, dynamic>(luaCallerArguments[2],
+          _36c2.maybeUnBoxAndBuildArgument<_fac9.Duration, _fac9.dynamic>(
+              luaCallerArguments[2],
               parentState: hydroState),
           (event) => unpackedcallback.dispatch(
                 [luaCallerArguments[0], event],
@@ -99,85 +108,85 @@ class RTManagedPointerEventResampler extends PointerEventResampler
               ));
       return [];
     });
-    table['_dart_stop'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      Closure unpackedcallback = luaCallerArguments[1];
+    table['_dart_stop'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      _36c2.Closure unpackedcallback = luaCallerArguments[1];
       super.stop((event) => unpackedcallback.dispatch(
             [luaCallerArguments[0], event],
             parentState: hydroState,
           ));
       return [];
     });
-    table['_dart_getHasPendingEvents'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getHasPendingEvents'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.hasPendingEvents];
     });
-    table['_dart_getIsTracked'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getIsTracked'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.isTracked];
     });
-    table['_dart_getIsDown'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getIsDown'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.isDown];
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  PointerEventResampler unwrap() => this;
-  PointerEventResampler get vmObject => this;
-  @override
+  _6a3f.PointerEventResampler unwrap() => this;
+  _6a3f.PointerEventResampler get vmObject => this;
+  @_fac9.override
   void addEvent(event) {
-    Closure closure = table["addEvent"];
+    _36c2.Closure closure = table["addEvent"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
+  @_fac9.override
   void sample(sampleTime, nextSampleTime, callback) {
-    Closure closure = table["sample"];
+    _36c2.Closure closure = table["sample"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
+  @_fac9.override
   void stop(callback) {
-    Closure closure = table["stop"];
+    _36c2.Closure closure = table["stop"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  bool get hasPendingEvents {
-    Closure closure = table["getHasPendingEvents"];
+  @_fac9.override
+  _fac9.bool get hasPendingEvents {
+    _36c2.Closure closure = table["getHasPendingEvents"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  bool get isTracked {
-    Closure closure = table["getIsTracked"];
+  @_fac9.override
+  _fac9.bool get isTracked {
+    _36c2.Closure closure = table["getIsTracked"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  bool get isDown {
-    Closure closure = table["getIsDown"];
+  @_fac9.override
+  _fac9.bool get isDown {
+    _36c2.Closure closure = table["getIsDown"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 }
 
 void loadPointerEventResampler(
-    {required HydroState hydroState, required HydroTable table}) {
-  table['pointerEventResampler'] =
-      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    {required _36c2.HydroState hydroState, required _36c2.HydroTable table}) {
+  table['pointerEventResampler'] = _36c2.makeLuaDartFunc(
+      func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
     return [
       RTManagedPointerEventResampler(
           table: luaCallerArguments[0], hydroState: hydroState)
     ];
   });
-  registerBoxer<PointerEventResampler>(boxer: (
-      {required PointerEventResampler vmObject,
-      required HydroState hydroState,
-      required HydroTable table}) {
+  _36c2.registerBoxer<_6a3f.PointerEventResampler>(boxer: (
+      {required _6a3f.PointerEventResampler vmObject,
+      required _36c2.HydroState hydroState,
+      required _36c2.HydroTable table}) {
     return VMManagedPointerEventResampler(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

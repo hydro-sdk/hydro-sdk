@@ -1,11 +1,11 @@
-import 'dart:core';
+import 'dart:core' as _fac9;
 
-import 'package:flutter/src/gestures/multitap.dart';
+import 'package:flutter/src/gestures/multitap.dart' as _2713;
 
-import 'package:hydro_sdk/cfr/runtimeSupport.dart';
+import 'package:hydro_sdk/cfr/runtimeSupport.dart' as _36c2;
 
 class VMManagedSerialTapCancelDetails
-    extends VMManagedBox<SerialTapCancelDetails> {
+    extends _36c2.VMManagedBox<_2713.SerialTapCancelDetails> {
   VMManagedSerialTapCancelDetails(
       {required this.table, required this.vmObject, required this.hydroState})
       : super(
@@ -16,37 +16,39 @@ class VMManagedSerialTapCancelDetails
     table['count'] = vmObject.count;
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  final SerialTapCancelDetails vmObject;
+  final _2713.SerialTapCancelDetails vmObject;
 }
 
-class RTManagedSerialTapCancelDetails extends SerialTapCancelDetails
-    implements Box<SerialTapCancelDetails> {
+class RTManagedSerialTapCancelDetails extends _2713.SerialTapCancelDetails
+    implements _36c2.Box<_2713.SerialTapCancelDetails> {
   RTManagedSerialTapCancelDetails(
-      {required int count, required this.table, required this.hydroState})
+      {required _fac9.int count, required this.table, required this.hydroState})
       : super(count: count) {
     table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['unwrap'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [unwrap()];
     });
-    table['count'] = this.count;
+    table['count'] = _36c2.maybeBoxObject(
+        object: this.count, hydroState: hydroState, table: _36c2.HydroTable());
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  SerialTapCancelDetails unwrap() => this;
-  SerialTapCancelDetails get vmObject => this;
+  _2713.SerialTapCancelDetails unwrap() => this;
+  _2713.SerialTapCancelDetails get vmObject => this;
 }
 
 void loadSerialTapCancelDetails(
-    {required HydroState hydroState, required HydroTable table}) {
-  table['serialTapCancelDetails'] =
-      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    {required _36c2.HydroState hydroState, required _36c2.HydroTable table}) {
+  table['serialTapCancelDetails'] = _36c2.makeLuaDartFunc(
+      func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
     return [
       RTManagedSerialTapCancelDetails(
           table: luaCallerArguments[0],
@@ -56,10 +58,10 @@ void loadSerialTapCancelDetails(
               : null)
     ];
   });
-  registerBoxer<SerialTapCancelDetails>(boxer: (
-      {required SerialTapCancelDetails vmObject,
-      required HydroState hydroState,
-      required HydroTable table}) {
+  _36c2.registerBoxer<_2713.SerialTapCancelDetails>(boxer: (
+      {required _2713.SerialTapCancelDetails vmObject,
+      required _36c2.HydroState hydroState,
+      required _36c2.HydroTable table}) {
     return VMManagedSerialTapCancelDetails(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

@@ -1,12 +1,12 @@
-import 'dart:core';
+import 'dart:core' as _fac9;
 
-import 'package:flutter/src/rendering/box.dart';
-import 'package:flutter/src/rendering/list_wheel_viewport.dart';
+import 'package:flutter/src/rendering/box.dart' as _be2e;
+import 'package:flutter/src/rendering/list_wheel_viewport.dart' as _5bcb;
 
-import 'package:hydro_sdk/cfr/runtimeSupport.dart';
+import 'package:hydro_sdk/cfr/runtimeSupport.dart' as _36c2;
 
 class VMManagedListWheelChildManager
-    extends VMManagedBox<ListWheelChildManager> {
+    extends _36c2.VMManagedBox<_5bcb.ListWheelChildManager> {
   VMManagedListWheelChildManager(
       {required this.table, required this.vmObject, required this.hydroState})
       : super(
@@ -14,8 +14,8 @@ class VMManagedListWheelChildManager
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['getChildCount'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getChildCount'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       final returnValue = vmObject.childCount;
       if (returnValue != null) {
         return [
@@ -24,44 +24,46 @@ class VMManagedListWheelChildManager
       }
       return [];
     });
-    table['childExistsAt'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['childExistsAt'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.childExistsAt(luaCallerArguments[1]),
       ];
     });
-    table['createChild'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['createChild'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       vmObject.createChild(luaCallerArguments[1],
-          after: maybeUnBoxAndBuildArgument<RenderBox?, dynamic>(
-              luaCallerArguments.length >= 3
-                  ? luaCallerArguments[2]['after']
-                  : null,
-              parentState: hydroState));
+          after:
+              _36c2.maybeUnBoxAndBuildArgument<_be2e.RenderBox?, _fac9.dynamic>(
+                  luaCallerArguments.length >= 3
+                      ? luaCallerArguments[2]['after']
+                      : null,
+                  parentState: hydroState));
       return [];
     });
-    table['removeChild'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.removeChild(maybeUnBoxAndBuildArgument<RenderBox, dynamic>(
-          luaCallerArguments[1],
-          parentState: hydroState));
+    table['removeChild'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      vmObject.removeChild(
+          _36c2.maybeUnBoxAndBuildArgument<_be2e.RenderBox, _fac9.dynamic>(
+              luaCallerArguments[1],
+              parentState: hydroState));
       return [];
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  final ListWheelChildManager vmObject;
+  final _5bcb.ListWheelChildManager vmObject;
 }
 
 void loadListWheelChildManager(
-    {required HydroState hydroState, required HydroTable table}) {
-  registerBoxer<ListWheelChildManager>(boxer: (
-      {required ListWheelChildManager vmObject,
-      required HydroState hydroState,
-      required HydroTable table}) {
+    {required _36c2.HydroState hydroState, required _36c2.HydroTable table}) {
+  _36c2.registerBoxer<_5bcb.ListWheelChildManager>(boxer: (
+      {required _5bcb.ListWheelChildManager vmObject,
+      required _36c2.HydroState hydroState,
+      required _36c2.HydroTable table}) {
     return VMManagedListWheelChildManager(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

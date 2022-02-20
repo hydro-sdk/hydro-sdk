@@ -1,11 +1,12 @@
-import 'dart:core';
-import 'dart:ui';
+import 'dart:core' as _fac9;
+import 'dart:ui' as _a643;
 
-import 'package:flutter/src/rendering/editable.dart';
+import 'package:flutter/src/rendering/editable.dart' as _7eb4;
 
-import 'package:hydro_sdk/cfr/runtimeSupport.dart';
+import 'package:hydro_sdk/cfr/runtimeSupport.dart' as _36c2;
 
-class VMManagedTextSelectionPoint extends VMManagedBox<TextSelectionPoint> {
+class VMManagedTextSelectionPoint
+    extends _36c2.VMManagedBox<_7eb4.TextSelectionPoint> {
   VMManagedTextSelectionPoint(
       {required this.table, required this.vmObject, required this.hydroState})
       : super(
@@ -13,80 +14,91 @@ class VMManagedTextSelectionPoint extends VMManagedBox<TextSelectionPoint> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['point'] = maybeBoxObject<Offset>(
-        object: vmObject.point, hydroState: hydroState, table: HydroTable());
-    table['direction'] = TextDirection.values.indexWhere((x) {
+    table['point'] = _36c2.maybeBoxObject<_a643.Offset>(
+        object: vmObject.point,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['direction'] = _a643.TextDirection.values.indexWhere((x) {
       return x == vmObject.direction;
     });
-    table['toString'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['toString'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.toString(),
       ];
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  final TextSelectionPoint vmObject;
+  final _7eb4.TextSelectionPoint vmObject;
 }
 
-class RTManagedTextSelectionPoint extends TextSelectionPoint
-    implements Box<TextSelectionPoint> {
-  RTManagedTextSelectionPoint(Offset point$, TextDirection? direction$,
+class RTManagedTextSelectionPoint extends _7eb4.TextSelectionPoint
+    implements _36c2.Box<_7eb4.TextSelectionPoint> {
+  RTManagedTextSelectionPoint(
+      _a643.Offset point$, _a643.TextDirection? direction$,
       {required this.table, required this.hydroState})
       : super(
           point$,
           direction$,
         ) {
     table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['unwrap'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [unwrap()];
     });
-    table['point'] = maybeBoxObject<Offset>(
-        object: this.point, hydroState: hydroState, table: HydroTable());
-    table['direction'] = TextDirection.values.indexWhere((x) {
+    table['point'] = _36c2.maybeBoxObject(
+        object: this.point, hydroState: hydroState, table: _36c2.HydroTable());
+    table['direction'] = _a643.TextDirection.values.indexWhere((x) {
       return x == this.direction;
     });
-    table['_dart_toString'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [super.toString()];
+    table['_dart_toString'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      return [
+        _36c2.maybeBoxObject(
+            object: super.toString(),
+            hydroState: hydroState,
+            table: _36c2.HydroTable())
+      ];
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  TextSelectionPoint unwrap() => this;
-  TextSelectionPoint get vmObject => this;
-  @override
-  String toString() {
-    Closure closure = table["__tostring"];
+  _7eb4.TextSelectionPoint unwrap() => this;
+  _7eb4.TextSelectionPoint get vmObject => this;
+  @_fac9.override
+  _fac9.String toString() {
+    _36c2.Closure closure = table["__tostring"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 }
 
 void loadTextSelectionPoint(
-    {required HydroState hydroState, required HydroTable table}) {
-  table['textSelectionPoint'] =
-      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    {required _36c2.HydroState hydroState, required _36c2.HydroTable table}) {
+  table['textSelectionPoint'] = _36c2.makeLuaDartFunc(
+      func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
     return [
       RTManagedTextSelectionPoint(
-          maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[1],
+          _36c2.maybeUnBoxAndBuildArgument<_a643.Offset, _fac9.dynamic>(
+              luaCallerArguments[1],
               parentState: hydroState),
-          maybeUnBoxEnum(
-              values: TextDirection.values, boxedEnum: luaCallerArguments[2]),
+          _36c2.maybeUnBoxEnum(
+              values: _a643.TextDirection.values,
+              boxedEnum: luaCallerArguments[2]),
           table: luaCallerArguments[0],
           hydroState: hydroState)
     ];
   });
-  registerBoxer<TextSelectionPoint>(boxer: (
-      {required TextSelectionPoint vmObject,
-      required HydroState hydroState,
-      required HydroTable table}) {
+  _36c2.registerBoxer<_7eb4.TextSelectionPoint>(boxer: (
+      {required _7eb4.TextSelectionPoint vmObject,
+      required _36c2.HydroState hydroState,
+      required _36c2.HydroTable table}) {
     return VMManagedTextSelectionPoint(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

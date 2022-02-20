@@ -1,14 +1,14 @@
-import 'dart:core';
-import 'dart:ui';
+import 'dart:core' as _fac9;
+import 'dart:ui' as _a643;
 
-import 'package:flutter/src/foundation/diagnostics.dart';
-import 'package:flutter/src/painting/edge_insets.dart';
-import 'package:flutter/src/rendering/box.dart';
-import 'package:flutter/src/rendering/object.dart';
+import 'package:flutter/src/foundation/diagnostics.dart' as _eaf3;
+import 'package:flutter/src/painting/edge_insets.dart' as _96d1;
+import 'package:flutter/src/rendering/box.dart' as _be2e;
+import 'package:flutter/src/rendering/object.dart' as _9742;
 
-import 'package:hydro_sdk/cfr/runtimeSupport.dart';
+import 'package:hydro_sdk/cfr/runtimeSupport.dart' as _36c2;
 
-class VMManagedBoxConstraints extends VMManagedBox<BoxConstraints> {
+class VMManagedBoxConstraints extends _36c2.VMManagedBox<_be2e.BoxConstraints> {
   VMManagedBoxConstraints(
       {required this.table, required this.vmObject, required this.hydroState})
       : super(
@@ -20,10 +20,10 @@ class VMManagedBoxConstraints extends VMManagedBox<BoxConstraints> {
     table['maxWidth'] = vmObject.maxWidth;
     table['minHeight'] = vmObject.minHeight;
     table['maxHeight'] = vmObject.maxHeight;
-    table['copyWith'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['copyWith'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<BoxConstraints>(
+        _36c2.maybeBoxObject<_be2e.BoxConstraints>(
             object: vmObject.copyWith(
                 maxHeight: luaCallerArguments.length >= 2
                     ? luaCallerArguments[1]['maxHeight']
@@ -38,45 +38,44 @@ class VMManagedBoxConstraints extends VMManagedBox<BoxConstraints> {
                     ? luaCallerArguments[1]['minWidth']
                     : null?.toDouble()),
             hydroState: hydroState,
-            table: HydroTable()),
+            table: _36c2.HydroTable()),
       ];
     });
-    table['deflate'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['deflate'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<BoxConstraints>(
-            object: vmObject.deflate(
-                maybeUnBoxAndBuildArgument<EdgeInsets, dynamic>(
-                    luaCallerArguments[1],
-                    parentState: hydroState)),
+        _36c2.maybeBoxObject<_be2e.BoxConstraints>(
+            object: vmObject.deflate(_36c2.maybeUnBoxAndBuildArgument<
+                _96d1.EdgeInsets,
+                _fac9.dynamic>(luaCallerArguments[1], parentState: hydroState)),
             hydroState: hydroState,
-            table: HydroTable()),
+            table: _36c2.HydroTable()),
       ];
     });
-    table['loosen'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['loosen'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<BoxConstraints>(
+        _36c2.maybeBoxObject<_be2e.BoxConstraints>(
             object: vmObject.loosen(),
             hydroState: hydroState,
-            table: HydroTable()),
+            table: _36c2.HydroTable()),
       ];
     });
-    table['enforce'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['enforce'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<BoxConstraints>(
-            object: vmObject.enforce(
-                maybeUnBoxAndBuildArgument<BoxConstraints, dynamic>(
-                    luaCallerArguments[1],
-                    parentState: hydroState)),
+        _36c2.maybeBoxObject<_be2e.BoxConstraints>(
+            object: vmObject.enforce(_36c2.maybeUnBoxAndBuildArgument<
+                _be2e.BoxConstraints,
+                _fac9.dynamic>(luaCallerArguments[1], parentState: hydroState)),
             hydroState: hydroState,
-            table: HydroTable()),
+            table: _36c2.HydroTable()),
       ];
     });
-    table['tighten'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['tighten'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<BoxConstraints>(
+        _36c2.maybeBoxObject<_be2e.BoxConstraints>(
             object: vmObject.tighten(
                 height: luaCallerArguments.length >= 2
                     ? luaCallerArguments[1]['height']
@@ -85,165 +84,170 @@ class VMManagedBoxConstraints extends VMManagedBox<BoxConstraints> {
                     ? luaCallerArguments[1]['width']
                     : null?.toDouble()),
             hydroState: hydroState,
-            table: HydroTable()),
+            table: _36c2.HydroTable()),
       ];
     });
-    table['getFlipped'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getFlipped'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<BoxConstraints>(
+        _36c2.maybeBoxObject<_be2e.BoxConstraints>(
             object: vmObject.flipped,
             hydroState: hydroState,
-            table: HydroTable()),
+            table: _36c2.HydroTable()),
       ];
     });
-    table['widthConstraints'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['widthConstraints'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<BoxConstraints>(
+        _36c2.maybeBoxObject<_be2e.BoxConstraints>(
             object: vmObject.widthConstraints(),
             hydroState: hydroState,
-            table: HydroTable()),
+            table: _36c2.HydroTable()),
       ];
     });
-    table['heightConstraints'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['heightConstraints'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<BoxConstraints>(
+        _36c2.maybeBoxObject<_be2e.BoxConstraints>(
             object: vmObject.heightConstraints(),
             hydroState: hydroState,
-            table: HydroTable()),
+            table: _36c2.HydroTable()),
       ];
     });
-    table['constrainWidth'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['constrainWidth'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.constrainWidth(luaCallerArguments[1]?.toDouble()),
       ];
     });
-    table['constrainHeight'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['constrainHeight'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.constrainHeight(luaCallerArguments[1]?.toDouble()),
       ];
     });
-    table['constrain'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['constrain'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<Size>(
+        _36c2.maybeBoxObject<_a643.Size>(
             object: vmObject.constrain(
-                maybeUnBoxAndBuildArgument<Size, dynamic>(luaCallerArguments[1],
+                _36c2.maybeUnBoxAndBuildArgument<_a643.Size, _fac9.dynamic>(
+                    luaCallerArguments[1],
                     parentState: hydroState)),
             hydroState: hydroState,
-            table: HydroTable()),
+            table: _36c2.HydroTable()),
       ];
     });
-    table['constrainDimensions'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['constrainDimensions'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<Size>(
+        _36c2.maybeBoxObject<_a643.Size>(
             object: vmObject.constrainDimensions(
                 luaCallerArguments[1]?.toDouble(),
                 luaCallerArguments[2]?.toDouble()),
             hydroState: hydroState,
-            table: HydroTable()),
+            table: _36c2.HydroTable()),
       ];
     });
-    table['constrainSizeAndAttemptToPreserveAspectRatio'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['constrainSizeAndAttemptToPreserveAspectRatio'] = _36c2
+        .makeLuaDartFunc(func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<Size>(
+        _36c2.maybeBoxObject<_a643.Size>(
             object: vmObject.constrainSizeAndAttemptToPreserveAspectRatio(
-                maybeUnBoxAndBuildArgument<Size, dynamic>(luaCallerArguments[1],
+                _36c2.maybeUnBoxAndBuildArgument<_a643.Size, _fac9.dynamic>(
+                    luaCallerArguments[1],
                     parentState: hydroState)),
             hydroState: hydroState,
-            table: HydroTable()),
+            table: _36c2.HydroTable()),
       ];
     });
-    table['getBiggest'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getBiggest'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<Size>(
+        _36c2.maybeBoxObject<_a643.Size>(
             object: vmObject.biggest,
             hydroState: hydroState,
-            table: HydroTable()),
+            table: _36c2.HydroTable()),
       ];
     });
-    table['getSmallest'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getSmallest'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<Size>(
+        _36c2.maybeBoxObject<_a643.Size>(
             object: vmObject.smallest,
             hydroState: hydroState,
-            table: HydroTable()),
+            table: _36c2.HydroTable()),
       ];
     });
-    table['getHasTightWidth'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getHasTightWidth'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.hasTightWidth,
       ];
     });
-    table['getHasTightHeight'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getHasTightHeight'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.hasTightHeight,
       ];
     });
-    table['getIsTight'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getIsTight'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.isTight,
       ];
     });
-    table['getHasBoundedWidth'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getHasBoundedWidth'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.hasBoundedWidth,
       ];
     });
-    table['getHasBoundedHeight'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getHasBoundedHeight'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.hasBoundedHeight,
       ];
     });
-    table['getHasInfiniteWidth'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getHasInfiniteWidth'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.hasInfiniteWidth,
       ];
     });
-    table['getHasInfiniteHeight'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getHasInfiniteHeight'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.hasInfiniteHeight,
       ];
     });
-    table['isSatisfiedBy'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['isSatisfiedBy'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        vmObject.isSatisfiedBy(maybeUnBoxAndBuildArgument<Size, dynamic>(
-            luaCallerArguments[1],
-            parentState: hydroState)),
+        vmObject.isSatisfiedBy(
+            _36c2.maybeUnBoxAndBuildArgument<_a643.Size, _fac9.dynamic>(
+                luaCallerArguments[1],
+                parentState: hydroState)),
       ];
     });
-    table['getIsNormalized'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getIsNormalized'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.isNormalized,
       ];
     });
-    table['debugAssertIsValid'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      Closure? unpackedinformationCollector = luaCallerArguments.length >= 2
-          ? luaCallerArguments[1]['informationCollector']
-          : null;
+    table['debugAssertIsValid'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      _36c2.Closure? unpackedinformationCollector =
+          luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['informationCollector']
+              : null;
       return [
         vmObject.debugAssertIsValid(
             informationCollector: unpackedinformationCollector != null
-                ? () => maybeUnBoxAndBuildArgument<Iterable<DiagnosticsNode>,
-                        DiagnosticsNode>(
+                ? () => _36c2.maybeUnBoxAndBuildArgument<
+                        _fac9.Iterable<_eaf3.DiagnosticsNode>,
+                        _eaf3.DiagnosticsNode>(
                     unpackedinformationCollector.dispatch(
                       [
                         luaCallerArguments[0],
@@ -257,43 +261,43 @@ class VMManagedBoxConstraints extends VMManagedBox<BoxConstraints> {
                 : null),
       ];
     });
-    table['normalize'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['normalize'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<BoxConstraints>(
+        _36c2.maybeBoxObject<_be2e.BoxConstraints>(
             object: vmObject.normalize(),
             hydroState: hydroState,
-            table: HydroTable()),
+            table: _36c2.HydroTable()),
       ];
     });
-    table['getHashCode'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getHashCode'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.hashCode,
       ];
     });
-    table['toString'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['toString'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.toString(),
       ];
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  final BoxConstraints vmObject;
+  final _be2e.BoxConstraints vmObject;
 }
 
-class RTManagedBoxConstraints extends BoxConstraints
-    implements Box<BoxConstraints> {
+class RTManagedBoxConstraints extends _be2e.BoxConstraints
+    implements _36c2.Box<_be2e.BoxConstraints> {
   RTManagedBoxConstraints(
-      {required double maxHeight,
-      required double maxWidth,
-      required double minHeight,
-      required double minWidth,
+      {required _fac9.double maxHeight,
+      required _fac9.double maxWidth,
+      required _fac9.double minHeight,
+      required _fac9.double minWidth,
       required this.table,
       required this.hydroState})
       : super(
@@ -302,444 +306,514 @@ class RTManagedBoxConstraints extends BoxConstraints
             minHeight: minHeight,
             minWidth: minWidth) {
     table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['unwrap'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [unwrap()];
     });
-    table['minWidth'] = this.minWidth;
-    table['maxWidth'] = this.maxWidth;
-    table['minHeight'] = this.minHeight;
-    table['maxHeight'] = this.maxHeight;
-    table['_dart_copyWith'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['minWidth'] = _36c2.maybeBoxObject(
+        object: this.minWidth,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['maxWidth'] = _36c2.maybeBoxObject(
+        object: this.maxWidth,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['minHeight'] = _36c2.maybeBoxObject(
+        object: this.minHeight,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['maxHeight'] = _36c2.maybeBoxObject(
+        object: this.maxHeight,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['_dart_copyWith'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<BoxConstraints>(
+        _36c2.maybeBoxObject(
             object: super.copyWith(
-                maxHeight: luaCallerArguments.length >= 2
-                    ? luaCallerArguments[1]['maxHeight']
-                    : null?.toDouble(),
-                maxWidth: luaCallerArguments.length >= 2
-                    ? luaCallerArguments[1]['maxWidth']
-                    : null?.toDouble(),
-                minHeight: luaCallerArguments.length >= 2
-                    ? luaCallerArguments[1]['minHeight']
-                    : null?.toDouble(),
-                minWidth: luaCallerArguments.length >= 2
-                    ? luaCallerArguments[1]['minWidth']
-                    : null?.toDouble()),
-            hydroState: hydroState,
-            table: HydroTable())
-      ];
-    });
-    table['_dart_deflate'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        maybeBoxObject<BoxConstraints>(
-            object: super.deflate(
-                maybeUnBoxAndBuildArgument<EdgeInsets, dynamic>(
-                    luaCallerArguments[1],
+                maxHeight: _36c2.maybeUnBoxAndBuildArgument<_fac9.double?, _fac9.dynamic>(luaCallerArguments.length >= 2 ? luaCallerArguments[1]['maxHeight'] : null,
+                    parentState: hydroState),
+                maxWidth: _36c2.maybeUnBoxAndBuildArgument<_fac9.double?, _fac9.dynamic>(luaCallerArguments.length >= 2 ? luaCallerArguments[1]['maxWidth'] : null,
+                    parentState: hydroState),
+                minHeight: _36c2.maybeUnBoxAndBuildArgument<_fac9.double?, _fac9.dynamic>(
+                    luaCallerArguments.length >= 2
+                        ? luaCallerArguments[1]['minHeight']
+                        : null,
+                    parentState: hydroState),
+                minWidth: _36c2.maybeUnBoxAndBuildArgument<_fac9.double?, _fac9.dynamic>(
+                    luaCallerArguments.length >= 2 ? luaCallerArguments[1]['minWidth'] : null,
                     parentState: hydroState)),
             hydroState: hydroState,
-            table: HydroTable())
+            table: _36c2.HydroTable())
       ];
     });
-    table['_dart_loosen'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_deflate'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<BoxConstraints>(
-            object: super.loosen(), hydroState: hydroState, table: HydroTable())
-      ];
-    });
-    table['_dart_enforce'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        maybeBoxObject<BoxConstraints>(
-            object: super.enforce(
-                maybeUnBoxAndBuildArgument<BoxConstraints, dynamic>(
-                    luaCallerArguments[1],
-                    parentState: hydroState)),
+        _36c2.maybeBoxObject(
+            object: super.deflate(_36c2.maybeUnBoxAndBuildArgument<
+                _96d1.EdgeInsets,
+                _fac9.dynamic>(luaCallerArguments[1], parentState: hydroState)),
             hydroState: hydroState,
-            table: HydroTable())
+            table: _36c2.HydroTable())
       ];
     });
-    table['_dart_tighten'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_loosen'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<BoxConstraints>(
+        _36c2.maybeBoxObject(
+            object: super.loosen(),
+            hydroState: hydroState,
+            table: _36c2.HydroTable())
+      ];
+    });
+    table['_dart_enforce'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      return [
+        _36c2.maybeBoxObject(
+            object: super.enforce(_36c2.maybeUnBoxAndBuildArgument<
+                _be2e.BoxConstraints,
+                _fac9.dynamic>(luaCallerArguments[1], parentState: hydroState)),
+            hydroState: hydroState,
+            table: _36c2.HydroTable())
+      ];
+    });
+    table['_dart_tighten'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      return [
+        _36c2.maybeBoxObject(
             object: super.tighten(
-                height: luaCallerArguments.length >= 2
-                    ? luaCallerArguments[1]['height']
-                    : null?.toDouble(),
-                width: luaCallerArguments.length >= 2
-                    ? luaCallerArguments[1]['width']
-                    : null?.toDouble()),
+                height: _36c2
+                    .maybeUnBoxAndBuildArgument<_fac9.double?, _fac9.dynamic>(
+                        luaCallerArguments.length >= 2
+                            ? luaCallerArguments[1]['height']
+                            : null,
+                        parentState: hydroState),
+                width: _36c2
+                    .maybeUnBoxAndBuildArgument<_fac9.double?, _fac9.dynamic>(
+                        luaCallerArguments.length >= 2
+                            ? luaCallerArguments[1]['width']
+                            : null,
+                        parentState: hydroState)),
             hydroState: hydroState,
-            table: HydroTable())
+            table: _36c2.HydroTable())
       ];
     });
-    table['_dart_getFlipped'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getFlipped'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.flipped];
     });
-    table['_dart_widthConstraints'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_widthConstraints'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<BoxConstraints>(
+        _36c2.maybeBoxObject(
             object: super.widthConstraints(),
             hydroState: hydroState,
-            table: HydroTable())
+            table: _36c2.HydroTable())
       ];
     });
-    table['_dart_heightConstraints'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_heightConstraints'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<BoxConstraints>(
+        _36c2.maybeBoxObject(
             object: super.heightConstraints(),
             hydroState: hydroState,
-            table: HydroTable())
+            table: _36c2.HydroTable())
       ];
     });
-    table['_dart_constrainWidth'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [super.constrainWidth(luaCallerArguments[1]?.toDouble())];
-    });
-    table['_dart_constrainHeight'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [super.constrainHeight(luaCallerArguments[1]?.toDouble())];
-    });
-    table['_dart_constrain'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_constrainWidth'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<Size>(
-            object: super.constrain(maybeUnBoxAndBuildArgument<Size, dynamic>(
-                luaCallerArguments[1],
-                parentState: hydroState)),
-            hydroState: hydroState,
-            table: HydroTable())
-      ];
-    });
-    table['_dart_constrainDimensions'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        maybeBoxObject<Size>(
-            object: super.constrainDimensions(luaCallerArguments[1]?.toDouble(),
-                luaCallerArguments[2]?.toDouble()),
-            hydroState: hydroState,
-            table: HydroTable())
-      ];
-    });
-    table['_dart_constrainSizeAndAttemptToPreserveAspectRatio'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        maybeBoxObject<Size>(
-            object: super.constrainSizeAndAttemptToPreserveAspectRatio(
-                maybeUnBoxAndBuildArgument<Size, dynamic>(luaCallerArguments[1],
+        _36c2.maybeBoxObject(
+            object: super.constrainWidth(
+                _36c2.maybeUnBoxAndBuildArgument<_fac9.double, _fac9.dynamic>(
+                    luaCallerArguments[1],
                     parentState: hydroState)),
             hydroState: hydroState,
-            table: HydroTable())
+            table: _36c2.HydroTable())
       ];
     });
-    table['_dart_getBiggest'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_constrainHeight'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      return [
+        _36c2.maybeBoxObject(
+            object: super.constrainHeight(
+                _36c2.maybeUnBoxAndBuildArgument<_fac9.double, _fac9.dynamic>(
+                    luaCallerArguments[1],
+                    parentState: hydroState)),
+            hydroState: hydroState,
+            table: _36c2.HydroTable())
+      ];
+    });
+    table['_dart_constrain'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      return [
+        _36c2.maybeBoxObject(
+            object: super.constrain(
+                _36c2.maybeUnBoxAndBuildArgument<_a643.Size, _fac9.dynamic>(
+                    luaCallerArguments[1],
+                    parentState: hydroState)),
+            hydroState: hydroState,
+            table: _36c2.HydroTable())
+      ];
+    });
+    table['_dart_constrainDimensions'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      return [
+        _36c2.maybeBoxObject(
+            object: super.constrainDimensions(
+                _36c2.maybeUnBoxAndBuildArgument<_fac9.double, _fac9.dynamic>(
+                    luaCallerArguments[1],
+                    parentState: hydroState),
+                _36c2.maybeUnBoxAndBuildArgument<_fac9.double, _fac9.dynamic>(
+                    luaCallerArguments[2],
+                    parentState: hydroState)),
+            hydroState: hydroState,
+            table: _36c2.HydroTable())
+      ];
+    });
+    table['_dart_constrainSizeAndAttemptToPreserveAspectRatio'] = _36c2
+        .makeLuaDartFunc(func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      return [
+        _36c2.maybeBoxObject(
+            object: super.constrainSizeAndAttemptToPreserveAspectRatio(
+                _36c2.maybeUnBoxAndBuildArgument<_a643.Size, _fac9.dynamic>(
+                    luaCallerArguments[1],
+                    parentState: hydroState)),
+            hydroState: hydroState,
+            table: _36c2.HydroTable())
+      ];
+    });
+    table['_dart_getBiggest'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.biggest];
     });
-    table['_dart_getSmallest'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getSmallest'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.smallest];
     });
-    table['_dart_getHasTightWidth'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getHasTightWidth'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.hasTightWidth];
     });
-    table['_dart_getHasTightHeight'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getHasTightHeight'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.hasTightHeight];
     });
-    table['_dart_getIsTight'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getIsTight'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.isTight];
     });
-    table['_dart_getHasBoundedWidth'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getHasBoundedWidth'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.hasBoundedWidth];
     });
-    table['_dart_getHasBoundedHeight'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getHasBoundedHeight'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.hasBoundedHeight];
     });
-    table['_dart_getHasInfiniteWidth'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getHasInfiniteWidth'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.hasInfiniteWidth];
     });
-    table['_dart_getHasInfiniteHeight'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getHasInfiniteHeight'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.hasInfiniteHeight];
     });
-    table['_dart_isSatisfiedBy'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_isSatisfiedBy'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        super.isSatisfiedBy(maybeUnBoxAndBuildArgument<Size, dynamic>(
-            luaCallerArguments[1],
-            parentState: hydroState))
+        _36c2.maybeBoxObject(
+            object: super.isSatisfiedBy(
+                _36c2.maybeUnBoxAndBuildArgument<_a643.Size, _fac9.dynamic>(
+                    luaCallerArguments[1],
+                    parentState: hydroState)),
+            hydroState: hydroState,
+            table: _36c2.HydroTable())
       ];
     });
-    table['_dart_getIsNormalized'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getIsNormalized'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.isNormalized];
     });
-    table['_dart_debugAssertIsValid'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      Closure? unpackedinformationCollector = luaCallerArguments.length >= 2
-          ? luaCallerArguments[1]['informationCollector']
-          : null;
+    table['_dart_debugAssertIsValid'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      _36c2.Closure? unpackedinformationCollector =
+          luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['informationCollector']
+              : null;
       return [
-        super.debugAssertIsValid(
-            informationCollector: unpackedinformationCollector != null
-                ? () => maybeUnBoxAndBuildArgument<Iterable<DiagnosticsNode>,
-                        DiagnosticsNode>(
-                    unpackedinformationCollector.dispatch(
-                      [
-                        luaCallerArguments[0],
-                      ],
-                      parentState: hydroState,
-                    )[0],
-                    parentState: hydroState)
-                : null,
-            isAppliedConstraint: luaCallerArguments.length >= 2
-                ? luaCallerArguments[1]['isAppliedConstraint']
-                : null)
+        _36c2.maybeBoxObject(
+            object: super.debugAssertIsValid(
+                informationCollector: unpackedinformationCollector != null
+                    ? () => _36c2.maybeUnBoxAndBuildArgument<
+                            _fac9.Iterable<_eaf3.DiagnosticsNode>,
+                            _eaf3.DiagnosticsNode>(
+                        unpackedinformationCollector.dispatch(
+                          [
+                            luaCallerArguments[0],
+                          ],
+                          parentState: hydroState,
+                        )[0],
+                        parentState: hydroState)
+                    : null,
+                isAppliedConstraint:
+                    _36c2.maybeUnBoxAndBuildArgument<_fac9.bool, _fac9.dynamic>(
+                        luaCallerArguments.length >= 2
+                            ? luaCallerArguments[1]['isAppliedConstraint']
+                            : null,
+                        parentState: hydroState)),
+            hydroState: hydroState,
+            table: _36c2.HydroTable())
       ];
     });
-    table['_dart_normalize'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_normalize'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<BoxConstraints>(
+        _36c2.maybeBoxObject(
             object: super.normalize(),
             hydroState: hydroState,
-            table: HydroTable())
+            table: _36c2.HydroTable())
       ];
     });
-    table['_dart_getHashCode'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getHashCode'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.hashCode];
     });
-    table['_dart_toString'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [super.toString()];
+    table['_dart_toString'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      return [
+        _36c2.maybeBoxObject(
+            object: super.toString(),
+            hydroState: hydroState,
+            table: _36c2.HydroTable())
+      ];
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  BoxConstraints unwrap() => this;
-  BoxConstraints get vmObject => this;
-  @override
-  BoxConstraints copyWith(
-      {double? maxHeight,
-      double? maxWidth,
-      double? minHeight,
-      double? minWidth}) {
-    Closure closure = table["copyWith"];
-    return maybeUnBoxAndBuildArgument<BoxConstraints, dynamic>(
-        closure.dispatch([table], parentState: hydroState)[0],
-        parentState: hydroState);
+  _be2e.BoxConstraints unwrap() => this;
+  _be2e.BoxConstraints get vmObject => this;
+  @_fac9.override
+  _be2e.BoxConstraints copyWith(
+      {_fac9.double? maxHeight,
+      _fac9.double? maxWidth,
+      _fac9.double? minHeight,
+      _fac9.double? minWidth}) {
+    _36c2.Closure closure = table["copyWith"];
+    return _36c2
+        .maybeUnBoxAndBuildArgument<_be2e.BoxConstraints, _fac9.dynamic>(
+            closure.dispatch([table], parentState: hydroState)[0],
+            parentState: hydroState);
   }
 
-  @override
-  BoxConstraints deflate(edges) {
-    Closure closure = table["deflate"];
-    return maybeUnBoxAndBuildArgument<BoxConstraints, dynamic>(
-        closure.dispatch([table], parentState: hydroState)[0],
-        parentState: hydroState);
+  @_fac9.override
+  _be2e.BoxConstraints deflate(edges) {
+    _36c2.Closure closure = table["deflate"];
+    return _36c2
+        .maybeUnBoxAndBuildArgument<_be2e.BoxConstraints, _fac9.dynamic>(
+            closure.dispatch([table], parentState: hydroState)[0],
+            parentState: hydroState);
   }
 
-  @override
-  BoxConstraints loosen() {
-    Closure closure = table["loosen"];
-    return maybeUnBoxAndBuildArgument<BoxConstraints, dynamic>(
-        closure.dispatch([table], parentState: hydroState)[0],
-        parentState: hydroState);
+  @_fac9.override
+  _be2e.BoxConstraints loosen() {
+    _36c2.Closure closure = table["loosen"];
+    return _36c2
+        .maybeUnBoxAndBuildArgument<_be2e.BoxConstraints, _fac9.dynamic>(
+            closure.dispatch([table], parentState: hydroState)[0],
+            parentState: hydroState);
   }
 
-  @override
-  BoxConstraints enforce(constraints) {
-    Closure closure = table["enforce"];
-    return maybeUnBoxAndBuildArgument<BoxConstraints, dynamic>(
-        closure.dispatch([table], parentState: hydroState)[0],
-        parentState: hydroState);
+  @_fac9.override
+  _be2e.BoxConstraints enforce(constraints) {
+    _36c2.Closure closure = table["enforce"];
+    return _36c2
+        .maybeUnBoxAndBuildArgument<_be2e.BoxConstraints, _fac9.dynamic>(
+            closure.dispatch([table], parentState: hydroState)[0],
+            parentState: hydroState);
   }
 
-  @override
-  BoxConstraints tighten({double? height, double? width}) {
-    Closure closure = table["tighten"];
-    return maybeUnBoxAndBuildArgument<BoxConstraints, dynamic>(
-        closure.dispatch([table], parentState: hydroState)[0],
-        parentState: hydroState);
+  @_fac9.override
+  _be2e.BoxConstraints tighten({_fac9.double? height, _fac9.double? width}) {
+    _36c2.Closure closure = table["tighten"];
+    return _36c2
+        .maybeUnBoxAndBuildArgument<_be2e.BoxConstraints, _fac9.dynamic>(
+            closure.dispatch([table], parentState: hydroState)[0],
+            parentState: hydroState);
   }
 
-  @override
-  BoxConstraints get flipped {
-    Closure closure = table["getFlipped"];
-    return maybeUnBoxAndBuildArgument<BoxConstraints, dynamic>(
-        closure.dispatch([table], parentState: hydroState)[0],
-        parentState: hydroState);
+  @_fac9.override
+  _be2e.BoxConstraints get flipped {
+    _36c2.Closure closure = table["getFlipped"];
+    return _36c2
+        .maybeUnBoxAndBuildArgument<_be2e.BoxConstraints, _fac9.dynamic>(
+            closure.dispatch([table], parentState: hydroState)[0],
+            parentState: hydroState);
   }
 
-  @override
-  BoxConstraints widthConstraints() {
-    Closure closure = table["widthConstraints"];
-    return maybeUnBoxAndBuildArgument<BoxConstraints, dynamic>(
-        closure.dispatch([table], parentState: hydroState)[0],
-        parentState: hydroState);
+  @_fac9.override
+  _be2e.BoxConstraints widthConstraints() {
+    _36c2.Closure closure = table["widthConstraints"];
+    return _36c2
+        .maybeUnBoxAndBuildArgument<_be2e.BoxConstraints, _fac9.dynamic>(
+            closure.dispatch([table], parentState: hydroState)[0],
+            parentState: hydroState);
   }
 
-  @override
-  BoxConstraints heightConstraints() {
-    Closure closure = table["heightConstraints"];
-    return maybeUnBoxAndBuildArgument<BoxConstraints, dynamic>(
-        closure.dispatch([table], parentState: hydroState)[0],
-        parentState: hydroState);
+  @_fac9.override
+  _be2e.BoxConstraints heightConstraints() {
+    _36c2.Closure closure = table["heightConstraints"];
+    return _36c2
+        .maybeUnBoxAndBuildArgument<_be2e.BoxConstraints, _fac9.dynamic>(
+            closure.dispatch([table], parentState: hydroState)[0],
+            parentState: hydroState);
   }
 
-  @override
-  double constrainWidth([double width = double.infinity]) {
-    Closure closure = table["constrainWidth"];
+  @_fac9.override
+  _fac9.double constrainWidth([_fac9.double width = _fac9.double.infinity]) {
+    _36c2.Closure closure = table["constrainWidth"];
     return closure.dispatch([table], parentState: hydroState)[0]?.toDouble();
   }
 
-  @override
-  double constrainHeight([double height = double.infinity]) {
-    Closure closure = table["constrainHeight"];
+  @_fac9.override
+  _fac9.double constrainHeight([_fac9.double height = _fac9.double.infinity]) {
+    _36c2.Closure closure = table["constrainHeight"];
     return closure.dispatch([table], parentState: hydroState)[0]?.toDouble();
   }
 
-  @override
-  Size constrain(size) {
-    Closure closure = table["constrain"];
-    return maybeUnBoxAndBuildArgument<Size, dynamic>(
+  @_fac9.override
+  _a643.Size constrain(size) {
+    _36c2.Closure closure = table["constrain"];
+    return _36c2.maybeUnBoxAndBuildArgument<_a643.Size, _fac9.dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
 
-  @override
-  Size constrainDimensions(width, height) {
-    Closure closure = table["constrainDimensions"];
-    return maybeUnBoxAndBuildArgument<Size, dynamic>(
+  @_fac9.override
+  _a643.Size constrainDimensions(width, height) {
+    _36c2.Closure closure = table["constrainDimensions"];
+    return _36c2.maybeUnBoxAndBuildArgument<_a643.Size, _fac9.dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
 
-  @override
-  Size constrainSizeAndAttemptToPreserveAspectRatio(size) {
-    Closure closure = table["constrainSizeAndAttemptToPreserveAspectRatio"];
-    return maybeUnBoxAndBuildArgument<Size, dynamic>(
+  @_fac9.override
+  _a643.Size constrainSizeAndAttemptToPreserveAspectRatio(size) {
+    _36c2.Closure closure =
+        table["constrainSizeAndAttemptToPreserveAspectRatio"];
+    return _36c2.maybeUnBoxAndBuildArgument<_a643.Size, _fac9.dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
 
-  @override
-  Size get biggest {
-    Closure closure = table["getBiggest"];
-    return maybeUnBoxAndBuildArgument<Size, dynamic>(
+  @_fac9.override
+  _a643.Size get biggest {
+    _36c2.Closure closure = table["getBiggest"];
+    return _36c2.maybeUnBoxAndBuildArgument<_a643.Size, _fac9.dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
 
-  @override
-  Size get smallest {
-    Closure closure = table["getSmallest"];
-    return maybeUnBoxAndBuildArgument<Size, dynamic>(
+  @_fac9.override
+  _a643.Size get smallest {
+    _36c2.Closure closure = table["getSmallest"];
+    return _36c2.maybeUnBoxAndBuildArgument<_a643.Size, _fac9.dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
 
-  @override
-  bool get hasTightWidth {
-    Closure closure = table["getHasTightWidth"];
+  @_fac9.override
+  _fac9.bool get hasTightWidth {
+    _36c2.Closure closure = table["getHasTightWidth"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  bool get hasTightHeight {
-    Closure closure = table["getHasTightHeight"];
+  @_fac9.override
+  _fac9.bool get hasTightHeight {
+    _36c2.Closure closure = table["getHasTightHeight"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  bool get isTight {
-    Closure closure = table["getIsTight"];
+  @_fac9.override
+  _fac9.bool get isTight {
+    _36c2.Closure closure = table["getIsTight"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  bool get hasBoundedWidth {
-    Closure closure = table["getHasBoundedWidth"];
+  @_fac9.override
+  _fac9.bool get hasBoundedWidth {
+    _36c2.Closure closure = table["getHasBoundedWidth"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  bool get hasBoundedHeight {
-    Closure closure = table["getHasBoundedHeight"];
+  @_fac9.override
+  _fac9.bool get hasBoundedHeight {
+    _36c2.Closure closure = table["getHasBoundedHeight"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  bool get hasInfiniteWidth {
-    Closure closure = table["getHasInfiniteWidth"];
+  @_fac9.override
+  _fac9.bool get hasInfiniteWidth {
+    _36c2.Closure closure = table["getHasInfiniteWidth"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  bool get hasInfiniteHeight {
-    Closure closure = table["getHasInfiniteHeight"];
+  @_fac9.override
+  _fac9.bool get hasInfiniteHeight {
+    _36c2.Closure closure = table["getHasInfiniteHeight"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  bool isSatisfiedBy(size) {
-    Closure closure = table["isSatisfiedBy"];
+  @_fac9.override
+  _fac9.bool isSatisfiedBy(size) {
+    _36c2.Closure closure = table["isSatisfiedBy"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  bool get isNormalized {
-    Closure closure = table["getIsNormalized"];
+  @_fac9.override
+  _fac9.bool get isNormalized {
+    _36c2.Closure closure = table["getIsNormalized"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  bool debugAssertIsValid(
-      {informationCollector, bool isAppliedConstraint = false}) {
-    Closure closure = table["debugAssertIsValid"];
+  @_fac9.override
+  _fac9.bool debugAssertIsValid(
+      {_fac9.Iterable<_eaf3.DiagnosticsNode> Function()? informationCollector,
+      _fac9.bool isAppliedConstraint = false}) {
+    _36c2.Closure closure = table["debugAssertIsValid"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  BoxConstraints normalize() {
-    Closure closure = table["normalize"];
-    return maybeUnBoxAndBuildArgument<BoxConstraints, dynamic>(
-        closure.dispatch([table], parentState: hydroState)[0],
-        parentState: hydroState);
+  @_fac9.override
+  _be2e.BoxConstraints normalize() {
+    _36c2.Closure closure = table["normalize"];
+    return _36c2
+        .maybeUnBoxAndBuildArgument<_be2e.BoxConstraints, _fac9.dynamic>(
+            closure.dispatch([table], parentState: hydroState)[0],
+            parentState: hydroState);
   }
 
-  @override
-  int get hashCode {
-    Closure closure = table["getHashCode"];
+  @_fac9.override
+  _fac9.int get hashCode {
+    _36c2.Closure closure = table["getHashCode"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  String toString() {
-    Closure closure = table["__tostring"];
+  @_fac9.override
+  _fac9.String toString() {
+    _36c2.Closure closure = table["__tostring"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 }
 
 void loadBoxConstraints(
-    {required HydroState hydroState, required HydroTable table}) {
-  table['boxConstraints'] =
-      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    {required _36c2.HydroState hydroState, required _36c2.HydroTable table}) {
+  table['boxConstraints'] = _36c2.makeLuaDartFunc(
+      func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
     return [
       RTManagedBoxConstraints(
           table: luaCallerArguments[0],
@@ -758,28 +832,30 @@ void loadBoxConstraints(
               : null?.toDouble())
     ];
   });
-  table['boxConstraintsLerp'] =
-      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-    final returnValue = BoxConstraints.lerp(
-        maybeUnBoxAndBuildArgument<BoxConstraints?, dynamic>(
+  table['boxConstraintsLerp'] = _36c2.makeLuaDartFunc(
+      func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+    final returnValue = _be2e.BoxConstraints.lerp(
+        _36c2.maybeUnBoxAndBuildArgument<_be2e.BoxConstraints?, _fac9.dynamic>(
             luaCallerArguments[1],
             parentState: hydroState),
-        maybeUnBoxAndBuildArgument<BoxConstraints?, dynamic>(
+        _36c2.maybeUnBoxAndBuildArgument<_be2e.BoxConstraints?, _fac9.dynamic>(
             luaCallerArguments[2],
             parentState: hydroState),
         luaCallerArguments[3]?.toDouble());
     if (returnValue != null) {
       return [
-        maybeBoxObject<BoxConstraints?>(
-            object: returnValue, hydroState: hydroState, table: HydroTable()),
+        _36c2.maybeBoxObject<_be2e.BoxConstraints?>(
+            object: returnValue,
+            hydroState: hydroState,
+            table: _36c2.HydroTable()),
       ];
     }
     return [];
   });
-  registerBoxer<BoxConstraints>(boxer: (
-      {required BoxConstraints vmObject,
-      required HydroState hydroState,
-      required HydroTable table}) {
+  _36c2.registerBoxer<_be2e.BoxConstraints>(boxer: (
+      {required _be2e.BoxConstraints vmObject,
+      required _36c2.HydroState hydroState,
+      required _36c2.HydroTable table}) {
     return VMManagedBoxConstraints(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

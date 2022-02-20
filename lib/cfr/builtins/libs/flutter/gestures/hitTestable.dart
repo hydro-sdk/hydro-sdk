@@ -1,10 +1,11 @@
-import 'dart:ui';
+import 'dart:core' as _fac9;
+import 'dart:ui' as _a643;
 
-import 'package:flutter/src/gestures/hit_test.dart';
+import 'package:flutter/src/gestures/hit_test.dart' as _baac;
 
-import 'package:hydro_sdk/cfr/runtimeSupport.dart';
+import 'package:hydro_sdk/cfr/runtimeSupport.dart' as _36c2;
 
-class VMManagedHitTestable extends VMManagedBox<HitTestable> {
+class VMManagedHitTestable extends _36c2.VMManagedBox<_baac.HitTestable> {
   VMManagedHitTestable(
       {required this.table, required this.vmObject, required this.hydroState})
       : super(
@@ -12,31 +13,32 @@ class VMManagedHitTestable extends VMManagedBox<HitTestable> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['hitTest'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['hitTest'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       vmObject.hitTest(
-          maybeUnBoxAndBuildArgument<HitTestResult, dynamic>(
+          _36c2.maybeUnBoxAndBuildArgument<_baac.HitTestResult, _fac9.dynamic>(
               luaCallerArguments[1],
               parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[2],
+          _36c2.maybeUnBoxAndBuildArgument<_a643.Offset, _fac9.dynamic>(
+              luaCallerArguments[2],
               parentState: hydroState));
       return [];
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  final HitTestable vmObject;
+  final _baac.HitTestable vmObject;
 }
 
 void loadHitTestable(
-    {required HydroState hydroState, required HydroTable table}) {
-  registerBoxer<HitTestable>(boxer: (
-      {required HitTestable vmObject,
-      required HydroState hydroState,
-      required HydroTable table}) {
+    {required _36c2.HydroState hydroState, required _36c2.HydroTable table}) {
+  _36c2.registerBoxer<_baac.HitTestable>(boxer: (
+      {required _baac.HitTestable vmObject,
+      required _36c2.HydroState hydroState,
+      required _36c2.HydroTable table}) {
     return VMManagedHitTestable(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

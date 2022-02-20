@@ -1,11 +1,12 @@
-import 'dart:core';
-import 'dart:ui';
+import 'dart:core' as _fac9;
+import 'dart:ui' as _a643;
 
-import 'package:flutter/src/gestures/scale.dart';
+import 'package:flutter/src/gestures/scale.dart' as _bb2d;
 
-import 'package:hydro_sdk/cfr/runtimeSupport.dart';
+import 'package:hydro_sdk/cfr/runtimeSupport.dart' as _36c2;
 
-class VMManagedScaleUpdateDetails extends VMManagedBox<ScaleUpdateDetails> {
+class VMManagedScaleUpdateDetails
+    extends _36c2.VMManagedBox<_bb2d.ScaleUpdateDetails> {
   VMManagedScaleUpdateDetails(
       {required this.table, required this.vmObject, required this.hydroState})
       : super(
@@ -13,49 +14,49 @@ class VMManagedScaleUpdateDetails extends VMManagedBox<ScaleUpdateDetails> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['focalPointDelta'] = maybeBoxObject<Offset>(
+    table['focalPointDelta'] = _36c2.maybeBoxObject<_a643.Offset>(
         object: vmObject.focalPointDelta,
         hydroState: hydroState,
-        table: HydroTable());
-    table['focalPoint'] = maybeBoxObject<Offset>(
+        table: _36c2.HydroTable());
+    table['focalPoint'] = _36c2.maybeBoxObject<_a643.Offset>(
         object: vmObject.focalPoint,
         hydroState: hydroState,
-        table: HydroTable());
-    table['localFocalPoint'] = maybeBoxObject<Offset>(
+        table: _36c2.HydroTable());
+    table['localFocalPoint'] = _36c2.maybeBoxObject<_a643.Offset>(
         object: vmObject.localFocalPoint,
         hydroState: hydroState,
-        table: HydroTable());
+        table: _36c2.HydroTable());
     table['scale'] = vmObject.scale;
     table['horizontalScale'] = vmObject.horizontalScale;
     table['verticalScale'] = vmObject.verticalScale;
     table['rotation'] = vmObject.rotation;
     table['pointerCount'] = vmObject.pointerCount;
-    table['toString'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['toString'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.toString(),
       ];
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  final ScaleUpdateDetails vmObject;
+  final _bb2d.ScaleUpdateDetails vmObject;
 }
 
-class RTManagedScaleUpdateDetails extends ScaleUpdateDetails
-    implements Box<ScaleUpdateDetails> {
+class RTManagedScaleUpdateDetails extends _bb2d.ScaleUpdateDetails
+    implements _36c2.Box<_bb2d.ScaleUpdateDetails> {
   RTManagedScaleUpdateDetails(
-      {required Offset focalPoint,
-      required Offset focalPointDelta,
-      required double horizontalScale,
-      Offset? localFocalPoint,
-      required int pointerCount,
-      required double rotation,
-      required double scale,
-      required double verticalScale,
+      {required _a643.Offset focalPoint,
+      required _a643.Offset focalPointDelta,
+      required _fac9.double horizontalScale,
+      _a643.Offset? localFocalPoint,
+      required _fac9.int pointerCount,
+      required _fac9.double rotation,
+      required _fac9.double scale,
+      required _fac9.double verticalScale,
       required this.table,
       required this.hydroState})
       : super(
@@ -68,57 +69,78 @@ class RTManagedScaleUpdateDetails extends ScaleUpdateDetails
             scale: scale,
             verticalScale: verticalScale) {
     table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['unwrap'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [unwrap()];
     });
-    table['focalPointDelta'] = maybeBoxObject<Offset>(
+    table['focalPointDelta'] = _36c2.maybeBoxObject(
         object: this.focalPointDelta,
         hydroState: hydroState,
-        table: HydroTable());
-    table['focalPoint'] = maybeBoxObject<Offset>(
-        object: this.focalPoint, hydroState: hydroState, table: HydroTable());
-    table['localFocalPoint'] = maybeBoxObject<Offset>(
+        table: _36c2.HydroTable());
+    table['focalPoint'] = _36c2.maybeBoxObject(
+        object: this.focalPoint,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['localFocalPoint'] = _36c2.maybeBoxObject(
         object: this.localFocalPoint,
         hydroState: hydroState,
-        table: HydroTable());
-    table['scale'] = this.scale;
-    table['horizontalScale'] = this.horizontalScale;
-    table['verticalScale'] = this.verticalScale;
-    table['rotation'] = this.rotation;
-    table['pointerCount'] = this.pointerCount;
-    table['_dart_toString'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [super.toString()];
+        table: _36c2.HydroTable());
+    table['scale'] = _36c2.maybeBoxObject(
+        object: this.scale, hydroState: hydroState, table: _36c2.HydroTable());
+    table['horizontalScale'] = _36c2.maybeBoxObject(
+        object: this.horizontalScale,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['verticalScale'] = _36c2.maybeBoxObject(
+        object: this.verticalScale,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['rotation'] = _36c2.maybeBoxObject(
+        object: this.rotation,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['pointerCount'] = _36c2.maybeBoxObject(
+        object: this.pointerCount,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['_dart_toString'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      return [
+        _36c2.maybeBoxObject(
+            object: super.toString(),
+            hydroState: hydroState,
+            table: _36c2.HydroTable())
+      ];
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  ScaleUpdateDetails unwrap() => this;
-  ScaleUpdateDetails get vmObject => this;
-  @override
-  String toString() {
-    Closure closure = table["__tostring"];
+  _bb2d.ScaleUpdateDetails unwrap() => this;
+  _bb2d.ScaleUpdateDetails get vmObject => this;
+  @_fac9.override
+  _fac9.String toString() {
+    _36c2.Closure closure = table["__tostring"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 }
 
 void loadScaleUpdateDetails(
-    {required HydroState hydroState, required HydroTable table}) {
-  table['scaleUpdateDetails'] =
-      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    {required _36c2.HydroState hydroState, required _36c2.HydroTable table}) {
+  table['scaleUpdateDetails'] = _36c2.makeLuaDartFunc(
+      func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
     return [
       RTManagedScaleUpdateDetails(
           table: luaCallerArguments[0],
           hydroState: hydroState,
-          focalPoint: maybeUnBoxAndBuildArgument<Offset, dynamic>(
+          focalPoint: _36c2.maybeUnBoxAndBuildArgument<_a643.Offset, _fac9.dynamic>(
               luaCallerArguments.length >= 2
                   ? luaCallerArguments[1]['focalPoint']
                   : null,
               parentState: hydroState),
-          focalPointDelta: maybeUnBoxAndBuildArgument<Offset, dynamic>(
+          focalPointDelta: _36c2.maybeUnBoxAndBuildArgument<_a643.Offset, _fac9.dynamic>(
               luaCallerArguments.length >= 2
                   ? luaCallerArguments[1]['focalPointDelta']
                   : null,
@@ -126,10 +148,8 @@ void loadScaleUpdateDetails(
           horizontalScale: luaCallerArguments.length >= 2
               ? luaCallerArguments[1]['horizontalScale']
               : null?.toDouble(),
-          localFocalPoint: maybeUnBoxAndBuildArgument<Offset?, dynamic>(
-              luaCallerArguments.length >= 2
-                  ? luaCallerArguments[1]['localFocalPoint']
-                  : null,
+          localFocalPoint: _36c2.maybeUnBoxAndBuildArgument<_a643.Offset?, _fac9.dynamic>(
+              luaCallerArguments.length >= 2 ? luaCallerArguments[1]['localFocalPoint'] : null,
               parentState: hydroState),
           pointerCount: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['pointerCount'] : null,
           rotation: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['rotation'] : null?.toDouble(),
@@ -137,10 +157,10 @@ void loadScaleUpdateDetails(
           verticalScale: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['verticalScale'] : null?.toDouble())
     ];
   });
-  registerBoxer<ScaleUpdateDetails>(boxer: (
-      {required ScaleUpdateDetails vmObject,
-      required HydroState hydroState,
-      required HydroTable table}) {
+  _36c2.registerBoxer<_bb2d.ScaleUpdateDetails>(boxer: (
+      {required _bb2d.ScaleUpdateDetails vmObject,
+      required _36c2.HydroState hydroState,
+      required _36c2.HydroTable table}) {
     return VMManagedScaleUpdateDetails(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

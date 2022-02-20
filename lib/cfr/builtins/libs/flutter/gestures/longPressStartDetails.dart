@@ -1,11 +1,12 @@
-import 'dart:ui';
+import 'dart:core' as _fac9;
+import 'dart:ui' as _a643;
 
-import 'package:flutter/src/gestures/long_press.dart';
+import 'package:flutter/src/gestures/long_press.dart' as _0586;
 
-import 'package:hydro_sdk/cfr/runtimeSupport.dart';
+import 'package:hydro_sdk/cfr/runtimeSupport.dart' as _36c2;
 
 class VMManagedLongPressStartDetails
-    extends VMManagedBox<LongPressStartDetails> {
+    extends _36c2.VMManagedBox<_0586.LongPressStartDetails> {
   VMManagedLongPressStartDetails(
       {required this.table, required this.vmObject, required this.hydroState})
       : super(
@@ -13,77 +14,80 @@ class VMManagedLongPressStartDetails
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['globalPosition'] = maybeBoxObject<Offset>(
+    table['globalPosition'] = _36c2.maybeBoxObject<_a643.Offset>(
         object: vmObject.globalPosition,
         hydroState: hydroState,
-        table: HydroTable());
-    table['localPosition'] = maybeBoxObject<Offset>(
+        table: _36c2.HydroTable());
+    table['localPosition'] = _36c2.maybeBoxObject<_a643.Offset>(
         object: vmObject.localPosition,
         hydroState: hydroState,
-        table: HydroTable());
+        table: _36c2.HydroTable());
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  final LongPressStartDetails vmObject;
+  final _0586.LongPressStartDetails vmObject;
 }
 
-class RTManagedLongPressStartDetails extends LongPressStartDetails
-    implements Box<LongPressStartDetails> {
+class RTManagedLongPressStartDetails extends _0586.LongPressStartDetails
+    implements _36c2.Box<_0586.LongPressStartDetails> {
   RTManagedLongPressStartDetails(
-      {required Offset globalPosition,
-      Offset? localPosition,
+      {required _a643.Offset globalPosition,
+      _a643.Offset? localPosition,
       required this.table,
       required this.hydroState})
       : super(globalPosition: globalPosition, localPosition: localPosition) {
     table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['unwrap'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [unwrap()];
     });
-    table['globalPosition'] = maybeBoxObject<Offset>(
+    table['globalPosition'] = _36c2.maybeBoxObject(
         object: this.globalPosition,
         hydroState: hydroState,
-        table: HydroTable());
-    table['localPosition'] = maybeBoxObject<Offset>(
+        table: _36c2.HydroTable());
+    table['localPosition'] = _36c2.maybeBoxObject(
         object: this.localPosition,
         hydroState: hydroState,
-        table: HydroTable());
+        table: _36c2.HydroTable());
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  LongPressStartDetails unwrap() => this;
-  LongPressStartDetails get vmObject => this;
+  _0586.LongPressStartDetails unwrap() => this;
+  _0586.LongPressStartDetails get vmObject => this;
 }
 
 void loadLongPressStartDetails(
-    {required HydroState hydroState, required HydroTable table}) {
-  table['longPressStartDetails'] =
-      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    {required _36c2.HydroState hydroState, required _36c2.HydroTable table}) {
+  table['longPressStartDetails'] = _36c2.makeLuaDartFunc(
+      func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
     return [
       RTManagedLongPressStartDetails(
           table: luaCallerArguments[0],
           hydroState: hydroState,
-          globalPosition: maybeUnBoxAndBuildArgument<Offset, dynamic>(
-              luaCallerArguments.length >= 2
-                  ? luaCallerArguments[1]['globalPosition']
-                  : null,
-              parentState: hydroState),
-          localPosition: maybeUnBoxAndBuildArgument<Offset?, dynamic>(
-              luaCallerArguments.length >= 2
-                  ? luaCallerArguments[1]['localPosition']
-                  : null,
-              parentState: hydroState))
+          globalPosition:
+              _36c2.maybeUnBoxAndBuildArgument<_a643.Offset, _fac9.dynamic>(
+                  luaCallerArguments.length >= 2
+                      ? luaCallerArguments[1]['globalPosition']
+                      : null,
+                  parentState: hydroState),
+          localPosition:
+              _36c2.maybeUnBoxAndBuildArgument<_a643.Offset?, _fac9.dynamic>(
+                  luaCallerArguments.length >= 2
+                      ? luaCallerArguments[1]['localPosition']
+                      : null,
+                  parentState: hydroState))
     ];
   });
-  registerBoxer<LongPressStartDetails>(boxer: (
-      {required LongPressStartDetails vmObject,
-      required HydroState hydroState,
-      required HydroTable table}) {
+  _36c2.registerBoxer<_0586.LongPressStartDetails>(boxer: (
+      {required _0586.LongPressStartDetails vmObject,
+      required _36c2.HydroState hydroState,
+      required _36c2.HydroTable table}) {
     return VMManagedLongPressStartDetails(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

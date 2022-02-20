@@ -1,10 +1,10 @@
-import 'dart:core';
+import 'dart:core' as _fac9;
 
-import 'package:flutter/src/rendering/object.dart';
+import 'package:flutter/src/rendering/object.dart' as _9742;
 
-import 'package:hydro_sdk/cfr/runtimeSupport.dart';
+import 'package:hydro_sdk/cfr/runtimeSupport.dart' as _36c2;
 
-class VMManagedParentData extends VMManagedBox<ParentData> {
+class VMManagedParentData extends _36c2.VMManagedBox<_9742.ParentData> {
   VMManagedParentData(
       {required this.table, required this.vmObject, required this.hydroState})
       : super(
@@ -12,71 +12,78 @@ class VMManagedParentData extends VMManagedBox<ParentData> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['toString'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['toString'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.toString(),
       ];
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  final ParentData vmObject;
+  final _9742.ParentData vmObject;
 }
 
-class RTManagedParentData extends ParentData implements Box<ParentData> {
+class RTManagedParentData extends _9742.ParentData
+    implements _36c2.Box<_9742.ParentData> {
   RTManagedParentData({required this.table, required this.hydroState})
       : super() {
     table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['unwrap'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [unwrap()];
     });
-    table['_dart_detach'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_detach'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       super.detach();
       return [];
     });
-    table['_dart_toString'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [super.toString()];
+    table['_dart_toString'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      return [
+        _36c2.maybeBoxObject(
+            object: super.toString(),
+            hydroState: hydroState,
+            table: _36c2.HydroTable())
+      ];
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  ParentData unwrap() => this;
-  ParentData get vmObject => this;
-  @override
+  _9742.ParentData unwrap() => this;
+  _9742.ParentData get vmObject => this;
+  @_fac9.override
   void detach() {
     super.detach();
-    Closure closure = table["detach"];
+    _36c2.Closure closure = table["detach"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  String toString() {
-    Closure closure = table["__tostring"];
+  @_fac9.override
+  _fac9.String toString() {
+    _36c2.Closure closure = table["__tostring"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 }
 
 void loadParentData(
-    {required HydroState hydroState, required HydroTable table}) {
-  table['parentData'] =
-      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    {required _36c2.HydroState hydroState, required _36c2.HydroTable table}) {
+  table['parentData'] = _36c2.makeLuaDartFunc(
+      func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
     return [
       RTManagedParentData(table: luaCallerArguments[0], hydroState: hydroState)
     ];
   });
-  registerBoxer<ParentData>(boxer: (
-      {required ParentData vmObject,
-      required HydroState hydroState,
-      required HydroTable table}) {
+  _36c2.registerBoxer<_9742.ParentData>(boxer: (
+      {required _9742.ParentData vmObject,
+      required _36c2.HydroState hydroState,
+      required _36c2.HydroTable table}) {
     return VMManagedParentData(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

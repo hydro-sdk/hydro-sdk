@@ -1,12 +1,12 @@
-import 'dart:core';
+import 'dart:core' as _fac9;
 
-import 'package:flutter/src/rendering/sliver.dart';
-import 'package:flutter/src/rendering/sliver_grid.dart';
+import 'package:flutter/src/rendering/sliver.dart' as _021d;
+import 'package:flutter/src/rendering/sliver_grid.dart' as _a3c0;
 
-import 'package:hydro_sdk/cfr/runtimeSupport.dart';
+import 'package:hydro_sdk/cfr/runtimeSupport.dart' as _36c2;
 
-class VMManagedSliverGridDelegateWithFixedCrossAxisCount
-    extends VMManagedBox<SliverGridDelegateWithFixedCrossAxisCount> {
+class VMManagedSliverGridDelegateWithFixedCrossAxisCount extends _36c2
+    .VMManagedBox<_a3c0.SliverGridDelegateWithFixedCrossAxisCount> {
   VMManagedSliverGridDelegateWithFixedCrossAxisCount(
       {required this.table, required this.vmObject, required this.hydroState})
       : super(
@@ -19,56 +19,55 @@ class VMManagedSliverGridDelegateWithFixedCrossAxisCount
     table['crossAxisSpacing'] = vmObject.crossAxisSpacing;
     table['childAspectRatio'] = vmObject.childAspectRatio;
     table['mainAxisExtent'] = vmObject.mainAxisExtent;
-    table['getLayout'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getLayout'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<SliverGridLayout>(
-            object: vmObject.getLayout(
-                maybeUnBoxAndBuildArgument<SliverConstraints, dynamic>(
-                    luaCallerArguments[1],
-                    parentState: hydroState)),
+        _36c2.maybeBoxObject<_a3c0.SliverGridLayout>(
+            object: vmObject.getLayout(_36c2.maybeUnBoxAndBuildArgument<
+                _021d.SliverConstraints,
+                _fac9.dynamic>(luaCallerArguments[1], parentState: hydroState)),
             hydroState: hydroState,
-            table: HydroTable()),
+            table: _36c2.HydroTable()),
       ];
     });
-    table['shouldRelayout'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['shouldRelayout'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        vmObject.shouldRelayout(maybeUnBoxAndBuildArgument<
-            SliverGridDelegateWithFixedCrossAxisCount,
-            dynamic>(luaCallerArguments[1], parentState: hydroState)),
+        vmObject.shouldRelayout(_36c2.maybeUnBoxAndBuildArgument<
+            _a3c0.SliverGridDelegateWithFixedCrossAxisCount,
+            _fac9.dynamic>(luaCallerArguments[1], parentState: hydroState)),
       ];
     });
-    table['toString'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['toString'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.toString(),
       ];
     });
-    table['getHashCode'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getHashCode'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.hashCode,
       ];
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  final SliverGridDelegateWithFixedCrossAxisCount vmObject;
+  final _a3c0.SliverGridDelegateWithFixedCrossAxisCount vmObject;
 }
 
 class RTManagedSliverGridDelegateWithFixedCrossAxisCount
-    extends SliverGridDelegateWithFixedCrossAxisCount
-    implements Box<SliverGridDelegateWithFixedCrossAxisCount> {
+    extends _a3c0.SliverGridDelegateWithFixedCrossAxisCount
+    implements _36c2.Box<_a3c0.SliverGridDelegateWithFixedCrossAxisCount> {
   RTManagedSliverGridDelegateWithFixedCrossAxisCount(
-      {required double childAspectRatio,
-      required double crossAxisSpacing,
-      double? mainAxisExtent,
-      required double mainAxisSpacing,
-      required int crossAxisCount,
+      {required _fac9.double childAspectRatio,
+      required _fac9.double crossAxisSpacing,
+      _fac9.double? mainAxisExtent,
+      required _fac9.double mainAxisSpacing,
+      required _fac9.int crossAxisCount,
       required this.table,
       required this.hydroState})
       : super(
@@ -78,81 +77,105 @@ class RTManagedSliverGridDelegateWithFixedCrossAxisCount
             mainAxisSpacing: mainAxisSpacing,
             crossAxisCount: crossAxisCount) {
     table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['unwrap'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [unwrap()];
     });
-    table['crossAxisCount'] = this.crossAxisCount;
-    table['mainAxisSpacing'] = this.mainAxisSpacing;
-    table['crossAxisSpacing'] = this.crossAxisSpacing;
-    table['childAspectRatio'] = this.childAspectRatio;
-    table['mainAxisExtent'] = this.mainAxisExtent;
-    table['_dart_getLayout'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['crossAxisCount'] = _36c2.maybeBoxObject(
+        object: this.crossAxisCount,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['mainAxisSpacing'] = _36c2.maybeBoxObject(
+        object: this.mainAxisSpacing,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['crossAxisSpacing'] = _36c2.maybeBoxObject(
+        object: this.crossAxisSpacing,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['childAspectRatio'] = _36c2.maybeBoxObject(
+        object: this.childAspectRatio,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['mainAxisExtent'] = _36c2.maybeBoxObject(
+        object: this.mainAxisExtent,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['_dart_getLayout'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<SliverGridLayout>(
-            object: super.getLayout(
-                maybeUnBoxAndBuildArgument<SliverConstraints, dynamic>(
-                    luaCallerArguments[1],
-                    parentState: hydroState)),
+        _36c2.maybeBoxObject(
+            object: super.getLayout(_36c2.maybeUnBoxAndBuildArgument<
+                _021d.SliverConstraints,
+                _fac9.dynamic>(luaCallerArguments[1], parentState: hydroState)),
             hydroState: hydroState,
-            table: HydroTable())
+            table: _36c2.HydroTable())
       ];
     });
-    table['_dart_shouldRelayout'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_shouldRelayout'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        super.shouldRelayout(maybeUnBoxAndBuildArgument<
-            SliverGridDelegateWithFixedCrossAxisCount,
-            dynamic>(luaCallerArguments[1], parentState: hydroState))
+        _36c2.maybeBoxObject(
+            object: super.shouldRelayout(_36c2.maybeUnBoxAndBuildArgument<
+                _a3c0.SliverGridDelegateWithFixedCrossAxisCount,
+                _fac9.dynamic>(luaCallerArguments[1], parentState: hydroState)),
+            hydroState: hydroState,
+            table: _36c2.HydroTable())
       ];
     });
-    table['_dart_toString'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [super.toString()];
+    table['_dart_toString'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      return [
+        _36c2.maybeBoxObject(
+            object: super.toString(),
+            hydroState: hydroState,
+            table: _36c2.HydroTable())
+      ];
     });
-    table['_dart_getHashCode'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getHashCode'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.hashCode];
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  SliverGridDelegateWithFixedCrossAxisCount unwrap() => this;
-  SliverGridDelegateWithFixedCrossAxisCount get vmObject => this;
-  @override
-  SliverGridLayout getLayout(constraints) {
-    Closure closure = table["getLayout"];
-    return maybeUnBoxAndBuildArgument<SliverGridLayout, dynamic>(
-        closure.dispatch([table], parentState: hydroState)[0],
-        parentState: hydroState);
+  _a3c0.SliverGridDelegateWithFixedCrossAxisCount unwrap() => this;
+  _a3c0.SliverGridDelegateWithFixedCrossAxisCount get vmObject => this;
+  @_fac9.override
+  _a3c0.SliverGridLayout getLayout(constraints) {
+    _36c2.Closure closure = table["getLayout"];
+    return _36c2
+        .maybeUnBoxAndBuildArgument<_a3c0.SliverGridLayout, _fac9.dynamic>(
+            closure.dispatch([table], parentState: hydroState)[0],
+            parentState: hydroState);
   }
 
-  @override
-  bool shouldRelayout(oldDelegate) {
-    Closure closure = table["shouldRelayout"];
+  @_fac9.override
+  _fac9.bool shouldRelayout(oldDelegate) {
+    _36c2.Closure closure = table["shouldRelayout"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  String toString() {
-    Closure closure = table["__tostring"];
+  @_fac9.override
+  _fac9.String toString() {
+    _36c2.Closure closure = table["__tostring"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  int get hashCode {
-    Closure closure = table["getHashCode"];
+  @_fac9.override
+  _fac9.int get hashCode {
+    _36c2.Closure closure = table["getHashCode"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 }
 
 void loadSliverGridDelegateWithFixedCrossAxisCount(
-    {required HydroState hydroState, required HydroTable table}) {
-  table['sliverGridDelegateWithFixedCrossAxisCount'] =
-      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    {required _36c2.HydroState hydroState, required _36c2.HydroTable table}) {
+  table['sliverGridDelegateWithFixedCrossAxisCount'] = _36c2.makeLuaDartFunc(
+      func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
     return [
       RTManagedSliverGridDelegateWithFixedCrossAxisCount(
           table: luaCallerArguments[0],
@@ -174,10 +197,10 @@ void loadSliverGridDelegateWithFixedCrossAxisCount(
               : null)
     ];
   });
-  registerBoxer<SliverGridDelegateWithFixedCrossAxisCount>(boxer: (
-      {required SliverGridDelegateWithFixedCrossAxisCount vmObject,
-      required HydroState hydroState,
-      required HydroTable table}) {
+  _36c2.registerBoxer<_a3c0.SliverGridDelegateWithFixedCrossAxisCount>(boxer: (
+      {required _a3c0.SliverGridDelegateWithFixedCrossAxisCount vmObject,
+      required _36c2.HydroState hydroState,
+      required _36c2.HydroTable table}) {
     return VMManagedSliverGridDelegateWithFixedCrossAxisCount(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

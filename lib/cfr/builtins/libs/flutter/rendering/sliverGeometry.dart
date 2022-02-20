@@ -1,11 +1,11 @@
-import 'dart:core';
+import 'dart:core' as _fac9;
 
-import 'package:flutter/src/foundation/diagnostics.dart';
-import 'package:flutter/src/rendering/sliver.dart';
+import 'package:flutter/src/foundation/diagnostics.dart' as _eaf3;
+import 'package:flutter/src/rendering/sliver.dart' as _021d;
 
-import 'package:hydro_sdk/cfr/runtimeSupport.dart';
+import 'package:hydro_sdk/cfr/runtimeSupport.dart' as _36c2;
 
-class VMManagedSliverGeometry extends VMManagedBox<SliverGeometry> {
+class VMManagedSliverGeometry extends _36c2.VMManagedBox<_021d.SliverGeometry> {
   VMManagedSliverGeometry(
       {required this.table, required this.vmObject, required this.hydroState})
       : super(
@@ -24,16 +24,18 @@ class VMManagedSliverGeometry extends VMManagedBox<SliverGeometry> {
     table['hasVisualOverflow'] = vmObject.hasVisualOverflow;
     table['scrollOffsetCorrection'] = vmObject.scrollOffsetCorrection;
     table['cacheExtent'] = vmObject.cacheExtent;
-    table['debugAssertIsValid'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      Closure? unpackedinformationCollector = luaCallerArguments.length >= 2
-          ? luaCallerArguments[1]['informationCollector']
-          : null;
+    table['debugAssertIsValid'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      _36c2.Closure? unpackedinformationCollector =
+          luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['informationCollector']
+              : null;
       return [
         vmObject.debugAssertIsValid(
             informationCollector: unpackedinformationCollector != null
-                ? () => maybeUnBoxAndBuildArgument<Iterable<DiagnosticsNode>,
-                        DiagnosticsNode>(
+                ? () => _36c2.maybeUnBoxAndBuildArgument<
+                        _fac9.Iterable<_eaf3.DiagnosticsNode>,
+                        _eaf3.DiagnosticsNode>(
                     unpackedinformationCollector.dispatch(
                       [
                         luaCallerArguments[0],
@@ -44,71 +46,70 @@ class VMManagedSliverGeometry extends VMManagedBox<SliverGeometry> {
                 : null),
       ];
     });
-    table['toStringShort'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['toStringShort'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.toStringShort(),
       ];
     });
-    table['debugFillProperties'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      vmObject.debugFillProperties(
-          maybeUnBoxAndBuildArgument<DiagnosticPropertiesBuilder, dynamic>(
-              luaCallerArguments[1],
-              parentState: hydroState));
+    table['debugFillProperties'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      vmObject.debugFillProperties(_36c2.maybeUnBoxAndBuildArgument<
+          _eaf3.DiagnosticPropertiesBuilder,
+          _fac9.dynamic>(luaCallerArguments[1], parentState: hydroState));
       return [];
     });
-    table['toString'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['toString'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.toString(
-            minLevel: maybeUnBoxEnum(
-                values: DiagnosticLevel.values,
+            minLevel: _36c2.maybeUnBoxEnum(
+                values: _eaf3.DiagnosticLevel.values,
                 boxedEnum: luaCallerArguments.length >= 2
                     ? luaCallerArguments[1]['minLevel']
                     : null)),
       ];
     });
-    table['toDiagnosticsNode'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['toDiagnosticsNode'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<DiagnosticsNode>(
+        _36c2.maybeBoxObject<_eaf3.DiagnosticsNode>(
             object: vmObject.toDiagnosticsNode(
                 name: luaCallerArguments.length >= 2
                     ? luaCallerArguments[1]['name']
                     : null,
-                style: maybeUnBoxEnum(
-                    values: DiagnosticsTreeStyle.values,
+                style: _36c2.maybeUnBoxEnum(
+                    values: _eaf3.DiagnosticsTreeStyle.values,
                     boxedEnum: luaCallerArguments.length >= 2
                         ? luaCallerArguments[1]['style']
                         : null)),
             hydroState: hydroState,
-            table: HydroTable()),
+            table: _36c2.HydroTable()),
       ];
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  final SliverGeometry vmObject;
+  final _021d.SliverGeometry vmObject;
 }
 
-class RTManagedSliverGeometry extends SliverGeometry
-    implements Box<SliverGeometry> {
+class RTManagedSliverGeometry extends _021d.SliverGeometry
+    implements _36c2.Box<_021d.SliverGeometry> {
   RTManagedSliverGeometry(
-      {double? cacheExtent,
-      required bool hasVisualOverflow,
-      double? hitTestExtent,
-      double? layoutExtent,
-      required double maxPaintExtent,
-      required double maxScrollObstructionExtent,
-      required double paintExtent,
-      required double paintOrigin,
-      required double scrollExtent,
-      double? scrollOffsetCorrection,
-      bool? visible,
+      {_fac9.double? cacheExtent,
+      required _fac9.bool hasVisualOverflow,
+      _fac9.double? hitTestExtent,
+      _fac9.double? layoutExtent,
+      required _fac9.double maxPaintExtent,
+      required _fac9.double maxScrollObstructionExtent,
+      required _fac9.double paintExtent,
+      required _fac9.double paintOrigin,
+      required _fac9.double scrollExtent,
+      _fac9.double? scrollOffsetCorrection,
+      _fac9.bool? visible,
       required this.table,
       required this.hydroState})
       : super(
@@ -124,127 +125,180 @@ class RTManagedSliverGeometry extends SliverGeometry
             scrollOffsetCorrection: scrollOffsetCorrection,
             visible: visible) {
     table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['unwrap'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [unwrap()];
     });
-    table['scrollExtent'] = this.scrollExtent;
-    table['paintOrigin'] = this.paintOrigin;
-    table['paintExtent'] = this.paintExtent;
-    table['layoutExtent'] = this.layoutExtent;
-    table['maxPaintExtent'] = this.maxPaintExtent;
-    table['maxScrollObstructionExtent'] = this.maxScrollObstructionExtent;
-    table['hitTestExtent'] = this.hitTestExtent;
-    table['visible'] = this.visible;
-    table['hasVisualOverflow'] = this.hasVisualOverflow;
-    table['scrollOffsetCorrection'] = this.scrollOffsetCorrection;
-    table['cacheExtent'] = this.cacheExtent;
-    table['_dart_debugAssertIsValid'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      Closure? unpackedinformationCollector = luaCallerArguments.length >= 2
-          ? luaCallerArguments[1]['informationCollector']
-          : null;
+    table['scrollExtent'] = _36c2.maybeBoxObject(
+        object: this.scrollExtent,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['paintOrigin'] = _36c2.maybeBoxObject(
+        object: this.paintOrigin,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['paintExtent'] = _36c2.maybeBoxObject(
+        object: this.paintExtent,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['layoutExtent'] = _36c2.maybeBoxObject(
+        object: this.layoutExtent,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['maxPaintExtent'] = _36c2.maybeBoxObject(
+        object: this.maxPaintExtent,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['maxScrollObstructionExtent'] = _36c2.maybeBoxObject(
+        object: this.maxScrollObstructionExtent,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['hitTestExtent'] = _36c2.maybeBoxObject(
+        object: this.hitTestExtent,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['visible'] = _36c2.maybeBoxObject(
+        object: this.visible,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['hasVisualOverflow'] = _36c2.maybeBoxObject(
+        object: this.hasVisualOverflow,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['scrollOffsetCorrection'] = _36c2.maybeBoxObject(
+        object: this.scrollOffsetCorrection,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['cacheExtent'] = _36c2.maybeBoxObject(
+        object: this.cacheExtent,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['_dart_debugAssertIsValid'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      _36c2.Closure? unpackedinformationCollector =
+          luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['informationCollector']
+              : null;
       return [
-        super.debugAssertIsValid(
-            informationCollector: unpackedinformationCollector != null
-                ? () => maybeUnBoxAndBuildArgument<Iterable<DiagnosticsNode>,
-                        DiagnosticsNode>(
-                    unpackedinformationCollector.dispatch(
-                      [
-                        luaCallerArguments[0],
-                      ],
-                      parentState: hydroState,
-                    )[0],
-                    parentState: hydroState)
-                : null)
+        _36c2.maybeBoxObject(
+            object: super.debugAssertIsValid(
+                informationCollector: unpackedinformationCollector != null
+                    ? () => _36c2.maybeUnBoxAndBuildArgument<
+                            _fac9.Iterable<_eaf3.DiagnosticsNode>,
+                            _eaf3.DiagnosticsNode>(
+                        unpackedinformationCollector.dispatch(
+                          [
+                            luaCallerArguments[0],
+                          ],
+                          parentState: hydroState,
+                        )[0],
+                        parentState: hydroState)
+                    : null),
+            hydroState: hydroState,
+            table: _36c2.HydroTable())
       ];
     });
-    table['_dart_toStringShort'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [super.toStringShort()];
+    table['_dart_toStringShort'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      return [
+        _36c2.maybeBoxObject(
+            object: super.toStringShort(),
+            hydroState: hydroState,
+            table: _36c2.HydroTable())
+      ];
     });
-    table['_dart_debugFillProperties'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      super.debugFillProperties(
-          maybeUnBoxAndBuildArgument<DiagnosticPropertiesBuilder, dynamic>(
-              luaCallerArguments[1],
-              parentState: hydroState));
+    table['_dart_debugFillProperties'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      super.debugFillProperties(_36c2.maybeUnBoxAndBuildArgument<
+          _eaf3.DiagnosticPropertiesBuilder,
+          _fac9.dynamic>(luaCallerArguments[1], parentState: hydroState));
       return [];
     });
-    table['_dart_toString'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_toString'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        super.toString(
-            minLevel: maybeUnBoxEnum(
-                values: DiagnosticLevel.values,
-                boxedEnum: luaCallerArguments.length >= 2
-                    ? luaCallerArguments[1]['minLevel']
-                    : null))
+        _36c2.maybeBoxObject(
+            object: super.toString(
+                minLevel: _36c2.maybeUnBoxEnum(
+                    values: _eaf3.DiagnosticLevel.values,
+                    boxedEnum: luaCallerArguments.length >= 2
+                        ? luaCallerArguments[1]['minLevel']
+                        : null)),
+            hydroState: hydroState,
+            table: _36c2.HydroTable())
       ];
     });
-    table['_dart_toDiagnosticsNode'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_toDiagnosticsNode'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<DiagnosticsNode>(
+        _36c2.maybeBoxObject(
             object: super.toDiagnosticsNode(
-                name: luaCallerArguments.length >= 2
-                    ? luaCallerArguments[1]['name']
-                    : null,
-                style: maybeUnBoxEnum(
-                    values: DiagnosticsTreeStyle.values,
+                name: _36c2
+                    .maybeUnBoxAndBuildArgument<_fac9.String?, _fac9.dynamic>(
+                        luaCallerArguments.length >= 2
+                            ? luaCallerArguments[1]['name']
+                            : null,
+                        parentState: hydroState),
+                style: _36c2.maybeUnBoxEnum(
+                    values: _eaf3.DiagnosticsTreeStyle.values,
                     boxedEnum: luaCallerArguments.length >= 2
                         ? luaCallerArguments[1]['style']
                         : null)),
             hydroState: hydroState,
-            table: HydroTable())
+            table: _36c2.HydroTable())
       ];
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  SliverGeometry unwrap() => this;
-  SliverGeometry get vmObject => this;
-  @override
-  bool debugAssertIsValid({informationCollector}) {
-    Closure closure = table["debugAssertIsValid"];
+  _021d.SliverGeometry unwrap() => this;
+  _021d.SliverGeometry get vmObject => this;
+  @_fac9.override
+  _fac9.bool debugAssertIsValid(
+      {_fac9.Iterable<_eaf3.DiagnosticsNode> Function()?
+          informationCollector}) {
+    _36c2.Closure closure = table["debugAssertIsValid"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  String toStringShort() {
-    Closure closure = table["toStringShort"];
+  @_fac9.override
+  _fac9.String toStringShort() {
+    _36c2.Closure closure = table["toStringShort"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
+  @_fac9.override
   void debugFillProperties(properties) {
     super.debugFillProperties(properties);
-    Closure closure = table["debugFillProperties"];
+    _36c2.Closure closure = table["debugFillProperties"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    Closure closure = table["__tostring"];
+  @_fac9.override
+  _fac9.String toString(
+      {_eaf3.DiagnosticLevel minLevel = _eaf3.DiagnosticLevel.info}) {
+    _36c2.Closure closure = table["__tostring"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  DiagnosticsNode toDiagnosticsNode(
-      {String? name, DiagnosticsTreeStyle? style}) {
-    Closure closure = table["toDiagnosticsNode"];
-    return maybeUnBoxAndBuildArgument<DiagnosticsNode, dynamic>(
-        closure.dispatch([table], parentState: hydroState)[0],
-        parentState: hydroState);
+  @_fac9.override
+  _eaf3.DiagnosticsNode toDiagnosticsNode(
+      {_fac9.String? name, _eaf3.DiagnosticsTreeStyle? style}) {
+    _36c2.Closure closure = table["toDiagnosticsNode"];
+    return _36c2
+        .maybeUnBoxAndBuildArgument<_eaf3.DiagnosticsNode, _fac9.dynamic>(
+            closure.dispatch([table], parentState: hydroState)[0],
+            parentState: hydroState);
   }
 }
 
 void loadSliverGeometry(
-    {required HydroState hydroState, required HydroTable table}) {
-  table['sliverGeometry'] =
-      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    {required _36c2.HydroState hydroState, required _36c2.HydroTable table}) {
+  table['sliverGeometry'] = _36c2.makeLuaDartFunc(
+      func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
     return [
       RTManagedSliverGeometry(
           table: luaCallerArguments[0],
@@ -284,10 +338,10 @@ void loadSliverGeometry(
               : null)
     ];
   });
-  registerBoxer<SliverGeometry>(boxer: (
-      {required SliverGeometry vmObject,
-      required HydroState hydroState,
-      required HydroTable table}) {
+  _36c2.registerBoxer<_021d.SliverGeometry>(boxer: (
+      {required _021d.SliverGeometry vmObject,
+      required _36c2.HydroState hydroState,
+      required _36c2.HydroTable table}) {
     return VMManagedSliverGeometry(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

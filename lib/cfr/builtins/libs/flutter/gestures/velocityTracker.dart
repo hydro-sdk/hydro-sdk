@@ -1,11 +1,12 @@
-import 'dart:core';
-import 'dart:ui';
+import 'dart:core' as _fac9;
+import 'dart:ui' as _a643;
 
-import 'package:flutter/src/gestures/velocity_tracker.dart';
+import 'package:flutter/src/gestures/velocity_tracker.dart' as _10cb;
 
-import 'package:hydro_sdk/cfr/runtimeSupport.dart';
+import 'package:hydro_sdk/cfr/runtimeSupport.dart' as _36c2;
 
-class VMManagedVelocityTracker extends VMManagedBox<VelocityTracker> {
+class VMManagedVelocityTracker
+    extends _36c2.VMManagedBox<_10cb.VelocityTracker> {
   VMManagedVelocityTracker(
       {required this.table, required this.vmObject, required this.hydroState})
       : super(
@@ -13,136 +14,144 @@ class VMManagedVelocityTracker extends VMManagedBox<VelocityTracker> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['kind'] = PointerDeviceKind.values.indexWhere((x) {
+    table['kind'] = _a643.PointerDeviceKind.values.indexWhere((x) {
       return x == vmObject.kind;
     });
-    table['addPosition'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['addPosition'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       vmObject.addPosition(
-          maybeUnBoxAndBuildArgument<Duration, dynamic>(luaCallerArguments[1],
+          _36c2.maybeUnBoxAndBuildArgument<_fac9.Duration, _fac9.dynamic>(
+              luaCallerArguments[1],
               parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[2],
+          _36c2.maybeUnBoxAndBuildArgument<_a643.Offset, _fac9.dynamic>(
+              luaCallerArguments[2],
               parentState: hydroState));
       return [];
     });
-    table['getVelocityEstimate'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getVelocityEstimate'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       final returnValue = vmObject.getVelocityEstimate();
       if (returnValue != null) {
         return [
-          maybeBoxObject<VelocityEstimate?>(
-              object: returnValue, hydroState: hydroState, table: HydroTable()),
+          _36c2.maybeBoxObject<_10cb.VelocityEstimate?>(
+              object: returnValue,
+              hydroState: hydroState,
+              table: _36c2.HydroTable()),
         ];
       }
       return [];
     });
-    table['getVelocity'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getVelocity'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<Velocity>(
+        _36c2.maybeBoxObject<_10cb.Velocity>(
             object: vmObject.getVelocity(),
             hydroState: hydroState,
-            table: HydroTable()),
+            table: _36c2.HydroTable()),
       ];
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  final VelocityTracker vmObject;
+  final _10cb.VelocityTracker vmObject;
 }
 
-class RTManagedVelocityTracker extends VelocityTracker
-    implements Box<VelocityTracker> {
-  RTManagedVelocityTracker(PointerDeviceKind kind$,
+class RTManagedVelocityTracker extends _10cb.VelocityTracker
+    implements _36c2.Box<_10cb.VelocityTracker> {
+  RTManagedVelocityTracker(_a643.PointerDeviceKind kind$,
       {required this.table, required this.hydroState})
       : super(
           kind$,
         ) {
     table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['unwrap'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [unwrap()];
     });
-    table['kind'] = PointerDeviceKind.values.indexWhere((x) {
+    table['kind'] = _a643.PointerDeviceKind.values.indexWhere((x) {
       return x == kind;
     });
-    table['_dart_addPosition'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_addPosition'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       super.addPosition(
-          maybeUnBoxAndBuildArgument<Duration, dynamic>(luaCallerArguments[1],
+          _36c2.maybeUnBoxAndBuildArgument<_fac9.Duration, _fac9.dynamic>(
+              luaCallerArguments[1],
               parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Offset, dynamic>(luaCallerArguments[2],
+          _36c2.maybeUnBoxAndBuildArgument<_a643.Offset, _fac9.dynamic>(
+              luaCallerArguments[2],
               parentState: hydroState));
       return [];
     });
-    table['_dart_getVelocityEstimate'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getVelocityEstimate'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<VelocityEstimate?>(
+        _36c2.maybeBoxObject(
             object: super.getVelocityEstimate(),
             hydroState: hydroState,
-            table: HydroTable())
+            table: _36c2.HydroTable())
       ];
     });
-    table['_dart_getVelocity'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getVelocity'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<Velocity>(
+        _36c2.maybeBoxObject(
             object: super.getVelocity(),
             hydroState: hydroState,
-            table: HydroTable())
+            table: _36c2.HydroTable())
       ];
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  VelocityTracker unwrap() => this;
-  VelocityTracker get vmObject => this;
-  @override
+  _10cb.VelocityTracker unwrap() => this;
+  _10cb.VelocityTracker get vmObject => this;
+  @_fac9.override
   void addPosition(time, position) {
-    Closure closure = table["addPosition"];
+    _36c2.Closure closure = table["addPosition"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  VelocityEstimate? getVelocityEstimate() {
-    Closure closure = table["getVelocityEstimate"];
-    return maybeUnBoxAndBuildArgument<VelocityEstimate?, dynamic>(
-        closure.dispatch([table], parentState: hydroState)[0],
-        parentState: hydroState);
+  @_fac9.override
+  _10cb.VelocityEstimate? getVelocityEstimate() {
+    _36c2.Closure closure = table["getVelocityEstimate"];
+    return _36c2
+        .maybeUnBoxAndBuildArgument<_10cb.VelocityEstimate?, _fac9.dynamic>(
+            closure.dispatch([table], parentState: hydroState)[0],
+            parentState: hydroState);
   }
 
-  @override
-  Velocity getVelocity() {
-    Closure closure = table["getVelocity"];
-    return maybeUnBoxAndBuildArgument<Velocity, dynamic>(
+  @_fac9.override
+  _10cb.Velocity getVelocity() {
+    _36c2.Closure closure = table["getVelocity"];
+    return _36c2.maybeUnBoxAndBuildArgument<_10cb.Velocity, _fac9.dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
 }
 
 void loadVelocityTracker(
-    {required HydroState hydroState, required HydroTable table}) {
-  table['velocityTracker'] =
-      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    {required _36c2.HydroState hydroState, required _36c2.HydroTable table}) {
+  table['velocityTracker'] = _36c2.makeLuaDartFunc(
+      func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
     return [
       RTManagedVelocityTracker(
-          maybeUnBoxEnum(
-              values: PointerDeviceKind.values,
+          _36c2.maybeUnBoxEnum(
+              values: _a643.PointerDeviceKind.values,
               boxedEnum: luaCallerArguments[1]),
           table: luaCallerArguments[0],
           hydroState: hydroState)
     ];
   });
-  registerBoxer<VelocityTracker>(boxer: (
-      {required VelocityTracker vmObject,
-      required HydroState hydroState,
-      required HydroTable table}) {
+  _36c2.registerBoxer<_10cb.VelocityTracker>(boxer: (
+      {required _10cb.VelocityTracker vmObject,
+      required _36c2.HydroState hydroState,
+      required _36c2.HydroTable table}) {
     return VMManagedVelocityTracker(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

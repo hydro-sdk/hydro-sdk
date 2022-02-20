@@ -1,10 +1,11 @@
-import 'dart:core';
+import 'dart:core' as _fac9;
 
-import 'package:flutter/src/gestures/arena.dart';
+import 'package:flutter/src/gestures/arena.dart' as _be6e;
 
-import 'package:hydro_sdk/cfr/runtimeSupport.dart';
+import 'package:hydro_sdk/cfr/runtimeSupport.dart' as _36c2;
 
-class VMManagedGestureArenaMember extends VMManagedBox<GestureArenaMember> {
+class VMManagedGestureArenaMember
+    extends _36c2.VMManagedBox<_be6e.GestureArenaMember> {
   VMManagedGestureArenaMember(
       {required this.table, required this.vmObject, required this.hydroState})
       : super(
@@ -12,31 +13,31 @@ class VMManagedGestureArenaMember extends VMManagedBox<GestureArenaMember> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['acceptGesture'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['acceptGesture'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       vmObject.acceptGesture(luaCallerArguments[1]);
       return [];
     });
-    table['rejectGesture'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['rejectGesture'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       vmObject.rejectGesture(luaCallerArguments[1]);
       return [];
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  final GestureArenaMember vmObject;
+  final _be6e.GestureArenaMember vmObject;
 }
 
 void loadGestureArenaMember(
-    {required HydroState hydroState, required HydroTable table}) {
-  registerBoxer<GestureArenaMember>(boxer: (
-      {required GestureArenaMember vmObject,
-      required HydroState hydroState,
-      required HydroTable table}) {
+    {required _36c2.HydroState hydroState, required _36c2.HydroTable table}) {
+  _36c2.registerBoxer<_be6e.GestureArenaMember>(boxer: (
+      {required _be6e.GestureArenaMember vmObject,
+      required _36c2.HydroState hydroState,
+      required _36c2.HydroTable table}) {
     return VMManagedGestureArenaMember(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

@@ -1,12 +1,13 @@
-import 'dart:core';
-import 'dart:ui';
+import 'dart:core' as _fac9;
+import 'dart:ui' as _a643;
 
-import 'package:flutter/src/foundation/change_notifier.dart';
-import 'package:flutter/src/rendering/proxy_box.dart';
+import 'package:flutter/src/foundation/change_notifier.dart' as _e644;
+import 'package:flutter/src/rendering/proxy_box.dart' as _bf98;
 
-import 'package:hydro_sdk/cfr/runtimeSupport.dart';
+import 'package:hydro_sdk/cfr/runtimeSupport.dart' as _36c2;
 
-class VMManagedCustomClipper extends VMManagedBox<CustomClipper<dynamic>> {
+class VMManagedCustomClipper
+    extends _36c2.VMManagedBox<_bf98.CustomClipper<_fac9.dynamic>> {
   VMManagedCustomClipper(
       {required this.table, required this.vmObject, required this.hydroState})
       : super(
@@ -14,9 +15,9 @@ class VMManagedCustomClipper extends VMManagedBox<CustomClipper<dynamic>> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['addListener'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      Closure unpackedlistener = luaCallerArguments[1];
+    table['addListener'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      _36c2.Closure unpackedlistener = luaCallerArguments[1];
       vmObject.addListener(() => unpackedlistener.dispatch(
             [
               luaCallerArguments[0],
@@ -25,9 +26,9 @@ class VMManagedCustomClipper extends VMManagedBox<CustomClipper<dynamic>> {
           ));
       return [];
     });
-    table['removeListener'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      Closure unpackedlistener = luaCallerArguments[1];
+    table['removeListener'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      _36c2.Closure unpackedlistener = luaCallerArguments[1];
       vmObject.removeListener(() => unpackedlistener.dispatch(
             [
               luaCallerArguments[0],
@@ -36,67 +37,69 @@ class VMManagedCustomClipper extends VMManagedBox<CustomClipper<dynamic>> {
           ));
       return [];
     });
-    table['getClip'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getClip'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        vmObject.getClip(maybeUnBoxAndBuildArgument<Size, dynamic>(
-            luaCallerArguments[1],
-            parentState: hydroState)),
-      ];
-    });
-    table['getApproximateClipRect'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        maybeBoxObject<Rect>(
-            object: vmObject.getApproximateClipRect(
-                maybeUnBoxAndBuildArgument<Size, dynamic>(luaCallerArguments[1],
-                    parentState: hydroState)),
-            hydroState: hydroState,
-            table: HydroTable()),
-      ];
-    });
-    table['shouldReclip'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        vmObject.shouldReclip(
-            maybeUnBoxAndBuildArgument<CustomClipper<dynamic>, dynamic>(
+        vmObject.getClip(
+            _36c2.maybeUnBoxAndBuildArgument<_a643.Size, _fac9.dynamic>(
                 luaCallerArguments[1],
                 parentState: hydroState)),
       ];
     });
-    table['toString'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getApproximateClipRect'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      return [
+        _36c2.maybeBoxObject<_a643.Rect>(
+            object: vmObject.getApproximateClipRect(
+                _36c2.maybeUnBoxAndBuildArgument<_a643.Size, _fac9.dynamic>(
+                    luaCallerArguments[1],
+                    parentState: hydroState)),
+            hydroState: hydroState,
+            table: _36c2.HydroTable()),
+      ];
+    });
+    table['shouldReclip'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      return [
+        vmObject.shouldReclip(_36c2.maybeUnBoxAndBuildArgument<
+            _bf98.CustomClipper<_fac9.dynamic>,
+            _fac9.dynamic>(luaCallerArguments[1], parentState: hydroState)),
+      ];
+    });
+    table['toString'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.toString(),
       ];
     });
-    table['getHashCode'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['getHashCode'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.hashCode,
       ];
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  final CustomClipper<dynamic> vmObject;
+  final _bf98.CustomClipper<_fac9.dynamic> vmObject;
 }
 
-class RTManagedCustomClipper extends CustomClipper
-    implements Box<CustomClipper> {
+class RTManagedCustomClipper extends _bf98.CustomClipper
+    implements _36c2.Box<_bf98.CustomClipper> {
   RTManagedCustomClipper(
-      {Listenable? reclip, required this.table, required this.hydroState})
+      {_e644.Listenable? reclip, required this.table, required this.hydroState})
       : super(reclip: reclip) {
     table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['unwrap'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [unwrap()];
     });
-    table['_dart_addListener'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      Closure unpackedlistener = luaCallerArguments[1];
+    table['_dart_addListener'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      _36c2.Closure unpackedlistener = luaCallerArguments[1];
       super.addListener(() => unpackedlistener.dispatch(
             [
               luaCallerArguments[0],
@@ -105,9 +108,9 @@ class RTManagedCustomClipper extends CustomClipper
           ));
       return [];
     });
-    table['_dart_removeListener'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      Closure unpackedlistener = luaCallerArguments[1];
+    table['_dart_removeListener'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      _36c2.Closure unpackedlistener = luaCallerArguments[1];
       super.removeListener(() => unpackedlistener.dispatch(
             [
               luaCallerArguments[0],
@@ -116,113 +119,123 @@ class RTManagedCustomClipper extends CustomClipper
           ));
       return [];
     });
-    table['_dart_getClip'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getClip'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        getClip(maybeUnBoxAndBuildArgument<Size, dynamic>(luaCallerArguments[1],
+        getClip(_36c2.maybeUnBoxAndBuildArgument<_a643.Size, _fac9.dynamic>(
+            luaCallerArguments[1],
             parentState: hydroState))
       ];
     });
-    table['_dart_getApproximateClipRect'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getApproximateClipRect'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<Rect>(
+        _36c2.maybeBoxObject(
             object: super.getApproximateClipRect(
-                maybeUnBoxAndBuildArgument<Size, dynamic>(luaCallerArguments[1],
+                _36c2.maybeUnBoxAndBuildArgument<_a643.Size, _fac9.dynamic>(
+                    luaCallerArguments[1],
                     parentState: hydroState)),
             hydroState: hydroState,
-            table: HydroTable())
+            table: _36c2.HydroTable())
       ];
     });
-    table['_dart_shouldReclip'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_shouldReclip'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        shouldReclip(
-            maybeUnBoxAndBuildArgument<CustomClipper<dynamic>, dynamic>(
-                luaCallerArguments[1],
-                parentState: hydroState))
+        _36c2.maybeBoxObject(
+            object: shouldReclip(_36c2.maybeUnBoxAndBuildArgument<
+                _bf98.CustomClipper<_fac9.dynamic>,
+                _fac9.dynamic>(luaCallerArguments[1], parentState: hydroState)),
+            hydroState: hydroState,
+            table: _36c2.HydroTable())
       ];
     });
-    table['_dart_toString'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [super.toString()];
+    table['_dart_toString'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      return [
+        _36c2.maybeBoxObject(
+            object: super.toString(),
+            hydroState: hydroState,
+            table: _36c2.HydroTable())
+      ];
     });
-    table['_dart_getHashCode'] =
-        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    table['_dart_getHashCode'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [super.hashCode];
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  CustomClipper unwrap() => this;
-  CustomClipper get vmObject => this;
-  @override
+  _bf98.CustomClipper unwrap() => this;
+  _bf98.CustomClipper get vmObject => this;
+  @_fac9.override
   void addListener(listener) {
-    Closure closure = table["addListener"];
+    _36c2.Closure closure = table["addListener"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
+  @_fac9.override
   void removeListener(listener) {
-    Closure closure = table["removeListener"];
+    _36c2.Closure closure = table["removeListener"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  dynamic getClip(size) {
-    Closure closure = table["getClip"];
+  @_fac9.override
+  _fac9.dynamic getClip(size) {
+    _36c2.Closure closure = table["getClip"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  Rect getApproximateClipRect(size) {
-    Closure closure = table["getApproximateClipRect"];
-    return maybeUnBoxAndBuildArgument<Rect, dynamic>(
+  @_fac9.override
+  _a643.Rect getApproximateClipRect(size) {
+    _36c2.Closure closure = table["getApproximateClipRect"];
+    return _36c2.maybeUnBoxAndBuildArgument<_a643.Rect, _fac9.dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
 
-  @override
-  bool shouldReclip(oldClipper) {
-    Closure closure = table["shouldReclip"];
+  @_fac9.override
+  _fac9.bool shouldReclip(oldClipper) {
+    _36c2.Closure closure = table["shouldReclip"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  String toString() {
-    Closure closure = table["__tostring"];
+  @_fac9.override
+  _fac9.String toString() {
+    _36c2.Closure closure = table["__tostring"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  int get hashCode {
-    Closure closure = table["getHashCode"];
+  @_fac9.override
+  _fac9.int get hashCode {
+    _36c2.Closure closure = table["getHashCode"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 }
 
 void loadCustomClipper(
-    {required HydroState hydroState, required HydroTable table}) {
-  table['customClipper'] =
-      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    {required _36c2.HydroState hydroState, required _36c2.HydroTable table}) {
+  table['customClipper'] = _36c2.makeLuaDartFunc(
+      func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
     return [
       RTManagedCustomClipper(
           table: luaCallerArguments[0],
           hydroState: hydroState,
-          reclip: maybeUnBoxAndBuildArgument<Listenable?, dynamic>(
-              luaCallerArguments.length >= 2
-                  ? luaCallerArguments[1]['reclip']
-                  : null,
-              parentState: hydroState))
+          reclip: _36c2
+              .maybeUnBoxAndBuildArgument<_e644.Listenable?, _fac9.dynamic>(
+                  luaCallerArguments.length >= 2
+                      ? luaCallerArguments[1]['reclip']
+                      : null,
+                  parentState: hydroState))
     ];
   });
-  registerBoxer<CustomClipper>(boxer: (
-      {required CustomClipper vmObject,
-      required HydroState hydroState,
-      required HydroTable table}) {
+  _36c2.registerBoxer<_bf98.CustomClipper>(boxer: (
+      {required _bf98.CustomClipper vmObject,
+      required _36c2.HydroState hydroState,
+      required _36c2.HydroTable table}) {
     return VMManagedCustomClipper(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });
