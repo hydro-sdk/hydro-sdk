@@ -262,15 +262,16 @@ class SwidFunctionType
         namedParameterTypes.entries
             .map(
               (x) => [
-                (x.value.nullabilitySuffix == SwidNullabilitySuffix.question
+                (x.value.nullabilitySuffix == SwidNullabilitySuffix.none
                     ? "required"
                     : ""),
                 x.value.displayName,
                 x.key,
-              ],
+              ].join(" "),
             )
             .join(", "),
         (namedParameterTypes.isNotEmpty ? "}" : ""),
         ")",
+        nullabilitySuffix == SwidNullabilitySuffix.question ? "?" : "",
       ].join("");
 }

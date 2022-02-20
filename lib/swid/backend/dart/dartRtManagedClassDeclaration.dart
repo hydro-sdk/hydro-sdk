@@ -858,7 +858,12 @@ class DartRTManagedClassDeclaration
                                                   pipeline: pipeline,
                                                   swidType:
                                                       optionalParameterType
-                                                          .item2,
+                                                          .item2
+                                                          .clone(
+                                                    nullabilitySuffix:
+                                                        SwidNullabilitySuffix
+                                                            .question,
+                                                  ),
                                                 )
                                                 ..named = false
                                                 ..required = false,

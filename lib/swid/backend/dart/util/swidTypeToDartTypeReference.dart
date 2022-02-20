@@ -58,7 +58,7 @@ TypeReference swidTypeToDartTypeReference({
                       fromSwidInterface: (val) => val.displayName,
                       fromSwidClass: (val) => val.name,
                       fromSwidDefaultFormalParameter: (val) => val.name,
-                      fromSwidFunctionType: (val) => val.name,
+                      fromSwidFunctionType: (val) => val.displayName,
                     ),
             ),
       ),

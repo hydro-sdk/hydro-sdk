@@ -50,25 +50,31 @@ class SwidType
   factory SwidType.clone({
     required final SwidType swidType,
     final SwidDeclarationModifiers? declarationModifiers,
+    final SwidNullabilitySuffix? nullabilitySuffix,
   }) =>
       swidType.when(
         fromSwidInterface: (val) => SwidType.fromSwidInterface(
           swidInterface: val.clone(
             declarationModifiers: declarationModifiers,
+            nullabilitySuffix: nullabilitySuffix,
           ),
         ),
         fromSwidClass: (val) => SwidType.fromSwidClass(
           swidClass: val.clone(
             declarationModifiers: declarationModifiers,
+            nullabilitySuffix: nullabilitySuffix,
           ),
         ),
         fromSwidDefaultFormalParameter: (val) =>
             SwidType.fromSwidDefaultFormalParameter(
-          swidDefaultFormalParameter: val,
+          swidDefaultFormalParameter: val.clone(
+            nullabilitySuffix: nullabilitySuffix,
+          ),
         ),
         fromSwidFunctionType: (val) => SwidType.fromSwidFunctionType(
           swidFunctionType: val.clone(
             declarationModifiers: declarationModifiers,
+            nullabilitySuffix: nullabilitySuffix,
           ),
         ),
       );
@@ -87,10 +93,12 @@ class SwidType
   @override
   SwidType clone({
     final SwidDeclarationModifiers? declarationModifiers,
+    final SwidNullabilitySuffix? nullabilitySuffix,
   }) =>
       SwidType.clone(
         swidType: this,
         declarationModifiers: declarationModifiers,
+        nullabilitySuffix: nullabilitySuffix,
       );
 
   @override
