@@ -1,7 +1,8 @@
+import 'package:path/path.dart' as p;
+
+import 'package:hydro_sdk/swid/backend/util/barrelMember.dart';
 import 'package:hydro_sdk/swid/transforms/transformPackageUri.dart';
 import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';
-import 'package:path/path.dart' as p;
-import 'package:hydro_sdk/swid/backend/util/barrelMember.dart';
 
 String dartBarrelMemberImportPath({
   required final BarrelMember barrelMember,

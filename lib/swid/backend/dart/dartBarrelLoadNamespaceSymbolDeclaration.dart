@@ -1,9 +1,7 @@
-import 'package:dartlin/control_flow.dart';
-import 'package:code_builder/code_builder.dart'
-    show DartEmitter, Parameter, refer, literalString, Method, Code;
-
 import 'package:dart_style/dart_style.dart';
+import 'package:dartlin/control_flow.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:tuple/tuple.dart';
 
 import 'package:hydro_sdk/swid/backend/dart/transforms/dartImportPrefix.dart';
 import 'package:hydro_sdk/swid/backend/dart/util/constants.dart';
@@ -21,7 +19,11 @@ import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
 import 'package:hydro_sdk/swid/transforms/transformToPascalCase.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
-import 'package:tuple/tuple.dart';
+
+import 'package:code_builder/code_builder.dart'
+    show DartEmitter, Parameter, refer, literalString, Method, Code;
+
+
 
 part 'dartBarrelLoadNamespaceSymbolDeclaration.freezed.dart';
 
