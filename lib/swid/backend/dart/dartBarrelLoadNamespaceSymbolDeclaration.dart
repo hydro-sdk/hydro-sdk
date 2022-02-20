@@ -23,8 +23,6 @@ import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
 import 'package:code_builder/code_builder.dart'
     show DartEmitter, Parameter, refer, literalString, Method, Code;
 
-
-
 part 'dartBarrelLoadNamespaceSymbolDeclaration.freezed.dart';
 
 @freezed
