@@ -1,22 +1,16 @@
+import { IList } from "../../dart/core/list";
 import { IDiagnosticable } from "./diagnosticable";
 import { DiagnosticLevel } from "./diagnosticLevel";
+import { IDiagnosticPropertiesBuilder } from "./diagnosticPropertiesBuilder";
 import { IDiagnosticsNode } from "./diagnosticsNode";
 import { DiagnosticsTreeStyle } from "./diagnosticsTreeStyle";
 declare const flutter: {
     foundation: {
         diagnosticableTree: (
             this: void,
-            diagnosticableTree: DiagnosticableTree
-        ) => DiagnosticableTree;
+            diagnosticableTree: IDiagnosticableTree
+        ) => IDiagnosticableTree;
     };
-};
-const toStringShallowDefaultProps = {
-    joiner: ", ",
-    minLevel: DiagnosticLevel.debug,
-};
-const toStringDeepDefaultProps = {
-    minLevel: DiagnosticLevel.debug,
-    prefixLineOne: "",
 };
 export interface IDiagnosticableTree {
     toStringShallow: (props: {
@@ -29,10 +23,13 @@ export interface IDiagnosticableTree {
         prefixOtherLines?: string | undefined;
     }) => string;
     toStringShort: () => string;
-    toDiagnosticsNode: (props: {
+    toDiagnosticsNode: (props?: {
         name?: string | undefined;
         style?: DiagnosticsTreeStyle | undefined;
     }) => IDiagnosticsNode;
+    debugDescribeChildren: () => IList<IDiagnosticsNode>;
+    toString: (props: { minLevel: DiagnosticLevel }) => string;
+    debugFillProperties: (properties: IDiagnosticPropertiesBuilder) => void;
 }
 export class DiagnosticableTree implements IDiagnosticable {
     public constructor() {
@@ -48,10 +45,18 @@ export class DiagnosticableTree implements IDiagnosticable {
         prefixOtherLines?: string | undefined;
     }) => string = undefined as any;
     private readonly _dart_toStringShort: () => string = undefined as any;
-    private readonly _dart_toDiagnosticsNode: (props: {
+    private readonly _dart_toDiagnosticsNode: (props?: {
         name?: string | undefined;
         style?: DiagnosticsTreeStyle | undefined;
     }) => IDiagnosticsNode = undefined as any;
+    private readonly _dart_debugDescribeChildren: () => IList<IDiagnosticsNode> =
+        undefined as any;
+    private readonly _dart_toString: (props: {
+        minLevel: DiagnosticLevel;
+    }) => string = undefined as any;
+    private readonly _dart_debugFillProperties: (
+        properties: IDiagnosticPropertiesBuilder
+    ) => void = undefined as any;
     public toStringShallow(props: {
         joiner?: string;
         minLevel?: DiagnosticLevel;
@@ -74,10 +79,33 @@ export class DiagnosticableTree implements IDiagnosticable {
     public toStringShort(): string {
         return this._dart_toStringShort();
     }
-    public toDiagnosticsNode(props: {
+    public toDiagnosticsNode(props?: {
         name?: string | undefined;
         style?: DiagnosticsTreeStyle | undefined;
     }): IDiagnosticsNode {
         return this._dart_toDiagnosticsNode(props);
     }
+    public debugDescribeChildren(): IList<IDiagnosticsNode> {
+        return this._dart_debugDescribeChildren();
+    }
+    public toString(props: { minLevel?: DiagnosticLevel }): string {
+        return this._dart_toString({
+            ...toStringDefaultProps,
+            ...props,
+        });
+    }
+    public debugFillProperties(properties: IDiagnosticPropertiesBuilder): void {
+        return this._dart_debugFillProperties(properties);
+    }
 }
+const toStringShallowDefaultProps = {
+    joiner: ", ",
+    minLevel: DiagnosticLevel.debug,
+};
+const toStringDeepDefaultProps = {
+    minLevel: DiagnosticLevel.debug,
+    prefixLineOne: "",
+};
+const toStringDefaultProps = {
+    minLevel: DiagnosticLevel.info,
+};

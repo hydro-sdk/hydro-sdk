@@ -1,15 +1,11 @@
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
+import 'dart:core' as _fac9;
 
-import 'package:hydro_sdk/cfr/builtins/boxing/boxers.dart';
-import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
-import 'package:hydro_sdk/cfr/builtins/boxing/unboxers.dart';
-import 'package:hydro_sdk/cfr/vm/closure.dart';
-import 'package:hydro_sdk/cfr/vm/context.dart';
-import 'package:hydro_sdk/cfr/vm/table.dart';
-import 'package:hydro_sdk/hydroState.dart';
+import 'package:flutter/src/foundation/diagnostics.dart' as _eaf3;
 
-class VMManagedDiagnosticableTree extends VMManagedBox<DiagnosticableTree> {
+import 'package:hydro_sdk/cfr/runtimeSupport.dart' as _36c2;
+
+class VMManagedDiagnosticableTree
+    extends _36c2.VMManagedBox<_eaf3.DiagnosticableTree> {
   VMManagedDiagnosticableTree(
       {required this.table, required this.vmObject, required this.hydroState})
       : super(
@@ -17,148 +13,273 @@ class VMManagedDiagnosticableTree extends VMManagedBox<DiagnosticableTree> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['toStringShallow'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['toStringShallow'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.toStringShallow(
-            joiner: args[1]['joiner'],
-            minLevel: maybeUnBoxEnum(
-                values: DiagnosticLevel.values, boxedEnum: args[1]['minLevel']))
+            joiner: luaCallerArguments.length >= 2
+                ? luaCallerArguments[1]['joiner']
+                : null,
+            minLevel: _36c2.maybeUnBoxEnum(
+                values: _eaf3.DiagnosticLevel.values,
+                boxedEnum: luaCallerArguments.length >= 2
+                    ? luaCallerArguments[1]['minLevel']
+                    : null)),
       ];
     });
-    table['toStringDeep'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['toStringDeep'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.toStringDeep(
-            minLevel: maybeUnBoxEnum(
-                values: DiagnosticLevel.values, boxedEnum: args[1]['minLevel']),
-            prefixLineOne: args[1]['prefixLineOne'],
-            prefixOtherLines: args[1]['prefixOtherLines'])
+            minLevel: _36c2.maybeUnBoxEnum(
+                values: _eaf3.DiagnosticLevel.values,
+                boxedEnum: luaCallerArguments.length >= 2
+                    ? luaCallerArguments[1]['minLevel']
+                    : null),
+            prefixLineOne: luaCallerArguments.length >= 2
+                ? luaCallerArguments[1]['prefixLineOne']
+                : null,
+            prefixOtherLines: luaCallerArguments.length >= 2
+                ? luaCallerArguments[1]['prefixOtherLines']
+                : null),
       ];
     });
-    table['toStringShort'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject.toStringShort()];
-    });
-    table['toDiagnosticsNode'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['toStringShort'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        maybeBoxObject<DiagnosticsNode>(
-          object: vmObject.toDiagnosticsNode(
-              name: args[1]['name'],
-              style: maybeUnBoxEnum(
-                  values: DiagnosticsTreeStyle.values,
-                  boxedEnum: args[1]['style'])),
-          hydroState: hydroState,
-          table: HydroTable(),
-        )
+        vmObject.toStringShort(),
+      ];
+    });
+    table['toDiagnosticsNode'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      return [
+        _36c2.maybeBoxObject<_eaf3.DiagnosticsNode>(
+            object: vmObject.toDiagnosticsNode(
+                name: luaCallerArguments.length >= 2
+                    ? luaCallerArguments[1]['name']
+                    : null,
+                style: _36c2.maybeUnBoxEnum(
+                    values: _eaf3.DiagnosticsTreeStyle.values,
+                    boxedEnum: luaCallerArguments.length >= 2
+                        ? luaCallerArguments[1]['style']
+                        : null)),
+            hydroState: hydroState,
+            table: _36c2.HydroTable()),
+      ];
+    });
+    table['toString'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      return [
+        vmObject.toString(
+            minLevel: _36c2.maybeUnBoxEnum(
+                values: _eaf3.DiagnosticLevel.values,
+                boxedEnum: luaCallerArguments.length >= 2
+                    ? luaCallerArguments[1]['minLevel']
+                    : null)),
       ];
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  final DiagnosticableTree vmObject;
+  final _eaf3.DiagnosticableTree vmObject;
 }
 
-class RTManagedDiagnosticableTree extends DiagnosticableTree
-    implements Box<DiagnosticableTree> {
-  RTManagedDiagnosticableTree({
-    required this.table,
-    required this.hydroState,
-  }) : super() {
+class RTManagedDiagnosticableTree extends _eaf3.DiagnosticableTree
+    implements _36c2.Box<_eaf3.DiagnosticableTree> {
+  RTManagedDiagnosticableTree({required this.table, required this.hydroState})
+      : super() {
     table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['unwrap'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [unwrap()];
     });
-    table['_dart_toStringShallow'] =
-        makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_toStringShallow'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        super.toStringShallow(
-            joiner: args[1]['joiner'],
-            minLevel: maybeUnBoxEnum(
-                values: DiagnosticLevel.values, boxedEnum: args[1]['minLevel']))
-      ];
-    });
-    table['_dart_toStringDeep'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [
-        super.toStringDeep(
-            minLevel: maybeUnBoxEnum(
-                values: DiagnosticLevel.values, boxedEnum: args[1]['minLevel']),
-            prefixLineOne: args[1]['prefixLineOne'],
-            prefixOtherLines: args[1]['prefixOtherLines'])
-      ];
-    });
-    table['_dart_toStringShort'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [super.toStringShort()];
-    });
-    table['_dart_toDiagnosticsNode'] =
-        makeLuaDartFunc(func: (List<dynamic> args) {
-      return [
-        maybeBoxObject<DiagnosticsNode>(
-            object: super.toDiagnosticsNode(
-                name: args[1]['name'],
-                style: maybeUnBoxEnum(
-                    values: DiagnosticsTreeStyle.values,
-                    boxedEnum: args[1]['style'])),
+        _36c2.maybeBoxObject(
+            object: super.toStringShallow(
+                joiner: _36c2
+                    .maybeUnBoxAndBuildArgument<_fac9.String, _fac9.dynamic>(
+                        luaCallerArguments.length >= 2
+                            ? luaCallerArguments[1]['joiner']
+                            : null,
+                        parentState: hydroState),
+                minLevel: _36c2.maybeUnBoxEnum(
+                    values: _eaf3.DiagnosticLevel.values,
+                    boxedEnum: luaCallerArguments.length >= 2
+                        ? luaCallerArguments[1]['minLevel']
+                        : null)),
             hydroState: hydroState,
-            table: HydroTable())
+            table: _36c2.HydroTable())
       ];
+    });
+    table['_dart_toStringDeep'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      return [
+        _36c2.maybeBoxObject(
+            object: super.toStringDeep(
+                minLevel: _36c2.maybeUnBoxEnum(
+                    values: _eaf3.DiagnosticLevel.values,
+                    boxedEnum: luaCallerArguments.length >= 2
+                        ? luaCallerArguments[1]['minLevel']
+                        : null),
+                prefixLineOne:
+                    _36c2.maybeUnBoxAndBuildArgument<_fac9.String, _fac9.dynamic>(
+                        luaCallerArguments.length >= 2
+                            ? luaCallerArguments[1]['prefixLineOne']
+                            : null,
+                        parentState: hydroState),
+                prefixOtherLines:
+                    _36c2.maybeUnBoxAndBuildArgument<_fac9.String?, _fac9.dynamic>(
+                        luaCallerArguments.length >= 2
+                            ? luaCallerArguments[1]['prefixOtherLines']
+                            : null,
+                        parentState: hydroState)),
+            hydroState: hydroState,
+            table: _36c2.HydroTable())
+      ];
+    });
+    table['_dart_toStringShort'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      return [
+        _36c2.maybeBoxObject(
+            object: super.toStringShort(),
+            hydroState: hydroState,
+            table: _36c2.HydroTable())
+      ];
+    });
+    table['_dart_toDiagnosticsNode'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      return [
+        _36c2.maybeBoxObject(
+            object: super.toDiagnosticsNode(
+                name: _36c2
+                    .maybeUnBoxAndBuildArgument<_fac9.String?, _fac9.dynamic>(
+                        luaCallerArguments.length >= 2
+                            ? luaCallerArguments[1]['name']
+                            : null,
+                        parentState: hydroState),
+                style: _36c2.maybeUnBoxEnum(
+                    values: _eaf3.DiagnosticsTreeStyle.values,
+                    boxedEnum: luaCallerArguments.length >= 2
+                        ? luaCallerArguments[1]['style']
+                        : null)),
+            hydroState: hydroState,
+            table: _36c2.HydroTable())
+      ];
+    });
+    table['_dart_debugDescribeChildren'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      return [
+        _36c2.maybeBoxObject(
+            object: super.debugDescribeChildren(),
+            hydroState: hydroState,
+            table: _36c2.HydroTable())
+      ];
+    });
+    table['_dart_toString'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      return [
+        _36c2.maybeBoxObject(
+            object: super.toString(
+                minLevel: _36c2.maybeUnBoxEnum(
+                    values: _eaf3.DiagnosticLevel.values,
+                    boxedEnum: luaCallerArguments.length >= 2
+                        ? luaCallerArguments[1]['minLevel']
+                        : null)),
+            hydroState: hydroState,
+            table: _36c2.HydroTable())
+      ];
+    });
+    table['_dart_debugFillProperties'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      super.debugFillProperties(_36c2.maybeUnBoxAndBuildArgument<
+          _eaf3.DiagnosticPropertiesBuilder,
+          _fac9.dynamic>(luaCallerArguments[1], parentState: hydroState));
+      return [];
     });
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  DiagnosticableTree unwrap() => this;
-  DiagnosticableTree get vmObject => this;
-  @override
-  String toStringShallow(
-      {String joiner = ', ',
-      DiagnosticLevel minLevel = DiagnosticLevel.debug}) {
-    Closure closure = table["toStringShallow"];
+  _eaf3.DiagnosticableTree unwrap() => this;
+  _eaf3.DiagnosticableTree get vmObject => this;
+  @_fac9.override
+  _fac9.String toStringShallow(
+      {_fac9.String joiner = ', ',
+      _eaf3.DiagnosticLevel minLevel = _eaf3.DiagnosticLevel.debug}) {
+    _36c2.Closure closure = table["toStringShallow"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  String toStringDeep(
-      {DiagnosticLevel minLevel = DiagnosticLevel.debug,
-      String prefixLineOne = '',
-      String? prefixOtherLines}) {
-    Closure closure = table["toStringDeep"];
+  @_fac9.override
+  _fac9.String toStringDeep(
+      {_eaf3.DiagnosticLevel minLevel = _eaf3.DiagnosticLevel.debug,
+      _fac9.String prefixLineOne = '',
+      _fac9.String? prefixOtherLines}) {
+    _36c2.Closure closure = table["toStringDeep"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  String toStringShort() {
-    Closure closure = table["toStringShort"];
+  @_fac9.override
+  _fac9.String toStringShort() {
+    _36c2.Closure closure = table["toStringShort"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
-  @override
-  DiagnosticsNode toDiagnosticsNode(
-      {String? name, DiagnosticsTreeStyle? style}) {
-    Closure closure = table["toDiagnosticsNode"];
-    return maybeUnBoxAndBuildArgument<DiagnosticsNode, dynamic>(
+  @_fac9.override
+  _eaf3.DiagnosticsNode toDiagnosticsNode(
+      {_fac9.String? name, _eaf3.DiagnosticsTreeStyle? style}) {
+    _36c2.Closure closure = table["toDiagnosticsNode"];
+    return _36c2
+        .maybeUnBoxAndBuildArgument<_eaf3.DiagnosticsNode, _fac9.dynamic>(
+            closure.dispatch([table], parentState: hydroState)[0],
+            parentState: hydroState);
+  }
+
+  @_fac9.override
+  _fac9.List<_eaf3.DiagnosticsNode> debugDescribeChildren() {
+    _36c2.Closure closure = table["debugDescribeChildren"];
+    return _36c2.maybeUnBoxAndBuildArgument<_fac9.List<_eaf3.DiagnosticsNode>,
+            _eaf3.DiagnosticsNode>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
+  }
+
+  @_fac9.override
+  _fac9.String toString(
+      {_eaf3.DiagnosticLevel minLevel = _eaf3.DiagnosticLevel.info}) {
+    _36c2.Closure closure = table["__tostring"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @_fac9.override
+  void debugFillProperties(properties) {
+    super.debugFillProperties(properties);
+    _36c2.Closure closure = table["debugFillProperties"];
+    return closure.dispatch([table], parentState: hydroState)[0];
   }
 }
 
 void loadDiagnosticableTree(
-    {required HydroState hydroState, required HydroTable table}) {
-  table['diagnosticableTree'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    {required _36c2.HydroState hydroState, required _36c2.HydroTable table}) {
+  table['diagnosticableTree'] = _36c2.makeLuaDartFunc(
+      func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
     return [
-      RTManagedDiagnosticableTree(table: args[0], hydroState: hydroState)
+      RTManagedDiagnosticableTree(
+          table: luaCallerArguments[0], hydroState: hydroState)
     ];
   });
-  registerBoxer<DiagnosticableTree>(boxer: (
-      {required DiagnosticableTree vmObject,
-      required HydroState hydroState,
-      required HydroTable table}) {
+  _36c2.registerBoxer<_eaf3.DiagnosticableTree>(boxer: (
+      {required _eaf3.DiagnosticableTree vmObject,
+      required _36c2.HydroState hydroState,
+      required _36c2.HydroTable table}) {
     return VMManagedDiagnosticableTree(
-      vmObject: vmObject,
-      hydroState: hydroState,
-      table: table,
-    );
+        vmObject: vmObject, hydroState: hydroState, table: table);
   });
 }

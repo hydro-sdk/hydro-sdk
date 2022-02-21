@@ -1,13 +1,11 @@
-import 'package:flutter/foundation.dart';
+import 'dart:core' as _fac9;
 
-import 'package:hydro_sdk/cfr/builtins/boxing/boxers.dart';
-import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
-import 'package:hydro_sdk/cfr/vm/context.dart';
-import 'package:hydro_sdk/cfr/vm/table.dart';
-import 'package:hydro_sdk/hydroState.dart';
+import 'package:flutter/src/foundation/diagnostics.dart' as _eaf3;
+
+import 'package:hydro_sdk/cfr/runtimeSupport.dart' as _36c2;
 
 class VMManagedTextTreeConfiguration
-    extends VMManagedBox<TextTreeConfiguration> {
+    extends _36c2.VMManagedBox<_eaf3.TextTreeConfiguration> {
   VMManagedTextTreeConfiguration(
       {required this.table, required this.vmObject, required this.hydroState})
       : super(
@@ -44,41 +42,41 @@ class VMManagedTextTreeConfiguration
         vmObject.isBlankLineBetweenPropertiesAndChildren;
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  final TextTreeConfiguration vmObject;
+  final _eaf3.TextTreeConfiguration vmObject;
 }
 
-class RTManagedTextTreeConfiguration extends TextTreeConfiguration
-    implements Box<TextTreeConfiguration> {
+class RTManagedTextTreeConfiguration extends _eaf3.TextTreeConfiguration
+    implements _36c2.Box<_eaf3.TextTreeConfiguration> {
   RTManagedTextTreeConfiguration(
-      {required bool addBlankLineIfNoChildren,
-      required String afterDescription,
-      required String afterDescriptionIfBody,
-      required String afterName,
-      required String afterProperties,
-      required String beforeName,
-      required String beforeProperties,
-      required String bodyIndent,
-      required String footer,
-      required bool isBlankLineBetweenPropertiesAndChildren,
-      required bool isNameOnOwnLine,
-      required String lineBreak,
-      required bool lineBreakProperties,
-      required String mandatoryAfterProperties,
-      required String mandatoryFooter,
-      required String propertySeparator,
-      required bool showChildren,
-      required String suffixLineOne,
-      required String linkCharacter,
-      required String prefixLastChildLineOne,
-      required String prefixLineOne,
-      required String prefixOtherLines,
-      required String prefixOtherLinesRootNode,
-      required String propertyPrefixIfChildren,
-      required String propertyPrefixNoChildren,
+      {required _fac9.bool addBlankLineIfNoChildren,
+      required _fac9.String afterDescription,
+      required _fac9.String afterDescriptionIfBody,
+      required _fac9.String afterName,
+      required _fac9.String afterProperties,
+      required _fac9.String beforeName,
+      required _fac9.String beforeProperties,
+      required _fac9.String bodyIndent,
+      required _fac9.String footer,
+      required _fac9.bool isBlankLineBetweenPropertiesAndChildren,
+      required _fac9.bool isNameOnOwnLine,
+      required _fac9.String lineBreak,
+      required _fac9.bool lineBreakProperties,
+      required _fac9.String mandatoryAfterProperties,
+      required _fac9.String mandatoryFooter,
+      required _fac9.String propertySeparator,
+      required _fac9.bool showChildren,
+      required _fac9.String suffixLineOne,
+      required _fac9.String linkCharacter,
+      required _fac9.String prefixLastChildLineOne,
+      required _fac9.String prefixLineOne,
+      required _fac9.String prefixOtherLines,
+      required _fac9.String prefixOtherLinesRootNode,
+      required _fac9.String propertyPrefixIfChildren,
+      required _fac9.String propertyPrefixNoChildren,
       required this.table,
       required this.hydroState})
       : super(
@@ -109,85 +107,212 @@ class RTManagedTextTreeConfiguration extends TextTreeConfiguration
             propertyPrefixIfChildren: propertyPrefixIfChildren,
             propertyPrefixNoChildren: propertyPrefixNoChildren) {
     table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['unwrap'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [unwrap()];
     });
-    table['prefixLineOne'] = prefixLineOne;
-    table['suffixLineOne'] = suffixLineOne;
-    table['prefixOtherLines'] = prefixOtherLines;
-    table['prefixLastChildLineOne'] = prefixLastChildLineOne;
-    table['prefixOtherLinesRootNode'] = prefixOtherLinesRootNode;
-    table['propertyPrefixIfChildren'] = propertyPrefixIfChildren;
-    table['propertyPrefixNoChildren'] = propertyPrefixNoChildren;
-    table['linkCharacter'] = linkCharacter;
-    table['childLinkSpace'] = childLinkSpace;
-    table['lineBreak'] = lineBreak;
-    table['lineBreakProperties'] = lineBreakProperties;
-    table['beforeName'] = beforeName;
-    table['afterName'] = afterName;
-    table['afterDescriptionIfBody'] = afterDescriptionIfBody;
-    table['afterDescription'] = afterDescription;
-    table['beforeProperties'] = beforeProperties;
-    table['afterProperties'] = afterProperties;
-    table['mandatoryAfterProperties'] = mandatoryAfterProperties;
-    table['propertySeparator'] = propertySeparator;
-    table['bodyIndent'] = bodyIndent;
-    table['showChildren'] = showChildren;
-    table['addBlankLineIfNoChildren'] = addBlankLineIfNoChildren;
-    table['isNameOnOwnLine'] = isNameOnOwnLine;
-    table['footer'] = footer;
-    table['mandatoryFooter'] = mandatoryFooter;
-    table['isBlankLineBetweenPropertiesAndChildren'] =
-        isBlankLineBetweenPropertiesAndChildren;
+    table['prefixLineOne'] = _36c2.maybeBoxObject(
+        object: this.prefixLineOne,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['suffixLineOne'] = _36c2.maybeBoxObject(
+        object: this.suffixLineOne,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['prefixOtherLines'] = _36c2.maybeBoxObject(
+        object: this.prefixOtherLines,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['prefixLastChildLineOne'] = _36c2.maybeBoxObject(
+        object: this.prefixLastChildLineOne,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['prefixOtherLinesRootNode'] = _36c2.maybeBoxObject(
+        object: this.prefixOtherLinesRootNode,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['propertyPrefixIfChildren'] = _36c2.maybeBoxObject(
+        object: this.propertyPrefixIfChildren,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['propertyPrefixNoChildren'] = _36c2.maybeBoxObject(
+        object: this.propertyPrefixNoChildren,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['linkCharacter'] = _36c2.maybeBoxObject(
+        object: this.linkCharacter,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['childLinkSpace'] = _36c2.maybeBoxObject(
+        object: childLinkSpace,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['lineBreak'] = _36c2.maybeBoxObject(
+        object: this.lineBreak,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['lineBreakProperties'] = _36c2.maybeBoxObject(
+        object: this.lineBreakProperties,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['beforeName'] = _36c2.maybeBoxObject(
+        object: this.beforeName,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['afterName'] = _36c2.maybeBoxObject(
+        object: this.afterName,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['afterDescriptionIfBody'] = _36c2.maybeBoxObject(
+        object: this.afterDescriptionIfBody,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['afterDescription'] = _36c2.maybeBoxObject(
+        object: this.afterDescription,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['beforeProperties'] = _36c2.maybeBoxObject(
+        object: this.beforeProperties,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['afterProperties'] = _36c2.maybeBoxObject(
+        object: this.afterProperties,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['mandatoryAfterProperties'] = _36c2.maybeBoxObject(
+        object: this.mandatoryAfterProperties,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['propertySeparator'] = _36c2.maybeBoxObject(
+        object: this.propertySeparator,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['bodyIndent'] = _36c2.maybeBoxObject(
+        object: this.bodyIndent,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['showChildren'] = _36c2.maybeBoxObject(
+        object: this.showChildren,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['addBlankLineIfNoChildren'] = _36c2.maybeBoxObject(
+        object: this.addBlankLineIfNoChildren,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['isNameOnOwnLine'] = _36c2.maybeBoxObject(
+        object: this.isNameOnOwnLine,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['footer'] = _36c2.maybeBoxObject(
+        object: this.footer, hydroState: hydroState, table: _36c2.HydroTable());
+    table['mandatoryFooter'] = _36c2.maybeBoxObject(
+        object: this.mandatoryFooter,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['isBlankLineBetweenPropertiesAndChildren'] = _36c2.maybeBoxObject(
+        object: this.isBlankLineBetweenPropertiesAndChildren,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
   }
 
-  final HydroTable table;
+  final _36c2.HydroTable table;
 
-  final HydroState hydroState;
+  final _36c2.HydroState hydroState;
 
-  TextTreeConfiguration unwrap() => this;
-  TextTreeConfiguration get vmObject => this;
+  _eaf3.TextTreeConfiguration unwrap() => this;
+  _eaf3.TextTreeConfiguration get vmObject => this;
 }
 
 void loadTextTreeConfiguration(
-    {required HydroState hydroState, required HydroTable table}) {
-  table['textTreeConfiguration'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    {required _36c2.HydroState hydroState, required _36c2.HydroTable table}) {
+  table['textTreeConfiguration'] = _36c2.makeLuaDartFunc(
+      func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
     return [
       RTManagedTextTreeConfiguration(
-          table: args[0],
+          table: luaCallerArguments[0],
           hydroState: hydroState,
-          addBlankLineIfNoChildren: args[1]['addBlankLineIfNoChildren'],
-          afterDescription: args[1]['afterDescription'],
-          afterDescriptionIfBody: args[1]['afterDescriptionIfBody'],
-          afterName: args[1]['afterName'],
-          afterProperties: args[1]['afterProperties'],
-          beforeName: args[1]['beforeName'],
-          beforeProperties: args[1]['beforeProperties'],
-          bodyIndent: args[1]['bodyIndent'],
-          footer: args[1]['footer'],
-          isBlankLineBetweenPropertiesAndChildren: args[1]
-              ['isBlankLineBetweenPropertiesAndChildren'],
-          isNameOnOwnLine: args[1]['isNameOnOwnLine'],
-          lineBreak: args[1]['lineBreak'],
-          lineBreakProperties: args[1]['lineBreakProperties'],
-          mandatoryAfterProperties: args[1]['mandatoryAfterProperties'],
-          mandatoryFooter: args[1]['mandatoryFooter'],
-          propertySeparator: args[1]['propertySeparator'],
-          showChildren: args[1]['showChildren'],
-          suffixLineOne: args[1]['suffixLineOne'],
-          linkCharacter: args[1]['linkCharacter'],
-          prefixLastChildLineOne: args[1]['prefixLastChildLineOne'],
-          prefixLineOne: args[1]['prefixLineOne'],
-          prefixOtherLines: args[1]['prefixOtherLines'],
-          prefixOtherLinesRootNode: args[1]['prefixOtherLinesRootNode'],
-          propertyPrefixIfChildren: args[1]['propertyPrefixIfChildren'],
-          propertyPrefixNoChildren: args[1]['propertyPrefixNoChildren'])
+          addBlankLineIfNoChildren: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['addBlankLineIfNoChildren']
+              : null,
+          afterDescription: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['afterDescription']
+              : null,
+          afterDescriptionIfBody: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['afterDescriptionIfBody']
+              : null,
+          afterName: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['afterName']
+              : null,
+          afterProperties: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['afterProperties']
+              : null,
+          beforeName: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['beforeName']
+              : null,
+          beforeProperties: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['beforeProperties']
+              : null,
+          bodyIndent: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['bodyIndent']
+              : null,
+          footer: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['footer']
+              : null,
+          isBlankLineBetweenPropertiesAndChildren: luaCallerArguments.length >=
+                  2
+              ? luaCallerArguments[1]['isBlankLineBetweenPropertiesAndChildren']
+              : null,
+          isNameOnOwnLine: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['isNameOnOwnLine']
+              : null,
+          lineBreak: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['lineBreak']
+              : null,
+          lineBreakProperties: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['lineBreakProperties']
+              : null,
+          mandatoryAfterProperties: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['mandatoryAfterProperties']
+              : null,
+          mandatoryFooter: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['mandatoryFooter']
+              : null,
+          propertySeparator: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['propertySeparator']
+              : null,
+          showChildren: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['showChildren']
+              : null,
+          suffixLineOne: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['suffixLineOne']
+              : null,
+          linkCharacter: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['linkCharacter']
+              : null,
+          prefixLastChildLineOne: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['prefixLastChildLineOne']
+              : null,
+          prefixLineOne: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['prefixLineOne']
+              : null,
+          prefixOtherLines: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['prefixOtherLines']
+              : null,
+          prefixOtherLinesRootNode: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['prefixOtherLinesRootNode']
+              : null,
+          propertyPrefixIfChildren: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['propertyPrefixIfChildren']
+              : null,
+          propertyPrefixNoChildren: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1]['propertyPrefixNoChildren']
+              : null)
     ];
   });
-  registerBoxer<TextTreeConfiguration>(boxer: (
-      {required TextTreeConfiguration vmObject,
-      required HydroState hydroState,
-      required HydroTable table}) {
+  _36c2.registerBoxer<_eaf3.TextTreeConfiguration>(boxer: (
+      {required _eaf3.TextTreeConfiguration vmObject,
+      required _36c2.HydroState hydroState,
+      required _36c2.HydroTable table}) {
     return VMManagedTextTreeConfiguration(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

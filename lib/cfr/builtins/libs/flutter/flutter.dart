@@ -19,8 +19,8 @@ void loadflutter(
   final flutter = _36c2.HydroTable();
   context.env['flutter'] = flutter;
   _5a81.loadpainting(table: flutter, hydroState: hydroState);
-  _e83d.loadanimation(table: flutter, hydroState: hydroState);
   _0432.loadfoundation(table: flutter, hydroState: hydroState);
+  _e83d.loadanimation(table: flutter, hydroState: hydroState);
   _f3f3.loadsemantics(table: flutter, hydroState: hydroState);
   _9eb6.loadgestures(table: flutter, hydroState: hydroState);
   _b51c.loadrendering(table: flutter, hydroState: hydroState);

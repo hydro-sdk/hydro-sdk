@@ -1,4 +1,4 @@
-import { IList } from "./../../dart/core/list";
+import { IList } from "../../dart/core/list";
 import { IDiagnosticsNode } from "./diagnosticsNode";
 export interface IDiagnosticsSerializationDelegate {
     additionalNodeProperties: (node: IDiagnosticsNode) => {

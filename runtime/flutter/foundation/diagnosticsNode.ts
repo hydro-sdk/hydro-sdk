@@ -1,4 +1,4 @@
-import { IList } from "./../../dart/core/list";
+import { IList } from "../../dart/core/list";
 import { DiagnosticLevel } from "./diagnosticLevel";
 import { IDiagnosticsSerializationDelegate } from "./diagnosticsSerializationDelegate";
 import { DiagnosticsTreeStyle } from "./diagnosticsTreeStyle";
@@ -7,7 +7,7 @@ declare const flutter: {
     foundation: {
         diagnosticsNode: (
             this: void,
-            diagnosticsNode: DiagnosticsNode,
+            diagnosticsNode: IDiagnosticsNode,
             props: {
                 linePrefix?: string | undefined;
                 showName: boolean;
@@ -15,7 +15,7 @@ declare const flutter: {
                 style?: DiagnosticsTreeStyle | undefined;
                 name?: string | undefined;
             }
-        ) => DiagnosticsNode;
+        ) => IDiagnosticsNode;
         diagnosticsNodeMessage: (
             message: string,
             props: {
@@ -31,29 +31,13 @@ declare const flutter: {
         ) => IList<{ [index: string]: Object | undefined }>;
     };
 };
-const diagnosticsNodeDefaultProps = {
-    showName: true,
-    showSeparator: true,
-};
-const toStringDefaultProps = {
-    minLevel: DiagnosticLevel.info,
-};
-const toStringDeepDefaultProps = {
-    minLevel: DiagnosticLevel.debug,
-    prefixLineOne: "",
-};
-const messageDefaultProps = {
-    allowWrap: true,
-    level: DiagnosticLevel.info,
-    style: DiagnosticsTreeStyle.singleLine,
-};
 export interface IDiagnosticsNode {
     name: string | undefined;
     showSeparator: boolean;
     showName: boolean;
     linePrefix: string | undefined;
     style: DiagnosticsTreeStyle | undefined;
-    toDescription: (props: {
+    toDescription: (props?: {
         parentConfiguration?: ITextTreeConfiguration | undefined;
     }) => string | undefined;
     isFiltered: (minLevel: DiagnosticLevel) => boolean;
@@ -65,10 +49,14 @@ export interface IDiagnosticsNode {
     getAllowTruncate: () => boolean;
     getProperties: () => IList<IDiagnosticsNode>;
     getChildren: () => IList<IDiagnosticsNode>;
+    toJsonMap: (delegate: IDiagnosticsSerializationDelegate) => {
+        [index: string]: Object | undefined;
+    };
     toString: (props: {
         minLevel: DiagnosticLevel;
         parentConfiguration?: ITextTreeConfiguration | undefined;
     }) => string;
+    getTextTreeConfiguration: () => ITextTreeConfiguration | undefined;
     toStringDeep: (props: {
         minLevel: DiagnosticLevel;
         parentConfiguration?: ITextTreeConfiguration | undefined;
@@ -118,7 +106,7 @@ export class DiagnosticsNode {
             delegate
         );
     }
-    private readonly _dart_toDescription: (props: {
+    private readonly _dart_toDescription: (props?: {
         parentConfiguration?: ITextTreeConfiguration | undefined;
     }) => string | undefined = undefined as any;
     private readonly _dart_isFiltered: (minLevel: DiagnosticLevel) => boolean =
@@ -135,17 +123,23 @@ export class DiagnosticsNode {
         undefined as any;
     private readonly _dart_getChildren: () => IList<IDiagnosticsNode> =
         undefined as any;
+    private readonly _dart_toJsonMap: (
+        delegate: IDiagnosticsSerializationDelegate
+    ) => { [index: string]: Object | undefined } = undefined as any;
     private readonly _dart_toString: (props: {
         minLevel: DiagnosticLevel;
         parentConfiguration?: ITextTreeConfiguration | undefined;
     }) => string = undefined as any;
+    private readonly _dart_getTextTreeConfiguration: () =>
+        | ITextTreeConfiguration
+        | undefined = undefined as any;
     private readonly _dart_toStringDeep: (props: {
         minLevel: DiagnosticLevel;
         parentConfiguration?: ITextTreeConfiguration | undefined;
         prefixLineOne: string;
         prefixOtherLines?: string | undefined;
     }) => string = undefined as any;
-    public toDescription(props: {
+    public toDescription(props?: {
         parentConfiguration?: ITextTreeConfiguration | undefined;
     }): string | undefined {
         return this._dart_toDescription(props);
@@ -177,6 +171,11 @@ export class DiagnosticsNode {
     public getChildren(): IList<IDiagnosticsNode> {
         return this._dart_getChildren();
     }
+    public toJsonMap(delegate: IDiagnosticsSerializationDelegate): {
+        [index: string]: Object | undefined;
+    } {
+        return this._dart_toJsonMap(delegate);
+    }
     public toString(props: {
         minLevel?: DiagnosticLevel;
         parentConfiguration?: ITextTreeConfiguration | undefined;
@@ -185,6 +184,9 @@ export class DiagnosticsNode {
             ...toStringDefaultProps,
             ...props,
         });
+    }
+    public getTextTreeConfiguration(): ITextTreeConfiguration | undefined {
+        return this._dart_getTextTreeConfiguration();
     }
     public toStringDeep(props: {
         minLevel?: DiagnosticLevel;
@@ -198,3 +200,19 @@ export class DiagnosticsNode {
         });
     }
 }
+const diagnosticsNodeDefaultProps = {
+    showName: true,
+    showSeparator: true,
+};
+const toStringDefaultProps = {
+    minLevel: DiagnosticLevel.info,
+};
+const toStringDeepDefaultProps = {
+    minLevel: DiagnosticLevel.debug,
+    prefixLineOne: "",
+};
+const messageDefaultProps = {
+    allowWrap: true,
+    level: DiagnosticLevel.info,
+    style: DiagnosticsTreeStyle.singleLine,
+};
