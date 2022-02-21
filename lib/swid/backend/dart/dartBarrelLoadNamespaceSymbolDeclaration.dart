@@ -76,7 +76,7 @@ class DartBarrelLoadNamespaceSymbolDeclaration
         DartFormatter().format(
           Method(
             (m) => m
-              ..name = "load${barrelSpec.name}"
+              ..name = barrelSpec.name
               ..returns = refer("void")
               ..optionalParameters.addAll([
                 Parameter(
@@ -257,7 +257,7 @@ class DartBarrelLoadNamespaceSymbolDeclaration
                                   ].join("."),
                                   fromBarrelSpec: (val) => [
                                     it.item1,
-                                    "load${val.name}",
+                                    val.name,
                                   ].join("."),
                                 ),
                               ),
