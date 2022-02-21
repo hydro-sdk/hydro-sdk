@@ -139,8 +139,14 @@
                 "package:flutter/src/foundation/serialization.dart",
                 "package:flutter/src/foundation/stack_frame.dart",
                 "package:flutter/src/foundation/synchronous_future.dart",
-                "package:flutter/src/foundation/unicode.dart"
-
+                "package:flutter/src/foundation/unicode.dart",
+                "package:flutter/src/animation/animation.dart",
+                "package:flutter/src/animation/animation_controller.dart",
+                "package:flutter/src/animation/animations.dart",
+                "package:flutter/src/animation/curves.dart",
+                "package:flutter/src/animation/listener_helpers.dart",
+                "package:flutter/src/animation/tween.dart",
+                "package:flutter/src/animation/tween_sequence.dart"
             ],
             "classNames": [
                 "Key",
