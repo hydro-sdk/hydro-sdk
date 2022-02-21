@@ -195,6 +195,7 @@ void main() {
                 .reduceFromTerm(
                   InstantiateAllGenericsAs(
                     instantiateNormalParameterTypes: false,
+                    instantiateNamedParameterTypes: false,
                     swidType: SwidType.fromSwidClass(swidClass: iterable),
                     instantiatedGeneric:
                         SwidInstantiatedGeneric.fromSwidInstantiableGeneric(

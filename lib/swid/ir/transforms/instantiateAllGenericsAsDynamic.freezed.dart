@@ -18,10 +18,12 @@ class _$InstantiateAllGenericsAsDynamicTearOff {
 
   _$InstantiateAllGenericsAsDynamicCtor call(
       {required SwidType swidType,
-      bool instantiateNormalParameterTypes = false}) {
+      bool instantiateNormalParameterTypes = false,
+      bool instantiateNamedParameterTypes = false}) {
     return _$InstantiateAllGenericsAsDynamicCtor(
       swidType: swidType,
       instantiateNormalParameterTypes: instantiateNormalParameterTypes,
+      instantiateNamedParameterTypes: instantiateNamedParameterTypes,
     );
   }
 }
@@ -35,6 +37,7 @@ mixin _$InstantiateAllGenericsAsDynamic {
   SwidType get swidType => throw _privateConstructorUsedError;
   bool get instantiateNormalParameterTypes =>
       throw _privateConstructorUsedError;
+  bool get instantiateNamedParameterTypes => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $InstantiateAllGenericsAsDynamicCopyWith<InstantiateAllGenericsAsDynamic>
@@ -47,7 +50,10 @@ abstract class $InstantiateAllGenericsAsDynamicCopyWith<$Res> {
           InstantiateAllGenericsAsDynamic value,
           $Res Function(InstantiateAllGenericsAsDynamic) then) =
       _$InstantiateAllGenericsAsDynamicCopyWithImpl<$Res>;
-  $Res call({SwidType swidType, bool instantiateNormalParameterTypes});
+  $Res call(
+      {SwidType swidType,
+      bool instantiateNormalParameterTypes,
+      bool instantiateNamedParameterTypes});
 
   $SwidTypeCopyWith<$Res> get swidType;
 }
@@ -65,6 +71,7 @@ class _$InstantiateAllGenericsAsDynamicCopyWithImpl<$Res>
   $Res call({
     Object? swidType = freezed,
     Object? instantiateNormalParameterTypes = freezed,
+    Object? instantiateNamedParameterTypes = freezed,
   }) {
     return _then(_value.copyWith(
       swidType: swidType == freezed
@@ -75,6 +82,10 @@ class _$InstantiateAllGenericsAsDynamicCopyWithImpl<$Res>
               freezed
           ? _value.instantiateNormalParameterTypes
           : instantiateNormalParameterTypes // ignore: cast_nullable_to_non_nullable
+              as bool,
+      instantiateNamedParameterTypes: instantiateNamedParameterTypes == freezed
+          ? _value.instantiateNamedParameterTypes
+          : instantiateNamedParameterTypes // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
   }
@@ -95,7 +106,10 @@ abstract class _$$InstantiateAllGenericsAsDynamicCtorCopyWith<$Res>
           $Res Function(_$InstantiateAllGenericsAsDynamicCtor) then) =
       __$$InstantiateAllGenericsAsDynamicCtorCopyWithImpl<$Res>;
   @override
-  $Res call({SwidType swidType, bool instantiateNormalParameterTypes});
+  $Res call(
+      {SwidType swidType,
+      bool instantiateNormalParameterTypes,
+      bool instantiateNamedParameterTypes});
 
   @override
   $SwidTypeCopyWith<$Res> get swidType;
@@ -118,6 +132,7 @@ class __$$InstantiateAllGenericsAsDynamicCtorCopyWithImpl<$Res>
   $Res call({
     Object? swidType = freezed,
     Object? instantiateNormalParameterTypes = freezed,
+    Object? instantiateNamedParameterTypes = freezed,
   }) {
     return _then(_$InstantiateAllGenericsAsDynamicCtor(
       swidType: swidType == freezed
@@ -129,6 +144,10 @@ class __$$InstantiateAllGenericsAsDynamicCtorCopyWithImpl<$Res>
           ? _value.instantiateNormalParameterTypes
           : instantiateNormalParameterTypes // ignore: cast_nullable_to_non_nullable
               as bool,
+      instantiateNamedParameterTypes: instantiateNamedParameterTypes == freezed
+          ? _value.instantiateNamedParameterTypes
+          : instantiateNamedParameterTypes // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -138,7 +157,9 @@ class __$$InstantiateAllGenericsAsDynamicCtorCopyWithImpl<$Res>
 class _$_$InstantiateAllGenericsAsDynamicCtor
     extends _$InstantiateAllGenericsAsDynamicCtor {
   _$_$InstantiateAllGenericsAsDynamicCtor(
-      {required this.swidType, this.instantiateNormalParameterTypes = false})
+      {required this.swidType,
+      this.instantiateNormalParameterTypes = false,
+      this.instantiateNamedParameterTypes = false})
       : super._();
 
   @override
@@ -146,10 +167,13 @@ class _$_$InstantiateAllGenericsAsDynamicCtor
   @JsonKey(defaultValue: false)
   @override
   final bool instantiateNormalParameterTypes;
+  @JsonKey(defaultValue: false)
+  @override
+  final bool instantiateNamedParameterTypes;
 
   @override
   String toString() {
-    return 'InstantiateAllGenericsAsDynamic(swidType: $swidType, instantiateNormalParameterTypes: $instantiateNormalParameterTypes)';
+    return 'InstantiateAllGenericsAsDynamic(swidType: $swidType, instantiateNormalParameterTypes: $instantiateNormalParameterTypes, instantiateNamedParameterTypes: $instantiateNamedParameterTypes)';
   }
 
   @override
@@ -163,14 +187,20 @@ class _$_$InstantiateAllGenericsAsDynamicCtor
                     instantiateNormalParameterTypes) ||
                 const DeepCollectionEquality().equals(
                     other.instantiateNormalParameterTypes,
-                    instantiateNormalParameterTypes)));
+                    instantiateNormalParameterTypes)) &&
+            (identical(other.instantiateNamedParameterTypes,
+                    instantiateNamedParameterTypes) ||
+                const DeepCollectionEquality().equals(
+                    other.instantiateNamedParameterTypes,
+                    instantiateNamedParameterTypes)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(swidType) ^
-      const DeepCollectionEquality().hash(instantiateNormalParameterTypes);
+      const DeepCollectionEquality().hash(instantiateNormalParameterTypes) ^
+      const DeepCollectionEquality().hash(instantiateNamedParameterTypes);
 
   @JsonKey(ignore: true)
   @override
@@ -183,7 +213,9 @@ class _$_$InstantiateAllGenericsAsDynamicCtor
 abstract class _$InstantiateAllGenericsAsDynamicCtor
     extends InstantiateAllGenericsAsDynamic {
   factory _$InstantiateAllGenericsAsDynamicCtor(
-          {required SwidType swidType, bool instantiateNormalParameterTypes}) =
+          {required SwidType swidType,
+          bool instantiateNormalParameterTypes,
+          bool instantiateNamedParameterTypes}) =
       _$_$InstantiateAllGenericsAsDynamicCtor;
   _$InstantiateAllGenericsAsDynamicCtor._() : super._();
 
@@ -192,6 +224,8 @@ abstract class _$InstantiateAllGenericsAsDynamicCtor
   @override
   bool get instantiateNormalParameterTypes =>
       throw _privateConstructorUsedError;
+  @override
+  bool get instantiateNamedParameterTypes => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$InstantiateAllGenericsAsDynamicCtorCopyWith<

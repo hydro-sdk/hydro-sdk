@@ -208,6 +208,7 @@ class DartLoadNamespaceSymbolDeclaration
                                   .reduceFromTerm(
                                     InstantiateAllGenericsAsDynamic(
                                       instantiateNormalParameterTypes: true,
+                                      instantiateNamedParameterTypes: true,
                                       swidType: SwidType.fromSwidFunctionType(
                                         swidFunctionType:
                                             swidClass.constructorType!,

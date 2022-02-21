@@ -35,6 +35,7 @@ class InstantiateAllGenericsAsDynamic
   factory InstantiateAllGenericsAsDynamic({
     required final SwidType swidType,
     @Default(false) final bool instantiateNormalParameterTypes,
+    @Default(false) final bool instantiateNamedParameterTypes,
   }) = _$InstantiateAllGenericsAsDynamicCtor;
 
   @override
@@ -45,6 +46,9 @@ class InstantiateAllGenericsAsDynamic
     yield* swidType.hashKey.hashableParts;
     yield [
       ...instantiateNormalParameterTypes.hashableParts,
+    ];
+    yield [
+      ...instantiateNamedParameterTypes.hashableParts,
     ];
   }
 
@@ -68,6 +72,7 @@ class InstantiateAllGenericsAsDynamic
           InstantiateAllGenericsAs(
             swidType: swidType,
             instantiateNormalParameterTypes: instantiateNormalParameterTypes,
+            instantiateNamedParameterTypes: instantiateNamedParameterTypes,
             instantiatedGeneric:
                 SwidInstantiatedGeneric.fromSwidInstantiableGeneric(
               swidInstantiableGeneric:

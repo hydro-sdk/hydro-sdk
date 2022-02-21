@@ -19,11 +19,13 @@ class _$InstantiateAllGenericsAsTearOff {
   _$InstantiateAllGenericsAsCtor call(
       {required SwidType swidType,
       required SwidInstantiatedGeneric instantiatedGeneric,
-      required bool instantiateNormalParameterTypes}) {
+      required bool instantiateNormalParameterTypes,
+      required bool instantiateNamedParameterTypes}) {
     return _$InstantiateAllGenericsAsCtor(
       swidType: swidType,
       instantiatedGeneric: instantiatedGeneric,
       instantiateNormalParameterTypes: instantiateNormalParameterTypes,
+      instantiateNamedParameterTypes: instantiateNamedParameterTypes,
     );
   }
 }
@@ -38,6 +40,7 @@ mixin _$InstantiateAllGenericsAs {
       throw _privateConstructorUsedError;
   bool get instantiateNormalParameterTypes =>
       throw _privateConstructorUsedError;
+  bool get instantiateNamedParameterTypes => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $InstantiateAllGenericsAsCopyWith<InstantiateAllGenericsAs> get copyWith =>
@@ -52,7 +55,8 @@ abstract class $InstantiateAllGenericsAsCopyWith<$Res> {
   $Res call(
       {SwidType swidType,
       SwidInstantiatedGeneric instantiatedGeneric,
-      bool instantiateNormalParameterTypes});
+      bool instantiateNormalParameterTypes,
+      bool instantiateNamedParameterTypes});
 
   $SwidTypeCopyWith<$Res> get swidType;
   $SwidInstantiatedGenericCopyWith<$Res> get instantiatedGeneric;
@@ -72,6 +76,7 @@ class _$InstantiateAllGenericsAsCopyWithImpl<$Res>
     Object? swidType = freezed,
     Object? instantiatedGeneric = freezed,
     Object? instantiateNormalParameterTypes = freezed,
+    Object? instantiateNamedParameterTypes = freezed,
   }) {
     return _then(_value.copyWith(
       swidType: swidType == freezed
@@ -86,6 +91,10 @@ class _$InstantiateAllGenericsAsCopyWithImpl<$Res>
               freezed
           ? _value.instantiateNormalParameterTypes
           : instantiateNormalParameterTypes // ignore: cast_nullable_to_non_nullable
+              as bool,
+      instantiateNamedParameterTypes: instantiateNamedParameterTypes == freezed
+          ? _value.instantiateNamedParameterTypes
+          : instantiateNamedParameterTypes // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
   }
@@ -117,7 +126,8 @@ abstract class _$$InstantiateAllGenericsAsCtorCopyWith<$Res>
   $Res call(
       {SwidType swidType,
       SwidInstantiatedGeneric instantiatedGeneric,
-      bool instantiateNormalParameterTypes});
+      bool instantiateNormalParameterTypes,
+      bool instantiateNamedParameterTypes});
 
   @override
   $SwidTypeCopyWith<$Res> get swidType;
@@ -143,6 +153,7 @@ class __$$InstantiateAllGenericsAsCtorCopyWithImpl<$Res>
     Object? swidType = freezed,
     Object? instantiatedGeneric = freezed,
     Object? instantiateNormalParameterTypes = freezed,
+    Object? instantiateNamedParameterTypes = freezed,
   }) {
     return _then(_$InstantiateAllGenericsAsCtor(
       swidType: swidType == freezed
@@ -158,6 +169,10 @@ class __$$InstantiateAllGenericsAsCtorCopyWithImpl<$Res>
           ? _value.instantiateNormalParameterTypes
           : instantiateNormalParameterTypes // ignore: cast_nullable_to_non_nullable
               as bool,
+      instantiateNamedParameterTypes: instantiateNamedParameterTypes == freezed
+          ? _value.instantiateNamedParameterTypes
+          : instantiateNamedParameterTypes // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -168,7 +183,8 @@ class _$_$InstantiateAllGenericsAsCtor extends _$InstantiateAllGenericsAsCtor {
   _$_$InstantiateAllGenericsAsCtor(
       {required this.swidType,
       required this.instantiatedGeneric,
-      required this.instantiateNormalParameterTypes})
+      required this.instantiateNormalParameterTypes,
+      required this.instantiateNamedParameterTypes})
       : super._();
 
   @override
@@ -177,10 +193,12 @@ class _$_$InstantiateAllGenericsAsCtor extends _$InstantiateAllGenericsAsCtor {
   final SwidInstantiatedGeneric instantiatedGeneric;
   @override
   final bool instantiateNormalParameterTypes;
+  @override
+  final bool instantiateNamedParameterTypes;
 
   @override
   String toString() {
-    return 'InstantiateAllGenericsAs(swidType: $swidType, instantiatedGeneric: $instantiatedGeneric, instantiateNormalParameterTypes: $instantiateNormalParameterTypes)';
+    return 'InstantiateAllGenericsAs(swidType: $swidType, instantiatedGeneric: $instantiatedGeneric, instantiateNormalParameterTypes: $instantiateNormalParameterTypes, instantiateNamedParameterTypes: $instantiateNamedParameterTypes)';
   }
 
   @override
@@ -197,7 +215,12 @@ class _$_$InstantiateAllGenericsAsCtor extends _$InstantiateAllGenericsAsCtor {
                     instantiateNormalParameterTypes) ||
                 const DeepCollectionEquality().equals(
                     other.instantiateNormalParameterTypes,
-                    instantiateNormalParameterTypes)));
+                    instantiateNormalParameterTypes)) &&
+            (identical(other.instantiateNamedParameterTypes,
+                    instantiateNamedParameterTypes) ||
+                const DeepCollectionEquality().equals(
+                    other.instantiateNamedParameterTypes,
+                    instantiateNamedParameterTypes)));
   }
 
   @override
@@ -205,7 +228,8 @@ class _$_$InstantiateAllGenericsAsCtor extends _$InstantiateAllGenericsAsCtor {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(swidType) ^
       const DeepCollectionEquality().hash(instantiatedGeneric) ^
-      const DeepCollectionEquality().hash(instantiateNormalParameterTypes);
+      const DeepCollectionEquality().hash(instantiateNormalParameterTypes) ^
+      const DeepCollectionEquality().hash(instantiateNamedParameterTypes);
 
   @JsonKey(ignore: true)
   @override
@@ -218,7 +242,8 @@ abstract class _$InstantiateAllGenericsAsCtor extends InstantiateAllGenericsAs {
   factory _$InstantiateAllGenericsAsCtor(
           {required SwidType swidType,
           required SwidInstantiatedGeneric instantiatedGeneric,
-          required bool instantiateNormalParameterTypes}) =
+          required bool instantiateNormalParameterTypes,
+          required bool instantiateNamedParameterTypes}) =
       _$_$InstantiateAllGenericsAsCtor;
   _$InstantiateAllGenericsAsCtor._() : super._();
 
@@ -230,6 +255,8 @@ abstract class _$InstantiateAllGenericsAsCtor extends InstantiateAllGenericsAs {
   @override
   bool get instantiateNormalParameterTypes =>
       throw _privateConstructorUsedError;
+  @override
+  bool get instantiateNamedParameterTypes => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$InstantiateAllGenericsAsCtorCopyWith<_$InstantiateAllGenericsAsCtor>

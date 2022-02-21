@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:analyzer/dart/ast/ast.dart';
@@ -125,6 +126,11 @@ class _SwidVisitor extends RecursiveAstVisitor
         ),
       );
       classes.add(res);
+    }
+
+    if (node.name.name == "TweenSequence") {
+      // debugger();
+      // print("");
     }
 
     super.visitClassDeclaration(node);

@@ -38,6 +38,7 @@ class InstantiateAllGenericsAs
     required final SwidType swidType,
     required final SwidInstantiatedGeneric instantiatedGeneric,
     required final bool instantiateNormalParameterTypes,
+    required final bool instantiateNamedParameterTypes,
   }) = _$InstantiateAllGenericsAsCtor;
 
   @override
@@ -47,7 +48,12 @@ class InstantiateAllGenericsAs
   Iterable<Iterable<int>> get hashableParts sync* {
     yield* swidType.hashKey.hashableParts;
     yield* instantiatedGeneric.hashKey.hashableParts;
-    yield [...instantiateNormalParameterTypes.hashableParts];
+    yield [
+      ...instantiateNormalParameterTypes.hashableParts,
+    ];
+    yield [
+      ...instantiateNamedParameterTypes.hashableParts,
+    ];
   }
 
   @override
@@ -55,12 +61,15 @@ class InstantiateAllGenericsAs
     final SwidType? swidType,
     final SwidInstantiatedGeneric? instantiatedGeneric,
     final bool? instantiateNormalParameterTypes,
+    final bool? instantiateNamedParameterTypes,
   }) =>
       InstantiateAllGenericsAs(
         swidType: swidType ?? this.swidType,
         instantiatedGeneric: instantiatedGeneric ?? this.instantiatedGeneric,
         instantiateNormalParameterTypes: instantiateNormalParameterTypes ??
             this.instantiateNormalParameterTypes,
+        instantiateNamedParameterTypes: instantiateNamedParameterTypes ??
+            this.instantiateNamedParameterTypes,
       );
 
   @override
@@ -105,12 +114,13 @@ class InstantiateAllGenericsAs
                   .map(
                     (x) => SwidTypeArgumentType(
                       type: pipeline.reduceFromTerm(
-                        InstantiateGeneric(
-                          genericInstantiator: SwidGenericInstantiator(
-                            name: x.type.name,
-                            instantiatedGeneric: instantiatedGeneric,
-                          ),
+                        InstantiateAllGenericsAs(
                           swidType: x.type,
+                          instantiatedGeneric: instantiatedGeneric,
+                          instantiateNormalParameterTypes:
+                              instantiateNormalParameterTypes,
+                          instantiateNamedParameterTypes:
+                              instantiateNamedParameterTypes,
                         ),
                       ),
                       element: x.element,
@@ -154,6 +164,8 @@ class InstantiateAllGenericsAs
                             InstantiateAllGenericsAs(
                               instantiateNormalParameterTypes:
                                   instantiateNormalParameterTypes,
+                              instantiateNamedParameterTypes:
+                                  instantiateNamedParameterTypes,
                               swidType: SwidType.fromSwidFunctionType(
                                 swidFunctionType: val.constructorType!,
                               ),
@@ -183,18 +195,41 @@ class InstantiateAllGenericsAs
                                 swidType: x,
                                 instantiateNormalParameterTypes:
                                     instantiateNormalParameterTypes,
+                                instantiateNamedParameterTypes:
+                                    instantiateNamedParameterTypes,
                                 instantiatedGeneric: instantiatedGeneric,
                               ),
                             ),
                           )
                           .toList()
                       : swidFunctionType.normalParameterTypes,
+                  namedParameterTypes: instantiateNamedParameterTypes
+                      ? Map.fromEntries(
+                          swidFunctionType.namedParameterTypes.entries.map(
+                            (x) => MapEntry(
+                              x.key,
+                              pipeline.reduceFromTerm(
+                                InstantiateAllGenericsAs(
+                                  swidType: x.value,
+                                  instantiateNormalParameterTypes:
+                                      instantiateNormalParameterTypes,
+                                  instantiateNamedParameterTypes:
+                                      instantiateNamedParameterTypes,
+                                  instantiatedGeneric: instantiatedGeneric,
+                                ),
+                              ),
+                            ),
+                          ),
+                        )
+                      : swidFunctionType.namedParameterTypes,
                   returnType: pipeline.reduceFromTerm(
                     InstantiateAllGenericsAs(
                       swidType: val.returnType,
                       instantiatedGeneric: instantiatedGeneric,
                       instantiateNormalParameterTypes:
                           instantiateNormalParameterTypes,
+                      instantiateNamedParameterTypes:
+                          instantiateNamedParameterTypes,
                     ),
                   ),
                 ))(
