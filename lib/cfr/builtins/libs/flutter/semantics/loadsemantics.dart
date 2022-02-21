@@ -18,14 +18,16 @@ import 'package:hydro_sdk/cfr/runtimeSupport.dart' as _36c2;
 
 void loadsemantics(
     {required _36c2.HydroState hydroState, required _36c2.HydroTable table}) {
-  final semantics = _36c2.HydroTable();
-  table['semantics'] = semantics;
-  _53d4.loadSemanticsEvent(table: semantics, hydroState: hydroState);
-  _7cd6.loadSemanticsTag(table: semantics, hydroState: hydroState);
-  _6399.loadSemanticsData(table: semantics, hydroState: hydroState);
-  _5ffd.loadSemanticsHintOverrides(table: semantics, hydroState: hydroState);
-  _a8c1.loadSemanticsNode(table: semantics, hydroState: hydroState);
-  _809c.loadSemanticsOwner(table: semantics, hydroState: hydroState);
-  _cc4c.loadSemanticsConfiguration(table: semantics, hydroState: hydroState);
-  _8122.loadSemanticsSortKey(table: semantics, hydroState: hydroState);
+  final loadsemantics = _36c2.HydroTable();
+  table['loadsemantics'] = loadsemantics;
+  _53d4.loadSemanticsEvent(table: loadsemantics, hydroState: hydroState);
+  _7cd6.loadSemanticsTag(table: loadsemantics, hydroState: hydroState);
+  _6399.loadSemanticsData(table: loadsemantics, hydroState: hydroState);
+  _5ffd.loadSemanticsHintOverrides(
+      table: loadsemantics, hydroState: hydroState);
+  _a8c1.loadSemanticsNode(table: loadsemantics, hydroState: hydroState);
+  _809c.loadSemanticsOwner(table: loadsemantics, hydroState: hydroState);
+  _cc4c.loadSemanticsConfiguration(
+      table: loadsemantics, hydroState: hydroState);
+  _8122.loadSemanticsSortKey(table: loadsemantics, hydroState: hydroState);
 }

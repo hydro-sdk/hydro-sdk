@@ -68,43 +68,43 @@ import 'package:hydro_sdk/cfr/runtimeSupport.dart' as _36c2;
 
 void loadwidgets(
     {required _36c2.HydroState hydroState, required _36c2.HydroTable table}) {
-  final widgets = _36c2.HydroTable();
-  table['widgets'] = widgets;
-  _8069.loadUniqueKey(table: widgets, hydroState: hydroState);
-  _11f9.loadObjectKey(table: widgets, hydroState: hydroState);
-  _47c7.loadGlobalKey(table: widgets, hydroState: hydroState);
-  _8035.loadLabeledGlobalKey(table: widgets, hydroState: hydroState);
-  _50df.loadGlobalObjectKey(table: widgets, hydroState: hydroState);
-  _f3b1.loadWidget(table: widgets, hydroState: hydroState);
-  _1acb.loadStatelessWidget(table: widgets, hydroState: hydroState);
-  _16bb.loadStatefulWidget(table: widgets, hydroState: hydroState);
-  _7f96.loadState(table: widgets, hydroState: hydroState);
-  _f4d8.loadProxyWidget(table: widgets, hydroState: hydroState);
-  _8638.loadParentDataWidget(table: widgets, hydroState: hydroState);
-  _37b0.loadInheritedWidget(table: widgets, hydroState: hydroState);
-  _9f2c.loadRenderObjectWidget(table: widgets, hydroState: hydroState);
-  _93e2.loadLeafRenderObjectWidget(table: widgets, hydroState: hydroState);
+  final loadwidgets = _36c2.HydroTable();
+  table['loadwidgets'] = loadwidgets;
+  _8069.loadUniqueKey(table: loadwidgets, hydroState: hydroState);
+  _11f9.loadObjectKey(table: loadwidgets, hydroState: hydroState);
+  _47c7.loadGlobalKey(table: loadwidgets, hydroState: hydroState);
+  _8035.loadLabeledGlobalKey(table: loadwidgets, hydroState: hydroState);
+  _50df.loadGlobalObjectKey(table: loadwidgets, hydroState: hydroState);
+  _f3b1.loadWidget(table: loadwidgets, hydroState: hydroState);
+  _1acb.loadStatelessWidget(table: loadwidgets, hydroState: hydroState);
+  _16bb.loadStatefulWidget(table: loadwidgets, hydroState: hydroState);
+  _7f96.loadState(table: loadwidgets, hydroState: hydroState);
+  _f4d8.loadProxyWidget(table: loadwidgets, hydroState: hydroState);
+  _8638.loadParentDataWidget(table: loadwidgets, hydroState: hydroState);
+  _37b0.loadInheritedWidget(table: loadwidgets, hydroState: hydroState);
+  _9f2c.loadRenderObjectWidget(table: loadwidgets, hydroState: hydroState);
+  _93e2.loadLeafRenderObjectWidget(table: loadwidgets, hydroState: hydroState);
   _8446.loadSingleChildRenderObjectWidget(
-      table: widgets, hydroState: hydroState);
+      table: loadwidgets, hydroState: hydroState);
   _1696.loadMultiChildRenderObjectWidget(
-      table: widgets, hydroState: hydroState);
-  _1ed8.loadBuildContext(table: widgets, hydroState: hydroState);
-  _2ab7.loadBuildOwner(table: widgets, hydroState: hydroState);
-  _7c9c.loadElement(table: widgets, hydroState: hydroState);
-  _00d2.loadErrorWidget(table: widgets, hydroState: hydroState);
-  _4665.loadComponentElement(table: widgets, hydroState: hydroState);
-  _8b8c.loadStatelessElement(table: widgets, hydroState: hydroState);
-  _49f4.loadStatefulElement(table: widgets, hydroState: hydroState);
-  _1e3c.loadProxyElement(table: widgets, hydroState: hydroState);
-  _a4cd.loadParentDataElement(table: widgets, hydroState: hydroState);
-  _134f.loadInheritedElement(table: widgets, hydroState: hydroState);
-  _0784.loadRenderObjectElement(table: widgets, hydroState: hydroState);
-  _89be.loadRootRenderObjectElement(table: widgets, hydroState: hydroState);
-  _9f28.loadLeafRenderObjectElement(table: widgets, hydroState: hydroState);
+      table: loadwidgets, hydroState: hydroState);
+  _1ed8.loadBuildContext(table: loadwidgets, hydroState: hydroState);
+  _2ab7.loadBuildOwner(table: loadwidgets, hydroState: hydroState);
+  _7c9c.loadElement(table: loadwidgets, hydroState: hydroState);
+  _00d2.loadErrorWidget(table: loadwidgets, hydroState: hydroState);
+  _4665.loadComponentElement(table: loadwidgets, hydroState: hydroState);
+  _8b8c.loadStatelessElement(table: loadwidgets, hydroState: hydroState);
+  _49f4.loadStatefulElement(table: loadwidgets, hydroState: hydroState);
+  _1e3c.loadProxyElement(table: loadwidgets, hydroState: hydroState);
+  _a4cd.loadParentDataElement(table: loadwidgets, hydroState: hydroState);
+  _134f.loadInheritedElement(table: loadwidgets, hydroState: hydroState);
+  _0784.loadRenderObjectElement(table: loadwidgets, hydroState: hydroState);
+  _89be.loadRootRenderObjectElement(table: loadwidgets, hydroState: hydroState);
+  _9f28.loadLeafRenderObjectElement(table: loadwidgets, hydroState: hydroState);
   _1866.loadSingleChildRenderObjectElement(
-      table: widgets, hydroState: hydroState);
+      table: loadwidgets, hydroState: hydroState);
   _7e31.loadMultiChildRenderObjectElement(
-      table: widgets, hydroState: hydroState);
-  _00f1.loadDebugCreator(table: widgets, hydroState: hydroState);
-  _5b55.loadIndexedSlot(table: widgets, hydroState: hydroState);
+      table: loadwidgets, hydroState: hydroState);
+  _00f1.loadDebugCreator(table: loadwidgets, hydroState: hydroState);
+  _5b55.loadIndexedSlot(table: loadwidgets, hydroState: hydroState);
 }

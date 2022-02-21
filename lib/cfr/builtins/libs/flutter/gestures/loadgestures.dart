@@ -152,92 +152,99 @@ import 'package:hydro_sdk/cfr/runtimeSupport.dart' as _36c2;
 
 void loadgestures(
     {required _36c2.HydroState hydroState, required _36c2.HydroTable table}) {
-  final gestures = _36c2.HydroTable();
-  table['gestures'] = gestures;
-  _5fbf.loadPolynomialFit(table: gestures, hydroState: hydroState);
-  _b27f.loadLeastSquaresSolver(table: gestures, hydroState: hydroState);
-  _bd73.loadDrag(table: gestures, hydroState: hydroState);
-  _0b94.loadEagerGestureRecognizer(table: gestures, hydroState: hydroState);
-  _e12f.loadGestureArenaTeam(table: gestures, hydroState: hydroState);
-  _3973.loadDoubleTapGestureRecognizer(table: gestures, hydroState: hydroState);
-  _ce1a.loadMultiTapGestureRecognizer(table: gestures, hydroState: hydroState);
-  _1532.loadSerialTapDownDetails(table: gestures, hydroState: hydroState);
-  _d575.loadSerialTapCancelDetails(table: gestures, hydroState: hydroState);
-  _065d.loadSerialTapUpDetails(table: gestures, hydroState: hydroState);
-  _2cda.loadSerialTapGestureRecognizer(table: gestures, hydroState: hydroState);
-  _3681.loadVelocity(table: gestures, hydroState: hydroState);
-  _531a.loadVelocityEstimate(table: gestures, hydroState: hydroState);
-  _86eb.loadVelocityTracker(table: gestures, hydroState: hydroState);
+  final loadgestures = _36c2.HydroTable();
+  table['loadgestures'] = loadgestures;
+  _5fbf.loadPolynomialFit(table: loadgestures, hydroState: hydroState);
+  _b27f.loadLeastSquaresSolver(table: loadgestures, hydroState: hydroState);
+  _bd73.loadDrag(table: loadgestures, hydroState: hydroState);
+  _0b94.loadEagerGestureRecognizer(table: loadgestures, hydroState: hydroState);
+  _e12f.loadGestureArenaTeam(table: loadgestures, hydroState: hydroState);
+  _3973.loadDoubleTapGestureRecognizer(
+      table: loadgestures, hydroState: hydroState);
+  _ce1a.loadMultiTapGestureRecognizer(
+      table: loadgestures, hydroState: hydroState);
+  _1532.loadSerialTapDownDetails(table: loadgestures, hydroState: hydroState);
+  _d575.loadSerialTapCancelDetails(table: loadgestures, hydroState: hydroState);
+  _065d.loadSerialTapUpDetails(table: loadgestures, hydroState: hydroState);
+  _2cda.loadSerialTapGestureRecognizer(
+      table: loadgestures, hydroState: hydroState);
+  _3681.loadVelocity(table: loadgestures, hydroState: hydroState);
+  _531a.loadVelocityEstimate(table: loadgestures, hydroState: hydroState);
+  _86eb.loadVelocityTracker(table: loadgestures, hydroState: hydroState);
   _7eca.loadIOSScrollViewFlingVelocityTracker(
-      table: gestures, hydroState: hydroState);
-  _2ab1.loadHitTestable(table: gestures, hydroState: hydroState);
-  _d76d.loadHitTestDispatcher(table: gestures, hydroState: hydroState);
-  _5e78.loadHitTestTarget(table: gestures, hydroState: hydroState);
-  _cf29.loadHitTestEntry(table: gestures, hydroState: hydroState);
-  _7675.loadHitTestResult(table: gestures, hydroState: hydroState);
-  _3c81.loadTapDownDetails(table: gestures, hydroState: hydroState);
-  _d521.loadTapUpDetails(table: gestures, hydroState: hydroState);
-  _2384.loadBaseTapGestureRecognizer(table: gestures, hydroState: hydroState);
-  _7ab9.loadTapGestureRecognizer(table: gestures, hydroState: hydroState);
-  _8c21.loadGestureArenaMember(table: gestures, hydroState: hydroState);
-  _288a.loadGestureArenaEntry(table: gestures, hydroState: hydroState);
-  _527d.loadGestureArenaManager(table: gestures, hydroState: hydroState);
-  _1d8e.loadGestureRecognizer(table: gestures, hydroState: hydroState);
+      table: loadgestures, hydroState: hydroState);
+  _2ab1.loadHitTestable(table: loadgestures, hydroState: hydroState);
+  _d76d.loadHitTestDispatcher(table: loadgestures, hydroState: hydroState);
+  _5e78.loadHitTestTarget(table: loadgestures, hydroState: hydroState);
+  _cf29.loadHitTestEntry(table: loadgestures, hydroState: hydroState);
+  _7675.loadHitTestResult(table: loadgestures, hydroState: hydroState);
+  _3c81.loadTapDownDetails(table: loadgestures, hydroState: hydroState);
+  _d521.loadTapUpDetails(table: loadgestures, hydroState: hydroState);
+  _2384.loadBaseTapGestureRecognizer(
+      table: loadgestures, hydroState: hydroState);
+  _7ab9.loadTapGestureRecognizer(table: loadgestures, hydroState: hydroState);
+  _8c21.loadGestureArenaMember(table: loadgestures, hydroState: hydroState);
+  _288a.loadGestureArenaEntry(table: loadgestures, hydroState: hydroState);
+  _527d.loadGestureArenaManager(table: loadgestures, hydroState: hydroState);
+  _1d8e.loadGestureRecognizer(table: loadgestures, hydroState: hydroState);
   _5932.loadOneSequenceGestureRecognizer(
-      table: gestures, hydroState: hydroState);
+      table: loadgestures, hydroState: hydroState);
   _79dd.loadPrimaryPointerGestureRecognizer(
-      table: gestures, hydroState: hydroState);
-  _08fa.loadOffsetPair(table: gestures, hydroState: hydroState);
-  _2d22.loadMultiDragPointerState(table: gestures, hydroState: hydroState);
-  _fed4.loadMultiDragGestureRecognizer(table: gestures, hydroState: hydroState);
+      table: loadgestures, hydroState: hydroState);
+  _08fa.loadOffsetPair(table: loadgestures, hydroState: hydroState);
+  _2d22.loadMultiDragPointerState(table: loadgestures, hydroState: hydroState);
+  _fed4.loadMultiDragGestureRecognizer(
+      table: loadgestures, hydroState: hydroState);
   _35a9.loadImmediateMultiDragGestureRecognizer(
-      table: gestures, hydroState: hydroState);
+      table: loadgestures, hydroState: hydroState);
   _ce5e.loadHorizontalMultiDragGestureRecognizer(
-      table: gestures, hydroState: hydroState);
+      table: loadgestures, hydroState: hydroState);
   _a358.loadVerticalMultiDragGestureRecognizer(
-      table: gestures, hydroState: hydroState);
+      table: loadgestures, hydroState: hydroState);
   _773b.loadDelayedMultiDragGestureRecognizer(
-      table: gestures, hydroState: hydroState);
-  _f9a6.loadPointerEventConverter(table: gestures, hydroState: hydroState);
-  _cca5.loadForcePressDetails(table: gestures, hydroState: hydroState);
+      table: loadgestures, hydroState: hydroState);
+  _f9a6.loadPointerEventConverter(table: loadgestures, hydroState: hydroState);
+  _cca5.loadForcePressDetails(table: loadgestures, hydroState: hydroState);
   _478f.loadForcePressGestureRecognizer(
-      table: gestures, hydroState: hydroState);
-  _fce1.loadPointerSignalResolver(table: gestures, hydroState: hydroState);
-  _7a1a.loadLongPressDownDetails(table: gestures, hydroState: hydroState);
-  _044c.loadLongPressStartDetails(table: gestures, hydroState: hydroState);
-  _7348.loadLongPressMoveUpdateDetails(table: gestures, hydroState: hydroState);
-  _f8ef.loadLongPressEndDetails(table: gestures, hydroState: hydroState);
-  _8de8.loadLongPressGestureRecognizer(table: gestures, hydroState: hydroState);
-  _1fbf.loadDragDownDetails(table: gestures, hydroState: hydroState);
-  _ddc6.loadDragStartDetails(table: gestures, hydroState: hydroState);
-  _c1af.loadDragUpdateDetails(table: gestures, hydroState: hydroState);
-  _729a.loadDragEndDetails(table: gestures, hydroState: hydroState);
-  _d0f8.loadScaleStartDetails(table: gestures, hydroState: hydroState);
-  _0e09.loadScaleUpdateDetails(table: gestures, hydroState: hydroState);
-  _9f06.loadScaleEndDetails(table: gestures, hydroState: hydroState);
-  _1493.loadScaleGestureRecognizer(table: gestures, hydroState: hydroState);
-  _78d3.loadPointerEventResampler(table: gestures, hydroState: hydroState);
-  _e723.loadPointerEvent(table: gestures, hydroState: hydroState);
-  _d3f6.loadPointerAddedEvent(table: gestures, hydroState: hydroState);
-  _f841.loadPointerRemovedEvent(table: gestures, hydroState: hydroState);
-  _7347.loadPointerHoverEvent(table: gestures, hydroState: hydroState);
-  _26eb.loadPointerEnterEvent(table: gestures, hydroState: hydroState);
-  _0ae3.loadPointerExitEvent(table: gestures, hydroState: hydroState);
-  _caa3.loadPointerDownEvent(table: gestures, hydroState: hydroState);
-  _32f2.loadPointerMoveEvent(table: gestures, hydroState: hydroState);
-  _59d1.loadPointerUpEvent(table: gestures, hydroState: hydroState);
-  _9459.loadPointerSignalEvent(table: gestures, hydroState: hydroState);
-  _2189.loadPointerScrollEvent(table: gestures, hydroState: hydroState);
-  _4f3d.loadPointerCancelEvent(table: gestures, hydroState: hydroState);
-  _d111.loadDeviceGestureSettings(table: gestures, hydroState: hydroState);
-  _e20f.loadDragGestureRecognizer(table: gestures, hydroState: hydroState);
+      table: loadgestures, hydroState: hydroState);
+  _fce1.loadPointerSignalResolver(table: loadgestures, hydroState: hydroState);
+  _7a1a.loadLongPressDownDetails(table: loadgestures, hydroState: hydroState);
+  _044c.loadLongPressStartDetails(table: loadgestures, hydroState: hydroState);
+  _7348.loadLongPressMoveUpdateDetails(
+      table: loadgestures, hydroState: hydroState);
+  _f8ef.loadLongPressEndDetails(table: loadgestures, hydroState: hydroState);
+  _8de8.loadLongPressGestureRecognizer(
+      table: loadgestures, hydroState: hydroState);
+  _1fbf.loadDragDownDetails(table: loadgestures, hydroState: hydroState);
+  _ddc6.loadDragStartDetails(table: loadgestures, hydroState: hydroState);
+  _c1af.loadDragUpdateDetails(table: loadgestures, hydroState: hydroState);
+  _729a.loadDragEndDetails(table: loadgestures, hydroState: hydroState);
+  _d0f8.loadScaleStartDetails(table: loadgestures, hydroState: hydroState);
+  _0e09.loadScaleUpdateDetails(table: loadgestures, hydroState: hydroState);
+  _9f06.loadScaleEndDetails(table: loadgestures, hydroState: hydroState);
+  _1493.loadScaleGestureRecognizer(table: loadgestures, hydroState: hydroState);
+  _78d3.loadPointerEventResampler(table: loadgestures, hydroState: hydroState);
+  _e723.loadPointerEvent(table: loadgestures, hydroState: hydroState);
+  _d3f6.loadPointerAddedEvent(table: loadgestures, hydroState: hydroState);
+  _f841.loadPointerRemovedEvent(table: loadgestures, hydroState: hydroState);
+  _7347.loadPointerHoverEvent(table: loadgestures, hydroState: hydroState);
+  _26eb.loadPointerEnterEvent(table: loadgestures, hydroState: hydroState);
+  _0ae3.loadPointerExitEvent(table: loadgestures, hydroState: hydroState);
+  _caa3.loadPointerDownEvent(table: loadgestures, hydroState: hydroState);
+  _32f2.loadPointerMoveEvent(table: loadgestures, hydroState: hydroState);
+  _59d1.loadPointerUpEvent(table: loadgestures, hydroState: hydroState);
+  _9459.loadPointerSignalEvent(table: loadgestures, hydroState: hydroState);
+  _2189.loadPointerScrollEvent(table: loadgestures, hydroState: hydroState);
+  _4f3d.loadPointerCancelEvent(table: loadgestures, hydroState: hydroState);
+  _d111.loadDeviceGestureSettings(table: loadgestures, hydroState: hydroState);
+  _e20f.loadDragGestureRecognizer(table: loadgestures, hydroState: hydroState);
   _d520.loadVerticalDragGestureRecognizer(
-      table: gestures, hydroState: hydroState);
+      table: loadgestures, hydroState: hydroState);
   _902b.loadHorizontalDragGestureRecognizer(
-      table: gestures, hydroState: hydroState);
-  _36b9.loadPanGestureRecognizer(table: gestures, hydroState: hydroState);
-  _da8d.loadSamplingClock(table: gestures, hydroState: hydroState);
+      table: loadgestures, hydroState: hydroState);
+  _36b9.loadPanGestureRecognizer(table: loadgestures, hydroState: hydroState);
+  _da8d.loadSamplingClock(table: loadgestures, hydroState: hydroState);
   _b080.loadFlutterErrorDetailsForPointerEventDispatcher(
-      table: gestures, hydroState: hydroState);
-  _4373.loadPointerRouter(table: gestures, hydroState: hydroState);
+      table: loadgestures, hydroState: hydroState);
+  _4373.loadPointerRouter(table: loadgestures, hydroState: hydroState);
 }

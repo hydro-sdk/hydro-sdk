@@ -1,29 +1,34 @@
-import { IListenable } from "../foundation/listenable";
 import { IValueListenable } from "../foundation/valueListenable";
 import { IAnimatable } from "./animatable";
+import { IAnimation } from "./animation";
 import { AnimationStatus } from "./animationStatus";
 declare const flutter: {
     animation: {
-        animation: <T>(this: void, animation: IAnimation<T>) => IAnimation<T>;
+        _alwaysCompleteAnimation: (
+            this: void,
+            _alwaysCompleteAnimation: I_AlwaysCompleteAnimation
+        ) => I_AlwaysCompleteAnimation;
     };
 };
-export interface IAnimation<T> {
+export interface I_AlwaysCompleteAnimation {
     addListener: (listener: () => void) => void;
     removeListener: (listener: () => void) => void;
     addStatusListener: (listener: (status: AnimationStatus) => void) => void;
     removeStatusListener: (listener: (status: AnimationStatus) => void) => void;
     getStatus: () => AnimationStatus;
-    getValue: () => T;
+    getValue: () => number;
+    toString: () => string;
+    drive: <U>(child: IAnimatable<U>) => IAnimation<U>;
+    toStringDetails: () => string;
     getIsDismissed: () => boolean;
     getIsCompleted: () => boolean;
-    drive: <U>(child: IAnimatable<U>) => IAnimation<U>;
-    toString: () => string;
-    toStringDetails: () => string;
     getHashCode: () => number;
 }
-export class Animation<T> implements IListenable, IValueListenable<T> {
+export class _AlwaysCompleteAnimation
+    implements IAnimation<number>, IValueListenable<number>
+{
     public constructor() {
-        flutter.animation.animation(this);
+        flutter.animation._alwaysCompleteAnimation(this);
     }
     private readonly _dart_addListener: (listener: () => void) => void =
         undefined as any;
@@ -36,13 +41,13 @@ export class Animation<T> implements IListenable, IValueListenable<T> {
         listener: (status: AnimationStatus) => void
     ) => void = undefined as any;
     private readonly _dart_getStatus: () => AnimationStatus = undefined as any;
-    private readonly _dart_getValue: () => T = undefined as any;
-    private readonly _dart_getIsDismissed: () => boolean = undefined as any;
-    private readonly _dart_getIsCompleted: () => boolean = undefined as any;
+    private readonly _dart_getValue: () => number = undefined as any;
+    private readonly _dart_toString: () => string = undefined as any;
     private readonly _dart_drive: <U>(child: IAnimatable<U>) => IAnimation<U> =
         undefined as any;
-    private readonly _dart_toString: () => string = undefined as any;
     private readonly _dart_toStringDetails: () => string = undefined as any;
+    private readonly _dart_getIsDismissed: () => boolean = undefined as any;
+    private readonly _dart_getIsCompleted: () => boolean = undefined as any;
     private readonly _dart_getHashCode: () => number = undefined as any;
     public addListener(listener: () => void): void {
         return this._dart_addListener(listener);
@@ -63,23 +68,23 @@ export class Animation<T> implements IListenable, IValueListenable<T> {
     public getStatus(): AnimationStatus {
         return this._dart_getStatus();
     }
-    public getValue(): T {
+    public getValue(): number {
         return this._dart_getValue();
+    }
+    public toString(): string {
+        return this._dart_toString();
+    }
+    public drive<U>(child: IAnimatable<U>): IAnimation<U> {
+        return this._dart_drive(child);
+    }
+    public toStringDetails(): string {
+        return this._dart_toStringDetails();
     }
     public getIsDismissed(): boolean {
         return this._dart_getIsDismissed();
     }
     public getIsCompleted(): boolean {
         return this._dart_getIsCompleted();
-    }
-    public drive<U>(child: IAnimatable<U>): IAnimation<U> {
-        return this._dart_drive(child);
-    }
-    public toString(): string {
-        return this._dart_toString();
-    }
-    public toStringDetails(): string {
-        return this._dart_toStringDetails();
     }
     public getHashCode(): number {
         return this._dart_getHashCode();

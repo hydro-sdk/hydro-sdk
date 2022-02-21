@@ -2,20 +2,59 @@ import 'dart:core' as _fac9;
 
 import 'package:flutter/src/animation/animation.dart' as _86ca;
 import 'package:flutter/src/animation/animations.dart' as _77a7;
+import 'package:flutter/src/animation/listener_helpers.dart' as _7ec6;
 import 'package:flutter/src/animation/tween.dart' as _e83e;
 import 'package:flutter/src/foundation/change_notifier.dart' as _e644;
 
 import 'package:hydro_sdk/cfr/runtimeSupport.dart' as _36c2;
 
-class VMManagedAlwaysStoppedAnimation
-    extends _36c2.VMManagedBox<_77a7.AlwaysStoppedAnimation<_fac9.dynamic>> {
-  VMManagedAlwaysStoppedAnimation(
+class VMManagedCompoundAnimation
+    extends _36c2.VMManagedBox<_77a7.CompoundAnimation<_fac9.dynamic>> {
+  VMManagedCompoundAnimation(
       {required this.table, required this.vmObject, required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
+    table['first'] = _36c2.maybeBoxObject<_86ca.Animation>(
+        object: vmObject.first,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['next'] = _36c2.maybeBoxObject<_86ca.Animation>(
+        object: vmObject.next,
+        hydroState: hydroState,
+        table: _36c2.HydroTable());
+    table['didStartListening'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      vmObject.didStartListening();
+      return [];
+    });
+    table['didStopListening'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      vmObject.didStopListening();
+      return [];
+    });
+    table['getStatus'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      return [
+        _86ca.AnimationStatus.values.indexWhere((x) {
+          return x == vmObject.status;
+        }),
+      ];
+    });
+    table['toString'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      return [
+        vmObject.toString(),
+      ];
+    });
+    table['getIsListening'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      return [
+        vmObject.isListening,
+      ];
+    });
     table['addListener'] = _36c2.makeLuaDartFunc(
         func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       _36c2.Closure unpackedlistener = luaCallerArguments[1];
@@ -56,20 +95,6 @@ class VMManagedAlwaysStoppedAnimation
           ));
       return [];
     });
-    table['getStatus'] = _36c2.makeLuaDartFunc(
-        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
-      return [
-        _86ca.AnimationStatus.values.indexWhere((x) {
-          return x == vmObject.status;
-        }),
-      ];
-    });
-    table['toStringDetails'] = _36c2.makeLuaDartFunc(
-        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
-      return [
-        vmObject.toStringDetails(),
-      ];
-    });
     table['drive'] = _36c2.makeLuaDartFunc(
         func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
@@ -81,10 +106,10 @@ class VMManagedAlwaysStoppedAnimation
             table: _36c2.HydroTable()),
       ];
     });
-    table['toString'] = _36c2.makeLuaDartFunc(
+    table['toStringDetails'] = _36c2.makeLuaDartFunc(
         func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
-        vmObject.toString(),
+        vmObject.toStringDetails(),
       ];
     });
     table['getValue'] = _36c2.makeLuaDartFunc(
@@ -117,20 +142,62 @@ class VMManagedAlwaysStoppedAnimation
 
   final _36c2.HydroState hydroState;
 
-  final _77a7.AlwaysStoppedAnimation<_fac9.dynamic> vmObject;
+  final _77a7.CompoundAnimation<_fac9.dynamic> vmObject;
 }
 
-class RTManagedAlwaysStoppedAnimation extends _77a7.AlwaysStoppedAnimation
-    implements _36c2.Box<_77a7.AlwaysStoppedAnimation> {
-  RTManagedAlwaysStoppedAnimation(_fac9.dynamic value$,
-      {required this.table, required this.hydroState})
-      : super(
-          value$,
-        ) {
+class RTManagedCompoundAnimation extends _77a7.CompoundAnimation
+    implements _36c2.Box<_77a7.CompoundAnimation> {
+  RTManagedCompoundAnimation(
+      {required _86ca.Animation<_fac9.dynamic> first,
+      required _86ca.Animation<_fac9.dynamic> next,
+      required this.table,
+      required this.hydroState})
+      : super(first: first, next: next) {
     table['vmObject'] = vmObject;
     table['unwrap'] = _36c2.makeLuaDartFunc(
         func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [unwrap()];
+    });
+    table['first'] = _36c2.maybeBoxObject(
+        object: this.first, hydroState: hydroState, table: _36c2.HydroTable());
+    table['next'] = _36c2.maybeBoxObject(
+        object: this.next, hydroState: hydroState, table: _36c2.HydroTable());
+    table['_dart_didStartListening'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      super.didStartListening();
+      return [];
+    });
+    table['_dart_didStopListening'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      super.didStopListening();
+      return [];
+    });
+    table['_dart_getStatus'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      return [super.status];
+    });
+    table['_dart_toString'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      return [
+        _36c2.maybeBoxObject(
+            object: super.toString(),
+            hydroState: hydroState,
+            table: _36c2.HydroTable())
+      ];
+    });
+    table['_dart_didRegisterListener'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      super.didRegisterListener();
+      return [];
+    });
+    table['_dart_didUnregisterListener'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      super.didUnregisterListener();
+      return [];
+    });
+    table['_dart_getIsListening'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      return [super.isListening];
     });
     table['_dart_addListener'] = _36c2.makeLuaDartFunc(
         func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
@@ -154,6 +221,16 @@ class RTManagedAlwaysStoppedAnimation extends _77a7.AlwaysStoppedAnimation
           ));
       return [];
     });
+    table['_dart_clearListeners'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      super.clearListeners();
+      return [];
+    });
+    table['_dart_notifyListeners'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      super.notifyListeners();
+      return [];
+    });
     table['_dart_addStatusListener'] = _36c2.makeLuaDartFunc(
         func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       _36c2.Closure unpackedlistener = luaCallerArguments[1];
@@ -172,18 +249,17 @@ class RTManagedAlwaysStoppedAnimation extends _77a7.AlwaysStoppedAnimation
           ));
       return [];
     });
-    table['_dart_getStatus'] = _36c2.makeLuaDartFunc(
+    table['_dart_clearStatusListeners'] = _36c2.makeLuaDartFunc(
         func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
-      return [super.status];
+      super.clearStatusListeners();
+      return [];
     });
-    table['_dart_toStringDetails'] = _36c2.makeLuaDartFunc(
+    table['_dart_notifyStatusListeners'] = _36c2.makeLuaDartFunc(
         func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
-      return [
-        _36c2.maybeBoxObject(
-            object: super.toStringDetails(),
-            hydroState: hydroState,
-            table: _36c2.HydroTable())
-      ];
+      super.notifyStatusListeners(_36c2.maybeUnBoxEnum(
+          values: _86ca.AnimationStatus.values,
+          boxedEnum: luaCallerArguments[1]));
+      return [];
     });
     table['_dart_drive'] = _36c2.makeLuaDartFunc(
         func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
@@ -196,11 +272,11 @@ class RTManagedAlwaysStoppedAnimation extends _77a7.AlwaysStoppedAnimation
             table: _36c2.HydroTable())
       ];
     });
-    table['_dart_toString'] = _36c2.makeLuaDartFunc(
+    table['_dart_toStringDetails'] = _36c2.makeLuaDartFunc(
         func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         _36c2.maybeBoxObject(
-            object: super.toString(),
+            object: super.toStringDetails(),
             hydroState: hydroState,
             table: _36c2.HydroTable())
       ];
@@ -227,8 +303,52 @@ class RTManagedAlwaysStoppedAnimation extends _77a7.AlwaysStoppedAnimation
 
   final _36c2.HydroState hydroState;
 
-  _77a7.AlwaysStoppedAnimation unwrap() => this;
-  _77a7.AlwaysStoppedAnimation get vmObject => this;
+  _77a7.CompoundAnimation unwrap() => this;
+  _77a7.CompoundAnimation get vmObject => this;
+  @_fac9.override
+  void didStartListening() {
+    _36c2.Closure closure = table["didStartListening"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @_fac9.override
+  void didStopListening() {
+    _36c2.Closure closure = table["didStopListening"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @_fac9.override
+  _86ca.AnimationStatus get status {
+    _36c2.Closure closure = table["getStatus"];
+    return _36c2.maybeUnBoxEnum(
+        values: _86ca.AnimationStatus.values,
+        boxedEnum: closure.dispatch([table], parentState: hydroState)[0]);
+  }
+
+  @_fac9.override
+  _fac9.String toString() {
+    _36c2.Closure closure = table["__tostring"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @_fac9.override
+  void didRegisterListener() {
+    _36c2.Closure closure = table["didRegisterListener"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @_fac9.override
+  void didUnregisterListener() {
+    _36c2.Closure closure = table["didUnregisterListener"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @_fac9.override
+  _fac9.bool get isListening {
+    _36c2.Closure closure = table["getIsListening"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
   @_fac9.override
   void addListener(listener) {
     _36c2.Closure closure = table["addListener"];
@@ -238,6 +358,18 @@ class RTManagedAlwaysStoppedAnimation extends _77a7.AlwaysStoppedAnimation
   @_fac9.override
   void removeListener(listener) {
     _36c2.Closure closure = table["removeListener"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @_fac9.override
+  void clearListeners() {
+    _36c2.Closure closure = table["clearListeners"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @_fac9.override
+  void notifyListeners() {
+    _36c2.Closure closure = table["notifyListeners"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
@@ -254,16 +386,14 @@ class RTManagedAlwaysStoppedAnimation extends _77a7.AlwaysStoppedAnimation
   }
 
   @_fac9.override
-  _86ca.AnimationStatus get status {
-    _36c2.Closure closure = table["getStatus"];
-    return _36c2.maybeUnBoxEnum(
-        values: _86ca.AnimationStatus.values,
-        boxedEnum: closure.dispatch([table], parentState: hydroState)[0]);
+  void clearStatusListeners() {
+    _36c2.Closure closure = table["clearStatusListeners"];
+    return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @_fac9.override
-  _fac9.String toStringDetails() {
-    _36c2.Closure closure = table["toStringDetails"];
+  void notifyStatusListeners(status) {
+    _36c2.Closure closure = table["notifyStatusListeners"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
@@ -276,8 +406,8 @@ class RTManagedAlwaysStoppedAnimation extends _77a7.AlwaysStoppedAnimation
   }
 
   @_fac9.override
-  _fac9.String toString() {
-    _36c2.Closure closure = table["__tostring"];
+  _fac9.String toStringDetails() {
+    _36c2.Closure closure = table["toStringDetails"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
@@ -306,20 +436,33 @@ class RTManagedAlwaysStoppedAnimation extends _77a7.AlwaysStoppedAnimation
   }
 }
 
-void loadAlwaysStoppedAnimation(
+void loadCompoundAnimation(
     {required _36c2.HydroState hydroState, required _36c2.HydroTable table}) {
-  table['alwaysStoppedAnimation'] = _36c2.makeLuaDartFunc(
+  table['compoundAnimation'] = _36c2.makeLuaDartFunc(
       func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
     return [
-      RTManagedAlwaysStoppedAnimation(luaCallerArguments[1],
-          table: luaCallerArguments[0], hydroState: hydroState)
+      RTManagedCompoundAnimation(
+          table: luaCallerArguments[0],
+          hydroState: hydroState,
+          first: _36c2.maybeUnBoxAndBuildArgument<
+                  _86ca.Animation<_fac9.dynamic>, _fac9.dynamic>(
+              luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1]['first']
+                  : null,
+              parentState: hydroState),
+          next: _36c2.maybeUnBoxAndBuildArgument<_86ca.Animation<_fac9.dynamic>,
+                  _fac9.dynamic>(
+              luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1]['next']
+                  : null,
+              parentState: hydroState))
     ];
   });
-  _36c2.registerBoxer<_77a7.AlwaysStoppedAnimation>(boxer: (
-      {required _77a7.AlwaysStoppedAnimation vmObject,
+  _36c2.registerBoxer<_77a7.CompoundAnimation>(boxer: (
+      {required _77a7.CompoundAnimation vmObject,
       required _36c2.HydroState hydroState,
       required _36c2.HydroTable table}) {
-    return VMManagedAlwaysStoppedAnimation(
+    return VMManagedCompoundAnimation(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });
 }
