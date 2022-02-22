@@ -11,12 +11,14 @@ import 'package:code_builder/code_builder.dart'
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/backend/dart/dartBoxObjectReference.dart';
+import 'package:hydro_sdk/swid/backend/dart/transforms/dartImportPrefix.dart';
 import 'package:hydro_sdk/swid/backend/dart/util/codeKind.dart';
 import 'package:hydro_sdk/swid/backend/dart/util/luaDartBinding.dart';
 import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstFieldDeclaration.dart';
+import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsEphemeralTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermResult.dart';
@@ -143,6 +145,14 @@ class DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
                             objectReference: CodeExpression(
                               Code(
                                 [
+                                  pipeline.reduceFromTerm(
+                                    DartImportPrefix(
+                                      swidType: SwidType.fromSwidClass(
+                                        swidClass: swidClass,
+                                      ),
+                                    ),
+                                  ),
+                                  ".",
                                   swidClass.name,
                                   ".",
                                   swidStaticConstFieldDeclaration.name
