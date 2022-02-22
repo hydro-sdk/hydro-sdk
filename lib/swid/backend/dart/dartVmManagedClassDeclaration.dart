@@ -10,7 +10,6 @@ import 'package:code_builder/code_builder.dart'
         Block,
         Code;
 
-import 'package:dart_style/dart_style.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/backend/dart/dartBindInstanceField.dart';
@@ -77,7 +76,6 @@ class DartVMManagedClassDeclaration
     required ISwarsPipeline pipeline,
   }) =>
       SwarsTermResult.fromValue(
-        DartFormatter().format(
           Class(
             (c) => c
               ..name = "VMManaged${swidClass.name}"
@@ -297,6 +295,5 @@ class DartVMManagedClassDeclaration
                 ),
               )
               .toString(),
-        ),
       );
 }

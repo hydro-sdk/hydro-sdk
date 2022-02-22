@@ -1,7 +1,6 @@
 import 'package:code_builder/code_builder.dart'
     show DartEmitter, refer, literalString, Code;
 
-import 'package:dart_style/dart_style.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/backend/dart/dartMethodBindingImplementation.dart';
@@ -60,7 +59,6 @@ class DartVMManagedClassMethodInjectionImplementation
     required final ISwarsPipeline pipeline,
   }) =>
       SwarsTermResult.fromValue(
-        DartFormatter().formatStatement(
           refer("table")
               .index(literalString(tableKey))
               .assign(
@@ -82,6 +80,5 @@ class DartVMManagedClassMethodInjectionImplementation
                 ),
               )
               .toString(),
-        ),
       );
 }

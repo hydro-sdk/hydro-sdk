@@ -1,4 +1,3 @@
-import 'package:dart_style/dart_style.dart';
 import 'package:dartlin/dartlin.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:tuple/tuple.dart';
@@ -184,7 +183,6 @@ class DartRTManagedClassDeclaration
     required final ISwarsPipeline pipeline,
   }) =>
       SwarsTermResult.fromValue(
-        DartFormatter().format(
           Class(
             (x) => x
               ..name = "RTManaged${swidClass.name}"
@@ -976,6 +974,5 @@ class DartRTManagedClassDeclaration
                 ),
               )
               .toString(),
-        ),
       );
 }

@@ -1,7 +1,6 @@
 import 'package:code_builder/code_builder.dart'
     show DartEmitter, refer, literalString;
 
-import 'package:dart_style/dart_style.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
@@ -61,7 +60,6 @@ class DartBindInstanceFieldDirect
     required final ISwarsPipeline pipeline,
   }) =>
       SwarsTermResult.fromValue(
-        DartFormatter().formatStatement(
           refer("table")
               .index(literalString(tableKey))
               .assign(refer(instanceFieldName))
@@ -72,6 +70,5 @@ class DartBindInstanceFieldDirect
                 ),
               )
               .toString(),
-        ),
       );
 }

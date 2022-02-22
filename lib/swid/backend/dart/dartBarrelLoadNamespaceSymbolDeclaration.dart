@@ -1,4 +1,3 @@
-import 'package:dart_style/dart_style.dart';
 import 'package:dartlin/control_flow.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:tuple/tuple.dart';
@@ -73,7 +72,6 @@ class DartBarrelLoadNamespaceSymbolDeclaration
     required final ISwarsPipeline pipeline,
   }) =>
       SwarsTermResult.fromValue(
-        DartFormatter().format(
           Method(
             (m) => m
               ..name = barrelSpec.name
@@ -291,6 +289,5 @@ class DartBarrelLoadNamespaceSymbolDeclaration
                 ),
               )
               .toString(),
-        ),
       );
 }

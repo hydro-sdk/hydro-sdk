@@ -10,7 +10,6 @@ import 'package:code_builder/code_builder.dart'
         Block,
         literalNum;
 
-import 'package:dart_style/dart_style.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/backend/dart/dartBoxingProcedure.dart';
@@ -80,7 +79,6 @@ class DartLoadNamespaceSymbolDeclaration
     required final ISwarsPipeline pipeline,
   }) =>
       SwarsTermResult.fromValue(
-        DartFormatter().format(
           Method(
             (m) => m
               ..name = "load${swidClass.name}"
@@ -306,6 +304,5 @@ class DartLoadNamespaceSymbolDeclaration
                 ),
               )
               .toString(),
-        ),
       );
 }
