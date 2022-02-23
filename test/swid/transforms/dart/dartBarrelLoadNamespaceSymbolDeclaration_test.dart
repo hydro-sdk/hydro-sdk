@@ -152,13 +152,13 @@ void main() {
           ),
         ),
         """
-void loaddart(
+void dart(
     {required _36c2.HydroState hydroState, required _36c2.Context context}) {
   final dart = _36c2.HydroTable();
   context.env[\'dart\'] = dart;
-  _e3a5.loadcore(table: dart, hydroState: hydroState);
-  _7a67.loadui(table: dart, hydroState: hydroState);
-  _e2e9.loadmath(table: dart, hydroState: hydroState);
+  _8010.loadcore(table: dart, hydroState: hydroState);
+  _34c5.loadui(table: dart, hydroState: hydroState);
+  _e2e9.math(table: dart, hydroState: hydroState);
 }
 """);
   }, tags: "swid");
