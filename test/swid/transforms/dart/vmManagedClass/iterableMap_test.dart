@@ -189,6 +189,7 @@ void main() {
           cacheMgr: const PipelineNoopCacheMgr(),
         ).reduceFromTerm(
           DartVMManagedClassDeclaration(
+            format: true,
             swidClass: CachingPipeline(
               cacheMgr: const PipelineNoopCacheMgr(),
             )

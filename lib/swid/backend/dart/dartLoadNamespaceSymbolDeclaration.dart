@@ -1,3 +1,5 @@
+import 'package:dart_style/dart_style.dart';
+import 'package:dartlin/control_flow.dart';
 import 'package:code_builder/code_builder.dart'
     show
         DartEmitter,
@@ -56,6 +58,7 @@ class DartLoadNamespaceSymbolDeclaration
 
   factory DartLoadNamespaceSymbolDeclaration({
     required final SwidClass swidClass,
+    required final bool format,
   }) = _$DartLoadNamespaceSymbolDeclarationCtor;
 
   @override
@@ -63,15 +66,19 @@ class DartLoadNamespaceSymbolDeclaration
 
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
-    yield* swidClass.hashKey.hashableParts;
+    yield* swidClass.hashKey.hashableParts;yield [
+      ...format.hashableParts,
+    ];
   }
 
   @override
   DartLoadNamespaceSymbolDeclaration clone({
     final SwidClass? swidClass,
+    final bool? format,
   }) =>
       DartLoadNamespaceSymbolDeclaration(
         swidClass: swidClass ?? this.swidClass.clone(),
+        format: format ?? this.format,
       );
 
   @override
@@ -79,230 +86,234 @@ class DartLoadNamespaceSymbolDeclaration
     required final ISwarsPipeline pipeline,
   }) =>
       SwarsTermResult.fromValue(
-          Method(
-            (m) => m
-              ..name = "load${swidClass.name}"
-              ..returns = refer("void")
-              ..optionalParameters.addAll(
-                [
-                  Parameter(
-                    (p) => p
-                      ..required = true
-                      ..named = true
-                      ..name = "hydroState"
-                      ..type = refer(
-                        [
-                          pipeline.reduceFromTerm(
-                            DartImportPrefix(
-                              swidType: SwidType.fromSwidInterface(
-                                swidInterface: hydroState,
-                              ),
+        Method(
+          (m) => m
+            ..name = "load${swidClass.name}"
+            ..returns = refer("void")
+            ..optionalParameters.addAll(
+              [
+                Parameter(
+                  (p) => p
+                    ..required = true
+                    ..named = true
+                    ..name = "hydroState"
+                    ..type = refer(
+                      [
+                        pipeline.reduceFromTerm(
+                          DartImportPrefix(
+                            swidType: SwidType.fromSwidInterface(
+                              swidInterface: hydroState,
                             ),
                           ),
-                          hydroState.name,
-                        ].join("."),
-                      ),
-                  ),
-                  Parameter(
-                    (p) => p
-                      ..required = true
-                      ..named = true
-                      ..name = "table"
-                      ..type = refer(
-                        [
-                          pipeline.reduceFromTerm(
-                            DartImportPrefix(
-                              swidType: SwidType.fromSwidInterface(
-                                swidInterface: hydroTable,
-                              ),
+                        ),
+                        hydroState.name,
+                      ].join("."),
+                    ),
+                ),
+                Parameter(
+                  (p) => p
+                    ..required = true
+                    ..named = true
+                    ..name = "table"
+                    ..type = refer(
+                      [
+                        pipeline.reduceFromTerm(
+                          DartImportPrefix(
+                            swidType: SwidType.fromSwidInterface(
+                              swidInterface: hydroTable,
                             ),
                           ),
-                          hydroTable.name
-                        ].join("."),
-                      ),
-                  ),
-                ],
-              )
-              ..body = Block.of(
-                [
-                  !swidClass.isPureAbstract() && swidClass.isConstructible()
-                      ? refer("table")
-                          .index(
-                            literalString(
-                              transformToCamelCase(
-                                str: swidClass.name,
-                              ),
+                        ),
+                        hydroTable.name
+                      ].join("."),
+                    ),
+                ),
+              ],
+            )
+            ..body = Block.of(
+              [
+                !swidClass.isPureAbstract() && swidClass.isConstructible()
+                    ? refer("table")
+                        .index(
+                          literalString(
+                            transformToCamelCase(
+                              str: swidClass.name,
                             ),
-                          )
-                          .assign(
-                            (({
-                              required final SwidFunctionType constructorType,
-                            }) =>
-                                luaDartBinding(
-                                  pipeline: pipeline,
-                                  code: Block.of(
-                                    [
-                                      Code(
-                                        pipeline.reduceFromTerm(
-                                          DartUnpackClosures(
-                                            swidFunctionType: constructorType,
-                                          ),
+                          ),
+                        )
+                        .assign(
+                          (({
+                            required final SwidFunctionType constructorType,
+                          }) =>
+                              luaDartBinding(
+                                pipeline: pipeline,
+                                code: Block.of(
+                                  [
+                                    Code(
+                                      pipeline.reduceFromTerm(
+                                        DartUnpackClosures(
+                                          swidFunctionType: constructorType,
                                         ),
                                       ),
-                                      literalList(
-                                        [
-                                          Code(
-                                            pipeline.reduceFromTerm(
-                                              DartFunctionSelfBindingInvocation(
-                                                useClosureUnpackNameForUnboxingIdentifiers:
-                                                    true,
-                                                argumentBoxingProcedure:
-                                                    DartBoxingProcedure.unbox,
-                                                returnValueBoxingProcedure:
-                                                    !constructorType.isFactory
-                                                        ? DartBoxingProcedure
-                                                            .none
-                                                        : DartBoxingProcedure
-                                                            .box,
-                                                emitTableBindingPrefix:
-                                                    !constructorType.isFactory,
+                                    ),
+                                    literalList(
+                                      [
+                                        Code(
+                                          pipeline.reduceFromTerm(
+                                            DartFunctionSelfBindingInvocation(
+                                              useClosureUnpackNameForUnboxingIdentifiers:
+                                                  true,
+                                              argumentBoxingProcedure:
+                                                  DartBoxingProcedure.unbox,
+                                              returnValueBoxingProcedure:
+                                                  !constructorType.isFactory
+                                                      ? DartBoxingProcedure.none
+                                                      : DartBoxingProcedure.box,
+                                              emitTableBindingPrefix:
+                                                  !constructorType.isFactory,
+                                              swidFunctionType:
+                                                  SwidFunctionType.clone(
                                                 swidFunctionType:
-                                                    SwidFunctionType.clone(
-                                                  swidFunctionType:
-                                                      constructorType,
-                                                  name: !constructorType
-                                                          .isFactory
-                                                      ? "RTManaged${swidClass.name}"
-                                                      : [
-                                                          pipeline
-                                                              .reduceFromTerm(
-                                                            DartImportPrefix(
-                                                              swidType: SwidType
-                                                                  .fromSwidClass(
-                                                                swidClass:
-                                                                    swidClass,
-                                                              ),
+                                                    constructorType,
+                                                name: !constructorType.isFactory
+                                                    ? "RTManaged${swidClass.name}"
+                                                    : [
+                                                        pipeline.reduceFromTerm(
+                                                          DartImportPrefix(
+                                                            swidType: SwidType
+                                                                .fromSwidClass(
+                                                              swidClass:
+                                                                  swidClass,
                                                             ),
                                                           ),
-                                                          swidClass.name
-                                                        ].join("."),
-                                                ),
-                                                returnValueBoxingTableExpression:
-                                                    constructorType.isFactory
-                                                        ? refer("$luaCallerArgumentsParameterName")
-                                                            .index(
-                                                            literalNum(0),
-                                                          )
-                                                        : null,
+                                                        ),
+                                                        swidClass.name
+                                                      ].join("."),
                                               ),
+                                              returnValueBoxingTableExpression:
+                                                  constructorType.isFactory
+                                                      ? refer("$luaCallerArgumentsParameterName")
+                                                          .index(
+                                                          literalNum(0),
+                                                        )
+                                                      : null,
                                             ),
                                           ),
-                                        ],
-                                      ).returned.statement,
-                                    ],
-                                  ),
-                                ))(
-                              constructorType: pipeline
-                                  .reduceFromTerm(
-                                    InstantiateAllGenericsAsDynamic(
-                                      instantiateNormalParameterTypes: true,
-                                      instantiateNamedParameterTypes: true,
-                                      swidType: SwidType.fromSwidFunctionType(
-                                        swidFunctionType:
-                                            swidClass.constructorType!,
-                                      ),
-                                    ),
-                                  )
-                                  .when(
-                                    fromSwidInterface: (_) =>
-                                        dartUnknownFunction,
-                                    fromSwidClass: (_) => dartUnknownFunction,
-                                    fromSwidDefaultFormalParameter: (_) =>
-                                        dartUnknownFunction,
-                                    fromSwidFunctionType: (val) => val,
-                                  ),
-                            ),
-                          )
-                          .statement
-                      : Code(""),
-                  ...[
-                    ...swidClass.staticConstFieldDeclarations
-                        .where(
-                          (x) => pipeline.reduceFromTerm(
-                            IsInexpressibleStaticConst(
-                              parentClass: swidClass,
-                              swidStaticConst: x.value,
-                            ),
-                          ),
-                        )
-                        .map(
-                          (x) =>
-                              DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
-                            swidClass: swidClass,
-                            swidStaticConstFieldDeclaration: x,
-                          ).toCode(
-                            pipeline: pipeline,
-                          ),
-                        )
-                        .toList()
-                  ],
-                  ...[
-                    ...(pipeline
-                        .reduceFromTerm(
-                          InstantiateAllGenericsAsDynamic(
-                            swidType: SwidType.fromSwidClass(
-                              swidClass: swidClass,
-                            ),
-                          ),
-                        )
-                        .when(
-                          fromSwidInterface: (_) => dartUnknownClass,
-                          fromSwidClass: (val) => val,
-                          fromSwidDefaultFormalParameter: (_) =>
-                              dartUnknownClass,
-                          fromSwidFunctionType: (_) => dartUnknownClass,
-                        )
-                        .factoryConstructors),
-                    ...swidClass.staticMethods,
-                  ]
-                      .map(
-                        (x) => DartStaticMethodNamespaceSymbolDeclaration(
-                          swidClass: swidClass,
-                          swidFunctionType: pipeline
-                              .reduceFromTerm(
-                                InstantiateAllGenericsAsDynamic(
-                                  swidType: SwidType.fromSwidFunctionType(
-                                    swidFunctionType: x,
-                                  ),
+                                        ),
+                                      ],
+                                    ).returned.statement,
+                                  ],
                                 ),
-                              )
-                              .when(
-                                fromSwidInterface: (_) => dartUnknownFunction,
-                                fromSwidClass: (_) => dartUnknownFunction,
-                                fromSwidDefaultFormalParameter: (_) =>
-                                    dartUnknownFunction,
-                                fromSwidFunctionType: (val) => val,
-                              ),
+                              ))(
+                            constructorType: pipeline
+                                .reduceFromTerm(
+                                  InstantiateAllGenericsAsDynamic(
+                                    instantiateNormalParameterTypes: true,
+                                    instantiateNamedParameterTypes: true,
+                                    swidType: SwidType.fromSwidFunctionType(
+                                      swidFunctionType:
+                                          swidClass.constructorType!,
+                                    ),
+                                  ),
+                                )
+                                .when(
+                                  fromSwidInterface: (_) => dartUnknownFunction,
+                                  fromSwidClass: (_) => dartUnknownFunction,
+                                  fromSwidDefaultFormalParameter: (_) =>
+                                      dartUnknownFunction,
+                                  fromSwidFunctionType: (val) => val,
+                                ),
+                          ),
+                        )
+                        .statement
+                    : Code(""),
+                ...[
+                  ...swidClass.staticConstFieldDeclarations
+                      .where(
+                        (x) => pipeline.reduceFromTerm(
+                          IsInexpressibleStaticConst(
+                            parentClass: swidClass,
+                            swidStaticConst: x.value,
+                          ),
+                        ),
+                      )
+                      .map(
+                        (x) =>
+                            DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
+                          swidClass: swidClass,
+                          swidStaticConstFieldDeclaration: x,
                         ).toCode(
                           pipeline: pipeline,
                         ),
                       )
-                      .toList(),
-                  Code(
-                    pipeline.reduceFromTerm(
-                      DartVMManagedClassBoxerRegistrant(
+                      .toList()
+                ],
+                ...[
+                  ...(pipeline
+                      .reduceFromTerm(
+                        InstantiateAllGenericsAsDynamic(
+                          swidType: SwidType.fromSwidClass(
+                            swidClass: swidClass,
+                          ),
+                        ),
+                      )
+                      .when(
+                        fromSwidInterface: (_) => dartUnknownClass,
+                        fromSwidClass: (val) => val,
+                        fromSwidDefaultFormalParameter: (_) => dartUnknownClass,
+                        fromSwidFunctionType: (_) => dartUnknownClass,
+                      )
+                      .factoryConstructors),
+                  ...swidClass.staticMethods,
+                ]
+                    .map(
+                      (x) => DartStaticMethodNamespaceSymbolDeclaration(
                         swidClass: swidClass,
+                        swidFunctionType: pipeline
+                            .reduceFromTerm(
+                              InstantiateAllGenericsAsDynamic(
+                                swidType: SwidType.fromSwidFunctionType(
+                                  swidFunctionType: x,
+                                ),
+                              ),
+                            )
+                            .when(
+                              fromSwidInterface: (_) => dartUnknownFunction,
+                              fromSwidClass: (_) => dartUnknownFunction,
+                              fromSwidDefaultFormalParameter: (_) =>
+                                  dartUnknownFunction,
+                              fromSwidFunctionType: (val) => val,
+                            ),
+                      ).toCode(
+                        pipeline: pipeline,
                       ),
+                    )
+                    .toList(),
+                Code(
+                  pipeline.reduceFromTerm(
+                    DartVMManagedClassBoxerRegistrant(
+                      swidClass: swidClass,
                     ),
                   ),
-                ],
-              ),
-          )
-              .accept(
-                DartEmitter(
-                  useNullSafetySyntax: true,
                 ),
-              )
-              .toString(),
+              ],
+            ),
+        )
+            .accept(
+              DartEmitter(
+                useNullSafetySyntax: true,
+              ),
+            )
+            .toString()
+            .let(
+              (it) => iff(
+                format,
+                () => DartFormatter().format(
+                  it,
+                ),
+              ).orElse(
+                () => it,
+              ),
+            ),
       );
 }

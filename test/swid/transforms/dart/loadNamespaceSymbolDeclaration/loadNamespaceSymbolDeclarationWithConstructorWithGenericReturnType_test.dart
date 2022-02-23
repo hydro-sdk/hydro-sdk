@@ -151,6 +151,7 @@ void main() {
       cacheMgr: const PipelineNoopCacheMgr(),
     ).reduceFromTerm(
       DartLoadNamespaceSymbolDeclaration(
+        format: true,
         swidClass: ir,
       ),
     );

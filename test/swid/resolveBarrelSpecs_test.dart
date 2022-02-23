@@ -171,7 +171,7 @@ void main() {
         res.members[1]
             .maybeWhen(fromBarrelSpec: (val) => val, orElse: () => null)!
             .name,
-        "ui");
+        "loadui");
     expect(
         res.members[1]
             .maybeWhen(

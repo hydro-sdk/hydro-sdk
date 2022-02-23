@@ -144,6 +144,7 @@ void main() {
           cacheMgr: const PipelineNoopCacheMgr(),
         ).reduceFromTerm(
           DartBarrelLoadNamespaceSymbolDeclaration(
+            format: true,
             barrelSpec: barrelSpec,
             packageName: "test",
             prefixPaths: [

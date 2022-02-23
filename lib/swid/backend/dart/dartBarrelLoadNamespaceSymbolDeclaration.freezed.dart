@@ -19,11 +19,13 @@ class _$DartBarrelLoadNamespaceSymbolDeclarationTearOff {
   _$DartBarrelLoadNamespaceSymbolDeclarationCtor call(
       {required BarrelSpec barrelSpec,
       required String packageName,
-      required List<String> prefixPaths}) {
+      required List<String> prefixPaths,
+      required bool format}) {
     return _$DartBarrelLoadNamespaceSymbolDeclarationCtor(
       barrelSpec: barrelSpec,
       packageName: packageName,
       prefixPaths: prefixPaths,
+      format: format,
     );
   }
 }
@@ -37,6 +39,7 @@ mixin _$DartBarrelLoadNamespaceSymbolDeclaration {
   BarrelSpec get barrelSpec => throw _privateConstructorUsedError;
   String get packageName => throw _privateConstructorUsedError;
   List<String> get prefixPaths => throw _privateConstructorUsedError;
+  bool get format => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $DartBarrelLoadNamespaceSymbolDeclarationCopyWith<
@@ -51,7 +54,10 @@ abstract class $DartBarrelLoadNamespaceSymbolDeclarationCopyWith<$Res> {
           $Res Function(DartBarrelLoadNamespaceSymbolDeclaration) then) =
       _$DartBarrelLoadNamespaceSymbolDeclarationCopyWithImpl<$Res>;
   $Res call(
-      {BarrelSpec barrelSpec, String packageName, List<String> prefixPaths});
+      {BarrelSpec barrelSpec,
+      String packageName,
+      List<String> prefixPaths,
+      bool format});
 
   $BarrelSpecCopyWith<$Res> get barrelSpec;
 }
@@ -71,6 +77,7 @@ class _$DartBarrelLoadNamespaceSymbolDeclarationCopyWithImpl<$Res>
     Object? barrelSpec = freezed,
     Object? packageName = freezed,
     Object? prefixPaths = freezed,
+    Object? format = freezed,
   }) {
     return _then(_value.copyWith(
       barrelSpec: barrelSpec == freezed
@@ -85,6 +92,10 @@ class _$DartBarrelLoadNamespaceSymbolDeclarationCopyWithImpl<$Res>
           ? _value.prefixPaths
           : prefixPaths // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      format: format == freezed
+          ? _value.format
+          : format // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 
@@ -105,7 +116,10 @@ abstract class _$$DartBarrelLoadNamespaceSymbolDeclarationCtorCopyWith<$Res>
       __$$DartBarrelLoadNamespaceSymbolDeclarationCtorCopyWithImpl<$Res>;
   @override
   $Res call(
-      {BarrelSpec barrelSpec, String packageName, List<String> prefixPaths});
+      {BarrelSpec barrelSpec,
+      String packageName,
+      List<String> prefixPaths,
+      bool format});
 
   @override
   $BarrelSpecCopyWith<$Res> get barrelSpec;
@@ -130,6 +144,7 @@ class __$$DartBarrelLoadNamespaceSymbolDeclarationCtorCopyWithImpl<$Res>
     Object? barrelSpec = freezed,
     Object? packageName = freezed,
     Object? prefixPaths = freezed,
+    Object? format = freezed,
   }) {
     return _then(_$DartBarrelLoadNamespaceSymbolDeclarationCtor(
       barrelSpec: barrelSpec == freezed
@@ -144,6 +159,10 @@ class __$$DartBarrelLoadNamespaceSymbolDeclarationCtorCopyWithImpl<$Res>
           ? _value.prefixPaths
           : prefixPaths // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      format: format == freezed
+          ? _value.format
+          : format // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -155,7 +174,8 @@ class _$_$DartBarrelLoadNamespaceSymbolDeclarationCtor
   _$_$DartBarrelLoadNamespaceSymbolDeclarationCtor(
       {required this.barrelSpec,
       required this.packageName,
-      required this.prefixPaths})
+      required this.prefixPaths,
+      required this.format})
       : super._();
 
   @override
@@ -164,10 +184,12 @@ class _$_$DartBarrelLoadNamespaceSymbolDeclarationCtor
   final String packageName;
   @override
   final List<String> prefixPaths;
+  @override
+  final bool format;
 
   @override
   String toString() {
-    return 'DartBarrelLoadNamespaceSymbolDeclaration(barrelSpec: $barrelSpec, packageName: $packageName, prefixPaths: $prefixPaths)';
+    return 'DartBarrelLoadNamespaceSymbolDeclaration(barrelSpec: $barrelSpec, packageName: $packageName, prefixPaths: $prefixPaths, format: $format)';
   }
 
   @override
@@ -182,7 +204,9 @@ class _$_$DartBarrelLoadNamespaceSymbolDeclarationCtor
                     .equals(other.packageName, packageName)) &&
             (identical(other.prefixPaths, prefixPaths) ||
                 const DeepCollectionEquality()
-                    .equals(other.prefixPaths, prefixPaths)));
+                    .equals(other.prefixPaths, prefixPaths)) &&
+            (identical(other.format, format) ||
+                const DeepCollectionEquality().equals(other.format, format)));
   }
 
   @override
@@ -190,7 +214,8 @@ class _$_$DartBarrelLoadNamespaceSymbolDeclarationCtor
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(barrelSpec) ^
       const DeepCollectionEquality().hash(packageName) ^
-      const DeepCollectionEquality().hash(prefixPaths);
+      const DeepCollectionEquality().hash(prefixPaths) ^
+      const DeepCollectionEquality().hash(format);
 
   @JsonKey(ignore: true)
   @override
@@ -204,10 +229,10 @@ class _$_$DartBarrelLoadNamespaceSymbolDeclarationCtor
 abstract class _$DartBarrelLoadNamespaceSymbolDeclarationCtor
     extends DartBarrelLoadNamespaceSymbolDeclaration {
   factory _$DartBarrelLoadNamespaceSymbolDeclarationCtor(
-          {required BarrelSpec barrelSpec,
-          required String packageName,
-          required List<String> prefixPaths}) =
-      _$_$DartBarrelLoadNamespaceSymbolDeclarationCtor;
+      {required BarrelSpec barrelSpec,
+      required String packageName,
+      required List<String> prefixPaths,
+      required bool format}) = _$_$DartBarrelLoadNamespaceSymbolDeclarationCtor;
   _$DartBarrelLoadNamespaceSymbolDeclarationCtor._() : super._();
 
   @override
@@ -216,6 +241,8 @@ abstract class _$DartBarrelLoadNamespaceSymbolDeclarationCtor
   String get packageName => throw _privateConstructorUsedError;
   @override
   List<String> get prefixPaths => throw _privateConstructorUsedError;
+  @override
+  bool get format => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$DartBarrelLoadNamespaceSymbolDeclarationCtorCopyWith<

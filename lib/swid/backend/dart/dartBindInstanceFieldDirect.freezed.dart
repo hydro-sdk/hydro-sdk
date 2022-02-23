@@ -17,10 +17,13 @@ class _$DartBindInstanceFieldDirectTearOff {
   const _$DartBindInstanceFieldDirectTearOff();
 
   _$DartBindInstanceFieldDirectCtor call(
-      {required String instanceFieldName, required String tableKey}) {
+      {required String instanceFieldName,
+      required String tableKey,
+      required bool format}) {
     return _$DartBindInstanceFieldDirectCtor(
       instanceFieldName: instanceFieldName,
       tableKey: tableKey,
+      format: format,
     );
   }
 }
@@ -32,6 +35,7 @@ const $DartBindInstanceFieldDirect = _$DartBindInstanceFieldDirectTearOff();
 mixin _$DartBindInstanceFieldDirect {
   String get instanceFieldName => throw _privateConstructorUsedError;
   String get tableKey => throw _privateConstructorUsedError;
+  bool get format => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $DartBindInstanceFieldDirectCopyWith<DartBindInstanceFieldDirect>
@@ -44,7 +48,7 @@ abstract class $DartBindInstanceFieldDirectCopyWith<$Res> {
           DartBindInstanceFieldDirect value,
           $Res Function(DartBindInstanceFieldDirect) then) =
       _$DartBindInstanceFieldDirectCopyWithImpl<$Res>;
-  $Res call({String instanceFieldName, String tableKey});
+  $Res call({String instanceFieldName, String tableKey, bool format});
 }
 
 /// @nodoc
@@ -60,6 +64,7 @@ class _$DartBindInstanceFieldDirectCopyWithImpl<$Res>
   $Res call({
     Object? instanceFieldName = freezed,
     Object? tableKey = freezed,
+    Object? format = freezed,
   }) {
     return _then(_value.copyWith(
       instanceFieldName: instanceFieldName == freezed
@@ -70,6 +75,10 @@ class _$DartBindInstanceFieldDirectCopyWithImpl<$Res>
           ? _value.tableKey
           : tableKey // ignore: cast_nullable_to_non_nullable
               as String,
+      format: format == freezed
+          ? _value.format
+          : format // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -82,7 +91,7 @@ abstract class _$$DartBindInstanceFieldDirectCtorCopyWith<$Res>
           $Res Function(_$DartBindInstanceFieldDirectCtor) then) =
       __$$DartBindInstanceFieldDirectCtorCopyWithImpl<$Res>;
   @override
-  $Res call({String instanceFieldName, String tableKey});
+  $Res call({String instanceFieldName, String tableKey, bool format});
 }
 
 /// @nodoc
@@ -102,6 +111,7 @@ class __$$DartBindInstanceFieldDirectCtorCopyWithImpl<$Res>
   $Res call({
     Object? instanceFieldName = freezed,
     Object? tableKey = freezed,
+    Object? format = freezed,
   }) {
     return _then(_$DartBindInstanceFieldDirectCtor(
       instanceFieldName: instanceFieldName == freezed
@@ -112,6 +122,10 @@ class __$$DartBindInstanceFieldDirectCtorCopyWithImpl<$Res>
           ? _value.tableKey
           : tableKey // ignore: cast_nullable_to_non_nullable
               as String,
+      format: format == freezed
+          ? _value.format
+          : format // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -121,17 +135,21 @@ class __$$DartBindInstanceFieldDirectCtorCopyWithImpl<$Res>
 class _$_$DartBindInstanceFieldDirectCtor
     extends _$DartBindInstanceFieldDirectCtor {
   _$_$DartBindInstanceFieldDirectCtor(
-      {required this.instanceFieldName, required this.tableKey})
+      {required this.instanceFieldName,
+      required this.tableKey,
+      required this.format})
       : super._();
 
   @override
   final String instanceFieldName;
   @override
   final String tableKey;
+  @override
+  final bool format;
 
   @override
   String toString() {
-    return 'DartBindInstanceFieldDirect(instanceFieldName: $instanceFieldName, tableKey: $tableKey)';
+    return 'DartBindInstanceFieldDirect(instanceFieldName: $instanceFieldName, tableKey: $tableKey, format: $format)';
   }
 
   @override
@@ -143,14 +161,17 @@ class _$_$DartBindInstanceFieldDirectCtor
                     .equals(other.instanceFieldName, instanceFieldName)) &&
             (identical(other.tableKey, tableKey) ||
                 const DeepCollectionEquality()
-                    .equals(other.tableKey, tableKey)));
+                    .equals(other.tableKey, tableKey)) &&
+            (identical(other.format, format) ||
+                const DeepCollectionEquality().equals(other.format, format)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(instanceFieldName) ^
-      const DeepCollectionEquality().hash(tableKey);
+      const DeepCollectionEquality().hash(tableKey) ^
+      const DeepCollectionEquality().hash(format);
 
   @JsonKey(ignore: true)
   @override
@@ -163,13 +184,16 @@ abstract class _$DartBindInstanceFieldDirectCtor
     extends DartBindInstanceFieldDirect {
   factory _$DartBindInstanceFieldDirectCtor(
       {required String instanceFieldName,
-      required String tableKey}) = _$_$DartBindInstanceFieldDirectCtor;
+      required String tableKey,
+      required bool format}) = _$_$DartBindInstanceFieldDirectCtor;
   _$DartBindInstanceFieldDirectCtor._() : super._();
 
   @override
   String get instanceFieldName => throw _privateConstructorUsedError;
   @override
   String get tableKey => throw _privateConstructorUsedError;
+  @override
+  bool get format => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$DartBindInstanceFieldDirectCtorCopyWith<_$DartBindInstanceFieldDirectCtor>

@@ -182,6 +182,7 @@ void main() {
 
     final res = pipeline.reduceFromTerm(
       DartLoadNamespaceSymbolDeclaration(
+        format: true,
         swidClass: ir,
       ),
     );

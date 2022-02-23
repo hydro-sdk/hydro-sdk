@@ -74,12 +74,14 @@ class DartBindInstanceField
               DartBindInstanceFieldDirect(
                 instanceFieldName: instanceFieldName,
                 tableKey: tableKey,
+                format: false,
               ),
             ),
             onDynamic: (val) => pipeline.reduceFromTerm(
               DartBindInstanceFieldDirect(
                 instanceFieldName: instanceFieldName,
                 tableKey: tableKey,
+                format: false,
               ),
             ),
             onClass: (val) => refer("table")

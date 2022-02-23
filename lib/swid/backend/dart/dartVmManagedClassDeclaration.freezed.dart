@@ -16,9 +16,11 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$DartVMManagedClassDeclarationTearOff {
   const _$DartVMManagedClassDeclarationTearOff();
 
-  _$DartVMManagedClassDeclarationCtor call({required SwidClass swidClass}) {
+  _$DartVMManagedClassDeclarationCtor call(
+      {required SwidClass swidClass, required bool format}) {
     return _$DartVMManagedClassDeclarationCtor(
       swidClass: swidClass,
+      format: format,
     );
   }
 }
@@ -29,6 +31,7 @@ const $DartVMManagedClassDeclaration = _$DartVMManagedClassDeclarationTearOff();
 /// @nodoc
 mixin _$DartVMManagedClassDeclaration {
   SwidClass get swidClass => throw _privateConstructorUsedError;
+  bool get format => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $DartVMManagedClassDeclarationCopyWith<DartVMManagedClassDeclaration>
@@ -41,7 +44,7 @@ abstract class $DartVMManagedClassDeclarationCopyWith<$Res> {
           DartVMManagedClassDeclaration value,
           $Res Function(DartVMManagedClassDeclaration) then) =
       _$DartVMManagedClassDeclarationCopyWithImpl<$Res>;
-  $Res call({SwidClass swidClass});
+  $Res call({SwidClass swidClass, bool format});
 
   $SwidClassCopyWith<$Res> get swidClass;
 }
@@ -58,12 +61,17 @@ class _$DartVMManagedClassDeclarationCopyWithImpl<$Res>
   @override
   $Res call({
     Object? swidClass = freezed,
+    Object? format = freezed,
   }) {
     return _then(_value.copyWith(
       swidClass: swidClass == freezed
           ? _value.swidClass
           : swidClass // ignore: cast_nullable_to_non_nullable
               as SwidClass,
+      format: format == freezed
+          ? _value.format
+          : format // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 
@@ -83,7 +91,7 @@ abstract class _$$DartVMManagedClassDeclarationCtorCopyWith<$Res>
           $Res Function(_$DartVMManagedClassDeclarationCtor) then) =
       __$$DartVMManagedClassDeclarationCtorCopyWithImpl<$Res>;
   @override
-  $Res call({SwidClass swidClass});
+  $Res call({SwidClass swidClass, bool format});
 
   @override
   $SwidClassCopyWith<$Res> get swidClass;
@@ -105,12 +113,17 @@ class __$$DartVMManagedClassDeclarationCtorCopyWithImpl<$Res>
   @override
   $Res call({
     Object? swidClass = freezed,
+    Object? format = freezed,
   }) {
     return _then(_$DartVMManagedClassDeclarationCtor(
       swidClass: swidClass == freezed
           ? _value.swidClass
           : swidClass // ignore: cast_nullable_to_non_nullable
               as SwidClass,
+      format: format == freezed
+          ? _value.format
+          : format // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -119,14 +132,18 @@ class __$$DartVMManagedClassDeclarationCtorCopyWithImpl<$Res>
 
 class _$_$DartVMManagedClassDeclarationCtor
     extends _$DartVMManagedClassDeclarationCtor {
-  _$_$DartVMManagedClassDeclarationCtor({required this.swidClass}) : super._();
+  _$_$DartVMManagedClassDeclarationCtor(
+      {required this.swidClass, required this.format})
+      : super._();
 
   @override
   final SwidClass swidClass;
+  @override
+  final bool format;
 
   @override
   String toString() {
-    return 'DartVMManagedClassDeclaration(swidClass: $swidClass)';
+    return 'DartVMManagedClassDeclaration(swidClass: $swidClass, format: $format)';
   }
 
   @override
@@ -135,12 +152,16 @@ class _$_$DartVMManagedClassDeclarationCtor
         (other is _$DartVMManagedClassDeclarationCtor &&
             (identical(other.swidClass, swidClass) ||
                 const DeepCollectionEquality()
-                    .equals(other.swidClass, swidClass)));
+                    .equals(other.swidClass, swidClass)) &&
+            (identical(other.format, format) ||
+                const DeepCollectionEquality().equals(other.format, format)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(swidClass);
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(swidClass) ^
+      const DeepCollectionEquality().hash(format);
 
   @JsonKey(ignore: true)
   @override
@@ -152,12 +173,15 @@ class _$_$DartVMManagedClassDeclarationCtor
 
 abstract class _$DartVMManagedClassDeclarationCtor
     extends DartVMManagedClassDeclaration {
-  factory _$DartVMManagedClassDeclarationCtor({required SwidClass swidClass}) =
-      _$_$DartVMManagedClassDeclarationCtor;
+  factory _$DartVMManagedClassDeclarationCtor(
+      {required SwidClass swidClass,
+      required bool format}) = _$_$DartVMManagedClassDeclarationCtor;
   _$DartVMManagedClassDeclarationCtor._() : super._();
 
   @override
   SwidClass get swidClass => throw _privateConstructorUsedError;
+  @override
+  bool get format => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$DartVMManagedClassDeclarationCtorCopyWith<

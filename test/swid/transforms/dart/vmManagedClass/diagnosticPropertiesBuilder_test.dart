@@ -208,7 +208,9 @@ void main() {
           cacheMgr: const PipelineNoopCacheMgr(),
         ).reduceFromTerm(
           DartVMManagedClassDeclaration(
-              swidClass: diagnosticPropertiesBuilderClass),
+            format: true,
+            swidClass: diagnosticPropertiesBuilderClass,
+          ),
         ),
         """
 class VMManagedDiagnosticPropertiesBuilder

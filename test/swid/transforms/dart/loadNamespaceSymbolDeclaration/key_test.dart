@@ -99,7 +99,10 @@ void main() {
         CachingPipeline(
           cacheMgr: const PipelineNoopCacheMgr(),
         ).reduceFromTerm(
-          DartLoadNamespaceSymbolDeclaration(swidClass: keyClass),
+          DartLoadNamespaceSymbolDeclaration(
+            format: true,
+            swidClass: keyClass,
+          ),
         ),
         """
 void loadKey(

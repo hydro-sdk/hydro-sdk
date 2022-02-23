@@ -106,6 +106,7 @@ DartTranslationUnit? produceDartTranslationUnitFromSwidClass({
                   ),
                   DartIr.fromVMManagedClassDeclaration(
                     vmManagedClassDeclaration: DartVMManagedClassDeclaration(
+                      format: false,
                       swidClass: removePrivateMethods(
                         swidClass: pipeline
                             .reduceFromTerm(
@@ -138,6 +139,7 @@ DartTranslationUnit? produceDartTranslationUnitFromSwidClass({
                       ? DartIr.fromRTManagedClassDeclaration(
                           rtManagedClassDeclaration:
                               DartRTManagedClassDeclaration(
+                                format: false,
                             swidClass: removePrivateMethods(
                               swidClass: pipeline.reduceFromTerm(
                                 ApplySuperTypes(
@@ -151,6 +153,7 @@ DartTranslationUnit? produceDartTranslationUnitFromSwidClass({
                   DartIr.fromLoadNamepsaceSymbolDeclaration(
                     loadNamespaceSymbolDeclaration:
                         DartLoadNamespaceSymbolDeclaration(
+                          format: false,
                       swidClass: swidClass,
                     ),
                   )

@@ -10,8 +10,6 @@ import 'package:hydro_sdk/swid/backend/util/barrelSpec.dart';
 import 'package:hydro_sdk/swid/backend/util/requiresDartClassTranslationUnit.dart';
 import 'package:hydro_sdk/swid/ir/analyses/isUnrepresentableStaticConst.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
-import 'package:hydro_sdk/swid/transforms/transformPackageUri.dart';
-import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';
 
 List<DartTranslationUnit> produceDartTranslationUnitsFromBarrelSpec({
   required final String packageName,
@@ -79,6 +77,7 @@ List<DartTranslationUnit> produceDartTranslationUnitsFromBarrelSpec({
           DartIr.fromDartBarrelLoadNamespaceSymbolDeclaration(
             dartBarrelLoadNamespaceSymbolDeclaration:
                 DartBarrelLoadNamespaceSymbolDeclaration(
+                  format: false,
               barrelSpec: barrelSpec,
               packageName: packageName,
               prefixPaths: prefixPaths,

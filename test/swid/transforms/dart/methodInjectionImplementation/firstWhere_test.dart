@@ -114,6 +114,7 @@ void main() {
       cacheMgr: const PipelineNoopCacheMgr(),
     ).reduceFromTerm(
       DartVMManagedClassMethodInjectionImplementation(
+        format: true,
         swidFunctionType: ir,
         tableKey: "firstWhere",
       ),

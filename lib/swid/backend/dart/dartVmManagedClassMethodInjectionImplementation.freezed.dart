@@ -17,10 +17,13 @@ class _$DartVMManagedClassMethodInjectionImplementationTearOff {
   const _$DartVMManagedClassMethodInjectionImplementationTearOff();
 
   _$DartVMManagedClassMethodInjectionImplementationCtor call(
-      {required SwidFunctionType swidFunctionType, required String tableKey}) {
+      {required SwidFunctionType swidFunctionType,
+      required String tableKey,
+      required bool format}) {
     return _$DartVMManagedClassMethodInjectionImplementationCtor(
       swidFunctionType: swidFunctionType,
       tableKey: tableKey,
+      format: format,
     );
   }
 }
@@ -33,6 +36,7 @@ const $DartVMManagedClassMethodInjectionImplementation =
 mixin _$DartVMManagedClassMethodInjectionImplementation {
   SwidFunctionType get swidFunctionType => throw _privateConstructorUsedError;
   String get tableKey => throw _privateConstructorUsedError;
+  bool get format => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $DartVMManagedClassMethodInjectionImplementationCopyWith<
@@ -46,7 +50,7 @@ abstract class $DartVMManagedClassMethodInjectionImplementationCopyWith<$Res> {
           DartVMManagedClassMethodInjectionImplementation value,
           $Res Function(DartVMManagedClassMethodInjectionImplementation) then) =
       _$DartVMManagedClassMethodInjectionImplementationCopyWithImpl<$Res>;
-  $Res call({SwidFunctionType swidFunctionType, String tableKey});
+  $Res call({SwidFunctionType swidFunctionType, String tableKey, bool format});
 
   $SwidFunctionTypeCopyWith<$Res> get swidFunctionType;
 }
@@ -65,6 +69,7 @@ class _$DartVMManagedClassMethodInjectionImplementationCopyWithImpl<$Res>
   $Res call({
     Object? swidFunctionType = freezed,
     Object? tableKey = freezed,
+    Object? format = freezed,
   }) {
     return _then(_value.copyWith(
       swidFunctionType: swidFunctionType == freezed
@@ -75,6 +80,10 @@ class _$DartVMManagedClassMethodInjectionImplementationCopyWithImpl<$Res>
           ? _value.tableKey
           : tableKey // ignore: cast_nullable_to_non_nullable
               as String,
+      format: format == freezed
+          ? _value.format
+          : format // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 
@@ -96,7 +105,7 @@ abstract class _$$DartVMManagedClassMethodInjectionImplementationCtorCopyWith<
               then) =
       __$$DartVMManagedClassMethodInjectionImplementationCtorCopyWithImpl<$Res>;
   @override
-  $Res call({SwidFunctionType swidFunctionType, String tableKey});
+  $Res call({SwidFunctionType swidFunctionType, String tableKey, bool format});
 
   @override
   $SwidFunctionTypeCopyWith<$Res> get swidFunctionType;
@@ -124,6 +133,7 @@ class __$$DartVMManagedClassMethodInjectionImplementationCtorCopyWithImpl<$Res>
   $Res call({
     Object? swidFunctionType = freezed,
     Object? tableKey = freezed,
+    Object? format = freezed,
   }) {
     return _then(_$DartVMManagedClassMethodInjectionImplementationCtor(
       swidFunctionType: swidFunctionType == freezed
@@ -134,6 +144,10 @@ class __$$DartVMManagedClassMethodInjectionImplementationCtorCopyWithImpl<$Res>
           ? _value.tableKey
           : tableKey // ignore: cast_nullable_to_non_nullable
               as String,
+      format: format == freezed
+          ? _value.format
+          : format // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -143,17 +157,21 @@ class __$$DartVMManagedClassMethodInjectionImplementationCtorCopyWithImpl<$Res>
 class _$_$DartVMManagedClassMethodInjectionImplementationCtor
     extends _$DartVMManagedClassMethodInjectionImplementationCtor {
   _$_$DartVMManagedClassMethodInjectionImplementationCtor(
-      {required this.swidFunctionType, required this.tableKey})
+      {required this.swidFunctionType,
+      required this.tableKey,
+      required this.format})
       : super._();
 
   @override
   final SwidFunctionType swidFunctionType;
   @override
   final String tableKey;
+  @override
+  final bool format;
 
   @override
   String toString() {
-    return 'DartVMManagedClassMethodInjectionImplementation(swidFunctionType: $swidFunctionType, tableKey: $tableKey)';
+    return 'DartVMManagedClassMethodInjectionImplementation(swidFunctionType: $swidFunctionType, tableKey: $tableKey, format: $format)';
   }
 
   @override
@@ -165,14 +183,17 @@ class _$_$DartVMManagedClassMethodInjectionImplementationCtor
                     .equals(other.swidFunctionType, swidFunctionType)) &&
             (identical(other.tableKey, tableKey) ||
                 const DeepCollectionEquality()
-                    .equals(other.tableKey, tableKey)));
+                    .equals(other.tableKey, tableKey)) &&
+            (identical(other.format, format) ||
+                const DeepCollectionEquality().equals(other.format, format)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(swidFunctionType) ^
-      const DeepCollectionEquality().hash(tableKey);
+      const DeepCollectionEquality().hash(tableKey) ^
+      const DeepCollectionEquality().hash(format);
 
   @JsonKey(ignore: true)
   @override
@@ -188,7 +209,8 @@ abstract class _$DartVMManagedClassMethodInjectionImplementationCtor
     extends DartVMManagedClassMethodInjectionImplementation {
   factory _$DartVMManagedClassMethodInjectionImplementationCtor(
           {required SwidFunctionType swidFunctionType,
-          required String tableKey}) =
+          required String tableKey,
+          required bool format}) =
       _$_$DartVMManagedClassMethodInjectionImplementationCtor;
   _$DartVMManagedClassMethodInjectionImplementationCtor._() : super._();
 
@@ -196,6 +218,8 @@ abstract class _$DartVMManagedClassMethodInjectionImplementationCtor
   SwidFunctionType get swidFunctionType => throw _privateConstructorUsedError;
   @override
   String get tableKey => throw _privateConstructorUsedError;
+  @override
+  bool get format => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$DartVMManagedClassMethodInjectionImplementationCtorCopyWith<

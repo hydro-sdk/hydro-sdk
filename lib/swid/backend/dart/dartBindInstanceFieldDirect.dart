@@ -1,3 +1,5 @@
+import 'package:dart_style/dart_style.dart';
+import 'package:dartlin/control_flow.dart';
 import 'package:code_builder/code_builder.dart'
     show DartEmitter, refer, literalString;
 
@@ -30,6 +32,7 @@ class DartBindInstanceFieldDirect
   factory DartBindInstanceFieldDirect({
     required final String instanceFieldName,
     required final String tableKey,
+    required final bool format,
   }) = _$DartBindInstanceFieldDirectCtor;
 
   @override
@@ -42,6 +45,8 @@ class DartBindInstanceFieldDirect
     ];
     yield [
       ...tableKey.codeUnits,
+    ];yield [
+      ...format.hashableParts,
     ];
   }
 
@@ -49,10 +54,12 @@ class DartBindInstanceFieldDirect
   DartBindInstanceFieldDirect clone({
     final String? instanceFieldName,
     final String? tableKey,
+    final bool? format,
   }) =>
       DartBindInstanceFieldDirect(
         instanceFieldName: instanceFieldName ?? this.instanceFieldName,
         tableKey: tableKey ?? this.tableKey,
+        format: format ?? this.format,
       );
 
   @override
@@ -60,15 +67,25 @@ class DartBindInstanceFieldDirect
     required final ISwarsPipeline pipeline,
   }) =>
       SwarsTermResult.fromValue(
-          refer("table")
-              .index(literalString(tableKey))
-              .assign(refer(instanceFieldName))
-              .statement
-              .accept(
-                DartEmitter(
-                  useNullSafetySyntax: true,
+        refer("table")
+            .index(literalString(tableKey))
+            .assign(refer(instanceFieldName))
+            .statement
+            .accept(
+              DartEmitter(
+                useNullSafetySyntax: true,
+              ),
+            )
+            .toString()
+            .let(
+              (it) =>  iff(
+                format,
+                () => DartFormatter().formatStatement(
+                  it,
                 ),
-              )
-              .toString(),
+              ).orElse(
+                () => it,
+              ),
+            ),
       );
 }

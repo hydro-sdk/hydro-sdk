@@ -17,9 +17,10 @@ class _$DartLoadNamespaceSymbolDeclarationTearOff {
   const _$DartLoadNamespaceSymbolDeclarationTearOff();
 
   _$DartLoadNamespaceSymbolDeclarationCtor call(
-      {required SwidClass swidClass}) {
+      {required SwidClass swidClass, required bool format}) {
     return _$DartLoadNamespaceSymbolDeclarationCtor(
       swidClass: swidClass,
+      format: format,
     );
   }
 }
@@ -31,6 +32,7 @@ const $DartLoadNamespaceSymbolDeclaration =
 /// @nodoc
 mixin _$DartLoadNamespaceSymbolDeclaration {
   SwidClass get swidClass => throw _privateConstructorUsedError;
+  bool get format => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $DartLoadNamespaceSymbolDeclarationCopyWith<
@@ -44,7 +46,7 @@ abstract class $DartLoadNamespaceSymbolDeclarationCopyWith<$Res> {
           DartLoadNamespaceSymbolDeclaration value,
           $Res Function(DartLoadNamespaceSymbolDeclaration) then) =
       _$DartLoadNamespaceSymbolDeclarationCopyWithImpl<$Res>;
-  $Res call({SwidClass swidClass});
+  $Res call({SwidClass swidClass, bool format});
 
   $SwidClassCopyWith<$Res> get swidClass;
 }
@@ -61,12 +63,17 @@ class _$DartLoadNamespaceSymbolDeclarationCopyWithImpl<$Res>
   @override
   $Res call({
     Object? swidClass = freezed,
+    Object? format = freezed,
   }) {
     return _then(_value.copyWith(
       swidClass: swidClass == freezed
           ? _value.swidClass
           : swidClass // ignore: cast_nullable_to_non_nullable
               as SwidClass,
+      format: format == freezed
+          ? _value.format
+          : format // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 
@@ -86,7 +93,7 @@ abstract class _$$DartLoadNamespaceSymbolDeclarationCtorCopyWith<$Res>
           $Res Function(_$DartLoadNamespaceSymbolDeclarationCtor) then) =
       __$$DartLoadNamespaceSymbolDeclarationCtorCopyWithImpl<$Res>;
   @override
-  $Res call({SwidClass swidClass});
+  $Res call({SwidClass swidClass, bool format});
 
   @override
   $SwidClassCopyWith<$Res> get swidClass;
@@ -109,12 +116,17 @@ class __$$DartLoadNamespaceSymbolDeclarationCtorCopyWithImpl<$Res>
   @override
   $Res call({
     Object? swidClass = freezed,
+    Object? format = freezed,
   }) {
     return _then(_$DartLoadNamespaceSymbolDeclarationCtor(
       swidClass: swidClass == freezed
           ? _value.swidClass
           : swidClass // ignore: cast_nullable_to_non_nullable
               as SwidClass,
+      format: format == freezed
+          ? _value.format
+          : format // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -123,15 +135,18 @@ class __$$DartLoadNamespaceSymbolDeclarationCtorCopyWithImpl<$Res>
 
 class _$_$DartLoadNamespaceSymbolDeclarationCtor
     extends _$DartLoadNamespaceSymbolDeclarationCtor {
-  _$_$DartLoadNamespaceSymbolDeclarationCtor({required this.swidClass})
+  _$_$DartLoadNamespaceSymbolDeclarationCtor(
+      {required this.swidClass, required this.format})
       : super._();
 
   @override
   final SwidClass swidClass;
+  @override
+  final bool format;
 
   @override
   String toString() {
-    return 'DartLoadNamespaceSymbolDeclaration(swidClass: $swidClass)';
+    return 'DartLoadNamespaceSymbolDeclaration(swidClass: $swidClass, format: $format)';
   }
 
   @override
@@ -140,12 +155,16 @@ class _$_$DartLoadNamespaceSymbolDeclarationCtor
         (other is _$DartLoadNamespaceSymbolDeclarationCtor &&
             (identical(other.swidClass, swidClass) ||
                 const DeepCollectionEquality()
-                    .equals(other.swidClass, swidClass)));
+                    .equals(other.swidClass, swidClass)) &&
+            (identical(other.format, format) ||
+                const DeepCollectionEquality().equals(other.format, format)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(swidClass);
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(swidClass) ^
+      const DeepCollectionEquality().hash(format);
 
   @JsonKey(ignore: true)
   @override
@@ -158,12 +177,14 @@ class _$_$DartLoadNamespaceSymbolDeclarationCtor
 abstract class _$DartLoadNamespaceSymbolDeclarationCtor
     extends DartLoadNamespaceSymbolDeclaration {
   factory _$DartLoadNamespaceSymbolDeclarationCtor(
-          {required SwidClass swidClass}) =
-      _$_$DartLoadNamespaceSymbolDeclarationCtor;
+      {required SwidClass swidClass,
+      required bool format}) = _$_$DartLoadNamespaceSymbolDeclarationCtor;
   _$DartLoadNamespaceSymbolDeclarationCtor._() : super._();
 
   @override
   SwidClass get swidClass => throw _privateConstructorUsedError;
+  @override
+  bool get format => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$DartLoadNamespaceSymbolDeclarationCtorCopyWith<

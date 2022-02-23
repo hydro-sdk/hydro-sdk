@@ -15,6 +15,7 @@ void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
     var ir = DartVMManagedClassDeclaration(
+      format: true,
       swidClass: SwidClass(
         name: "fooClass",
         typeFormals: [],

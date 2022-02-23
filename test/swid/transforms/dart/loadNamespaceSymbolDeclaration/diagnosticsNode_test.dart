@@ -1161,7 +1161,10 @@ void main() {
         CachingPipeline(
           cacheMgr: const PipelineNoopCacheMgr(),
         ).reduceFromTerm(
-          DartLoadNamespaceSymbolDeclaration(swidClass: diagnosticsNode),
+          DartLoadNamespaceSymbolDeclaration(
+            format: true,
+            swidClass: diagnosticsNode,
+          ),
         ),
         """
 void loadDiagnosticsNode(

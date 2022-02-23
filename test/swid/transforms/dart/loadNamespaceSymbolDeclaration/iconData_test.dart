@@ -264,7 +264,10 @@ void main() {
         CachingPipeline(
           cacheMgr: const PipelineNoopCacheMgr(),
         ).reduceFromTerm(
-          DartLoadNamespaceSymbolDeclaration(swidClass: iconDataClass),
+          DartLoadNamespaceSymbolDeclaration(
+            format: true,
+            swidClass: iconDataClass,
+          ),
         ),
         """
 void loadIconData(

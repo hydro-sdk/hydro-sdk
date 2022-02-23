@@ -1,3 +1,5 @@
+import 'package:dart_style/dart_style.dart';
+import 'package:dartlin/control_flow.dart';
 import 'package:code_builder/code_builder.dart'
     show DartEmitter, refer, literalString, Code;
 
@@ -34,6 +36,7 @@ class DartVMManagedClassMethodInjectionImplementation
   factory DartVMManagedClassMethodInjectionImplementation({
     required final SwidFunctionType swidFunctionType,
     required final String tableKey,
+    required final bool format,
   }) = _$DartVMManagedClassMethodInjectionImplementationCtor;
 
   @override
@@ -42,16 +45,21 @@ class DartVMManagedClassMethodInjectionImplementation
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
     yield* swidFunctionType.hashKey.hashableParts;
+    yield [
+      ...format.hashableParts,
+    ];
   }
 
   @override
   DartVMManagedClassMethodInjectionImplementation clone({
     final SwidFunctionType? swidFunctionType,
     final String? tableKey,
+    final bool? format,
   }) =>
       DartVMManagedClassMethodInjectionImplementation(
         swidFunctionType: swidFunctionType ?? this.swidFunctionType.clone(),
         tableKey: tableKey ?? this.tableKey,
+        format: format ?? this.format,
       );
 
   @override
@@ -59,26 +67,36 @@ class DartVMManagedClassMethodInjectionImplementation
     required final ISwarsPipeline pipeline,
   }) =>
       SwarsTermResult.fromValue(
-          refer("table")
-              .index(literalString(tableKey))
-              .assign(
-                luaDartBinding(
-                  pipeline: pipeline,
-                  code: Code(
-                    pipeline.reduceFromTerm(
-                      DartMethodBindingImplementation(
-                        swidFunctionType: swidFunctionType,
-                      ),
+        refer("table")
+            .index(literalString(tableKey))
+            .assign(
+              luaDartBinding(
+                pipeline: pipeline,
+                code: Code(
+                  pipeline.reduceFromTerm(
+                    DartMethodBindingImplementation(
+                      swidFunctionType: swidFunctionType,
                     ),
                   ),
                 ),
-              )
-              .statement
-              .accept(
-                DartEmitter(
-                  useNullSafetySyntax: true,
+              ),
+            )
+            .statement
+            .accept(
+              DartEmitter(
+                useNullSafetySyntax: true,
+              ),
+            )
+            .toString()
+            .let(
+              (it) => iff(
+                format,
+                () => DartFormatter().formatStatement(
+                  it,
                 ),
-              )
-              .toString(),
+              ).orElse(
+                () => it,
+              ),
+            ),
       );
 }

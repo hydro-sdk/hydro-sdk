@@ -190,6 +190,7 @@ void main() {
 
     final res = pipeline.reduceFromTerm(
       DartRTManagedClassDeclaration(
+        format: true,
         swidClass: ir,
       ),
     );

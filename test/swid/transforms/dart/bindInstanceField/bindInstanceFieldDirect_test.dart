@@ -12,6 +12,7 @@ void main() {
           cacheMgr: const PipelineNoopCacheMgr(),
         ).reduceFromTerm(
           DartBindInstanceFieldDirect(
+            format: true,
             tableKey: "foo",
             instanceFieldName: "foo",
           ),
