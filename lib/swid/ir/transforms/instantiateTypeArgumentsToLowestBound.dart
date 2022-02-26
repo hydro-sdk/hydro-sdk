@@ -177,7 +177,11 @@ class InstantiateTypeArgumentsToLowestBound
                                                     fromSwidTypeArgumentElement:
                                                         (val) => val.bound.when(
                                                       fromSwidInterface:
-                                                          (val) => val,
+                                                          (val) => val.clone(
+                                                        nullabilitySuffix: x
+                                                            .type
+                                                            .nullabilitySuffix,
+                                                      ),
                                                       fromSwidClass: (_) =>
                                                           dartUnknownInterface,
                                                       fromSwidDefaultFormalParameter:
