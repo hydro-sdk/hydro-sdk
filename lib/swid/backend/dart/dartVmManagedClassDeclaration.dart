@@ -1,17 +1,5 @@
 import 'package:dart_style/dart_style.dart';
 import 'package:dartlin/control_flow.dart';
-import 'package:code_builder/code_builder.dart'
-    show
-        Class,
-        Constructor,
-        DartEmitter,
-        Field,
-        FieldModifier,
-        Parameter,
-        TypeReference,
-        Block,
-        Code;
-
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/backend/dart/dartBindInstanceField.dart';
@@ -35,6 +23,18 @@ import 'package:hydro_sdk/swid/transforms/dart/removeNullabilitySuffixFromTypeNa
 import 'package:hydro_sdk/swid/transforms/transformAccessorName.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
+
+import 'package:code_builder/code_builder.dart'
+    show
+        Class,
+        Constructor,
+        DartEmitter,
+        Field,
+        FieldModifier,
+        Parameter,
+        TypeReference,
+        Block,
+        Code;
 
 part 'dartVmManagedClassDeclaration.freezed.dart';
 
@@ -304,7 +304,7 @@ class DartVMManagedClassDeclaration
             )
             .toString()
             .let(
-              (it) =>  iff(
+              (it) => iff(
                 format,
                 () => DartFormatter().format(
                   it,

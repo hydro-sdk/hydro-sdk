@@ -1,5 +1,5 @@
-import 'package:dartlin/control_flow.dart';
 import 'package:code_builder/code_builder.dart' show DartEmitter, refer;
+import 'package:dartlin/control_flow.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/ir/analyses/hasInheritedMustCallSuperAnnotation.dart';

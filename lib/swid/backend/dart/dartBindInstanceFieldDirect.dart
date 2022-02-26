@@ -1,8 +1,5 @@
 import 'package:dart_style/dart_style.dart';
 import 'package:dartlin/control_flow.dart';
-import 'package:code_builder/code_builder.dart'
-    show DartEmitter, refer, literalString;
-
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
@@ -12,6 +9,9 @@ import 'package:hydro_sdk/swid/swars/swarsTermStringResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTransformMixin.dart';
 import 'package:hydro_sdk/swid/util/hashComparableMixin.dart';
 import 'package:hydro_sdk/swid/util/hashKeyMixin.dart';
+
+import 'package:code_builder/code_builder.dart'
+    show DartEmitter, refer, literalString;
 
 part 'dartBindInstanceFieldDirect.freezed.dart';
 
@@ -45,7 +45,8 @@ class DartBindInstanceFieldDirect
     ];
     yield [
       ...tableKey.codeUnits,
-    ];yield [
+    ];
+    yield [
       ...format.hashableParts,
     ];
   }
@@ -78,7 +79,7 @@ class DartBindInstanceFieldDirect
             )
             .toString()
             .let(
-              (it) =>  iff(
+              (it) => iff(
                 format,
                 () => DartFormatter().formatStatement(
                   it,
