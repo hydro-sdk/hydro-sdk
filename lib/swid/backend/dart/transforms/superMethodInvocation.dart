@@ -1,3 +1,4 @@
+import 'package:dartlin/control_flow.dart';
 import 'package:code_builder/code_builder.dart' show DartEmitter, refer;
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -57,48 +58,81 @@ class SuperMethodInvocation
     required final ISwarsPipeline pipeline,
   }) =>
       SwarsTermResult.fromValue(
-        swidFunctionType.declarationModifiers.hasMustCallSuper ||
-                pipeline.reduceFromTerm(
-                  HasInheritedMustCallSuperAnnotation(
-                    swidFunctionType: swidFunctionType,
-                    swidClass: swidClass,
-                  ),
-                )
-            ? [
-                refer("super")
-                    .property(
-                      removeNullabilitySuffix(
-                        str: removeTypeArguments(
-                          str: swidFunctionType.name,
-                        ),
+        iff(
+          swidFunctionType.declarationModifiers.hasMustCallSuper ||
+              pipeline.reduceFromTerm(
+                HasInheritedMustCallSuperAnnotation(
+                  swidFunctionType: swidFunctionType,
+                  swidClass: swidClass,
+                ),
+              ),
+          () => iff(
+            !swidFunctionType.declarationModifiers.isSetter,
+            () => [
+              refer("super")
+                  .property(
+                    removeNullabilitySuffix(
+                      str: removeTypeArguments(
+                        str: swidFunctionType.name,
                       ),
-                    )
-                    .call(
+                    ),
+                  )
+                  .call(
+                    [
+                      ...swidFunctionType.normalParameterNames,
+                      ...swidFunctionType.optionalParameterNames,
+                    ].map(
+                      (x) => refer(x),
+                    ),
+                    Map.fromEntries(
                       [
-                        ...swidFunctionType.normalParameterNames,
-                        ...swidFunctionType.optionalParameterNames,
+                        ...swidFunctionType.namedParameterTypes.entries,
                       ].map(
-                        (x) => refer(x),
-                      ),
-                      Map.fromEntries(
-                        [
-                          ...swidFunctionType.namedParameterTypes.entries,
-                        ].map(
-                          (x) => MapEntry(
-                            x.key,
-                            refer(x.key),
-                          ),
+                        (x) => MapEntry(
+                          x.key,
+                          refer(x.key),
                         ),
                       ),
-                    )
-                    .statement
-                    .accept(
-                      DartEmitter(
-                        useNullSafetySyntax: true,
+                    ),
+                  )
+                  .statement
+                  .accept(
+                    DartEmitter(
+                      useNullSafetySyntax: true,
+                    ),
+                  )
+                  .toString(),
+            ].join(""),
+          ).orElse(
+            () => iff(
+              swidFunctionType.declarationModifiers.isSetter &&
+                  swidFunctionType.normalParameterNames.length >= 1,
+              () => refer("super")
+                  .property(
+                    removeNullabilitySuffix(
+                      str: removeTypeArguments(
+                        str: swidFunctionType.name,
                       ),
-                    )
-                    .toString(),
-              ].join("")
-            : "",
+                    ),
+                  )
+                  .assign(
+                    refer(
+                      swidFunctionType.normalParameterNames.first,
+                    ),
+                  )
+                  .statement
+                  .accept(
+                    DartEmitter(
+                      useNullSafetySyntax: true,
+                    ),
+                  )
+                  .toString(),
+            ).orElse(
+              () => "",
+            ),
+          ),
+        ).orElse(
+          () => "",
+        ),
       );
 }
