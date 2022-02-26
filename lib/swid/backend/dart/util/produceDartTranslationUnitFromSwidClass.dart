@@ -139,7 +139,7 @@ DartTranslationUnit? produceDartTranslationUnitFromSwidClass({
                       ? DartIr.fromRTManagedClassDeclaration(
                           rtManagedClassDeclaration:
                               DartRTManagedClassDeclaration(
-                                format: false,
+                            format: false,
                             swidClass: removePrivateMethods(
                               swidClass: pipeline.reduceFromTerm(
                                 ApplySuperTypes(
@@ -153,7 +153,7 @@ DartTranslationUnit? produceDartTranslationUnitFromSwidClass({
                   DartIr.fromLoadNamepsaceSymbolDeclaration(
                     loadNamespaceSymbolDeclaration:
                         DartLoadNamespaceSymbolDeclaration(
-                          format: false,
+                      format: false,
                       swidClass: swidClass,
                     ),
                   )

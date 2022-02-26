@@ -77,7 +77,7 @@ List<DartTranslationUnit> produceDartTranslationUnitsFromBarrelSpec({
           DartIr.fromDartBarrelLoadNamespaceSymbolDeclaration(
             dartBarrelLoadNamespaceSymbolDeclaration:
                 DartBarrelLoadNamespaceSymbolDeclaration(
-                  format: false,
+              format: false,
               barrelSpec: barrelSpec,
               packageName: packageName,
               prefixPaths: prefixPaths,
