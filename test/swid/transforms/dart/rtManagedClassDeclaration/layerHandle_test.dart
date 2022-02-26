@@ -180,7 +180,7 @@ void main() {
       """
 class RTManagedLayerHandle extends _7d70.LayerHandle
     implements _36c2.Box<_7d70.LayerHandle> {
-  RTManagedLayerHandle(_fac9.dynamic? _layer,
+  RTManagedLayerHandle(_7d70.Layer? _layer,
       {required this.table, required this.hydroState})
       : super(
           _layer,

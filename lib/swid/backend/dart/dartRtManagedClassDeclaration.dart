@@ -87,7 +87,8 @@ class DartRTManagedClassDeclaration
 
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
-    yield* swidClass.hashKey.hashableParts;yield [
+    yield* swidClass.hashKey.hashableParts;
+    yield [
       ...format.hashableParts,
     ];
   }
@@ -650,20 +651,18 @@ class DartRTManagedClassDeclaration
                           constructorType: pipeline
                               .reduceFromTerm(
                                 InstantiateGenericsToLowestBound(
-                                  swidType: SwidType.fromSwidFunctionType(
-                                    swidFunctionType: pipeline
-                                        .reduceFromTerm(
-                                          RewriteShadowingNormalConstructorParameters(
-                                            swidClass: swidClass,
-                                          ),
-                                        )
-                                        .constructorType!,
+                                  swidType: SwidType.fromSwidClass(
+                                    swidClass: pipeline.reduceFromTerm(
+                                      RewriteShadowingNormalConstructorParameters(
+                                        swidClass: swidClass,
+                                      ),
+                                    ),
                                   ),
                                 ),
                               )
                               .when(
                                 fromSwidInterface: (_) => dartUnknownFunction,
-                                fromSwidClass: (_) => dartUnknownFunction,
+                                fromSwidClass: (val) => val.constructorType!,
                                 fromSwidDefaultFormalParameter: (_) =>
                                     dartUnknownFunction,
                                 fromSwidFunctionType: (val) => val,
@@ -973,7 +972,7 @@ class DartRTManagedClassDeclaration
             )
             .toString()
             .let(
-              (it) =>  iff(
+              (it) => iff(
                 format,
                 () => DartFormatter().format(
                   it,
