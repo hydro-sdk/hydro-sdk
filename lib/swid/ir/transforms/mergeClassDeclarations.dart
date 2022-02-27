@@ -107,7 +107,13 @@ class MergeClassDeclarations
                 ],
                 staticMethods: [
                   ...swidClass.staticMethods,
-                  ...superClass!.staticMethods
+                  ...superClass!.staticMethods.where(
+                    (x) =>
+                        swidClass.staticMethods.firstWhereOrNull(
+                          (k) => k.name == x.name,
+                        ) ==
+                        null,
+                  )
                 ],
                 staticConstFieldDeclarations: [
                   ...swidClass.staticConstFieldDeclarations,
