@@ -4,6 +4,8 @@ class "package:flutter/src/widgets/actions.dart"::Actions {
         type::T intent
     ) -> {
         @"dartStaticMethodNamespaceSymbolDeclaration" : false,
+        @"tsClassVmDeclaration" : false,
+        @"tsClassStaticMethodImplementation" : false,
     };
 
     static "package:flutter/src/widgets/actions.dart"::class::Action<type::T>? maybeFind<T extends "package:flutter/src/widgets/actions.dart"::class::Intent>(
@@ -12,6 +14,8 @@ class "package:flutter/src/widgets/actions.dart"::Actions {
         }
     ) -> {
         @"dartStaticMethodNamespaceSymbolDeclaration" : false,
+        @"tsClassVmDeclaration" : false,
+        @"tsClassStaticMethodImplementation" : false,
     };
 
     static "dart:core"::class::Object? invoke<T extends "package:flutter/src/widgets/actions.dart"::class::Intent>(
@@ -19,6 +23,8 @@ class "package:flutter/src/widgets/actions.dart"::Actions {
         type::T intent
     ) -> {
         @"dartStaticMethodNamespaceSymbolDeclaration" : false,
+        @"tsClassVmDeclaration" : false,
+        @"tsClassStaticMethodImplementation" : false,
     };
 
     static "dart:core"::class::Object? maybeInvoke<T extends "package:flutter/src/widgets/actions.dart"::class::Intent>(
@@ -26,5 +32,7 @@ class "package:flutter/src/widgets/actions.dart"::Actions {
         type::T intent
     ) -> {
         @"dartStaticMethodNamespaceSymbolDeclaration" : false,
+        @"tsClassVmDeclaration" : false,
+        @"tsClassStaticMethodImplementation" : false,
     };
 }
