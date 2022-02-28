@@ -3,6 +3,7 @@ import 'package:analyzer/dart/ast/ast.dart';
 import 'package:analyzer/dart/ast/syntactic_entity.dart';
 import 'package:analyzer/dart/element/element.dart' show ClassElement;
 import 'package:collection/collection.dart';
+import 'package:dartlin/control_flow.dart';
 
 import 'package:hydro_sdk/swid/frontend/dart/mapClassLibrarySourcePath.dart';
 import 'package:hydro_sdk/swid/frontend/dart/narrowStaticConstSyntacticEntity.dart';
@@ -92,28 +93,67 @@ SwidStaticConst extractStaticConstFromSyntacticEntity({
                   swidStaticConstPrefixedIdentifierFromPrefixedIdentifier(
                       prefixedIdentifier: val),
             ),
-      onSimpleIdentifier: (val) => !val.inDeclarationContext() &&
-              val.staticElement != null &&
-              val.staticElement is PropertyAccessorElementImpl_ImplicitGetter &&
-              val.staticElement!.enclosingElement is ClassElement
-          ? SwidStaticConst.fromSwidStaticConstIdentifier(
-              staticConstIdentifier: SwidStaticConstIdentifier(
-                identifier: val.name,
-                enclosingType: SwidType.fromSwidInterface(
-                  swidInterface: swidInterfaceFromClassElement(
-                    classElement:
-                        val.staticElement!.enclosingElement as ClassElement,
+      onSimpleIdentifier: (val) => iff(
+        !val.inDeclarationContext() &&
+            val.staticElement != null &&
+            val.staticElement is PropertyAccessorElementImpl_ImplicitGetter &&
+            val.staticElement!.enclosingElement is ClassElement,
+        () => SwidStaticConst.fromSwidStaticConstIdentifier(
+          staticConstIdentifier: SwidStaticConstIdentifier(
+            identifier: val.name,
+            enclosingType: SwidType.fromSwidInterface(
+              swidInterface: swidInterfaceFromClassElement(
+                classElement:
+                    val.staticElement!.enclosingElement as ClassElement,
+              ),
+            ),
+          ),
+        ),
+      ).orElse(
+        () => iff(
+          val.staticElement != null &&
+              val.staticElement is PropertyAccessorElementImpl_ImplicitGetter,
+          () =>
+              (val.staticElement! as PropertyAccessorElementImpl_ImplicitGetter)
+                  .let(
+            (it) => iff(
+              it.variable is ConstTopLevelVariableElementImpl,
+              () => (it.variable as ConstTopLevelVariableElementImpl).let(
+                (it) => iff(
+                  it.constantInitializer is InstanceCreationExpression,
+                  () => (it.constantInitializer as InstanceCreationExpression)
+                      .let(
+                    (it) => extractStaticConstFromSyntacticEntity(
+                      syntacticEntity: it,
+                      buildElements: buildElements,
+                    ),
                   ),
+                ).orElse(
+                  () => dartUnknownConst,
                 ),
               ),
+            ).orElse(
+              () => dartUnknownConst,
+            ),
+          ),
+        )
+            .orElse(
+              () => iff(
+                val.unParenthesized.staticType != null &&
+                    val.unParenthesized.staticType is! FunctionType,
+                () => SwidStaticConst.fromSwidStaticConstFieldReference(
+                  swidStaticConstFieldReference: SwidStaticConstFieldReference(
+                    name: val.name,
+                  ),
+                ),
+              ).orElse(
+                () => dartUnknownConst,
+              ),
             )
-          : val.unParenthesized.staticType != null &&
-                  val.unParenthesized.staticType is! FunctionType
-              ? SwidStaticConst.fromSwidStaticConstFieldReference(
-                  swidStaticConstFieldReference:
-                      SwidStaticConstFieldReference(name: val.name),
-                )
-              : dartUnknownConst,
+            .orElse(
+              () => dartUnknownConst,
+            ),
+      ),
       onPrefixExpression: (val) =>
           SwidStaticConst.fromSwidStaticConstPrefixedExpression(
         swidStaticConstPrefixedExpression: SwidStaticConstPrefixedExpression(

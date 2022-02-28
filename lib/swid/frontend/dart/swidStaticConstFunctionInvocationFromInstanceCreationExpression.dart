@@ -8,7 +8,8 @@ import 'package:analyzer/dart/ast/ast.dart'
         SimpleIdentifier,
         BooleanLiteral,
         PrefixExpression,
-        ArgumentList;
+        ArgumentList,
+        IntegerLiteral;
 
 import 'package:analyzer/dart/element/type.dart' show InterfaceType;
 import 'package:collection/collection.dart' show IterableExtension;
@@ -75,6 +76,7 @@ SwidStaticConstFunctionInvocation
                     x is SimpleStringLiteral ||
                     x is BooleanLiteral ||
                     x is SimpleIdentifier ||
+                    x is IntegerLiteral ||
                     x is PrefixExpression,
               );
               if (argument != null) {
