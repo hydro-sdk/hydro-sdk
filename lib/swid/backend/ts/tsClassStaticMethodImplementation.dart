@@ -1,3 +1,4 @@
+import 'package:dartlin/control_flow.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:path/path.dart' as path;
 
@@ -68,73 +69,80 @@ class TsClassStaticMethodImplementation
     required final ISwarsPipeline pipeline,
   }) =>
       SwarsTermResult.fromValue(
-        [
-          "public static ",
-          swidFunctionType.name,
-          pipeline.reduceFromTerm(
-            TransformTypeDeclarationToTs(
-              parentClass: swidClass,
-              emitTrailingReturnType: true,
-              emitDefaultFormalsAsOptionalNamed: true,
-              emitTopLevelInitializersForOptionalPositionals: true,
-              topLevelTrailingReturnTypeKind: TrailingReturnTypeKind.colon,
-              swidType: SwidType.fromSwidFunctionType(
-                swidFunctionType: pipeline
-                    .reduceFromTerm(
-                      RewriteReferences(
-                        swidType: pipeline.reduceFromTerm(
-                          MarkClassReferences(
-                            swidType: SwidType.fromSwidFunctionType(
-                              swidFunctionType: swidFunctionType,
+        iff(
+          swidFunctionType.isTransformIgnored(
+            transformName: "tsClassStaticMethodImplementation",
+          ),
+          () => [
+            "public static ",
+            swidFunctionType.name,
+            pipeline.reduceFromTerm(
+              TransformTypeDeclarationToTs(
+                parentClass: swidClass,
+                emitTrailingReturnType: true,
+                emitDefaultFormalsAsOptionalNamed: true,
+                emitTopLevelInitializersForOptionalPositionals: true,
+                topLevelTrailingReturnTypeKind: TrailingReturnTypeKind.colon,
+                swidType: SwidType.fromSwidFunctionType(
+                  swidFunctionType: pipeline
+                      .reduceFromTerm(
+                        RewriteReferences(
+                          swidType: pipeline.reduceFromTerm(
+                            MarkClassReferences(
+                              swidType: SwidType.fromSwidFunctionType(
+                                swidFunctionType: swidFunctionType,
+                              ),
                             ),
                           ),
                         ),
+                      )
+                      .when(
+                        fromSwidInterface: (_) => dartUnknownFunction,
+                        fromSwidClass: (_) => dartUnknownFunction,
+                        fromSwidDefaultFormalParameter: (_) =>
+                            dartUnknownFunction,
+                        fromSwidFunctionType: (val) => val,
                       ),
-                    )
-                    .when(
-                      fromSwidInterface: (_) => dartUnknownFunction,
-                      fromSwidClass: (_) => dartUnknownFunction,
-                      fromSwidDefaultFormalParameter: (_) =>
-                          dartUnknownFunction,
-                      fromSwidFunctionType: (val) => val,
-                    ),
+                ),
               ),
             ),
-          ),
-          "{\n",
-          ...(swidFunctionType.declarationModifiers.overridenTransforms
-                      .firstWhereOrNull(
-                    (x) => x.item1 == "tsClassStaticMethodImplementation",
-                  ) ==
-                  null
-              ? [
-                  "return ",
-                  pipeline.reduceFromTerm(
-                    TsFunctionSelfBindingInvocation(
-                      functionReference: [
-                        ...transformPackageUri(
-                          packageUri: swidClass.originalPackagePath,
-                        ).split(path.separator),
-                        transformToCamelCase(
-                              str: swidClass.name,
-                            ) +
-                            transformToPascalCase(
-                              str: swidFunctionType.name,
-                            )
-                      ].join("."),
-                      swidFunctionType: transformIllegalParameterNames(
-                        swidFunctionType: swidFunctionType,
+            "{\n",
+            ...(swidFunctionType.declarationModifiers.overridenTransforms
+                        .firstWhereOrNull(
+                      (x) => x.item1 == "tsClassStaticMethodImplementation",
+                    ) ==
+                    null
+                ? [
+                    "return ",
+                    pipeline.reduceFromTerm(
+                      TsFunctionSelfBindingInvocation(
+                        functionReference: [
+                          ...transformPackageUri(
+                            packageUri: swidClass.originalPackagePath,
+                          ).split(path.separator),
+                          transformToCamelCase(
+                                str: swidClass.name,
+                              ) +
+                              transformToPascalCase(
+                                str: swidFunctionType.name,
+                              )
+                        ].join("."),
+                        swidFunctionType: transformIllegalParameterNames(
+                          swidFunctionType: swidFunctionType,
+                        ),
                       ),
                     ),
-                  ),
-                ]
-              : [
-                  swidFunctionType.declarationModifiers.overridenTransforms
-                      .firstWhere(
-                          (x) => x.item1 == "tsClassStaticMethodImplementation")
-                      .item2
-                ]),
-          "\n}",
-        ].join(""),
+                  ]
+                : [
+                    swidFunctionType.declarationModifiers.overridenTransforms
+                        .firstWhere((x) =>
+                            x.item1 == "tsClassStaticMethodImplementation")
+                        .item2
+                  ]),
+            "\n}",
+          ].join(""),
+        ).orElse(
+          () => "",
+        ),
       );
 }

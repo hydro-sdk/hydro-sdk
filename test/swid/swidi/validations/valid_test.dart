@@ -114,5 +114,21 @@ class "dart:async"::Future {
       """,
       expectation: const SwidiClassValidationState.valid(),
     );
+
+    validatorTestHarness(
+      input: """
+class "package:flutter/src/widgets/actions.dart"::Actions {
+    static Function void::void()? handler<T extends "package:flutter/src/widgets/actions.dart"::class::Intent>(
+        "package:flutter/src/widgets/framework.dart"::class::BuildContext context,
+        type::T intent
+    ) -> {
+        @"dartStaticMethodNamespaceSymbolDeclaration" : false,
+        @"tsClassVmDeclaration" : false,
+        @"tsClassStaticMethodImplementation" : false,
+    };
+}
+""",
+      expectation: const SwidiClassValidationState.valid(),
+    );
   }, tags: "swid");
 }
