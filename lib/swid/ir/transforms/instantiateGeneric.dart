@@ -330,30 +330,6 @@ class InstantiateGeneric
           fromSwidFunctionType: (val) => SwidType.fromSwidFunctionType(
             swidFunctionType: SwidFunctionType.clone(
               swidFunctionType: val,
-              typeFormals: [
-                ...val.typeFormals
-                    .map((x) => x.value.displayName == genericInstantiator.name
-                        ? SwidTypeFormal(
-                            value: genericInstantiator
-                                .instantiatedGeneric.instantiableGeneric
-                                .when(
-                              fromSwidClass: (val) =>
-                                  SwidTypeFormalValue.fromSwidClass(
-                                      swidClass: val),
-                              fromSwidInterface: (val) =>
-                                  SwidTypeFormalValue.fromSwidInterface(
-                                      swidInterface: val),
-                              fromSwidFunctionType: (val) =>
-                                  SwidTypeFormalValue.fromSwidFunctionType(
-                                      swidFunctionType: val),
-                            ),
-                            swidReferenceDeclarationKind: genericInstantiator
-                                .instantiatedGeneric.referenceDeclarationKind,
-                            swidTypeFormalBound: null,
-                          )
-                        : x)
-                    .toList(),
-              ]..removeWhere((x) => x == dartUnkownTypeFormal),
               namedParameterTypes: Map.fromEntries(
                 val.namedParameterTypes.entries
                     .map(
