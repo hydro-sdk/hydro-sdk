@@ -590,10 +590,6 @@ class DartRTManagedClassDeclaration
                                             ),
                                           )
                                           .where(
-                                            (x) => !x.declarationModifiers
-                                                .hasDeprecated,
-                                          )
-                                          .where(
                                             (x) => x.declarationModifiers
                                                     .hasVisibleForTesting
                                                 ? x.declarationModifiers
@@ -753,9 +749,6 @@ class DartRTManagedClassDeclaration
                       )
                       .where(
                         (x) => !x.declarationModifiers.hasNonVirtual,
-                      )
-                      .where(
-                        (x) => !x.declarationModifiers.hasDeprecated,
                       )
                       .where(
                         (x) => x.returnType.when(
