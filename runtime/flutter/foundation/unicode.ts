@@ -1,6 +1,12 @@
-export interface IUnicode {}
-export class Unicode {
-    public static LRE = "‪";
+
+export interface IUnicode
+
+
+{
+}export class Unicode
+
+
+{    public static LRE = "‪";
     public static RLE = "‫";
     public static PDF = "‬";
     public static LRO = "‭";

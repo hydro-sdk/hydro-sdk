@@ -76,17 +76,7 @@ class InstantiateTypeFormalsToLowestBound
             swidDefaultFormalParameter: val,
           ),
           fromSwidFunctionType: (val) => SwidType.fromSwidFunctionType(
-            swidFunctionType: val.clone(
-              typeFormals: val.typeFormals
-                  .map(
-                    (x) => pipeline.reduceFromTerm(
-                      InstantiateTypeFormalToLowestBound(
-                        swidTypeFormal: x,
-                      ),
-                    ),
-                  )
-                  .toList(),
-            ),
+            swidFunctionType: val.clone(),
           ),
         ),
       );

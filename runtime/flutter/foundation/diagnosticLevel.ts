@@ -9,3 +9,4 @@ export enum DiagnosticLevel {
     error,
     off,
 }
+

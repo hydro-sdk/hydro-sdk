@@ -3,3 +3,4 @@ export enum OverflowBarAlignment {
     end,
     center,
 }
+

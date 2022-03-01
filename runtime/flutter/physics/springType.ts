@@ -3,3 +3,4 @@ export enum SpringType {
     underDamped,
     overDamped,
 }
+

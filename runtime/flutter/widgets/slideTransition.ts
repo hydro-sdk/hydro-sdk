@@ -1,0 +1,128 @@
+
+import { IWidget } from "./widget";
+import { IKey } from "../foundation/key";
+import { TextDirection } from "../../dart/ui/textDirection";
+import { IAnimation } from "../animation/animation";
+import { IOffset } from "../../dart/ui/offset";
+import { IAnimatedWidget } from "./animatedWidget";
+import { IBuildContext } from "./buildContext";
+import { IState } from "./state";
+import { IDiagnosticPropertiesBuilder } from "../foundation/diagnosticPropertiesBuilder";
+import { IListenable } from "../foundation/listenable";
+import { IDiagnosticable } from "../foundation/diagnosticable";
+import { IStatefulElement } from "./statefulElement";
+import { DiagnosticLevel } from "../foundation/diagnosticLevel";
+import { DiagnosticsTreeStyle } from "../foundation/diagnosticsTreeStyle";
+import { IDiagnosticsNode } from "../foundation/diagnosticsNode";
+import { IList } from "../../dart/core/list";
+declare const flutter: {
+widgets: {
+slideTransition: (this: void, slideTransition: ISlideTransition, props : {  child? : IWidget | undefined, key? : IKey | undefined, textDirection? : TextDirection | undefined, transformHitTests : boolean, position : IAnimation<IOffset>,}) => ISlideTransition
+}
+};
+export interface ISlideTransition
+
+
+{
+textDirection: TextDirection | undefined;
+transformHitTests: boolean;
+child: IWidget | undefined;
+listenable: IListenable;
+key: IKey | undefined;
+getPosition: () => IAnimation<IOffset>;
+build: (context: IBuildContext) => IWidget;
+createState: () => IState<IAnimatedWidget>;
+debugFillProperties: (properties: IDiagnosticPropertiesBuilder) => void;
+createElement: () => IStatefulElement;
+toStringShort: () => string;
+getHashCode: () => number;
+toStringShallow: ( props : {  joiner : string, minLevel : DiagnosticLevel,}) => string;
+toStringDeep: ( props : {  minLevel : DiagnosticLevel, prefixLineOne : string, prefixOtherLines? : string | undefined,}) => string;
+toDiagnosticsNode: ( props? : {  name? : string | undefined, style? : DiagnosticsTreeStyle | undefined,}) => IDiagnosticsNode;
+debugDescribeChildren: () => IList<IDiagnosticsNode>;
+toString: ( props : {  minLevel : DiagnosticLevel,}) => string;
+}export class SlideTransition
+
+ implements IAnimatedWidget, IDiagnosticable
+{    public readonly textDirection: TextDirection | undefined = undefined as any;
+    public readonly transformHitTests: boolean = undefined as any;
+    public readonly child: IWidget | undefined = undefined as any;
+    public readonly listenable: IListenable = undefined as any;
+    public readonly key: IKey | undefined = undefined as any;
+public constructor( props : {  child? : IWidget | undefined, key? : IKey | undefined, textDirection? : TextDirection | undefined, transformHitTests? : boolean, position : IAnimation<IOffset>,}){
+flutter.widgets.slideTransition(this, {
+...slideTransitionDefaultProps,
+...props
+});}
+    private readonly _dart_getPosition: () => IAnimation<IOffset> = undefined as any;
+    private readonly _dart_build: (context: IBuildContext) => IWidget = undefined as any;
+    private readonly _dart_createState: () => IState<IAnimatedWidget> = undefined as any;
+    private readonly _dart_debugFillProperties: (properties: IDiagnosticPropertiesBuilder) => void = undefined as any;
+    private readonly _dart_createElement: () => IStatefulElement = undefined as any;
+    private readonly _dart_toStringShort: () => string = undefined as any;
+    private readonly _dart_getHashCode: () => number = undefined as any;
+    private readonly _dart_toStringShallow: ( props : {  joiner : string, minLevel : DiagnosticLevel,}) => string = undefined as any;
+    private readonly _dart_toStringDeep: ( props : {  minLevel : DiagnosticLevel, prefixLineOne : string, prefixOtherLines? : string | undefined,}) => string = undefined as any;
+    private readonly _dart_toDiagnosticsNode: ( props? : {  name? : string | undefined, style? : DiagnosticsTreeStyle | undefined,}) => IDiagnosticsNode = undefined as any;
+    private readonly _dart_debugDescribeChildren: () => IList<IDiagnosticsNode> = undefined as any;
+    private readonly _dart_toString: ( props : {  minLevel : DiagnosticLevel,}) => string = undefined as any;
+public getPosition() : IAnimation<IOffset> {
+    return this._dart_getPosition();
+}
+public build(context: IBuildContext) : IWidget {
+    return this._dart_build(context);
+}
+public createState() : IState<IAnimatedWidget> {
+    return this._dart_createState();
+}
+public debugFillProperties(properties: IDiagnosticPropertiesBuilder) : void {
+    return this._dart_debugFillProperties(properties);
+}
+public createElement() : IStatefulElement {
+    return this._dart_createElement();
+}
+public toStringShort() : string {
+    return this._dart_toStringShort();
+}
+public getHashCode() : number {
+    return this._dart_getHashCode();
+}
+public toStringShallow( props : {  joiner? : string, minLevel? : DiagnosticLevel,}) : string {
+    return this._dart_toStringShallow({
+...toStringShallowDefaultProps,
+...props
+});
+}
+public toStringDeep( props : {  minLevel? : DiagnosticLevel, prefixLineOne? : string, prefixOtherLines? : string | undefined,}) : string {
+    return this._dart_toStringDeep({
+...toStringDeepDefaultProps,
+...props
+});
+}
+public toDiagnosticsNode( props? : {  name? : string | undefined, style? : DiagnosticsTreeStyle | undefined,}) : IDiagnosticsNode {
+    return this._dart_toDiagnosticsNode(props);
+}
+public debugDescribeChildren() : IList<IDiagnosticsNode> {
+    return this._dart_debugDescribeChildren();
+}
+public toString( props : {  minLevel? : DiagnosticLevel,}) : string {
+    return this._dart_toString({
+...toStringDefaultProps,
+...props
+});
+}
+}
+const slideTransitionDefaultProps = {
+    transformHitTests: true,
+};
+const toStringShallowDefaultProps = {
+    joiner: ", ",
+    minLevel: DiagnosticLevel.debug,
+};
+const toStringDeepDefaultProps = {
+    minLevel: DiagnosticLevel.debug,
+    prefixLineOne: "",
+};
+const toStringDefaultProps = {
+    minLevel: DiagnosticLevel.info,
+};

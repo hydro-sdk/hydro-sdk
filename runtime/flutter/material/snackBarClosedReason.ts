@@ -6,3 +6,4 @@ export enum SnackBarClosedReason {
     remove,
     timeout,
 }
+

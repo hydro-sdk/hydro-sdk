@@ -4,3 +4,4 @@ export enum RenderAnimatedSizeState {
     changed,
     unstable,
 }
+

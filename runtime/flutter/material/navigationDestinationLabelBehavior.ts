@@ -3,3 +3,4 @@ export enum NavigationDestinationLabelBehavior {
     alwaysHide,
     onlyShowSelected,
 }
+

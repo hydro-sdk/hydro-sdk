@@ -3,3 +3,4 @@ export enum FloatingLabelBehavior {
     auto,
     always,
 }
+

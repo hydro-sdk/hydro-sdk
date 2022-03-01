@@ -3,3 +3,4 @@ export enum ScriptCategory {
     dense,
     tall,
 }
+

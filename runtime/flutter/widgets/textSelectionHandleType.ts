@@ -3,3 +3,4 @@ export enum TextSelectionHandleType {
     right,
     collapsed,
 }
+

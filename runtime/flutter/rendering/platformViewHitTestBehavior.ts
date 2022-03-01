@@ -3,3 +3,4 @@ export enum PlatformViewHitTestBehavior {
     translucent,
     transparent,
 }
+

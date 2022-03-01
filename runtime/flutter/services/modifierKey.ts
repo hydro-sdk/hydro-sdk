@@ -9,3 +9,4 @@ export enum ModifierKey {
     functionModifier,
     symbolModifier,
 }
+

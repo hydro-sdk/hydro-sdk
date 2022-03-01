@@ -5,3 +5,4 @@ export enum SchedulerPhase {
     persistentCallbacks,
     postFrameCallbacks,
 }
+

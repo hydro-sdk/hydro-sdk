@@ -1,3 +1,7 @@
-export interface IResizeImageKey {
-    getHashCode: () => number;
+
+export interface IResizeImageKey
+
+
+{
+getHashCode: () => number;
 }

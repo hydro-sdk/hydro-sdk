@@ -1,35 +1,117 @@
-import { Key } from "./../../flutter/foundation/key";
-import { Type } from "../../dart/core/type";
-import { RuntimeBaseClass } from "../../runtimeBaseClass";
-import { StatelessWidget } from "./../widgets/statelessWidget";
-import { Widget } from "../widget";
 
-export interface HeroProps {
-    key?: Key | undefined;
-    tag: string;
-    transitionOnUserGestures?: boolean | undefined;
-    child: Widget;
-}
-
+import { IRect } from "../../dart/ui/rect";
+import { ITween } from "../animation/tween";
+import { IBuildContext } from "./buildContext";
+import { IAnimation } from "../animation/animation";
+import { HeroFlightDirection } from "./heroFlightDirection";
+import { IWidget } from "./widget";
+import { IKey } from "../foundation/key";
+import { ISize } from "../../dart/ui/size";
+import { IStatefulWidget } from "./statefulWidget";
+import { IStatefulElement } from "./statefulElement";
+import { IState } from "./state";
+import { IDiagnosticable } from "../foundation/diagnosticable";
+import { IDiagnosticPropertiesBuilder } from "../foundation/diagnosticPropertiesBuilder";
+import { DiagnosticLevel } from "../foundation/diagnosticLevel";
+import { DiagnosticsTreeStyle } from "../foundation/diagnosticsTreeStyle";
+import { IDiagnosticsNode } from "../foundation/diagnosticsNode";
+import { IList } from "../../dart/core/list";
 declare const flutter: {
-    widgets: {
-        hero: (this: void, props: HeroProps) => Hero;
-    };
-};
-
-export class Hero extends StatelessWidget implements RuntimeBaseClass {
-    public readonly internalRuntimeType = new Type(Hero);
-    public props: HeroProps;
-    public constructor(props: HeroProps) {
-        super();
-        this.props = props;
-
-        if (this.props.transitionOnUserGestures === undefined) {
-            this.props.transitionOnUserGestures = false;
-        }
-    }
-
-    public build() {
-        return flutter.widgets.hero(this.props);
-    }
+widgets: {
+hero: (this: void, hero: IHero, props : {  createRectTween? : (begin?: IRect | undefined, end?: IRect | undefined) => ITween<IRect | undefined> | undefined, flightShuttleBuilder? : (flightContext: IBuildContext, animation: IAnimation<number>, flightDirection: HeroFlightDirection, fromHeroContext: IBuildContext, toHeroContext: IBuildContext) => IWidget | undefined, key? : IKey | undefined, placeholderBuilder? : (context: IBuildContext, heroSize: ISize, child: IWidget) => IWidget | undefined, transitionOnUserGestures : boolean, child : IWidget, tag : Object,}) => IHero
 }
+};
+export interface IHero
+
+
+{
+tag: Object;
+child: IWidget;
+transitionOnUserGestures: boolean;
+key: IKey | undefined;
+createState: () => IState<IHero>;
+debugFillProperties: (properties: IDiagnosticPropertiesBuilder) => void;
+createElement: () => IStatefulElement;
+toStringShort: () => string;
+getHashCode: () => number;
+toStringShallow: ( props : {  joiner : string, minLevel : DiagnosticLevel,}) => string;
+toStringDeep: ( props : {  minLevel : DiagnosticLevel, prefixLineOne : string, prefixOtherLines? : string | undefined,}) => string;
+toDiagnosticsNode: ( props? : {  name? : string | undefined, style? : DiagnosticsTreeStyle | undefined,}) => IDiagnosticsNode;
+debugDescribeChildren: () => IList<IDiagnosticsNode>;
+toString: ( props : {  minLevel : DiagnosticLevel,}) => string;
+}export class Hero
+
+ implements IStatefulWidget, IDiagnosticable
+{    public readonly tag: Object = undefined as any;
+    public readonly child: IWidget = undefined as any;
+    public readonly transitionOnUserGestures: boolean = undefined as any;
+    public readonly key: IKey | undefined = undefined as any;
+public constructor( props : {  createRectTween? : (begin?: IRect | undefined, end?: IRect | undefined) => ITween<IRect | undefined> | undefined, flightShuttleBuilder? : (flightContext: IBuildContext, animation: IAnimation<number>, flightDirection: HeroFlightDirection, fromHeroContext: IBuildContext, toHeroContext: IBuildContext) => IWidget | undefined, key? : IKey | undefined, placeholderBuilder? : (context: IBuildContext, heroSize: ISize, child: IWidget) => IWidget | undefined, transitionOnUserGestures? : boolean, child : IWidget, tag : Object,}){
+flutter.widgets.hero(this, {
+...heroDefaultProps,
+...props
+});}
+    private readonly _dart_createState: () => IState<IHero> = undefined as any;
+    private readonly _dart_debugFillProperties: (properties: IDiagnosticPropertiesBuilder) => void = undefined as any;
+    private readonly _dart_createElement: () => IStatefulElement = undefined as any;
+    private readonly _dart_toStringShort: () => string = undefined as any;
+    private readonly _dart_getHashCode: () => number = undefined as any;
+    private readonly _dart_toStringShallow: ( props : {  joiner : string, minLevel : DiagnosticLevel,}) => string = undefined as any;
+    private readonly _dart_toStringDeep: ( props : {  minLevel : DiagnosticLevel, prefixLineOne : string, prefixOtherLines? : string | undefined,}) => string = undefined as any;
+    private readonly _dart_toDiagnosticsNode: ( props? : {  name? : string | undefined, style? : DiagnosticsTreeStyle | undefined,}) => IDiagnosticsNode = undefined as any;
+    private readonly _dart_debugDescribeChildren: () => IList<IDiagnosticsNode> = undefined as any;
+    private readonly _dart_toString: ( props : {  minLevel : DiagnosticLevel,}) => string = undefined as any;
+public createState() : IState<IHero> {
+    return this._dart_createState();
+}
+public debugFillProperties(properties: IDiagnosticPropertiesBuilder) : void {
+    return this._dart_debugFillProperties(properties);
+}
+public createElement() : IStatefulElement {
+    return this._dart_createElement();
+}
+public toStringShort() : string {
+    return this._dart_toStringShort();
+}
+public getHashCode() : number {
+    return this._dart_getHashCode();
+}
+public toStringShallow( props : {  joiner? : string, minLevel? : DiagnosticLevel,}) : string {
+    return this._dart_toStringShallow({
+...toStringShallowDefaultProps,
+...props
+});
+}
+public toStringDeep( props : {  minLevel? : DiagnosticLevel, prefixLineOne? : string, prefixOtherLines? : string | undefined,}) : string {
+    return this._dart_toStringDeep({
+...toStringDeepDefaultProps,
+...props
+});
+}
+public toDiagnosticsNode( props? : {  name? : string | undefined, style? : DiagnosticsTreeStyle | undefined,}) : IDiagnosticsNode {
+    return this._dart_toDiagnosticsNode(props);
+}
+public debugDescribeChildren() : IList<IDiagnosticsNode> {
+    return this._dart_debugDescribeChildren();
+}
+public toString( props : {  minLevel? : DiagnosticLevel,}) : string {
+    return this._dart_toString({
+...toStringDefaultProps,
+...props
+});
+}
+}
+const heroDefaultProps = {
+    transitionOnUserGestures: false,
+};
+const toStringShallowDefaultProps = {
+    joiner: ", ",
+    minLevel: DiagnosticLevel.debug,
+};
+const toStringDeepDefaultProps = {
+    minLevel: DiagnosticLevel.debug,
+    prefixLineOne: "",
+};
+const toStringDefaultProps = {
+    minLevel: DiagnosticLevel.info,
+};
