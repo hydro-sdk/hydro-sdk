@@ -12,3 +12,4 @@ export enum DiagnosticsTreeStyle {
     shallow,
     truncateChildren,
 }
+

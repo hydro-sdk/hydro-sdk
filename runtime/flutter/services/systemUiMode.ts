@@ -5,3 +5,4 @@ export enum SystemUiMode {
     edgeToEdge,
     manual,
 }
+

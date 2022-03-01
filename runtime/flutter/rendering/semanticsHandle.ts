@@ -1,3 +1,7 @@
-export interface ISemanticsHandle {
-    dispose: () => void;
+
+export interface ISemanticsHandle
+
+
+{
+dispose: () => void;
 }

@@ -7,3 +7,4 @@ export enum SelectionChangedCause {
     toolbar,
     drag,
 }
+

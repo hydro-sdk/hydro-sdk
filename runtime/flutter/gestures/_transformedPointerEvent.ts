@@ -1,124 +1,94 @@
-import { IDuration } from "../../dart/core/duration";
-import { IOffset } from "../../dart/ui/offset";
-import { PointerDeviceKind } from "../../dart/ui/pointerDeviceKind";
-import { IMatrix4 } from "../../vector_math/matrix4";
-import { IDiagnosticable } from "../foundation/diagnosticable";
-import { DiagnosticLevel } from "../foundation/diagnosticLevel";
-import { IDiagnosticPropertiesBuilder } from "../foundation/diagnosticPropertiesBuilder";
-import { IDiagnosticsNode } from "../foundation/diagnosticsNode";
-import { DiagnosticsTreeStyle } from "../foundation/diagnosticsTreeStyle";
+
 import { I_AbstractPointerEvent } from "./_abstractPointerEvent";
-import { I_PointerEventDescription } from "./_pointerEventDescription";
 import { IPointerEvent } from "./pointerEvent";
+import { IDiagnosticable } from "../foundation/diagnosticable";
+import { I_PointerEventDescription } from "./_pointerEventDescription";
+import { IMatrix4 } from "../../vector_math/matrix4";
+import { IDuration } from "../../dart/core/duration";
+import { PointerDeviceKind } from "../../dart/ui/pointerDeviceKind";
+import { IOffset } from "../../dart/ui/offset";
+import { DiagnosticLevel } from "../foundation/diagnosticLevel";
+import { DiagnosticsTreeStyle } from "../foundation/diagnosticsTreeStyle";
+import { IDiagnosticsNode } from "../foundation/diagnosticsNode";
+import { IDiagnosticPropertiesBuilder } from "../foundation/diagnosticPropertiesBuilder";
 declare const flutter: {
-    gestures: {
-        _transformedPointerEvent: (
-            this: void,
-            _transformedPointerEvent: I_TransformedPointerEvent
-        ) => I_TransformedPointerEvent;
-    };
-};
-export interface I_TransformedPointerEvent {
-    localPosition: IOffset;
-    localDelta: IOffset;
-    embedderId: number;
-    timeStamp: IDuration;
-    pointer: number;
-    kind: PointerDeviceKind;
-    device: number;
-    position: IOffset;
-    delta: IOffset;
-    buttons: number;
-    down: boolean;
-    obscured: boolean;
-    pressure: number;
-    pressureMin: number;
-    pressureMax: number;
-    distance: number;
-    distanceMax: number;
-    size: number;
-    radiusMajor: number;
-    radiusMinor: number;
-    radiusMin: number;
-    radiusMax: number;
-    orientation: number;
-    tilt: number;
-    platformData: number;
-    synthesized: boolean;
-    transform: IMatrix4 | undefined;
-    original: IPointerEvent | undefined;
-    getOriginal: () => IPointerEvent;
-    getTransform: () => IMatrix4;
-    getEmbedderId: () => number;
-    getTimeStamp: () => IDuration;
-    getPointer: () => number;
-    getKind: () => PointerDeviceKind;
-    getDevice: () => number;
-    getPosition: () => IOffset;
-    getDelta: () => IOffset;
-    getButtons: () => number;
-    getDown: () => boolean;
-    getObscured: () => boolean;
-    getPressure: () => number;
-    getPressureMin: () => number;
-    getPressureMax: () => number;
-    getDistance: () => number;
-    getDistanceMin: () => number;
-    getDistanceMax: () => number;
-    getSize: () => number;
-    getRadiusMajor: () => number;
-    getRadiusMinor: () => number;
-    getRadiusMin: () => number;
-    getRadiusMax: () => number;
-    getOrientation: () => number;
-    getTilt: () => number;
-    getPlatformData: () => number;
-    getSynthesized: () => boolean;
-    toStringShort: () => string;
-    toString: (props: { minLevel: DiagnosticLevel }) => string;
-    toDiagnosticsNode: (props?: {
-        name?: string | undefined;
-        style?: DiagnosticsTreeStyle | undefined;
-    }) => IDiagnosticsNode;
-    debugFillProperties: (properties: IDiagnosticPropertiesBuilder) => void;
-    toStringFull: () => string;
-    getHashCode: () => number;
-    transformed: (transform?: IMatrix4 | undefined) => IPointerEvent;
-    copyWith: (props?: {
-        buttons?: number | undefined;
-        delta?: IOffset | undefined;
-        device?: number | undefined;
-        distance?: number | undefined;
-        distanceMax?: number | undefined;
-        embedderId?: number | undefined;
-        kind?: PointerDeviceKind | undefined;
-        obscured?: boolean | undefined;
-        orientation?: number | undefined;
-        pointer?: number | undefined;
-        position?: IOffset | undefined;
-        pressure?: number | undefined;
-        pressureMax?: number | undefined;
-        pressureMin?: number | undefined;
-        radiusMajor?: number | undefined;
-        radiusMax?: number | undefined;
-        radiusMin?: number | undefined;
-        radiusMinor?: number | undefined;
-        size?: number | undefined;
-        synthesized?: boolean | undefined;
-        tilt?: number | undefined;
-        timeStamp?: IDuration | undefined;
-    }) => IPointerEvent;
-    getLocalPosition: () => IOffset;
-    getLocalDelta: () => IOffset;
+gestures: {
+_transformedPointerEvent: (this: void, _transformedPointerEvent: I_TransformedPointerEvent) => I_TransformedPointerEvent
 }
-export class _TransformedPointerEvent
-    implements
-        I_AbstractPointerEvent,
-        IDiagnosticable,
-        I_PointerEventDescription,
-        Omit<IPointerEvent, "debugFillProperties">
+};
+export interface I_TransformedPointerEvent
+
+
 {
-    public readonly localPosition: IOffset = undefined as any;
+localPosition: IOffset;
+localDelta: IOffset;
+embedderId: number;
+timeStamp: IDuration;
+pointer: number;
+kind: PointerDeviceKind;
+device: number;
+position: IOffset;
+delta: IOffset;
+buttons: number;
+down: boolean;
+obscured: boolean;
+pressure: number;
+pressureMin: number;
+pressureMax: number;
+distance: number;
+distanceMax: number;
+size: number;
+radiusMajor: number;
+radiusMinor: number;
+radiusMin: number;
+radiusMax: number;
+orientation: number;
+tilt: number;
+platformData: number;
+synthesized: boolean;
+transform: IMatrix4 | undefined;
+original: IPointerEvent | undefined;
+getOriginal: () => IPointerEvent;
+getTransform: () => IMatrix4;
+getEmbedderId: () => number;
+getTimeStamp: () => IDuration;
+getPointer: () => number;
+getKind: () => PointerDeviceKind;
+getDevice: () => number;
+getPosition: () => IOffset;
+getDelta: () => IOffset;
+getButtons: () => number;
+getDown: () => boolean;
+getObscured: () => boolean;
+getPressure: () => number;
+getPressureMin: () => number;
+getPressureMax: () => number;
+getDistance: () => number;
+getDistanceMin: () => number;
+getDistanceMax: () => number;
+getSize: () => number;
+getRadiusMajor: () => number;
+getRadiusMinor: () => number;
+getRadiusMin: () => number;
+getRadiusMax: () => number;
+getOrientation: () => number;
+getTilt: () => number;
+getPlatformData: () => number;
+getSynthesized: () => boolean;
+toStringShort: () => string;
+toString: ( props : {  minLevel : DiagnosticLevel,}) => string;
+toDiagnosticsNode: ( props? : {  name? : string | undefined, style? : DiagnosticsTreeStyle | undefined,}) => IDiagnosticsNode;
+debugFillProperties: (properties: IDiagnosticPropertiesBuilder) => void;
+toStringFull: () => string;
+getHashCode: () => number;
+transformed: (transform?: IMatrix4 | undefined) => IPointerEvent;
+copyWith: ( props? : {  buttons? : number | undefined, delta? : IOffset | undefined, device? : number | undefined, distance? : number | undefined, distanceMax? : number | undefined, embedderId? : number | undefined, kind? : PointerDeviceKind | undefined, obscured? : boolean | undefined, orientation? : number | undefined, pointer? : number | undefined, position? : IOffset | undefined, pressure? : number | undefined, pressureMax? : number | undefined, pressureMin? : number | undefined, radiusMajor? : number | undefined, radiusMax? : number | undefined, radiusMin? : number | undefined, radiusMinor? : number | undefined, size? : number | undefined, synthesized? : boolean | undefined, tilt? : number | undefined, timeStamp? : IDuration | undefined,}) => IPointerEvent;
+getLocalPosition: () => IOffset;
+getLocalDelta: () => IOffset;
+}export class _TransformedPointerEvent
+
+ implements I_AbstractPointerEvent, IDiagnosticable, I_PointerEventDescription, Omit<IPointerEvent, "debugFillProperties">
+{    public readonly localPosition: IOffset = undefined as any;
     public readonly localDelta: IOffset = undefined as any;
     public readonly embedderId: number = undefined as any;
     public readonly timeStamp: IDuration = undefined as any;
@@ -146,9 +116,8 @@ export class _TransformedPointerEvent
     public readonly synthesized: boolean = undefined as any;
     public readonly transform: IMatrix4 | undefined = undefined as any;
     public readonly original: IPointerEvent | undefined = undefined as any;
-    public constructor() {
-        flutter.gestures._transformedPointerEvent(this);
-    }
+public constructor(){
+flutter.gestures._transformedPointerEvent(this);}
     private readonly _dart_getOriginal: () => IPointerEvent = undefined as any;
     private readonly _dart_getTransform: () => IMatrix4 = undefined as any;
     private readonly _dart_getEmbedderId: () => number = undefined as any;
@@ -177,187 +146,129 @@ export class _TransformedPointerEvent
     private readonly _dart_getPlatformData: () => number = undefined as any;
     private readonly _dart_getSynthesized: () => boolean = undefined as any;
     private readonly _dart_toStringShort: () => string = undefined as any;
-    private readonly _dart_toString: (props: {
-        minLevel: DiagnosticLevel;
-    }) => string = undefined as any;
-    private readonly _dart_toDiagnosticsNode: (props?: {
-        name?: string | undefined;
-        style?: DiagnosticsTreeStyle | undefined;
-    }) => IDiagnosticsNode = undefined as any;
-    private readonly _dart_debugFillProperties: (
-        properties: IDiagnosticPropertiesBuilder
-    ) => void = undefined as any;
+    private readonly _dart_toString: ( props : {  minLevel : DiagnosticLevel,}) => string = undefined as any;
+    private readonly _dart_toDiagnosticsNode: ( props? : {  name? : string | undefined, style? : DiagnosticsTreeStyle | undefined,}) => IDiagnosticsNode = undefined as any;
+    private readonly _dart_debugFillProperties: (properties: IDiagnosticPropertiesBuilder) => void = undefined as any;
     private readonly _dart_toStringFull: () => string = undefined as any;
     private readonly _dart_getHashCode: () => number = undefined as any;
-    private readonly _dart_transformed: (
-        transform?: IMatrix4 | undefined
-    ) => IPointerEvent = undefined as any;
-    private readonly _dart_copyWith: (props?: {
-        buttons?: number | undefined;
-        delta?: IOffset | undefined;
-        device?: number | undefined;
-        distance?: number | undefined;
-        distanceMax?: number | undefined;
-        embedderId?: number | undefined;
-        kind?: PointerDeviceKind | undefined;
-        obscured?: boolean | undefined;
-        orientation?: number | undefined;
-        pointer?: number | undefined;
-        position?: IOffset | undefined;
-        pressure?: number | undefined;
-        pressureMax?: number | undefined;
-        pressureMin?: number | undefined;
-        radiusMajor?: number | undefined;
-        radiusMax?: number | undefined;
-        radiusMin?: number | undefined;
-        radiusMinor?: number | undefined;
-        size?: number | undefined;
-        synthesized?: boolean | undefined;
-        tilt?: number | undefined;
-        timeStamp?: IDuration | undefined;
-    }) => IPointerEvent = undefined as any;
+    private readonly _dart_transformed: (transform?: IMatrix4 | undefined) => IPointerEvent = undefined as any;
+    private readonly _dart_copyWith: ( props? : {  buttons? : number | undefined, delta? : IOffset | undefined, device? : number | undefined, distance? : number | undefined, distanceMax? : number | undefined, embedderId? : number | undefined, kind? : PointerDeviceKind | undefined, obscured? : boolean | undefined, orientation? : number | undefined, pointer? : number | undefined, position? : IOffset | undefined, pressure? : number | undefined, pressureMax? : number | undefined, pressureMin? : number | undefined, radiusMajor? : number | undefined, radiusMax? : number | undefined, radiusMin? : number | undefined, radiusMinor? : number | undefined, size? : number | undefined, synthesized? : boolean | undefined, tilt? : number | undefined, timeStamp? : IDuration | undefined,}) => IPointerEvent = undefined as any;
     private readonly _dart_getLocalPosition: () => IOffset = undefined as any;
     private readonly _dart_getLocalDelta: () => IOffset = undefined as any;
-    public getOriginal(): IPointerEvent {
-        return this._dart_getOriginal();
-    }
-    public getTransform(): IMatrix4 {
-        return this._dart_getTransform();
-    }
-    public getEmbedderId(): number {
-        return this._dart_getEmbedderId();
-    }
-    public getTimeStamp(): IDuration {
-        return this._dart_getTimeStamp();
-    }
-    public getPointer(): number {
-        return this._dart_getPointer();
-    }
-    public getKind(): PointerDeviceKind {
-        return this._dart_getKind();
-    }
-    public getDevice(): number {
-        return this._dart_getDevice();
-    }
-    public getPosition(): IOffset {
-        return this._dart_getPosition();
-    }
-    public getDelta(): IOffset {
-        return this._dart_getDelta();
-    }
-    public getButtons(): number {
-        return this._dart_getButtons();
-    }
-    public getDown(): boolean {
-        return this._dart_getDown();
-    }
-    public getObscured(): boolean {
-        return this._dart_getObscured();
-    }
-    public getPressure(): number {
-        return this._dart_getPressure();
-    }
-    public getPressureMin(): number {
-        return this._dart_getPressureMin();
-    }
-    public getPressureMax(): number {
-        return this._dart_getPressureMax();
-    }
-    public getDistance(): number {
-        return this._dart_getDistance();
-    }
-    public getDistanceMin(): number {
-        return this._dart_getDistanceMin();
-    }
-    public getDistanceMax(): number {
-        return this._dart_getDistanceMax();
-    }
-    public getSize(): number {
-        return this._dart_getSize();
-    }
-    public getRadiusMajor(): number {
-        return this._dart_getRadiusMajor();
-    }
-    public getRadiusMinor(): number {
-        return this._dart_getRadiusMinor();
-    }
-    public getRadiusMin(): number {
-        return this._dart_getRadiusMin();
-    }
-    public getRadiusMax(): number {
-        return this._dart_getRadiusMax();
-    }
-    public getOrientation(): number {
-        return this._dart_getOrientation();
-    }
-    public getTilt(): number {
-        return this._dart_getTilt();
-    }
-    public getPlatformData(): number {
-        return this._dart_getPlatformData();
-    }
-    public getSynthesized(): boolean {
-        return this._dart_getSynthesized();
-    }
-    public toStringShort(): string {
-        return this._dart_toStringShort();
-    }
-    public toString(props: { minLevel?: DiagnosticLevel }): string {
-        return this._dart_toString({
-            ...toStringDefaultProps,
-            ...props,
-        });
-    }
-    public toDiagnosticsNode(props?: {
-        name?: string | undefined;
-        style?: DiagnosticsTreeStyle | undefined;
-    }): IDiagnosticsNode {
-        return this._dart_toDiagnosticsNode(props);
-    }
-    public debugFillProperties(properties: IDiagnosticPropertiesBuilder): void {
-        return this._dart_debugFillProperties(properties);
-    }
-    public toStringFull(): string {
-        return this._dart_toStringFull();
-    }
-    public getHashCode(): number {
-        return this._dart_getHashCode();
-    }
-    public transformed(transform?: IMatrix4 | undefined): IPointerEvent {
-        return this._dart_transformed(transform);
-    }
-    public copyWith(props?: {
-        buttons?: number | undefined;
-        delta?: IOffset | undefined;
-        device?: number | undefined;
-        distance?: number | undefined;
-        distanceMax?: number | undefined;
-        embedderId?: number | undefined;
-        kind?: PointerDeviceKind | undefined;
-        obscured?: boolean | undefined;
-        orientation?: number | undefined;
-        pointer?: number | undefined;
-        position?: IOffset | undefined;
-        pressure?: number | undefined;
-        pressureMax?: number | undefined;
-        pressureMin?: number | undefined;
-        radiusMajor?: number | undefined;
-        radiusMax?: number | undefined;
-        radiusMin?: number | undefined;
-        radiusMinor?: number | undefined;
-        size?: number | undefined;
-        synthesized?: boolean | undefined;
-        tilt?: number | undefined;
-        timeStamp?: IDuration | undefined;
-    }): IPointerEvent {
-        return this._dart_copyWith(props);
-    }
-    public getLocalPosition(): IOffset {
-        return this._dart_getLocalPosition();
-    }
-    public getLocalDelta(): IOffset {
-        return this._dart_getLocalDelta();
-    }
+public getOriginal() : IPointerEvent {
+    return this._dart_getOriginal();
+}
+public getTransform() : IMatrix4 {
+    return this._dart_getTransform();
+}
+public getEmbedderId() : number {
+    return this._dart_getEmbedderId();
+}
+public getTimeStamp() : IDuration {
+    return this._dart_getTimeStamp();
+}
+public getPointer() : number {
+    return this._dart_getPointer();
+}
+public getKind() : PointerDeviceKind {
+    return this._dart_getKind();
+}
+public getDevice() : number {
+    return this._dart_getDevice();
+}
+public getPosition() : IOffset {
+    return this._dart_getPosition();
+}
+public getDelta() : IOffset {
+    return this._dart_getDelta();
+}
+public getButtons() : number {
+    return this._dart_getButtons();
+}
+public getDown() : boolean {
+    return this._dart_getDown();
+}
+public getObscured() : boolean {
+    return this._dart_getObscured();
+}
+public getPressure() : number {
+    return this._dart_getPressure();
+}
+public getPressureMin() : number {
+    return this._dart_getPressureMin();
+}
+public getPressureMax() : number {
+    return this._dart_getPressureMax();
+}
+public getDistance() : number {
+    return this._dart_getDistance();
+}
+public getDistanceMin() : number {
+    return this._dart_getDistanceMin();
+}
+public getDistanceMax() : number {
+    return this._dart_getDistanceMax();
+}
+public getSize() : number {
+    return this._dart_getSize();
+}
+public getRadiusMajor() : number {
+    return this._dart_getRadiusMajor();
+}
+public getRadiusMinor() : number {
+    return this._dart_getRadiusMinor();
+}
+public getRadiusMin() : number {
+    return this._dart_getRadiusMin();
+}
+public getRadiusMax() : number {
+    return this._dart_getRadiusMax();
+}
+public getOrientation() : number {
+    return this._dart_getOrientation();
+}
+public getTilt() : number {
+    return this._dart_getTilt();
+}
+public getPlatformData() : number {
+    return this._dart_getPlatformData();
+}
+public getSynthesized() : boolean {
+    return this._dart_getSynthesized();
+}
+public toStringShort() : string {
+    return this._dart_toStringShort();
+}
+public toString( props : {  minLevel? : DiagnosticLevel,}) : string {
+    return this._dart_toString({
+...toStringDefaultProps,
+...props
+});
+}
+public toDiagnosticsNode( props? : {  name? : string | undefined, style? : DiagnosticsTreeStyle | undefined,}) : IDiagnosticsNode {
+    return this._dart_toDiagnosticsNode(props);
+}
+public debugFillProperties(properties: IDiagnosticPropertiesBuilder) : void {
+    return this._dart_debugFillProperties(properties);
+}
+public toStringFull() : string {
+    return this._dart_toStringFull();
+}
+public getHashCode() : number {
+    return this._dart_getHashCode();
+}
+public transformed(transform?: IMatrix4 | undefined) : IPointerEvent {
+    return this._dart_transformed(transform);
+}
+public copyWith( props? : {  buttons? : number | undefined, delta? : IOffset | undefined, device? : number | undefined, distance? : number | undefined, distanceMax? : number | undefined, embedderId? : number | undefined, kind? : PointerDeviceKind | undefined, obscured? : boolean | undefined, orientation? : number | undefined, pointer? : number | undefined, position? : IOffset | undefined, pressure? : number | undefined, pressureMax? : number | undefined, pressureMin? : number | undefined, radiusMajor? : number | undefined, radiusMax? : number | undefined, radiusMin? : number | undefined, radiusMinor? : number | undefined, size? : number | undefined, synthesized? : boolean | undefined, tilt? : number | undefined, timeStamp? : IDuration | undefined,}) : IPointerEvent {
+    return this._dart_copyWith(props);
+}
+public getLocalPosition() : IOffset {
+    return this._dart_getLocalPosition();
+}
+public getLocalDelta() : IOffset {
+    return this._dart_getLocalDelta();
+}
 }
 const toStringDefaultProps = {
     minLevel: DiagnosticLevel.info,

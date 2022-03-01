@@ -1,52 +1,33 @@
-import { JITAllocatingRTManagedBox } from "./../../syntheticBox";
-import { Type } from "../../dart/core/type";
-import { RuntimeBaseClass } from "../../runtimeBaseClass";
-import { Widget } from "../widget";
-
-export interface ToolbarOptionsProps {
-    copy?: boolean | undefined;
-    cut?: boolean | undefined;
-    paste?: boolean | undefined;
-    selectAll?: boolean | undefined;
-}
 
 declare const flutter: {
-    widgets: {
-        toolbarOptions: (
-            this: void,
-            props: ToolbarOptionsProps
-        ) => ToolbarOptions;
-    };
-};
-
-export class ToolbarOptions
-    extends JITAllocatingRTManagedBox<ToolbarOptionsProps, ToolbarOptions>
-    implements RuntimeBaseClass
-{
-    public readonly internalRuntimeType = new Type(ToolbarOptions);
-    public props: ToolbarOptionsProps;
-    public constructor(props: ToolbarOptionsProps) {
-        super();
-        this.props = props;
-
-        if (this.props.copy === undefined) {
-            this.props.copy = false;
-        }
-
-        if (this.props.cut === undefined) {
-            this.props.cut = false;
-        }
-
-        if (this.props.paste === undefined) {
-            this.props.paste = false;
-        }
-
-        if (this.props.selectAll === undefined) {
-            this.props.selectAll = false;
-        }
-    }
-
-    public unwrap() {
-        return flutter.widgets.toolbarOptions(this.props);
-    }
+widgets: {
+toolbarOptions: (this: void, toolbarOptions: IToolbarOptions, props : {  copy : boolean, cut : boolean, paste : boolean, selectAll : boolean,}) => IToolbarOptions
 }
+};
+export interface IToolbarOptions
+
+
+{
+copy: boolean;
+cut: boolean;
+paste: boolean;
+selectAll: boolean;
+}export class ToolbarOptions
+
+
+{    public readonly copy: boolean = undefined as any;
+    public readonly cut: boolean = undefined as any;
+    public readonly paste: boolean = undefined as any;
+    public readonly selectAll: boolean = undefined as any;
+public constructor( props : {  copy? : boolean, cut? : boolean, paste? : boolean, selectAll? : boolean,}){
+flutter.widgets.toolbarOptions(this, {
+...toolbarOptionsDefaultProps,
+...props
+});}
+}
+const toolbarOptionsDefaultProps = {
+    copy: false,
+    cut: false,
+    paste: false,
+    selectAll: false,
+};

@@ -4,3 +4,4 @@ export enum MaterialBannerClosedReason {
     hide,
     remove,
 }
+

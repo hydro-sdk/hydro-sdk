@@ -1,53 +1,125 @@
-import { Type } from "../../dart/core/type";
-import { RuntimeBaseClass } from "../../runtimeBaseClass";
-import { EdgeInsets } from "./../painting/edgeInsets";
-import { Widget } from "./../widget";
-import { StatelessWidget } from "./statelessWidget";
 
-export interface SafeAreaProps {
-    left?: boolean | undefined;
-    top?: boolean | undefined;
-    right?: boolean | undefined;
-    bottom?: boolean | undefined;
-    minimum?: EdgeInsets | undefined;
-    maintainBottomViewPadding?: boolean | undefined;
-    child: Widget;
-}
-
+import { IKey } from "../foundation/key";
+import { IEdgeInsets,EdgeInsets } from "../painting/edgeInsets";
+import { IWidget } from "./widget";
+import { IStatelessWidget } from "./statelessWidget";
+import { IStatelessElement } from "./statelessElement";
+import { IBuildContext } from "./buildContext";
+import { IDiagnosticable } from "../foundation/diagnosticable";
+import { IDiagnosticPropertiesBuilder } from "../foundation/diagnosticPropertiesBuilder";
+import { DiagnosticLevel } from "../foundation/diagnosticLevel";
+import { DiagnosticsTreeStyle } from "../foundation/diagnosticsTreeStyle";
+import { IDiagnosticsNode } from "../foundation/diagnosticsNode";
+import { IList } from "../../dart/core/list";
 declare const flutter: {
-    widgets: {
-        safeArea: (this: void, props: SafeAreaProps) => SafeArea;
-    };
-};
-
-export class SafeArea extends StatelessWidget implements RuntimeBaseClass {
-    public readonly internalRuntimeType = new Type(SafeArea);
-    public props: SafeAreaProps;
-    public constructor(props: SafeAreaProps) {
-        super();
-        this.props = props;
-
-        if (this.props.left === undefined) {
-            this.props.left = true;
-        }
-        if (this.props.top === undefined) {
-            this.props.top = true;
-        }
-        if (this.props.right === undefined) {
-            this.props.right = true;
-        }
-        if (this.props.bottom === undefined) {
-            this.props.bottom = true;
-        }
-        if (this.props.minimum === undefined) {
-            this.props.minimum = EdgeInsets.zero();
-        }
-        if (this.props.maintainBottomViewPadding === undefined) {
-            this.props.maintainBottomViewPadding = false;
-        }
-    }
-
-    public build(): Widget {
-        return flutter.widgets.safeArea(this.props);
-    }
+widgets: {
+safeArea: (this: void, safeArea: ISafeArea, props : {  bottom : boolean, key? : IKey | undefined, left : boolean, maintainBottomViewPadding : boolean, minimum : IEdgeInsets, right : boolean, top : boolean, child : IWidget,}) => ISafeArea
 }
+};
+export interface ISafeArea
+
+
+{
+left: boolean;
+top: boolean;
+right: boolean;
+bottom: boolean;
+minimum: IEdgeInsets;
+maintainBottomViewPadding: boolean;
+child: IWidget;
+key: IKey | undefined;
+build: (context: IBuildContext) => IWidget;
+debugFillProperties: (properties: IDiagnosticPropertiesBuilder) => void;
+createElement: () => IStatelessElement;
+toStringShort: () => string;
+getHashCode: () => number;
+toStringShallow: ( props : {  joiner : string, minLevel : DiagnosticLevel,}) => string;
+toStringDeep: ( props : {  minLevel : DiagnosticLevel, prefixLineOne : string, prefixOtherLines? : string | undefined,}) => string;
+toDiagnosticsNode: ( props? : {  name? : string | undefined, style? : DiagnosticsTreeStyle | undefined,}) => IDiagnosticsNode;
+debugDescribeChildren: () => IList<IDiagnosticsNode>;
+toString: ( props : {  minLevel : DiagnosticLevel,}) => string;
+}export class SafeArea
+
+ implements IStatelessWidget, IDiagnosticable
+{    public readonly left: boolean = undefined as any;
+    public readonly top: boolean = undefined as any;
+    public readonly right: boolean = undefined as any;
+    public readonly bottom: boolean = undefined as any;
+    public readonly minimum: IEdgeInsets = undefined as any;
+    public readonly maintainBottomViewPadding: boolean = undefined as any;
+    public readonly child: IWidget = undefined as any;
+    public readonly key: IKey | undefined = undefined as any;
+public constructor( props : {  bottom? : boolean, key? : IKey | undefined, left? : boolean, maintainBottomViewPadding? : boolean, minimum? : IEdgeInsets, right? : boolean, top? : boolean, child : IWidget,}){
+flutter.widgets.safeArea(this, {
+...safeAreaDefaultProps,
+...props
+});}
+    private readonly _dart_build: (context: IBuildContext) => IWidget = undefined as any;
+    private readonly _dart_debugFillProperties: (properties: IDiagnosticPropertiesBuilder) => void = undefined as any;
+    private readonly _dart_createElement: () => IStatelessElement = undefined as any;
+    private readonly _dart_toStringShort: () => string = undefined as any;
+    private readonly _dart_getHashCode: () => number = undefined as any;
+    private readonly _dart_toStringShallow: ( props : {  joiner : string, minLevel : DiagnosticLevel,}) => string = undefined as any;
+    private readonly _dart_toStringDeep: ( props : {  minLevel : DiagnosticLevel, prefixLineOne : string, prefixOtherLines? : string | undefined,}) => string = undefined as any;
+    private readonly _dart_toDiagnosticsNode: ( props? : {  name? : string | undefined, style? : DiagnosticsTreeStyle | undefined,}) => IDiagnosticsNode = undefined as any;
+    private readonly _dart_debugDescribeChildren: () => IList<IDiagnosticsNode> = undefined as any;
+    private readonly _dart_toString: ( props : {  minLevel : DiagnosticLevel,}) => string = undefined as any;
+public build(context: IBuildContext) : IWidget {
+    return this._dart_build(context);
+}
+public debugFillProperties(properties: IDiagnosticPropertiesBuilder) : void {
+    return this._dart_debugFillProperties(properties);
+}
+public createElement() : IStatelessElement {
+    return this._dart_createElement();
+}
+public toStringShort() : string {
+    return this._dart_toStringShort();
+}
+public getHashCode() : number {
+    return this._dart_getHashCode();
+}
+public toStringShallow( props : {  joiner? : string, minLevel? : DiagnosticLevel,}) : string {
+    return this._dart_toStringShallow({
+...toStringShallowDefaultProps,
+...props
+});
+}
+public toStringDeep( props : {  minLevel? : DiagnosticLevel, prefixLineOne? : string, prefixOtherLines? : string | undefined,}) : string {
+    return this._dart_toStringDeep({
+...toStringDeepDefaultProps,
+...props
+});
+}
+public toDiagnosticsNode( props? : {  name? : string | undefined, style? : DiagnosticsTreeStyle | undefined,}) : IDiagnosticsNode {
+    return this._dart_toDiagnosticsNode(props);
+}
+public debugDescribeChildren() : IList<IDiagnosticsNode> {
+    return this._dart_debugDescribeChildren();
+}
+public toString( props : {  minLevel? : DiagnosticLevel,}) : string {
+    return this._dart_toString({
+...toStringDefaultProps,
+...props
+});
+}
+}
+const safeAreaDefaultProps = {
+    bottom: true,
+    left: true,
+    maintainBottomViewPadding: false,
+    minimum: EdgeInsets.zero,
+    right: true,
+    top: true,
+};
+const toStringShallowDefaultProps = {
+    joiner: ", ",
+    minLevel: DiagnosticLevel.debug,
+};
+const toStringDeepDefaultProps = {
+    minLevel: DiagnosticLevel.debug,
+    prefixLineOne: "",
+};
+const toStringDefaultProps = {
+    minLevel: DiagnosticLevel.info,
+};

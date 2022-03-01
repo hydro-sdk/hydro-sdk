@@ -4,3 +4,4 @@ export enum DeviceOrientation {
     portraitDown,
     landscapeRight,
 }
+
