@@ -1,8 +1,10 @@
+import 'package:dartlin/control_flow.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/ir/analyses/hasSuitableTypeFormalBound.dart';
 import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
+import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidOriginatedAncestorTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
@@ -178,9 +180,21 @@ class InstantiateTypeArgumentsToLowestBound
                                                         (val) => val.bound.when(
                                                       fromSwidInterface:
                                                           (val) => val.clone(
-                                                        nullabilitySuffix: x
-                                                            .type
-                                                            .nullabilitySuffix,
+                                                        nullabilitySuffix: iff(
+                                                          x.type.nullabilitySuffix ==
+                                                                  SwidNullabilitySuffix
+                                                                      .question ||
+                                                              val.nullabilitySuffix ==
+                                                                  SwidNullabilitySuffix
+                                                                      .question,
+                                                          () =>
+                                                              SwidNullabilitySuffix
+                                                                  .question,
+                                                        ).orElse(
+                                                          () =>
+                                                              SwidNullabilitySuffix
+                                                                  .none,
+                                                        ),
                                                       ),
                                                       fromSwidClass: (_) =>
                                                           dartUnknownInterface,

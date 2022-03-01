@@ -1,7 +1,9 @@
+import 'package:dartlin/control_flow.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
+import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidOriginatedAncestorTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/util/swarsTermSwidInterfaceResultMixin.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
@@ -91,7 +93,15 @@ class SuitableTypeFormalBound
                 .swidTypeFormalBound
                 ?.when(
                   fromSwidInterface: (val) => val.clone(
-                    nullabilitySuffix: candidateInterface.nullabilitySuffix,
+                    nullabilitySuffix: iff(
+                      candidateInterface.nullabilitySuffix ==
+                              SwidNullabilitySuffix.question ||
+                          val.nullabilitySuffix ==
+                              SwidNullabilitySuffix.question,
+                      () => SwidNullabilitySuffix.question,
+                    ).orElse(
+                      () => SwidNullabilitySuffix.none,
+                    ),
                   ),
                   fromSwidFunctionType: (_) => dartUnknownInterface,
                 ) ??
