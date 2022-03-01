@@ -175,7 +175,7 @@ void main() {
                       ),
                       value: SwidStaticConst.fromSwidStringLiteral(
                         swidStringLiteral: SwidStringLiteral(
-                          value: "''",
+                          value: "",
                         ),
                       ),
                       defaultValueCode: "''",
