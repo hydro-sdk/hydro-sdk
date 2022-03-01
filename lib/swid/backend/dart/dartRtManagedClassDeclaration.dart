@@ -1,6 +1,7 @@
 import 'package:dart_style/dart_style.dart';
 import 'package:dartlin/dartlin.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
 import 'package:tuple/tuple.dart';
 
 import 'package:hydro_sdk/swid/backend/dart/dartBindInstanceField.dart';
@@ -19,7 +20,6 @@ import 'package:hydro_sdk/swid/backend/dart/util/swidTypeToDartTypeReference.dar
 import 'package:hydro_sdk/swid/ir/analyses/instanceFieldDeclarationsShadowedByConstructorParameters.dart';
 import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
-import 'package:hydro_sdk/swid/ir/swidDefaultFormalParameter.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
@@ -104,86 +104,113 @@ class DartRTManagedClassDeclaration
       );
 
   String _enrichDefaultValueCode({
-    required final SwidDefaultFormalParameter swidDefaultFormalParameter,
+    required final SwidStaticConst swidStaticConst,
     required final ISwarsPipeline pipeline,
+    required final String defaultValueCode,
   }) =>
-      swidDefaultFormalParameter.value.when(
-        fromSwidBooleanLiteral: (_) =>
-            swidDefaultFormalParameter.defaultValueCode,
-        fromSwidStringLiteral: (_) =>
-            swidDefaultFormalParameter.defaultValueCode,
-        fromSwidIntegerLiteral: (_) =>
-            swidDefaultFormalParameter.defaultValueCode,
-        fromDoubleLiteral: (_) => swidDefaultFormalParameter.defaultValueCode,
-        fromSwidStaticConstFunctionInvocation: (_) =>
-            swidDefaultFormalParameter.defaultValueCode,
-        fromSwidStaticConstFieldReference: (_) =>
-            swidDefaultFormalParameter.defaultValueCode,
-        fromSwidStaticConstPrefixedExpression: (_) =>
-            swidDefaultFormalParameter.defaultValueCode,
-        fromSwidStaticConstBinaryExpression: (_) =>
-            swidDefaultFormalParameter.defaultValueCode,
-        fromSwidStaticConstPrefixedIdentifier: (val) => [
-          pipeline
-              .reduceFromTerm(
-                ImportPrefixReferencesInInterface(
-                  swidInterface: val.prefix,
+      swidStaticConst
+          .when(
+            fromSwidBooleanLiteral: (val) => val.value,
+            fromSwidStringLiteral: (val) => [
+              "'",
+              val.value,
+              "'",
+            ].join(),
+            fromSwidIntegerLiteral: (val) => val.value,
+            fromDoubleLiteral: (val) => val.value,
+            fromSwidStaticConstFunctionInvocation: (val) => [
+              "const ",
+              pipeline.reduceFromTerm(
+                DartImportPrefix(
+                  swidType: val.staticType,
                 ),
-              )
-              .displayName,
-          val.staticConstFieldReference.name,
-        ].join("."),
-        fromSwidStaticConstIdentifier: (_) =>
-            swidDefaultFormalParameter.defaultValueCode,
-        fromSwidStaticConstListLiteral: (_) =>
-            swidDefaultFormalParameter.defaultValueCode,
-        fromSwidStaticConstMapLiteralEntry: (_) =>
-            swidDefaultFormalParameter.defaultValueCode,
-        fromSwidStaticConstMapLiteral: (_) =>
-            swidDefaultFormalParameter.defaultValueCode,
-        fromSwidStaticConstTopLevelVariableReference: (_) =>
-            swidDefaultFormalParameter.defaultValueCode,
-        fromSwidStaticConstPropertyAccess: (val) => iff(
-                val.staticType
-                    .when(
-                      fromSwidInterface: (val) => val,
-                      fromSwidClass: (_) => dartUnknownInterface,
-                      fromSwidDefaultFormalParameter: (_) =>
-                          dartUnknownInterface,
-                      fromSwidFunctionType: (_) => dartUnknownInterface,
-                    )
-                    .let((it) =>
-                        it.referenceDeclarationKind ==
-                        SwidReferenceDeclarationKind.enumElement),
-                () => val.staticType.when(
-                      fromSwidInterface: (val) => val,
-                      fromSwidClass: (_) => dartUnknownInterface,
-                      fromSwidDefaultFormalParameter: (_) =>
-                          dartUnknownInterface,
-                      fromSwidFunctionType: (_) => dartUnknownInterface,
-                    ))
-            .let(
-              (it) => [
-                pipeline
-                    .reduceFromTerm(
-                      ImportPrefixReferencesInInterface(
-                        swidInterface: it!,
+              ),
+              ".",
+              val.value,
+              "(",
+              val.namedParameters.entries
+                  .map(
+                    (x) => [
+                      x.key,
+                      _enrichDefaultValueCode(
+                        swidStaticConst: x.value,
+                        pipeline: pipeline,
+                        defaultValueCode: defaultValueCode,
                       ),
-                    )
-                    .displayName,
-                val.property,
-              ].join(
-                ".",
+                    ].join(":"),
+                  )
+                  .join(","),
+              ")",
+            ].join(),
+            fromSwidStaticConstFieldReference: (_) => defaultValueCode,
+            fromSwidStaticConstPrefixedExpression: (_) => defaultValueCode,
+            fromSwidStaticConstBinaryExpression: (_) => defaultValueCode,
+            fromSwidStaticConstPrefixedIdentifier: (val) => [
+              pipeline
+                  .reduceFromTerm(
+                    ImportPrefixReferencesInInterface(
+                      swidInterface: val.prefix,
+                    ),
+                  )
+                  .displayName,
+              val.staticConstFieldReference.name,
+            ].join("."),
+            fromSwidStaticConstIdentifier: (_) => defaultValueCode,
+            fromSwidStaticConstListLiteral: (_) => defaultValueCode,
+            fromSwidStaticConstMapLiteralEntry: (_) => defaultValueCode,
+            fromSwidStaticConstMapLiteral: (_) => defaultValueCode,
+            fromSwidStaticConstTopLevelVariableReference: (_) =>
+                defaultValueCode,
+            fromSwidStaticConstPropertyAccess: (val) => iff(
+              val.staticType
+                  .when(
+                    fromSwidInterface: (val) => val,
+                    fromSwidClass: (_) => dartUnknownInterface,
+                    fromSwidDefaultFormalParameter: (_) => dartUnknownInterface,
+                    fromSwidFunctionType: (_) => dartUnknownInterface,
+                  )
+                  .let(
+                    (it) =>
+                        it.referenceDeclarationKind ==
+                        SwidReferenceDeclarationKind.enumElement,
+                  ),
+              () => val.staticType.when(
+                fromSwidInterface: (val) => val,
+                fromSwidClass: (_) => dartUnknownInterface,
+                fromSwidDefaultFormalParameter: (_) => dartUnknownInterface,
+                fromSwidFunctionType: (_) => dartUnknownInterface,
               ),
             )
-            .orElse(
-              () => [
-                val.receiver,
-                ".",
-                val.property,
-              ].join(),
+                .let(
+                  (it) => [
+                    pipeline
+                        .reduceFromTerm(
+                          ImportPrefixReferencesInInterface(
+                            swidInterface: it!,
+                          ),
+                        )
+                        .displayName,
+                    val.property,
+                  ].join(
+                    ".",
+                  ),
+                )
+                .orElse(
+                  () => [
+                    val.receiver,
+                    ".",
+                    val.property,
+                  ].join(),
+                ),
+          )
+          .let(
+            (it) => iff(
+              it.isNotEmpty,
+              () => it,
+            ).orElse(
+              () => defaultValueCode,
             ),
-      );
+          );
 
   @override
   ISwarsTermResult<String> transform({
@@ -785,20 +812,21 @@ class DartRTManagedClassDeclaration
                                       (e) => Parameter(
                                         (p) => p
                                           ..name = e.key
-                                          ..defaultTo =
-                                              (x.namedDefaults[e.key] != null
-                                                  ? Code(
-                                                      x.namedDefaults[e.key]!
-                                                          .let(
-                                                        (it) =>
-                                                            _enrichDefaultValueCode(
-                                                          swidDefaultFormalParameter:
-                                                              it,
-                                                          pipeline: pipeline,
-                                                        ),
-                                                      ),
-                                                    )
-                                                  : null)
+                                          ..defaultTo = (x
+                                                      .namedDefaults[e.key] !=
+                                                  null
+                                              ? Code(
+                                                  x.namedDefaults[e.key]!.let(
+                                                    (it) =>
+                                                        _enrichDefaultValueCode(
+                                                      swidStaticConst: it.value,
+                                                      defaultValueCode:
+                                                          it.defaultValueCode,
+                                                      pipeline: pipeline,
+                                                    ),
+                                                  ),
+                                                )
+                                              : null)
                                           ..named = true
                                           ..required =
                                               (x.namedDefaults[e.key] == null)
@@ -825,8 +853,9 @@ class DartRTManagedClassDeclaration
                                           ..required = false
                                           ..defaultTo = Code(
                                             _enrichDefaultValueCode(
-                                              swidDefaultFormalParameter:
-                                                  e.value,
+                                              swidStaticConst: e.value.value,
+                                              defaultValueCode:
+                                                  e.value.defaultValueCode,
                                               pipeline: pipeline,
                                             ),
                                           ),
