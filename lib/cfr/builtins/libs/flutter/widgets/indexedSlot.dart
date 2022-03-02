@@ -31,7 +31,7 @@ class VMManagedIndexedSlot
 
 class RTManagedIndexedSlot extends _e2dc.IndexedSlot
     implements _36c2.Box<_e2dc.IndexedSlot> {
-  RTManagedIndexedSlot(_fac9.int index$, _fac9.dynamic value,
+  RTManagedIndexedSlot(_fac9.int index$, _e2dc.Element? value,
       {required this.table, required this.hydroState})
       : super(
           index$,

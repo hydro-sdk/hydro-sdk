@@ -3,4 +3,3 @@ export enum GestureRecognizerState {
     possible,
     defunct,
 }
-

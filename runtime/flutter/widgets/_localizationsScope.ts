@@ -1,101 +1,150 @@
-
-import { IKey } from "../foundation/key";
-import { IWidget } from "./widget";
-import { ILocale } from "../../dart/ui/locale";
-import { I_LocalizationsState } from "./_localizationsState";
+import { IList } from "../../dart/core/list";
 import { IMap } from "../../dart/core/map";
 import { Type } from "../../dart/core/type";
-import { IInheritedWidget } from "./inheritedWidget";
-import { IInheritedElement } from "./inheritedElement";
+import { ILocale } from "../../dart/ui/locale";
 import { IDiagnosticable } from "../foundation/diagnosticable";
-import { IDiagnosticPropertiesBuilder } from "../foundation/diagnosticPropertiesBuilder";
 import { DiagnosticLevel } from "../foundation/diagnosticLevel";
-import { DiagnosticsTreeStyle } from "../foundation/diagnosticsTreeStyle";
+import { IDiagnosticPropertiesBuilder } from "../foundation/diagnosticPropertiesBuilder";
 import { IDiagnosticsNode } from "../foundation/diagnosticsNode";
-import { IList } from "../../dart/core/list";
+import { DiagnosticsTreeStyle } from "../foundation/diagnosticsTreeStyle";
+import { IKey } from "../foundation/key";
+import { I_LocalizationsState } from "./_localizationsState";
+import { IInheritedElement } from "./inheritedElement";
+import { IInheritedWidget } from "./inheritedWidget";
+import { IWidget } from "./widget";
 declare const flutter: {
-widgets: {
-_localizationsScope: (this: void, _localizationsScope: I_LocalizationsScope, props : {  key? : IKey | undefined, child : IWidget, locale : ILocale, localizationsState : I_LocalizationsState, typeToResources : IMap<Type, any>,}) => I_LocalizationsScope
-}
+    widgets: {
+        _localizationsScope: (
+            this: void,
+            _localizationsScope: I_LocalizationsScope,
+            props: {
+                key?: IKey | undefined;
+                child: IWidget;
+                locale: ILocale;
+                localizationsState: I_LocalizationsState;
+                typeToResources: IMap<Type, any>;
+            }
+        ) => I_LocalizationsScope;
+    };
 };
-export interface I_LocalizationsScope
-
-
-{
-locale: ILocale;
-localizationsState: I_LocalizationsState;
-typeToResources: IMap<Type, any>;
-child: IWidget;
-key: IKey | undefined;
-updateShouldNotify: (old: unknown) => boolean;
-createElement: () => IInheritedElement;
-toStringShort: () => string;
-debugFillProperties: (properties: IDiagnosticPropertiesBuilder) => void;
-getHashCode: () => number;
-toStringShallow: ( props : {  joiner : string, minLevel : DiagnosticLevel,}) => string;
-toStringDeep: ( props : {  minLevel : DiagnosticLevel, prefixLineOne : string, prefixOtherLines? : string | undefined,}) => string;
-toDiagnosticsNode: ( props? : {  name? : string | undefined, style? : DiagnosticsTreeStyle | undefined,}) => IDiagnosticsNode;
-debugDescribeChildren: () => IList<IDiagnosticsNode>;
-toString: ( props : {  minLevel : DiagnosticLevel,}) => string;
-}export class _LocalizationsScope
-
- implements IInheritedWidget, IDiagnosticable
-{    public readonly locale: ILocale = undefined as any;
+export interface I_LocalizationsScope {
+    locale: ILocale;
+    localizationsState: I_LocalizationsState;
+    typeToResources: IMap<Type, any>;
+    child: IWidget;
+    key: IKey | undefined;
+    updateShouldNotify: (old: unknown) => boolean;
+    createElement: () => IInheritedElement;
+    toStringShort: () => string;
+    debugFillProperties: (properties: IDiagnosticPropertiesBuilder) => void;
+    getHashCode: () => number;
+    toStringShallow: (props: {
+        joiner: string;
+        minLevel: DiagnosticLevel;
+    }) => string;
+    toStringDeep: (props: {
+        minLevel: DiagnosticLevel;
+        prefixLineOne: string;
+        prefixOtherLines?: string | undefined;
+    }) => string;
+    toDiagnosticsNode: (props?: {
+        name?: string | undefined;
+        style?: DiagnosticsTreeStyle | undefined;
+    }) => IDiagnosticsNode;
+    debugDescribeChildren: () => IList<IDiagnosticsNode>;
+    toString: (props: { minLevel: DiagnosticLevel }) => string;
+}
+export class _LocalizationsScope implements IInheritedWidget, IDiagnosticable {
+    public readonly locale: ILocale = undefined as any;
     public readonly localizationsState: I_LocalizationsState = undefined as any;
     public readonly typeToResources: IMap<Type, any> = undefined as any;
     public readonly child: IWidget = undefined as any;
     public readonly key: IKey | undefined = undefined as any;
-public constructor( props : {  key? : IKey | undefined, child : IWidget, locale : ILocale, localizationsState : I_LocalizationsState, typeToResources : IMap<Type, any>,}){
-flutter.widgets._localizationsScope(this, props);}
-    private readonly _dart_updateShouldNotify: (old: any) => boolean = undefined as any;
-    private readonly _dart_createElement: () => IInheritedElement = undefined as any;
+    public constructor(props: {
+        key?: IKey | undefined;
+        child: IWidget;
+        locale: ILocale;
+        localizationsState: I_LocalizationsState;
+        typeToResources: IMap<Type, any>;
+    }) {
+        flutter.widgets._localizationsScope(this, props);
+    }
+    private readonly _dart_updateShouldNotify: (old: any) => boolean =
+        undefined as any;
+    private readonly _dart_createElement: () => IInheritedElement =
+        undefined as any;
     private readonly _dart_toStringShort: () => string = undefined as any;
-    private readonly _dart_debugFillProperties: (properties: IDiagnosticPropertiesBuilder) => void = undefined as any;
+    private readonly _dart_debugFillProperties: (
+        properties: IDiagnosticPropertiesBuilder
+    ) => void = undefined as any;
     private readonly _dart_getHashCode: () => number = undefined as any;
-    private readonly _dart_toStringShallow: ( props : {  joiner : string, minLevel : DiagnosticLevel,}) => string = undefined as any;
-    private readonly _dart_toStringDeep: ( props : {  minLevel : DiagnosticLevel, prefixLineOne : string, prefixOtherLines? : string | undefined,}) => string = undefined as any;
-    private readonly _dart_toDiagnosticsNode: ( props? : {  name? : string | undefined, style? : DiagnosticsTreeStyle | undefined,}) => IDiagnosticsNode = undefined as any;
-    private readonly _dart_debugDescribeChildren: () => IList<IDiagnosticsNode> = undefined as any;
-    private readonly _dart_toString: ( props : {  minLevel : DiagnosticLevel,}) => string = undefined as any;
-public updateShouldNotify(old: any) : boolean {
-    return this._dart_updateShouldNotify(old);
-}
-public createElement() : IInheritedElement {
-    return this._dart_createElement();
-}
-public toStringShort() : string {
-    return this._dart_toStringShort();
-}
-public debugFillProperties(properties: IDiagnosticPropertiesBuilder) : void {
-    return this._dart_debugFillProperties(properties);
-}
-public getHashCode() : number {
-    return this._dart_getHashCode();
-}
-public toStringShallow( props : {  joiner? : string, minLevel? : DiagnosticLevel,}) : string {
-    return this._dart_toStringShallow({
-...toStringShallowDefaultProps,
-...props
-});
-}
-public toStringDeep( props : {  minLevel? : DiagnosticLevel, prefixLineOne? : string, prefixOtherLines? : string | undefined,}) : string {
-    return this._dart_toStringDeep({
-...toStringDeepDefaultProps,
-...props
-});
-}
-public toDiagnosticsNode( props? : {  name? : string | undefined, style? : DiagnosticsTreeStyle | undefined,}) : IDiagnosticsNode {
-    return this._dart_toDiagnosticsNode(props);
-}
-public debugDescribeChildren() : IList<IDiagnosticsNode> {
-    return this._dart_debugDescribeChildren();
-}
-public toString( props : {  minLevel? : DiagnosticLevel,}) : string {
-    return this._dart_toString({
-...toStringDefaultProps,
-...props
-});
-}
+    private readonly _dart_toStringShallow: (props: {
+        joiner: string;
+        minLevel: DiagnosticLevel;
+    }) => string = undefined as any;
+    private readonly _dart_toStringDeep: (props: {
+        minLevel: DiagnosticLevel;
+        prefixLineOne: string;
+        prefixOtherLines?: string | undefined;
+    }) => string = undefined as any;
+    private readonly _dart_toDiagnosticsNode: (props?: {
+        name?: string | undefined;
+        style?: DiagnosticsTreeStyle | undefined;
+    }) => IDiagnosticsNode = undefined as any;
+    private readonly _dart_debugDescribeChildren: () => IList<IDiagnosticsNode> =
+        undefined as any;
+    private readonly _dart_toString: (props: {
+        minLevel: DiagnosticLevel;
+    }) => string = undefined as any;
+    public updateShouldNotify(old: any): boolean {
+        return this._dart_updateShouldNotify(old);
+    }
+    public createElement(): IInheritedElement {
+        return this._dart_createElement();
+    }
+    public toStringShort(): string {
+        return this._dart_toStringShort();
+    }
+    public debugFillProperties(properties: IDiagnosticPropertiesBuilder): void {
+        return this._dart_debugFillProperties(properties);
+    }
+    public getHashCode(): number {
+        return this._dart_getHashCode();
+    }
+    public toStringShallow(props: {
+        joiner?: string;
+        minLevel?: DiagnosticLevel;
+    }): string {
+        return this._dart_toStringShallow({
+            ...toStringShallowDefaultProps,
+            ...props,
+        });
+    }
+    public toStringDeep(props: {
+        minLevel?: DiagnosticLevel;
+        prefixLineOne?: string;
+        prefixOtherLines?: string | undefined;
+    }): string {
+        return this._dart_toStringDeep({
+            ...toStringDeepDefaultProps,
+            ...props,
+        });
+    }
+    public toDiagnosticsNode(props?: {
+        name?: string | undefined;
+        style?: DiagnosticsTreeStyle | undefined;
+    }): IDiagnosticsNode {
+        return this._dart_toDiagnosticsNode(props);
+    }
+    public debugDescribeChildren(): IList<IDiagnosticsNode> {
+        return this._dart_debugDescribeChildren();
+    }
+    public toString(props: { minLevel?: DiagnosticLevel }): string {
+        return this._dart_toString({
+            ...toStringDefaultProps,
+            ...props,
+        });
+    }
 }
 const toStringShallowDefaultProps = {
     joiner: ", ",

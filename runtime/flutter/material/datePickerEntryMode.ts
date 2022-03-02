@@ -4,4 +4,3 @@ export enum DatePickerEntryMode {
     calendarOnly,
     inputOnly,
 }
-

@@ -1,39 +1,51 @@
-
 declare const flutter: {
-widgets: {
-iconData: (this: void, iconData: IIconData, codePoint: number, props : {  fontFamily? : string | undefined, fontPackage? : string | undefined, matchTextDirection : boolean,}) => IIconData
-}
+    widgets: {
+        iconData: (
+            this: void,
+            iconData: IIconData,
+            codePoint: number,
+            props: {
+                fontFamily?: string | undefined;
+                fontPackage?: string | undefined;
+                matchTextDirection: boolean;
+            }
+        ) => IIconData;
+    };
 };
-export interface IIconData
-
-
-{
-codePoint: number;
-fontFamily: string | undefined;
-fontPackage: string | undefined;
-matchTextDirection: boolean;
-getHashCode: () => number;
-toString: () => string;
-}export class IconData
-
-
-{    public readonly codePoint: number = undefined as any;
+export interface IIconData {
+    codePoint: number;
+    fontFamily: string | undefined;
+    fontPackage: string | undefined;
+    matchTextDirection: boolean;
+    getHashCode: () => number;
+    toString: () => string;
+}
+export class IconData {
+    public readonly codePoint: number = undefined as any;
     public readonly fontFamily: string | undefined = undefined as any;
     public readonly fontPackage: string | undefined = undefined as any;
     public readonly matchTextDirection: boolean = undefined as any;
-public constructor(codePoint: number, props : {  fontFamily? : string | undefined, fontPackage? : string | undefined, matchTextDirection? : boolean,}){
-flutter.widgets.iconData(this, codePoint, {
-...iconDataDefaultProps,
-...props
-});}
+    public constructor(
+        codePoint: number,
+        props: {
+            fontFamily?: string | undefined;
+            fontPackage?: string | undefined;
+            matchTextDirection?: boolean;
+        }
+    ) {
+        flutter.widgets.iconData(this, codePoint, {
+            ...iconDataDefaultProps,
+            ...props,
+        });
+    }
     private readonly _dart_getHashCode: () => number = undefined as any;
     private readonly _dart_toString: () => string = undefined as any;
-public getHashCode() : number {
-    return this._dart_getHashCode();
-}
-public toString() : string {
-    return this._dart_toString();
-}
+    public getHashCode(): number {
+        return this._dart_getHashCode();
+    }
+    public toString(): string {
+        return this._dart_toString();
+    }
 }
 const iconDataDefaultProps = {
     matchTextDirection: false,

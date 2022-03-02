@@ -1,7 +1,3 @@
-
-export interface IImageStreamCompleterHandle
-
-
-{
-dispose: () => void;
+export interface IImageStreamCompleterHandle {
+    dispose: () => void;
 }

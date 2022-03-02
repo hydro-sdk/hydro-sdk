@@ -902,7 +902,7 @@ class RTManagedRenderAnnotatedRegion extends _bf98.RenderAnnotatedRegion
   RTManagedRenderAnnotatedRegion(
       {_be2e.RenderBox? child,
       required _fac9.bool sized,
-      required _fac9.dynamic value,
+      required _fac9.Object value,
       required this.table,
       required this.hydroState})
       : super(child: child, sized: sized, value: value) {

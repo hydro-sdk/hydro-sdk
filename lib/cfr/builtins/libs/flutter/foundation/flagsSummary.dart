@@ -235,7 +235,7 @@ class VMManagedFlagsSummary
 class RTManagedFlagsSummary extends _eaf3.FlagsSummary
     implements _36c2.Box<_eaf3.FlagsSummary> {
   RTManagedFlagsSummary(
-      _fac9.String name$, _fac9.Map<_fac9.String, _fac9.dynamic> value$,
+      _fac9.String name$, _fac9.Map<_fac9.String, _fac9.dynamic?> value$,
       {_fac9.String? ifEmpty,
       required _eaf3.DiagnosticLevel level,
       required _fac9.bool showName,
@@ -461,10 +461,10 @@ class RTManagedFlagsSummary extends _eaf3.FlagsSummary
   _eaf3.FlagsSummary unwrap() => this;
   _eaf3.FlagsSummary get vmObject => this;
   @_fac9.override
-  _fac9.Map<_fac9.String, _fac9.dynamic> get value {
+  _fac9.Map<_fac9.String, _fac9.dynamic?> get value {
     _36c2.Closure closure = table["getValue"];
     return _36c2.maybeUnBoxAndBuildArgument<
-            _fac9.Map<_fac9.String, _fac9.dynamic>,
+            _fac9.Map<_fac9.String, _fac9.dynamic?>,
             _fac9.String>(closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }

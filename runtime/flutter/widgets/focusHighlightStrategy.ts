@@ -3,4 +3,3 @@ export enum FocusHighlightStrategy {
     alwaysTouch,
     alwaysTraditional,
 }
-

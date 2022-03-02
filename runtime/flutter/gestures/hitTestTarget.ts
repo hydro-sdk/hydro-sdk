@@ -1,9 +1,5 @@
-
-import { IPointerEvent } from "./pointerEvent";
 import { IHitTestEntry } from "./hitTestEntry";
-export interface IHitTestTarget
-
-
-{
-handleEvent: (event: IPointerEvent, entry: IHitTestEntry) => void;
+import { IPointerEvent } from "./pointerEvent";
+export interface IHitTestTarget {
+    handleEvent: (event: IPointerEvent, entry: IHitTestEntry) => void;
 }

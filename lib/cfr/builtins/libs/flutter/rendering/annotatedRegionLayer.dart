@@ -383,7 +383,7 @@ class VMManagedAnnotatedRegionLayer
 
 class RTManagedAnnotatedRegionLayer extends _7d70.AnnotatedRegionLayer
     implements _36c2.Box<_7d70.AnnotatedRegionLayer> {
-  RTManagedAnnotatedRegionLayer(_fac9.dynamic value,
+  RTManagedAnnotatedRegionLayer(_fac9.Object value,
       {_a643.Offset? offset,
       required _fac9.bool opaque,
       _a643.Size? size,

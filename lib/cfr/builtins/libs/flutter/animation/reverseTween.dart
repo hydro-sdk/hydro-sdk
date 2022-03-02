@@ -167,17 +167,17 @@ class RTManagedReverseTween extends _e83e.ReverseTween
   _e83e.ReverseTween unwrap() => this;
   _e83e.ReverseTween get vmObject => this;
   @_fac9.override
-  _fac9.Object lerp(t) {
+  _fac9.Object? lerp(t) {
     _36c2.Closure closure = table["lerp"];
-    return _36c2.maybeUnBoxAndBuildArgument<_fac9.Object, _fac9.dynamic>(
+    return _36c2.maybeUnBoxAndBuildArgument<_fac9.Object?, _fac9.dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
 
   @_fac9.override
-  _fac9.Object transform(t) {
+  _fac9.Object? transform(t) {
     _36c2.Closure closure = table["transform"];
-    return _36c2.maybeUnBoxAndBuildArgument<_fac9.Object, _fac9.dynamic>(
+    return _36c2.maybeUnBoxAndBuildArgument<_fac9.Object?, _fac9.dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -189,26 +189,28 @@ class RTManagedReverseTween extends _e83e.ReverseTween
   }
 
   @_fac9.override
-  _fac9.Object evaluate(animation) {
+  _fac9.Object? evaluate(animation) {
     _36c2.Closure closure = table["evaluate"];
-    return _36c2.maybeUnBoxAndBuildArgument<_fac9.Object, _fac9.dynamic>(
+    return _36c2.maybeUnBoxAndBuildArgument<_fac9.Object?, _fac9.dynamic>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
 
   @_fac9.override
-  _86ca.Animation<_fac9.Object> animate(parent) {
+  _86ca.Animation<_fac9.Object?> animate(parent) {
     _36c2.Closure closure = table["animate"];
-    return _36c2.maybeUnBoxAndBuildArgument<_86ca.Animation<_fac9.Object>,
-            _fac9.Object>(closure.dispatch([table], parentState: hydroState)[0],
+    return _36c2.maybeUnBoxAndBuildArgument<_86ca.Animation<_fac9.Object?>,
+            _fac9.Object?>(
+        closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
 
   @_fac9.override
-  _e83e.Animatable<_fac9.Object> chain(parent) {
+  _e83e.Animatable<_fac9.Object?> chain(parent) {
     _36c2.Closure closure = table["chain"];
-    return _36c2.maybeUnBoxAndBuildArgument<_e83e.Animatable<_fac9.Object>,
-            _fac9.Object>(closure.dispatch([table], parentState: hydroState)[0],
+    return _36c2.maybeUnBoxAndBuildArgument<_e83e.Animatable<_fac9.Object?>,
+            _fac9.Object?>(
+        closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
 

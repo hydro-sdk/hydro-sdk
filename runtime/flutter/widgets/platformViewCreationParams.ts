@@ -1,8 +1,4 @@
-
-export interface IPlatformViewCreationParams
-
-
-{
-id: number;
-viewType: string;
+export interface IPlatformViewCreationParams {
+    id: number;
+    viewType: string;
 }

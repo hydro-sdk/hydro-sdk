@@ -3,4 +3,3 @@ export enum KeyEventResult {
     ignored,
     skipRemainingHandlers,
 }
-

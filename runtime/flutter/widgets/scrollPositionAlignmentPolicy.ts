@@ -3,4 +3,3 @@ export enum ScrollPositionAlignmentPolicy {
     keepVisibleAtEnd,
     keepVisibleAtStart,
 }
-

@@ -882,7 +882,7 @@ class RTManagedCachingIterable extends _288a.CachingIterable
   }
 
   @_fac9.override
-  _fac9.String join([_fac9.String separator = ""]) {
+  _fac9.String join([_fac9.String separator = '']) {
     _36c2.Closure closure = table["join"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }

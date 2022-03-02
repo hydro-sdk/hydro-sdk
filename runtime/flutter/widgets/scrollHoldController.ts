@@ -1,7 +1,3 @@
-
-export interface IScrollHoldController
-
-
-{
-cancel: () => void;
+export interface IScrollHoldController {
+    cancel: () => void;
 }

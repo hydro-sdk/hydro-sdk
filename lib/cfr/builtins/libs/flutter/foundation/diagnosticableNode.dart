@@ -207,7 +207,7 @@ class RTManagedDiagnosticableNode extends _eaf3.DiagnosticableNode
   RTManagedDiagnosticableNode(
       {_fac9.String? name,
       _eaf3.DiagnosticsTreeStyle? style,
-      required _fac9.dynamic value,
+      required _eaf3.Diagnosticable value,
       required this.table,
       required this.hydroState})
       : super(name: name, style: style, value: value) {

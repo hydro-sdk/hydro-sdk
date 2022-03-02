@@ -3,4 +3,3 @@ export enum MaxLengthEnforcement {
     enforced,
     truncateAfterCompositionEnds,
 }
-

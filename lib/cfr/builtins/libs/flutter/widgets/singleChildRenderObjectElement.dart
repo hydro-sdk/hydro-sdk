@@ -667,6 +667,36 @@ class RTManagedSingleChildRenderObjectElement
       super.detachRenderObject();
       return [];
     });
+    table['_dart_insertChildRenderObject'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      super.insertChildRenderObject(
+          _36c2.maybeUnBoxAndBuildArgument<_9742.RenderObject, _fac9.dynamic>(
+              luaCallerArguments[1],
+              parentState: hydroState),
+          _36c2.maybeUnBoxAndBuildArgument<_fac9.Object?, _fac9.dynamic>(
+              luaCallerArguments[2],
+              parentState: hydroState));
+      return [];
+    });
+    table['_dart_moveChildRenderObject'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      super.moveChildRenderObject(
+          _36c2.maybeUnBoxAndBuildArgument<_9742.RenderObject, _fac9.dynamic>(
+              luaCallerArguments[1],
+              parentState: hydroState),
+          _36c2.maybeUnBoxAndBuildArgument<_fac9.Object?, _fac9.dynamic>(
+              luaCallerArguments[2],
+              parentState: hydroState));
+      return [];
+    });
+    table['_dart_removeChildRenderObject'] = _36c2.makeLuaDartFunc(
+        func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+      super.removeChildRenderObject(
+          _36c2.maybeUnBoxAndBuildArgument<_9742.RenderObject, _fac9.dynamic>(
+              luaCallerArguments[1],
+              parentState: hydroState));
+      return [];
+    });
     table['_dart_debugFillProperties'] = _36c2.makeLuaDartFunc(
         func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       super.debugFillProperties(_36c2.maybeUnBoxAndBuildArgument<
@@ -1167,6 +1197,27 @@ class RTManagedSingleChildRenderObjectElement
   @_fac9.override
   void detachRenderObject() {
     _36c2.Closure closure = table["detachRenderObject"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @_fac9.override
+  void insertChildRenderObject(child, slot) {
+    super.insertChildRenderObject(child, slot);
+    _36c2.Closure closure = table["insertChildRenderObject"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @_fac9.override
+  void moveChildRenderObject(child, slot) {
+    super.moveChildRenderObject(child, slot);
+    _36c2.Closure closure = table["moveChildRenderObject"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @_fac9.override
+  void removeChildRenderObject(child) {
+    super.removeChildRenderObject(child);
+    _36c2.Closure closure = table["removeChildRenderObject"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 

@@ -3,4 +3,3 @@ export enum BottomNavigationBarLandscapeLayout {
     centered,
     linear,
 }
-

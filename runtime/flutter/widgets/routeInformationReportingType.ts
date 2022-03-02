@@ -3,4 +3,3 @@ export enum RouteInformationReportingType {
     neglect,
     navigate,
 }
-
