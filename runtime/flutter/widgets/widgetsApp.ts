@@ -164,222 +164,228 @@ export interface IWidgetsApp {
 export class WidgetsApp implements IStatefulWidget, IDiagnosticable {
     public static _defaultShortcuts = Map.fromEntries(
         <IIterable<IMapEntry<IShortcutActivator, IIntent>>>(
-            (<unknown>List.fromArray([
-                new MapEntry(
-                    new SingleActivator(LogicalKeyboardKey.enter),
-                    new ActivateIntent()
-                ),
-                new MapEntry(
-                    new SingleActivator(LogicalKeyboardKey.numpadEnter),
-                    new ActivateIntent()
-                ),
-                new MapEntry(
-                    new SingleActivator(LogicalKeyboardKey.space),
-                    new ActivateIntent()
-                ),
-                new MapEntry(
-                    new SingleActivator(LogicalKeyboardKey.gameButtonA),
-                    new ActivateIntent()
-                ),
-                new MapEntry(
-                    new SingleActivator(LogicalKeyboardKey.escape),
-                    new DismissIntent()
-                ),
-                new MapEntry(
-                    new SingleActivator(LogicalKeyboardKey.tab),
-                    new NextFocusIntent()
-                ),
-                new MapEntry(
-                    new SingleActivator(LogicalKeyboardKey.tab, {
-                        shift: true,
-                    }),
-                    new PreviousFocusIntent()
-                ),
-                new MapEntry(
-                    new SingleActivator(LogicalKeyboardKey.arrowLeft),
-                    new DirectionalFocusIntent(TraversalDirection.left)
-                ),
-                new MapEntry(
-                    new SingleActivator(LogicalKeyboardKey.arrowRight),
-                    new DirectionalFocusIntent(TraversalDirection.right)
-                ),
-                new MapEntry(
-                    new SingleActivator(LogicalKeyboardKey.arrowDown),
-                    new DirectionalFocusIntent(TraversalDirection.down)
-                ),
-                new MapEntry(
-                    new SingleActivator(LogicalKeyboardKey.arrowUp),
-                    new DirectionalFocusIntent(TraversalDirection.up)
-                ),
-                new MapEntry(
-                    new SingleActivator(LogicalKeyboardKey.arrowUp, {
-                        control: true,
-                    }),
-                    new ScrollIntent()
-                ),
-                new MapEntry(
-                    new SingleActivator(LogicalKeyboardKey.arrowDown, {
-                        control: true,
-                    }),
-                    new ScrollIntent()
-                ),
-                new MapEntry(
-                    new SingleActivator(LogicalKeyboardKey.arrowLeft, {
-                        control: true,
-                    }),
-                    new ScrollIntent()
-                ),
-                new MapEntry(
-                    new SingleActivator(LogicalKeyboardKey.arrowRight, {
-                        control: true,
-                    }),
-                    new ScrollIntent()
-                ),
-                new MapEntry(
-                    new SingleActivator(LogicalKeyboardKey.pageUp),
-                    new ScrollIntent()
-                ),
-                new MapEntry(
-                    new SingleActivator(LogicalKeyboardKey.pageDown),
-                    new ScrollIntent()
-                ),
-            ]))
+            (<unknown>(
+                List.fromArray([
+                    new MapEntry(
+                        new SingleActivator(LogicalKeyboardKey.enter),
+                        new ActivateIntent()
+                    ),
+                    new MapEntry(
+                        new SingleActivator(LogicalKeyboardKey.numpadEnter),
+                        new ActivateIntent()
+                    ),
+                    new MapEntry(
+                        new SingleActivator(LogicalKeyboardKey.space),
+                        new ActivateIntent()
+                    ),
+                    new MapEntry(
+                        new SingleActivator(LogicalKeyboardKey.gameButtonA),
+                        new ActivateIntent()
+                    ),
+                    new MapEntry(
+                        new SingleActivator(LogicalKeyboardKey.escape),
+                        new DismissIntent()
+                    ),
+                    new MapEntry(
+                        new SingleActivator(LogicalKeyboardKey.tab),
+                        new NextFocusIntent()
+                    ),
+                    new MapEntry(
+                        new SingleActivator(LogicalKeyboardKey.tab, {
+                            shift: true,
+                        }),
+                        new PreviousFocusIntent()
+                    ),
+                    new MapEntry(
+                        new SingleActivator(LogicalKeyboardKey.arrowLeft),
+                        new DirectionalFocusIntent(TraversalDirection.left)
+                    ),
+                    new MapEntry(
+                        new SingleActivator(LogicalKeyboardKey.arrowRight),
+                        new DirectionalFocusIntent(TraversalDirection.right)
+                    ),
+                    new MapEntry(
+                        new SingleActivator(LogicalKeyboardKey.arrowDown),
+                        new DirectionalFocusIntent(TraversalDirection.down)
+                    ),
+                    new MapEntry(
+                        new SingleActivator(LogicalKeyboardKey.arrowUp),
+                        new DirectionalFocusIntent(TraversalDirection.up)
+                    ),
+                    new MapEntry(
+                        new SingleActivator(LogicalKeyboardKey.arrowUp, {
+                            control: true,
+                        }),
+                        new ScrollIntent()
+                    ),
+                    new MapEntry(
+                        new SingleActivator(LogicalKeyboardKey.arrowDown, {
+                            control: true,
+                        }),
+                        new ScrollIntent()
+                    ),
+                    new MapEntry(
+                        new SingleActivator(LogicalKeyboardKey.arrowLeft, {
+                            control: true,
+                        }),
+                        new ScrollIntent()
+                    ),
+                    new MapEntry(
+                        new SingleActivator(LogicalKeyboardKey.arrowRight, {
+                            control: true,
+                        }),
+                        new ScrollIntent()
+                    ),
+                    new MapEntry(
+                        new SingleActivator(LogicalKeyboardKey.pageUp),
+                        new ScrollIntent()
+                    ),
+                    new MapEntry(
+                        new SingleActivator(LogicalKeyboardKey.pageDown),
+                        new ScrollIntent()
+                    ),
+                ])
+            ))
         )
     );
     public static _defaultWebShortcuts = Map.fromEntries(
         <IIterable<IMapEntry<IShortcutActivator, IIntent>>>(
-            (<unknown>List.fromArray([
-                new MapEntry(
-                    new SingleActivator(LogicalKeyboardKey.space),
-                    new PrioritizedIntents()
-                ),
-                new MapEntry(
-                    new SingleActivator(LogicalKeyboardKey.enter),
-                    new ButtonActivateIntent()
-                ),
-                new MapEntry(
-                    new SingleActivator(LogicalKeyboardKey.numpadEnter),
-                    new ButtonActivateIntent()
-                ),
-                new MapEntry(
-                    new SingleActivator(LogicalKeyboardKey.escape),
-                    new DismissIntent()
-                ),
-                new MapEntry(
-                    new SingleActivator(LogicalKeyboardKey.tab),
-                    new NextFocusIntent()
-                ),
-                new MapEntry(
-                    new SingleActivator(LogicalKeyboardKey.tab, {
-                        shift: true,
-                    }),
-                    new PreviousFocusIntent()
-                ),
-                new MapEntry(
-                    new SingleActivator(LogicalKeyboardKey.arrowUp),
-                    new ScrollIntent()
-                ),
-                new MapEntry(
-                    new SingleActivator(LogicalKeyboardKey.arrowDown),
-                    new ScrollIntent()
-                ),
-                new MapEntry(
-                    new SingleActivator(LogicalKeyboardKey.arrowLeft),
-                    new ScrollIntent()
-                ),
-                new MapEntry(
-                    new SingleActivator(LogicalKeyboardKey.arrowRight),
-                    new ScrollIntent()
-                ),
-                new MapEntry(
-                    new SingleActivator(LogicalKeyboardKey.pageUp),
-                    new ScrollIntent()
-                ),
-                new MapEntry(
-                    new SingleActivator(LogicalKeyboardKey.pageDown),
-                    new ScrollIntent()
-                ),
-            ]))
+            (<unknown>(
+                List.fromArray([
+                    new MapEntry(
+                        new SingleActivator(LogicalKeyboardKey.space),
+                        new PrioritizedIntents()
+                    ),
+                    new MapEntry(
+                        new SingleActivator(LogicalKeyboardKey.enter),
+                        new ButtonActivateIntent()
+                    ),
+                    new MapEntry(
+                        new SingleActivator(LogicalKeyboardKey.numpadEnter),
+                        new ButtonActivateIntent()
+                    ),
+                    new MapEntry(
+                        new SingleActivator(LogicalKeyboardKey.escape),
+                        new DismissIntent()
+                    ),
+                    new MapEntry(
+                        new SingleActivator(LogicalKeyboardKey.tab),
+                        new NextFocusIntent()
+                    ),
+                    new MapEntry(
+                        new SingleActivator(LogicalKeyboardKey.tab, {
+                            shift: true,
+                        }),
+                        new PreviousFocusIntent()
+                    ),
+                    new MapEntry(
+                        new SingleActivator(LogicalKeyboardKey.arrowUp),
+                        new ScrollIntent()
+                    ),
+                    new MapEntry(
+                        new SingleActivator(LogicalKeyboardKey.arrowDown),
+                        new ScrollIntent()
+                    ),
+                    new MapEntry(
+                        new SingleActivator(LogicalKeyboardKey.arrowLeft),
+                        new ScrollIntent()
+                    ),
+                    new MapEntry(
+                        new SingleActivator(LogicalKeyboardKey.arrowRight),
+                        new ScrollIntent()
+                    ),
+                    new MapEntry(
+                        new SingleActivator(LogicalKeyboardKey.pageUp),
+                        new ScrollIntent()
+                    ),
+                    new MapEntry(
+                        new SingleActivator(LogicalKeyboardKey.pageDown),
+                        new ScrollIntent()
+                    ),
+                ])
+            ))
         )
     );
     public static _defaultAppleOsShortcuts = Map.fromEntries(
         <IIterable<IMapEntry<IShortcutActivator, IIntent>>>(
-            (<unknown>List.fromArray([
-                new MapEntry(
-                    new SingleActivator(LogicalKeyboardKey.enter),
-                    new ActivateIntent()
-                ),
-                new MapEntry(
-                    new SingleActivator(LogicalKeyboardKey.numpadEnter),
-                    new ActivateIntent()
-                ),
-                new MapEntry(
-                    new SingleActivator(LogicalKeyboardKey.space),
-                    new ActivateIntent()
-                ),
-                new MapEntry(
-                    new SingleActivator(LogicalKeyboardKey.escape),
-                    new DismissIntent()
-                ),
-                new MapEntry(
-                    new SingleActivator(LogicalKeyboardKey.tab),
-                    new NextFocusIntent()
-                ),
-                new MapEntry(
-                    new SingleActivator(LogicalKeyboardKey.tab, {
-                        shift: true,
-                    }),
-                    new PreviousFocusIntent()
-                ),
-                new MapEntry(
-                    new SingleActivator(LogicalKeyboardKey.arrowLeft),
-                    new DirectionalFocusIntent(TraversalDirection.left)
-                ),
-                new MapEntry(
-                    new SingleActivator(LogicalKeyboardKey.arrowRight),
-                    new DirectionalFocusIntent(TraversalDirection.right)
-                ),
-                new MapEntry(
-                    new SingleActivator(LogicalKeyboardKey.arrowDown),
-                    new DirectionalFocusIntent(TraversalDirection.down)
-                ),
-                new MapEntry(
-                    new SingleActivator(LogicalKeyboardKey.arrowUp),
-                    new DirectionalFocusIntent(TraversalDirection.up)
-                ),
-                new MapEntry(
-                    new SingleActivator(LogicalKeyboardKey.arrowUp, {
-                        meta: true,
-                    }),
-                    new ScrollIntent()
-                ),
-                new MapEntry(
-                    new SingleActivator(LogicalKeyboardKey.arrowDown, {
-                        meta: true,
-                    }),
-                    new ScrollIntent()
-                ),
-                new MapEntry(
-                    new SingleActivator(LogicalKeyboardKey.arrowLeft, {
-                        meta: true,
-                    }),
-                    new ScrollIntent()
-                ),
-                new MapEntry(
-                    new SingleActivator(LogicalKeyboardKey.arrowRight, {
-                        meta: true,
-                    }),
-                    new ScrollIntent()
-                ),
-                new MapEntry(
-                    new SingleActivator(LogicalKeyboardKey.pageUp),
-                    new ScrollIntent()
-                ),
-                new MapEntry(
-                    new SingleActivator(LogicalKeyboardKey.pageDown),
-                    new ScrollIntent()
-                ),
-            ]))
+            (<unknown>(
+                List.fromArray([
+                    new MapEntry(
+                        new SingleActivator(LogicalKeyboardKey.enter),
+                        new ActivateIntent()
+                    ),
+                    new MapEntry(
+                        new SingleActivator(LogicalKeyboardKey.numpadEnter),
+                        new ActivateIntent()
+                    ),
+                    new MapEntry(
+                        new SingleActivator(LogicalKeyboardKey.space),
+                        new ActivateIntent()
+                    ),
+                    new MapEntry(
+                        new SingleActivator(LogicalKeyboardKey.escape),
+                        new DismissIntent()
+                    ),
+                    new MapEntry(
+                        new SingleActivator(LogicalKeyboardKey.tab),
+                        new NextFocusIntent()
+                    ),
+                    new MapEntry(
+                        new SingleActivator(LogicalKeyboardKey.tab, {
+                            shift: true,
+                        }),
+                        new PreviousFocusIntent()
+                    ),
+                    new MapEntry(
+                        new SingleActivator(LogicalKeyboardKey.arrowLeft),
+                        new DirectionalFocusIntent(TraversalDirection.left)
+                    ),
+                    new MapEntry(
+                        new SingleActivator(LogicalKeyboardKey.arrowRight),
+                        new DirectionalFocusIntent(TraversalDirection.right)
+                    ),
+                    new MapEntry(
+                        new SingleActivator(LogicalKeyboardKey.arrowDown),
+                        new DirectionalFocusIntent(TraversalDirection.down)
+                    ),
+                    new MapEntry(
+                        new SingleActivator(LogicalKeyboardKey.arrowUp),
+                        new DirectionalFocusIntent(TraversalDirection.up)
+                    ),
+                    new MapEntry(
+                        new SingleActivator(LogicalKeyboardKey.arrowUp, {
+                            meta: true,
+                        }),
+                        new ScrollIntent()
+                    ),
+                    new MapEntry(
+                        new SingleActivator(LogicalKeyboardKey.arrowDown, {
+                            meta: true,
+                        }),
+                        new ScrollIntent()
+                    ),
+                    new MapEntry(
+                        new SingleActivator(LogicalKeyboardKey.arrowLeft, {
+                            meta: true,
+                        }),
+                        new ScrollIntent()
+                    ),
+                    new MapEntry(
+                        new SingleActivator(LogicalKeyboardKey.arrowRight, {
+                            meta: true,
+                        }),
+                        new ScrollIntent()
+                    ),
+                    new MapEntry(
+                        new SingleActivator(LogicalKeyboardKey.pageUp),
+                        new ScrollIntent()
+                    ),
+                    new MapEntry(
+                        new SingleActivator(LogicalKeyboardKey.pageDown),
+                        new ScrollIntent()
+                    ),
+                ])
+            ))
         )
     );
     public readonly navigatorKey: IGlobalKey<INavigatorState> | undefined =

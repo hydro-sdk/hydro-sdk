@@ -269,7 +269,15 @@
                 "package:flutter/src/widgets/visibility.dart",
                 "package:flutter/src/widgets/widget_inspector.dart",
                 "package:flutter/src/widgets/widget_span.dart",
-                "package:flutter/src/widgets/will_pop_scope.dart"
+                "package:flutter/src/widgets/will_pop_scope.dart",
+                "package:flutter/src/physics/clamped_simulation.dart",
+                "package:flutter/src/physics/friction_simulation.dart",
+                "package:flutter/src/physics/gravity_simulation.dart",
+                "package:flutter/src/physics/simulation.dart",
+                "package:flutter/src/physics/spring_simulation.dart",
+                "package:flutter/src/physics/tolerance.dart",
+                "package:flutter/src/physics/utils.dart",
+                ""
             ],
             "classNames": [
                 "Key",
