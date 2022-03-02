@@ -1,4 +1,5 @@
-import { IconData } from "./../widgets/iconData";
+import { IconData } from "../widgets/iconData";
+export interface ICupertinoIcons {}
 export class CupertinoIcons {
     public static iconFont = "CupertinoIcons";
     public static iconFontPackage = "cupertino_icons";

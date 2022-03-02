@@ -1,4 +1,5 @@
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/animation/loadanimation.dart' as _90b4;
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/cupertino/loadcupertino.dart' as _eeb6;
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/foundation/loadfoundation.dart' as _f178;
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/gestures/loadgestures.dart' as _6b76;
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/painting/loadpainting.dart' as _c1de;
@@ -23,4 +24,5 @@ _8638.loadsemantics(table: flutter, hydroState: hydroState);
 _6b76.loadgestures(table: flutter, hydroState: hydroState);
 _ddf3.loadrendering(table: flutter, hydroState: hydroState);
 _7272.loadphysics(table: flutter, hydroState: hydroState);
+_eeb6.loadcupertino(table: flutter, hydroState: hydroState);
 _4a69.loadservices(table: flutter, hydroState: hydroState); } 

@@ -1,81 +1,195 @@
-import { IColor } from "./../../dart/ui/color";
-import { VoidCallback } from "./../../dart/ui/voidCallback";
-import { Type } from "../../dart/core/type";
+import { IList } from "../../dart/core/list";
+import { IColor } from "../../dart/ui/color";
 import { Radius } from "../../dart/ui/radius";
-import { RuntimeBaseClass } from "../../runtimeBaseClass";
-import { Key } from "../foundation/key";
-import { BorderRadius } from "../painting/borderRadius";
-import { EdgeInsets } from "../painting/edgeInsets";
-import { Widget } from "../widget";
-import { StatelessWidget } from "../widgets/statelessWidget";
-import { kMinInteractiveDimensionCupertino } from "./constants";
+import { IDiagnosticable } from "../foundation/diagnosticable";
+import { DiagnosticLevel } from "../foundation/diagnosticLevel";
+import { IDiagnosticPropertiesBuilder } from "../foundation/diagnosticPropertiesBuilder";
+import { IDiagnosticsNode } from "../foundation/diagnosticsNode";
+import { DiagnosticsTreeStyle } from "../foundation/diagnosticsTreeStyle";
+import { IKey } from "../foundation/key";
+import { Alignment } from "../painting/alignment";
+import { IAlignmentGeometry } from "../painting/alignmentGeometry";
+import { BorderRadius, IBorderRadius } from "../painting/borderRadius";
+import { IEdgeInsetsGeometry } from "../painting/edgeInsetsGeometry";
+import { IState } from "../widgets/state";
+import { IStatefulElement } from "../widgets/statefulElement";
+import { IStatefulWidget } from "../widgets/statefulWidget";
+import { IWidget } from "../widgets/widget";
 import { CupertinoColors } from "./cupertinoColors";
-
-export interface CupertinoButtonProps {
-    key?: Key | undefined;
-    child: Widget;
-    padding?: EdgeInsets | undefined;
-    color?: IColor | undefined;
-    disabledColor?: IColor | undefined;
-    minSize?: number | undefined;
-    pressedOpacity?: number | undefined;
-    borderRadius?: BorderRadius | undefined;
-    onPressed: VoidCallback;
-}
-
 declare const flutter: {
     cupertino: {
         cupertinoButton: (
             this: void,
-            props: CupertinoButtonProps
-        ) => CupertinoButton;
-        cupertinoButtonFilled: (
-            this: void,
-            props: CupertinoButtonProps
-        ) => CupertinoButton;
+            cupertinoButton: ICupertinoButton,
+            props: {
+                alignment: IAlignmentGeometry;
+                borderRadius?: IBorderRadius | undefined;
+                color?: IColor | undefined;
+                disabledColor: IColor;
+                key?: IKey | undefined;
+                minSize?: number | undefined;
+                padding?: IEdgeInsetsGeometry | undefined;
+                pressedOpacity?: number | undefined;
+                child: IWidget;
+                onPressed?: () => void | undefined;
+            }
+        ) => ICupertinoButton;
     };
 };
-export class CupertinoButton
-    extends StatelessWidget
-    implements RuntimeBaseClass
-{
-    public readonly internalRuntimeType = new Type(CupertinoButton);
-    private filled = false;
-    public props: CupertinoButtonProps;
-    public constructor(props: CupertinoButtonProps) {
-        super();
-
-        this.props = props;
-
-        if (this.props.disabledColor === undefined) {
-            this.props.disabledColor =
-                CupertinoColors.quaternarySystemFill.color;
-        }
-
-        if (this.props.minSize === undefined) {
-            this.props.minSize = kMinInteractiveDimensionCupertino;
-        }
-
-        if (this.props.pressedOpacity === undefined) {
-            this.props.pressedOpacity = 0.4;
-        }
-
-        if (this.props.borderRadius === undefined) {
-            this.props.borderRadius = BorderRadius.all(Radius.circular(8.0));
-        }
+export interface ICupertinoButton {
+    child: IWidget;
+    padding: IEdgeInsetsGeometry | undefined;
+    color: IColor | undefined;
+    disabledColor: IColor;
+    minSize: number | undefined;
+    pressedOpacity: number | undefined;
+    borderRadius: IBorderRadius | undefined;
+    alignment: IAlignmentGeometry;
+    key: IKey | undefined;
+    getEnabled: () => boolean;
+    createState: () => IState<ICupertinoButton>;
+    debugFillProperties: (properties: IDiagnosticPropertiesBuilder) => void;
+    createElement: () => IStatefulElement;
+    toStringShort: () => string;
+    getHashCode: () => number;
+    toStringShallow: (props: {
+        joiner: string;
+        minLevel: DiagnosticLevel;
+    }) => string;
+    toStringDeep: (props: {
+        minLevel: DiagnosticLevel;
+        prefixLineOne: string;
+        prefixOtherLines?: string | undefined;
+    }) => string;
+    toDiagnosticsNode: (props?: {
+        name?: string | undefined;
+        style?: DiagnosticsTreeStyle | undefined;
+    }) => IDiagnosticsNode;
+    debugDescribeChildren: () => IList<IDiagnosticsNode>;
+    toString: (props: { minLevel: DiagnosticLevel }) => string;
+}
+export class CupertinoButton implements IStatefulWidget, IDiagnosticable {
+    public readonly child: IWidget = undefined as any;
+    public readonly padding: IEdgeInsetsGeometry | undefined = undefined as any;
+    public readonly color: IColor | undefined = undefined as any;
+    public readonly disabledColor: IColor = undefined as any;
+    public readonly minSize: number | undefined = undefined as any;
+    public readonly pressedOpacity: number | undefined = undefined as any;
+    public readonly borderRadius: IBorderRadius | undefined = undefined as any;
+    public readonly alignment: IAlignmentGeometry = undefined as any;
+    public readonly key: IKey | undefined = undefined as any;
+    public constructor(props: {
+        alignment?: IAlignmentGeometry;
+        borderRadius?: IBorderRadius | undefined;
+        color?: IColor | undefined;
+        disabledColor?: IColor;
+        key?: IKey | undefined;
+        minSize?: number | undefined;
+        padding?: IEdgeInsetsGeometry | undefined;
+        pressedOpacity?: number | undefined;
+        child: IWidget;
+        onPressed?: () => void | undefined;
+    }) {
+        flutter.cupertino.cupertinoButton(this, {
+            ...cupertinoButtonDefaultProps,
+            ...props,
+        });
     }
-
-    public static filled(props: Omit<CupertinoButtonProps, "color">) {
-        const res = new CupertinoButton(props);
-        res.filled = true;
-        return res;
+    private readonly _dart_getEnabled: () => boolean = undefined as any;
+    private readonly _dart_createState: () => IState<ICupertinoButton> =
+        undefined as any;
+    private readonly _dart_debugFillProperties: (
+        properties: IDiagnosticPropertiesBuilder
+    ) => void = undefined as any;
+    private readonly _dart_createElement: () => IStatefulElement =
+        undefined as any;
+    private readonly _dart_toStringShort: () => string = undefined as any;
+    private readonly _dart_getHashCode: () => number = undefined as any;
+    private readonly _dart_toStringShallow: (props: {
+        joiner: string;
+        minLevel: DiagnosticLevel;
+    }) => string = undefined as any;
+    private readonly _dart_toStringDeep: (props: {
+        minLevel: DiagnosticLevel;
+        prefixLineOne: string;
+        prefixOtherLines?: string | undefined;
+    }) => string = undefined as any;
+    private readonly _dart_toDiagnosticsNode: (props?: {
+        name?: string | undefined;
+        style?: DiagnosticsTreeStyle | undefined;
+    }) => IDiagnosticsNode = undefined as any;
+    private readonly _dart_debugDescribeChildren: () => IList<IDiagnosticsNode> =
+        undefined as any;
+    private readonly _dart_toString: (props: {
+        minLevel: DiagnosticLevel;
+    }) => string = undefined as any;
+    public getEnabled(): boolean {
+        return this._dart_getEnabled();
     }
-
-    public build() {
-        if (this.filled) {
-            return flutter.cupertino.cupertinoButtonFilled(this.props);
-        }
-
-        return flutter.cupertino.cupertinoButton(this.props);
+    public createState(): IState<ICupertinoButton> {
+        return this._dart_createState();
+    }
+    public debugFillProperties(properties: IDiagnosticPropertiesBuilder): void {
+        return this._dart_debugFillProperties(properties);
+    }
+    public createElement(): IStatefulElement {
+        return this._dart_createElement();
+    }
+    public toStringShort(): string {
+        return this._dart_toStringShort();
+    }
+    public getHashCode(): number {
+        return this._dart_getHashCode();
+    }
+    public toStringShallow(props: {
+        joiner?: string;
+        minLevel?: DiagnosticLevel;
+    }): string {
+        return this._dart_toStringShallow({
+            ...toStringShallowDefaultProps,
+            ...props,
+        });
+    }
+    public toStringDeep(props: {
+        minLevel?: DiagnosticLevel;
+        prefixLineOne?: string;
+        prefixOtherLines?: string | undefined;
+    }): string {
+        return this._dart_toStringDeep({
+            ...toStringDeepDefaultProps,
+            ...props,
+        });
+    }
+    public toDiagnosticsNode(props?: {
+        name?: string | undefined;
+        style?: DiagnosticsTreeStyle | undefined;
+    }): IDiagnosticsNode {
+        return this._dart_toDiagnosticsNode(props);
+    }
+    public debugDescribeChildren(): IList<IDiagnosticsNode> {
+        return this._dart_debugDescribeChildren();
+    }
+    public toString(props: { minLevel?: DiagnosticLevel }): string {
+        return this._dart_toString({
+            ...toStringDefaultProps,
+            ...props,
+        });
     }
 }
+const cupertinoButtonDefaultProps = {
+    alignment: Alignment.center,
+    borderRadius: BorderRadius.all(Radius.circular(8.0)),
+    disabledColor: CupertinoColors.quaternarySystemFill,
+    pressedOpacity: 0.4,
+};
+const toStringShallowDefaultProps = {
+    joiner: ", ",
+    minLevel: DiagnosticLevel.debug,
+};
+const toStringDeepDefaultProps = {
+    minLevel: DiagnosticLevel.debug,
+    prefixLineOne: "",
+};
+const toStringDefaultProps = {
+    minLevel: DiagnosticLevel.info,
+};
