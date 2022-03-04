@@ -36,7 +36,7 @@ table  [
 ] = _36c2.makeLuaDartFunc(func: (_fac9.List<_fac9.dynamic> luaCallerArguments) { _36c2.Closure unpackedonValue=luaCallerArguments  [
 1
 ];
-return [_36c2.maybeBoxObject<_7de1.Future>(object: vmObject.then((value) => _36c2.maybeUnBoxAndBuildArgument<_7de1.FutureOr<_fac9.dynamic>, _fac9.dynamic>(unpackedonValue.dispatch([luaCallerArguments[0],value],parentState:hydroState,)[0], parentState: hydroState), onError: _36c2.maybeUnBoxAndBuildArgument<_fac9.Function?, _fac9.dynamic>(luaCallerArguments.length >= 3 ? luaCallerArguments  [
+return [_36c2.maybeBoxObject<_7de1.Future>(object: vmObject.then((value) => _36c2.maybeUnBoxAndBuildArgument<_7de1.FutureOr<_fac9.dynamic>, _fac9.dynamic>(unpackedonValue.dispatch([luaCallerArguments[0],],parentState:hydroState,)[0], parentState: hydroState), onError: _36c2.maybeUnBoxAndBuildArgument<_fac9.Function?, _fac9.dynamic>(luaCallerArguments.length >= 3 ? luaCallerArguments  [
 2
 ]  [
 'onError'

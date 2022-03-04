@@ -9,6 +9,7 @@ import 'package:hydro_sdk/swid/backend/dart/util/luaCallerArgumentsParameterName
 import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
+import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/transforms/nameAnonymousNormalParametersInFunction.dart';
 import 'package:hydro_sdk/swid/ir/util/narrowSwidInterfaceByReferenceDeclaration.dart';
@@ -320,6 +321,33 @@ class DartUnboxingExpression
                                   identifierName,
                                   ".dispatch([$luaCallerArgumentsParameterName[0],",
                                   val.normalParameterNames
+                                      .whereIndexed(
+                                        (i, x) => iff(
+                                          val.normalParameterTypes
+                                              .elementAt(i)
+                                              .when(
+                                                fromSwidInterface: (val) => val,
+                                                fromSwidClass: (_) => null,
+                                                fromSwidDefaultFormalParameter:
+                                                    (_) => null,
+                                                fromSwidFunctionType: (_) =>
+                                                    null,
+                                              )
+                                              .let(
+                                                (it) =>
+                                                    it?.let(
+                                                      (it) =>
+                                                          it.referenceDeclarationKind ==
+                                                          SwidReferenceDeclarationKind
+                                                              .voidType,
+                                                    ) ??
+                                                    false,
+                                              ),
+                                          () => false,
+                                        ).orElse(
+                                          () => true,
+                                        ),
+                                      )
                                       .map((x) => x)
                                       .toList()
                                       .join(","),
