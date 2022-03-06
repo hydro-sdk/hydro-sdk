@@ -267,7 +267,9 @@ class DartUnboxingExpression
                                   ..name = x.key
                                   ..named = true
                                   ..required = x.value.declarationModifiers
-                                      .isRequiredNamed,
+                                          .isRequiredNamed &&
+                                      x.value.nullabilitySuffix !=
+                                          SwidNullabilitySuffix.question,
                               ),
                             )
                             .toList(),
