@@ -802,34 +802,62 @@ class DartRTManagedClassDeclaration
                               [
                                 ...x.namedParameterTypes.entries
                                     .map(
-                                      (e) => Parameter(
-                                        (p) => p
-                                          ..name = e.key
-                                          ..defaultTo = (x
-                                                      .namedDefaults[e.key] !=
-                                                  null
-                                              ? Code(
-                                                  x.namedDefaults[e.key]!.let(
-                                                    (it) =>
-                                                        _enrichDefaultValueCode(
-                                                      swidStaticConst: it.value,
-                                                      defaultValueCode:
-                                                          it.defaultValueCode,
-                                                      pipeline: pipeline,
+                                      (e) =>
+                                          (x.namedDefaults[e.key] != null).let(
+                                        (hasDefault) => (e
+                                                    .value
+                                                    .declarationModifiers
+                                                    .isRequiredNamed ||
+                                                e.value.declarationModifiers
+                                                    .hasRequired)
+                                            .let(
+                                          (hasRequired) => Parameter(
+                                            (p) => p
+                                              ..name = e.key
+                                              ..defaultTo = (x.namedDefaults[
+                                                          e.key] !=
+                                                      null
+                                                  ? Code(
+                                                      x.namedDefaults[e.key]!
+                                                          .let(
+                                                        (it) =>
+                                                            _enrichDefaultValueCode(
+                                                          swidStaticConst:
+                                                              it.value,
+                                                          defaultValueCode: it
+                                                              .defaultValueCode,
+                                                          pipeline: pipeline,
+                                                        ),
+                                                      ),
+                                                    )
+                                                  : null)
+                                              ..named = true
+                                              ..required =
+                                                  hasRequired && !hasDefault
+                                              ..type =
+                                                  swidTypeToDartTypeReference(
+                                                pipeline: pipeline,
+                                                swidType: e.value.clone(
+                                                  nullabilitySuffix: iff(
+                                                    hasDefault,
+                                                    () => e.value
+                                                        .nullabilitySuffix,
+                                                  ).orElse(
+                                                    () => iff(
+                                                      !hasDefault &&
+                                                          !hasRequired,
+                                                      () =>
+                                                          SwidNullabilitySuffix
+                                                              .question,
+                                                    ).orElse(
+                                                      () => e.value
+                                                          .nullabilitySuffix,
                                                     ),
                                                   ),
-                                                )
-                                              : null)
-                                          ..named = true
-                                          ..required =
-                                              (x.namedDefaults[e.key] == null)
-                                                  ? e.value.nullabilitySuffix ==
-                                                      SwidNullabilitySuffix.none
-                                                  : false
-                                          ..type = swidTypeToDartTypeReference(
-                                            pipeline: pipeline,
-                                            swidType: e.value,
+                                                ),
+                                              ),
                                           ),
+                                        ),
                                       ),
                                     )
                                     .toList(),
