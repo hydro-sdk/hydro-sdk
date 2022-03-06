@@ -101,25 +101,31 @@ class DartUnboxingExpression
                 ? expression
                     .nullSafeProperty("toDouble")
                     .call([])
-                    .accept(DartEmitter(
-                      useNullSafetySyntax: true,
-                    ))
+                    .accept(
+                      DartEmitter(
+                        useNullSafetySyntax: true,
+                      ),
+                    )
                     .toString()
                 : expression
-                    .accept(DartEmitter(
-                      useNullSafetySyntax: true,
-                    ))
+                    .accept(
+                      DartEmitter(
+                        useNullSafetySyntax: true,
+                      ),
+                    )
                     .toString(),
-            onClass: (val) => refer([
-              pipeline.reduceFromTerm(
-                DartImportPrefix(
-                  swidType: SwidType.fromSwidInterface(
-                    swidInterface: maybeUnBoxAndBuildArgument,
+            onClass: (val) => refer(
+              [
+                pipeline.reduceFromTerm(
+                  DartImportPrefix(
+                    swidType: SwidType.fromSwidInterface(
+                      swidInterface: maybeUnBoxAndBuildArgument,
+                    ),
                   ),
                 ),
-              ),
-              maybeUnBoxAndBuildArgument.name
-            ].join("."))
+                maybeUnBoxAndBuildArgument.name
+              ].join("."),
+            )
                 .call(
                   [expression],
                   {"parentState": refer("hydroState")},
@@ -255,7 +261,11 @@ class DartUnboxingExpression
                       ..requiredParameters.addAll(
                         [
                           ...val.normalParameterNames
-                              .map((x) => Parameter((p) => p..name = x))
+                              .map(
+                                (x) => Parameter(
+                                  (p) => p..name = x,
+                                ),
+                              )
                               .toList(),
                         ],
                       )
