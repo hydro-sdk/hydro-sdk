@@ -12,6 +12,7 @@ import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
+import 'package:hydro_sdk/swid/ir/transforms/instantiateTypeArgumentsToLowestBound.dart';
 import 'package:hydro_sdk/swid/ir/transforms/instantiateTypeFormalsToLowestBound.dart';
 import 'package:hydro_sdk/swid/ir/util/isOperator.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
@@ -241,6 +242,16 @@ class DartVMManagedClassDeclaration
                   ..body = Block.of(
                     [
                       ...(swidClass.instanceFieldDeclarations.entries
+                          .map(
+                            (x) => MapEntry(
+                              x.key,
+                              pipeline.reduceFromTerm(
+                                InstantiateTypeArgumentsToLowestBound(
+                                  swidType: x.value,
+                                ),
+                              ),
+                            ),
+                          )
                           .map(
                             (x) => Code(
                               pipeline.reduceFromTerm(
