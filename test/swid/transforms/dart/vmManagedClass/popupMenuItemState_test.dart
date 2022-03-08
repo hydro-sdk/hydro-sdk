@@ -1,0 +1,129 @@
+import 'package:flutter_test/flutter_test.dart';
+
+import 'package:hydro_sdk/swid/backend/dart/dartVmManagedClassDeclaration.dart';
+import 'package:hydro_sdk/swid/ir/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
+import 'package:hydro_sdk/swid/ir/swidElement.dart';
+import 'package:hydro_sdk/swid/ir/swidInterface.dart';
+import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
+import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
+import 'package:hydro_sdk/swid/ir/swidType.dart';
+import 'package:hydro_sdk/swid/ir/swidTypeArgumentElement.dart';
+import 'package:hydro_sdk/swid/ir/swidTypeArgumentType.dart';
+import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
+import 'package:hydro_sdk/swid/ir/swidTypeFormalBound.dart';
+import 'package:hydro_sdk/swid/ir/swidTypeFormalValue.dart';
+import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
+import 'package:hydro_sdk/swid/swars/pipelineNoopCacheMgr.dart';
+
+void main() {
+  LiveTestWidgetsFlutterBinding();
+  testWidgets('', (WidgetTester tester) async {
+    final ir = SwidClass(
+      name: "PopupMenuItemState",
+      nullabilitySuffix: SwidNullabilitySuffix.none,
+      originalPackagePath: "package:flutter/src/material/popup_menu.dart",
+      constructorType: null,
+      generativeConstructors: [],
+      factoryConstructors: [],
+      staticMethods: [],
+      methods: [],
+      staticConstFieldDeclarations: [],
+      instanceFieldDeclarations: {},
+      declarationModifiers: SwidDeclarationModifiers.empty(),
+      mixedInClasses: [],
+      implementedClasses: [],
+      isMixin: false,
+      typeFormals: [
+        SwidTypeFormal(
+          value: SwidTypeFormalValue.fromString(
+            string: "T",
+          ),
+          swidReferenceDeclarationKind:
+              SwidReferenceDeclarationKind.typeParameterType,
+          swidTypeFormalBound: null,
+        ),
+        SwidTypeFormal(
+          value: SwidTypeFormalValue.fromString(
+            string: "W",
+          ),
+          swidReferenceDeclarationKind:
+              SwidReferenceDeclarationKind.typeParameterType,
+          swidTypeFormalBound: SwidTypeFormalBound.fromSwidInterface(
+            swidInterface: SwidInterface(
+              name: "PopupMenuItem<T>",
+              nullabilitySuffix: SwidNullabilitySuffix.none,
+              originalPackagePath:
+                  "package:flutter/src/material/popup_menu.dart",
+              typeArguments: [
+                SwidTypeArgumentType(
+                  type: SwidType.fromSwidInterface(
+                    swidInterface: SwidInterface(
+                      name: "T",
+                      nullabilitySuffix: SwidNullabilitySuffix.none,
+                      originalPackagePath:
+                          "package:flutter/src/material/popup_menu.dart",
+                      typeArguments: [],
+                      referenceDeclarationKind:
+                          SwidReferenceDeclarationKind.typeParameterType,
+                      declarationModifiers: SwidDeclarationModifiers.empty(),
+                    ),
+                  ),
+                  element: SwidElement.fromSwidTypeArgumentElement(
+                    swidTypeArgumentElement: SwidTypeArgumentElement(
+                      bound: SwidType.fromSwidInterface(
+                        swidInterface: SwidInterface(
+                          name: "dynamic",
+                          nullabilitySuffix: SwidNullabilitySuffix.none,
+                          originalPackagePath: "dart:core",
+                          typeArguments: [],
+                          referenceDeclarationKind:
+                              SwidReferenceDeclarationKind.dynamicType,
+                          declarationModifiers:
+                              SwidDeclarationModifiers.empty(),
+                        ),
+                      ),
+                    ),
+                  ),
+                )
+              ],
+              referenceDeclarationKind:
+                  SwidReferenceDeclarationKind.classElement,
+              declarationModifiers: SwidDeclarationModifiers.empty(),
+            ),
+          ),
+        )
+      ],
+    );
+    final pipeline = CachingPipeline(
+      cacheMgr: const PipelineNoopCacheMgr(),
+    );
+
+    final res = pipeline.reduceFromTerm(
+      DartVMManagedClassDeclaration(
+        swidClass: ir,
+        format: true,
+      ),
+    );
+
+    expect(res, """
+class VMManagedPopupMenuItemState extends _36c2.VMManagedBox<
+    _2891.PopupMenuItemState<T, _2891.PopupMenuItem<_fac9.dynamic>>> {
+  VMManagedPopupMenuItemState(
+      {required this.table, required this.vmObject, required this.hydroState})
+      : super(
+          table: table,
+          vmObject: vmObject,
+          hydroState: hydroState,
+        ) {}
+
+  final _36c2.HydroTable table;
+
+  final _36c2.HydroState hydroState;
+
+  final _2891.PopupMenuItemState<T, _2891.PopupMenuItem<_fac9.dynamic>>
+      vmObject;
+}
+""");
+  }, tags: "swid");
+}

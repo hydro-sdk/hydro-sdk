@@ -1,7 +1,10 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
+import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormalValue.dart';
+import 'package:hydro_sdk/swid/ir/transforms/instantiateGenericsToLowestBound.dart';
 import 'package:hydro_sdk/swid/swars/iSwarsPipeline.dart';
 import 'package:hydro_sdk/swid/swars/swarsEphemeralTermMixin.dart';
 import 'package:hydro_sdk/swid/swars/swarsTermJsonTransformableResultMixin.dart';
@@ -62,7 +65,21 @@ class InstantiateTypeFormalToLowestBound
                 value: swidTypeFormal.swidTypeFormalBound?.when(
                   fromSwidInterface: (val) =>
                       SwidTypeFormalValue.fromSwidInterface(
-                    swidInterface: val.clone(),
+                    swidInterface: pipeline
+                        .reduceFromTerm(
+                          InstantiateGenericsToLowestBound(
+                            swidType: SwidType.fromSwidInterface(
+                              swidInterface: val,
+                            ),
+                          ),
+                        )
+                        .when(
+                          fromSwidInterface: (val) => val,
+                          fromSwidClass: (_) => dartUnknownInterface,
+                          fromSwidDefaultFormalParameter: (_) =>
+                              dartUnknownInterface,
+                          fromSwidFunctionType: (_) => dartUnknownInterface,
+                        ),
                   ),
                   fromSwidFunctionType: (val) =>
                       SwidTypeFormalValue.fromSwidFunctionType(

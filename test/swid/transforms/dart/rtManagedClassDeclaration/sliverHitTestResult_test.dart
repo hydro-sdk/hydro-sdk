@@ -218,9 +218,9 @@ class RTManagedSliverHitTestResult extends _021d.SliverHitTestResult
   _fac9.bool addWithAxisOffset(
       {required _fac9.double crossAxisOffset,
       required _fac9.double crossAxisPosition,
-      required _fac9.bool Function(_021d.SliverHitTestResult result,
+      _fac9.bool Function(_021d.SliverHitTestResult result,
               {required _fac9.double crossAxisPosition,
-              required _fac9.double mainAxisPosition})
+              required _fac9.double mainAxisPosition})?
           hitTest,
       required _fac9.double mainAxisOffset,
       required _fac9.double mainAxisPosition,

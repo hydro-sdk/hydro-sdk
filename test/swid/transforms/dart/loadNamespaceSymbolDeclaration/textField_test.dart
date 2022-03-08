@@ -204,6 +204,65 @@ void main() {
     );
 
     expect(res, """
+void loadTextField(
+    {required _36c2.HydroState hydroState, required _36c2.HydroTable table}) {
+  table[\'textField\'] = _36c2.makeLuaDartFunc(
+      func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
+    _36c2.Closure? unpackedbuildCounter = luaCallerArguments.length >= 2
+        ? luaCallerArguments[1][\'buildCounter\']
+        : null;
+    return [
+      RTManagedTextField(
+          table: luaCallerArguments[0],
+          hydroState: hydroState,
+          autoCorrect: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1][\'autoCorrect\']
+              : null,
+          autofillHints: _36c2.maybeUnBoxAndBuildArgument<
+                  _fac9.Iterable<_fac9.String>?, _fac9.String>(
+              luaCallerArguments.length >= 2
+                  ? luaCallerArguments[1][\'autofillHints\']
+                  : null,
+              parentState: hydroState),
+          autofocus: luaCallerArguments.length >= 2
+              ? luaCallerArguments[1][\'autofocus\']
+              : null,
+          buildCounter: unpackedbuildCounter != null
+              ? (context,
+                      {required currentLength,
+                      required isFocused,
+                      maxLength}) =>
+                  _36c2
+                      .maybeUnBoxAndBuildArgument<_e2dc.Widget?, _fac9.dynamic>(
+                          ((
+                            final _fac9.List<_fac9.dynamic>? val,
+                          ) =>
+                              val != null && val.length >= 1 ? val[0] : null)(
+                            unpackedbuildCounter.dispatch(
+                              [
+                                luaCallerArguments[0],
+                                context,
+                                _36c2.HydroTable.fromMap({
+                                  "currentLength": currentLength,
+                                  "isFocused": isFocused,
+                                  "maxLength": maxLength
+                                }),
+                              ],
+                              parentState: hydroState,
+                            ),
+                          ),
+                          parentState: hydroState)
+              : null)
+    ];
+  });
+  _36c2.registerBoxer<_6de5.TextField>(boxer: (
+      {required _6de5.TextField vmObject,
+      required _36c2.HydroState hydroState,
+      required _36c2.HydroTable table}) {
+    return VMManagedTextField(
+        vmObject: vmObject, hydroState: hydroState, table: table);
+  });
+}
 """);
   }, tags: "swid");
 }
