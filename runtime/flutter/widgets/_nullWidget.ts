@@ -5,9 +5,7 @@ import { IDiagnosticPropertiesBuilder } from "../foundation/diagnosticProperties
 import { IDiagnosticsNode } from "../foundation/diagnosticsNode";
 import { DiagnosticsTreeStyle } from "../foundation/diagnosticsTreeStyle";
 import { IKey } from "../foundation/key";
-import { IBuildContext } from "./buildContext";
-import { IStatelessElement } from "./statelessElement";
-import { IStatelessWidget } from "./statelessWidget";
+import { IElement } from "./element";
 import { IWidget } from "./widget";
 declare const flutter: {
     widgets: {
@@ -16,8 +14,7 @@ declare const flutter: {
 };
 export interface I_NullWidget {
     key: IKey | undefined;
-    build: (context: IBuildContext) => IWidget;
-    createElement: () => IStatelessElement;
+    createElement: () => IElement;
     toStringShort: () => string;
     debugFillProperties: (properties: IDiagnosticPropertiesBuilder) => void;
     getHashCode: () => number;
@@ -37,15 +34,12 @@ export interface I_NullWidget {
     debugDescribeChildren: () => IList<IDiagnosticsNode>;
     toString: (props: { minLevel: DiagnosticLevel }) => string;
 }
-export class _NullWidget implements IStatelessWidget, IDiagnosticable {
+export class _NullWidget implements IWidget, IDiagnosticable {
     public readonly key: IKey | undefined = undefined as any;
     public constructor() {
         flutter.widgets._nullWidget(this);
     }
-    private readonly _dart_build: (context: IBuildContext) => IWidget =
-        undefined as any;
-    private readonly _dart_createElement: () => IStatelessElement =
-        undefined as any;
+    private readonly _dart_createElement: () => IElement = undefined as any;
     private readonly _dart_toStringShort: () => string = undefined as any;
     private readonly _dart_debugFillProperties: (
         properties: IDiagnosticPropertiesBuilder
@@ -69,10 +63,7 @@ export class _NullWidget implements IStatelessWidget, IDiagnosticable {
     private readonly _dart_toString: (props: {
         minLevel: DiagnosticLevel;
     }) => string = undefined as any;
-    public build(context: IBuildContext): IWidget {
-        return this._dart_build(context);
-    }
-    public createElement(): IStatelessElement {
+    public createElement(): IElement {
         return this._dart_createElement();
     }
     public toStringShort(): string {

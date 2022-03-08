@@ -43,6 +43,7 @@ export interface ICupertinoModalPopupRoute<T> {
     barrierColor: IColor | undefined;
     filter: IImageFilter | undefined;
     willDisposeAnimationController: boolean;
+    getBarrierLabel: () => string;
     getBarrierDismissible: () => boolean;
     getSemanticsDismissible: () => boolean;
     getTransitionDuration: () => IDuration;
@@ -73,7 +74,6 @@ export interface ICupertinoModalPopupRoute<T> {
     createOverlayEntries: () => IIterable<IOverlayEntry>;
     toString: () => string;
     getBarrierColor: () => IColor | undefined;
-    getBarrierLabel: () => string | undefined;
     getBarrierCurve: () => ICurve;
     getOffstage: () => boolean;
     setOffstage: (value: boolean) => void;
@@ -132,6 +132,7 @@ export class CupertinoModalPopupRoute<T>
             ...props,
         });
     }
+    private readonly _dart_getBarrierLabel: () => string = undefined as any;
     private readonly _dart_getBarrierDismissible: () => boolean =
         undefined as any;
     private readonly _dart_getSemanticsDismissible: () => boolean =
@@ -175,8 +176,6 @@ export class CupertinoModalPopupRoute<T>
         undefined as any;
     private readonly _dart_toString: () => string = undefined as any;
     private readonly _dart_getBarrierColor: () => IColor | undefined =
-        undefined as any;
-    private readonly _dart_getBarrierLabel: () => string | undefined =
         undefined as any;
     private readonly _dart_getBarrierCurve: () => ICurve = undefined as any;
     private readonly _dart_getOffstage: () => boolean = undefined as any;
@@ -249,6 +248,9 @@ export class CupertinoModalPopupRoute<T>
         undefined as any;
     private readonly _dart_getIsActive: () => boolean = undefined as any;
     private readonly _dart_getHashCode: () => number = undefined as any;
+    public getBarrierLabel(): string {
+        return this._dart_getBarrierLabel();
+    }
     public getBarrierDismissible(): boolean {
         return this._dart_getBarrierDismissible();
     }
@@ -325,9 +327,6 @@ export class CupertinoModalPopupRoute<T>
     }
     public getBarrierColor(): IColor | undefined {
         return this._dart_getBarrierColor();
-    }
-    public getBarrierLabel(): string | undefined {
-        return this._dart_getBarrierLabel();
     }
     public getBarrierCurve(): ICurve {
         return this._dart_getBarrierCurve();

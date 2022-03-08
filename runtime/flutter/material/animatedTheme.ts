@@ -1,0 +1,174 @@
+import { Duration, IDuration } from "../../dart/core/duration";
+import { IList } from "../../dart/core/list";
+import { ICurve } from "../animation/curve";
+import { Curves } from "../animation/curves";
+import { IDiagnosticable } from "../foundation/diagnosticable";
+import { DiagnosticLevel } from "../foundation/diagnosticLevel";
+import { IDiagnosticPropertiesBuilder } from "../foundation/diagnosticPropertiesBuilder";
+import { IDiagnosticsNode } from "../foundation/diagnosticsNode";
+import { DiagnosticsTreeStyle } from "../foundation/diagnosticsTreeStyle";
+import { IKey } from "../foundation/key";
+import { IAnimatedWidgetBaseState } from "../widgets/animatedWidgetBaseState";
+import { IImplicitlyAnimatedWidget } from "../widgets/implicitlyAnimatedWidget";
+import { IImplicitlyAnimatedWidgetState } from "../widgets/implicitlyAnimatedWidgetState";
+import { IStatefulElement } from "../widgets/statefulElement";
+import { IWidget } from "../widgets/widget";
+import { IThemeData } from "./themeData";
+declare const flutter: {
+    material: {
+        animatedTheme: (
+            this: void,
+            animatedTheme: IAnimatedTheme,
+            props: {
+                curve: ICurve;
+                duration: IDuration;
+                key?: IKey | undefined;
+                onEnd?: () => void | undefined;
+                child: IWidget;
+                data: IThemeData;
+            }
+        ) => IAnimatedTheme;
+    };
+};
+export interface IAnimatedTheme {
+    data: IThemeData;
+    child: IWidget;
+    curve: ICurve;
+    duration: IDuration;
+    onEnd: () => void | undefined;
+    key: IKey | undefined;
+    createState: () => IAnimatedWidgetBaseState<IAnimatedTheme>;
+    debugFillProperties: (properties: IDiagnosticPropertiesBuilder) => void;
+    createElement: () => IStatefulElement;
+    toStringShort: () => string;
+    getHashCode: () => number;
+    toStringShallow: (props: {
+        joiner: string;
+        minLevel: DiagnosticLevel;
+    }) => string;
+    toStringDeep: (props: {
+        minLevel: DiagnosticLevel;
+        prefixLineOne: string;
+        prefixOtherLines?: string | undefined;
+    }) => string;
+    toDiagnosticsNode: (props?: {
+        name?: string | undefined;
+        style?: DiagnosticsTreeStyle | undefined;
+    }) => IDiagnosticsNode;
+    debugDescribeChildren: () => IList<IDiagnosticsNode>;
+    toString: (props: { minLevel: DiagnosticLevel }) => string;
+}
+export class AnimatedTheme
+    implements IImplicitlyAnimatedWidget, IDiagnosticable
+{
+    public readonly data: IThemeData = undefined as any;
+    public readonly child: IWidget = undefined as any;
+    public readonly curve: ICurve = undefined as any;
+    public readonly duration: IDuration = undefined as any;
+    public readonly onEnd: () => void | undefined = undefined as any;
+    public readonly key: IKey | undefined = undefined as any;
+    public constructor(props: {
+        curve?: ICurve;
+        duration?: IDuration;
+        key?: IKey | undefined;
+        onEnd?: () => void | undefined;
+        child: IWidget;
+        data: IThemeData;
+    }) {
+        flutter.material.animatedTheme(this, {
+            ...animatedThemeDefaultProps,
+            ...props,
+        });
+    }
+    private readonly _dart_createState: () => IAnimatedWidgetBaseState<IAnimatedTheme> =
+        undefined as any;
+    private readonly _dart_debugFillProperties: (
+        properties: IDiagnosticPropertiesBuilder
+    ) => void = undefined as any;
+    private readonly _dart_createElement: () => IStatefulElement =
+        undefined as any;
+    private readonly _dart_toStringShort: () => string = undefined as any;
+    private readonly _dart_getHashCode: () => number = undefined as any;
+    private readonly _dart_toStringShallow: (props: {
+        joiner: string;
+        minLevel: DiagnosticLevel;
+    }) => string = undefined as any;
+    private readonly _dart_toStringDeep: (props: {
+        minLevel: DiagnosticLevel;
+        prefixLineOne: string;
+        prefixOtherLines?: string | undefined;
+    }) => string = undefined as any;
+    private readonly _dart_toDiagnosticsNode: (props?: {
+        name?: string | undefined;
+        style?: DiagnosticsTreeStyle | undefined;
+    }) => IDiagnosticsNode = undefined as any;
+    private readonly _dart_debugDescribeChildren: () => IList<IDiagnosticsNode> =
+        undefined as any;
+    private readonly _dart_toString: (props: {
+        minLevel: DiagnosticLevel;
+    }) => string = undefined as any;
+    public createState(): IAnimatedWidgetBaseState<IAnimatedTheme> {
+        return this._dart_createState();
+    }
+    public debugFillProperties(properties: IDiagnosticPropertiesBuilder): void {
+        return this._dart_debugFillProperties(properties);
+    }
+    public createElement(): IStatefulElement {
+        return this._dart_createElement();
+    }
+    public toStringShort(): string {
+        return this._dart_toStringShort();
+    }
+    public getHashCode(): number {
+        return this._dart_getHashCode();
+    }
+    public toStringShallow(props: {
+        joiner?: string;
+        minLevel?: DiagnosticLevel;
+    }): string {
+        return this._dart_toStringShallow({
+            ...toStringShallowDefaultProps,
+            ...props,
+        });
+    }
+    public toStringDeep(props: {
+        minLevel?: DiagnosticLevel;
+        prefixLineOne?: string;
+        prefixOtherLines?: string | undefined;
+    }): string {
+        return this._dart_toStringDeep({
+            ...toStringDeepDefaultProps,
+            ...props,
+        });
+    }
+    public toDiagnosticsNode(props?: {
+        name?: string | undefined;
+        style?: DiagnosticsTreeStyle | undefined;
+    }): IDiagnosticsNode {
+        return this._dart_toDiagnosticsNode(props);
+    }
+    public debugDescribeChildren(): IList<IDiagnosticsNode> {
+        return this._dart_debugDescribeChildren();
+    }
+    public toString(props: { minLevel?: DiagnosticLevel }): string {
+        return this._dart_toString({
+            ...toStringDefaultProps,
+            ...props,
+        });
+    }
+}
+const animatedThemeDefaultProps = {
+    curve: Curves.linear,
+    duration: new Duration({ milliseconds: 200 }),
+};
+const toStringShallowDefaultProps = {
+    joiner: ", ",
+    minLevel: DiagnosticLevel.debug,
+};
+const toStringDeepDefaultProps = {
+    minLevel: DiagnosticLevel.debug,
+    prefixLineOne: "",
+};
+const toStringDefaultProps = {
+    minLevel: DiagnosticLevel.info,
+};
