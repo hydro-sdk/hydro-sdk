@@ -331,7 +331,13 @@ class DartUnboxingExpression
                                         ]
                                       : []),
                                   identifierName,
-                                  ".dispatch([$luaCallerArgumentsParameterName[0],",
+                                  ".dispatch([$luaCallerArgumentsParameterName[0]",
+                                  iff(
+                                    val.normalParameterNames.isNotEmpty,
+                                    () => ",",
+                                  ).orElse(
+                                    () => "",
+                                  ),
                                   val.normalParameterNames
                                       .whereIndexed(
                                         (i, x) => iff(
