@@ -166,8 +166,7 @@ class _SwidVisitor extends RecursiveAstVisitor
 
   @override
   void visitMixinDeclaration(MixinDeclaration node) {
-    if (node.name.name == "Diagnosticable") {
-      var res = swidClassFromDartClassOrMixinOrClassTypAliasDeclaration(
+      final res = swidClassFromDartClassOrMixinOrClassTypAliasDeclaration(
         dartClassOrMixinOrClassTypAliasDeclaration:
             DartClassOrMixinOrClassTypAliasDeclaration.fromMixinDeclaration(
           mixinDeclaration: node,
@@ -176,7 +175,6 @@ class _SwidVisitor extends RecursiveAstVisitor
       );
 
       classes.add(res);
-    }
 
     super.visitMixinDeclaration(node);
   }
