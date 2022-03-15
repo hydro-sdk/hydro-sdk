@@ -207,6 +207,6 @@ _36c2.Closure? unpackednewSet=luaCallerArguments.length >= 3 ? luaCallerArgument
 \'newSet\'
 ] : null;return [_36c2.maybeBoxObject<_fac9.Set>(object: _fac9.Set.castFrom(_36c2.maybeUnBoxAndBuildArgument<_fac9.Set<_fac9.dynamic>, _fac9.dynamic>(luaCallerArguments  [
 1
-], parentState: hydroState), newSet: unpackednewSet != null ? <R>() => _36c2.maybeUnBoxAndBuildArgument<_fac9.Set<R>, R>(unpackednewSet.dispatch([luaCallerArguments[0],],parentState:hydroState,)[0], parentState: hydroState) : null ), hydroState: hydroState, table: _36c2.HydroTable()),]; } );""");
+], parentState: hydroState), newSet: unpackednewSet != null ? <R>() => _36c2.maybeUnBoxAndBuildArgument<_fac9.Set<R>, R>(unpackednewSet.dispatch([luaCallerArguments[0]],parentState:hydroState,)[0], parentState: hydroState) : null ), hydroState: hydroState, table: _36c2.HydroTable()),]; } );""");
   }, tags: "swid");
 }

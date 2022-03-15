@@ -253,9 +253,7 @@ class VMManagedIterable
                 )[0],
             orElse: unpackedorElse != null
                 ? () => unpackedorElse.dispatch(
-                      [
-                        luaCallerArguments[0],
-                      ],
+                      [luaCallerArguments[0]],
                       parentState: hydroState,
                     )[0]
                 : null),
