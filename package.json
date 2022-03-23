@@ -52,7 +52,7 @@
     "luacodegen": "^1.0.2",
     "luamin": "^1.0.4",
     "luaparse": "^0.3.0",
-    "minimist": "^1.2.3",
+    "minimist": "^1.2.6",
     "nexe": "^4.0.0-beta.18",
     "pkg": "^5.0.0",
     "prettier": "^2.2.0",
