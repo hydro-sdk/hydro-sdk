@@ -2,10 +2,12 @@ import 'dart:core' as _fac9;
 import 'dart:ui' as _a643;
 
 import 'package:flutter/src/animation/animation.dart' as _86ca;
+
+import 'package:hydro_sdk/cfr/runtimeSupport.dart' as _36c2;
+
 import 'package:flutter/src/material/floating_action_button_location.dart'
     as _b2ee;
 
-import 'package:hydro_sdk/cfr/runtimeSupport.dart' as _36c2;
 
 class VMManagedFloatingActionButtonAnimator
     extends _36c2.VMManagedBox<_b2ee.FloatingActionButtonAnimator> {

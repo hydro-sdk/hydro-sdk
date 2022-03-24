@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:hydro_sdk/swid/ir/swidOriginatedAncestorTypeFormal.dart';
 
+import 'package:hydro_sdk/swid/ir/swidOriginatedAncestorTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/transforms/instantiateTypeFormalToLowestBound.dart';
 import 'package:hydro_sdk/swid/ir/util/irTermMixin.dart';

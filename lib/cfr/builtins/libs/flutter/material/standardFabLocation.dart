@@ -1,11 +1,13 @@
 import 'dart:core' as _fac9;
 import 'dart:ui' as _a643;
 
-import 'package:flutter/src/material/floating_action_button_location.dart'
-    as _b2ee;
 import 'package:flutter/src/material/scaffold.dart' as _ece7;
 
 import 'package:hydro_sdk/cfr/runtimeSupport.dart' as _36c2;
+
+import 'package:flutter/src/material/floating_action_button_location.dart'
+    as _b2ee;
+
 
 class VMManagedStandardFabLocation
     extends _36c2.VMManagedBox<_b2ee.StandardFabLocation> {

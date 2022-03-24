@@ -158,6 +158,7 @@ import 'package:hydro_sdk/cfr/builtins/libs/flutter/painting/textStyle.dart'
     as _35d4;
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/painting/transformProperty.dart'
     as _237c;
+
 import 'package:hydro_sdk/cfr/runtimeSupport.dart' as _36c2;
 
 void loadpainting(
