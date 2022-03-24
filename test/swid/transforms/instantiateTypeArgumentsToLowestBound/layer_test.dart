@@ -139,6 +139,7 @@ void main() {
       cacheMgr: const PipelineNoopCacheMgr(),
     ).reduceFromTerm(
       InstantiateGenericsToLowestBound(
+        swidTypeFormals: [],
         swidType: SwidType.fromSwidClass(
           swidClass: ir,
         ),

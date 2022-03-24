@@ -171,6 +171,7 @@ void main() {
     )
         .reduceFromTerm(
           InstantiateGenericsToLowestBound(
+            swidTypeFormals: [],
             swidType: SwidType.fromSwidClass(
               swidClass: ir,
             ),

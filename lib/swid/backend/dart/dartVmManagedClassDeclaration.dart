@@ -247,6 +247,7 @@ class DartVMManagedClassDeclaration
                               x.key,
                               pipeline.reduceFromTerm(
                                 InstantiateTypeArgumentsToLowestBound(
+                                  swidTypeFormals: [],
                                   swidType: x.value,
                                 ),
                               ),
@@ -285,6 +286,24 @@ class DartVMManagedClassDeclaration
                             (x) => methodIsEmitCandidate(
                               swidFunctionType: x,
                             ),
+                          )
+                          .map(
+                            (x) => pipeline
+                                .reduceFromTerm(
+                                  InstantiateTypeArgumentsToLowestBound(
+                                    swidType: SwidType.fromSwidFunctionType(
+                                      swidFunctionType: x,
+                                    ),
+                                    swidTypeFormals: [],
+                                  ),
+                                )
+                                .when(
+                                  fromSwidInterface: (_) => dartUnknownFunction,
+                                  fromSwidClass: (_) => dartUnknownFunction,
+                                  fromSwidDefaultFormalParameter: (_) =>
+                                      dartUnknownFunction,
+                                  fromSwidFunctionType: (val) => val,
+                                ),
                           )
                           .map(
                             (x) => Code(

@@ -127,6 +127,7 @@ void main() {
     )
         .reduceFromTerm(
           InstantiateTypeArgumentsToLowestBound(
+            swidTypeFormals: [],
             swidType: SwidType.fromSwidClass(
               swidClass: ir,
             ),

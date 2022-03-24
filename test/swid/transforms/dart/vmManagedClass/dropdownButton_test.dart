@@ -117,7 +117,7 @@ void main() {
 
     expect(res, """
 class VMManagedDropdownButton
-    extends _36c2.VMManagedBox<_9b55.DropdownButton<T>> {
+    extends _36c2.VMManagedBox<_9b55.DropdownButton<_fac9.dynamic>> {
   VMManagedDropdownButton(
       {required this.table, required this.vmObject, required this.hydroState})
       : super(
@@ -136,7 +136,7 @@ class VMManagedDropdownButton
 
   final _36c2.HydroState hydroState;
 
-  final _9b55.DropdownButton<T> vmObject;
+  final _9b55.DropdownButton<_fac9.dynamic> vmObject;
 }
 """);
   }, tags: "swid");

@@ -34,7 +34,7 @@ class InstantiateTypeArgumentsToLowestBoundInDefaultFormalParameter
 
   factory InstantiateTypeArgumentsToLowestBoundInDefaultFormalParameter({
     required final SwidDefaultFormalParameter swidDefaultFormalParameter,
-    final List<SwidOriginatedAncestorTypeFormal>? swidTypeFormals,
+    required final List<SwidOriginatedAncestorTypeFormal> swidTypeFormals,
   }) = _$InstantiateTypeArgumentsToLowestBoundInDefaultFormalParameterCtor;
 
   @override
@@ -44,7 +44,7 @@ class InstantiateTypeArgumentsToLowestBoundInDefaultFormalParameter
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
     yield* swidDefaultFormalParameter.hashKey.hashableParts;
-    yield* swidTypeFormals?.hashableParts ?? [];
+    yield* swidTypeFormals.hashableParts;
   }
 
   @override

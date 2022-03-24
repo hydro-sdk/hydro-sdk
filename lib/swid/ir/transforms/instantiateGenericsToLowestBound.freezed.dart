@@ -16,9 +16,12 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$InstantiateGenericsToLowestBoundTearOff {
   const _$InstantiateGenericsToLowestBoundTearOff();
 
-  _$InstantiateGenericsToLowestBoundCtor call({required SwidType swidType}) {
+  _$InstantiateGenericsToLowestBoundCtor call(
+      {required SwidType swidType,
+      required List<SwidOriginatedAncestorTypeFormal> swidTypeFormals}) {
     return _$InstantiateGenericsToLowestBoundCtor(
       swidType: swidType,
+      swidTypeFormals: swidTypeFormals,
     );
   }
 }
@@ -30,6 +33,8 @@ const $InstantiateGenericsToLowestBound =
 /// @nodoc
 mixin _$InstantiateGenericsToLowestBound {
   SwidType get swidType => throw _privateConstructorUsedError;
+  List<SwidOriginatedAncestorTypeFormal> get swidTypeFormals =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $InstantiateGenericsToLowestBoundCopyWith<InstantiateGenericsToLowestBound>
@@ -42,7 +47,9 @@ abstract class $InstantiateGenericsToLowestBoundCopyWith<$Res> {
           InstantiateGenericsToLowestBound value,
           $Res Function(InstantiateGenericsToLowestBound) then) =
       _$InstantiateGenericsToLowestBoundCopyWithImpl<$Res>;
-  $Res call({SwidType swidType});
+  $Res call(
+      {SwidType swidType,
+      List<SwidOriginatedAncestorTypeFormal> swidTypeFormals});
 
   $SwidTypeCopyWith<$Res> get swidType;
 }
@@ -59,12 +66,17 @@ class _$InstantiateGenericsToLowestBoundCopyWithImpl<$Res>
   @override
   $Res call({
     Object? swidType = freezed,
+    Object? swidTypeFormals = freezed,
   }) {
     return _then(_value.copyWith(
       swidType: swidType == freezed
           ? _value.swidType
           : swidType // ignore: cast_nullable_to_non_nullable
               as SwidType,
+      swidTypeFormals: swidTypeFormals == freezed
+          ? _value.swidTypeFormals
+          : swidTypeFormals // ignore: cast_nullable_to_non_nullable
+              as List<SwidOriginatedAncestorTypeFormal>,
     ));
   }
 
@@ -84,7 +96,9 @@ abstract class _$$InstantiateGenericsToLowestBoundCtorCopyWith<$Res>
           $Res Function(_$InstantiateGenericsToLowestBoundCtor) then) =
       __$$InstantiateGenericsToLowestBoundCtorCopyWithImpl<$Res>;
   @override
-  $Res call({SwidType swidType});
+  $Res call(
+      {SwidType swidType,
+      List<SwidOriginatedAncestorTypeFormal> swidTypeFormals});
 
   @override
   $SwidTypeCopyWith<$Res> get swidType;
@@ -107,12 +121,17 @@ class __$$InstantiateGenericsToLowestBoundCtorCopyWithImpl<$Res>
   @override
   $Res call({
     Object? swidType = freezed,
+    Object? swidTypeFormals = freezed,
   }) {
     return _then(_$InstantiateGenericsToLowestBoundCtor(
       swidType: swidType == freezed
           ? _value.swidType
           : swidType // ignore: cast_nullable_to_non_nullable
               as SwidType,
+      swidTypeFormals: swidTypeFormals == freezed
+          ? _value.swidTypeFormals
+          : swidTypeFormals // ignore: cast_nullable_to_non_nullable
+              as List<SwidOriginatedAncestorTypeFormal>,
     ));
   }
 }
@@ -121,15 +140,18 @@ class __$$InstantiateGenericsToLowestBoundCtorCopyWithImpl<$Res>
 
 class _$_$InstantiateGenericsToLowestBoundCtor
     extends _$InstantiateGenericsToLowestBoundCtor {
-  _$_$InstantiateGenericsToLowestBoundCtor({required this.swidType})
+  _$_$InstantiateGenericsToLowestBoundCtor(
+      {required this.swidType, required this.swidTypeFormals})
       : super._();
 
   @override
   final SwidType swidType;
+  @override
+  final List<SwidOriginatedAncestorTypeFormal> swidTypeFormals;
 
   @override
   String toString() {
-    return 'InstantiateGenericsToLowestBound(swidType: $swidType)';
+    return 'InstantiateGenericsToLowestBound(swidType: $swidType, swidTypeFormals: $swidTypeFormals)';
   }
 
   @override
@@ -138,12 +160,17 @@ class _$_$InstantiateGenericsToLowestBoundCtor
         (other is _$InstantiateGenericsToLowestBoundCtor &&
             (identical(other.swidType, swidType) ||
                 const DeepCollectionEquality()
-                    .equals(other.swidType, swidType)));
+                    .equals(other.swidType, swidType)) &&
+            (identical(other.swidTypeFormals, swidTypeFormals) ||
+                const DeepCollectionEquality()
+                    .equals(other.swidTypeFormals, swidTypeFormals)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(swidType);
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(swidType) ^
+      const DeepCollectionEquality().hash(swidTypeFormals);
 
   @JsonKey(ignore: true)
   @override
@@ -155,12 +182,17 @@ class _$_$InstantiateGenericsToLowestBoundCtor
 
 abstract class _$InstantiateGenericsToLowestBoundCtor
     extends InstantiateGenericsToLowestBound {
-  factory _$InstantiateGenericsToLowestBoundCtor({required SwidType swidType}) =
+  factory _$InstantiateGenericsToLowestBoundCtor(
+          {required SwidType swidType,
+          required List<SwidOriginatedAncestorTypeFormal> swidTypeFormals}) =
       _$_$InstantiateGenericsToLowestBoundCtor;
   _$InstantiateGenericsToLowestBoundCtor._() : super._();
 
   @override
   SwidType get swidType => throw _privateConstructorUsedError;
+  @override
+  List<SwidOriginatedAncestorTypeFormal> get swidTypeFormals =>
+      throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$InstantiateGenericsToLowestBoundCtorCopyWith<

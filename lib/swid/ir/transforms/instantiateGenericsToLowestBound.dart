@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/ir/swidOriginatedAncestorTypeFormal.dart';
 
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/transforms/instantiateTypeArgumentsToLowestBoundInClass.dart';
@@ -35,6 +36,7 @@ class InstantiateGenericsToLowestBound
 
   factory InstantiateGenericsToLowestBound({
     required final SwidType swidType,
+    required final List<SwidOriginatedAncestorTypeFormal> swidTypeFormals,
   }) = _$InstantiateGenericsToLowestBoundCtor;
 
   @override
@@ -43,14 +45,17 @@ class InstantiateGenericsToLowestBound
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
     yield* swidType.hashKey.hashableParts;
+    yield* swidTypeFormals.hashableParts;
   }
 
   @override
   InstantiateGenericsToLowestBound clone({
     final SwidType? swidType,
+    final List<SwidOriginatedAncestorTypeFormal>? swidTypeFormals,
   }) =>
       InstantiateGenericsToLowestBound(
         swidType: swidType ?? this.swidType,
+        swidTypeFormals: swidTypeFormals ?? this.swidTypeFormals,
       );
 
   @override
@@ -62,6 +67,7 @@ class InstantiateGenericsToLowestBound
           fromSwidInterface: (val) => SwidType.fromSwidInterface(
             swidInterface: pipeline.reduceFromTerm(
               InstantiateTypeArgumentsToLowestBoundInInterface(
+                swidTypeFormals: swidTypeFormals,
                 swidInterface: val,
               ),
             ),
@@ -78,6 +84,7 @@ class InstantiateGenericsToLowestBound
                       .map(
                         (x) => pipeline.reduceFromTerm(
                           InstantiateTypeFormalToLowestBound(
+                            swidTypeFormals: swidTypeFormals,
                             swidTypeFormal: x,
                           ),
                         ),
@@ -89,6 +96,7 @@ class InstantiateGenericsToLowestBound
               SwidType.fromSwidDefaultFormalParameter(
             swidDefaultFormalParameter: pipeline.reduceFromTerm(
               InstantiateTypeArgumentsToLowestBoundInDefaultFormalParameter(
+                swidTypeFormals: swidTypeFormals,
                 swidDefaultFormalParameter: val,
               ),
             ),

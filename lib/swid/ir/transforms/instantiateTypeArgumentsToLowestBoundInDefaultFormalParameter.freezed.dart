@@ -18,7 +18,7 @@ class _$InstantiateTypeArgumentsToLowestBoundInDefaultFormalParameterTearOff {
 
   _$InstantiateTypeArgumentsToLowestBoundInDefaultFormalParameterCtor call(
       {required SwidDefaultFormalParameter swidDefaultFormalParameter,
-      List<SwidOriginatedAncestorTypeFormal>? swidTypeFormals}) {
+      required List<SwidOriginatedAncestorTypeFormal> swidTypeFormals}) {
     return _$InstantiateTypeArgumentsToLowestBoundInDefaultFormalParameterCtor(
       swidDefaultFormalParameter: swidDefaultFormalParameter,
       swidTypeFormals: swidTypeFormals,
@@ -34,7 +34,7 @@ const $InstantiateTypeArgumentsToLowestBoundInDefaultFormalParameter =
 mixin _$InstantiateTypeArgumentsToLowestBoundInDefaultFormalParameter {
   SwidDefaultFormalParameter get swidDefaultFormalParameter =>
       throw _privateConstructorUsedError;
-  List<SwidOriginatedAncestorTypeFormal>? get swidTypeFormals =>
+  List<SwidOriginatedAncestorTypeFormal> get swidTypeFormals =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -55,7 +55,7 @@ abstract class $InstantiateTypeArgumentsToLowestBoundInDefaultFormalParameterCop
           $Res>;
   $Res call(
       {SwidDefaultFormalParameter swidDefaultFormalParameter,
-      List<SwidOriginatedAncestorTypeFormal>? swidTypeFormals});
+      List<SwidOriginatedAncestorTypeFormal> swidTypeFormals});
 
   $SwidDefaultFormalParameterCopyWith<$Res> get swidDefaultFormalParameter;
 }
@@ -87,7 +87,7 @@ class _$InstantiateTypeArgumentsToLowestBoundInDefaultFormalParameterCopyWithImp
       swidTypeFormals: swidTypeFormals == freezed
           ? _value.swidTypeFormals
           : swidTypeFormals // ignore: cast_nullable_to_non_nullable
-              as List<SwidOriginatedAncestorTypeFormal>?,
+              as List<SwidOriginatedAncestorTypeFormal>,
     ));
   }
 
@@ -116,7 +116,7 @@ abstract class _$$InstantiateTypeArgumentsToLowestBoundInDefaultFormalParameterC
   @override
   $Res call(
       {SwidDefaultFormalParameter swidDefaultFormalParameter,
-      List<SwidOriginatedAncestorTypeFormal>? swidTypeFormals});
+      List<SwidOriginatedAncestorTypeFormal> swidTypeFormals});
 
   @override
   $SwidDefaultFormalParameterCopyWith<$Res> get swidDefaultFormalParameter;
@@ -160,7 +160,7 @@ class __$$InstantiateTypeArgumentsToLowestBoundInDefaultFormalParameterCtorCopyW
       swidTypeFormals: swidTypeFormals == freezed
           ? _value.swidTypeFormals
           : swidTypeFormals // ignore: cast_nullable_to_non_nullable
-              as List<SwidOriginatedAncestorTypeFormal>?,
+              as List<SwidOriginatedAncestorTypeFormal>,
     ));
   }
 }
@@ -170,13 +170,13 @@ class __$$InstantiateTypeArgumentsToLowestBoundInDefaultFormalParameterCtorCopyW
 class _$_$InstantiateTypeArgumentsToLowestBoundInDefaultFormalParameterCtor
     extends _$InstantiateTypeArgumentsToLowestBoundInDefaultFormalParameterCtor {
   _$_$InstantiateTypeArgumentsToLowestBoundInDefaultFormalParameterCtor(
-      {required this.swidDefaultFormalParameter, this.swidTypeFormals})
+      {required this.swidDefaultFormalParameter, required this.swidTypeFormals})
       : super._();
 
   @override
   final SwidDefaultFormalParameter swidDefaultFormalParameter;
   @override
-  final List<SwidOriginatedAncestorTypeFormal>? swidTypeFormals;
+  final List<SwidOriginatedAncestorTypeFormal> swidTypeFormals;
 
   @override
   String toString() {
@@ -217,7 +217,7 @@ abstract class _$InstantiateTypeArgumentsToLowestBoundInDefaultFormalParameterCt
     extends InstantiateTypeArgumentsToLowestBoundInDefaultFormalParameter {
   factory _$InstantiateTypeArgumentsToLowestBoundInDefaultFormalParameterCtor(
           {required SwidDefaultFormalParameter swidDefaultFormalParameter,
-          List<SwidOriginatedAncestorTypeFormal>? swidTypeFormals}) =
+          required List<SwidOriginatedAncestorTypeFormal> swidTypeFormals}) =
       _$_$InstantiateTypeArgumentsToLowestBoundInDefaultFormalParameterCtor;
   _$InstantiateTypeArgumentsToLowestBoundInDefaultFormalParameterCtor._()
       : super._();
@@ -226,7 +226,7 @@ abstract class _$InstantiateTypeArgumentsToLowestBoundInDefaultFormalParameterCt
   SwidDefaultFormalParameter get swidDefaultFormalParameter =>
       throw _privateConstructorUsedError;
   @override
-  List<SwidOriginatedAncestorTypeFormal>? get swidTypeFormals =>
+  List<SwidOriginatedAncestorTypeFormal> get swidTypeFormals =>
       throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)

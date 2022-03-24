@@ -163,6 +163,7 @@ void main() {
       cacheMgr: const PipelineNoopCacheMgr(),
     ).reduceFromTerm(
       InstantiateTypeFormalToLowestBound(
+        swidTypeFormals: [],
         swidTypeFormal: ir.typeFormals.first,
       ),
     );

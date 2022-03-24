@@ -231,7 +231,7 @@ void main() {
         ),
         """
 class VMManagedIterable
-    extends _36c2.VMManagedBox<_fac9.Iterable<_e3b0.dynamic>> {
+    extends _36c2.VMManagedBox<_fac9.Iterable<_fac9.dynamic>> {
   VMManagedIterable(
       {required this.table, required this.vmObject, required this.hydroState})
       : super(
@@ -265,7 +265,7 @@ class VMManagedIterable
 
   final _36c2.HydroState hydroState;
 
-  final _fac9.Iterable<_e3b0.dynamic> vmObject;
+  final _fac9.Iterable<_fac9.dynamic> vmObject;
 }
 """);
   }, tags: "swid");

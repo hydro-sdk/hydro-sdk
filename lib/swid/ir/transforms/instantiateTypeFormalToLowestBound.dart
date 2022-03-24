@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
+import 'package:hydro_sdk/swid/ir/swidOriginatedAncestorTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormalValue.dart';
@@ -33,6 +34,7 @@ class InstantiateTypeFormalToLowestBound
   /// Returns a type formal who's value is the same as it's lowest bound
   factory InstantiateTypeFormalToLowestBound({
     required final SwidTypeFormal swidTypeFormal,
+    required final List<SwidOriginatedAncestorTypeFormal> swidTypeFormals,
   }) = _$InstantiateTypeFormalToLowestBoundCtor;
 
   @override
@@ -41,14 +43,17 @@ class InstantiateTypeFormalToLowestBound
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
     yield* swidTypeFormal.hashKey.hashableParts;
+    yield* swidTypeFormals.hashableParts;
   }
 
   @override
   InstantiateTypeFormalToLowestBound clone({
     final SwidTypeFormal? swidTypeFormal,
+    final List<SwidOriginatedAncestorTypeFormal>? swidTypeFormals,
   }) =>
       InstantiateTypeFormalToLowestBound(
         swidTypeFormal: swidTypeFormal ?? this.swidTypeFormal,
+        swidTypeFormals: swidTypeFormals ?? this.swidTypeFormals,
       );
 
   @override
@@ -68,6 +73,7 @@ class InstantiateTypeFormalToLowestBound
                     swidInterface: pipeline
                         .reduceFromTerm(
                           InstantiateGenericsToLowestBound(
+                            swidTypeFormals: swidTypeFormals,
                             swidType: SwidType.fromSwidInterface(
                               swidInterface: val,
                             ),
@@ -87,6 +93,10 @@ class InstantiateTypeFormalToLowestBound
                   ),
                 ),
               )
-            : swidTypeFormal.clone(),
+            : swidTypeFormal.clone(
+                value: SwidTypeFormalValue.fromSwidInterface(
+                  swidInterface: dartDynamic,
+                ),
+              ),
       );
 }

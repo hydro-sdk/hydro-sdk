@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/ir/swidOriginatedAncestorTypeFormal.dart';
 
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/transforms/instantiateTypeFormalToLowestBound.dart';
@@ -61,10 +62,24 @@ class InstantiateTypeFormalsToLowestBound
           fromSwidClass: (val) => SwidType.fromSwidClass(
             swidClass: val.clone(
               typeFormals: val.typeFormals
-                  .map(
-                    (x) => pipeline.reduceFromTerm(
+                  .mapIndexed(
+                    (
+                      i,
+                      x,
+                    ) =>
+                        pipeline.reduceFromTerm(
                       InstantiateTypeFormalToLowestBound(
                         swidTypeFormal: x,
+                        swidTypeFormals: val.typeFormals
+                            .take(i)
+                            .map(
+                              (x) => SwidOriginatedAncestorTypeFormal(
+                                swidTypeFormal: x,
+                                kind:
+                                    SwidOriginatedAncestorTypeFormalKind.kClass,
+                              ),
+                            )
+                            .toList(),
                       ),
                     ),
                   )

@@ -43,7 +43,7 @@ class InstantiateTypeArgumentsToLowestBound
 
   factory InstantiateTypeArgumentsToLowestBound({
     required final SwidType swidType,
-    final List<SwidOriginatedAncestorTypeFormal>? swidTypeFormals,
+    required final List<SwidOriginatedAncestorTypeFormal> swidTypeFormals,
   }) = _$InstantiateTypeArgumentsToLowestBoundCtor;
 
   @override
@@ -52,7 +52,7 @@ class InstantiateTypeArgumentsToLowestBound
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
     yield* swidType.hashKey.hashableParts;
-    yield* swidTypeFormals?.hashableParts ?? [];
+    yield* swidTypeFormals.hashableParts;
   }
 
   @override
@@ -77,7 +77,7 @@ class InstantiateTypeArgumentsToLowestBound
             }) =>
                 res.referenceDeclarationKind ==
                             SwidReferenceDeclarationKind.typeParameterType &&
-                        swidTypeFormals?.firstWhereOrNull(
+                        swidTypeFormals.firstWhereOrNull(
                               (x) =>
                                   x.kind ==
                                       SwidOriginatedAncestorTypeFormalKind
@@ -132,7 +132,7 @@ class InstantiateTypeArgumentsToLowestBound
                                                           SwidReferenceDeclarationKind
                                                               .dynamicType) &&
                                                   (swidTypeFormals
-                                                          ?.firstWhereOrNull(
+                                                          .firstWhereOrNull(
                                                         (k) =>
                                                             k.kind ==
                                                                 SwidOriginatedAncestorTypeFormalKind

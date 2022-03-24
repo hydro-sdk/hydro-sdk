@@ -674,6 +674,7 @@ class DartRTManagedClassDeclaration
                           constructorType: pipeline
                               .reduceFromTerm(
                                 InstantiateGenericsToLowestBound(
+                                  swidTypeFormals: [],
                                   swidType: SwidType.fromSwidClass(
                                     swidClass: pipeline.reduceFromTerm(
                                       RewriteShadowingNormalConstructorParameters(
@@ -1001,6 +1002,7 @@ class DartRTManagedClassDeclaration
                 swidClass: pipeline
                     .reduceFromTerm(
                       InstantiateGenericsToLowestBound(
+                        swidTypeFormals: [],
                         swidType: SwidType.fromSwidClass(
                           swidClass: swidClass,
                         ),

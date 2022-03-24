@@ -35,7 +35,7 @@ class InstantiateTypeArgumentsToLowestBoundInInterface
 
   factory InstantiateTypeArgumentsToLowestBoundInInterface({
     required final SwidInterface swidInterface,
-    final List<SwidOriginatedAncestorTypeFormal>? swidTypeFormals,
+    required final List<SwidOriginatedAncestorTypeFormal> swidTypeFormals,
   }) = _$InstantiateTypeArgumentsToLowestBoundInInterfaceCtor;
 
   @override
@@ -44,7 +44,7 @@ class InstantiateTypeArgumentsToLowestBoundInInterface
   @override
   Iterable<Iterable<int>> get hashableParts sync* {
     yield* swidInterface.hashKey.hashableParts;
-    yield* swidTypeFormals?.hashableParts ?? [];
+    yield* swidTypeFormals.hashableParts;
   }
 
   @override
@@ -77,6 +77,7 @@ class InstantiateTypeArgumentsToLowestBoundInInterface
                       swidTypeFormals: swidTypeFormals,
                     ),
                   )
+                  // use custom clipper as a test for returning dynamic here instead of the original interface
                 : withInnerTransformedTypeArguments)(
           withInnerTransformedTypeArguments: swidInterface.clone(
             typeArguments: swidInterface.typeArguments
