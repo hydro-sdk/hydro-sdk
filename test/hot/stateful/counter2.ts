@@ -72,7 +72,7 @@ class MyHomePageState extends State<MyHomePage> {
                         new Text("The text is different this time"),
                         new Text(this.counter.toString(), {
                             key: new Key("counter"),
-                            style: Theme.of(context).textTheme.display1,
+                            style: Theme.of(context).textTheme.headline4,
                         }),
                     ],
                 }),

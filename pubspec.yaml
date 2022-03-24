@@ -1,7 +1,7 @@
 description: A new Flutter project.
 name: hydro_sdk
 version: 1.0.0+1
-dependencies: 
+dependencies:
   analyzer: ^1.7.1
   args: ^2.1.1
   benchmark_harness: ^2.0.0
@@ -12,7 +12,7 @@ dependencies:
   petitparser: 4.1.0
   recase: ^4.0.0
   tuple: ^2.0.0
-  flutter: 
+  flutter:
     sdk: flutter
   archive: ^3.1.2
   cli_util: ^0.3.0
@@ -32,14 +32,15 @@ dependencies:
   glob: 2.0.1
   path_provider: null
   quiver: 3.0.1
-dev_dependencies: 
+  theater: 0.1.52
+dev_dependencies:
   import_sorter: null
   build_runner: null
   test: ^1.16.5
   waveform: ^0.0.1-nightly.48
   flutter_test:
     sdk: flutter
-environment: 
-  sdk: '>=2.12.0 <3.0.0'
-flutter: 
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+flutter:
   uses-material-design: true

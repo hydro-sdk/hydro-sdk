@@ -90,12 +90,12 @@ SwidFunctionType swidFunctionTypeFromFunctionType({
                                 : dartUnknownType,
                       )))
                   .toList()
-                    ..removeWhere(
-                      (x) =>
-                          x.key == "" ||
-                          x.value == dartUnknownConst ||
-                          x.value.value == dartUnknownConst,
-                    ))
+                ..removeWhere(
+                  (x) =>
+                      x.key == "" ||
+                      x.value == dartUnknownConst ||
+                      x.value.value == dartUnknownConst,
+                ))
               : <String, SwidDefaultFormalParameter>{})(
         defaultParameters: functionType.parameters
             .map(

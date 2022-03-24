@@ -47,7 +47,6 @@ void loadTextFormField(
           autocorrect: args[0]["autocorrect"],
           smartDashesType: maybeUnBoxEnum(values: SmartDashesType.values, boxedEnum: args[0]["smartDashesType"]),
           smartQuotesType: maybeUnBoxEnum(values: SmartQuotesType.values, boxedEnum: args[0]["smartQuotesType"]),
-          autovalidate: args[0]["autovalidate"],
           maxLengthEnforced: args[0]["maxLengthEnforced"],
           maxLines: args[0]["maxLines"],
           expands: args[0]["expands"],

@@ -48,7 +48,6 @@ export interface TextFormFieldProps {
     smartDashesType?: SmartDashesType | undefined;
     smartQuotesType?: SmartQuotesType | undefined;
     enableSuggestions?: boolean | undefined;
-    autovalidate?: boolean | undefined;
     maxLengthEnforced?: boolean | undefined;
     maxLines?: number | undefined;
     minLines?: number | undefined;
@@ -115,10 +114,6 @@ export class TextFormField extends StatelessWidget implements RuntimeBaseClass {
         }
         if (this.props.autocorrect === undefined) {
             this.props.autocorrect = true;
-        }
-
-        if (this.props.autovalidate === undefined) {
-            this.props.autovalidate = false;
         }
 
         if (this.props.maxLengthEnforced === undefined) {

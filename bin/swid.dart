@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
@@ -11,26 +12,37 @@ import 'package:hydro_sdk/swid/backend/util/barrelMember.dart';
 import 'package:hydro_sdk/swid/backend/util/resolveBarrelSpecs.dart';
 import 'package:hydro_sdk/swid/backend/writeTranslationUnit.dart';
 import 'package:hydro_sdk/swid/config/swidConfig.dart';
+import 'package:hydro_sdk/swid/emitSystems/classTranslationUnitEmitSystem.dart';
 import 'package:hydro_sdk/swid/frontend/dart/dartFrontend.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/swidiFrontend.dart';
 import 'package:hydro_sdk/swid/frontend/swidiInputResolver.dart';
 import 'package:hydro_sdk/swid/ir/swidIr.dart';
-import 'package:hydro_sdk/swid/ir/util/fixupNullability.dart';
 import 'package:hydro_sdk/swid/swars/cachingPipeline.dart';
 import 'package:hydro_sdk/swid/swars/pipelineFsCacheMgr.dart';
 import 'package:hydro_sdk/swid/transforms/transformPackageUri.dart';
 import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';
 import 'package:hydro_sdk/swid/util/cliTiming.dart';
+import 'package:hydro_sdk/tui/framework/consoleTuiBinding.dart';
+import 'package:hydro_sdk/tui/framework/debugConsoleTuiBinding.dart';
 
 void main(List<String> args) async {
+  bool isDebugging = false;
   assert((() {
     args = [
       "--config",
       "swid.flutter.json",
       "--no-fs-cache",
     ];
+    isDebugging = true;
     return true;
   })());
+
+  if (!isDebugging) {
+    ConsoleTuiBinding.initialize();
+  } else {
+    DebugConsoleTuiBinding.initialize();
+    print("Using debug console bindings. Some TUI features may not work");
+  }
 
   var parser = ArgParser();
 
@@ -40,10 +52,16 @@ void main(List<String> args) async {
     negatable: true,
     defaultsTo: true,
   );
+  parser.addOption(
+    "jobs",
+    abbr: "j",
+    defaultsTo: "1",
+  );
 
   final results = parser.parse(args);
 
   final bool? fsCache = results["fs-cache"];
+  final int jobs = int.parse(results["jobs"]);
 
   SwidConfig config = SwidConfig.fromJson(
       jsonDecode(await File(results["config"]).readAsString()));
@@ -150,45 +168,6 @@ void main(List<String> args) async {
     },
   );
 
-  final classes = irClasses
-      .where((x) => (config.emitOptions.allowList.classNames.isNotEmpty ||
-              config.emitOptions.allowList.packagePaths.isNotEmpty)
-          ? (config.emitOptions.allowList.classNames.firstWhereOrNull((e) => x.name == e) !=
-                  null ||
-              config.emitOptions.allowList.packagePaths
-                      .firstWhereOrNull((e) => x.originalPackagePath == e) !=
-                  null)
-          : true)
-      .where((x) => (config.emitOptions.denyList.classNames
-                  .firstWhereOrNull((e) => x.name == e) ==
-              null &&
-          config.emitOptions.denyList.packagePaths
-                  .firstWhereOrNull((e) => x.originalPackagePath == e) ==
-              null))
-      .toList();
-
-  await CliTiming(
-    logger: logger,
-    message: "Producing Typescript and Dart translation units from classes",
-    fun: () async {
-      for (var i = 0; i != classes.length; ++i) {
-        await Future.forEach(
-            TranslationUnitProducer(
-              pipeline: pipeline,
-              prefixPaths: config.emitOptions.prefixPaths,
-              path: transformPackageUri(
-                packageUri: classes[i].originalPackagePath,
-              ),
-              baseFileName: "${transformToCamelCase(str: classes[i].name)}",
-              tsPrefixPaths: config.emitOptions.tsEmitOptions.prefixPaths,
-              dartPrefixPaths: config.emitOptions.dartEmitOptions.prefixPaths,
-            ).produceFromSwidClass(
-                swidClass: fixupNullability(swidClass: classes[i])),
-            (dynamic x) => writeTranslationUnit(translationUnit: x));
-      }
-    },
-  );
-
   await CliTiming(
     logger: logger,
     message:
@@ -215,6 +194,23 @@ void main(List<String> args) async {
     },
   );
 
+  final classes = irClasses
+      .where((x) => (config.emitOptions.allowList.classNames.isNotEmpty ||
+              config.emitOptions.allowList.packagePaths.isNotEmpty)
+          ? (config.emitOptions.allowList.classNames.firstWhereOrNull((e) => x.name == e) !=
+                  null ||
+              config.emitOptions.allowList.packagePaths
+                      .firstWhereOrNull((e) => x.originalPackagePath == e) !=
+                  null)
+          : true)
+      .where((x) => (config.emitOptions.denyList.classNames
+                  .firstWhereOrNull((e) => x.name == e) ==
+              null &&
+          config.emitOptions.denyList.packagePaths
+                  .firstWhereOrNull((e) => x.originalPackagePath == e) ==
+              null))
+      .toList();
+
   await CliTiming(
     logger: logger,
     message:
@@ -232,24 +228,13 @@ void main(List<String> args) async {
         (dynamic x) => writeTranslationUnit(translationUnit: x)),
   );
 
-  final topCacheHits = pipeline.topCacheHitsByCacheGroup();
+  final classTranslationUnitEmitSystem = ClassTranslationUnitEmitSystem(
+    parallelism: jobs,
+    workItems: classes,
+    config: config,
+  );
 
-  if (topCacheHits.isNotEmpty) {
-    print("The following are the most re-used terms:");
-    topCacheHits.forEach(
-      (x) => print(" ${x.item1}: ${x.item2}"),
-    );
-  }
-
-  final emptyCacheHits = pipeline.emptyCacheHitsByCacheGroup();
-
-  if (emptyCacheHits.isNotEmpty) {
-    print(
-        "The following terms generated results but their caches were never hit:");
-    emptyCacheHits.forEach(
-      (x) => print("  ${x.item1}"),
-    );
-  }
+  await classTranslationUnitEmitSystem.run();
 
   if (fsCache == true) {
     await pipeline.serialize();
