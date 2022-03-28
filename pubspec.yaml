@@ -32,12 +32,13 @@ dependencies:
   glob: 2.0.1
   path_provider: null
   quiver: 3.0.1
+  waveform: 0.0.1-nightly.49
 dev_dependencies: 
   import_sorter: null
   build_runner: null
   test: ^1.16.5
   waveform: ^0.0.1-nightly.48
-  flutter_test:
+  flutter_test: 
     sdk: flutter
 environment: 
   sdk: '>=2.12.0 <3.0.0'

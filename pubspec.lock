@@ -339,7 +339,7 @@ packages:
       name: hydro_sdk_version
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.2.1"
+    version: "1.2.3"
   import_sorter:
     dependency: "direct dev"
     description:
@@ -724,12 +724,12 @@ packages:
     source: hosted
     version: "1.0.0"
   waveform:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: waveform
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.0.1-nightly.48"
+    version: "0.0.1-nightly.49"
   web_socket_channel:
     dependency: transitive
     description:
