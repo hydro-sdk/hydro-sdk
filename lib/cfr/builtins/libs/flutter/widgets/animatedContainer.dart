@@ -518,9 +518,7 @@ void loadAnimatedContainer(
           margin: _36c2.maybeUnBoxAndBuildArgument<_96d1.EdgeInsetsGeometry?, _fac9.dynamic>(luaCallerArguments.length >= 2 ? luaCallerArguments[1]['margin'] : null, parentState: hydroState),
           onEnd: unpackedonEnd != null
               ? () => unpackedonEnd.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,

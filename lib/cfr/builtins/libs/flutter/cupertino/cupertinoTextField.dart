@@ -920,9 +920,7 @@ void loadCupertinoTextField(
               : null,
           onEditingComplete: unpackedonEditingComplete != null
               ? () => unpackedonEditingComplete.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,
@@ -934,9 +932,7 @@ void loadCupertinoTextField(
               : null,
           onTap: unpackedonTap != null
               ? () => unpackedonTap.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,

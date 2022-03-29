@@ -38,9 +38,7 @@ class VMManagedConstraints extends _36c2.VMManagedBox<_9742.Constraints> {
                         _fac9.Iterable<_eaf3.DiagnosticsNode>,
                         _eaf3.DiagnosticsNode>(
                     unpackedinformationCollector.dispatch(
-                      [
-                        luaCallerArguments[0],
-                      ],
+                      [luaCallerArguments[0]],
                       parentState: hydroState,
                     )[0],
                     parentState: hydroState)
@@ -90,9 +88,7 @@ class RTManagedConstraints extends _9742.Constraints
                             _fac9.Iterable<_eaf3.DiagnosticsNode>,
                             _eaf3.DiagnosticsNode>(
                         unpackedinformationCollector.dispatch(
-                          [
-                            luaCallerArguments[0],
-                          ],
+                          [luaCallerArguments[0]],
                           parentState: hydroState,
                         )[0],
                         parentState: hydroState)

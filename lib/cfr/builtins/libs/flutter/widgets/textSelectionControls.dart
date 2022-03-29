@@ -34,9 +34,7 @@ class VMManagedTextSelectionControls
                 luaCallerArguments[3]?.toDouble(),
                 unpackedonTap != null
                     ? () => unpackedonTap.dispatch(
-                          [
-                            luaCallerArguments[0],
-                          ],
+                          [luaCallerArguments[0]],
                           parentState: hydroState,
                         )
                     : null,
@@ -203,9 +201,7 @@ class RTManagedTextSelectionControls extends _578c.TextSelectionControls
                     parentState: hydroState),
                 unpackedonTap != null
                     ? () => unpackedonTap.dispatch(
-                          [
-                            luaCallerArguments[0],
-                          ],
+                          [luaCallerArguments[0]],
                           parentState: hydroState,
                         )
                     : null,

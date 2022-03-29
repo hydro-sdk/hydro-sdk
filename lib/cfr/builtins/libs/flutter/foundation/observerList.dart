@@ -267,9 +267,7 @@ class VMManagedObserverList
                 )[0],
             orElse: unpackedorElse != null
                 ? () => unpackedorElse.dispatch(
-                      [
-                        luaCallerArguments[0],
-                      ],
+                      [luaCallerArguments[0]],
                       parentState: hydroState,
                     )[0]
                 : null),
@@ -289,9 +287,7 @@ class VMManagedObserverList
                 )[0],
             orElse: unpackedorElse != null
                 ? () => unpackedorElse.dispatch(
-                      [
-                        luaCallerArguments[0],
-                      ],
+                      [luaCallerArguments[0]],
                       parentState: hydroState,
                     )[0]
                 : null),
@@ -311,9 +307,7 @@ class VMManagedObserverList
                 )[0],
             orElse: unpackedorElse != null
                 ? () => unpackedorElse.dispatch(
-                      [
-                        luaCallerArguments[0],
-                      ],
+                      [luaCallerArguments[0]],
                       parentState: hydroState,
                     )[0]
                 : null),
@@ -668,9 +662,7 @@ class RTManagedObserverList extends _1fed.ObserverList
                     parentState: hydroState),
             orElse: unpackedorElse != null
                 ? () => unpackedorElse.dispatch(
-                      [
-                        luaCallerArguments[0],
-                      ],
+                      [luaCallerArguments[0]],
                       parentState: hydroState,
                     )[0]
                 : null)
@@ -693,9 +685,7 @@ class RTManagedObserverList extends _1fed.ObserverList
                     parentState: hydroState),
             orElse: unpackedorElse != null
                 ? () => unpackedorElse.dispatch(
-                      [
-                        luaCallerArguments[0],
-                      ],
+                      [luaCallerArguments[0]],
                       parentState: hydroState,
                     )[0]
                 : null)
@@ -718,9 +708,7 @@ class RTManagedObserverList extends _1fed.ObserverList
                     parentState: hydroState),
             orElse: unpackedorElse != null
                 ? () => unpackedorElse.dispatch(
-                      [
-                        luaCallerArguments[0],
-                      ],
+                      [luaCallerArguments[0]],
                       parentState: hydroState,
                     )[0]
                 : null)

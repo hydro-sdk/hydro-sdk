@@ -221,9 +221,7 @@ class VMManagedScrollPosition extends _36c2.VMManagedBox<_6c49.ScrollPosition> {
       return [
         _36c2.maybeBoxObject<_ca8b.ScrollHoldController>(
             object: vmObject.hold(() => unpackedholdCancelCallback.dispatch(
-                  [
-                    luaCallerArguments[0],
-                  ],
+                  [luaCallerArguments[0]],
                   parentState: hydroState,
                 )),
             hydroState: hydroState,
@@ -240,9 +238,7 @@ class VMManagedScrollPosition extends _36c2.VMManagedBox<_6c49.ScrollPosition> {
                         _fac9.dynamic>(luaCallerArguments[1],
                     parentState: hydroState),
                 () => unpackeddragCancelCallback.dispatch(
-                      [
-                        luaCallerArguments[0],
-                      ],
+                      [luaCallerArguments[0]],
                       parentState: hydroState,
                     )),
             hydroState: hydroState,
@@ -404,9 +400,7 @@ class VMManagedScrollPosition extends _36c2.VMManagedBox<_6c49.ScrollPosition> {
         func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       _36c2.Closure unpackedlistener = luaCallerArguments[1];
       vmObject.addListener(() => unpackedlistener.dispatch(
-            [
-              luaCallerArguments[0],
-            ],
+            [luaCallerArguments[0]],
             parentState: hydroState,
           ));
       return [];
@@ -415,9 +409,7 @@ class VMManagedScrollPosition extends _36c2.VMManagedBox<_6c49.ScrollPosition> {
         func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       _36c2.Closure unpackedlistener = luaCallerArguments[1];
       vmObject.removeListener(() => unpackedlistener.dispatch(
-            [
-              luaCallerArguments[0],
-            ],
+            [luaCallerArguments[0]],
             parentState: hydroState,
           ));
       return [];
@@ -741,9 +733,7 @@ class RTManagedScrollPosition extends _6c49.ScrollPosition
       return [
         _36c2.maybeBoxObject(
             object: hold(() => unpackedholdCancelCallback.dispatch(
-                  [
-                    luaCallerArguments[0],
-                  ],
+                  [luaCallerArguments[0]],
                   parentState: hydroState,
                 )),
             hydroState: hydroState,
@@ -760,9 +750,7 @@ class RTManagedScrollPosition extends _6c49.ScrollPosition
                         _fac9.dynamic>(luaCallerArguments[1],
                     parentState: hydroState),
                 () => unpackeddragCancelCallback.dispatch(
-                      [
-                        luaCallerArguments[0],
-                      ],
+                      [luaCallerArguments[0]],
                       parentState: hydroState,
                     )),
             hydroState: hydroState,
@@ -918,9 +906,7 @@ class RTManagedScrollPosition extends _6c49.ScrollPosition
         func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       _36c2.Closure unpackedlistener = luaCallerArguments[1];
       super.addListener(() => unpackedlistener.dispatch(
-            [
-              luaCallerArguments[0],
-            ],
+            [luaCallerArguments[0]],
             parentState: hydroState,
           ));
       return [];
@@ -929,9 +915,7 @@ class RTManagedScrollPosition extends _6c49.ScrollPosition
         func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       _36c2.Closure unpackedlistener = luaCallerArguments[1];
       super.removeListener(() => unpackedlistener.dispatch(
-            [
-              luaCallerArguments[0],
-            ],
+            [luaCallerArguments[0]],
             parentState: hydroState,
           ));
       return [];

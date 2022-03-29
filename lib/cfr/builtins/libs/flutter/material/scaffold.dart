@@ -5,15 +5,13 @@ import 'package:flutter/src/foundation/change_notifier.dart' as _e644;
 import 'package:flutter/src/foundation/diagnostics.dart' as _eaf3;
 import 'package:flutter/src/foundation/key.dart' as _ab4a;
 import 'package:flutter/src/gestures/recognizer.dart' as _02d2;
+import 'package:flutter/src/material/floating_action_button_location.dart'
+    as _b2ee;
 import 'package:flutter/src/material/scaffold.dart' as _ece7;
 import 'package:flutter/src/widgets/framework.dart' as _e2dc;
 import 'package:flutter/src/widgets/preferred_size.dart' as _75de;
 
 import 'package:hydro_sdk/cfr/runtimeSupport.dart' as _36c2;
-
-import 'package:flutter/src/material/floating_action_button_location.dart'
-    as _b2ee;
-
 
 class VMManagedScaffold extends _36c2.VMManagedBox<_ece7.Scaffold> {
   VMManagedScaffold(

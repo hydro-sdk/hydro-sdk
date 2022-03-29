@@ -731,17 +731,13 @@ void loadGestureDetector(
               parentState: hydroState),
           onDoubleTap: unpackedonDoubleTap != null
               ? () => unpackedonDoubleTap.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,
           onDoubleTapCancel: unpackedonDoubleTapCancel != null
               ? () => unpackedonDoubleTapCancel.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,
@@ -777,9 +773,7 @@ void loadGestureDetector(
               : null,
           onHorizontalDragCancel: unpackedonHorizontalDragCancel != null
               ? () => unpackedonHorizontalDragCancel.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,
@@ -809,17 +803,13 @@ void loadGestureDetector(
               : null,
           onLongPress: unpackedonLongPress != null
               ? () => unpackedonLongPress.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,
           onLongPressCancel: unpackedonLongPressCancel != null
               ? () => unpackedonLongPressCancel.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,
@@ -849,17 +839,13 @@ void loadGestureDetector(
               : null,
           onLongPressUp: unpackedonLongPressUp != null
               ? () => unpackedonLongPressUp.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,
           onPanCancel: unpackedonPanCancel != null
               ? () => unpackedonPanCancel.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,
@@ -907,17 +893,13 @@ void loadGestureDetector(
               : null,
           onSecondaryLongPress: unpackedonSecondaryLongPress != null
               ? () => unpackedonSecondaryLongPress.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,
           onSecondaryLongPressCancel: unpackedonSecondaryLongPressCancel != null
               ? () => unpackedonSecondaryLongPressCancel.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,
@@ -948,25 +930,19 @@ void loadGestureDetector(
               : null,
           onSecondaryLongPressUp: unpackedonSecondaryLongPressUp != null
               ? () => unpackedonSecondaryLongPressUp.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,
           onSecondaryTap: unpackedonSecondaryTap != null
               ? () => unpackedonSecondaryTap.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,
           onSecondaryTapCancel: unpackedonSecondaryTapCancel != null
               ? () => unpackedonSecondaryTapCancel.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,
@@ -984,17 +960,13 @@ void loadGestureDetector(
               : null,
           onTap: unpackedonTap != null
               ? () => unpackedonTap.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,
           onTapCancel: unpackedonTapCancel != null
               ? () => unpackedonTapCancel.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,
@@ -1012,17 +984,13 @@ void loadGestureDetector(
               : null,
           onTertiaryLongPress: unpackedonTertiaryLongPress != null
               ? () => unpackedonTertiaryLongPress.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,
           onTertiaryLongPressCancel: unpackedonTertiaryLongPressCancel != null
               ? () => unpackedonTertiaryLongPressCancel.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,
@@ -1052,17 +1020,13 @@ void loadGestureDetector(
               : null,
           onTertiaryLongPressUp: unpackedonTertiaryLongPressUp != null
               ? () => unpackedonTertiaryLongPressUp.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,
           onTertiaryTapCancel: unpackedonTertiaryTapCancel != null
               ? () => unpackedonTertiaryTapCancel.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,
@@ -1080,9 +1044,7 @@ void loadGestureDetector(
               : null,
           onVerticalDragCancel: unpackedonVerticalDragCancel != null
               ? () => unpackedonVerticalDragCancel.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,

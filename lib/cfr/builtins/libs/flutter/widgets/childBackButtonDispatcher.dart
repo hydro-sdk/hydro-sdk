@@ -36,9 +36,7 @@ class VMManagedChildBackButtonDispatcher
       vmObject.removeCallback(() => _36c2
           .maybeUnBoxAndBuildArgument<_7de1.Future<_fac9.bool>, _fac9.bool>(
               unpackedcallback.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               )[0],
               parentState: hydroState));
@@ -83,9 +81,7 @@ class VMManagedChildBackButtonDispatcher
       vmObject.addCallback(() => _36c2
           .maybeUnBoxAndBuildArgument<_7de1.Future<_fac9.bool>, _fac9.bool>(
               unpackedcallback.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               )[0],
               parentState: hydroState));
@@ -155,9 +151,7 @@ class RTManagedChildBackButtonDispatcher extends _f6ef.ChildBackButtonDispatcher
       super.removeCallback(() => _36c2
           .maybeUnBoxAndBuildArgument<_7de1.Future<_fac9.bool>, _fac9.bool>(
               unpackedcallback.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               )[0],
               parentState: hydroState));
@@ -200,9 +194,7 @@ class RTManagedChildBackButtonDispatcher extends _f6ef.ChildBackButtonDispatcher
       super.addCallback(() => _36c2
           .maybeUnBoxAndBuildArgument<_7de1.Future<_fac9.bool>, _fac9.bool>(
               unpackedcallback.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               )[0],
               parentState: hydroState));

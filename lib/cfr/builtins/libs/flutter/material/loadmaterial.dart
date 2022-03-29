@@ -24,6 +24,8 @@ import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/backButton.dart'
     as _c460;
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/backButtonIcon.dart'
     as _8144;
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/baseSliderTrackShape.dart'
+    as _1455;
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/bottomAppBar.dart'
     as _62de;
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/bottomAppBarTheme.dart'
@@ -172,6 +174,20 @@ import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/expansionPanelRadio
     as _294a;
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/expansionTile.dart'
     as _bef3;
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/fabCenterOffsetX.dart'
+    as _1d9c;
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/fabDockedOffsetY.dart'
+    as _0044;
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/fabEndOffsetX.dart'
+    as _2e3a;
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/fabFloatOffsetY.dart'
+    as _df39;
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/fabMiniOffsetAdjustment.dart'
+    as _9546;
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/fabStartOffsetX.dart'
+    as _422a;
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/fabTopOffsetY.dart'
+    as _2d16;
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/fadeUpwardsPageTransitionsBuilder.dart'
     as _4ed3;
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/feedback.dart'
@@ -202,11 +218,7 @@ import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/iconButton.dart'
     as _7a59;
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/icons.dart'
     as _b24b;
-
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/ink.dart' as _0aed;
-import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/tab.dart' as _2ad8;
-import 'package:hydro_sdk/cfr/runtimeSupport.dart' as _36c2;
-
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/inkDecoration.dart'
     as _2d08;
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/inkFeature.dart'
@@ -281,6 +293,8 @@ import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/materialRectArcTwee
     as _698d;
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/materialRectCenterArcTween.dart'
     as _0ecd;
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/materialRouteTransitionMixin.dart'
+    as _ec6e;
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/materialScrollBehavior.dart'
     as _735b;
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/materialSlice.dart'
@@ -289,6 +303,8 @@ import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/materialStateBorder
     as _b936;
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/materialStateColor.dart'
     as _77ec;
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/materialStateMixin.dart'
+    as _1529;
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/materialStateMouseCursor.dart'
     as _baa6;
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/materialStateOutlineInputBorder.dart'
@@ -499,6 +515,7 @@ import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/switchTheme.dart'
     as _2dd8;
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/switchThemeData.dart'
     as _ffe9;
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/tab.dart' as _2ad8;
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/tabBar.dart'
     as _85ae;
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/tabBarTheme.dart'
@@ -557,6 +574,8 @@ import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/toggleButtonsThemeD
     as _6c1b;
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/toggleablePainter.dart'
     as _1942;
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/toggleableStateMixin.dart'
+    as _7ced;
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/tooltip.dart'
     as _6bfd;
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/tooltipTheme.dart'
@@ -581,6 +600,7 @@ import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/yearPicker.dart'
     as _912a;
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/zoomPageTransitionsBuilder.dart'
     as _7c6f;
+import 'package:hydro_sdk/cfr/runtimeSupport.dart' as _36c2;
 
 void loadmaterial(
     {required _36c2.HydroState hydroState, required _36c2.HydroTable table}) {
@@ -649,6 +669,7 @@ void loadmaterial(
   _138d.loadInputDatePickerFormField(
       table: loadmaterial, hydroState: hydroState);
   _5057.loadBottomAppBarTheme(table: loadmaterial, hydroState: hydroState);
+  _1529.loadMaterialStateMixin(table: loadmaterial, hydroState: hydroState);
   _0025.loadTabBarTheme(table: loadmaterial, hydroState: hydroState);
   _4528.loadOutlinedButtonThemeData(
       table: loadmaterial, hydroState: hydroState);
@@ -672,6 +693,8 @@ void loadmaterial(
   _80d0.loadPageTransitionsTheme(table: loadmaterial, hydroState: hydroState);
   _85da.loadAppBarTheme(table: loadmaterial, hydroState: hydroState);
   _5d3f.loadMaterialPageRoute(table: loadmaterial, hydroState: hydroState);
+  _ec6e.loadMaterialRouteTransitionMixin(
+      table: loadmaterial, hydroState: hydroState);
   _2c2e.loadMaterialPage(table: loadmaterial, hydroState: hydroState);
   _ebb3.loadMaterialColor(table: loadmaterial, hydroState: hydroState);
   _9471.loadMaterialAccentColor(table: loadmaterial, hydroState: hydroState);
@@ -828,6 +851,14 @@ void loadmaterial(
   _8e55.loadFloatingActionButtonLocation(
       table: loadmaterial, hydroState: hydroState);
   _1675.loadStandardFabLocation(table: loadmaterial, hydroState: hydroState);
+  _2d16.loadFabTopOffsetY(table: loadmaterial, hydroState: hydroState);
+  _df39.loadFabFloatOffsetY(table: loadmaterial, hydroState: hydroState);
+  _0044.loadFabDockedOffsetY(table: loadmaterial, hydroState: hydroState);
+  _422a.loadFabStartOffsetX(table: loadmaterial, hydroState: hydroState);
+  _1d9c.loadFabCenterOffsetX(table: loadmaterial, hydroState: hydroState);
+  _2e3a.loadFabEndOffsetX(table: loadmaterial, hydroState: hydroState);
+  _9546.loadFabMiniOffsetAdjustment(
+      table: loadmaterial, hydroState: hydroState);
   _a446.loadFloatingActionButtonAnimator(
       table: loadmaterial, hydroState: hydroState);
   _bef3.loadExpansionTile(table: loadmaterial, hydroState: hydroState);
@@ -856,6 +887,7 @@ void loadmaterial(
   _f82c.loadRangeSliderTickMarkShape(
       table: loadmaterial, hydroState: hydroState);
   _d17d.loadRangeSliderTrackShape(table: loadmaterial, hydroState: hydroState);
+  _1455.loadBaseSliderTrackShape(table: loadmaterial, hydroState: hydroState);
   _6941.loadRectangularSliderTrackShape(
       table: loadmaterial, hydroState: hydroState);
   _ac6a.loadRoundedRectSliderTrackShape(
@@ -918,6 +950,7 @@ void loadmaterial(
   _b24b.loadIcons(table: loadmaterial, hydroState: hydroState);
   _2aba.loadAutocomplete(table: loadmaterial, hydroState: hydroState);
   _4768.loadSearchDelegate(table: loadmaterial, hydroState: hydroState);
+  _7ced.loadToggleableStateMixin(table: loadmaterial, hydroState: hydroState);
   _1942.loadToggleablePainter(table: loadmaterial, hydroState: hydroState);
   _7d56.loadInkSplash(table: loadmaterial, hydroState: hydroState);
   _58a9.loadExpansionPanel(table: loadmaterial, hydroState: hydroState);

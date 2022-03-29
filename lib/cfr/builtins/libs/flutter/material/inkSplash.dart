@@ -175,9 +175,7 @@ class RTManagedInkSplash extends _a756.InkSplash
               ? () =>
                   _36c2.maybeUnBoxAndBuildArgument<_a643.Rect, _fac9.dynamic>(
                       unpackedclipCallback.dispatch(
-                        [
-                          luaCallerArguments[0],
-                        ],
+                        [luaCallerArguments[0]],
                         parentState: hydroState,
                       )[0],
                       parentState: hydroState)
@@ -346,9 +344,7 @@ void loadInkSplash(
               parentState: hydroState),
           onRemoved: unpackedonRemoved != null
               ? () => unpackedonRemoved.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,
@@ -359,9 +355,7 @@ void loadInkSplash(
           rectCallback: unpackedrectCallback != null
               ? () => _36c2.maybeUnBoxAndBuildArgument<_a643.Rect, _fac9.dynamic>(
                   unpackedrectCallback.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )[0],
                   parentState: hydroState)

@@ -476,9 +476,7 @@ void loadUserAccountsDrawerHeader(
           margin: _36c2.maybeUnBoxAndBuildArgument<_96d1.EdgeInsetsGeometry?, _fac9.dynamic>(luaCallerArguments.length >= 2 ? luaCallerArguments[1]['margin'] : null, parentState: hydroState),
           onDetailsPressed: unpackedonDetailsPressed != null
               ? () => unpackedonDetailsPressed.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,

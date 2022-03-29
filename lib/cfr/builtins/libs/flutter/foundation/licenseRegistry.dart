@@ -30,9 +30,7 @@ void loadLicenseRegistry(
     _7782.LicenseRegistry.addLicense(() => _36c2.maybeUnBoxAndBuildArgument<
             _7de1.Stream<_7782.LicenseEntry>, _7782.LicenseEntry>(
         unpackedcollector.dispatch(
-          [
-            luaCallerArguments[0],
-          ],
+          [luaCallerArguments[0]],
           parentState: hydroState,
         )[0],
         parentState: hydroState));

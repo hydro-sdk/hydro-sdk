@@ -43,9 +43,7 @@ class VMManagedOneFrameImageStreamCompleter
         func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       _36c2.Closure unpackedcallback = luaCallerArguments[1];
       vmObject.addOnLastListenerRemovedCallback(() => unpackedcallback.dispatch(
-            [
-              luaCallerArguments[0],
-            ],
+            [luaCallerArguments[0]],
             parentState: hydroState,
           ));
       return [];
@@ -55,9 +53,7 @@ class VMManagedOneFrameImageStreamCompleter
       _36c2.Closure unpackedcallback = luaCallerArguments[1];
       vmObject
           .removeOnLastListenerRemovedCallback(() => unpackedcallback.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               ));
       return [];
@@ -81,9 +77,7 @@ class VMManagedOneFrameImageStreamCompleter
                       _fac9.Iterable<_eaf3.DiagnosticsNode>,
                       _eaf3.DiagnosticsNode>(
                   unpackedinformationCollector.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )[0],
                   parentState: hydroState)
@@ -197,9 +191,7 @@ class RTManagedOneFrameImageStreamCompleter
         func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       _36c2.Closure unpackedcallback = luaCallerArguments[1];
       super.addOnLastListenerRemovedCallback(() => unpackedcallback.dispatch(
-            [
-              luaCallerArguments[0],
-            ],
+            [luaCallerArguments[0]],
             parentState: hydroState,
           ));
       return [];
@@ -208,9 +200,7 @@ class RTManagedOneFrameImageStreamCompleter
         func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       _36c2.Closure unpackedcallback = luaCallerArguments[1];
       super.removeOnLastListenerRemovedCallback(() => unpackedcallback.dispatch(
-            [
-              luaCallerArguments[0],
-            ],
+            [luaCallerArguments[0]],
             parentState: hydroState,
           ));
       return [];
@@ -242,9 +232,7 @@ class RTManagedOneFrameImageStreamCompleter
                       _fac9.Iterable<_eaf3.DiagnosticsNode>,
                       _eaf3.DiagnosticsNode>(
                   unpackedinformationCollector.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )[0],
                   parentState: hydroState)
@@ -448,9 +436,7 @@ void loadOneFrameImageStreamCompleter(
                       _fac9.Iterable<_eaf3.DiagnosticsNode>,
                       _eaf3.DiagnosticsNode>(
                   unpackedinformationCollector.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )[0],
                   parentState: hydroState)

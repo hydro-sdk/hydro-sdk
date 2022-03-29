@@ -147,9 +147,7 @@ class VMManagedWidgetsFlutterBinding
         _36c2.maybeBoxObject<_7de1.Future>(
             object: vmObject.scheduleTask(
                 () => unpackedtask.dispatch(
-                      [
-                        luaCallerArguments[0],
-                      ],
+                      [luaCallerArguments[0]],
                       parentState: hydroState,
                     )[0],
                 _36c2.maybeUnBoxAndBuildArgument<_49c2.Priority, _fac9.dynamic>(
@@ -816,9 +814,7 @@ class RTManagedWidgetsFlutterBinding extends _3e19.WidgetsFlutterBinding
         _36c2.maybeBoxObject(
             object: super.scheduleTask(
                 () => unpackedtask.dispatch(
-                      [
-                        luaCallerArguments[0],
-                      ],
+                      [luaCallerArguments[0]],
                       parentState: hydroState,
                     )[0],
                 _36c2.maybeUnBoxAndBuildArgument<_49c2.Priority, _fac9.dynamic>(
@@ -1328,9 +1324,7 @@ class RTManagedWidgetsFlutterBinding extends _3e19.WidgetsFlutterBinding
             object: super.lockEvents(() =>
                 _36c2.maybeUnBoxAndBuildArgument<_7de1.Future<void>, void>(
                     unpackedcallback.dispatch(
-                      [
-                        luaCallerArguments[0],
-                      ],
+                      [luaCallerArguments[0]],
                       parentState: hydroState,
                     )[0],
                     parentState: hydroState)),
@@ -1356,9 +1350,7 @@ class RTManagedWidgetsFlutterBinding extends _3e19.WidgetsFlutterBinding
           callback: () =>
               _36c2.maybeUnBoxAndBuildArgument<_7de1.Future<void>, void>(
                   unpackedcallback.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )[0],
                   parentState: hydroState),
@@ -1382,9 +1374,7 @@ class RTManagedWidgetsFlutterBinding extends _3e19.WidgetsFlutterBinding
           getter: () => _36c2
               .maybeUnBoxAndBuildArgument<_7de1.Future<_fac9.bool>, _fac9.bool>(
                   unpackedgetter.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )[0],
                   parentState: hydroState),
@@ -1415,9 +1405,7 @@ class RTManagedWidgetsFlutterBinding extends _3e19.WidgetsFlutterBinding
           getter: () => _36c2.maybeUnBoxAndBuildArgument<
                   _7de1.Future<_fac9.double>, _fac9.double>(
               unpackedgetter.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               )[0],
               parentState: hydroState),
@@ -1459,9 +1447,7 @@ class RTManagedWidgetsFlutterBinding extends _3e19.WidgetsFlutterBinding
           getter: () => _36c2.maybeUnBoxAndBuildArgument<
                   _7de1.Future<_fac9.String>, _fac9.String>(
               unpackedgetter.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               )[0],
               parentState: hydroState),

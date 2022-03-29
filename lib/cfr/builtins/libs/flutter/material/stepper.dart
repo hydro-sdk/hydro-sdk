@@ -452,17 +452,13 @@ void loadStepper(
               parentState: hydroState),
           onStepCancel: unpackedonStepCancel != null
               ? () => unpackedonStepCancel.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,
           onStepContinue: unpackedonStepContinue != null
               ? () => unpackedonStepContinue.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,

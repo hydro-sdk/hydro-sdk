@@ -17,9 +17,7 @@ class VMManagedTickerFuture extends _36c2.VMManagedBox<_e067.TickerFuture> {
         func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       _36c2.Closure unpackedcallback = luaCallerArguments[1];
       vmObject.whenCompleteOrCancel(() => unpackedcallback.dispatch(
-            [
-              luaCallerArguments[0],
-            ],
+            [luaCallerArguments[0]],
             parentState: hydroState,
           ));
       return [];
@@ -102,9 +100,7 @@ class VMManagedTickerFuture extends _36c2.VMManagedBox<_e067.TickerFuture> {
                     ? () => _36c2
                         .maybeUnBoxAndBuildArgument<_7de1.FutureOr<void>, void>(
                             unpackedonTimeout.dispatch(
-                              [
-                                luaCallerArguments[0],
-                              ],
+                              [luaCallerArguments[0]],
                               parentState: hydroState,
                             )[0],
                             parentState: hydroState)
@@ -119,9 +115,7 @@ class VMManagedTickerFuture extends _36c2.VMManagedBox<_e067.TickerFuture> {
       return [
         _36c2.maybeBoxObject<_7de1.Future>(
             object: vmObject.whenComplete(() => unpackedaction.dispatch(
-                  [
-                    luaCallerArguments[0],
-                  ],
+                  [luaCallerArguments[0]],
                   parentState: hydroState,
                 )[0]),
             hydroState: hydroState,

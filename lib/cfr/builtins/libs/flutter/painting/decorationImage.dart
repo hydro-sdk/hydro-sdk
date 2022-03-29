@@ -53,9 +53,7 @@ class VMManagedDecorationImage
       return [
         _36c2.maybeBoxObject<_48c4.DecorationImagePainter>(
             object: vmObject.createPainter(() => unpackedonChanged.dispatch(
-                  [
-                    luaCallerArguments[0],
-                  ],
+                  [luaCallerArguments[0]],
                   parentState: hydroState,
                 )),
             hydroState: hydroState,
@@ -168,9 +166,7 @@ class RTManagedDecorationImage extends _48c4.DecorationImage
       return [
         _36c2.maybeBoxObject(
             object: super.createPainter(() => unpackedonChanged.dispatch(
-                  [
-                    luaCallerArguments[0],
-                  ],
+                  [luaCallerArguments[0]],
                   parentState: hydroState,
                 )),
             hydroState: hydroState,

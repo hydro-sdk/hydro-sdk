@@ -277,18 +277,14 @@ class RTManagedMultiDragGestureRecognizer
                 luaCallerArguments[1],
                 parentState: hydroState),
             () => unpackedcallback.dispatch(
-                  [
-                    luaCallerArguments[0],
-                  ],
+                  [luaCallerArguments[0]],
                   parentState: hydroState,
                 )[0],
             debugReport: unpackeddebugReport != null
                 ? () => _36c2
                     .maybeUnBoxAndBuildArgument<_fac9.String, _fac9.dynamic>(
                         unpackeddebugReport.dispatch(
-                          [
-                            luaCallerArguments[0],
-                          ],
+                          [luaCallerArguments[0]],
                           parentState: hydroState,
                         )[0],
                         parentState: hydroState)

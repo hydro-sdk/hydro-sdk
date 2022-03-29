@@ -96,9 +96,7 @@ class VMManagedPipelineOwner extends _36c2.VMManagedBox<_9742.PipelineOwner> {
             object: vmObject.ensureSemantics(
                 listener: unpackedlistener != null
                     ? () => unpackedlistener.dispatch(
-                          [
-                            luaCallerArguments[0],
-                          ],
+                          [luaCallerArguments[0]],
                           parentState: hydroState,
                         )
                     : null),
@@ -195,9 +193,7 @@ class RTManagedPipelineOwner extends _9742.PipelineOwner
             object: super.ensureSemantics(
                 listener: unpackedlistener != null
                     ? () => unpackedlistener.dispatch(
-                          [
-                            luaCallerArguments[0],
-                          ],
+                          [luaCallerArguments[0]],
                           parentState: hydroState,
                         )
                     : null),
@@ -320,25 +316,19 @@ void loadPipelineOwner(
           hydroState: hydroState,
           onNeedVisualUpdate: unpackedonNeedVisualUpdate != null
               ? () => unpackedonNeedVisualUpdate.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,
           onSemanticsOwnerCreated: unpackedonSemanticsOwnerCreated != null
               ? () => unpackedonSemanticsOwnerCreated.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,
           onSemanticsOwnerDisposed: unpackedonSemanticsOwnerDisposed != null
               ? () => unpackedonSemanticsOwnerDisposed.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null)

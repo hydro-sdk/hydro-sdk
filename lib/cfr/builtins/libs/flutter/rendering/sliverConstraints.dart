@@ -146,9 +146,7 @@ class VMManagedSliverConstraints
                         _fac9.Iterable<_eaf3.DiagnosticsNode>,
                         _eaf3.DiagnosticsNode>(
                     unpackedinformationCollector.dispatch(
-                      [
-                        luaCallerArguments[0],
-                      ],
+                      [luaCallerArguments[0]],
                       parentState: hydroState,
                     )[0],
                     parentState: hydroState)
@@ -344,9 +342,7 @@ class RTManagedSliverConstraints extends _021d.SliverConstraints
                             _fac9.Iterable<_eaf3.DiagnosticsNode>,
                             _eaf3.DiagnosticsNode>(
                         unpackedinformationCollector.dispatch(
-                          [
-                            luaCallerArguments[0],
-                          ],
+                          [luaCallerArguments[0]],
                           parentState: hydroState,
                         )[0],
                         parentState: hydroState)

@@ -641,9 +641,7 @@ void loadRawMaterialButton(
               : null,
           onLongPress: unpackedonLongPress != null
               ? () => unpackedonLongPress.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,
@@ -654,9 +652,7 @@ void loadRawMaterialButton(
           visualDensity: _36c2.maybeUnBoxAndBuildArgument<_9716.VisualDensity, _fac9.dynamic>(luaCallerArguments.length >= 2 ? luaCallerArguments[1]['visualDensity'] : null, parentState: hydroState),
           onPressed: unpackedonPressed != null
               ? () => unpackedonPressed.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null)

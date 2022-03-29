@@ -76,9 +76,7 @@ class VMManagedRenderSemanticsGestureHandler
       _36c2.Closure? unpackedvalue = luaCallerArguments[1];
       vmObject.onTap = (unpackedvalue != null
           ? () => unpackedvalue.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               )
           : null);
@@ -99,9 +97,7 @@ class VMManagedRenderSemanticsGestureHandler
       _36c2.Closure? unpackedvalue = luaCallerArguments[1];
       vmObject.onLongPress = (unpackedvalue != null
           ? () => unpackedvalue.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               )
           : null);
@@ -1060,9 +1056,7 @@ class RTManagedRenderSemanticsGestureHandler
       _36c2.Closure? unpackedvalue = luaCallerArguments[1];
       super.onTap = (unpackedvalue != null
           ? () => unpackedvalue.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               )
           : null);
@@ -1073,9 +1067,7 @@ class RTManagedRenderSemanticsGestureHandler
       _36c2.Closure? unpackedvalue = luaCallerArguments[1];
       super.onLongPress = (unpackedvalue != null
           ? () => unpackedvalue.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               )
           : null);
@@ -2825,17 +2817,13 @@ void loadRenderSemanticsGestureHandler(
               : null,
           onLongPress: unpackedonLongPress != null
               ? () => unpackedonLongPress.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,
           onTap: unpackedonTap != null
               ? () => unpackedonTap.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,

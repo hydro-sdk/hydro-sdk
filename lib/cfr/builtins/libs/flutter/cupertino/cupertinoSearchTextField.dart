@@ -602,17 +602,13 @@ void loadCupertinoSearchTextField(
               : null,
           onSuffixTap: unpackedonSuffixTap != null
               ? () => unpackedonSuffixTap.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,
           onTap: unpackedonTap != null
               ? () => unpackedonTap.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,

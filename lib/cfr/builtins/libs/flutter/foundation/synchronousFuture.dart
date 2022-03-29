@@ -81,9 +81,7 @@ class VMManagedSynchronousFuture
                     ? () => _36c2.maybeUnBoxAndBuildArgument<
                             _7de1.FutureOr<_fac9.dynamic>, _fac9.dynamic>(
                         unpackedonTimeout.dispatch(
-                          [
-                            luaCallerArguments[0],
-                          ],
+                          [luaCallerArguments[0]],
                           parentState: hydroState,
                         )[0],
                         parentState: hydroState)
@@ -101,9 +99,7 @@ class VMManagedSynchronousFuture
                 _36c2.maybeUnBoxAndBuildArgument<_7de1.FutureOr<_fac9.dynamic>,
                         _fac9.dynamic>(
                     unpackedaction.dispatch(
-                      [
-                        luaCallerArguments[0],
-                      ],
+                      [luaCallerArguments[0]],
                       parentState: hydroState,
                     )[0],
                     parentState: hydroState)),
@@ -202,9 +198,7 @@ class RTManagedSynchronousFuture extends _6f38.SynchronousFuture
                     ? () => _36c2.maybeUnBoxAndBuildArgument<
                             _7de1.FutureOr<_fac9.dynamic>, _fac9.dynamic>(
                         unpackedonTimeout.dispatch(
-                          [
-                            luaCallerArguments[0],
-                          ],
+                          [luaCallerArguments[0]],
                           parentState: hydroState,
                         )[0],
                         parentState: hydroState)
@@ -221,9 +215,7 @@ class RTManagedSynchronousFuture extends _6f38.SynchronousFuture
             object: super.whenComplete(() => _36c2.maybeUnBoxAndBuildArgument<
                     _7de1.FutureOr<_fac9.dynamic>, _fac9.dynamic>(
                 unpackedaction.dispatch(
-                  [
-                    luaCallerArguments[0],
-                  ],
+                  [luaCallerArguments[0]],
                   parentState: hydroState,
                 )[0],
                 parentState: hydroState)),

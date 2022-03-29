@@ -515,9 +515,7 @@ void loadDismissible(
               : null,
           onResize: unpackedonResize != null
               ? () => unpackedonResize.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,

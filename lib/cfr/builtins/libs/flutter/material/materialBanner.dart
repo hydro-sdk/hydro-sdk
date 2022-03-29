@@ -541,9 +541,7 @@ void loadMaterialBanner(
           leadingPadding: _36c2.maybeUnBoxAndBuildArgument<_96d1.EdgeInsetsGeometry?, _fac9.dynamic>(luaCallerArguments.length >= 2 ? luaCallerArguments[1]['leadingPadding'] : null, parentState: hydroState),
           onVisible: unpackedonVisible != null
               ? () => unpackedonVisible.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,

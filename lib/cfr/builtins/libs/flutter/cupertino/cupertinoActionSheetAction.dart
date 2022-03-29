@@ -406,9 +406,7 @@ void loadCupertinoActionSheetAction(
                   : null,
               parentState: hydroState),
           onPressed: () => unpackedonPressed.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               ))
     ];

@@ -660,65 +660,49 @@ void loadSemantics(
           obscured: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['obscured'] : null,
           onCopy: unpackedonCopy != null
               ? () => unpackedonCopy.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,
           onCut: unpackedonCut != null
               ? () => unpackedonCut.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,
           onDecrease: unpackedonDecrease != null
               ? () => unpackedonDecrease.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,
           onDidGainAccessibilityFocus: unpackedonDidGainAccessibilityFocus != null
               ? () => unpackedonDidGainAccessibilityFocus.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,
           onDidLoseAccessibilityFocus: unpackedonDidLoseAccessibilityFocus != null
               ? () => unpackedonDidLoseAccessibilityFocus.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,
           onDismiss: unpackedonDismiss != null
               ? () => unpackedonDismiss.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,
           onIncrease: unpackedonIncrease != null
               ? () => unpackedonIncrease.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,
           onLongPress: unpackedonLongPress != null
               ? () => unpackedonLongPress.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,
@@ -737,41 +721,31 @@ void loadSemantics(
               : null,
           onPaste: unpackedonPaste != null
               ? () => unpackedonPaste.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,
           onScrollDown: unpackedonScrollDown != null
               ? () => unpackedonScrollDown.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,
           onScrollLeft: unpackedonScrollLeft != null
               ? () => unpackedonScrollLeft.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,
           onScrollRight: unpackedonScrollRight != null
               ? () => unpackedonScrollRight.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,
           onScrollUp: unpackedonScrollUp != null
               ? () => unpackedonScrollUp.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,
@@ -789,9 +763,7 @@ void loadSemantics(
               : null,
           onTap: unpackedonTap != null
               ? () => unpackedonTap.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,

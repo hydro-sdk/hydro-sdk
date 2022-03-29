@@ -124,6 +124,8 @@ import 'package:hydro_sdk/cfr/builtins/libs/flutter/painting/oneFrameImageStream
     as _78d1;
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/painting/outlinedBorder.dart'
     as _9067;
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/painting/paintingBinding.dart'
+    as _a489;
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/painting/placeholderDimensions.dart'
     as _9912;
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/painting/placeholderSpan.dart'
@@ -158,7 +160,6 @@ import 'package:hydro_sdk/cfr/builtins/libs/flutter/painting/textStyle.dart'
     as _35d4;
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/painting/transformProperty.dart'
     as _237c;
-
 import 'package:hydro_sdk/cfr/runtimeSupport.dart' as _36c2;
 
 void loadpainting(
@@ -254,4 +255,5 @@ void loadpainting(
       table: loadpainting, hydroState: hydroState);
   _5956.loadImageCache(table: loadpainting, hydroState: hydroState);
   _5558.loadImageCacheStatus(table: loadpainting, hydroState: hydroState);
+  _a489.loadPaintingBinding(table: loadpainting, hydroState: hydroState);
 }

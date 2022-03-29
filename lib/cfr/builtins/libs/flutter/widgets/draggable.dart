@@ -567,9 +567,7 @@ void loadDraggable(
           maxSimultaneousDrags: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['maxSimultaneousDrags'] : null,
           onDragCompleted: unpackedonDragCompleted != null
               ? () => unpackedonDragCompleted.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,
@@ -581,9 +579,7 @@ void loadDraggable(
               : null,
           onDragStarted: unpackedonDragStarted != null
               ? () => unpackedonDragStarted.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,

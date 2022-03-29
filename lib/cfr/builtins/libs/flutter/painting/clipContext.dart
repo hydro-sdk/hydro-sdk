@@ -35,9 +35,7 @@ class VMManagedClipContext extends _36c2.VMManagedBox<_35bd.ClipContext> {
               luaCallerArguments[3],
               parentState: hydroState),
           () => unpackedpainter.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               ));
       return [];
@@ -55,9 +53,7 @@ class VMManagedClipContext extends _36c2.VMManagedBox<_35bd.ClipContext> {
               luaCallerArguments[3],
               parentState: hydroState),
           () => unpackedpainter.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               ));
       return [];
@@ -75,9 +71,7 @@ class VMManagedClipContext extends _36c2.VMManagedBox<_35bd.ClipContext> {
               luaCallerArguments[3],
               parentState: hydroState),
           () => unpackedpainter.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               ));
       return [];
@@ -117,9 +111,7 @@ class RTManagedClipContext extends _35bd.ClipContext
               luaCallerArguments[3],
               parentState: hydroState),
           () => unpackedpainter.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               ));
       return [];
@@ -137,9 +129,7 @@ class RTManagedClipContext extends _35bd.ClipContext
               luaCallerArguments[3],
               parentState: hydroState),
           () => unpackedpainter.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               ));
       return [];
@@ -157,9 +147,7 @@ class RTManagedClipContext extends _35bd.ClipContext
               luaCallerArguments[3],
               parentState: hydroState),
           () => unpackedpainter.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               ));
       return [];

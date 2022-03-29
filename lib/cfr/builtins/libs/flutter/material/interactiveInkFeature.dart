@@ -146,9 +146,7 @@ class RTManagedInteractiveInkFeature extends _cd32.InteractiveInkFeature
               ? () =>
                   _36c2.maybeUnBoxAndBuildArgument<_a643.Rect, _fac9.dynamic>(
                       unpackedclipCallback.dispatch(
-                        [
-                          luaCallerArguments[0],
-                        ],
+                        [luaCallerArguments[0]],
                         parentState: hydroState,
                       )[0],
                       parentState: hydroState)
@@ -304,9 +302,7 @@ void loadInteractiveInkFeature(
           hydroState: hydroState,
           onRemoved: unpackedonRemoved != null
               ? () => unpackedonRemoved.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,

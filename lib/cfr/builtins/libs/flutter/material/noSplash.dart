@@ -156,9 +156,7 @@ class RTManagedNoSplash extends _02a7.NoSplash
               ? () =>
                   _36c2.maybeUnBoxAndBuildArgument<_a643.Rect, _fac9.dynamic>(
                       unpackedclipCallback.dispatch(
-                        [
-                          luaCallerArguments[0],
-                        ],
+                        [luaCallerArguments[0]],
                         parentState: hydroState,
                       )[0],
                       parentState: hydroState)
@@ -315,9 +313,7 @@ void loadNoSplash(
           hydroState: hydroState,
           onRemoved: unpackedonRemoved != null
               ? () => unpackedonRemoved.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,

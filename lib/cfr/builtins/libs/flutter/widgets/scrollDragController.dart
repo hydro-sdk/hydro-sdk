@@ -237,9 +237,7 @@ void loadScrollDragController(
               : null?.toDouble(),
           onDragCanceled: unpackedonDragCanceled != null
               ? () => unpackedonDragCanceled.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,

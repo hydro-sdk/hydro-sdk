@@ -72,9 +72,7 @@ void loadLocalHistoryEntry(
           hydroState: hydroState,
           onRemove: unpackedonRemove != null
               ? () => unpackedonRemove.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null)

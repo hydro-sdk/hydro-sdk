@@ -372,9 +372,7 @@ void loadHoldScrollActivity(
           hydroState: hydroState,
           onHoldCanceled: unpackedonHoldCanceled != null
               ? () => unpackedonHoldCanceled.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,

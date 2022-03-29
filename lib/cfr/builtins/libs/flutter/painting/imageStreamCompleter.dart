@@ -42,9 +42,7 @@ class VMManagedImageStreamCompleter
         func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       _36c2.Closure unpackedcallback = luaCallerArguments[1];
       vmObject.addOnLastListenerRemovedCallback(() => unpackedcallback.dispatch(
-            [
-              luaCallerArguments[0],
-            ],
+            [luaCallerArguments[0]],
             parentState: hydroState,
           ));
       return [];
@@ -54,9 +52,7 @@ class VMManagedImageStreamCompleter
       _36c2.Closure unpackedcallback = luaCallerArguments[1];
       vmObject
           .removeOnLastListenerRemovedCallback(() => unpackedcallback.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               ));
       return [];
@@ -80,9 +76,7 @@ class VMManagedImageStreamCompleter
                       _fac9.Iterable<_eaf3.DiagnosticsNode>,
                       _eaf3.DiagnosticsNode>(
                   unpackedinformationCollector.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )[0],
                   parentState: hydroState)
@@ -190,9 +184,7 @@ class RTManagedImageStreamCompleter extends _f25c.ImageStreamCompleter
         func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       _36c2.Closure unpackedcallback = luaCallerArguments[1];
       super.addOnLastListenerRemovedCallback(() => unpackedcallback.dispatch(
-            [
-              luaCallerArguments[0],
-            ],
+            [luaCallerArguments[0]],
             parentState: hydroState,
           ));
       return [];
@@ -201,9 +193,7 @@ class RTManagedImageStreamCompleter extends _f25c.ImageStreamCompleter
         func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       _36c2.Closure unpackedcallback = luaCallerArguments[1];
       super.removeOnLastListenerRemovedCallback(() => unpackedcallback.dispatch(
-            [
-              luaCallerArguments[0],
-            ],
+            [luaCallerArguments[0]],
             parentState: hydroState,
           ));
       return [];
@@ -235,9 +225,7 @@ class RTManagedImageStreamCompleter extends _f25c.ImageStreamCompleter
                       _fac9.Iterable<_eaf3.DiagnosticsNode>,
                       _eaf3.DiagnosticsNode>(
                   unpackedinformationCollector.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )[0],
                   parentState: hydroState)

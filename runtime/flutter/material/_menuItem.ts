@@ -12,20 +12,22 @@ import { ISingleChildRenderObjectElement } from "../widgets/singleChildRenderObj
 import { ISingleChildRenderObjectWidget } from "../widgets/singleChildRenderObjectWidget";
 import { IWidget } from "../widgets/widget";
 import { I_RenderMenuItem } from "./_renderMenuItem";
+import { IDropdownMenuItem } from "./dropdownMenuItem";
 declare const flutter: {
     material: {
-        _menuItem: (
+        _menuItem: <T>(
             this: void,
-            _menuItem: I_MenuItem,
+            _menuItem: I_MenuItem<T>,
             props: {
                 key?: IKey | undefined;
-                child?: IWidget | undefined;
+                item?: IDropdownMenuItem<T> | undefined;
                 onLayout: (value: ISize) => void;
             }
-        ) => I_MenuItem;
+        ) => I_MenuItem<T>;
     };
 };
-export interface I_MenuItem {
+export interface I_MenuItem<T> {
+    item: IDropdownMenuItem<T> | undefined;
     child: IWidget | undefined;
     key: IKey | undefined;
     createRenderObject: (context: IBuildContext) => IRenderObject;
@@ -51,14 +53,15 @@ export interface I_MenuItem {
     debugDescribeChildren: () => IList<IDiagnosticsNode>;
     toString: (props: { minLevel: DiagnosticLevel }) => string;
 }
-export class _MenuItem
+export class _MenuItem<T>
     implements ISingleChildRenderObjectWidget, IDiagnosticable
 {
+    public readonly item: IDropdownMenuItem<T> | undefined = undefined as any;
     public readonly child: IWidget | undefined = undefined as any;
     public readonly key: IKey | undefined = undefined as any;
     public constructor(props: {
         key?: IKey | undefined;
-        child?: IWidget | undefined;
+        item?: IDropdownMenuItem<T> | undefined;
         onLayout: (value: ISize) => void;
     }) {
         flutter.material._menuItem(this, props);

@@ -556,9 +556,7 @@ void loadTableRowInkWell(
               parentState: hydroState),
           onDoubleTap: unpackedonDoubleTap != null
               ? () => unpackedonDoubleTap.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,
@@ -570,17 +568,13 @@ void loadTableRowInkWell(
               : null,
           onLongPress: unpackedonLongPress != null
               ? () => unpackedonLongPress.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,
           onTap: unpackedonTap != null
               ? () => unpackedonTap.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,

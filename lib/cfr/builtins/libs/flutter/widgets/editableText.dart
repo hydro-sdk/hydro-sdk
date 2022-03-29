@@ -965,9 +965,7 @@ void loadEditableText(
               : null,
           onEditingComplete: unpackedonEditingComplete != null
               ? () => unpackedonEditingComplete.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,
@@ -979,9 +977,7 @@ void loadEditableText(
               : null,
           onSelectionHandleTapped: unpackedonSelectionHandleTapped != null
               ? () => unpackedonSelectionHandleTapped.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,

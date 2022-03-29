@@ -352,9 +352,7 @@ class RTManagedScaffoldMessengerState extends _ece7.ScaffoldMessengerState
         func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       _36c2.Closure unpackedfn = luaCallerArguments[1];
       super.setState(() => unpackedfn.dispatch(
-            [
-              luaCallerArguments[0],
-            ],
+            [luaCallerArguments[0]],
             parentState: hydroState,
           ));
       return [];

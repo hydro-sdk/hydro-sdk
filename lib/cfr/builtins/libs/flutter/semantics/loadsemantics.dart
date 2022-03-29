@@ -10,6 +10,8 @@ import 'package:hydro_sdk/cfr/builtins/libs/flutter/semantics/longPressSemantics
     as _dcfd;
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/semantics/ordinalSortKey.dart'
     as _9878;
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/semantics/semanticsBinding.dart'
+    as _74ef;
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/semantics/semanticsConfiguration.dart'
     as _cc4c;
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/semantics/semanticsData.dart'
@@ -36,7 +38,6 @@ import 'package:hydro_sdk/cfr/builtins/libs/flutter/semantics/tooltipSemanticsEv
     as _2cd9;
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/semantics/updateLiveRegionEvent.dart'
     as _96b1;
-
 import 'package:hydro_sdk/cfr/runtimeSupport.dart' as _36c2;
 
 void loadsemantics(
@@ -67,4 +68,5 @@ void loadsemantics(
       table: loadsemantics, hydroState: hydroState);
   _8122.loadSemanticsSortKey(table: loadsemantics, hydroState: hydroState);
   _9878.loadOrdinalSortKey(table: loadsemantics, hydroState: hydroState);
+  _74ef.loadSemanticsBinding(table: loadsemantics, hydroState: hydroState);
 }

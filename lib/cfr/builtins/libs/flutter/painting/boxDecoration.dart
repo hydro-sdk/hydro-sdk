@@ -199,9 +199,7 @@ class VMManagedBoxDecoration extends _36c2.VMManagedBox<_51e4.BoxDecoration> {
         _36c2.maybeBoxObject<_13a5.BoxPainter>(
             object: vmObject.createBoxPainter(unpackedonChanged != null
                 ? () => unpackedonChanged.dispatch(
-                      [
-                        luaCallerArguments[0],
-                      ],
+                      [luaCallerArguments[0]],
                       parentState: hydroState,
                     )
                 : null),
@@ -443,9 +441,7 @@ class RTManagedBoxDecoration extends _51e4.BoxDecoration
         _36c2.maybeBoxObject(
             object: super.createBoxPainter(unpackedonChanged != null
                 ? () => unpackedonChanged.dispatch(
-                      [
-                        luaCallerArguments[0],
-                      ],
+                      [luaCallerArguments[0]],
                       parentState: hydroState,
                     )
                 : null),

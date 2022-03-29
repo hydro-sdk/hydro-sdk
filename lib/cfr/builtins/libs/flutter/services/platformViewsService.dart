@@ -46,9 +46,7 @@ void loadPlatformViewsService(
                   parentState: hydroState),
               onFocus: unpackedonFocus != null
                   ? () => unpackedonFocus.dispatch(
-                        [
-                          luaCallerArguments[0],
-                        ],
+                        [luaCallerArguments[0]],
                         parentState: hydroState,
                       )
                   : null,
@@ -87,9 +85,7 @@ void loadPlatformViewsService(
                   parentState: hydroState),
               onFocus: unpackedonFocus != null
                   ? () => unpackedonFocus.dispatch(
-                        [
-                          luaCallerArguments[0],
-                        ],
+                        [luaCallerArguments[0]],
                         parentState: hydroState,
                       )
                   : null,

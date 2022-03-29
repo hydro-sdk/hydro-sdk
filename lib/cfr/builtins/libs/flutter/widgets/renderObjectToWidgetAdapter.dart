@@ -71,8 +71,8 @@ class VMManagedRenderObjectToWidgetAdapter extends _36c2
                         _fac9.dynamic>(luaCallerArguments[1],
                     parentState: hydroState),
                 _36c2.maybeUnBoxAndBuildArgument<
-                        _3e19.RenderObjectToWidgetElement<_fac9.dynamic>?,
-                        _fac9.dynamic>(luaCallerArguments[2],
+                        _3e19.RenderObjectToWidgetElement<_9742.RenderObject>?,
+                        _9742.RenderObject>(luaCallerArguments[2],
                     parentState: hydroState)),
             hydroState: hydroState,
             table: _36c2.HydroTable()),

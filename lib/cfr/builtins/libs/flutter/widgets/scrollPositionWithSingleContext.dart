@@ -14,12 +14,10 @@ import 'package:flutter/src/widgets/scroll_context.dart' as _3c93;
 import 'package:flutter/src/widgets/scroll_metrics.dart' as _96ae;
 import 'package:flutter/src/widgets/scroll_physics.dart' as _dbad;
 import 'package:flutter/src/widgets/scroll_position.dart' as _6c49;
-
-import 'package:hydro_sdk/cfr/runtimeSupport.dart' as _36c2;
-
 import 'package:flutter/src/widgets/scroll_position_with_single_context.dart'
     as _0550;
 
+import 'package:hydro_sdk/cfr/runtimeSupport.dart' as _36c2;
 
 class VMManagedScrollPositionWithSingleContext
     extends _36c2.VMManagedBox<_0550.ScrollPositionWithSingleContext> {
@@ -143,9 +141,7 @@ class VMManagedScrollPositionWithSingleContext
       return [
         _36c2.maybeBoxObject<_ca8b.ScrollHoldController>(
             object: vmObject.hold(() => unpackedholdCancelCallback.dispatch(
-                  [
-                    luaCallerArguments[0],
-                  ],
+                  [luaCallerArguments[0]],
                   parentState: hydroState,
                 )),
             hydroState: hydroState,
@@ -162,9 +158,7 @@ class VMManagedScrollPositionWithSingleContext
                         _fac9.dynamic>(luaCallerArguments[1],
                     parentState: hydroState),
                 () => unpackeddragCancelCallback.dispatch(
-                      [
-                        luaCallerArguments[0],
-                      ],
+                      [luaCallerArguments[0]],
                       parentState: hydroState,
                     )),
             hydroState: hydroState,
@@ -437,9 +431,7 @@ class VMManagedScrollPositionWithSingleContext
         func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       _36c2.Closure unpackedlistener = luaCallerArguments[1];
       vmObject.addListener(() => unpackedlistener.dispatch(
-            [
-              luaCallerArguments[0],
-            ],
+            [luaCallerArguments[0]],
             parentState: hydroState,
           ));
       return [];
@@ -448,9 +440,7 @@ class VMManagedScrollPositionWithSingleContext
         func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       _36c2.Closure unpackedlistener = luaCallerArguments[1];
       vmObject.removeListener(() => unpackedlistener.dispatch(
-            [
-              luaCallerArguments[0],
-            ],
+            [luaCallerArguments[0]],
             parentState: hydroState,
           ));
       return [];
@@ -633,9 +623,7 @@ class RTManagedScrollPositionWithSingleContext
       return [
         _36c2.maybeBoxObject(
             object: super.hold(() => unpackedholdCancelCallback.dispatch(
-                  [
-                    luaCallerArguments[0],
-                  ],
+                  [luaCallerArguments[0]],
                   parentState: hydroState,
                 )),
             hydroState: hydroState,
@@ -652,9 +640,7 @@ class RTManagedScrollPositionWithSingleContext
                         _fac9.dynamic>(luaCallerArguments[1],
                     parentState: hydroState),
                 () => unpackeddragCancelCallback.dispatch(
-                      [
-                        luaCallerArguments[0],
-                      ],
+                      [luaCallerArguments[0]],
                       parentState: hydroState,
                     )),
             hydroState: hydroState,
@@ -982,9 +968,7 @@ class RTManagedScrollPositionWithSingleContext
         func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       _36c2.Closure unpackedlistener = luaCallerArguments[1];
       super.addListener(() => unpackedlistener.dispatch(
-            [
-              luaCallerArguments[0],
-            ],
+            [luaCallerArguments[0]],
             parentState: hydroState,
           ));
       return [];
@@ -993,9 +977,7 @@ class RTManagedScrollPositionWithSingleContext
         func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       _36c2.Closure unpackedlistener = luaCallerArguments[1];
       super.removeListener(() => unpackedlistener.dispatch(
-            [
-              luaCallerArguments[0],
-            ],
+            [luaCallerArguments[0]],
             parentState: hydroState,
           ));
       return [];

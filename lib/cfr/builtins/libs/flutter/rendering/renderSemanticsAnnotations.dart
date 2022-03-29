@@ -609,9 +609,7 @@ class VMManagedRenderSemanticsAnnotations
       _36c2.Closure? unpackedhandler = luaCallerArguments[1];
       vmObject.onTap = (unpackedhandler != null
           ? () => unpackedhandler.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               )
           : null);
@@ -632,9 +630,7 @@ class VMManagedRenderSemanticsAnnotations
       _36c2.Closure? unpackedhandler = luaCallerArguments[1];
       vmObject.onDismiss = (unpackedhandler != null
           ? () => unpackedhandler.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               )
           : null);
@@ -655,9 +651,7 @@ class VMManagedRenderSemanticsAnnotations
       _36c2.Closure? unpackedhandler = luaCallerArguments[1];
       vmObject.onLongPress = (unpackedhandler != null
           ? () => unpackedhandler.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               )
           : null);
@@ -678,9 +672,7 @@ class VMManagedRenderSemanticsAnnotations
       _36c2.Closure? unpackedhandler = luaCallerArguments[1];
       vmObject.onScrollLeft = (unpackedhandler != null
           ? () => unpackedhandler.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               )
           : null);
@@ -701,9 +693,7 @@ class VMManagedRenderSemanticsAnnotations
       _36c2.Closure? unpackedhandler = luaCallerArguments[1];
       vmObject.onScrollRight = (unpackedhandler != null
           ? () => unpackedhandler.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               )
           : null);
@@ -724,9 +714,7 @@ class VMManagedRenderSemanticsAnnotations
       _36c2.Closure? unpackedhandler = luaCallerArguments[1];
       vmObject.onScrollUp = (unpackedhandler != null
           ? () => unpackedhandler.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               )
           : null);
@@ -747,9 +735,7 @@ class VMManagedRenderSemanticsAnnotations
       _36c2.Closure? unpackedhandler = luaCallerArguments[1];
       vmObject.onScrollDown = (unpackedhandler != null
           ? () => unpackedhandler.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               )
           : null);
@@ -770,9 +756,7 @@ class VMManagedRenderSemanticsAnnotations
       _36c2.Closure? unpackedhandler = luaCallerArguments[1];
       vmObject.onIncrease = (unpackedhandler != null
           ? () => unpackedhandler.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               )
           : null);
@@ -793,9 +777,7 @@ class VMManagedRenderSemanticsAnnotations
       _36c2.Closure? unpackedhandler = luaCallerArguments[1];
       vmObject.onDecrease = (unpackedhandler != null
           ? () => unpackedhandler.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               )
           : null);
@@ -816,9 +798,7 @@ class VMManagedRenderSemanticsAnnotations
       _36c2.Closure? unpackedhandler = luaCallerArguments[1];
       vmObject.onCopy = (unpackedhandler != null
           ? () => unpackedhandler.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               )
           : null);
@@ -839,9 +819,7 @@ class VMManagedRenderSemanticsAnnotations
       _36c2.Closure? unpackedhandler = luaCallerArguments[1];
       vmObject.onCut = (unpackedhandler != null
           ? () => unpackedhandler.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               )
           : null);
@@ -862,9 +840,7 @@ class VMManagedRenderSemanticsAnnotations
       _36c2.Closure? unpackedhandler = luaCallerArguments[1];
       vmObject.onPaste = (unpackedhandler != null
           ? () => unpackedhandler.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               )
           : null);
@@ -1011,9 +987,7 @@ class VMManagedRenderSemanticsAnnotations
       _36c2.Closure? unpackedhandler = luaCallerArguments[1];
       vmObject.onDidGainAccessibilityFocus = (unpackedhandler != null
           ? () => unpackedhandler.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               )
           : null);
@@ -1034,9 +1008,7 @@ class VMManagedRenderSemanticsAnnotations
       _36c2.Closure? unpackedhandler = luaCallerArguments[1];
       vmObject.onDidLoseAccessibilityFocus = (unpackedhandler != null
           ? () => unpackedhandler.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               )
           : null);
@@ -2459,9 +2431,7 @@ class RTManagedRenderSemanticsAnnotations
       _36c2.Closure? unpackedhandler = luaCallerArguments[1];
       super.onTap = (unpackedhandler != null
           ? () => unpackedhandler.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               )
           : null);
@@ -2472,9 +2442,7 @@ class RTManagedRenderSemanticsAnnotations
       _36c2.Closure? unpackedhandler = luaCallerArguments[1];
       super.onDismiss = (unpackedhandler != null
           ? () => unpackedhandler.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               )
           : null);
@@ -2485,9 +2453,7 @@ class RTManagedRenderSemanticsAnnotations
       _36c2.Closure? unpackedhandler = luaCallerArguments[1];
       super.onLongPress = (unpackedhandler != null
           ? () => unpackedhandler.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               )
           : null);
@@ -2498,9 +2464,7 @@ class RTManagedRenderSemanticsAnnotations
       _36c2.Closure? unpackedhandler = luaCallerArguments[1];
       super.onScrollLeft = (unpackedhandler != null
           ? () => unpackedhandler.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               )
           : null);
@@ -2511,9 +2475,7 @@ class RTManagedRenderSemanticsAnnotations
       _36c2.Closure? unpackedhandler = luaCallerArguments[1];
       super.onScrollRight = (unpackedhandler != null
           ? () => unpackedhandler.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               )
           : null);
@@ -2524,9 +2486,7 @@ class RTManagedRenderSemanticsAnnotations
       _36c2.Closure? unpackedhandler = luaCallerArguments[1];
       super.onScrollUp = (unpackedhandler != null
           ? () => unpackedhandler.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               )
           : null);
@@ -2537,9 +2497,7 @@ class RTManagedRenderSemanticsAnnotations
       _36c2.Closure? unpackedhandler = luaCallerArguments[1];
       super.onScrollDown = (unpackedhandler != null
           ? () => unpackedhandler.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               )
           : null);
@@ -2550,9 +2508,7 @@ class RTManagedRenderSemanticsAnnotations
       _36c2.Closure? unpackedhandler = luaCallerArguments[1];
       super.onIncrease = (unpackedhandler != null
           ? () => unpackedhandler.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               )
           : null);
@@ -2563,9 +2519,7 @@ class RTManagedRenderSemanticsAnnotations
       _36c2.Closure? unpackedhandler = luaCallerArguments[1];
       super.onDecrease = (unpackedhandler != null
           ? () => unpackedhandler.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               )
           : null);
@@ -2576,9 +2530,7 @@ class RTManagedRenderSemanticsAnnotations
       _36c2.Closure? unpackedhandler = luaCallerArguments[1];
       super.onCopy = (unpackedhandler != null
           ? () => unpackedhandler.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               )
           : null);
@@ -2589,9 +2541,7 @@ class RTManagedRenderSemanticsAnnotations
       _36c2.Closure? unpackedhandler = luaCallerArguments[1];
       super.onCut = (unpackedhandler != null
           ? () => unpackedhandler.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               )
           : null);
@@ -2602,9 +2552,7 @@ class RTManagedRenderSemanticsAnnotations
       _36c2.Closure? unpackedhandler = luaCallerArguments[1];
       super.onPaste = (unpackedhandler != null
           ? () => unpackedhandler.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               )
           : null);
@@ -2681,9 +2629,7 @@ class RTManagedRenderSemanticsAnnotations
       _36c2.Closure? unpackedhandler = luaCallerArguments[1];
       super.onDidGainAccessibilityFocus = (unpackedhandler != null
           ? () => unpackedhandler.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               )
           : null);
@@ -2694,9 +2640,7 @@ class RTManagedRenderSemanticsAnnotations
       _36c2.Closure? unpackedhandler = luaCallerArguments[1];
       super.onDidLoseAccessibilityFocus = (unpackedhandler != null
           ? () => unpackedhandler.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               )
           : null);
@@ -5052,65 +4996,49 @@ void loadRenderSemanticsAnnotations(
           obscured: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['obscured'] : null,
           onCopy: unpackedonCopy != null
               ? () => unpackedonCopy.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,
           onCut: unpackedonCut != null
               ? () => unpackedonCut.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,
           onDecrease: unpackedonDecrease != null
               ? () => unpackedonDecrease.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,
           onDidGainAccessibilityFocus: unpackedonDidGainAccessibilityFocus != null
               ? () => unpackedonDidGainAccessibilityFocus.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,
           onDidLoseAccessibilityFocus: unpackedonDidLoseAccessibilityFocus != null
               ? () => unpackedonDidLoseAccessibilityFocus.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,
           onDismiss: unpackedonDismiss != null
               ? () => unpackedonDismiss.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,
           onIncrease: unpackedonIncrease != null
               ? () => unpackedonIncrease.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,
           onLongPress: unpackedonLongPress != null
               ? () => unpackedonLongPress.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,
@@ -5140,41 +5068,31 @@ void loadRenderSemanticsAnnotations(
               : null,
           onPaste: unpackedonPaste != null
               ? () => unpackedonPaste.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,
           onScrollDown: unpackedonScrollDown != null
               ? () => unpackedonScrollDown.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,
           onScrollLeft: unpackedonScrollLeft != null
               ? () => unpackedonScrollLeft.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,
           onScrollRight: unpackedonScrollRight != null
               ? () => unpackedonScrollRight.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,
           onScrollUp: unpackedonScrollUp != null
               ? () => unpackedonScrollUp.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,
@@ -5192,9 +5110,7 @@ void loadRenderSemanticsAnnotations(
               : null,
           onTap: unpackedonTap != null
               ? () => unpackedonTap.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,

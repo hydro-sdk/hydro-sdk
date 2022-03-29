@@ -41,9 +41,7 @@ void loadFeedback(
     final returnValue = _b9d0.Feedback.wrapForTap(
         unpackedcallback != null
             ? () => unpackedcallback.dispatch(
-                  [
-                    luaCallerArguments[0],
-                  ],
+                  [luaCallerArguments[0]],
                   parentState: hydroState,
                 )
             : null,
@@ -74,9 +72,7 @@ void loadFeedback(
     final returnValue = _b9d0.Feedback.wrapForLongPress(
         unpackedcallback != null
             ? () => unpackedcallback.dispatch(
-                  [
-                    luaCallerArguments[0],
-                  ],
+                  [luaCallerArguments[0]],
                   parentState: hydroState,
                 )
             : null,

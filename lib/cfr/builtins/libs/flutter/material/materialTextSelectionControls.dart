@@ -72,9 +72,7 @@ class VMManagedMaterialTextSelectionControls
                 luaCallerArguments[3]?.toDouble(),
                 unpackedonTap != null
                     ? () => unpackedonTap.dispatch(
-                          [
-                            luaCallerArguments[0],
-                          ],
+                          [luaCallerArguments[0]],
                           parentState: hydroState,
                         )
                     : null,
@@ -257,9 +255,7 @@ class RTManagedMaterialTextSelectionControls
                     parentState: hydroState),
                 unpackedonTap != null
                     ? () => unpackedonTap.dispatch(
-                          [
-                            luaCallerArguments[0],
-                          ],
+                          [luaCallerArguments[0]],
                           parentState: hydroState,
                         )
                     : null,

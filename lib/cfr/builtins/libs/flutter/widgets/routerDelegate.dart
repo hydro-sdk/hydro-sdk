@@ -77,9 +77,7 @@ class VMManagedRouterDelegate
         func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       _36c2.Closure unpackedlistener = luaCallerArguments[1];
       vmObject.addListener(() => unpackedlistener.dispatch(
-            [
-              luaCallerArguments[0],
-            ],
+            [luaCallerArguments[0]],
             parentState: hydroState,
           ));
       return [];
@@ -88,9 +86,7 @@ class VMManagedRouterDelegate
         func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       _36c2.Closure unpackedlistener = luaCallerArguments[1];
       vmObject.removeListener(() => unpackedlistener.dispatch(
-            [
-              luaCallerArguments[0],
-            ],
+            [luaCallerArguments[0]],
             parentState: hydroState,
           ));
       return [];
@@ -179,9 +175,7 @@ class RTManagedRouterDelegate extends _f6ef.RouterDelegate
         func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       _36c2.Closure unpackedlistener = luaCallerArguments[1];
       addListener(() => unpackedlistener.dispatch(
-            [
-              luaCallerArguments[0],
-            ],
+            [luaCallerArguments[0]],
             parentState: hydroState,
           ));
       return [];
@@ -190,9 +184,7 @@ class RTManagedRouterDelegate extends _f6ef.RouterDelegate
         func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       _36c2.Closure unpackedlistener = luaCallerArguments[1];
       removeListener(() => unpackedlistener.dispatch(
-            [
-              luaCallerArguments[0],
-            ],
+            [luaCallerArguments[0]],
             parentState: hydroState,
           ));
       return [];

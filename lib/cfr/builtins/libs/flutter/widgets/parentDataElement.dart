@@ -28,15 +28,15 @@ class VMManagedParentDataElement
     table['applyWidgetOutOfTurn'] = _36c2.makeLuaDartFunc(
         func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       vmObject.applyWidgetOutOfTurn(_36c2.maybeUnBoxAndBuildArgument<
-          _e2dc.ParentDataWidget<_fac9.dynamic>,
-          _fac9.dynamic>(luaCallerArguments[1], parentState: hydroState));
+          _e2dc.ParentDataWidget<_9742.ParentData>,
+          _9742.ParentData>(luaCallerArguments[1], parentState: hydroState));
       return [];
     });
     table['notifyClients'] = _36c2.makeLuaDartFunc(
         func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       vmObject.notifyClients(_36c2.maybeUnBoxAndBuildArgument<
-          _e2dc.ParentDataWidget<_fac9.dynamic>,
-          _fac9.dynamic>(luaCallerArguments[1], parentState: hydroState));
+          _e2dc.ParentDataWidget<_9742.ParentData>,
+          _9742.ParentData>(luaCallerArguments[1], parentState: hydroState));
       return [];
     });
     table['build'] = _36c2.makeLuaDartFunc(

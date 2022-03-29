@@ -541,9 +541,7 @@ void loadTextButton(
               : null,
           onLongPress: unpackedonLongPress != null
               ? () => unpackedonLongPress.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,
@@ -554,9 +552,7 @@ void loadTextButton(
               parentState: hydroState),
           onPressed: unpackedonPressed != null
               ? () => unpackedonPressed.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null)
@@ -609,9 +605,7 @@ void loadTextButton(
                   : null,
               onLongPress: unpackedonLongPress != null
                   ? () => unpackedonLongPress.dispatch(
-                        [
-                          luaCallerArguments[0],
-                        ],
+                        [luaCallerArguments[0]],
                         parentState: hydroState,
                       )
                   : null,
@@ -623,9 +617,7 @@ void loadTextButton(
               label: _36c2.maybeUnBoxAndBuildArgument<_e2dc.Widget, _fac9.dynamic>(luaCallerArguments.length >= 2 ? luaCallerArguments[1]['label'] : null, parentState: hydroState),
               onPressed: unpackedonPressed != null
                   ? () => unpackedonPressed.dispatch(
-                        [
-                          luaCallerArguments[0],
-                        ],
+                        [luaCallerArguments[0]],
                         parentState: hydroState,
                       )
                   : null),

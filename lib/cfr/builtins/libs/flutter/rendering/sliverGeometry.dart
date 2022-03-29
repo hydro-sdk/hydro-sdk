@@ -37,9 +37,7 @@ class VMManagedSliverGeometry extends _36c2.VMManagedBox<_021d.SliverGeometry> {
                         _fac9.Iterable<_eaf3.DiagnosticsNode>,
                         _eaf3.DiagnosticsNode>(
                     unpackedinformationCollector.dispatch(
-                      [
-                        luaCallerArguments[0],
-                      ],
+                      [luaCallerArguments[0]],
                       parentState: hydroState,
                     )[0],
                     parentState: hydroState)
@@ -187,9 +185,7 @@ class RTManagedSliverGeometry extends _021d.SliverGeometry
                             _fac9.Iterable<_eaf3.DiagnosticsNode>,
                             _eaf3.DiagnosticsNode>(
                         unpackedinformationCollector.dispatch(
-                          [
-                            luaCallerArguments[0],
-                          ],
+                          [luaCallerArguments[0]],
                           parentState: hydroState,
                         )[0],
                         parentState: hydroState)

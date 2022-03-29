@@ -395,9 +395,7 @@ void loadForm(
               parentState: hydroState),
           onChanged: unpackedonChanged != null
               ? () => unpackedonChanged.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,
@@ -405,9 +403,7 @@ void loadForm(
               ? () => _36c2.maybeUnBoxAndBuildArgument<_7de1.Future<_fac9.bool>,
                       _fac9.bool>(
                   unpackedonWillPop.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )[0],
                   parentState: hydroState)

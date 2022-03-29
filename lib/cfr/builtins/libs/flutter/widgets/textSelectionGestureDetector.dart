@@ -505,9 +505,7 @@ void loadTextSelectionGestureDetector(
               : null,
           onSecondaryTap: unpackedonSecondaryTap != null
               ? () => unpackedonSecondaryTap.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,
@@ -537,9 +535,7 @@ void loadTextSelectionGestureDetector(
               : null,
           onSingleTapCancel: unpackedonSingleTapCancel != null
               ? () => unpackedonSingleTapCancel.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,

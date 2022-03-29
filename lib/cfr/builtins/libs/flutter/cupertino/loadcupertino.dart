@@ -52,6 +52,8 @@ import 'package:hydro_sdk/cfr/builtins/libs/flutter/cupertino/cupertinoPickerDef
     as _962f;
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/cupertino/cupertinoPopupSurface.dart'
     as _0752;
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/cupertino/cupertinoRouteTransitionMixin.dart'
+    as _40b7;
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/cupertino/cupertinoScrollBehavior.dart'
     as _a661;
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/cupertino/cupertinoScrollbar.dart'
@@ -108,7 +110,6 @@ import 'package:hydro_sdk/cfr/builtins/libs/flutter/cupertino/obstructingPreferr
     as _2be9;
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/cupertino/restorableCupertinoTabController.dart'
     as _c93b;
-
 import 'package:hydro_sdk/cfr/runtimeSupport.dart' as _36c2;
 
 void loadcupertino(
@@ -156,6 +157,8 @@ void loadcupertino(
   _962f.loadCupertinoPickerDefaultSelectionOverlay(
       table: loadcupertino, hydroState: hydroState);
   _6868.loadCupertinoContextMenu(table: loadcupertino, hydroState: hydroState);
+  _40b7.loadCupertinoRouteTransitionMixin(
+      table: loadcupertino, hydroState: hydroState);
   _b216.loadCupertinoPageRoute(table: loadcupertino, hydroState: hydroState);
   _5bc0.loadCupertinoPage(table: loadcupertino, hydroState: hydroState);
   _3d60.loadCupertinoPageTransition(

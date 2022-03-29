@@ -491,9 +491,7 @@ void loadBottomSheet(
               )[0],
               parentState: hydroState),
           onClosing: () => unpackedonClosing.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               ))
     ];

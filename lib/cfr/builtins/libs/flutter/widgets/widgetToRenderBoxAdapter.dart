@@ -432,17 +432,13 @@ void loadWidgetToRenderBoxAdapter(
           hydroState: hydroState,
           onBuild: unpackedonBuild != null
               ? () => unpackedonBuild.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,
           onUnmount: unpackedonUnmount != null
               ? () => unpackedonUnmount.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,

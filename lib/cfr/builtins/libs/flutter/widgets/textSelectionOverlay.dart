@@ -390,9 +390,7 @@ void loadTextSelectionOverlay(
               : null,
           onSelectionHandleTapped: unpackedonSelectionHandleTapped != null
               ? () => unpackedonSelectionHandleTapped.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,

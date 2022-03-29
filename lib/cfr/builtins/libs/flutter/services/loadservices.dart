@@ -16,6 +16,8 @@ import 'package:hydro_sdk/cfr/builtins/libs/flutter/services/autofillConfigurati
     as _8f5c;
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/services/autofillScope.dart'
     as _0826;
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/services/autofillScopeMixin.dart'
+    as _4641;
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/services/basicMessageChannel.dart'
     as _fb92;
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/services/binaryCodec.dart'
@@ -136,6 +138,8 @@ import 'package:hydro_sdk/cfr/builtins/libs/flutter/services/restorationBucket.d
     as _ce83;
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/services/restorationManager.dart'
     as _fc4e;
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/services/servicesBinding.dart'
+    as _e30c;
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/services/standardMessageCodec.dart'
     as _4dbb;
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/services/standardMethodCodec.dart'
@@ -184,11 +188,12 @@ import 'package:hydro_sdk/cfr/builtins/libs/flutter/services/textLayoutMetrics.d
     as _3bda;
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/services/textSelection.dart'
     as _1e0d;
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/services/textSelectionDelegate.dart'
+    as _d53d;
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/services/textureAndroidViewController.dart'
     as _701d;
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/services/uiKitViewController.dart'
     as _6f2f;
-
 import 'package:hydro_sdk/cfr/runtimeSupport.dart' as _36c2;
 
 void loadservices(
@@ -231,6 +236,7 @@ void loadservices(
   _7f5d.loadTextInputConfiguration(table: loadservices, hydroState: hydroState);
   _8f6d.loadRawFloatingCursorPoint(table: loadservices, hydroState: hydroState);
   _8ff3.loadTextEditingValue(table: loadservices, hydroState: hydroState);
+  _d53d.loadTextSelectionDelegate(table: loadservices, hydroState: hydroState);
   _13b1.loadTextInputClient(table: loadservices, hydroState: hydroState);
   _64f6.loadDeltaTextInputClient(table: loadservices, hydroState: hydroState);
   _a150.loadTextInputConnection(table: loadservices, hydroState: hydroState);
@@ -280,6 +286,7 @@ void loadservices(
   _8f5c.loadAutofillConfiguration(table: loadservices, hydroState: hydroState);
   _6a74.loadAutofillClient(table: loadservices, hydroState: hydroState);
   _0826.loadAutofillScope(table: loadservices, hydroState: hydroState);
+  _4641.loadAutofillScopeMixin(table: loadservices, hydroState: hydroState);
   _3689.loadMessageCodec(table: loadservices, hydroState: hydroState);
   _3efa.loadMethodCall(table: loadservices, hydroState: hydroState);
   _b68a.loadMethodCodec(table: loadservices, hydroState: hydroState);
@@ -300,4 +307,5 @@ void loadservices(
       table: loadservices, hydroState: hydroState);
   _660a.loadTextEditingDeltaNonTextUpdate(
       table: loadservices, hydroState: hydroState);
+  _e30c.loadServicesBinding(table: loadservices, hydroState: hydroState);
 }

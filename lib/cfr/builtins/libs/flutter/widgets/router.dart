@@ -461,9 +461,7 @@ void loadRouter(
             luaCallerArguments[1],
             parentState: hydroState),
         () => unpackedcallback.dispatch(
-              [
-                luaCallerArguments[0],
-              ],
+              [luaCallerArguments[0]],
               parentState: hydroState,
             ));
     return [];
@@ -476,9 +474,7 @@ void loadRouter(
             luaCallerArguments[1],
             parentState: hydroState),
         () => unpackedcallback.dispatch(
-              [
-                luaCallerArguments[0],
-              ],
+              [luaCallerArguments[0]],
               parentState: hydroState,
             ));
     return [];

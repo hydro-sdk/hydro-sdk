@@ -35,13 +35,13 @@ import { IRenderObject } from "../rendering/renderObject";
 import { ISemanticsConfiguration } from "../semantics/semanticsConfiguration";
 import { ISemanticsEvent } from "../semantics/semanticsEvent";
 import { ISemanticsNode } from "../semantics/semanticsNode";
-import { I_RangeSliderState } from "./_rangeSliderState";
+import { I_SliderState } from "./_sliderState";
 declare const flutter: {
     material: {
         _renderValueIndicator: (
             this: void,
             _renderValueIndicator: I_RenderValueIndicator,
-            props: { state: I_RangeSliderState }
+            props: { state: I_SliderState }
         ) => I_RenderValueIndicator;
     };
 };
@@ -223,7 +223,7 @@ export class _RenderValueIndicator
 {
     public readonly parentData: IParentData | undefined = undefined as any;
     public readonly debugCreator: Object | undefined = undefined as any;
-    public constructor(props: { state: I_RangeSliderState }) {
+    public constructor(props: { state: I_SliderState }) {
         flutter.material._renderValueIndicator(this, props);
     }
     private readonly _dart_getSizedByParent: () => boolean = undefined as any;

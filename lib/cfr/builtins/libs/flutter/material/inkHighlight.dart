@@ -206,9 +206,7 @@ class RTManagedInkHighlight extends _1c8c.InkHighlight
               ? () =>
                   _36c2.maybeUnBoxAndBuildArgument<_a643.Rect, _fac9.dynamic>(
                       unpackedclipCallback.dispatch(
-                        [
-                          luaCallerArguments[0],
-                        ],
+                        [luaCallerArguments[0]],
                         parentState: hydroState,
                       )[0],
                       parentState: hydroState)
@@ -398,9 +396,7 @@ void loadInkHighlight(
                   parentState: hydroState),
           onRemoved: unpackedonRemoved != null
               ? () => unpackedonRemoved.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,
@@ -408,9 +404,7 @@ void loadInkHighlight(
           rectCallback: unpackedrectCallback != null
               ? () => _36c2.maybeUnBoxAndBuildArgument<_a643.Rect, _fac9.dynamic>(
                   unpackedrectCallback.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )[0],
                   parentState: hydroState)

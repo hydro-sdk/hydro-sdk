@@ -22,9 +22,7 @@ class VMManagedRootBackButtonDispatcher
       vmObject.addCallback(() => _36c2
           .maybeUnBoxAndBuildArgument<_7de1.Future<_fac9.bool>, _fac9.bool>(
               unpackedcallback.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               )[0],
               parentState: hydroState));
@@ -36,9 +34,7 @@ class VMManagedRootBackButtonDispatcher
       vmObject.removeCallback(() => _36c2
           .maybeUnBoxAndBuildArgument<_7de1.Future<_fac9.bool>, _fac9.bool>(
               unpackedcallback.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               )[0],
               parentState: hydroState));
@@ -195,9 +191,7 @@ class RTManagedRootBackButtonDispatcher extends _f6ef.RootBackButtonDispatcher
       super.addCallback(() => _36c2
           .maybeUnBoxAndBuildArgument<_7de1.Future<_fac9.bool>, _fac9.bool>(
               unpackedcallback.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               )[0],
               parentState: hydroState));
@@ -209,9 +203,7 @@ class RTManagedRootBackButtonDispatcher extends _f6ef.RootBackButtonDispatcher
       super.removeCallback(() => _36c2
           .maybeUnBoxAndBuildArgument<_7de1.Future<_fac9.bool>, _fac9.bool>(
               unpackedcallback.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               )[0],
               parentState: hydroState));

@@ -32,7 +32,8 @@ import { IPipelineOwner } from "../rendering/pipelineOwner";
 import { IRenderBox } from "../rendering/renderBox";
 import { IRenderObject } from "../rendering/renderObject";
 import { IRenderObjectWithChildMixin } from "../rendering/renderObjectWithChildMixin";
-import { IRenderShiftedBox } from "../rendering/renderShiftedBox";
+import { IRenderProxyBox } from "../rendering/renderProxyBox";
+import { IRenderProxyBoxMixin } from "../rendering/renderProxyBoxMixin";
 import { ISemanticsConfiguration } from "../semantics/semanticsConfiguration";
 import { ISemanticsEvent } from "../semantics/semanticsEvent";
 import { ISemanticsNode } from "../semantics/semanticsNode";
@@ -49,20 +50,7 @@ declare const flutter: {
 export interface I_RenderMenuItem {
     parentData: IParentData | undefined;
     debugCreator: Object | undefined;
-    computeDryLayout: (constraints: IBoxConstraints) => ISize;
     performLayout: () => void;
-    computeMinIntrinsicWidth: (height: number) => number;
-    computeMaxIntrinsicWidth: (height: number) => number;
-    computeMinIntrinsicHeight: (width: number) => number;
-    computeMaxIntrinsicHeight: (width: number) => number;
-    computeDistanceToActualBaseline: (
-        baseline: TextBaseline
-    ) => number | undefined;
-    paint: (context: IPaintingContext, offset: IOffset) => void;
-    hitTestChildren: (
-        result: IBoxHitTestResult,
-        props: { position: IOffset }
-    ) => boolean;
     debugValidateChild: (child: IRenderObject) => boolean;
     attach: (owner: unknown) => void;
     detach: () => void;
@@ -72,6 +60,21 @@ export interface I_RenderMenuItem {
     getChild: () => IRenderBox | undefined;
     setChild: (value?: IRenderBox | undefined) => void;
     setupParentData: (child: unknown) => void;
+    computeMinIntrinsicWidth: (height: number) => number;
+    computeMaxIntrinsicWidth: (height: number) => number;
+    computeMinIntrinsicHeight: (width: number) => number;
+    computeMaxIntrinsicHeight: (width: number) => number;
+    computeDistanceToActualBaseline: (
+        baseline: TextBaseline
+    ) => number | undefined;
+    computeDryLayout: (constraints: IBoxConstraints) => ISize;
+    computeSizeForNoChild: (constraints: IBoxConstraints) => ISize;
+    hitTestChildren: (
+        result: IBoxHitTestResult,
+        props: { position: IOffset }
+    ) => boolean;
+    applyPaintTransform: (child: unknown, transform: IMatrix4) => void;
+    paint: (context: IPaintingContext, offset: IOffset) => void;
     getMinIntrinsicWidth: (height: number) => number;
     getMaxIntrinsicWidth: (height: number) => number;
     getMinIntrinsicHeight: (width: number) => number;
@@ -96,7 +99,6 @@ export interface I_RenderMenuItem {
         props: { position: IOffset }
     ) => boolean;
     hitTestSelf: (position: IOffset) => boolean;
-    applyPaintTransform: (child: unknown, transform: IMatrix4) => void;
     globalToLocal: (
         point: IOffset,
         props?: { ancestor?: IRenderObject | undefined }
@@ -210,7 +212,7 @@ export interface I_RenderMenuItem {
 export class _RenderMenuItem
     implements
         Omit<
-            IRenderShiftedBox,
+            IRenderProxyBox,
             | "attach"
             | "detach"
             | "debugDescribeChildren"
@@ -222,6 +224,7 @@ export class _RenderMenuItem
             | "toDiagnosticsNode"
         >,
         IRenderObjectWithChildMixin<IRenderBox>,
+        IRenderProxyBoxMixin<IRenderBox>,
         IDiagnosticableTreeMixin,
         IDiagnosticable,
         IHitTestTarget,
@@ -243,33 +246,7 @@ export class _RenderMenuItem
     ) {
         flutter.material._renderMenuItem(this, onLayout, child);
     }
-    private readonly _dart_computeDryLayout: (
-        constraints: IBoxConstraints
-    ) => ISize = undefined as any;
     private readonly _dart_performLayout: () => void = undefined as any;
-    private readonly _dart_computeMinIntrinsicWidth: (
-        height: number
-    ) => number = undefined as any;
-    private readonly _dart_computeMaxIntrinsicWidth: (
-        height: number
-    ) => number = undefined as any;
-    private readonly _dart_computeMinIntrinsicHeight: (
-        width: number
-    ) => number = undefined as any;
-    private readonly _dart_computeMaxIntrinsicHeight: (
-        width: number
-    ) => number = undefined as any;
-    private readonly _dart_computeDistanceToActualBaseline: (
-        baseline: TextBaseline
-    ) => number | undefined = undefined as any;
-    private readonly _dart_paint: (
-        context: IPaintingContext,
-        offset: IOffset
-    ) => void = undefined as any;
-    private readonly _dart_hitTestChildren: (
-        result: IBoxHitTestResult,
-        props: { position: IOffset }
-    ) => boolean = undefined as any;
     private readonly _dart_debugValidateChild: (
         child: IRenderObject
     ) => boolean = undefined as any;
@@ -287,6 +264,39 @@ export class _RenderMenuItem
         undefined as any;
     private readonly _dart_setupParentData: (child: any) => void =
         undefined as any;
+    private readonly _dart_computeMinIntrinsicWidth: (
+        height: number
+    ) => number = undefined as any;
+    private readonly _dart_computeMaxIntrinsicWidth: (
+        height: number
+    ) => number = undefined as any;
+    private readonly _dart_computeMinIntrinsicHeight: (
+        width: number
+    ) => number = undefined as any;
+    private readonly _dart_computeMaxIntrinsicHeight: (
+        width: number
+    ) => number = undefined as any;
+    private readonly _dart_computeDistanceToActualBaseline: (
+        baseline: TextBaseline
+    ) => number | undefined = undefined as any;
+    private readonly _dart_computeDryLayout: (
+        constraints: IBoxConstraints
+    ) => ISize = undefined as any;
+    private readonly _dart_computeSizeForNoChild: (
+        constraints: IBoxConstraints
+    ) => ISize = undefined as any;
+    private readonly _dart_hitTestChildren: (
+        result: IBoxHitTestResult,
+        props: { position: IOffset }
+    ) => boolean = undefined as any;
+    private readonly _dart_applyPaintTransform: (
+        child: any,
+        transform: IMatrix4
+    ) => void = undefined as any;
+    private readonly _dart_paint: (
+        context: IPaintingContext,
+        offset: IOffset
+    ) => void = undefined as any;
     private readonly _dart_getMinIntrinsicWidth: (height: number) => number =
         undefined as any;
     private readonly _dart_getMaxIntrinsicWidth: (height: number) => number =
@@ -322,10 +332,6 @@ export class _RenderMenuItem
     ) => boolean = undefined as any;
     private readonly _dart_hitTestSelf: (position: IOffset) => boolean =
         undefined as any;
-    private readonly _dart_applyPaintTransform: (
-        child: any,
-        transform: IMatrix4
-    ) => void = undefined as any;
     private readonly _dart_globalToLocal: (
         point: IOffset,
         props?: { ancestor?: IRenderObject | undefined }
@@ -495,37 +501,8 @@ export class _RenderMenuItem
     private readonly _dart_getParent: () => IAbstractNode | undefined =
         undefined as any;
     private readonly _dart_getHashCode: () => number = undefined as any;
-    public computeDryLayout(constraints: IBoxConstraints): ISize {
-        return this._dart_computeDryLayout(constraints);
-    }
     public performLayout(): void {
         return this._dart_performLayout();
-    }
-    public computeMinIntrinsicWidth(height: number): number {
-        return this._dart_computeMinIntrinsicWidth(height);
-    }
-    public computeMaxIntrinsicWidth(height: number): number {
-        return this._dart_computeMaxIntrinsicWidth(height);
-    }
-    public computeMinIntrinsicHeight(width: number): number {
-        return this._dart_computeMinIntrinsicHeight(width);
-    }
-    public computeMaxIntrinsicHeight(width: number): number {
-        return this._dart_computeMaxIntrinsicHeight(width);
-    }
-    public computeDistanceToActualBaseline(
-        baseline: TextBaseline
-    ): number | undefined {
-        return this._dart_computeDistanceToActualBaseline(baseline);
-    }
-    public paint(context: IPaintingContext, offset: IOffset): void {
-        return this._dart_paint(context, offset);
-    }
-    public hitTestChildren(
-        result: IBoxHitTestResult,
-        props: { position: IOffset }
-    ): boolean {
-        return this._dart_hitTestChildren(result, props);
     }
     public debugValidateChild(child: IRenderObject): boolean {
         return this._dart_debugValidateChild(child);
@@ -553,6 +530,41 @@ export class _RenderMenuItem
     }
     public setupParentData(child: any): void {
         return this._dart_setupParentData(child);
+    }
+    public computeMinIntrinsicWidth(height: number): number {
+        return this._dart_computeMinIntrinsicWidth(height);
+    }
+    public computeMaxIntrinsicWidth(height: number): number {
+        return this._dart_computeMaxIntrinsicWidth(height);
+    }
+    public computeMinIntrinsicHeight(width: number): number {
+        return this._dart_computeMinIntrinsicHeight(width);
+    }
+    public computeMaxIntrinsicHeight(width: number): number {
+        return this._dart_computeMaxIntrinsicHeight(width);
+    }
+    public computeDistanceToActualBaseline(
+        baseline: TextBaseline
+    ): number | undefined {
+        return this._dart_computeDistanceToActualBaseline(baseline);
+    }
+    public computeDryLayout(constraints: IBoxConstraints): ISize {
+        return this._dart_computeDryLayout(constraints);
+    }
+    public computeSizeForNoChild(constraints: IBoxConstraints): ISize {
+        return this._dart_computeSizeForNoChild(constraints);
+    }
+    public hitTestChildren(
+        result: IBoxHitTestResult,
+        props: { position: IOffset }
+    ): boolean {
+        return this._dart_hitTestChildren(result, props);
+    }
+    public applyPaintTransform(child: any, transform: IMatrix4): void {
+        return this._dart_applyPaintTransform(child, transform);
+    }
+    public paint(context: IPaintingContext, offset: IOffset): void {
+        return this._dart_paint(context, offset);
     }
     public getMinIntrinsicWidth(height: number): number {
         return this._dart_getMinIntrinsicWidth(height);
@@ -612,9 +624,6 @@ export class _RenderMenuItem
     }
     public hitTestSelf(position: IOffset): boolean {
         return this._dart_hitTestSelf(position);
-    }
-    public applyPaintTransform(child: any, transform: IMatrix4): void {
-        return this._dart_applyPaintTransform(child, transform);
     }
     public globalToLocal(
         point: IOffset,

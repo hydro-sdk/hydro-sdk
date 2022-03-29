@@ -68,9 +68,7 @@ class VMManagedFlutterErrorDetailsForPointerEventDispatcher extends _36c2
                             _fac9.Iterable<_eaf3.DiagnosticsNode>,
                             _eaf3.DiagnosticsNode>(
                         unpackedinformationCollector.dispatch(
-                          [
-                            luaCallerArguments[0],
-                          ],
+                          [luaCallerArguments[0]],
                           parentState: hydroState,
                         )[0],
                         parentState: hydroState)
@@ -239,9 +237,7 @@ class RTManagedFlutterErrorDetailsForPointerEventDispatcher
                             _fac9.Iterable<_eaf3.DiagnosticsNode>,
                             _eaf3.DiagnosticsNode>(
                         unpackedinformationCollector.dispatch(
-                          [
-                            luaCallerArguments[0],
-                          ],
+                          [luaCallerArguments[0]],
                           parentState: hydroState,
                         )[0],
                         parentState: hydroState)
@@ -438,9 +434,7 @@ void loadFlutterErrorDetailsForPointerEventDispatcher(
           informationCollector: unpackedinformationCollector != null
               ? () => _36c2.maybeUnBoxAndBuildArgument<_fac9.Iterable<_eaf3.DiagnosticsNode>, _eaf3.DiagnosticsNode>(
                   unpackedinformationCollector.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )[0],
                   parentState: hydroState)

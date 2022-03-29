@@ -1518,9 +1518,7 @@ void loadSemanticsNode(
               parentState: hydroState),
           showOnScreen: unpackedshowOnScreen != null
               ? () => unpackedshowOnScreen.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null)

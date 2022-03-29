@@ -9,19 +9,19 @@ import { IRenderObject } from "../rendering/renderObject";
 import { IBuildContext } from "../widgets/buildContext";
 import { ILeafRenderObjectElement } from "../widgets/leafRenderObjectElement";
 import { ILeafRenderObjectWidget } from "../widgets/leafRenderObjectWidget";
-import { I_RangeSliderState } from "./_rangeSliderState";
 import { I_RenderValueIndicator } from "./_renderValueIndicator";
+import { I_SliderState } from "./_sliderState";
 declare const flutter: {
     material: {
         _valueIndicatorRenderObjectWidget: (
             this: void,
             _valueIndicatorRenderObjectWidget: I_ValueIndicatorRenderObjectWidget,
-            props: { state: I_RangeSliderState }
+            props: { state: I_SliderState }
         ) => I_ValueIndicatorRenderObjectWidget;
     };
 };
 export interface I_ValueIndicatorRenderObjectWidget {
-    state: I_RangeSliderState;
+    state: I_SliderState;
     key: IKey | undefined;
     createRenderObject: (context: IBuildContext) => I_RenderValueIndicator;
     updateRenderObject: (context: IBuildContext, renderObject: unknown) => void;
@@ -49,9 +49,9 @@ export interface I_ValueIndicatorRenderObjectWidget {
 export class _ValueIndicatorRenderObjectWidget
     implements ILeafRenderObjectWidget, IDiagnosticable
 {
-    public readonly state: I_RangeSliderState = undefined as any;
+    public readonly state: I_SliderState = undefined as any;
     public readonly key: IKey | undefined = undefined as any;
-    public constructor(props: { state: I_RangeSliderState }) {
+    public constructor(props: { state: I_SliderState }) {
         flutter.material._valueIndicatorRenderObjectWidget(this, props);
     }
     private readonly _dart_createRenderObject: (

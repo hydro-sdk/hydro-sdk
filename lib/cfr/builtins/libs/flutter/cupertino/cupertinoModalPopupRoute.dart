@@ -156,9 +156,7 @@ class VMManagedCupertinoModalPopupRoute
       vmObject.addScopedWillPopCallback(() => _36c2
           .maybeUnBoxAndBuildArgument<_7de1.Future<_fac9.bool>, _fac9.bool>(
               unpackedcallback.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               )[0],
               parentState: hydroState));
@@ -170,9 +168,7 @@ class VMManagedCupertinoModalPopupRoute
       vmObject.removeScopedWillPopCallback(() => _36c2
           .maybeUnBoxAndBuildArgument<_7de1.Future<_fac9.bool>, _fac9.bool>(
               unpackedcallback.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               )[0],
               parentState: hydroState));
@@ -608,9 +604,7 @@ class RTManagedCupertinoModalPopupRoute extends _76db.CupertinoModalPopupRoute
         func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       _36c2.Closure unpackedfn = luaCallerArguments[1];
       super.setState(() => unpackedfn.dispatch(
-            [
-              luaCallerArguments[0],
-            ],
+            [luaCallerArguments[0]],
             parentState: hydroState,
           ));
       return [];
@@ -649,9 +643,7 @@ class RTManagedCupertinoModalPopupRoute extends _76db.CupertinoModalPopupRoute
       super.addScopedWillPopCallback(() => _36c2
           .maybeUnBoxAndBuildArgument<_7de1.Future<_fac9.bool>, _fac9.bool>(
               unpackedcallback.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               )[0],
               parentState: hydroState));
@@ -663,9 +655,7 @@ class RTManagedCupertinoModalPopupRoute extends _76db.CupertinoModalPopupRoute
       super.removeScopedWillPopCallback(() => _36c2
           .maybeUnBoxAndBuildArgument<_7de1.Future<_fac9.bool>, _fac9.bool>(
               unpackedcallback.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               )[0],
               parentState: hydroState));

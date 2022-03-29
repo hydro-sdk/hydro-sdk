@@ -20,6 +20,8 @@ import 'package:hydro_sdk/cfr/builtins/libs/flutter/foundation/diagnosticableNod
     as _00d1;
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/foundation/diagnosticableTree.dart'
     as _00a2;
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/foundation/diagnosticableTreeMixin.dart'
+    as _2771;
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/foundation/diagnosticableTreeNode.dart'
     as _cc72;
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/foundation/diagnosticsBlock.dart'
@@ -112,7 +114,6 @@ import 'package:hydro_sdk/cfr/builtins/libs/flutter/foundation/valueNotifier.dar
     as _f133;
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/foundation/writeBuffer.dart'
     as _720f;
-
 import 'package:hydro_sdk/cfr/runtimeSupport.dart' as _36c2;
 
 void loadfoundation(
@@ -170,6 +171,8 @@ void loadfoundation(
       table: loadfoundation, hydroState: hydroState);
   _85bc.loadDiagnosticable(table: loadfoundation, hydroState: hydroState);
   _00a2.loadDiagnosticableTree(table: loadfoundation, hydroState: hydroState);
+  _2771.loadDiagnosticableTreeMixin(
+      table: loadfoundation, hydroState: hydroState);
   _ae7a.loadDiagnosticsBlock(table: loadfoundation, hydroState: hydroState);
   _8f40.loadDiagnosticsSerializationDelegate(
       table: loadfoundation, hydroState: hydroState);

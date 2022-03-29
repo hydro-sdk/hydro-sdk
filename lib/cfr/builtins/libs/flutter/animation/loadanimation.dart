@@ -6,12 +6,22 @@ import 'package:hydro_sdk/cfr/builtins/libs/flutter/animation/animation.dart'
     as _e83d;
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/animation/animationController.dart'
     as _e79f;
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/animation/animationEagerListenerMixin.dart'
+    as _4b5e;
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/animation/animationLazyListenerMixin.dart'
+    as _e2bf;
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/animation/animationLocalListenersMixin.dart'
+    as _1134;
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/animation/animationLocalStatusListenersMixin.dart'
+    as _aa5c;
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/animation/animationMax.dart'
     as _2250;
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/animation/animationMean.dart'
     as _3a88;
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/animation/animationMin.dart'
     as _71e9;
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/animation/animationWithParentMixin.dart'
+    as _7b77;
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/animation/catmullRomCurve.dart'
     as _ece5;
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/animation/catmullRomSpline.dart'
@@ -76,7 +86,6 @@ import 'package:hydro_sdk/cfr/builtins/libs/flutter/animation/tweenSequence.dart
     as _701f;
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/animation/tweenSequenceItem.dart'
     as _3f63;
-
 import 'package:hydro_sdk/cfr/runtimeSupport.dart' as _36c2;
 
 void loadanimation(
@@ -93,6 +102,14 @@ void loadanimation(
   _972a.loadStepTween(table: loadanimation, hydroState: hydroState);
   _15d1.loadConstantTween(table: loadanimation, hydroState: hydroState);
   _c0a3.loadCurveTween(table: loadanimation, hydroState: hydroState);
+  _e2bf.loadAnimationLazyListenerMixin(
+      table: loadanimation, hydroState: hydroState);
+  _4b5e.loadAnimationEagerListenerMixin(
+      table: loadanimation, hydroState: hydroState);
+  _1134.loadAnimationLocalListenersMixin(
+      table: loadanimation, hydroState: hydroState);
+  _aa5c.loadAnimationLocalStatusListenersMixin(
+      table: loadanimation, hydroState: hydroState);
   _701f.loadTweenSequence(table: loadanimation, hydroState: hydroState);
   _bd6d.loadFlippedTweenSequence(table: loadanimation, hydroState: hydroState);
   _3f63.loadTweenSequenceItem(table: loadanimation, hydroState: hydroState);
@@ -114,6 +131,8 @@ void loadanimation(
   _d4d0.loadElasticOutCurve(table: loadanimation, hydroState: hydroState);
   _6ef9.loadElasticInOutCurve(table: loadanimation, hydroState: hydroState);
   _9a0b.loadAlwaysStoppedAnimation(
+      table: loadanimation, hydroState: hydroState);
+  _7b77.loadAnimationWithParentMixin(
       table: loadanimation, hydroState: hydroState);
   _bf53.loadProxyAnimation(table: loadanimation, hydroState: hydroState);
   _9b89.loadReverseAnimation(table: loadanimation, hydroState: hydroState);

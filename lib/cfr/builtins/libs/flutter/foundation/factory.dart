@@ -92,9 +92,7 @@ void loadFactory(
     return [
       RTManagedFactory(
           () => unpackedconstructor.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               )[0],
           table: luaCallerArguments[0],

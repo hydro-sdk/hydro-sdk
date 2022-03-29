@@ -34,6 +34,8 @@ import 'package:hydro_sdk/cfr/builtins/libs/flutter/gestures/gestureArenaMember.
     as _8c21;
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/gestures/gestureArenaTeam.dart'
     as _e12f;
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/gestures/gestureBinding.dart'
+    as _8d18;
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/gestures/gestureRecognizer.dart'
     as _1d8e;
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/gestures/hitTestDispatcher.dart'
@@ -148,7 +150,6 @@ import 'package:hydro_sdk/cfr/builtins/libs/flutter/gestures/verticalDragGesture
     as _d520;
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/gestures/verticalMultiDragGestureRecognizer.dart'
     as _a358;
-
 import 'package:hydro_sdk/cfr/runtimeSupport.dart' as _36c2;
 
 void loadgestures(
@@ -245,6 +246,7 @@ void loadgestures(
       table: loadgestures, hydroState: hydroState);
   _36b9.loadPanGestureRecognizer(table: loadgestures, hydroState: hydroState);
   _da8d.loadSamplingClock(table: loadgestures, hydroState: hydroState);
+  _8d18.loadGestureBinding(table: loadgestures, hydroState: hydroState);
   _b080.loadFlutterErrorDetailsForPointerEventDispatcher(
       table: loadgestures, hydroState: hydroState);
   _4373.loadPointerRouter(table: loadgestures, hydroState: hydroState);

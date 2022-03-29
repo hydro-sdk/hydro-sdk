@@ -29,8 +29,8 @@ class VMManagedInheritedNotifier
         func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       return [
         vmObject.updateShouldNotify(_36c2.maybeUnBoxAndBuildArgument<
-            _25f9.InheritedNotifier<_fac9.dynamic>,
-            _fac9.dynamic>(luaCallerArguments[1], parentState: hydroState)),
+            _25f9.InheritedNotifier<_e644.Listenable>,
+            _e644.Listenable>(luaCallerArguments[1], parentState: hydroState)),
       ];
     });
     table['createElement'] = _36c2.makeLuaDartFunc(

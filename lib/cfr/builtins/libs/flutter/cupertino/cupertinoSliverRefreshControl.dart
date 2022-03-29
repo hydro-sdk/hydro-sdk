@@ -419,9 +419,7 @@ void loadCupertinoSliverRefreshControl(
               ? () =>
                   _36c2.maybeUnBoxAndBuildArgument<_7de1.Future<void>, void>(
                       unpackedonRefresh.dispatch(
-                        [
-                          luaCallerArguments[0],
-                        ],
+                        [luaCallerArguments[0]],
                         parentState: hydroState,
                       )[0],
                       parentState: hydroState)

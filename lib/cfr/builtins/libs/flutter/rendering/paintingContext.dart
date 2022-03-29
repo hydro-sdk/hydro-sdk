@@ -300,9 +300,7 @@ class VMManagedPaintingContext
               luaCallerArguments[3],
               parentState: hydroState),
           () => unpackedpainter.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               ));
       return [];
@@ -320,9 +318,7 @@ class VMManagedPaintingContext
               luaCallerArguments[3],
               parentState: hydroState),
           () => unpackedpainter.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               ));
       return [];
@@ -340,9 +336,7 @@ class VMManagedPaintingContext
               luaCallerArguments[3],
               parentState: hydroState),
           () => unpackedpainter.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               ));
       return [];
@@ -674,9 +668,7 @@ class RTManagedPaintingContext extends _9742.PaintingContext
               luaCallerArguments[3],
               parentState: hydroState),
           () => unpackedpainter.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               ));
       return [];
@@ -694,9 +686,7 @@ class RTManagedPaintingContext extends _9742.PaintingContext
               luaCallerArguments[3],
               parentState: hydroState),
           () => unpackedpainter.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               ));
       return [];
@@ -714,9 +704,7 @@ class RTManagedPaintingContext extends _9742.PaintingContext
               luaCallerArguments[3],
               parentState: hydroState),
           () => unpackedpainter.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               ));
       return [];

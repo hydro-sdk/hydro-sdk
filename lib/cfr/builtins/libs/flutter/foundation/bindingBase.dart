@@ -95,9 +95,7 @@ class RTManagedBindingBase extends _8f1c.BindingBase
             object: super.lockEvents(() =>
                 _36c2.maybeUnBoxAndBuildArgument<_7de1.Future<void>, void>(
                     unpackedcallback.dispatch(
-                      [
-                        luaCallerArguments[0],
-                      ],
+                      [luaCallerArguments[0]],
                       parentState: hydroState,
                     )[0],
                     parentState: hydroState)),
@@ -137,9 +135,7 @@ class RTManagedBindingBase extends _8f1c.BindingBase
           callback: () =>
               _36c2.maybeUnBoxAndBuildArgument<_7de1.Future<void>, void>(
                   unpackedcallback.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )[0],
                   parentState: hydroState),
@@ -163,9 +159,7 @@ class RTManagedBindingBase extends _8f1c.BindingBase
           getter: () => _36c2
               .maybeUnBoxAndBuildArgument<_7de1.Future<_fac9.bool>, _fac9.bool>(
                   unpackedgetter.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )[0],
                   parentState: hydroState),
@@ -196,9 +190,7 @@ class RTManagedBindingBase extends _8f1c.BindingBase
           getter: () => _36c2.maybeUnBoxAndBuildArgument<
                   _7de1.Future<_fac9.double>, _fac9.double>(
               unpackedgetter.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               )[0],
               parentState: hydroState),
@@ -240,9 +232,7 @@ class RTManagedBindingBase extends _8f1c.BindingBase
           getter: () => _36c2.maybeUnBoxAndBuildArgument<
                   _7de1.Future<_fac9.String>, _fac9.String>(
               unpackedgetter.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               )[0],
               parentState: hydroState),

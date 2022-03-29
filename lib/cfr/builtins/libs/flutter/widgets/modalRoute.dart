@@ -202,9 +202,7 @@ class VMManagedModalRoute
       vmObject.addScopedWillPopCallback(() => _36c2
           .maybeUnBoxAndBuildArgument<_7de1.Future<_fac9.bool>, _fac9.bool>(
               unpackedcallback.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               )[0],
               parentState: hydroState));
@@ -216,9 +214,7 @@ class VMManagedModalRoute
       vmObject.removeScopedWillPopCallback(() => _36c2
           .maybeUnBoxAndBuildArgument<_7de1.Future<_fac9.bool>, _fac9.bool>(
               unpackedcallback.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               )[0],
               parentState: hydroState));
@@ -513,9 +509,7 @@ class RTManagedModalRoute extends _8c2a.ModalRoute
         func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       _36c2.Closure unpackedfn = luaCallerArguments[1];
       super.setState(() => unpackedfn.dispatch(
-            [
-              luaCallerArguments[0],
-            ],
+            [luaCallerArguments[0]],
             parentState: hydroState,
           ));
       return [];
@@ -642,9 +636,7 @@ class RTManagedModalRoute extends _8c2a.ModalRoute
       super.addScopedWillPopCallback(() => _36c2
           .maybeUnBoxAndBuildArgument<_7de1.Future<_fac9.bool>, _fac9.bool>(
               unpackedcallback.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               )[0],
               parentState: hydroState));
@@ -656,9 +648,7 @@ class RTManagedModalRoute extends _8c2a.ModalRoute
       super.removeScopedWillPopCallback(() => _36c2
           .maybeUnBoxAndBuildArgument<_7de1.Future<_fac9.bool>, _fac9.bool>(
               unpackedcallback.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               )[0],
               parentState: hydroState));

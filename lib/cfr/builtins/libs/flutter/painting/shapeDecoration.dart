@@ -143,9 +143,7 @@ class VMManagedShapeDecoration
         _36c2.maybeBoxObject<_13a5.BoxPainter>(
             object: vmObject.createBoxPainter(unpackedonChanged != null
                 ? () => unpackedonChanged.dispatch(
-                      [
-                        luaCallerArguments[0],
-                      ],
+                      [luaCallerArguments[0]],
                       parentState: hydroState,
                     )
                 : null),
@@ -328,9 +326,7 @@ class RTManagedShapeDecoration extends _0bf8.ShapeDecoration
         _36c2.maybeBoxObject(
             object: super.createBoxPainter(unpackedonChanged != null
                 ? () => unpackedonChanged.dispatch(
-                      [
-                        luaCallerArguments[0],
-                      ],
+                      [luaCallerArguments[0]],
                       parentState: hydroState,
                     )
                 : null),

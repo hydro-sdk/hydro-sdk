@@ -593,9 +593,7 @@ void loadDropdownButton(
           menuMaxHeight: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['menuMaxHeight'] : null?.toDouble(),
           onTap: unpackedonTap != null
               ? () => unpackedonTap.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,

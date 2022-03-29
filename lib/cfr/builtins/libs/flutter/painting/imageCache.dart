@@ -77,9 +77,7 @@ class VMManagedImageCache extends _36c2.VMManagedBox<_2e0e.ImageCache> {
           () => _36c2.maybeUnBoxAndBuildArgument<_f25c.ImageStreamCompleter,
                   _fac9.dynamic>(
               unpackedloader.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               )[0],
               parentState: hydroState),
@@ -225,9 +223,7 @@ class RTManagedImageCache extends _2e0e.ImageCache
                 () => _36c2.maybeUnBoxAndBuildArgument<
                         _f25c.ImageStreamCompleter, _fac9.dynamic>(
                     unpackedloader.dispatch(
-                      [
-                        luaCallerArguments[0],
-                      ],
+                      [luaCallerArguments[0]],
                       parentState: hydroState,
                     )[0],
                     parentState: hydroState),

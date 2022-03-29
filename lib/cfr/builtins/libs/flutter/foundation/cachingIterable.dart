@@ -246,9 +246,7 @@ class VMManagedCachingIterable
                 )[0],
             orElse: unpackedorElse != null
                 ? () => unpackedorElse.dispatch(
-                      [
-                        luaCallerArguments[0],
-                      ],
+                      [luaCallerArguments[0]],
                       parentState: hydroState,
                     )[0]
                 : null),
@@ -268,9 +266,7 @@ class VMManagedCachingIterable
                 )[0],
             orElse: unpackedorElse != null
                 ? () => unpackedorElse.dispatch(
-                      [
-                        luaCallerArguments[0],
-                      ],
+                      [luaCallerArguments[0]],
                       parentState: hydroState,
                     )[0]
                 : null),
@@ -290,9 +286,7 @@ class VMManagedCachingIterable
                 )[0],
             orElse: unpackedorElse != null
                 ? () => unpackedorElse.dispatch(
-                      [
-                        luaCallerArguments[0],
-                      ],
+                      [luaCallerArguments[0]],
                       parentState: hydroState,
                     )[0]
                 : null),
@@ -633,9 +627,7 @@ class RTManagedCachingIterable extends _288a.CachingIterable
                     parentState: hydroState),
             orElse: unpackedorElse != null
                 ? () => unpackedorElse.dispatch(
-                      [
-                        luaCallerArguments[0],
-                      ],
+                      [luaCallerArguments[0]],
                       parentState: hydroState,
                     )[0]
                 : null)
@@ -658,9 +650,7 @@ class RTManagedCachingIterable extends _288a.CachingIterable
                     parentState: hydroState),
             orElse: unpackedorElse != null
                 ? () => unpackedorElse.dispatch(
-                      [
-                        luaCallerArguments[0],
-                      ],
+                      [luaCallerArguments[0]],
                       parentState: hydroState,
                     )[0]
                 : null)
@@ -683,9 +673,7 @@ class RTManagedCachingIterable extends _288a.CachingIterable
                     parentState: hydroState),
             orElse: unpackedorElse != null
                 ? () => unpackedorElse.dispatch(
-                      [
-                        luaCallerArguments[0],
-                      ],
+                      [luaCallerArguments[0]],
                       parentState: hydroState,
                     )[0]
                 : null)

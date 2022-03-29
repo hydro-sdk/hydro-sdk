@@ -614,9 +614,7 @@ void loadFloatingActionButton(
           tooltip: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['tooltip'] : null,
           onPressed: unpackedonPressed != null
               ? () => unpackedonPressed.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null)

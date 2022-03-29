@@ -128,9 +128,7 @@ void loadGestureRecognizerFactoryWithHandlers(
     return [
       RTManagedGestureRecognizerFactoryWithHandlers(
           () => unpacked_constructor.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               )[0],
           (instance) => unpacked_initializer.dispatch(

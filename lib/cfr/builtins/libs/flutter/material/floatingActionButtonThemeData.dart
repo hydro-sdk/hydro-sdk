@@ -2,16 +2,14 @@ import 'dart:core' as _fac9;
 import 'dart:ui' as _a643;
 
 import 'package:flutter/src/foundation/diagnostics.dart' as _eaf3;
+import 'package:flutter/src/material/floating_action_button_theme.dart'
+    as _3079;
 import 'package:flutter/src/painting/borders.dart' as _6be9;
 import 'package:flutter/src/painting/edge_insets.dart' as _96d1;
 import 'package:flutter/src/painting/text_style.dart' as _74d0;
 import 'package:flutter/src/rendering/box.dart' as _be2e;
 
 import 'package:hydro_sdk/cfr/runtimeSupport.dart' as _36c2;
-
-import 'package:flutter/src/material/floating_action_button_theme.dart'
-    as _3079;
-
 
 class VMManagedFloatingActionButtonThemeData
     extends _36c2.VMManagedBox<_3079.FloatingActionButtonThemeData> {

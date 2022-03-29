@@ -57,8 +57,8 @@ class VMManagedRenderObjectToWidgetElement extends _36c2
     table['update'] = _36c2.makeLuaDartFunc(
         func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       vmObject.update(_36c2.maybeUnBoxAndBuildArgument<
-          _3e19.RenderObjectToWidgetAdapter<_fac9.dynamic>,
-          _fac9.dynamic>(luaCallerArguments[1], parentState: hydroState));
+          _3e19.RenderObjectToWidgetAdapter<_9742.RenderObject>,
+          _9742.RenderObject>(luaCallerArguments[1], parentState: hydroState));
       return [];
     });
     table['performRebuild'] = _36c2.makeLuaDartFunc(

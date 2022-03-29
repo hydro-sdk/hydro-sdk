@@ -69,9 +69,7 @@ class VMManagedDecoration extends _36c2.VMManagedBox<_13a5.Decoration> {
       return [
         _36c2.maybeBoxObject<_13a5.BoxPainter>(
             object: vmObject.createBoxPainter(() => unpackedonChanged.dispatch(
-                  [
-                    luaCallerArguments[0],
-                  ],
+                  [luaCallerArguments[0]],
                   parentState: hydroState,
                 )),
             hydroState: hydroState,
@@ -221,9 +219,7 @@ class RTManagedDecoration extends _13a5.Decoration
       return [
         _36c2.maybeBoxObject(
             object: createBoxPainter(() => unpackedonChanged.dispatch(
-                  [
-                    luaCallerArguments[0],
-                  ],
+                  [luaCallerArguments[0]],
                   parentState: hydroState,
                 )),
             hydroState: hydroState,

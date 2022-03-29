@@ -275,9 +275,7 @@ void loadInkDecoration(
           hydroState: hydroState,
           onRemoved: unpackedonRemoved != null
               ? () => unpackedonRemoved.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,

@@ -435,9 +435,7 @@ void loadAnimatedAlign(
               parentState: hydroState),
           onEnd: unpackedonEnd != null
               ? () => unpackedonEnd.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null,

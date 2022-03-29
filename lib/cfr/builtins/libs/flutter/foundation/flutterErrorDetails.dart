@@ -56,9 +56,7 @@ class VMManagedFlutterErrorDetails
                             _fac9.Iterable<_eaf3.DiagnosticsNode>,
                             _eaf3.DiagnosticsNode>(
                         unpackedinformationCollector.dispatch(
-                          [
-                            luaCallerArguments[0],
-                          ],
+                          [luaCallerArguments[0]],
                           parentState: hydroState,
                         )[0],
                         parentState: hydroState)
@@ -212,9 +210,7 @@ class RTManagedFlutterErrorDetails extends _5dcc.FlutterErrorDetails
                             _fac9.Iterable<_eaf3.DiagnosticsNode>,
                             _eaf3.DiagnosticsNode>(
                         unpackedinformationCollector.dispatch(
-                          [
-                            luaCallerArguments[0],
-                          ],
+                          [luaCallerArguments[0]],
                           parentState: hydroState,
                         )[0],
                         parentState: hydroState)
@@ -398,9 +394,7 @@ void loadFlutterErrorDetails(
                       _fac9.Iterable<_eaf3.DiagnosticsNode>,
                       _eaf3.DiagnosticsNode>(
                   unpackedinformationCollector.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )[0],
                   parentState: hydroState)

@@ -36,9 +36,7 @@ class VMManagedBuildOwner extends _36c2.VMManagedBox<_e2dc.BuildOwner> {
         func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       _36c2.Closure unpackedcallback = luaCallerArguments[1];
       vmObject.lockState(() => unpackedcallback.dispatch(
-            [
-              luaCallerArguments[0],
-            ],
+            [luaCallerArguments[0]],
             parentState: hydroState,
           ));
       return [];
@@ -52,9 +50,7 @@ class VMManagedBuildOwner extends _36c2.VMManagedBox<_e2dc.BuildOwner> {
               parentState: hydroState),
           unpackedcallback != null
               ? () => unpackedcallback.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null);
@@ -123,9 +119,7 @@ class RTManagedBuildOwner extends _e2dc.BuildOwner
         func: (_fac9.List<_fac9.dynamic> luaCallerArguments) {
       _36c2.Closure unpackedcallback = luaCallerArguments[1];
       super.lockState(() => unpackedcallback.dispatch(
-            [
-              luaCallerArguments[0],
-            ],
+            [luaCallerArguments[0]],
             parentState: hydroState,
           ));
       return [];
@@ -139,9 +133,7 @@ class RTManagedBuildOwner extends _e2dc.BuildOwner
               parentState: hydroState),
           unpackedcallback != null
               ? () => unpackedcallback.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null);
@@ -236,9 +228,7 @@ void loadBuildOwner(
                   parentState: hydroState),
           onBuildScheduled: unpackedonBuildScheduled != null
               ? () => unpackedonBuildScheduled.dispatch(
-                    [
-                      luaCallerArguments[0],
-                    ],
+                    [luaCallerArguments[0]],
                     parentState: hydroState,
                   )
               : null)

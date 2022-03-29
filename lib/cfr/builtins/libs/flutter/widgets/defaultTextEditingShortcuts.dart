@@ -3,14 +3,12 @@ import 'dart:core' as _fac9;
 import 'package:flutter/src/foundation/diagnostics.dart' as _eaf3;
 import 'package:flutter/src/foundation/key.dart' as _ab4a;
 import 'package:flutter/src/widgets/actions.dart' as _c0f4;
+import 'package:flutter/src/widgets/default_text_editing_shortcuts.dart'
+    as _db1b;
 import 'package:flutter/src/widgets/framework.dart' as _e2dc;
 import 'package:flutter/src/widgets/shortcuts.dart' as _1710;
 
 import 'package:hydro_sdk/cfr/runtimeSupport.dart' as _36c2;
-
-import 'package:flutter/src/widgets/default_text_editing_shortcuts.dart'
-    as _db1b;
-
 
 class VMManagedDefaultTextEditingShortcuts
     extends _36c2.VMManagedBox<_db1b.DefaultTextEditingShortcuts> {

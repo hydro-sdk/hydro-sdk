@@ -404,9 +404,7 @@ void loadSnackBarAction(
               parentState: hydroState),
           label: luaCallerArguments.length >= 2 ? luaCallerArguments[1]['label'] : null,
           onPressed: () => unpackedonPressed.dispatch(
-                [
-                  luaCallerArguments[0],
-                ],
+                [luaCallerArguments[0]],
                 parentState: hydroState,
               ))
     ];

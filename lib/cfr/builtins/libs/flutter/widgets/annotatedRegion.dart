@@ -46,8 +46,8 @@ class VMManagedAnnotatedRegion
               luaCallerArguments[1],
               parentState: hydroState),
           _36c2.maybeUnBoxAndBuildArgument<
-              _bf98.RenderAnnotatedRegion<_fac9.dynamic>,
-              _fac9.dynamic>(luaCallerArguments[2], parentState: hydroState));
+              _bf98.RenderAnnotatedRegion<_fac9.Object>,
+              _fac9.Object>(luaCallerArguments[2], parentState: hydroState));
       return [];
     });
     table['createElement'] = _36c2.makeLuaDartFunc(
