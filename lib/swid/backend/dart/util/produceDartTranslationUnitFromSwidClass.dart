@@ -108,7 +108,11 @@ DartTranslationUnit? produceDartTranslationUnitFromSwidClass({
                     vmManagedClassDeclaration: DartVMManagedClassDeclaration(
                       format: false,
                       swidClass: removePrivateMethods(
-                        swidClass: swidClass,
+                        swidClass: pipeline.reduceFromTerm(
+                          ApplySuperTypes(
+                            swidClass: swidClass,
+                          ),
+                        ),
                       ),
                     ),
                   ),

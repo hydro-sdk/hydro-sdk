@@ -77,7 +77,6 @@ class InstantiateTypeArgumentsToLowestBoundInInterface
                       swidTypeFormals: swidTypeFormals,
                     ),
                   )
-                  // use custom clipper as a test for returning dynamic here instead of the original interface
                 : withInnerTransformedTypeArguments)(
           withInnerTransformedTypeArguments: swidInterface.clone(
             typeArguments: swidInterface.typeArguments

@@ -166,15 +166,15 @@ class _SwidVisitor extends RecursiveAstVisitor
 
   @override
   void visitMixinDeclaration(MixinDeclaration node) {
-      final res = swidClassFromDartClassOrMixinOrClassTypAliasDeclaration(
-        dartClassOrMixinOrClassTypAliasDeclaration:
-            DartClassOrMixinOrClassTypAliasDeclaration.fromMixinDeclaration(
-          mixinDeclaration: node,
-        ),
-        buildElements: true,
-      );
+    final res = swidClassFromDartClassOrMixinOrClassTypAliasDeclaration(
+      dartClassOrMixinOrClassTypAliasDeclaration:
+          DartClassOrMixinOrClassTypAliasDeclaration.fromMixinDeclaration(
+        mixinDeclaration: node,
+      ),
+      buildElements: true,
+    );
 
-      classes.add(res);
+    classes.add(res);
 
     super.visitMixinDeclaration(node);
   }
